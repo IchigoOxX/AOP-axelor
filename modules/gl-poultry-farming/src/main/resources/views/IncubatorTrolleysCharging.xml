@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="incubators-loading-of-incubator-trolleys-grid" title="Loading of incubator trolleys" model="com.gl.apps.pf.db.IncubatorTrolleysCharging" orderBy="-chargingDate" edit-icon="true">
+        <hilite color="success" if="status == 1"/>
+        <hilite color="default" if="status == 0"/>
+        <hilite color="danger" if="status == 2"/>
+        <field name="reference"/>
+        <field name="status" hidden="true"/>
+        <field name="chargingDate" title="Creation date" readonly="true"/>
+        <field name="hatchery" readonly="true"/>
+    </grid>
+
+    <form name="incubators-loading-of-incubator-trolleys-form" title="Loading of incubator trolleys" model="com.gl.apps.pf.db.IncubatorTrolleysCharging" onNew="action-set-default-values-incubator-trolleys-charging">
+        <panel title="Piece">
+            <panel showTitle="false" colSpan="10"  readonlyIf="!isValid">
+                <field name="reference" colSpan="3"/>
+                <field name="chargingDate" title="Date" colSpan="3"/>
+                <field name="hatchery" colSpan="3"/>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel colSpan="12">
+                    <field name="fstat" showTitle="false" readonly="true" colSpan="12">
+                        <viewer depends="status"><![CDATA[
+                    <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                       <tbody>
+                        <tr>
+                         <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                        </tr>
+                       </tbody>
+                    </table>
+                 ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validerBtn" title="Validate" showIf="(status == 0 || status == 2 ) &amp;&amp; id != null" colSpan="12" css="btn-success" icon="fa-check" prompt="Are you sure you want to validate this loading of incubator trolley ?" onClick="save,action-group-incubator-trolley-charging-validation"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel loading" showIf="status == 1" colSpan="12" css="btn-danger" icon="fa-times" prompt="Are you sure you want to cancel this loading of incubator trolleys ?" onClick="action-method-incubator-trolley-charging-cancel"/>
+                </panel>
+            </panel>
+        </panel>
+        <panel name="linesPanel">
+            <panel-related name="incubatorTrolleysChargingPanel" readonlyIf="isValid" colSpan="12" field="incubatorTrolleysChargingLineList"
+                           form-view="incubator-trolleys-charging-line-form"
+                           grid-view="incubator-trolleys-charging-line-grid"/>
+        </panel>
+        <panel readonlyIf="!isValid">
+            <panel colSpan="5">
+                <field name="deliveryTime"/>
+                <field name="arrivalTime"/>
+            </panel>
+            <panel>
+                <field name="note" colSpan="20"/>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <cards name="incubators-loading-of-incubator-trolleys-cards" css="rect-image" title="Loading of incubator trolleys" model="com.gl.apps.pf.db.IncubatorTrolleysCharging" >
+        <field name="reference"/>
+        <field name="chargingDate"/>
+        <field name="hatchery"/>
+
+        <field name="status"/>
+        <template><![CDATA[
+         <div class="span12">
+              <strong><span x-translate>Incubator trolley charging : </span> {{ reference }}</strong>
+
+          </div>
+          <div>
+            <div>
+             <div class="span8" style="margin-left:-1px;">
+              <i class="fa fa-building-o" aria-hidden="true"></i>
+              {{ hatchery.name }}
+            </div>
+            <div class="span8" style="margin-left:-1px;">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              {{ chargingDate }}
+            </div>
+
+                <div class="span6" style="margin-left:-1px;">
+                      <h5>
+                         <span ng-show="status == 0" class="label label-default" style="background-color: #5fb0b7;" x-translate>Not executed</span>
+                         <span class="label label-success" ng-show="status == 1" x-translate>Validated</span>
+                         <span class="label label-important" ng-show="status == 2" x-translate>Canceled</span>
+                      </h5>
+                </div>
+
+            </div>
+          </div>
+
+        ]]></template>
+    </cards>
+
+    <action-record name="action-set-default-values-incubator-trolleys-charging"
+                   model="com.gl.apps.pf.db.IncubatorTrolleysCharging">
+        <field name="chargingDate" expr="eval: __datetime__"/>
+        <field name="deliveryTime" expr="eval: __time__"/>
+        <field name="arrivalTime" expr="eval: __time__"/>
+    </action-record>
+
+    <action-method name="action-method-incubator-trolley-charging-validate">
+        <call method="IncubatorTrolleyChargValidate"
+              class="com.gl.apps.pf.web.IncubatorTrolleyChargingController"/>
+    </action-method>
+
+    <action-validate name="action-incubator-trolley-charging-line-check-empty-list">
+        <error if="incubatorTrolleysChargingLineList.isEmpty()" message="Incubator charging list is empty!"/>
+    </action-validate>
+
+    <action-validate name="action-incubator-trolley-details-charging-line-check-empty-list">
+        <error if="incubatorTrolleysChargingLineList.stream().anyMatch(line -> line.getChargingLineDetailList().isEmpty())" message="Incubator charging details list is empty !"/>
+    </action-validate>
+
+    <action-group name="action-group-incubator-trolley-charging-validation">
+        <action name="action-incubator-trolley-charging-line-check-empty-list"/>
+        <action name="action-incubator-trolley-details-charging-line-check-empty-list"/>
+        <action name="action-method-incubator-trolley-charging-validate"/>
+    </action-group>
+
+    <action-method name="action-method-incubator-trolley-charging-cancel">
+        <call method="IncubatorTrolleyChargCancel"
+              class="com.gl.apps.pf.web.IncubatorTrolleyChargingController"/>
+    </action-method>
+
+</object-views>

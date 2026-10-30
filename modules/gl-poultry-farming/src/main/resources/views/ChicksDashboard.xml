@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="dashboard-chicks-form" title="Chicks" model="com.gl.apps.pf.db.ChicksDashboard" width="large">
+        <panel title="Dashboard chicks" readonly="true">
+            <field name="productName" title="Product"/>
+            <field name="productUnit" />
+            <panel title="Production:" colSpan="12">
+                <field name="producedQty" colSpan="4"/>
+                <field name="producedCostUnitPrice" colSpan="4"/>
+                <field name="producedAmount" colSpan="4"/>
+            </panel>
+            <panel title="Sale:" readonly="true" colSpan="12">
+                <field name="saleQty" colSpan="4"/>
+                <field name="saleAverageUnitPrice" colSpan="4"/>
+                <field name="saleAmount" colSpan="4"/>
+            </panel>
+            <panel title="Setting up:" readonly="true" colSpan="12">
+                <field name="qty" title="Total quantity"/>
+            </panel>
+        </panel>
+    </form>
+
+
+    <grid name="dashboard-chicks-grid" title="Chicks" model="com.gl.apps.pf.db.ChicksDashboard" edit-icon="true">
+        <field name="productName" readonly="true" title="Product">
+            <hilite color="green" strong="true" if="$get('productName') != null"/>
+        </field>
+        <field name="productUnit" readonly="true">
+            <hilite color="green" strong="false" if="$get('productUnit') != null"/>
+        </field>
+        <field name="producedQty" readonly="true">
+            <hilite color="orange" strong="false" if="$get('producedQty') >= 0"/>
+        </field>
+        <field name="producedCostUnitPrice" readonly="true">
+            <hilite color="orange" strong="false" if="$get('producedCostUnitPrice') >= 0"/>
+        </field>
+        <field name="producedAmount" readonly="true">
+            <hilite color="orange" strong="false" if="$get('producedAmount') >= 0"/>
+        </field>
+        <field name="saleQty" readonly="true">
+            <hilite color="deeppurple" strong="false" if="$get('saleQty') >= 0"/>
+        </field>
+        <field name="saleAverageUnitPrice" readonly="true">
+            <hilite color="deeppurple" strong="false" if="$get('saleAverageUnitPrice') >= 0"/>
+        </field>
+        <field name="saleAmount" readonly="true">
+            <hilite color="deeppurple" strong="false" if="$get('saleAmount') >= 0"/>
+        </field>
+        <field name="qty" readonly="true" title="Setting up quantity">
+            <hilite color="red" strong="false" if="$get('qty') >= 0"/>
+        </field>
+
+
+    </grid>
+</object-views>

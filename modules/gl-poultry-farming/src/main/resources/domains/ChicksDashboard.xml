@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ChicksDashboard">
+        <string name="productName"/>
+        <many-to-one name="productUnit"
+                     ref="com.axelor.apps.base.db.Unit" title="Product unit"/>
+
+        <integer name="producedQty" title="Produced quantity"/>
+        <decimal name="producedCostUnitPrice" title="Produced cost unit price"/>
+        <decimal name="producedAmount" title="Produced amount"/>
+
+        <integer name="saleQty" title="Sale quantity"/>
+        <decimal name="saleAverageUnitPrice" title="Sale average unit price"/>
+        <decimal name="saleAmount" title="Sale amount"/>
+
+        <integer name="qty" title="Quantity"/>
+
+        <track on="UPDATE">
+            <field name="productName"/>
+            <field name="productUnit"/>
+            <field name="producedQty"/>
+            <field name="producedCostUnitPrice"/>
+            <field name="producedAmount"/>
+            <field name="saleQty"/>
+            <field name="saleAverageUnitPrice"/>
+            <field name="saleAmount"/>
+            <field name="qty"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

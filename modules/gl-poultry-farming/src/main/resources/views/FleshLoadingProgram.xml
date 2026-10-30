@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="flesh-loading-program-grid" title="Flesh loading programs" onNew="action-set-default-values-datetime-flesh"
+      model="com.gl.apps.pf.db.FleshLoadingProgram" orderBy="-creationDate"
+      edit-icon="true">
+    <hilite color="success" if="isValid"/>
+    <hilite color="default" if="!isValid"/>
+    <field name="reference"/>
+    <field name="creationDate"/>
+    <field name="hatchery" required="true"/>
+    <field name="center" required="true"/>
+    <field name="isValid" hidden="true"/>
+</grid>
+
+<form id="flesh-loading-program-form" name="flesh-loading-program-form" title="Flesh loading program" onNew="action-set-default-values-datetime-flesh"
+      model="com.gl.apps.pf.db.FleshLoadingProgram" onSave="save,action-group-flesh-loading-program-on-save">
+    <panel title="Overview">
+        <panel colSpan="10" readonlyIf="isValid">
+            <field name="reference" readonly="true" colSpan="3"/>
+            <field name="hatchery" colSpan="3" required="true"/>
+            <field name="center" colSpan="3" required="true" domain="self.type = 2" onChange="action-method-flesh-loading-program-get-lines-from-center"/>
+            <field name="isValid" readonly="true" hideIf="id == null" colSpan="2"/>
+            <field name="trackingNumber" required="true" colSpan="3"/>
+            <field name="creationDate" colSpan="3"/>
+        </panel>
+        <panel showTitle="false" colSpan="2">
+            <button name="validateBtn" title="Validate" showIf="id!= null &amp;&amp; isValid == false" css="btn-success" colSpan="12" icon="fa-check"
+                    prompt="Are you sure you want to validate this incubators loading programs ?"
+                    onClick="save,action-group-flesh-loading-program-validation"/>
+        </panel>
+    </panel>
+    <panel name="linesPanel">
+        <panel-related name="chairLoadingProgramLinesListPanel" colSpan="12" field="fleshLoadingProgramLineList"
+                       form-view="flesh-loading-program-line-form" canNew="false" canRemove="false"
+                       grid-view="flesh-loading-program-line-grid"/>
+    </panel>
+    <panel-mail name="mailsPanel">
+        <mail-messages limit="4"/>
+        <mail-followers/>
+    </panel-mail>
+</form>
+
+    <action-record name="action-set-default-values-datetime-flesh"  model="com.gl.apps.pf.db.FleshLoadingProgram">
+        <field name="creationDate" expr="eval: __date__"/>
+    </action-record>
+
+    <action-method name="action-method-flesh-loading-program-get-lines-from-center">
+        <call method="getLinesFromCenter"
+              class="com.gl.apps.pf.web.FleshLoadingProgramController"/>
+    </action-method>
+
+    <action-method name="action-method-flesh-loading-program-activate-breeding-shed">
+        <call method="loadingProgramActivateBS"
+              class="com.gl.apps.pf.web.FleshLoadingProgramController"/>
+    </action-method>
+
+    <action-validate name="action-flesh-loading-program-check-empty-list">
+        <error if="fleshLoadingProgramLineList.isEmpty()" message="Flesh loading program list is empty !"/>
+    </action-validate>
+
+    <action-group name="action-group-flesh-loading-program-on-save">
+        <action name="action-flesh-loading-program-check-empty-list"/>
+        <action name="action-method-flesh-loading-program-activate-breeding-shed"/>
+    </action-group>
+
+    <action-group name="action-group-flesh-loading-program-validation">
+        <action name="action-flesh-loading-program-check-empty-list"/>
+        <action name="action-flesh-loading-program-validate"/>
+    </action-group>
+
+    <action-method name="action-flesh-loading-program-validate">
+        <call class="com.gl.apps.pf.web.FleshLoadingProgramController" method="validate"/>
+    </action-method>
+
+
+</object-views>

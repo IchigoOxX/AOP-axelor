@@ -1,0 +1,329 @@
+%d contract(s) treated and %d anomaly(ies) reported !,تمت معالجة %d من العقود والإبلاغ عن %d من الحالات الشاذة!
+"<><Badge bg=""warning"">{_t('This pricing is already used by another contract line. Use the + button to create a new copy.')}</Badge></>","<><Badge bg=""warning"">{_t('هذا السعر مستخدم بالفعل بواسطة بند عقد آخر. استخدم الزر + لإنشاء نسخة جديدة.')</Badge></>"
+"A billing contract is used to generate invoices, whereas a framework contract is used to generate orders. Invoices from framework contracts are generated either from orders, stock move or business project.",يتم استخدام عقد الفواتير لإنشاء الفواتير، في حين يتم استخدام العقد الإطاري لإنشاء الطلبات. يتم إنشاء الفواتير من العقود الإطارية إما من الطلبات أو حركة المخزون أو مشروع الأعمال.
+Account management,إدارة الحساب
+Action,العمل
+Action %s has no Batch implementation.,لا يحتوي الإجراء %s على تنفيذ دفعةي.
+Actions,الإجراءات
+Activate contract,تفعيل العقد
+Activated By,تم التفعيل بواسطة
+Activation date,تاريخ التفعيل
+Active,نشط
+Additional Benefit Management,إدارة المزايا الإضافية
+Additional benefit,فائدة إضافية
+Additional benefit lines,خطوط فائدة إضافية
+Additional benefit management,إدارة الفوائد الإضافية
+Additional products,منتجات إضافية
+Advanced,متقدم
+Amendment,تعديل
+Amendment management,إدارة التعديل
+Amendment status,حالة التعديل
+Amendments,تعديلات
+Analytic Move Line,بند القيد التحليلي
+Analytic distribution template,قالب توزيع مراكز التكلفة
+Analytic move line,بند القيد التحليلي
+Analytic move lines,خطوط التحرك التحليلية
+Analytics,تحليلات
+App,التطبيق
+App contract,عقد التطبيق
+Are you sure you want to remove the selected lines?,هل أنت متأكد أنك تريد إزالة الأسطر المحددة؟
+"Attention the contract will have as starting date the provisional activation         date ${currentContractVersion.supposedActivationDate}, Are you sure?",انتبه، سيكون تاريخ بدء العقد هو تاريخ التنشيط المؤقت ${currentContractVersion.supposeActivationDate}، هل أنت متأكد؟
+Auto enable version on renew,تمكين الإصدار تلقائيًا عند التجديد
+Automatic invoicing,الفواتير التلقائية
+Available variables :\n         ind1i = value for the contract's index1 for date 1 \n ind2i = value for the contract's index 2 for date         2 \n ind1f : value for the contract's index 1 for the next revaluation date \n ind2f :         value for the contract's index 2 for the next revaluation date \n ind1py :         value for the contract's index 1 for the next revaluation - 1 year \n ind2py :         value for the contract's index 2 for the next revaluation - 1 year \n P0 : original price of the contract line         \n Pf : last revaluated price of the contract line,المتغيرات المتاحة :\n ind1i = قيمة فهرس العقد 1 للتاريخ 1 \n ind2i = قيمة فهرس العقد 2 للتاريخ 2 \n ind1f : قيمة فهرس العقد 1 لتاريخ إعادة التقييم التالي \n ind2f : قيمة فهرس العقد 2 لتاريخ إعادة التقييم التالي \n ind1py : قيمة فهرس العقد 1 لإعادة التقييم التالية - 1 year \n ind2py : قيمة مؤشر العقد 2 لإعادة التقييم التالية - سنة واحدة \n P0 : السعر الأصلي لخط العقد \n Pf : آخر سعر تم إعادة تقييمه لخط العقد
+Back,العودة
+Batches,دفعات
+Batchs,دفعات
+Billing,الفواتير
+Billing contract,عقد الفوترة
+Can only activate waiting contract.,يمكن تفعيل عقد الانتظار فقط.
+Can only put on hold drafted contract.,يمكن فقط تأجيل صياغة العقد.
+Can only terminate ongoing contract.,يمكن فقط إنهاء العقد المستمر.
+Cancel,إلغاء
+Close contract,إغلاق العقد
+Closed,مغلق
+Code,الرمز
+Comment to be included on invoice,التعليق المراد تضمينه في الفاتورة
+Commercial condition,حالة تجارية
+Company,الشركة
+Company currency,عملة الشركة
+Config.,التكوين.
+Configurable contract,عقد قابل للتكوين
+Configuration,التهيئة
+Consumption Line,خط الاستهلاك
+Consumption Lines,خطوط الاستهلاك
+Consumption for next invoice,الاستهلاك للفاتورة القادمة
+Consumption line quantities exceed the max quantity defined in the contract line.,تتجاوز كميات بنود الاستهلاك الحد الأقصى للكمية المحددة في بند العقد.
+Consumption management,إدارة الاستهلاك
+Consumption max quantity,الاستهلاك الأقصى للكمية
+Consumptions,الإستهلاكات
+Content,المحتوى
+Contract,عقد عمل
+Contract Dates,مواعيد العقد
+Contract Line,بند العقد
+Contract Lines,بنود العقد
+Contract N°,العقد رقم
+Contract batch,دفعة العقد
+Contract batch filters,مرشحات دفعة العقد
+Contract batches,دفعات العقد
+Contract can't be empty for compute contract line price.,لا يمكن أن يكون العقد فارغًا لحساب سعر بند العقد.
+Contract closing invoice,فاتورة إغلاق العقد
+Contract filters,مرشحات العقد
+Contract has already been generated for this opportunity.,لقد تم بالفعل إنشاء العقد لهذه الفرصة.
+Contract information,معلومات العقد
+Contract invoice,فاتورة العقد
+Contract line,بند العقد
+Contract template,نموذج العقد
+Contract template filters,مرشحات قالب العقد
+Contract template to use,نموذج العقد للاستخدام
+Contract templates,قوالب العقود
+Contract type,نوع العقد
+Contract version,نسخة العقد
+Contracts,عقود العمل
+Copy,نسخ
+Cpte Ana. AXIS1,كبت آنا. المحور1
+Cpte Ana. AXIS2,كبت آنا. المحور2
+Cpte Ana. AXIS3,كبت آنا. المحور3
+Cpte Ana. AXIS4,كبت آنا. المحور 4
+Cpte Ana. AXIS5,كبت آنا. المحور5
+Create PO,إنشاء أمر الشراء
+Create an amendment,قم بإنشاء تعديل
+Created by,تم إنشاؤها بواسطة
+Created on,تم الإنشاء بتاريخ
+Currency,العملة
+Current amendment,التعديل الحالي
+Current invoice period,فترة الفاتورة الحالية
+Current version,النسخة الحالية
+Current version activation,تفعيل النسخة الحالية
+Customer,عميل
+Customer contracts,عقود العملاء
+Customer price lists,قوائم أسعار العملاء
+Customer year end bonus,مكافأة نهاية العام للعميل
+Date,التاريخ
+Delete next amendment,حذف التعديل التالي
+Description,الوصف
+Discount amount,مبلغ الخصم
+Discount type,نوع الخصم
+Display an alert if the consumption quantities exceed the defined max quantity,عرض تنبيه في حالة تجاوز كميات الاستهلاك الحد الأقصى المحدد
+Display the concerned contracts,عرض العقود المعنية
+Displayed Product name,اسم المنتج المعروض
+Do not renew,لا تجدد
+Do you really wish to fill your contract based on this template ?,هل ترغب حقًا في ملء عقدك بناءً على هذا النموذج؟
+Draft,مسودة
+Duration,المدة
+Durations,المدة
+Enable configuration by product family for YEB,تمكين التكوين حسب عائلة المنتج لـ YEB
+End date,تاريخ الانتهاء
+End of application,نهاية التقديم
+End of next invoicing period,نهاية فترة الفاتورة التالية
+End of next invoicing period should be after Start of next invoicing period.,يجب أن تكون نهاية فترة الفاتورة التالية بعد بداية فترة الفاتورة التالية.
+End of period,نهاية الفترة
+End of period plus,نهاية الفترة زائد
+Engagement,خطوبة
+Engagement duration,مدة المشاركة
+Engagement duration is not fulfilled.,لم يتم استيفاء مدة المشاركة.
+Engagement start date,تاريخ بدء المشاركة
+Engagement start from version,المشاركة تبدأ من الإصدار
+Error,خطأ
+Fetch limit,حد الجلب
+"Fetch limit for this batch. 0 will not be taken into account. In this case, the value configured in app Base will be used.",حد الجلب لهذه الدفعة. 0 لن تؤخذ في الاعتبار. في هذه الحالة، سيتم استخدام القيمة التي تم تكوينها في قاعدة التطبيق.
+File,الملف
+Files,الملفات
+First period end date,تاريخ نهاية الفترة الأولى
+First period invoicing end date,تاريخ انتهاء فاتورة الفترة الأولى
+Fiscal position,الوضع الضريبي
+Forecast (contract),توقع (عقد)
+Formula,الصيغة
+Framework,الإطار
+Framework contract,عقد اطاري
+Framework contracts,العقود الاطارية
+From,من
+From date,من تاريخ
+Full name,الاسم الكامل
+General,عام
+Generate a contract,إنشاء عقد
+Generate contract,إنشاء العقد
+Generate purchase order,إنشاء أمر الشراء
+Generate sale order,إنشاء أمر بيع
+Generated purchase order,تم إنشاء أمر الشراء
+Generated sale order,أمر بيع تم إنشاؤه
+Grouped Invoicing,الفواتير المجمعة
+"If this configuration is enabled, it is possible to create new contract versions, called amendments. If the Unchangable contract configuration is enabled, you must create a new version of a contract when you want to modify it.",إذا تم تمكين هذا التكوين، فمن الممكن إنشاء إصدارات عقد جديدة، تسمى التعديلات. إذا تم تمكين تكوين العقد غير القابل للتغيير، فيجب عليك إنشاء إصدار جديد من العقد عندما تريد تعديله.
+"If this configuration is enabled, it is possible to manage contract renewals. Without this, a contract ends at its end date.",إذا تم تمكين هذا التكوين، فمن الممكن إدارة تجديدات العقد. وبدون ذلك، ينتهي العقد في تاريخ انتهائه.
+"If this configuration is enabled, you can no longer modify the invoicing content and the contract configurations once it is active without having to create a new version.",إذا تم تمكين هذا التكوين، فلن يعد بإمكانك تعديل محتوى الفواتير وتكوينات العقد بمجرد تنشيطه دون الحاجة إلى إنشاء إصدار جديد.
+Index 1,الفهرس 1
+Index 1 date,تاريخ الفهرس 1
+Index 2,الفهرس 2
+Index 2 date,تاريخ الفهرس 2
+Index revaluation,إعادة تقييم المؤشر
+Index value,قيمة الفهرس
+Index value list,قائمة قيمة الفهرس
+Index values,قيم الفهرس
+Indexes revaluation,إعادة تقييم المؤشرات
+Information,معلومات
+Initial ex tax total per year,إجمالي الضريبة السابقة الأولية سنويًا
+Initial price per year,السعر المبدئي سنويا
+Initial unit price,سعر الوحدة الأولي
+Invoice,فاتورة
+Invoice N°,رقم الفاتورة
+Invoice from consumption,فاتورة الاستهلاك
+Invoice line,بند الفاتورة
+Invoice period,فترة الفاتورة
+Invoice period history,تاريخ فترة الفاتورة
+Invoice periods,فترات الفاتورة
+Invoiced,مفوتر
+Invoiced partner,شريك الفاتورة
+Invoices,الفواتير
+Invoicing,الفوترة
+Invoicing Frequency,تكرار الفواتير
+Invoicing amounts,مبالغ الفواتير
+Invoicing date,تاريخ الفاتورة
+Invoicing management,إدارة الفواتير
+Invoicing moment,لحظة إصدار الفاتورة
+Is invoiced,تتم الفاتورة
+Last Invoicing period,آخر فترة للفوترة
+Last renewal date,تاريخ آخر تجديد
+Last revaluation date,تاريخ آخر إعادة تقييم
+Linked invoice,فاتورة مرتبطة
+Meta file,ملف التعريف
+Missing index value for this date : %s,قيمة الفهرس المفقودة لهذا التاريخ: %s
+Missing revaluation period for this contract.,فترة إعادة التقييم المفقودة لهذا العقد.
+Name,الاسم
+New File,ملف جديد
+New version,نسخة جديدة
+Next amendment,التعديل القادم
+Next revaluation date,تاريخ إعادة التقييم التالي
+Next version,الإصدار القادم
+Next version activation,تفعيل الإصدار القادم
+No contract is associated to version.,لا يوجد عقد مرتبط بالإصدار.
+Not invoiced,لم يتم إصدار فاتورة
+Notes,ملحوظات
+Number of days,عدد الأيام
+Number of finished periods,عدد الفترات المنتهية
+Number of renewal,عدد التجديد
+Ongoing,مستمر
+Only invoice consumption before Invoice period end Date,استهلاك الفاتورة فقط قبل تاريخ انتهاء فترة الفاتورة
+Opportunity,فرصة بيعية
+Partner,شريك أعمال
+Payment condition,شروط السداد
+Payment mode,طريقة الدفع
+Periodic Invoicing,الفواتير الدورية
+Periodic contract,عقد دوري
+Pick a template,اختر قالبًا
+Please enter a engagement date.,الرجاء إدخال تاريخ الخطوبة.
+Please enter a terminated date for this version.,الرجاء إدخال تاريخ الإنهاء لهذا الإصدار.
+Please fill the first period end date and the invoice frequency.,يرجى ملء تاريخ انتهاء الفترة الأولى وتكرار الفاتورة.
+Please select a customer to be able to convert opportunity into contract.,يرجى تحديد عميل لتتمكن من تحويل الفرصة إلى عقد.
+Price list,قائمة الأسعار
+Price revalued yearly,يتم إعادة تقييم السعر سنويًا
+Prices per year,الأسعار سنويا
+Pricing,التسعير
+Pricing rules,قواعد التسعير
+Print,طباعة
+Prior notice,إشعار مسبق
+Prior notice duration,مدة الإشعار المسبق
+Prior notice duration is not respected.,لا يتم احترام مدة الإشعار المسبق.
+Product,منتج
+Product management,إدارة المنتج
+Prorate from versions,تقسيط من الإصدارات
+Prorated Invoice,فاتورة مقسمة
+Prorated Starting periods,فترات البدء التناسبية
+Prorated finished periods,فترات الانتهاء التناسبية
+Prorated temporally,متناسب مؤقتا
+Protrate temporally,يتودد مؤقتا
+Purchase orders,أوامر الشراء
+Put on-hold,ضع في الانتظار
+Qty,الكمية
+Quantity,الكمية
+Recurring product,منتج متكرر
+Reference,المرجع
+Remove files,إزالة الملفات
+Renew,تجديد
+Renewal,تجديد
+Renewal duration,مدة التجديد
+Renewal management,إدارة التجديد
+Revaluate contracts,إعادة تقييم العقود
+Revaluation formula,صيغة إعادة التقييم
+Revaluation formulas,صيغ إعادة التقييم
+Revaluation period,فترة إعادة التقييم
+Run batch,تشغيل دفعة
+Sale orders,أوامر البيع
+Search,بحث
+Sequence,التسلسل
+Show contract,عرض العقد
+Show lines,عرض الخطوط
+Show next amendment,عرض التعديل التالي
+Start date,تاريخ البدء
+Start of next invoicing period,بداية فترة الفواتير القادمة
+Start of period,بداية الفترة
+Start of period plus,بداية الدورة زائد
+Status,الحالة
+Statut,النظام
+Supplier,مورد
+Supplier contracts,عقود الموردين
+Supplier price lists,قوائم أسعار الموردين
+Supplier year end bonus,مكافأة نهاية العام للمورد
+Supposed activation date,تاريخ التفعيل المفترض
+Supposed end date,تاريخ الانتهاء المفترض
+Tacit renewal,التجديد الضمني
+Taxes,الضرائب
+Terminate,إنهاء
+Terminated,انتهى
+Terminated By,تم الإنهاء بواسطة
+Terminated contracts,العقود المنتهية
+Terminated date,تاريخ الإنهاء
+Terminated manually,تم الإنهاء يدويًا
+Termination,إنهاء
+Termination demand date,تاريخ طلب الإنهاء
+The company %s doesn't have any configured sequence for contracts,ليس لدى الشركة %s أي تسلسل مكون للعقود
+The first period end date cannot be earlier than the supposed activation date.,لا يمكن أن يكون تاريخ انتهاء الفترة الأولى أقدم من تاريخ التنشيط المفترض.
+The first period end date cannot be earlier than today if there is no supposed activation date.,لا يمكن أن يكون تاريخ انتهاء الفترة الأولى قبل اليوم إذا لم يكن هناك تاريخ تفعيل مفترض.
+The next contract field is not set on the current contract version.,لم يتم تعيين حقل العقد التالي في إصدار العقد الحالي.
+There is an error in the formula.,هناك خطأ في الصيغة.
+There is no contract associated with this version.,لا يوجد عقد مرتبط بهذا الإصدار.
+This configuration enables additional benefit management on contracts. These are benefits that can be added to the contract and will be invoiced on a one-time basis and not on a recurring basis.,يتيح هذا التكوين إدارة المزايا الإضافية للعقود. هذه هي المزايا التي يمكن إضافتها إلى العقد وسيتم إصدار فاتورة بها على أساس مرة واحدة وليس على أساس متكرر.
+"This configuration enables consumption management on contracts, meaning you can add products or services during the contract that are used in addition to the standard invoicing content, and that you want to invoice at the next invoicing date.",يعمل هذا التكوين على تمكين إدارة الاستهلاك في العقود، مما يعني أنه يمكنك إضافة منتجات أو خدمات أثناء العقد يتم استخدامها بالإضافة إلى محتوى الفوترة القياسي، والتي تريد إصدار فاتورة بها في تاريخ الفاتورة التالي.
+"This configuration enables contract invoicing, allowing you to generate invoices from contracts, either manually or automatically.",يتيح هذا التكوين إعداد فواتير العقود، مما يسمح لك بإنشاء فواتير من العقود، إما يدويًا أو تلقائيًا.
+"This configuration is essential, it allows configuring contracts.",هذا التكوين ضروري، فهو يسمح بتكوين العقود.
+This period is used to compute the next revaluation date.,يتم استخدام هذه الفترة لحساب تاريخ إعادة التقييم التالي.
+This pricing is already used by another contract line.,يتم استخدام هذا التسعير بالفعل بواسطة بند عقد آخر.
+This pricing is already used by another contract line. Use the + button to create a new copy.,يتم استخدام هذا التسعير بالفعل بواسطة بند عقد آخر. استخدم الزر + لإنشاء نسخة جديدة.
+Title,العنوان
+To,إلى
+To closed,لإغلاق
+To revaluate,لإعادة تقييم
+Total A.T.I.,إجمالي أيه تي آي
+Total W.T.,إجمالي الوزن
+Total invoiced amount,إجمالي مبلغ الفاتورة
+Total paid amount,إجمالي المبلغ المدفوع
+Trading name,اسم التداول
+Type,النوع
+Unchangable contract,عقد غير قابل للتغيير
+Unit,الوحدة
+Unit price,سعر الوحدة
+Unit price discounted,سعر الوحدة مخفض
+Use this template,استخدم هذا القالب
+Value,القيمة
+Version,النسخة
+Version history,تاريخ الإصدار
+Waiting,في انتظار
+Warning,تحذير
+"Warning! The yearly price is calculated based on unit price and ""Invoicing duration"" from the config panel. Please be careful when using products with unit being a time unit. In case you have contract lines with different invoicing duration, you can activate and use the Addtional Benefits management feature.","تحذير! يتم حساب السعر السنوي بناءً على سعر الوحدة و""مدة الفاتورة"" من لوحة التكوين. يرجى توخي الحذر عند استخدام المنتجات التي تكون الوحدة فيها وحدة زمنية. في حالة وجود بنود عقد ذات مدة فواتير مختلفة، يمكنك تفعيل واستخدام ميزة إدارة المزايا الإضافية."
+With engagement,بالخطوبة
+With prior notice,بإشعار مسبق
+YEB/YER,نعم/ير
+YEB/YER Customer,عميل YEB/YER
+YEB/YER Customer contracts,YEB/YER عقود العملاء
+YEB/YER Purchase account,YEB/YER حساب الشراء
+YEB/YER Sale account,حساب بيع YEB/YER
+YEB/YER Supplier,YEB/YER مورد
+YEB/YER Supplier contracts,YEB/YER عقود الموردين
+Year end bonus product,منتج مكافأة نهاية العام
+Year end bonus product account must be filled in account configuration.,يجب ملء حساب المنتج الإضافي لنهاية العام في تكوين الحساب.
+Year end bonus product must be filled in account configuration.,يجب ملء منتج مكافأة نهاية العام في تكوين الحساب.
+Yearly ex tax total revalued,إعادة تقييم إجمالي الضريبة السنوية
+You cannot remove a line which has been already invoiced.,لا يمكنك إزالة خط تمت فوترته بالفعل.
+You cannot terminate a contract before version activation date.,لا يمكنك إنهاء العقد قبل تاريخ تفعيل الإصدار.
+com.axelor.apps.contract.batch.service.BatchContractService,com.axelor.apps.contract.batch.service.BatchContractService
+to,إلى
+value:Contract,القيمة: العقد

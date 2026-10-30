@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcheryDeliverySale">
+        <one-to-many name="hatcheryDeliverySaleList" ref="HatcheryDeliverySaleLine"
+                     mappedBy="hatcheryDeliverySale" title="Hatchery delivery sale lines"/>
+
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+        <many-to-one name="reasonOfCancel" title="Reason of delivery sale cancel"
+                     ref="com.axelor.apps.base.db.CancelReason"/>
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <datetime name="datetime" title="Date time"/>
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery"/>
+
+        <many-to-one name="customerSaleOrder" ref="com.axelor.apps.sale.db.SaleOrder" title="Customer sale order"/>
+        <many-to-one name="clientPartner" ref="com.axelor.apps.base.db.Partner" title="Partner"/>
+
+        <integer name="status" title="Status"
+                 selection="poultryfarming.hatchery.delivery.sale.status.select" readonly="true"/>
+        <string name="note" title="Note" large="true" translatable="true"/>
+        <finder-method name="ByReference" using="reference"/>
+
+        <extra-code>
+            <![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="dispatchStock"/>
+            <field name="reasonOfCancel"/>
+            <field name="dateTime"/>
+            <field name="hatchery"/>
+            <field name="hatcheryRef"/>
+            <field name="customerDeliveries"/>
+            <field name="dateCustomerDelivery"/>
+            <field name="partner"/>
+            <field name="partnerName"/>
+            <field name="status"/>
+            <field name="note"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

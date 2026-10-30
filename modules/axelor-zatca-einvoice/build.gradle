@@ -1,0 +1,21 @@
+plugins {
+    id 'com.axelor.app'
+}
+
+apply from: "../version.gradle"
+
+apply {
+    version = openSuiteVersion
+}
+
+axelor {
+    title = "Saudi Arabia ZATCA Phase 2 E-Invoicing"
+    description = "Integration with Zakat, Tax and Customs Authority (ZATCA) Fatoora Platform Phase 2"
+}
+
+dependencies {
+    api project(':modules:axelor-base')
+    api project(':modules:axelor-account')
+    api project(':modules:axelor-sale')
+}
+

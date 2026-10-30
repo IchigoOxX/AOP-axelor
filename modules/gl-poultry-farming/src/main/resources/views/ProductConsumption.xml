@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="product-consumption-form" title="Product consumption" model="com.gl.apps.pf.db.ProductConsumption" width="large"
+          onNew="action-set-default-values-product-consumption">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Voucher:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="(status &lt; 1 || status == 3)" colSpan="12" icon="fa-check" prompt="Are you sure to validate this product consumption ?"
+                                    onClick="save,action-group-product-consumption-validation" css="btn-success"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel consumption" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this product consumption ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-product-consumption-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+
+                <panel title="Origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="center" colSpan="3" domain="self.type =:_centerType" required="true"
+                           onChange="action-attrs-product-consumption-center-changed"/>
+                    <field name="breedingShed" colSpan="3" domain="self.center = :center" />
+                </panel>
+            </panel>
+
+            <panel-related name="productConsumptionLineListPanel" colSpan="12" field="productConsumptionLineList"
+                           form-view="product-consumption-line-form"
+                           grid-view="product-consumption-line-grid"
+                           editable="true" canNew="true" canRemove="true" canEdit="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <form name="product-consumption-hatchery-form" title="Product consumption" model="com.gl.apps.pf.db.ProductConsumption" width="large"
+          onNew="action-set-default-values-product-consumption">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Voucher:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf=" ( status &lt; 1 || status == 3 )" colSpan="12" css="btn-success"
+                                    prompt="Are you sure to validate this product consumption ?" icon="fa-check"
+                                    onClick="save,action-group-product-consumption-validation"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel consumption" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this product consumption ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-product-consumption-cancel"/>
+                        </panel>
+                    </panel>
+                </panel>
+                <panel title="Origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="hatchery" colSpan="3" required="true"/>
+                </panel>
+            </panel>
+
+            <panel-related name="productConsumptionLineListPanel" colSpan="12" field="productConsumptionLineList"
+                           form-view="product-consumption-line-form"
+                           grid-view="product-consumption-line-grid"
+                           editable="true" canNew="true" canRemove="true" canEdit="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="product-consumption-grid" title="Product consumption" model="com.gl.apps.pf.db.ProductConsumption" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date"/>
+        <field name="center"/>
+        <field name="breedingShed"/>
+        <field name="hatchery"/>
+        <field name="productCategory"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="orange" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-record name="action-set-default-values-product-consumption"
+                   model="com.gl.apps.pf.db.ProductConsumption">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-method name="action-product-order-consumption">
+        <call method="productConsumptionValidate"
+              class="com.gl.apps.pf.web.ProductConsumptionController"/>
+    </action-method>
+
+    <action-validate name="action-validate-product-consumption-line-products">
+        <error if="productConsumptionLineList &amp;&amp; __this__.id != null &amp;&amp; productConsumptionLineList.groupBy{it.product}.findAll{it.value.size() > 1}.size() > 0"
+               message="The same product appears multiple times in the product consumption lines."/>
+    </action-validate>
+
+    <action-group name="action-group-product-consumption-validation">
+        <action name="action-product-consumption-check-empty-list"/>
+        <action name="action-validate-product-consumption-line-products"/>
+        <action name="action-product-order-consumption"/>
+    </action-group>
+
+    <action-validate name="action-product-consumption-check-empty-list">
+        <error if="productConsumptionLineList.isEmpty()" message="You cannot validate ! product consumption list is empty."/>
+    </action-validate>
+
+    <action-method name="action-method-product-consumption-cancel">
+        <call method="productConsumptionCancel"
+              class="com.gl.apps.pf.web.ProductConsumptionController"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-product-consumption-center-changed">
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="breedingShed"/>
+    </action-attrs>
+</object-views>

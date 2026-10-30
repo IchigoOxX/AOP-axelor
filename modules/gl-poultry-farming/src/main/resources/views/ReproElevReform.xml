@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="repro-production-elev-reform-form" title="Workforces reform"
+          model="com.gl.apps.pf.db.ReproElevReform" width="large"
+          readonlyIf="status != 0"
+          onNew="action-set-default-values-repro-elev-reform">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4" />
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" prompt="Are you sure to validate this breeding reform ?"
+                                onClick="save,action-group-repro-elev-reform-validation"/>
+                    </panel>
+                </panel>
+                <panel title="infos:" colSpan="12">
+                    <field name="unit" title="Unit" colSpan="4" required="true"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit AND self.type = 1" required="true"/>
+                    <field name="breedingShed" colSpan="4" domain="self.center = :center AND self.status = 2" onChange="action-repro-elev-reform-breeding-shed-changed" required="true"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+
+                </panel>
+                <panel title="Subjects:" colSpan="12">
+                    <field name="dailyAge" readonly="true" colSpan="3"/>
+                    <field name="weeklyAge" readonly="true" colSpan="3"/>
+                    <field name="maleTotalNumbers" readonly="true" colSpan="3"/>
+                    <field name="femaleTotalNumbers" readonly="true" colSpan="3"/>
+                </panel>
+
+                <panel title="Destination:" colSpan="12">
+                    <field name="destination"  colSpan="4" required="true"/>
+                    <field name="slaughterhouse"  colSpan="4" requiredIf="destination == 1" showIf="destination == 1"/>
+                    <field name="inUnit" title="In" colSpan="4" required="true"/>
+                </panel>
+
+                <panel name="footer" title="Reform:" colSpan="12">
+                    <panel colSpan="3">
+                        <field name="maleReformNumber" required="true" colSpan="12" onChange="action-attrs-repro-male-elev-reform-calculate-global-cost,action-attrs-repro-male-elev-reform-calculate-total-weight"/>
+                        <field name="maleUnitPrice" colSpan="12" required="true" onChange="action-attrs-repro-male-elev-reform-calculate-global-cost"/>
+                        <field name="maleTotalAverageWeight" colSpan="12" required="true" readonly="true"/>
+
+                    </panel>
+                    <panel colSpan="3">
+                        <field name="maleAverageWeight" colSpan="12" required="true" onChange="action-attrs-repro-male-elev-reform-calculate-total-weight"/>
+                        <field name="maleGlobalCost" colSpan="12" readonly="true"/>
+
+                    </panel>
+
+                    <panel colSpan="3">
+                        <field name="femaleReformNumber" required="true" colSpan="12" onChange="action-attrs-repro-female-elev-reform-calculate-global-cost,action-attrs-repro-female-elev-reform-calculate-total-weight"/>
+                        <field name="femaleUnitPrice" colSpan="12" required="true" onChange="action-attrs-repro-female-elev-reform-calculate-global-cost"/>
+                        <field name="femaleTotalAverageWeight" colSpan="12" required="true" readonly="true"/>
+
+                    </panel>
+                    <panel colSpan="3">
+                        <field name="femaleAverageWeight" colSpan="12" required="true" onChange="action-attrs-repro-female-elev-reform-calculate-total-weight"/>
+                        <field name="femaleGlobalCost" colSpan="12" readonly="true"/>
+
+                    </panel>
+
+                    <panel colSpan="12">
+                        <field name="note" showTitle="false" colSpan="12" height="200" widget="html"/>
+                    </panel>
+                </panel>
+            </panel>
+
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="repro-production-elev-reform-grid" title="Workforces reform" model="com.gl.apps.pf.db.ReproElevReform" edit-icon="true">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date" readonly="true"/>
+        <field name="unit" />
+        <field name="center" />
+        <field name="breedingShed" />
+        <field name="breed" />
+        <field name="slaughterhouse"/>
+
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="grey" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <grid name="repro-elev-reform-technical-sheet-grid" title="Workforces reform" model="com.gl.apps.pf.db.ReproElevReform" edit-icon="true">
+        <field name="reference" title="N°" readonly="true"/>
+        <field name="breed" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="maleReformNumber" readonly="true"/>
+        <field name="femaleReformNumber" readonly="true" />
+    </grid>
+
+
+    <form name="repro-elev-reform-technical-sheet-form" title="Workforces reform"
+          model="com.gl.apps.pf.db.ReproElevReform" width="large" >
+        <panel showTitle="false" colSpan="12">
+            <field name="reference" colSpan="4" readonly="true"/>
+            <field name="breed" colSpan="4" readonly="true"/>
+            <field name="maleReformNumber" colSpan="4" readonly="true" />
+            <field name="femaleReformNumber" colSpan="4" readonly="true" />
+        </panel>
+
+    </form>
+
+
+
+    <action-record name="action-set-default-values-repro-elev-reform"
+                   model="com.gl.apps.pf.db.ReproElevReform">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-repro-elev-reform-breeding-shed-changed"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute if="breedingShed != null" for="breed" name="value"
+                   expr="eval: breedingShed.breed"/>
+        <attribute if="breedingShed != null" for="trackingNumber" name="value"
+                   expr="eval: breedingShed.currentBatchNumber"/>
+        <attribute if="breedingShed != null" for="maleTotalNumbers" name="value"
+                   expr="eval: breedingShed.lastRepoTechnicalSheet.maleRemainingNumber"/>
+        <attribute if="breedingShed != null" for="femaleTotalNumbers" name="value"
+                   expr="eval: breedingShed.lastRepoTechnicalSheet.femaleRemainingNumber"/>
+        <attribute if="breedingShed != null" for="dailyAge" name="value"
+                   expr="eval: breedingShed.dailyAge"/>
+        <attribute if="breedingShed != null" for="weeklyAge" name="value"
+                   expr="eval: breedingShed.weeklyAge"/>
+    </action-attrs>
+
+    <action-validate name="action-validate-repro-male-elev-reform-validate-reform-number">
+        <error message="Total male number must be greater than reformed male number"
+               if="maleReformNumber > maleTotalNumbers"/>
+    </action-validate>
+
+    <action-validate name="action-validate-repro-female-elev-reform-validate-reform-number">
+        <error message="Total female number must be greater than reformed female number"
+               if="femaleReformNumber > femaleTotalNumbers"/>
+    </action-validate>
+
+    <action-attrs name="action-attrs-repro-male-elev-reform-calculate-total-weight"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="maleTotalAverageWeight" name="value" expr="eval: maleAverageWeight * maleReformNumber "/>
+    </action-attrs>
+    <action-attrs name="action-attrs-repro-female-elev-reform-calculate-total-weight"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="femaleTotalAverageWeight" name="value" expr="eval: femaleAverageWeight * femaleReformNumber "/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-repro-male-elev-reform-calculate-global-cost"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="maleGlobalCost" name="value" expr="eval: maleUnitPrice * maleReformNumber "/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-repro-female-elev-reform-calculate-global-cost"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="femaleGlobalCost" name="value" expr="eval: femaleUnitPrice * femaleReformNumber "/>
+    </action-attrs>
+
+    <action-method name="poultry-farming-repro-elev-reform-validate">
+        <call method="ReproElevReformValidate"
+              class="com.gl.apps.pf.web.ReproElevReformController"/>
+    </action-method>
+
+    <action-group name="action-group-repro-elev-reform-validation">
+        <action name="action-validate-repro-male-elev-reform-validate-reform-number"/>
+        <action name="action-validate-repro-female-elev-reform-validate-reform-number"/>
+        <action name="poultry-farming-repro-elev-reform-validate"/>
+    </action-group>
+
+</object-views>

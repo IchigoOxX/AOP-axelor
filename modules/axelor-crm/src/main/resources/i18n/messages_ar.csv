@@ -1,0 +1,698 @@
+%d times,%d مرة
+1 to 2,1 إلى 2
+10 to 19,10 إلى 19
+100 to 199,100 إلى 199
+1000 to 1999,1000 إلى 1999
+20 to 49,20 إلى 49
+200 to 249,200 إلى 249
+2000 to 4999,2000 إلى 4999
+250 to 499,250 إلى 499
+3 to 5,3 إلى 5
+50 to 99,50 إلى 99
+500 to 999,من 500 إلى 999
+5000 to 9999,من 5000 إلى 9999
+6 to 9,6 إلى 9
+"<><Badge bg=""warning"">The selected date is in the past.</Badge></>","<><Badge bg=""warning"">التاريخ المحدد في الماضي.</Badge></>"
+"<><Badge bg=""warning"">There is already a lead with this name.</Badge></>","<><Badge bg=""warning"">يوجد بالفعل عميل محتمل بهذا الاسم.</Badge></>"
+<a href='http://www.google.com' target='_blank' ><img src='img/social/google.svg'/><a/>,<a href='http://www.google.com' target='_blank' ><img src='img/social/google.svg'/><a/>
+<a href='http://www.linkedin.com' target='_blank' ><img src='img/social/linkedin.svg'/><a/>,<a href='http://www.linkedin.com' target='_blank' ><img src='img/social/linkedin.svg'/><a/>
+A lost reason must be selected,يجب تحديد سبب الضياع
+Account owner,صاحب الحساب
+Action,العمل
+Active agency,وكالة نشطة
+Activities,أنشطة
+Activity,النشاط
+Add,أضف
+Add a guest,إضافة ضيف
+Address,العنوان
+Advanced export,تصدير متقدم
+After n repetitions,بعد ن التكرار
+Agencies,وكالات
+Agencies management,إدارة الوكالات
+Agency,وكالة
+All events,جميع الأحداث
+All opportunities,جميع الفرص
+All past events,جميع الأحداث الماضية
+All prospects,كل الآفاق
+All upcoming events,جميع الأحداث القادمة
+All users,جميع المستخدمين
+Amount,المبلغ
+Amount :,كمية :
+App,التطبيق
+App Crm,تطبيق إدارة علاقات العملاء
+App crm,التطبيق إدارة علاقات العملاء
+Apply changes to all recurrence's events,تطبيق التغييرات على كافة أحداث التكرار
+Apply changes to this event only,تطبيق التغييرات على هذا الحدث فقط
+Apply modifications,تطبيق التعديلات
+Apply modifications for all,تطبيق التعديلات على الكل
+Assign to,تعيين إلى
+Assign to me,خصص لي
+Assignable Users,المستخدمون القابلون للتعيين
+Assigned to,مخصص لـ
+At specific date,في تاريخ محدد
+At the date,بتاريخ
+Attendee,الحضور
+Available,متاح
+Batchs,دفعات
+Before start date,قبل تاريخ البدء
+Best Open Deals,أفضل الصفقات المفتوحة
+Best case,أفضل حالة
+Busy,مشغول
+CRM,إدارة علاقات العملاء (CRM)
+CRM Activities,أنشطة إدارة علاقات العملاء
+CRM Batch,دفعة إدارة علاقات العملاء
+CRM batch,دفعة إدارة علاقات العملاء
+CRM batches,دفعات إدارة علاقات العملاء
+CRM config,تكوين إدارة علاقات العملاء
+CRM config (${ name }),تكوين CRM (${ name })
+CRM configuration,تكوين إدارة علاقات العملاء
+CRM configurations,تكوينات إدارة علاقات العملاء
+CRM events,أحداث إدارة علاقات العملاء
+Call,اتصل
+Call Event (${ fullName }),حدث الاتصال (${ fullName })
+Call Event(${ fullName}),حدث الاتصال(${ fullName})
+Call filters,مرشحات المكالمات
+Call reminder template,قالب تذكير بالمكالمات
+Call type,نوع المكالمة
+Calls,المكالمات
+Calls Dashboard,لوحة تحكم المكالمات
+Calls by team by user,المكالمات من قبل الفريق من قبل المستخدم
+Calls by user(of a team),المكالمات بواسطة المستخدم (لفريق)
+Calls held by team by type,المكالمات التي أجراها الفريق حسب النوع
+Calls held by type by user,المكالمات المعلقة حسب النوع من قبل المستخدم
+Calls monitoring,مراقبة المكالمات
+Calls type by team,نوع المكالمات حسب الفريق
+Calls type by user,نوع المكالمات حسب المستخدم
+Can not mark as lost an already lost lead.,لا يمكن وضع علامة على أنها فقدت العميل المحتمل المفقود بالفعل.
+Can not mark as lost an already lost partner.,لا يمكن وضع علامة على الشريك المفقود بالفعل.
+Can not re-open converted leads.,لا يمكن إعادة فتح العملاء المتوقعين المحولين.
+"Can only assign to yourself new, assigned or in process lead.",يمكنك فقط تعيين قائد جديد أو معين أو قيد المعالجة لنفسك.
+Can only close lost opportunities in form view.,يمكن فقط إغلاق الفرص الضائعة في عرض النموذج.
+Can only close lost prospects in form view.,يمكن فقط إغلاق الاحتمالات المفقودة في عرض النموذج.
+Can only convert leads in form view.,يمكن فقط تحويل العملاء المتوقعين في عرض النموذج.
+"Can only convert new, assigned or in process lead.",يمكن فقط تحويل العميل المحتمل الجديد أو المعين أو قيد العملية.
+Can only lose leads in form view.,يمكن أن تفقد العملاء المحتملين فقط في عرض النموذج.
+Cancel,إلغاء
+Cancel this reminder,إلغاء هذا التذكير
+Canceled,ملغي
+Carrier,الناقل
+Cases,حالات
+Catalog,الكتالوج
+Catalog type,نوع الكتالوج
+Catalogs,كتالوجات
+Catalogs type,نوع الكتالوجات
+Categories,التصنيفات
+Category,الفئة
+Characteristics,الخصائص
+Chart,رسم بياني
+Check Duplicate,تحقق من التكرار
+Check duplicate,تحقق من التكرار
+Civility,الكياسة
+Closed Opportunities,الفرص المغلقة
+Closed leads,العملاء المحتملون المغلقون
+Closed lost,مغلق ضائع
+Closed lost opportunity status,حالة الفرصة الضائعة المغلقة
+Closed lost partner status,حالة الشريك المفقود مغلقة
+Closed opportunities,الفرص المغلقة
+Closed prospects,آفاق مغلقة
+Closed win opportunity status,حالة فرصة الفوز المغلقة
+Closed win partner status,حالة شريك الفوز مغلقة
+Closed won,مغلق فاز
+Code,الرمز
+Companies,الشركات
+Company,الشركة
+Company PhoneBook,دليل هاتف الشركة
+Company concerned by the configurations.,الشركة المعنية بالتكوينات.
+Company phoneBook,دليل هاتف الشركة
+Config,التكوين
+Configuration,التهيئة
+Confirm lost reason,تأكيد سبب الضياع
+Contact,جهة اتصال
+Contact PhoneBook,دليل هاتف الاتصال
+Contact details,تفاصيل الاتصال
+Contact function,وظيفة الاتصال
+Contact list,قائمة جهات الاتصال
+Contact name,اسم جهة الاتصال
+Contacts,جهات الاتصال
+Convert,تحويل
+Convert lead,تحويل العميل المحتمل
+Convert lead (${ fullName }),تحويل العميل المحتمل (${ fullName })
+Convert lead into contact,تحويل العميل المحتمل إلى جهة اتصال
+Convert lead into partner,تحويل العميل المحتمل إلى شريك
+Converted,تم التحويل
+Converted lead status,حالة العميل المحتمل المُحوَّل
+Corporate partner,شريك تجاري
+Corporate partner fidelity,إخلاص شريك الشركة
+Corporate partner monitoring,مراقبة شركاء الشركات
+Corporate partner since,شريك تجاري منذ
+Corporate partner work domain,مجال عمل الشريك المؤسسي
+Countries,الدول
+Country,الدولة
+Create a call,قم بإجراء مكالمة
+Create a meeting,إنشاء اجتماع
+Create a new reminder,إنشاء تذكير جديد
+Create a note,إنشاء ملاحظة
+Create a quotation,إنشاء عرض أسعار
+Create a task,إنشاء مهمة
+Create an email,إنشاء بريد إلكتروني
+Create event,إنشاء حدث
+Create from Sirene API,إنشاء من Sirene API
+Create new contact,إنشاء جهة اتصال جديدة
+Create new partner,إنشاء شريك جديد
+Create opportunity,خلق فرصة
+Create opportunity (${ fullName }),خلق فرصة (${ fullName })
+Create order (${ fullName }),إنشاء الطلب (${ fullName })
+Create purchase quotation,إنشاء عرض أسعار الشراء
+Create sale quotation,إنشاء عرض أسعار بيع
+Created by,تم إنشاؤها بواسطة
+Created leads by industry sector,تم إنشاء عملاء محتملين حسب قطاع الصناعة
+Created leads per month,العملاء المتوقعون الذين تم إنشاؤهم شهريًا
+Created on,تم الإنشاء بتاريخ
+Creation date,تاريخ الإنشاء
+Crm Reporting type is missing!,نوع تقارير Crm مفقود!
+Crm batch,دفعة إدارة علاقات العملاء
+Crm batch filters,مرشحات دفعة CRM
+Crm reporting,تقارير إدارة علاقات العملاء
+Currency,العملة
+Custom status,الحالة المخصصة
+Custom types,أنواع مخصصة
+Customer,عميل
+Customer / Prospect,العميل / العميل المحتمل
+Customer Description,وصف العميل
+Customer fixed phone,هاتف العميل الثابت
+Customer follow-up,متابعة العملاء
+Customer mobile phone,الهاتف المحمول للعميل
+Customer name,اسم العميل
+Customer recovery,استرداد العملاء
+Customers,العملاء
+Daily,يوميا
+Daily team call summary by user,ملخص يومي لمكالمة الفريق حسب المستخدم
+Dashboard,لوحة المؤشرات والتحكم
+Date,التاريخ
+Day of month,يوم من الشهر
+Day of week,يوم من الأسبوع
+Days,أيام
+Default lead status,حالة العميل المتوقع الافتراضية
+Default opportunity status,حالة الفرصة الافتراضية
+Default partner status,حالة الشريك الافتراضية
+Default recurring duration (in months),المدة المتكررة الافتراضية (بالشهور)
+Delete all events,حذف كافة الأحداث
+Delete only this event,احذف هذا الحدث فقط
+Delete this and next events,احذف هذا الحدث والأحداث التالية
+Dep./Div.,قسم/شعبة.
+Department,القسم
+Description,الوصف
+Display customer description in opportunity,عرض وصف العميل في الفرصة
+Do not call,لا تتصل
+Do not email,لا ترسل بريدًا إلكترونيًا
+Done,تم
+Duplicate contacts :,جهات اتصال مكررة:
+Duplicate leads :,العملاء المحتملون المكررون :
+Duplicate prospects :,احتمالات مكررة :
+Duplicate records found,تم العثور على سجلات مكررة
+Duration,المدة
+Duration type,نوع المدة
+Email,البريد الإلكتروني
+Email domain to ignore,مجال البريد الإلكتروني المراد تجاهله
+Email template that will be sent for call reminders.,نموذج البريد الإلكتروني الذي سيتم إرساله للتذكير بالمكالمات.
+Email template that will be sent for event reminders.,قالب البريد الإلكتروني الذي سيتم إرساله للتذكير بالحدث.
+Email template that will be sent for meeting date changes.,نموذج البريد الإلكتروني الذي سيتم إرساله لتغيير تاريخ الاجتماع.
+Email template that will be sent for meeting reminders.,نموذج البريد الإلكتروني الذي سيتم إرساله لتذكير الاجتماع.
+Email template that will be sent for task reminders.,قالب البريد الإلكتروني الذي سيتم إرساله لتذكير المهام.
+Email template that will be sent when guests are added to meetings.,قالب البريد الإلكتروني الذي سيتم إرساله عند إضافة الضيوف إلى الاجتماعات.
+Email template that will be sent when guests are removed from meetings.,نموذج البريد الإلكتروني الذي سيتم إرساله عند إزالة الضيوف من الاجتماعات.
+Emails,رسائل البريد الإلكتروني
+Employee,موظف
+Enable corporate partner,تمكين شريك الشركة
+Enable search functionality,تمكين وظيفة البحث
+End,النهاية
+End date,تاريخ الانتهاء
+Enterprise,مشروع
+Enterprise Name,اسم المؤسسة
+Enterprise name,اسم المؤسسة
+Error in lead conversion,خطأ في تحويل العميل المحتمل
+Event,الحدث
+Event Categories,فئات الحدث
+Event Dashboard 1,لوحة معلومات الحدث 1
+Event categories,فئات الأحداث
+Event category,فئة الحدث
+Event configuration categories,فئات تكوين الحدث
+Event filters,مرشحات الأحداث
+Event monitoring,رصد الأحداث
+Event reminder,تذكير بالحدث
+Event reminder %s,تذكير بالحدث %s
+Event reminder batch,دفعة تذكير بالحدث
+Event reminder page,صفحة التذكير بالحدث
+Event reminder template,قالب تذكير بالحدث
+Event reminders,تذكيرات بالحدث
+Event's reminder's generation's reporting :,تقارير جيل تذكير الحدث :
+Events,الأحداث
+Events by saleman,أحداث سالمان
+Events by salesman,أحداث البائع
+Events by team,الأحداث حسب الفريق
+Every %d days,كل %d يوم
+Every %d months the %d,كل %d شهر %d
+Every %d weeks,كل %d أسبوع
+Every %d years the %s,كل %d سنة %s
+Every day,كل يوم
+Every month,كل شهر
+Every month the,كل شهر
+Every week,كل اسبوع
+Every year,كل عام
+Every year the,كل عام
+Expected close date,تاريخ الإغلاق المتوقع
+Expected duration of recurring revenue (in months),المدة المتوقعة للإيرادات المتكررة (بالشهور)
+Factor,العامل
+Fetch limit,حد الجلب
+"Fetch limit for this batch. 0 will not be taken into account. In this case, the value configured in app Base will be used.",حد الجلب لهذه الدفعة. 0 لن تؤخذ في الاعتبار. في هذه الحالة، سيتم استخدام القيمة التي تم تكوينها في قاعدة التطبيق.
+Fidelity,الإخلاص
+Fill from Sirene API,املأ من Sirene API
+First name,الاسم الأول
+Follow up,متابعة
+Follow-up,متابعة
+For all,للجميع
+For me,لي
+Fr,الاب
+Free text,نص حر
+From Date,من التاريخ
+From date,من تاريخ
+Full name,الاسم الكامل
+Function,الدالة
+Gender,الجنس
+General information,معلومات عامة
+Generate CRM configurations,إنشاء تكوينات CRM
+Generate opportunity ?,توليد الفرصة؟
+Groups Assignable,المجموعات القابلة للتخصيص
+Guests,الضيوف
+High,عالية
+Historical Period,الفترة التاريخية
+Hours,ساعات
+"If this box is checked, the content of the description field from a lead or a customer record will be automatically copied to newly created opportunities linked to this lead or customer.",إذا تم تحديد هذا المربع، فسيتم نسخ محتوى حقل الوصف من سجل العميل المتوقع أو العميل تلقائيًا إلى الفرص المنشأة حديثًا والمرتبطة بهذا العميل المتوقع أو العميل.
+Image,صورة
+"In order to make this field working a format is needed, see example: example1.com,example2.fr,example.exemple.com","لكي يعمل هذا الحقل، هناك حاجة إلى تنسيق، راجع المثال: example1.com,example2.fr,example.exemple.com"
+Inbound,وارد
+Industry,صناعة
+Industry Sector,قطاع الصناعة
+Industry sector,قطاع الصناعة
+Industry sectors,قطاعات الصناعة
+Information,معلومات
+Input location please,أدخل الموقع من فضلك
+Internal partner,شريك داخلي
+Is already convert from lead,تم التحويل بالفعل من العميل المتوقع
+Job Title,المسمى الوظيفي
+Key account,الحساب الرئيسي
+Key accounts,الحسابات الرئيسية
+Last event date,تاريخ آخر حدث
+Last name,الاسم الأخير
+Last visit date,تاريخ آخر زيارة
+Lead,عميل محتمل
+Lead Dashboard 1,لوحة القيادة 1
+Lead Scoring,تقييم العملاء المحتملين
+Lead converted,تم تحويل العميل المحتمل
+Lead created,تم إنشاء العميل المتوقع
+Lead filters,تصفية العملاء المحتملين
+Lead not found.,لم يتم العثور على العميل المحتمل.
+Lead scoring,تقييم العملاء المحتملين
+Lead status,حالة العميل المحتمل
+Lead with same domain name,العميل المحتمل بنفس اسم المجال
+Lead.address_information,معلومات عنوان العميل المحتمل
+Lead.company,الشركة
+Lead.email,البريد الإلكتروني
+Lead.header,الترويسة
+Lead.industry,قطاع العميل المحتمل
+Lead.lead_owner,مالك العميل المحتمل
+Lead.name,الاسم
+Lead.phone,العميل المحتمل.الهاتف
+Lead.source,المصدر
+Lead.status,حالة العميل المحتمل
+Lead.title,العنوان
+Leads,العملاء المحتملون
+Leads Source,مصدر العملاء المحتملين
+Leads by Country,العملاء المتوقعون حسب البلد
+Leads by Salesperson by Status,العملاء المتوقعون من قبل مندوب المبيعات حسب الحالة
+Leads by Source,يؤدي حسب المصدر
+Leads by Team by Status,القادة حسب الفريق حسب الحالة
+Leads monitoring,مراقبة العملاء المتوقعين
+Leads status management,إدارة حالة العملاء المحتملين
+Limit Date,تاريخ الحد
+Lose,خسارة
+Loss confirmation,تأكيد الخسارة
+Lost lead status,حالة العميل المحتمل المفقود
+Lost reason,السبب الضائع
+Lost reasons,أسباب ضائعة
+Low,منخفض
+Main Contact,جهة الاتصال الرئيسية
+Main company,الشركة الرئيسية
+Manage catalogs,إدارة الكتالوجات
+Manage recurring opportunities,إدارة الفرص المتكررة
+Manage statuses on prospect partner,إدارة الحالات على الشريك المحتمل
+Manager,مدير
+Mapping,رسم الخرائط
+Mappings,التعيينات
+Marketing,التسويق
+Marketing campaign,حملة تسويقية
+Meeting,لقاء
+Meeting Event (${ fullName }),حدث الاجتماع (${ fullName })
+Meeting Event(${ fullName}),حدث الاجتماع(${ fullName})
+Meeting filters,مرشحات الاجتماع
+Meeting reminder template,نموذج تذكير بالاجتماع
+Meeting's date changed template,تم تغيير قالب تاريخ الاجتماع
+Meeting's guest added template,أضاف ضيف الاجتماع القالب
+Meeting's guest deleted template,تم حذف قالب ضيف الاجتماع
+Meetings,اجتماعات
+Members,الأعضاء
+Memo,مذكرة
+Merge duplicated,دمج المكررة
+Minutes,دقائق
+Mo,مو
+Mobile number,رقم الجوال
+Month,الشهر
+Monthly,شهري
+Months,أشهر
+My Best Open Deals,أفضل صفقاتي المفتوحة
+My CRM events,أحداث CRM الخاصة بي
+My Calendar,التقويم الخاص بي
+My Calls,مكالماتي
+My Closed Opportunities,فرصي المغلقة
+My Current Leads,عملائي المحتملون الحاليون
+My Key accounts,حساباتي الرئيسية
+My Leads,عملائي المحتملون
+My Meetings,اجتماعاتي
+My Open Opportunities,فرصي المفتوحة
+My Opportunities,فرصي
+My Planned Activities,الأنشطة التي خططت لها
+My Project Tasks,مهام مشروعي
+My Tasks,مهامي
+My Team Best Open Deals,فريقي أفضل الصفقات المفتوحة
+My Team Calls,مكالمات فريقي
+My Team Closed Opportunities,فريقي الفرص المغلقة
+My Team Key accounts,حسابات فريقي الرئيسية
+My Team Leads,العملاء المحتملون لفريقي
+My Team Meetings,اجتماعات فريقي
+My Team Open Opportunities,فريقي الفرص المفتوحة
+My Today Calls,مكالماتي اليوم
+My Today Tasks,مهامي اليوم
+My Upcoming Meetings,لقاءاتي القادمة
+My Upcoming Tasks,مهامي القادمة
+My events,أحداثي
+My leads,عملائي المحتملون
+My opportunities,فرصتي
+My past events,أحداثي الماضية
+My plan activities,أنشطة خطتي
+My prospects,آفاقي
+My team opportunities,فرص فريقي
+My upcoming events,أحداثي القادمة
+My.Calendar.CRM,My.Calendar.CRM
+Name,الاسم
+Next scheduled event date,تاريخ الحدث المجدول التالي
+Next stage,المرحلة القادمة
+No,لا
+No contact creation,لا يوجد إنشاء جهة اتصال
+Non-participant,غير مشارك
+None,لا شيء
+Normal,عادي
+Note,ملاحظة
+Note Event (${ fullName }),ملاحظة الحدث (${ fullName })
+Note Event(${ fullName}),ملاحظة الحدث(${ fullName})
+Number of employees,عدد الموظفين
+Nurturing,متابعة ورعاية العميل
+OK,موافق
+Office name,اسم المكتب
+Ok,طيب
+Only pdf files are allowed,مسموح فقط بملفات pdf
+Open,فتح
+Open Cases by Agents,القضايا المفتوحة من قبل الوكلاء
+Open Opportunities,الفرص المفتوحة
+Open the list of results,فتح قائمة النتائج
+Opened leads,العملاء المحتملون المفتوحون
+Opened opportunities,الفرص المفتوحة
+Opened prospects,آفاق مفتوحة
+Operation mode,وضع التشغيل
+Opportunities,الفرص البيعية
+Opportunities By Origin By Stage,الفرص حسب الأصل حسب المرحلة
+Opportunities By Partner,الفرص حسب الشريك
+Opportunities By Sale Stage,الفرص حسب مرحلة البيع
+Opportunities By Source,الفرص حسب المصدر
+Opportunities Won By Lead Source,الفرص التي فاز بها المصدر الرئيسي
+Opportunities Won By Salesman,الفرص التي فاز بها البائع
+Opportunities Won By Salesperson,الفرص التي فاز بها مندوب المبيعات
+Opportunities filters,مرشحات الفرص
+Opportunities monitoring,رصد الفرص
+Opportunities status management,إدارة حالة الفرص
+Opportunity,فرصة بيعية
+Opportunity created,تم إنشاء الفرصة
+Opportunity lost,الفرصة الضائعة
+Opportunity scoring,فرصه التهديف
+Opportunity status,حالة الفرصة
+Opportunity statuses,حالات الفرصة
+Opportunity type,نوع الفرصة
+Opportunity types,أنواع الفرص
+Opportunity won,فازت الفرصة
+Optional participant,مشارك اختياري
+Order by state,الترتيب حسب الولاية
+Organization,منظمة
+Other opportunities,فرص أخرى
+Outbound,صادر
+Over 10000,أكثر من 10000
+PDF file,ملف بي دي اف
+Parent event,حدث الوالدين
+Parent lead is missing.,العميل المحتمل الرئيسي مفقود.
+Partner,شريك أعمال
+Partner Type,نوع الشريك
+Partner status,حالة الشريك
+Partner types,أنواع الشركاء
+Partners,شركاء الأعمال
+Past activity,النشاط السابق
+Periodicity must be greater than 0,يجب أن تكون الدورية أكبر من 0
+Phone number,رقم الهاتف
+Picture,صورة
+Pipeline,مسار المبيعات
+Pipeline by Stage and Type,مسار المبيعات حسب المرحلة والنوع
+Pipeline next 90 days,مسار المبيعات للـ 90 يوماً القادمة
+Planned,مخطط
+Please complete the contact address.,يرجى إكمال عنوان الاتصال.
+Please complete the partner address.,يرجى إكمال عنوان الشريك.
+Please configure information for CRM for company %s,الرجاء تكوين معلومات لإدارة علاقات العملاء (CRM) للشركة %s
+Please fill closed lost opportunity status in App CRM configuration.,يرجى ملء حالة الفرصة الضائعة المغلقة في تكوين App CRM.
+Please fill closed lost partner status in App CRM configuration.,يرجى ملء حالة الشريك المفقود والمغلق في تكوين تطبيق CRM.
+Please fill closed win opportunity status in App CRM configuration.,يرجى ملء حالة فرصة الفوز المغلقة في تكوين App CRM.
+Please fill closed win partner status in App CRM configuration.,يرجى ملء حالة الشريك المغلق في تكوين تطبيق CRM.
+Please fill converted lead status in App CRM configuration.,يُرجى ملء حالة العميل المحتمل المحول في تكوين تطبيق CRM.
+Please fill default lead status in App CRM configuration.,يرجى ملء حالة العميل المتوقع الافتراضية في تكوين تطبيق CRM.
+Please fill default opportunity status in App CRM configuration.,يرجى ملء حالة الفرصة الافتراضية في تكوين تطبيق CRM.
+Please fill default partner status in App CRM configuration.,يرجى ملء حالة الشريك الافتراضية في تكوين تطبيق CRM.
+Please fill lost lead status in App CRM configuration.,يُرجى ملء حالة العميل المحتمل المفقود في تكوين تطبيق CRM.
+Please fill sales proposition status in App CRM configuration.,يرجى ملء حالة عرض المبيعات في تكوين تطبيق CRM.
+Please make sure the opportunity was saved before generating the contract.,يرجى التأكد من حفظ الفرصة قبل إنشاء العقد.
+Please save the event before setting the recurrence,الرجاء حفظ الحدث قبل تحديد التكرار
+Please select a customer / prospect.,يرجى اختيار عميل / عميل محتمل.
+Please select a lead,الرجاء تحديد عميل متوقع
+Please set an active company for user %s,الرجاء تعيين شركة نشطة للمستخدم %s
+Present,حاضر
+Primary address,العنوان الأساسي
+Primary key,المفتاح الأساسي
+Primary keys,المفاتيح الأساسية
+Priority,الأولوية
+Probability,الاحتمال
+Probability (%),الاحتمال (%)
+Probability(%) :,الاحتمال(%) :
+Prospect,عميل مرتقب
+Prospect not found.,لم يتم العثور على احتمال.
+Prospect status,حالة الاحتمال
+Prospect won and became client.,فاز Prospect وأصبح العميل.
+Prospects,العملاء المرتقبون
+Prospects status managment,إدارة حالة الآفاق
+Realized,تحقق
+Received emails,رسائل البريد الإلكتروني المستلمة
+Recent activity,الأنشطة الأخيرة
+Recent lost deals,الصفقات الخاسرة الأخيرة
+Recently created opportunities,الفرص التي تم إنشاؤها مؤخرًا
+Recurrence,التكرار
+Recurrence assistant,مساعد التكرار
+Recurrence configuration,تكوين التكرار
+Recurrence name,اسم التكرار
+Recurrent,متكرر
+Recurrent amount,المبلغ المتكرر
+Recurring end date,تاريخ الانتهاء المتكرر
+Recurring start date,تاريخ البدء المتكرر
+Reference,المرجع
+References,المراجع
+Rejection of calls,رفض المكالمات
+Rejection of e-mails,رفض رسائل البريد الإلكتروني
+Related Contacts,جهات الاتصال ذات الصلة
+Related to,ذات صلة ب
+Related to select,ذات صلة لتحديد
+Reminded,تذكير
+Reminder,تذكير
+Reminder Templates,قوالب تذكير
+Reminder(s) treated,تمت معالجة التذكيرات
+Reminders,تذكير
+Repeat every,كرر كل
+Repeat every:,كرر كل:
+Repeat the:,كرر:
+Repetitions number,رقم التكرار
+Reportings,التقارير
+Reports,التقارير
+Requests,طلبات
+Required participant,مطلوب مشارك
+ResearchRequest.title,العنوان
+Reset,إعادة تعيين
+Roles,الأدوار
+Sa,سا
+Sale quotation,عرض سعر مبيعات
+Sale quotations/orders,عروض أسعار / أوامر البيع
+Sales Stage,مرحلة المبيعات
+Sales pipeline follow-up,متابعة مسار المبيعات
+Sales proposition step,خطوة عرض المبيعات
+Sales stage,مرحلة المبيعات
+Salesman,بائع
+Salesperson,مندوب مبيعات
+Salesperson user,مستخدم مندوب مبيعات
+Saving this partner will convert the lead!,سيؤدي حفظ هذا الشريك إلى تحويل العميل المتوقع!
+Schedule Event,جدولة الحدث
+Schedule Event (${ fullName }),جدولة الحدث (${ fullName })
+Schedule Event(${ fullName}),جدولة الحدث(${ fullName})
+Score,نتيجة
+Score :,النتيجة :
+Search,بحث
+Select Contact,حدد جهة الاتصال
+Select Partner,حدد الشريك
+Select existing contact,حدد جهة الاتصال الموجودة
+Select existing partner,حدد الشريك الحالي
+Select partner type to create:,حدد نوع الشريك المراد إنشاؤه:
+Send Email,إرسال البريد الإلكتروني
+Sending date,تاريخ الإرسال
+Sent emails,رسائل البريد الإلكتروني المرسلة
+Sent opportunities,الفرص المرسلة
+Sequence,التسلسل
+Show PDF,عرض PDF
+Show Partner,عرض الشريك
+Show all events,عرض كافة الأحداث
+Show the events,عرض الأحداث
+Show the opportunities,عرض الفرص
+Size,الحجم
+Some user groups,بعض مجموعات المستخدمين
+Source,المصدر
+Source description,وصف المصدر
+Start date,تاريخ البدء
+Status,الحالة
+Status description,وصف الحالة
+Su,سو
+Subcontractor,مقاول من الباطن
+Supplier,مورد
+Tags,العلامات
+Take charge,تولى المسؤولية
+Take in charge,تولي المسؤولية
+Task,مهمة
+Task Event (${ fullName }),حدث المهمة (${ fullName })
+Task Event(${ fullName}),حدث المهمة(${ fullName})
+Task reminder template,قالب تذكير المهمة
+Tasks filters,مرشحات المهام
+Tb Opportunities 1,فرص السل 1
+Tb Opportunities 2,فرص السل 2
+Team,فريق
+Teams,الفرق
+Template,نموذج
+Th,ث
+The end date must be after the start date,يجب أن يكون تاريخ الانتهاء بعد تاريخ البدء
+The number of repetitions must be greater than 0,يجب أن يكون عدد التكرارات أكبر من 0
+There's no configured sequence for opportunities for the company %s,لا يوجد تسلسل مكون للفرص المتاحة للشركة %s
+"These opportunities have been found for the same prospect, would you like to close it (closed losed) ?",تم العثور على هذه الفرص لنفس الاحتمال، هل ترغب في إغلاقها (مغلقة خاسرة)؟
+"These statuses are essential to the operation of the process, they can be renamed but cannot be deleted.",تعتبر هذه الحالات ضرورية لتشغيل العملية، ويمكن إعادة تسميتها ولكن لا يمكن حذفها.
+"This configuration defines whether clients can be assigned to all software users, or only to users belonging to certain groups. These groups can be selected when choosing the Certain user groups option.",يحدد هذا التكوين ما إذا كان يمكن تعيين العملاء لجميع مستخدمي البرنامج، أو فقط للمستخدمين الذين ينتمون إلى مجموعات معينة. يمكن تحديد هذه المجموعات عند اختيار خيار مجموعات مستخدمين معينة.
+"This configuration enables a search tool in the CRM, which allows querying multiple object types (opportunities, leads, events, etc.) using keywords and a configurable mapping.",يتيح هذا التكوين أداة بحث في نظام إدارة علاقات العملاء (CRM)، مما يسمح بالاستعلام عن أنواع كائنات متعددة (الفرص والعملاء المتوقعين والأحداث وما إلى ذلك) باستخدام الكلمات الأساسية والتخطيط القابل للتكوين.
+"This configuration enables a search tool to be activated in CRM, which allows queries to be made on multiple object types (opportunities, leads, events, etc...), using keywords and configurable mapping.",يتيح هذا التكوين تنشيط أداة البحث في CRM، مما يسمح بإجراء الاستعلامات على أنواع كائنات متعددة (الفرص والعملاء المتوقعين والأحداث وما إلى ذلك...)، باستخدام الكلمات الأساسية والتخطيط القابل للتكوين.
+"This configuration enables agency management. These are commercial agencies, allowing leads and customers to be linked to agencies.",يتيح هذا التكوين إدارة الوكالة. هذه هي الوكالات التجارية، مما يسمح بربط العملاء المحتملين والعملاء بالوكالات.
+This configuration enables catalog management. It allows adding sales catalogs in PDF format that can be viewed from the application.,يتيح هذا التكوين إدارة الكتالوج. يسمح بإضافة كتالوجات المبيعات بتنسيق PDF يمكن مشاهدتها من التطبيق.
+This configuration enables catalog management. It allows you to add sales catalogs in pdf format that can be consulted from the application.,يتيح هذا التكوين إدارة الكتالوج. يسمح لك بإضافة كتالوجات المبيعات بتنسيق pdf والتي يمكن الرجوع إليها من التطبيق.
+"This configuration enables corporate partner management in the CRM. It will then be possible to create partner-type third parties, useful when managing a partner network.",يتيح هذا التكوين إدارة شركاء الشركة في CRM. سيكون من الممكن بعد ذلك إنشاء أطراف ثالثة من نوع الشريك، وهو أمر مفيد عند إدارة شبكة شريكة.
+"This configuration enables status management on prospects. It will then be possible to create customizable statuses (which can be created from the Configuration/Custom statuses menu of the CRM) for prospects, allowing prospects to be associated with statuses.",يتيح هذا التكوين إدارة الحالة على العملاء المحتملين. سيكون من الممكن بعد ذلك إنشاء حالات قابلة للتخصيص (والتي يمكن إنشاؤها من قائمة التكوين/الحالات المخصصة في CRM) للعملاء المحتملين، مما يسمح للعملاء المحتملين بربطهم بالحالات.
+This field defines a default value in months for the expected recurring revenue duration on opportunities.,يحدد هذا الحقل قيمة افتراضية بالأشهر لمدة الإيرادات المتكررة المتوقعة للفرص.
+To Date,حتى الآن
+"To convert lead, please use the Convert button.",لتحويل العميل المحتمل، يرجى استخدام زر التحويل.
+"To lose lead, please use the Lose button.",لتسجيل فقدان العميل المحتمل، يرجى استخدام زر الإلغاء/الخسارة.
+Tools,الأدوات
+Tour,جولة
+Tour line,خط الجولة
+Tour line successfully validated.,تم التحقق من صحة خط الجولة بنجاح.
+Tour lines,الخطوط السياحية
+Tour successfully validated.,تم التحقق من صحة الجولة بنجاح.
+Tours,جولات
+Trading name,اسم التداول
+Tu,تو
+Type,النوع
+Type of need,نوع الحاجة
+UID (Calendar),UID (التقويم)
+Unassigned Leads,العملاء المتوقعون غير المعينين
+Unassigned Opportunities,الفرص غير المخصصة
+Unassigned opportunities,الفرص غير المخصصة
+Urgent,عاجل
+User,المستخدم
+User %s does not have an email address configured nor is it linked to a partner with an email address configured.,لم يتم تكوين عنوان بريد إلكتروني للمستخدم %s كما أنه غير مرتبط بشريك تم تكوين عنوان بريد إلكتروني له.
+Validate,التحقق من صحة
+Validated,معتمد / مؤكد
+View itinerary,عرض خط سير الرحلة
+We,نحن
+"We found the following similar leads/contacts/partners in the system, do you still want to create this lead ?",لقد وجدنا العملاء المتوقعين/جهات الاتصال/الشركاء المشابهين التاليين في النظام، هل مازلت ترغب في إنشاء هذا العميل المحتمل؟
+We found these other leads that may be linked to your partner.,لقد وجدنا هؤلاء العملاء المحتملين الآخرين الذين قد يكونون مرتبطين بشريكك.
+Website,الموقع
+Weekly,أسبوعي
+Weeks,أسابيع
+"When enabled, this configuration displays a Recurring tab on opportunities, which allows indicating that a recurring revenue amount is expected for this opportunity, as well as the expected start date and duration of the recurring revenue.",عند التمكين، يعرض هذا التكوين علامة تبويب متكررة في الفرص، مما يسمح بالإشارة إلى مبلغ الإيرادات المتكررة المتوقع لهذه الفرصة، بالإضافة إلى تاريخ البدء المتوقع ومدة الإيرادات المتكررة.
+Won opportunities,الفرص الرابحة
+Work area,منطقة العمل
+Work domain,مجال العمل
+Worst case,أسوأ حالة
+Years,سنوات
+Yes,نعم
+You can define here which status leads are considered as lost. Lead statuses are customizable and can be created from the Configuration/Custom statuses/Lead statuses menu of the CRM.,يمكنك هنا تحديد العملاء المحتملين الذين يتم اعتبارهم مفقودين. حالات العميل المتوقع قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات العميل المتوقع في CRM.
+You can define here which status leads are converted to a third party (customer or prospect). Lead statuses are customizable and can be created from the Configuration/Custom statuses/Lead statuses menu of the CRM.,يمكنك هنا تحديد العملاء المحتملين الذين يتم تحويلهم إلى طرف ثالث (عميل أو عميل محتمل). حالات العميل المتوقع قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات العميل المتوقع في CRM.
+You can define here which status leads are created with. Lead statuses are customizable and can be created from the Configuration/Custom statuses/Lead statuses menu of the CRM.,يمكنك هنا تحديد الحالة التي يتم إنشاء العملاء المتوقعين بها. حالات العميل المتوقع قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات العميل المتوقع في CRM.
+You can define here which status opportunities are considered as lost. Opportunity statuses are customizable and can be created from the Configuration/Custom statuses/Opportunity statuses menu of the CRM.,يمكنك هنا تحديد فرص الحالة التي تعتبر ضائعة. حالات الفرصة قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الفرصة في CRM.
+You can define here which status opportunities are considered as won. Opportunity statuses are customizable and can be created from the Configuration/Custom statuses/Opportunity statuses menu of the CRM.,يمكنك هنا تحديد فرص الحالة التي تعتبر فائزة. حالات الفرصة قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الفرصة في CRM.
+You can define here which status opportunities are created with. Opportunity statuses are customizable and can be created from the Configuration/Custom statuses/Opportunity statuses menu of the CRM.,يمكنك هنا تحديد فرص الحالة التي يتم إنشاؤها بها. حالات الفرصة قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الفرصة في CRM.
+You can define here which status opportunities move to a sales proposition stage. Opportunity statuses are customizable and can be created from the Configuration/Custom statuses/Opportunity statuses menu of the CRM.,يمكنك هنا تحديد فرص الحالة التي تنتقل إلى مرحلة عرض المبيعات. حالات الفرصة قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الفرصة في CRM.
+You can define here which status prospect partners are considered as lost. Prospect statuses are customizable and can be created from the Configuration/Custom statuses/Partner statuses menu of the CRM.,يمكنك هنا تحديد حالة الشركاء المحتملين الذين يعتبرون مفقودين. حالات العميل المحتمل قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الشريك في CRM.
+You can define here which status prospect partners are considered as won. Prospect statuses are customizable and can be created from the Configuration/Custom statuses/Partner statuses menu of the CRM.,يمكنك هنا تحديد حالة الشركاء المحتملين الذين يعتبرون فائزين. حالات العميل المحتمل قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الشريك في CRM.
+You can define here which status prospect partners are created with. Prospect statuses are customizable and can be created from the Configuration/Custom statuses/Partner statuses menu of the CRM.,يمكنك هنا تحديد الحالة التي تم إنشاء الشركاء المحتملين بها. حالات العميل المحتمل قابلة للتخصيص ويمكن إنشاؤها من قائمة التكوين/الحالات المخصصة/حالات الشريك في CRM.
+You don't have the rights to delete this event,ليس لديك الحقوق لحذف هذا الحدث
+You must choose a recurrence type,يجب عليك اختيار نوع التكرار
+You must choose at least one day in the week,يجب عليك اختيار يوم واحد على الأقل في الأسبوع
+agency.name,الاسم
+com.axelor.apps.crm.job.EventReminderJob,com.axelor.apps.crm.job.EventReminderJob
+com.axelor.apps.crm.service.batch.CrmBatchService,com.axelor.apps.crm.service.batch.CrmBatchService
+crm.Partner,شريك أعمال
+crm.toDate,حتى الآن
+every week's day,يوم من كل اسبوع
+everyday,كل يوم
+"fri,",الجمعة،
+"mon,",مون،
+on,على
+partner.manager,مدير
+portal.daily.team.calls.summary.by.user,المستخدم
+"sat,",جلس
+"sun,",الشمس
+"thur,",الخميس،
+tourLine.order,أمر / طلب
+"tues,",الثلاثاء،
+until the,حتى
+value:CRM,القيمة: CRM
+"wed,",الأربعاء،
+whatever@example.com,مهما كان @example.com
+Can only recycle a lost lead.,يمكن فقط إعادة تنشيط العميل المحتمل المفقود.
+Can only start new or assigned lead.,يمكن فقط بدء عميل متوقع جديد أو معين.
+"No template created in CRM configuration for company %s, emails have not been sent",لم يتم إنشاء قالب في تكوين CRM للشركة %s، ولم يتم إرسال رسائل البريد الإلكتروني
+Objective %s is in contradiction with objective's configuration %s,الهدف %s يتعارض مع تكوين الهدف %s
+Objectives' generation's reporting :,تقارير توليد الأهداف :
+Please configure all templates in CRM configuration for company %s,الرجاء تكوين كافة القوالب في تكوين CRM للشركة %s
+Treated objectives reporting,تقرير الأهداف المعالجة
+User %s must have an active company to use templates,يجب أن يكون لدى المستخدم %s شركة نشطة حتى يتمكن من استخدام القوالب
+amount,المبلغ
+To be processed,قيد المعالجة المبدئية
+Marketing qualification,تأهيل التسويق
+Sales qualification,تأهيل المبيعات
+Lost,فرصة ضائعة
+Lead,عميل محتمل
+Leads,العملاء المحتملون
+Enterprise Name,اسم المؤسسة / الشركة
+Lead scoring,تقييم العميل المحتمل

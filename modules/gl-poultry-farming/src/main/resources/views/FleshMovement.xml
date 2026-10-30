@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="flesh-elev-movement-form" title="Breeding displacement" model="com.gl.apps.pf.db.FleshMovement" width="large"
+          onNew="action-set-default-values-flesh-elev-movement">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="status &lt; 1" css="btn-success" colSpan="12" prompt="Are you sure you want to cancel this workforce movement ?" icon="fa-check"
+                                    onClick="save,action-group-flesh-movement-validation"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel movement" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this workforce movement ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="poultry-farming-flesh-elev-movement-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+
+                <panel title="Origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="fromCenter" title="Center" colSpan="4" domain="self.type = 2" required="true" onChange="action-attrs-flesh-movement-get-from-center-empty"/>
+                    <field name="fromBreedingShed" required="true" domain="self.center.type = 2 AND self.status = 2" onChange="action-group-flesh-elev-movement-breeding-changed" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                </panel>
+
+                <panel title="Infos:" colSpan="12" readonlyIf="status != 0">
+                    <field name="dailyAge" readonly="true" colSpan="4"/>
+                    <field name="existingChicksNumber" readonly="true" colSpan="4"/>
+                    <field name="remainingChicksNumber" readonly="true" colSpan="4"/>
+                    <field name="weeklyAge" readonly="true" colSpan="4"/>
+                </panel>
+
+            </panel>
+            <panel-related name="fleshMovementLineListPanel" colSpan="12" field="fleshMovementLineList"
+                           form-view="flesh-elev-movement-line-form" onChange="action-group-flesh-movement-panel-related-changed"
+                           grid-view="flesh-elev-movement-line-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="flesh-elev-movement-grid" title="Breeding displacement" model="com.gl.apps.pf.db.FleshMovement" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date"/>
+        <field name="trackingNumber"/>
+        <field name="breed"/>
+        <field name="fromCenter" title="From center"/>
+        <field name="fromBreedingShed"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-group name="action-group-flesh-elev-movement-breeding-changed">
+        <action name="action-attrs-flesh-movement-get-from-breedingshed-info"/>
+        <action name="action-method-flesh-movement-get-lines-from-breeding"/>
+        <action name="action-attrs-flesh-movement-get-from-breedingshed-empty"/>
+    </action-group>
+
+    <action-record name="action-set-default-values-flesh-elev-movement"
+                   model="com.gl.apps.pf.db.FleshMovement">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-attrs-flesh-movement-get-from-breedingshed-info" model="com.gl.apps.pf.db.FleshMovement">
+        <attribute if="fromBreedingShed != null" name="value" expr="eval: fromBreedingShed.currentBatchNumber" for="trackingNumber"/>
+        <attribute if="fromBreedingShed != null" name="value" expr="eval: fromBreedingShed.breed" for="breed"/>
+        <attribute if="fromBreedingShed != null" name="value" expr="eval: fromBreedingShed.dailyAge" for="dailyAge"/>
+        <attribute if="fromBreedingShed != null" name="value" expr="eval: fromBreedingShed.weeklyAge" for="weeklyAge"/>
+        <attribute if="fromBreedingShed != null" name="value" expr="eval: fromBreedingShed.femalesNumber" for="existingChicksNumber"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-flesh-movement-get-from-breedingshed-empty" model="com.gl.apps.pf.db.FleshMovement">
+        <attribute if="fromBreedingShed == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="fromBreedingShed == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="fromBreedingShed == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="fromBreedingShed == null" name="value" expr="eval: null" for="weeklyAge"/>
+        <attribute if="fromBreedingShed == null" name="value" expr="eval: 0" for="existingChicksNumber"/>
+        <attribute if="fromBreedingShed == null" name="value" expr="eval: null" for="fleshMovementLineList"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-flesh-movement-get-from-center-empty" model="com.gl.apps.pf.db.FleshMovement">
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: null" for="fromBreedingShed"/>
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: null" for="weeklyAge"/>
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: 0" for="existingChicksNumber"/>
+        <attribute if="fromCenter == null || fromCenter != null" name="value" expr="eval: null" for="fleshMovementLineList"/>
+    </action-attrs>
+
+    <action-method name="action-method-flesh-movement-get-lines-from-breeding">
+        <call method="getLinesFromBreedingShed"
+              class="com.gl.apps.pf.web.FleshMovementController"/>
+    </action-method>
+
+    <action-method name="poultry-farming-flesh-movement-validate">
+        <call method="fleshMovementValidate"
+              class="com.gl.apps.pf.web.FleshMovementController"/>
+    </action-method>
+
+    <action-validate name="action-flesh-elev-movement-empty-list">
+        <error if="fleshMovementLineList.isEmpty()" message="You cannot validate ! the breeding movement lines are empty."/>
+    </action-validate>
+
+    <action-group name="action-group-flesh-movement-validation">
+        <action name="action-flesh-elev-movement-empty-list"/>
+        <action name="action-validate-flesh-movement-chicks-number"/>
+        <action name="poultry-farming-flesh-movement-validate"/>
+    </action-group>
+
+    <action-validate name="action-validate-flesh-movement-chicks-number">
+        <error if="fleshMovementLineList != null &amp;&amp; fleshMovementLineList.sum{it->it.toTransferChicksNumber} > existingChicksNumber" message="The total number of moved chicks must be less than the total chicks number."/>
+    </action-validate>
+
+    <action-attrs name="action-flesh-movement-calculate-rest" model="com.gl.apps.pf.db.FleshMovement">
+        <attribute if="fleshMovementLineList" name="value" expr="eval: existingChicksNumber - fleshMovementLineList.sum{it->it.toTransferChicksNumber}" for="remainingChicksNumber"/>
+    </action-attrs>
+
+    <action-group name="action-group-flesh-movement-panel-related-changed">
+        <action name="action-validate-flesh-movement-chicks-number"/>
+        <action name="action-flesh-movement-calculate-rest"/>
+    </action-group>
+
+    <action-method name="poultry-farming-flesh-elev-movement-cancel">
+        <call method="fleshMovementCancel"
+              class="com.gl.apps.pf.web.FleshMovementController"/>
+    </action-method>
+
+</object-views>

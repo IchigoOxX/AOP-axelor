@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="repro-production-technical-sheet-form" title="Technical sheet" model="com.gl.apps.pf.db.ReproTechnicalSheet"
+          onNew="action-record-repro-technical-sheet-set-default-values" editable="true" width="large" readonlyIf="status != 0">
+
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Breeding Shed:" colSpan="10">
+                    <field name="unit" title="Unit" colSpan="4"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit and self.type = 1"/>
+                    <field name="breedingShed" title="Breeding Shed" colSpan="4"
+                           onChange="action-group-repro-technical-sheet-breeding-changed,action-get-previous-repro-technical-sheet-weight"
+                           domain="self.center = :center and self.status = 2"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" onClick="save,action-repro-technical-sheet-validate"/>
+                    </panel>
+                </panel>
+                <panel title="Infos :" colSpan="12">
+                    <panel showTitle="false" colSpan="4">
+                        <field name="breed" readonly="true" colSpan="5"/>
+                        <field name="malesNumber" readonly="true" colSpan="6"/>
+                        <panel showTitle="false" colSpan="10">
+                            <panel showTitle="false" colSpan="6">
+                                <field name="trackingNumber" readonly="true" colSpan="12"/>
+                            </panel>
+                            <panel showTitle="false" colSpan="6">
+                                <field name="femalesNumber" readonly="true" colSpan="6"/>
+                            </panel>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="2">
+                        <field name="dailyAge" readonly="true" colSpan="10"/>
+                        <field name="weeklyAge" colSpan="10"/>
+                    </panel>
+                    <panel showTitle="false" colSpan="3">
+                        <field name="dateTime" readonly="true" colSpan="3"/>
+                        <field name=""/>
+                    </panel>
+                    <panel showTitle="false" colSpan="3">
+                        <field name="reference" readonly="true" colSpan="12"/>
+                        <field name="currentResponsible" readonly="true" colSpan="12"/>
+                    </panel>
+                </panel>
+
+                <panel title="Male chick:" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="maleIsSkipDay" title="Skip day" colSpan="3"/>
+                        <field name="maleSkipDayReason" title="Skip day reason" showIf="maleIsSkipDay == 1" colSpan="3"/>
+                    </panel>
+                    <panel title="Male infos:" colSpan="12">
+                        <field name="maleMortality" title="Mortality" colSpan="3"/>
+                        <field name="maleTriOut" title="Tri Out" colSpan="3"/>
+                        <field name="maleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="maleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="maleWeight" title="Weight" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Male aliment consumption:" showIf="maleIsSkipDay == 0" colSpan="12">
+                        <field name="maleConsumedProduct" title="Product" colSpan="3"
+                               onSelect="action-record-repro-technical-sheet-male-get-center-info"
+                               onChange="action-record-repro-technical-sheet-male-get-product-info"
+                        />
+                        <field name="maleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="maleConsumedProductQty" title="Quantity" colSpan="3"/>
+                    </panel>
+                </panel>
+
+                <panel title="Female chick:" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="femaleIsSkipDay" title="Skip day" colSpan="3"/>
+                        <field name="femaleSkipDayReason" title="Skip day reason" showIf="femaleIsSkipDay == 1" colSpan="3"/>
+                    </panel>
+                    <panel title="Female infos:" colSpan="12">
+                        <field name="femaleMortality" title="Mortality" colSpan="3"/>
+                        <field name="femaleTriOut" title="Tri Out" colSpan="3"/>
+                        <field name="femaleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="femaleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="femaleWeight" title="Weight" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Female aliment consumption:" showIf="femaleIsSkipDay == 0" colSpan="12">
+                        <field name="femaleConsumedProduct" title="Product" colSpan="3"
+                               onSelect="action-record-repro-technical-sheet-female-get-center-info"
+                               onChange="action-record-repro-technical-sheet-female-get-product-info"
+                        />
+                        <field name="femaleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="femaleConsumedProductQty" title="Quantity" colSpan="3"/>
+                    </panel>
+                </panel>
+
+                <panel title="Breeding Shed:" colSpan="12">
+                    <panel colSpan="6">
+                        <panel title="Lighting" colSpan="12">
+                            <field name="lightingDuration" title="Duration" colSpan="6"/>
+                            <field name="intensity" colSpan="6"/>
+                        </panel>
+                        <panel title="Other:" colSpan="12">
+                            <field name="temperatureMin" colSpan="6"/>
+                            <field name="temperatureMax" colSpan="6"/>
+                            <field name="humidityMin" colSpan="6"/>
+                            <field name="humidityMax" colSpan="6"/>
+                            <field name="eggWeight" colSpan="6"/>
+                            <field name="eggMass" colSpan="6"/>
+                            <field name="waterConsumption" colSpan="6"/>
+
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="6">
+                        <field name="note" showTitle="false" colSpan="12" height="320" widget="html"/>
+                    </panel>
+                    <panel-related name="elevReformListPanel" title="Elev reform List" colSpan="12"
+                                   field="elevReformList"
+                                   grid-view="repro-elev-reform-technical-sheet-grid"
+                                   form-view="repro-elev-reform-technical-sheet-form" editable="true"
+                                   canRemove="false" canNew="false"/>
+                    <panel-related name="pharmacyTreatmentLineListPanel" title="Pharmacy treatment List" colSpan="12"
+                                   field="pharmacyTreatmentLineList"
+                                   form-view="pharmacy-treatment-line-treatment-sheet-form"
+                                   grid-view="pharmacy-treatment-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="repro-reproduction-technical-sheet-grid" title="Technical sheet" model="com.gl.apps.pf.db.ReproTechnicalSheet"
+          edit-icon="true">
+        <field name="reference" title="N°"/>
+
+        <field name="unit" title="Unit"/>
+        <field name="center" title="Center"/>
+        <field name="breedingShed" title="Breeding shed"/>
+
+        <field name="dateTime" title="Date"/>
+        <field name="dailyAge">
+            <hilite color="blue" if="$get('dailyAge') >= 0"/>
+        </field>
+        <field name="weeklyAge"/>
+
+        <field name="maleMortality" title="Male mortality">
+            <hilite strong="true" color="red" if="$get('maleMortality') >= 0"/>
+        </field>
+
+        <field name="femaleMortality" title="Female mortality">
+            <hilite strong="true" color="red" if="$get('femaleMortality') >= 0"/>
+        </field>
+        <field name="cumulatedMortality">
+            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>
+        </field>
+        <field name="rateMortality">
+            <hilite color="red" if="$get('rateMortality') >= 0"/>
+        </field>
+
+        <field name="maleTriOut" title="Male tri out">
+            <hilite strong="true" color="red" if="$get('maleTriOut') >= 0"/>
+        </field>
+        <field name="femaleTriOut" title="Female tri out">
+            <hilite strong="true" color="red" if="$get('femaleTriOut') >= 0"/>
+        </field>
+        <field name="maleCumulatedLoss" title="Male cumulated loss">
+            <hilite strong="true" color="red" if="$get('maleCumulatedLoss') >= 0"/>
+        </field>
+        <field name="femaleCumulatedLoss" title="Female cumulated loss">
+            <hilite strong="true" color="red" if="$get('femaleCumulatedLoss') >= 0"/>
+        </field>
+
+        <field name="femaleDisplacementIn" title="Female displacement in"/>
+        <field name="femaleDisplacementOut" title="Female displacement out"/>
+
+
+        <field name="maleDisplacementIn" title="Male displacement in"/>
+        <field name="maleDisplacementOut" title="Male displacement out"/>
+
+        <field name="maleReform" title="Male reform"/>
+        <field name="femaleReform" title="Female reform"/>
+
+        <field name="maleRemainingNumber" title="Male remaining number">
+            <hilite color="blue" if="$get('maleRemainingNumber') >= 0"/>
+        </field>
+        <field name="femaleRemainingNumber" title="Female remaining number">
+            <hilite color="blue" if="$get('femaleRemainingNumber') >= 0"/>
+        </field>
+
+        <field name="maleWeight" title="Male weight">
+            <hilite strong="true" color="red" if="$get('maleWeight') >= 0"/>
+        </field>
+        <field name="femaleWeight" title="Female weight">
+            <hilite strong="true" color="red" if="$get('femaleWeight') >= 0"/>
+        </field>
+
+        <field name="maleConsumedProductQty" title="Male consumed product quantity" >
+            <hilite color="blue" if="$get('maleConsumedProductQty') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQty" title="Female consumed product quantity">
+            <hilite color="blue" if="$get('femaleConsumedProductQty') >= 0"/>
+        </field>
+
+        <field name="maleCoefficientVariation" title="Male CV">
+            <hilite color="blue" if="$get('maleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="femaleCoefficientVariation" title="Female CV">
+            <hilite color="blue" if="$get('femaleCoefficientVariation') >= 0"/>
+        </field>
+
+        <field name="maleConsumedProductQtyByChick" title="Male consumed product quantity by chick">
+            <hilite strong="true" color="red" if="$get('maleConsumedProductQtyByChick') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQtyByChick" title="Female consumed product quantity by chick">
+            <hilite strong="true" color="red" if="$get('femaleConsumedProductQtyByChick') >= 0"/>
+        </field>
+
+        <field name="waterConsumption">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+        <field name="maleWaterConsumptionByAliment" title="Male consumed water by aliment">
+            <hilite color="blue" if="$get('maleWaterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="femaleWaterConsumptionByAliment" title="Female consumed water by aliment">
+            <hilite color="blue" if="$get('femaleWaterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="currentResponsible"/>
+        <field name="medicalTreatment"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+
+    </grid>
+
+    <action-group name="action-group-repro-technical-sheet-breeding-changed">
+        <action name="action-record-repro-technical-sheet-get-breeding-shed-info"/>
+        <action name="action-method-repro-technical-sheet-record-datetime"/>
+        <action name="action-method-repro-get-elev-reform-breeding-shed-changed"/>
+<!--        <action name="action-method-get-elev-movement-breeding-shed-changed"/>-->
+<!--        <action name="action-method-get-elev-movement-line-breeding-shed-changed"/>-->
+<!--        <action name="action-method-get-elev-transfer-breeding-shed-changed"/>-->
+        <action name="action-method-repro-get-pharmacy-treatment-breeding-shed-changed"/>
+    </action-group>
+
+
+    <action-attrs name="action-record-repro-technical-sheet-get-breeding-shed-info"
+                  model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="breedingShed != null" for="trackingNumber" name="value"
+                   expr="eval: breedingShed.currentBatchNumber"/>
+        <attribute if="breedingShed != null" for="breed" name="value"
+                   expr="eval: breedingShed.breed"/>
+        <attribute if="breedingShed != null" for="malesNumber" name="value"
+                   expr="eval: breedingShed.malesNumber"/>
+        <attribute if="breedingShed != null" for="femalesNumber" name="value"
+                   expr="eval: breedingShed.femalesNumber"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-record-repro-technical-sheet-male-get-center-info" model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="center != null" name="domain" expr="eval:&quot;self.productCategory.id = ${center.associatedProductType.id} AND self.dtype = 'Product'&quot;" for="maleConsumedProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-repro-technical-sheet-male-get-product-info"
+                  model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="maleConsumedProduct != null" for="maleConsumedProductUnit" name="value"
+                   expr="eval: maleConsumedProduct.unit"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-record-repro-technical-sheet-female-get-center-info" model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="center != null" name="domain" expr="eval:&quot;self.productCategory.id = ${center.associatedProductType.id} AND self.dtype = 'Product'&quot;" for="femaleConsumedProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-repro-technical-sheet-female-get-product-info"
+                  model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="femaleConsumedProduct != null" for="femaleConsumedProductUnit" name="value"
+                   expr="eval: femaleConsumedProduct.unit"/>
+    </action-attrs>
+
+    <action-method name="action-method-repro-technical-sheet-record-datetime">
+        <call method="getDateReproTechnicalSheet"
+              class="com.gl.apps.pf.web.ReproTechnicalSheetController"/>
+    </action-method>
+    <action-method name="action-repro-technical-sheet-validate">
+        <call method="reproTechnicalSheetValidate"
+              class="com.gl.apps.pf.web.ReproTechnicalSheetController"/>
+    </action-method>
+
+    <action-attrs name="action-record-repro-technical-sheet-set-default-values"
+                  model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="_bs != null" for="breedingShed" name="value"
+                   expr="eval: _bs"/>
+        <attribute if="_bs != null" for="unit" name="value"
+                   expr="eval: _bs.unit"/>
+        <attribute if="_bs != null" for="center" name="value"
+                   expr="eval: _bs.center"/>
+
+    </action-attrs>
+
+    <action-attrs name="action-get-previous-repro-technical-sheet-weight" model="com.gl.apps.pf.db.ReproTechnicalSheet">
+        <attribute if="previousTechnicalSheet != null" for="maleWeight" name="value"
+                   expr="eval: previousTechnicalSheet.maleWeight"/>
+        <attribute if="previousTechnicalSheet != null" for="femaleWeight" name="value"
+                   expr="eval: previousTechnicalSheet.femaleWeight"/>
+    </action-attrs>
+
+    <action-method name="action-method-repro-get-elev-reform-breeding-shed-changed">
+        <call method="getReproElevReformList"
+              class="com.gl.apps.pf.web.ReproTechnicalSheetController"/>
+    </action-method>
+    <action-method name="action-method-repro-get-pharmacy-treatment-breeding-shed-changed">
+        <call method="getPharmacyTreatmentsLineList"
+              class="com.gl.apps.pf.web.ReproTechnicalSheetController"/>
+    </action-method>
+
+</object-views>

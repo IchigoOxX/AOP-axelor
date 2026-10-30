@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="tax-form-id" name="tax-form" title="Tax" model="com.axelor.apps.account.db.Tax" width="large" extension="true">
+
+        <extend target="//panel-related[@name='accountManagementListPanel']">
+            <attribute name="onChange" value="action-validate-tax-account-management-list"/>
+        </extend>
+
+    </form>
+    <action-validate name="action-validate-tax-account-management-list">
+        <error if="accountManagementList &amp;&amp; __this__.id != null &amp;&amp; accountManagementList.groupBy{it.company}.findAll{it.value.size() > 1}.size() > 0"
+               message="The company must have just 1 accounting configuration."/>
+    </action-validate>
+
+</object-views>
+
+
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<form name="status-incubateur-escoires-form" title="Status incubateur et escoires"
+    model="com.gl.apps.pf.db.Incubator" editable="false" width="large"
+    canNew="false" canEdit="false" canSave="false" canDelete="false" canArchive="false"
+    canCopy="false" canAttach="false">
+    <panel title="Incubators et Hatcher" name="stockPanel" colSpan="10" itemSpan="2">
+      <button if-module="axelor-poultry-farming" name="myIncubatorBtn" title="Incubators"
+        css="img-button client-img-menu btn-default" icon="img/128px/app-project.png"
+        onClick="poultry.farming.status.incubateurs"/>
+      <button if-module="axelor-poultry-farming" name="myHatcherBtn" title="Hatchers"
+        css="img-button client-img-menu btn-default" icon="img/128px/app-invoice.png"
+        onClick="poultry.farming.status.hatchers"/>
+    </panel>
+
+    <panel-mail name="mailsPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+
+  <action-view name="poultry.farming.status.incubateurs"
+    model="com.gl.apps.pf.db.Incubator" title="Incubateurs">
+    <view name="incubator-cards" type="cards"/>
+    <view name="incubator-grid" type="grid"/>
+    <view name="incubator-form" type="form"/>
+  </action-view>
+
+  <action-view name="poultry.farming.status.hatchers"
+    model="com.gl.apps.pf.db.Hatcher" title="Hatchers">
+    <view name="hatcher-cards" type="cards"/>
+    <view name="hatcher-grid" type="grid"/>
+    <view name="hatcher-form" type="form"/>
+  </action-view>
+
+
+</object-views>

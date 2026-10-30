@@ -1,0 +1,22 @@
+plugins {
+	id 'com.axelor.app'
+}
+
+apply from: "../version.gradle"
+
+apply {
+	version = openSuiteVersion
+}
+
+axelor {
+    title "Livestock & Cattle Farming Management System"
+    description "Comprehensive Livestock, Cattle, Dairy and Feedlot Management"
+}
+
+dependencies {
+	api project(":modules:axelor-supplychain")
+	api project(":modules:axelor-contract")
+	api project(":modules:axelor-fleet")
+	implementation project(path: ':modules:axelor-production')
+}
+

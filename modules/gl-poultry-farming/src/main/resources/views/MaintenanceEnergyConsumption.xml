@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="maintenance-energy-consumption-grid" title="Energy consumption" model="com.gl.apps.pf.db.MaintenanceEnergyConsumption"
+          edit-icon="true">
+        <field name="reference"/>
+        <field name="dateTime"/>
+        <field name="product"/>
+        <field name="qty"/>
+        <field name="periodOfUse"/>
+        <field name="frequencyOfUse"/>
+        <field name="status" title="Status">
+            <hilite background="cyan" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+        </field>
+    </grid>
+
+    <form name="maintenance-energy-consumption-form" title="Energy consumption" model="com.gl.apps.pf.db.MaintenanceEnergyConsumption" onNew="action-set-default-date-maintenance-energy-consumption">
+        <panel title="Energy consumption sheet" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <field name="reference" title="Reference" colSpan="4"/>
+                <field name="dateTime" title="Date" colSpan="4"/>
+                <field name="dispatchStock" colSpan="4"/>
+                    <panel title="Product: " colSpan="12">
+                        <field name="product" domain="self.productCategory.name= 'Energy  product'" title="Product" colSpan="3" onChange="action-maintenance-energy-consumption-product-changed"/>
+                        <field name="unit" colSpan="3" readonly="true"/>
+                        <field name="periodOfUse" colSpan="3"/>
+                        <field name="frequencyOfUse" colSpan="3"/>
+
+                        <field name="qty" colSpan="3" onChange="action-maintenance-energy-consumption-qty-changed"/>
+                        <field name="salePrice" colSpan="3" readonly="true"/>
+                        <field name="totalAmountConsumption" colSpan="3" readonly="true"/>
+                    </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validerBtn" title="Validate" showIf="status &lt; 1" prompt="Are you sure you want to validate this energy consumption ?" icon="fa-check" colSpan="12" onClick="save,action-maintenance-energy-consumption-validate"/>
+                </panel>
+            </panel>
+        </panel>
+
+        <panel title="Responsible" showTitle="false" colSpan="10">
+            <panel-related title="Responsible" colSpan="50" css="center" field="responsibles"
+                           form-view="user-maintenance-energy-consumption-form"
+                           grid-view="user-maintenance-energy-consumption-grid"
+                           canSelect="true" canNew="false" canEdit="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+    <form name="user-maintenance-energy-consumption-form" title="User" model="com.axelor.auth.db.User">
+        <panel name="stepOverviewPanel" title="Overview" colSpan="12">
+            <field name="name" placeholder="user name"/>
+            <field name="code" placeholder="login name"/>
+            <field name="group" placeholder="user group"/>
+            <field name="email" showIf="!$readonly() || ($readonly() &amp;&amp; email != null)" widget="Email"/>
+            <field name="activeCompany" form-view="company-form" grid-view="company-grid"/>
+        </panel>
+    </form>
+
+    <grid name="user-maintenance-energy-consumption-grid" title="Users list"
+          model="com.axelor.auth.db.User" edit-icon="true">
+        <field name="name"/>
+        <field name="fullName"/>
+        <field name="activeCompany" form-view="company-form" grid-view="company-grid"/>
+        <field name="group" form-view="group-form" grid-view="group-grid"/>
+        <field name="blocked"/>
+        <field name="activateOn"/>
+        <field name="expiresOn"/>
+    </grid>
+
+    <action-attrs name="action-maintenance-energy-consumption-product-changed" model="com.gl.apps.pf.db.MaintenanceEnergyConsumption">
+        <attribute if="product != null" name="value" expr="eval: product.unit" for="unit"/>
+        <attribute if="product != null" name="value" expr="eval: product.salePrice" for="salePrice"/>
+    </action-attrs>
+
+    <action-attrs name="action-maintenance-energy-consumption-qty-changed" model="com.gl.apps.pf.db.MaintenanceEnergyConsumption">
+        <attribute if="qty != 0" name="value" expr="eval: salePrice * qty" for="totalAmountConsumption"/>
+    </action-attrs>
+
+    <action-record name="action-set-default-date-maintenance-energy-consumption" model="com.gl.apps.pf.db.MaintenanceEnergyConsumption" >
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-method name="action-maintenance-energy-consumption-validate">
+        <call class="com.gl.apps.pf.web.MaintenanceEnergyConsumptionController" method="MaintenanceEnergyConsumptionValidate"/>
+    </action-method>
+
+</object-views>

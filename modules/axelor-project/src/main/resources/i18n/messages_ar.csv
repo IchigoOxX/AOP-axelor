@@ -1,0 +1,529 @@
+%s : You must configure Project module for company %s,%s : يجب عليك تكوين وحدة المشروع للشركة %s
+%s project,مشروع %s
+%s sprints have been generated,تم إنشاء %s دورات متكررة
+* %s project task updated,* تم تحديث مهمة المشروع %s
+0 %,0%
+10 %,10%
+100 %,100%
+20 %,20%
+30 %,30%
+40 %,40%
+50 %,50%
+60 %,60%
+70 %,70%
+80 %,80%
+90 %,90%
+<< Previous,<< السابق
+<br/>Example:<br/>Start unit : day<br/>End unit : hour<br/><strong>$Project.numberHoursADay$</strong><br/>,<br/>مثال:<br/>وحدة البداية: يوم<br/>وحدة النهاية: ساعة<br/><strong>$Project.numberHoursADay$</strong><br/>
+Action,العمل
+Actions,الإجراءات
+Activate a field on a project task where you can record the task progress in %.,قم بتنشيط حقل في مهمة مشروع حيث يمكنك تسجيل تقدم المهمة بنسبة %.
+"Activate a panel tab, within a project-task-form related to the project, allowing to replicate a task following a date frequency defined by the user.",قم بتنشيط علامة تبويب اللوحة، ضمن نموذج مهمة المشروع المتعلق بالمشروع، مما يسمح بتكرار مهمة بعد تكرار التاريخ المحدد من قبل المستخدم.
+"Activates a Kanban view with tasks of the project categorized by category, accessible via the Tools menu.",تنشيط طريقة عرض كانبان مع تصنيف مهام المشروع حسب الفئة، ويمكن الوصول إليها عبر قائمة الأدوات.
+"Activates a Kanban view with tasks of the project categorized by status, accessible via the Tools menu.",تنشيط عرض كانبان بمهام المشروع المصنفة حسب الحالة، ويمكن الوصول إليها عبر قائمة الأدوات.
+"Activates a Planification tab on the project-task-form allowing to record planned times on tasks, in order to compare with actual spent time.",تنشيط علامة تبويب التخطيط في نموذج مهمة المشروع مما يسمح بتسجيل الأوقات المخططة للمهام، من أجل مقارنتها بالوقت الفعلي المستغرق.
+"Activates a calendar view with tasks of the project categorized by category, accessible via the Tools menu.",يقوم بتنشيط عرض التقويم بمهام المشروع المصنفة حسب الفئة، ويمكن الوصول إليها عبر قائمة الأدوات.
+"Activates a calendar view with tasks of the project categorized by status, accessible via the Tools menu.",يقوم بتنشيط عرض التقويم بمهام المشروع المصنفة حسب الحالة، ويمكن الوصول إليها عبر قائمة الأدوات.
+"Activates a calendar view with tasks of the project categorized by user, accessible via the Tools menu.",يقوم بتنشيط عرض التقويم بمهام المشروع المصنفة بواسطة المستخدم، ويمكن الوصول إليها عبر قائمة الأدوات.
+Activates a gantt view of the project accessible via the Tools menu.,تنشيط عرض جانت للمشروع الذي يمكن الوصول إليه عبر قائمة الأدوات.
+Active project,مشروع نشط
+Active project changed to %s,تم تغيير المشروع النشط إلى %s
+Active sprint,سباق نشط
+Activities,أنشطة
+Activity,النشاط
+Add a new check list item,إضافة عنصر جديد لقائمة التحقق
+Add a new item,إضافة عنصر جديد
+Add status,أضف الحالة
+Add sub tasks,إضافة مهام فرعية
+All,الكل
+All my observed tasks,جميع المهام التي قمت بمراقبتها
+All my tasks,كل مهامي
+All open tasks,جميع المهام المفتوحة
+All sprints,جميع سباقات السرعة
+All tasks,جميع المهام
+All tasks (tree),جميع المهام (شجرة)
+All tasks assigned to others,جميع المهام المسندة إلى الآخرين
+Allocated,مخصص
+Allocation period,فترة التخصيص
+Allow task to be assigned to any user?,هل تريد السماح بتعيين المهمة لأي مستخدم؟
+"Allow to allocate Time spent from the project-task-form. A readonly logtimes paneltab will also appear on the related project-form. Note: if you use the HR timesheets, these log times will allocate HR Timesheet for the concerned colleague.",السماح بتخصيص الوقت المستغرق من نموذج مهمة المشروع. ستظهر أيضًا علامة تبويب لوحة أوقات التسجيل للقراءة فقط في نموذج المشروع ذي الصلة. ملاحظة: إذا كنت تستخدم سجلات الدوام للموارد البشرية، فستقوم أوقات السجل هذه بتخصيص سجل الدوام للموارد البشرية للزميل المعني.
+"Allow to open discussion topic, where project members can interact, accessible via the the Tools menu.",السماح بفتح موضوع المناقشة، حيث يمكن لأعضاء المشروع التفاعل، ويمكن الوصول إليه عبر قائمة الأدوات.
+Allows defining a default site that will be linked to projects.,يسمح بتحديد الموقع الافتراضي الذي سيتم ربطه بالمشاريع.
+App,التطبيق
+App base,قاعدة التطبيقات
+App customized fields,الحقول المخصصة للتطبيق
+App json,التطبيق جيسون
+App project,مشروع التطبيق
+Apply modifications to next tasks,تطبيق التعديلات على المهام التالية
+Are you sure you want to delete this task ?,هل أنت متأكد أنك تريد حذف هذه المهمة؟
+Assign the task to a user.The user has to be created beforehand and recorded as a member of the selected project (in the membersPanelTab of the project).,قم بتعيين المهمة إلى مستخدم. يجب إنشاء المستخدم مسبقًا وتسجيله كعضو في المشروع المحدد (في علامة التبويب memberPanel الخاصة بالمشروع).
+Assigned to,مخصص لـ
+AssignedTo,تم التعيين إلى
+Attrs,اترز
+Backlog sprint,سباق متراكم
+Batches,دفعات
+Batchs,دفعات
+Book resource,مصدر الكتاب
+Budgeted time,الوقت المحدد في الميزانية
+Business project,مشروع تجاري
+By enabling this option you will be able to manage task statuses by task category. You will thus be able to have different statuses on your tasks depending on their category.,من خلال تمكين هذا الخيار، ستتمكن من إدارة حالات المهام حسب فئة المهمة. ستتمكن بالتالي من الحصول على حالات مختلفة لمهامك اعتمادًا على فئتها.
+Calendar,التقويم
+Cancel,إلغاء
+Canceled project status,حالة المشروع الملغاة
+Categories?,فئات؟
+Category,الفئة
+Category customized fields,حقول مخصصة للفئة
+Category json,الفئة جيسون
+Characteristics,الخصائص
+Check availability of resources,التحقق من توافر الموارد
+Check list,قائمة التحقق
+Check list item,تحقق من عنصر القائمة
+Check list template,قالب قائمة التحقق
+Check list templates,التحقق من قوالب القائمة
+Close topic,إغلاق الموضوع
+Closed,مغلق
+Code,الرمز
+Color,اللون
+Company,الشركة
+Company for which the configurations are set.,الشركة التي تم تعيين التكوينات لها.
+Completed,مكتمل
+Completed ?,مكتمل ؟
+Completed project status,حالة المشروع المكتمل
+Completed task status,حالة المهمة المكتملة
+Configuration,التهيئة
+Configurations,التكوينات
+Content,المحتوى
+Create project from this template,قم بإنشاء مشروع من هذا القالب
+Created by,تم إنشاؤها بواسطة
+Created on,تم الإنشاء بتاريخ
+Currency,العملة
+Custom field,حقل مخصص
+Custom fields,الحقول المخصصة
+Custom fields management,إدارة الحقول المخصصة
+Customer,عميل
+Customer Contact,الاتصال بالعملاء
+Customized,حسب الطلب
+Customized fields,الحقول المخصصة
+Daily planned charge in a month in an average per employee,الرسوم اليومية المخططة خلال شهر في المتوسط ​​لكل موظف
+Daily planned charge in a month per employee,الرسوم اليومية المخططة في الشهر لكل موظف
+Daily planned charge in a month per project,الرسوم اليومية المخططة خلال شهر لكل مشروع
+Dashboard,لوحة المؤشرات والتحكم
+Date,التاريخ
+Date or frequency changed,تم تغيير التاريخ أو التكرار
+Deadline,الموعد النهائي
+Deadline Today,الموعد النهائي اليوم
+Deadline Tomorrow,الموعد النهائي غدا
+Deadline Yesterday,الموعد النهائي أمس
+Decimal,عشري
+Default priorities,الأولويات الافتراضية
+Default progress,التقدم الافتراضي
+Default sites,المواقع الافتراضية
+Default task status,حالة المهمة الافتراضية
+Delay to start (Hours),تأخير البدء (ساعات)
+Delete,حذف
+Description,الوصف
+Details,التفاصيل
+Due Date,تاريخ الاستحقاق
+Duration (Hours),المدة (ساعات)
+Duration hours,المدة
+Employee,موظف
+Empty opposite project task link type,نوع ارتباط مهمة المشروع المقابل فارغ
+Empty the opposite link type,إفراغ نوع الارتباط المعاكس
+Enable Gantt view,تمكين عرض جانت
+Enable Kanban view per category,تمكين عرض كانبان لكل فئة
+Enable Kanban view per status,تمكين طريقة عرض كانبان لكل حالة
+Enable calendar view per category,تمكين عرض التقويم لكل فئة
+Enable calendar view per status,تمكين عرض التقويم لكل حالة
+Enable calendar view per user,تمكين عرض التقويم لكل مستخدم
+Enable per project task sequence,تمكين تسلسل المهام لكل مشروع
+Enable site management for project,تمكين إدارة الموقع للمشروع
+Enable status management by task category,تمكين إدارة الحالة حسب فئة المهمة
+Enable status progress by category.,تمكين تقدم الحالة حسب الفئة.
+Enable task progress by status,تمكين تقدم المهمة حسب الحالة
+End date,تاريخ الانتهاء
+Estimated time,الوقت المقدر
+Estimated time (in hours),الوقت المقدر (بالساعات)
+Extends members from parent,يمتد الأعضاء من الأصل
+Favourite project users,مستخدمي المشروع المفضلين
+Favourite projects,المشاريع المفضلة
+Finish,انتهى
+Finish tasks to finish,إنهاء المهام لإنهاء
+Finish tasks to start,إنهاء المهام للبدء
+First,أولا
+Folder,المجلد
+Follow-up,متابعة
+Followers,متابعون
+Frequency,التردد
+Frequency end date cannot be before task date.,لا يمكن أن يكون تاريخ انتهاء التكرار قبل تاريخ المهمة.
+From,من
+From Date,من التاريخ
+From date,من تاريخ
+"Full name could not be computed, please check the groovy formula.",لا يمكن حساب الاسم الكامل، يرجى التحقق من الصيغة الرائعة.
+Full name groovy formula,الاسم الكامل صيغة رائعة
+Gantt,جانت
+Gantt with project,جانت مع المشروع
+Gantt with user,جانت مع المستخدم
+Gen proj type per order line,نوع المشروع العام لكل سطر طلب
+General configuration,التكوين العام
+Generate,توليد
+Generate a backlog sprint,إنشاء سباق سريع متراكم
+Generate a new link,قم بإنشاء رابط جديد
+Generate a project task link type,قم بإنشاء نوع ارتباط مهمة مشروع
+Generate check list,إنشاء قائمة التحقق
+Generate new opposite link type,إنشاء نوع رابط معاكس جديد
+Generate opposite link type,إنشاء نوع الارتباط المعاكس
+Generate project configurations,إنشاء تكوينات المشروع
+Generate sequence for project,إنشاء تسلسل للمشروع
+Generate sprints,توليد سباقات السرعة
+Generated project,المشروع المولد
+High,عالية
+"If this configuration is enabled, when reserving a resource, a check of its availability at the requested time slot will be performed.",إذا تم تمكين هذا التكوين، فعند حجز أحد الموارد، سيتم إجراء فحص لتوافره في الفترة الزمنية المطلوبة.
+Image,صورة
+Import all members,استيراد كافة الأعضاء
+Imputable,غير قابل للاحتساب
+In production,في الإنتاج
+In progress,قيد التنفيذ
+In test,في الاختبار
+Include sub projects,تضمين المشاريع الفرعية
+Information,معلومات
+Integer,عدد صحيح
+Invalid date,التاريخ غير صالح
+Invalid model name,اسم الطراز غير صالح
+Invoicing unit,وحدة الفواتير
+Is unique task for multiple quantity,هي مهمة فريدة لكمية متعددة
+Items,العناصر
+Last status,الحالة الأخيرة
+Last updated on,آخر تحديث بتاريخ
+Level,المستوى
+Link type,نوع الرابط
+List btn,قائمة ب.ت
+Log Times,أوقات السجل
+Log time,وقت الدخول
+Low,منخفض
+Manage by category,الإدارة حسب الفئة
+Manage by project,الإدارة حسب المشروع
+Manage opposite link type,إدارة نوع الارتباط المعاكس
+Manage relations,إدارة العلاقات
+Manage sprints,إدارة سباقات السرعة
+Members,الأعضاء
+Membres,الأعضاء
+Message,الرسالة
+MultiSelect,تحديد متعدد
+My observed tasks,المهام المرصودة
+My open tasks,مهامي المفتوحة
+My project,مشروعي
+My projects,مشاريعي
+My tasks,مهامي
+My tasks due,واجباتي واجبة
+My tasks to do,المهام التي يجب علي القيام بها
+My today planning,تخطيطي اليوم
+My topics,مواضيعي
+My upcoming planning,تخطيطي القادم
+Name,الاسم
+New line,سطر جديد
+New topics,مواضيع جديدة
+Next >>,التالي >>
+Next project sequence,تسلسل المشروع التالي
+Next task,المهمة التالية
+No data to display,لا توجد بيانات لعرضها
+No status management,لا توجد إدارة الحالة
+None,لا شيء
+Normal,عادي
+Not specified,غير محدد
+Notes,ملاحظات
+Number of days in a sprint,عدد أيام السباق
+Number of hours in a day,عدد الساعات في اليوم
+Old budgeted time,الوقت المدرج في الميزانية القديمة
+Old sprint,السباق القديم
+On hold,في الانتظار
+Only root level project check list items can have children.,يمكن أن تحتوي عناصر قائمة التحقق من مستوى الجذر فقط على عناصر فرعية.
+Open,فتح
+Open gantt,فتح جانت
+Open projects tree,شجرة المشاريع المفتوحة
+Open task btn,فتح المهمة بتن
+Open tasks list,فتح قائمة المهام
+Opposite link type,نوع الارتباط المعاكس
+Opposite project task link type,مقابل نوع ارتباط مهمة المشروع
+Order by state,الترتيب حسب الولاية
+Other customized fields,حقول مخصصة أخرى
+Overview,نظرة عامة
+Parent,الوالد
+Parent project,المشروع الأم
+Parent task,مهمة الوالدين
+Per category calendar,لكل فئة تقويم
+Per category kanban,لكل فئة كانبان
+Per status calendar,حسب تقويم الحالة
+Per status kanban,لكل حالة كانبان
+Per user calendar,تقويم لكل مستخدم
+Period,الفترة المالية
+Phase by line,مرحلة بسطر
+Planned Time Planning,تخطيط الوقت المخطط
+Planned charge,الرسوم المخططة
+Planned progress,التقدم المخطط
+Planned time,الوقت المخطط
+Please check the compute full name groovy formula in project app configuration,يرجى التحقق من صيغة حساب الاسم الكامل الرائعة في تكوين تطبيق المشروع
+Please configure the completed task status in the project config panel.,يرجى تكوين حالة المهمة المكتملة في لوحة تكوين المشروع.
+Please configure the completed task status of the project task category.,يرجى تكوين حالة المهمة المكتملة لفئة مهمة المشروع.
+Please configure the project %s with project task link type %s if you want to create this link.,الرجاء تكوين المشروع %s بنوع ارتباط مهمة المشروع %s إذا كنت تريد إنشاء هذا الارتباط.
+Please fill all dates and the number of days in a sprint with valid values.,يرجى ملء جميع التواريخ وعدد الأيام في السباق بقيم صالحة.
+Please fill canceled project status in App Project configuration.,يرجى ملء حالة المشروع الملغى في تكوين مشروع التطبيق.
+Please fill completed task status in Project configuration.,يرجى ملء حالة المهمة المكتملة في تكوين المشروع.
+Please fill in task date.,يرجى ملء تاريخ المهمة.
+Please fill in the default completion status in the Project app settings.,يرجى ملء حالة الإكمال الافتراضية في إعدادات تطبيق المشروع.
+Please select project,الرجاء تحديد المشروع
+Please select user,الرجاء تحديد المستخدم
+Please set the completed project status in the project configuration.,يرجى ضبط حالة المشروع المكتمل في تكوين المشروع.
+Please set the default number of hours per day in the project configuration.,يرجى تعيين العدد الافتراضي للساعات يوميًا في تكوين المشروع.
+Please set the unit for the project %s.,الرجاء تعيين الوحدة للمشروع %s.
+Please set the unit for the task %s.,الرجاء تعيين الوحدة للمهمة %s.
+Predecessors tasks,المهام السابقة
+Preferences,التفضيلات
+Priorities?,الأولويات؟
+Priority,الأولوية
+Product,منتج
+Production server date,تاريخ خادم الإنتاج
+Progress,التقدم
+Progress by task status,التقدم حسب حالة المهمة
+Project,المشروع
+Project Activities,أنشطة المشروع
+Project Activity,نشاط المشروع
+Project Calendar,تقويم المشروع
+Project Dashboard,لوحة تحكم المشروع
+Project Gantt,مشروع جانت
+Project Label,تسمية المشروع
+Project Phase,مرحلة المشروع
+Project Priority,أولوية المشروع
+Project Task,مهمة المشروع
+Project Task Category,فئة مهمة المشروع
+Project Task Tree,شجرة مهام المشروع
+Project Tasks,مهام المشروع
+Project allocation lines,خطوط تخصيص المشروع
+Project alone,المشروع وحده
+Project and project task must not be chosen together.,يجب عدم اختيار مهمة المشروع والمشروع معًا.
+Project batch,دفعة المشروع
+Project batches,دفعات المشروع
+Project check list item has been successfully updated.,تم تحديث عنصر قائمة التحقق من المشروع بنجاح.
+Project check list item list,قائمة عناصر قائمة التحقق من المشروع
+Project check list template,قالب قائمة التحقق من المشروع
+Project code is already used. Please provide unique code,رمز المشروع مستخدم بالفعل. الرجاء تقديم رمز فريد
+Project config,تكوين المشروع
+Project configurations,تكوينات المشروع
+Project customized fields,الحقول المخصصة للمشروع
+Project dashboard,لوحة تحكم المشروع
+Project fields,مجالات المشروع
+Project filters,مرشحات المشروع
+Project json,مشروع جيسون
+Project management,إدارة المشاريع
+Project planning tasks,مهام تخطيط المشروع
+Project status,حالة المشروع
+Project status management,إدارة حالة المشروع
+Project structure,هيكل المشروع
+Project task,مهمة المشروع
+Project task category,فئة مهمة المشروع
+Project task category filters,مرشحات فئة مهمة المشروع
+Project task filters,مرشحات مهام المشروع
+Project task link,رابط مهمة المشروع
+Project task link type,نوع رابط مهمة المشروع
+Project task linked,مهمة المشروع مرتبطة
+Project task list,قائمة مهام المشروع
+Project task relation,علاقة مهمة المشروع
+Project task relation type,نوع علاقة مهمة المشروع
+Project task relation types,أنواع علاقات مهام المشروع
+Project task relations,علاقات مهام المشروع
+Project task to link,مهمة المشروع للربط
+Project tasks,مهام المشروع
+Project template,قالب المشروع
+Project template filters,مرشحات قالب المشروع
+Project templates,قوالب المشاريع
+Project time unit,الوحدة الزمنية للمشروع
+Project version,نسخة المشروع
+"Project, project task and parent can not be null together.",لا يمكن أن يكون المشروع ومهمة المشروع والأصل خاليًا معًا.
+Project.Resource,المصدر
+Project.version,إصدار المشروع
+Project.versions,إصدارات المشروع
+Project/Business (Project),مشروع/عمل (مشروع)
+Projects,المشاريع
+Projects and resources management,إدارة المشاريع والموارد
+Quantity,الكمية
+Related Tasks,مهام ذات صلة
+Related task,مهمة ذات صلة
+Remove lines,إزالة الخطوط
+Remove status,إزالة الحالة
+Remove task status,إزالة حالة المهمة
+Reporting,تقرير
+Reportings,التقارير
+Reset,إعادة تعيين
+Resource,الموارد
+Resource booking,حجز الموارد
+Resource bookings,حجوزات الموارد
+Resource management,إدارة الموارد
+Resource type,نوع المصدر
+Resource types,أنواع الموارد
+Resources,الموارد
+Roadmap,خريطة الطريق
+Select,حدد
+Select Projects,حدد المشاريع
+Select Users,حدد المستخدمين
+Select an existing project task link type,حدد نوع ارتباط مهمة مشروع موجود
+Select an opposite link type,حدد نوع الارتباط المعاكس
+Select values,حدد القيم
+Sequence,التسلسل
+Serial/batch number,الرقم التسلسلي/الدفعة
+Show sub-projects,عرض المشاريع الفرعية
+Site,الموقع
+Sites,مواقع
+Spent time,الوقت الضائع
+Sprint,سبرينت
+Sprint generator,مولد سبرينت
+Sprints,سباقات السرعة
+Start,ابدأ
+Start date,تاريخ البدء
+Start tasks to finish,ابدأ المهام لتنتهي
+Start tasks to start,ابدأ المهام للبدء
+Status,الحالة
+Status to add,الحالة المراد إضافتها
+Status to remove,الحالة المراد إزالتها
+Stop,توقف
+String,سلسلة
+Sub-Projects,المشاريع الفرعية
+Subject,الموضوع
+Suprojects,المشاريع الفرعية
+Synchronize,مزامنة
+Tags,العلامات
+Take charge,تولى المسؤولية
+Target version,النسخة المستهدفة
+Task,مهمة
+Task %s,المهمة %s
+Task Calendar,تقويم المهام
+Task Tree,شجرة المهام
+Task by line,المهمة حسب السطر
+Task categories,فئات المهام
+Task configuration,تكوين المهمة
+Task date,تاريخ المهمة
+Task deadline,الموعد النهائي للمهمة
+Task duration,مدة المهمة
+Task fields,حقول المهام
+Task parent or children has not been configured correctly.,لم يتم تكوين المهمة الرئيسية أو الفرعية بشكل صحيح.
+Task planning,تخطيط المهام
+Task progress,تقدم المهمة
+Task recurrence,تكرار المهمة
+Task status,حالة المهمة
+Task status management,إدارة حالة المهمة
+Task statuses,حالات المهمة
+Task template,قالب المهمة
+Task template filters,مرشحات قالب المهمة
+Task template list,قائمة قوالب المهام
+Task templates,قوالب المهام
+Task tracking,تتبع المهام
+Tasks,المهام
+Tasks assigned to others,المهام الموكلة إلى الآخرين
+Tasks associated,المهام المرتبطة
+Tasks created by me,المهام التي أنشأتها
+Tasks per sprint,المهام لكل سباق
+Tasks status update completed:,تم الانتهاء من تحديث حالة المهام:
+Tasks to finish before finish,المهام التي يجب الانتهاء منها قبل الانتهاء
+Tasks to start before start,المهام التي يجب أن تبدأ قبل البدء
+Team,فريق
+Technical type,النوع الفني
+Templates,قوالب
+Testing server date,اختبار تاريخ الخادم
+The company %s doesn't have any configured sequence for Project,ليس لدى الشركة %s أي تسلسل مكون للمشروع
+The parent task creates a loop in the task tree.,تقوم المهمة الأصلية بإنشاء حلقة في شجرة المهام.
+The project contains overlapping sprints. Please correct the date ranges.,يحتوي المشروع على سباقات السرعة المتداخلة. الرجاء تصحيح النطاقات الزمنية.
+The selectable projects are those for which the 'Manage via project' option is enabled.,"المشاريع القابلة للتحديد هي تلك التي تم تمكين خيار ""الإدارة عبر المشروع"" لها."
+"The selected statuses will be removed from the allowed status types for these projects and/or categories and, as a result, will no longer be available for associated tasks. In the case of categories, the statuses will only be removed from the tasks if the 'Manage via categories' option is enabled in the project configuration.","ستتم إزالة الحالات المحددة من أنواع الحالات المسموح بها لهذه المشاريع و/أو الفئات، ونتيجة لذلك، لن تكون متاحة للمهام المرتبطة. في حالة الفئات، لن تتم إزالة الحالات من المهام إلا إذا تم تمكين خيار ""الإدارة عبر الفئات"" في تكوين المشروع."
+"The status of project tasks will be defined by the selection chosen. The priority of the statuses displayed is determined first by the category, then by the project.",سيتم تحديد حالة مهام المشروع من خلال التحديد الذي تم اختياره. يتم تحديد أولوية الحالات المعروضة أولاً حسب الفئة، ثم حسب المشروع.
+"The status of project tasks will be defined by the selection chosen. The priority of the statuses displayed is determined first by the category, then by the project. Once a task is linked to the project, the selection can no longer be modified.",سيتم تحديد حالة مهام المشروع من خلال التحديد الذي تم اختياره. يتم تحديد أولوية الحالات المعروضة أولاً حسب الفئة، ثم حسب المشروع. بمجرد ربط المهمة بالمشروع، لم يعد من الممكن تعديل التحديد.
+There is a potential inconsistency between the progression values configured.,يوجد عدم تناسق محتمل بين قيم التقدم التي تم تكوينها.
+This configuration allows changing the name of the Project tab in sale order lines by replacing it with the label defined here.,يسمح هذا التكوين بتغيير اسم علامة تبويب المشروع في بنود أمر البيع عن طريق استبداله بالتسمية المحددة هنا.
+"This configuration enables resource management and reservation (a resource being for example equipment, a room, a car, i.e. elements that can be used and reserved during a project). Dedicated menus appear and a Resources tab appears on projects. It is possible to create different types of resources and to reserve them.",يتيح هذا التكوين إدارة الموارد وحجزها (المورد على سبيل المثال المعدات، أو الغرفة، أو السيارة، أي العناصر التي يمكن استخدامها وحجزها أثناء المشروع). تظهر قوائم مخصصة وتظهر علامة تبويب الموارد في المشاريع. من الممكن إنشاء أنواع مختلفة من الموارد وحجزها.
+This configuration enables the possibility to have a sequence for projects that automatically increments a project number/code.,يتيح هذا التكوين إمكانية الحصول على تسلسل للمشاريع التي تزيد رقم/رمز المشروع تلقائيًا.
+This configuration enables the possibility to have a sequence for tasks that automatically increments a task number.,يتيح هذا التكوين إمكانية الحصول على تسلسل للمهام التي تزيد رقم المهمة تلقائيًا.
+"This feature enables site management for projects, a site representing a physical location whether it is an administrative building, a customer building, a construction site, etc.",تتيح هذه الميزة إدارة الموقع للمشاريع، موقع يمثل موقعًا فعليًا سواء كان مبنى إداري، أو مبنى عملاء، أو موقع بناء، إلخ.
+This formula allows you to define the composition of a project name (fullName) through a groovy formula.,تتيح لك هذه الصيغة تحديد تركيبة اسم المشروع (الاسم الكامل) من خلال صيغة رائعة.
+"This option enables the automatic allocation of progress to project tasks. If enabled, the progress field will be available in task statuses and will change progress when statuses change. The percentage defined by default in statuses will apply to all tasks.",يتيح هذا الخيار التخصيص التلقائي للتقدم لمهام المشروع. في حالة تمكينه، سيكون حقل التقدم متاحًا في حالات المهام وسيقوم بتغيير التقدم عندما تتغير الحالات. سيتم تطبيق النسبة المئوية المحددة افتراضيًا في الحالات على جميع المهام.
+"This option is used to activate the automatic allocation of progress to project tasks via project task category. If this option is enabled, the progress field will be available in the category view and the category will be updated using this data (or the data entered in the status if this is empty).",يُستخدم هذا الخيار لتنشيط التخصيص التلقائي للتقدم لمهام المشروع عبر فئة مهمة المشروع. إذا تم تمكين هذا الخيار، فسيكون حقل التقدم متاحًا في عرض الفئة وسيتم تحديث الفئة باستخدام هذه البيانات (أو البيانات المدخلة في الحالة إذا كانت فارغة).
+This resource is already booked for this period,هذا المورد محجوز بالفعل لهذه الفترة
+This task status is used on project task category for the auto progress process. Do you want to update all unmodified values with this one ?,يتم استخدام حالة المهمة هذه في فئة مهمة المشروع لعملية التقدم التلقائي. هل تريد تحديث جميع القيم غير المعدلة بهذه القيمة؟
+This task status will be used to define which status is flagged as completed for tasks.,سيتم استخدام حالة المهمة هذه لتحديد الحالة التي تم وضع علامة عليها كمكتملة للمهام.
+"This will determine the unit used for project-wide reporting. If there are tasks using another unit, conversions will be made using 'Number of hours in a day' value.","وسيحدد هذا الوحدة المستخدمة لإعداد التقارير على مستوى المشروع. إذا كانت هناك مهام تستخدم وحدة أخرى، فسيتم إجراء التحويلات باستخدام قيمة ""عدد الساعات في اليوم""."
+Ticker number,رقم السهم
+Ticket,تذكرة
+Ticket number,رقم التذكرة
+Time Spent,الوقت المستغرق
+Time Spent?,الوقت المستغرق؟
+Time follow up,متابعة الوقت
+Time follow-up,متابعة الوقت
+Time unit,وحدة الزمن
+Timer,مؤقت
+Timer list,قائمة الموقت
+TimesheetLine.timeSpent,الوقت المستغرق
+Title,العنوان
+To,إلى
+To Date,حتى الآن
+To date,حتى الآن
+Today,اليوم
+Tools,الأدوات
+Topic,موضوع
+Topic created by,تم إنشاء الموضوع بواسطة
+Topic?,عنوان؟
+Topics,المواضيع
+Topics (${name}),المواضيع (${name})
+Total,الإجمالي
+Total duration (Hours),المدة الإجمالية (ساعات)
+Total planned hours,إجمالي الساعات المخططة
+Tree btn,شجرة بتن
+Type,النوع
+Type of authorized activities,نوع الأنشطة المصرح بها
+Type of authorized categories,نوع الفئات المعتمدة
+Type of authorized priorities,نوع الأولويات المعتمدة
+Type of authorized status,نوع الحالة المعتمدة
+Unit conversion,تحويل الوحدة
+Unit conversions,تحويلات الوحدات
+Unit price,سعر الوحدة
+Update period according to task,فترة التحديث حسب المهمة
+Urgent,عاجل
+Usable on project,صالحة للاستخدام في المشروع
+User,المستخدم
+User Gantt,المستخدم جانت
+User Task,مهمة المستخدم
+User watchers,مراقبو المستخدم
+Users,المستخدمين
+Validated Timesheet lines,خطوط سجل الدوام المصادق عليها
+Version,النسخة
+View all tasks,عرض جميع المهام
+View configuration,عرض التكوين
+Waiting Timesheet lines,انتظار خطوط سجل الدوام
+"Warning, at least 2 versions with the title %s are used on the project(s) %s.",تحذير، تم استخدام إصدارين على الأقل بالعنوان %s في المشروع (المشاريع) %s.
+Watched tasks,المهام المشاهدة
+"When this option is active, any active user can be assigned to the tasks of this project. Otherwise, only members of the project can be assigned.",عندما يكون هذا الخيار نشطًا، يمكن تعيين أي مستخدم نشط لمهام هذا المشروع. وبخلاف ذلك، يمكن تعيين أعضاء المشروع فقط.
+Wiki,ويكي
+Wiki description,وصف الويكي
+Wiki folder,مجلد ويكي
+Wikis ${_projectName},الويكي ${_projectName}
+Wikis (${name}),ويكي (${name})
+You can create here custom fields that will appear on projects. You can also do this through the Studio.,يمكنك هنا إنشاء حقول مخصصة ستظهر في المشاريع. يمكنك أيضًا القيام بذلك من خلال الاستوديو.
+You can create here custom fields that will appear on tasks. You can also do this through the Studio.,يمكنك هنا إنشاء حقول مخصصة ستظهر في المهام. يمكنك أيضًا القيام بذلك من خلال الاستوديو.
+"You can indicate which status projects move to once a project is completed. The status, configurable in the project status menu of the relevant module, must have the Completed? checkbox ticked to be selectable here.",يمكنك الإشارة إلى الحالة التي تنتقل إليها المشاريع بمجرد اكتمال المشروع. يجب أن تحتوي الحالة، القابلة للتكوين في قائمة حالة المشروع للوحدة ذات الصلة، على هل تم الانتهاء؟ تم تحديد خانة الاختيار ليتم تحديدها هنا.
+"You can indicate which status projects move to once you click the Cancel button. The status, configurable in the project status menu of the relevant module, must have the Completed? checkbox ticked to be selectable here.","يمكنك الإشارة إلى مشاريع الحالة التي تنتقل إليها بمجرد النقر فوق الزر ""إلغاء الأمر"". يجب أن تحتوي الحالة، القابلة للتكوين في قائمة حالة المشروع للوحدة ذات الصلة، على هل تم الانتهاء؟ تم تحديد خانة الاختيار ليتم تحديدها هنا."
+"You can indicate which status tasks move to once a task is completed. The status, configurable in the task status menu of the relevant module, must have the Completed? checkbox ticked to be selectable here. You can find this configuration on each project to change this status on a case-by-case basis.",يمكنك الإشارة إلى مهام الحالة التي تنتقل إليها بمجرد اكتمال المهمة. يجب أن تحتوي الحالة، القابلة للتكوين في قائمة حالة المهمة الخاصة بالوحدة ذات الصلة، على هل تم الانتهاء؟ تم تحديد خانة الاختيار ليتم تحديدها هنا. يمكنك العثور على هذا التكوين في كل مشروع لتغيير هذه الحالة على أساس كل حالة على حدة.
+You can select here the default priorities that are selectable in tasks. These priorities can then be customized per project.,يمكنك هنا تحديد الأولويات الافتراضية التي يمكن تحديدها في المهام. ويمكن بعد ذلك تخصيص هذه الأولويات لكل مشروع.
+You can select here the default task statuses. These statuses can then be customized per project.,يمكنك تحديد حالات المهمة الافتراضية هنا. يمكن بعد ذلك تخصيص هذه الحالات لكل مشروع.
+"Your current check list will be erased, do you want to continue ?",سيتم مسح قائمة التحقق الحالية الخاصة بك، هل تريد المتابعة؟
+hours,ساعات
+to,إلى
+updated document,وثيقة محدثة
+value:Canceled,القيمة:ملغاة
+value:Done,القيمة: تم
+value:High,القيمة:عالية
+value:In progress,القيمة: قيد التقدم
+value:Low,القيمة:منخفضة
+value:New,القيمة: جديد
+Invalid selection name,اسم التحديد غير صالح
+Please set the completed paid project status in the project configuration.,يرجى ضبط حالة المشروع المدفوع المكتمل في تكوين المشروع.
+Project %s,المشروع %s
+Project task category %s,فئة مهمة المشروع %s
+"You have no active team, the planning can't be generated",ليس لديك فريق نشط، ولا يمكن إنشاء التخطيط
+"You have no projects or tasks bound to you, your planning can't be generated.",ليس لديك مشاريع أو مهام مرتبطة بك، ولا يمكن إنشاء تخطيطك.
+You have selected no team for this project,لم تقم باختيار أي فريق لهذا المشروع
+"Your team has no projects or tasks bound to it, the planning can't be generated.",ليس لدى فريقك مشاريع أو مهام مرتبطة به، ولا يمكن إنشاء التخطيط.

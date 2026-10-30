@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid model="com.gl.apps.pos.db.LoyaltyCustomer" title="Loyalty Customers" name="loyalty-customer-grid">
+    <field name="customer" />
+    <field name="loyaltyNumber" />
+    <field name="tier" />
+    <field name="availablePoints" />
+    <field name="totalSpent" />
+    <field name="isActive" />
+  </grid>
+
+  <form model="com.gl.apps.pos.db.LoyaltyCustomer" title="Loyalty Customer" name="loyalty-customer-form" width="large">
+    <panel title="Customer Information">
+      <field name="customer" />
+      <field name="loyaltyNumber" />
+      <field name="tier" />
+      <field name="isActive" widget="boolean-switch" />
+    </panel>
+    <panel title="Contact Details" colSpan="12">
+      <field name="email" />
+      <field name="phone" />
+    </panel>
+    <panel title="Points &amp; Activity" colSpan="12" sidebar="true">
+      <field name="availablePoints" />
+      <field name="totalPointsEarned" readonly="true"/>
+      <field name="totalPointsRedeemed" readonly="true"/>
+      <field name="totalSpent" readonly="true"/>
+      <field name="totalTransactions" readonly="true"/>
+    </panel>
+    <panel title="Dates" colSpan="12">
+      <field name="enrollmentDate" />
+      <field name="lastTransactionDate" readonly="true"/>
+      <field name="expiryDate" />
+    </panel>
+    <panel title="Transactions History" colSpan="12">
+      <field name="transactions" colSpan="12" readonly="true" grid-view="loyalty-transaction-grid"/>
+    </panel>
+    <panel title="Notes" colSpan="12">
+      <field name="notes" widget="text" colSpan="12"/>
+    </panel>
+  </form>
+
+  <grid model="com.gl.apps.pos.db.LoyaltyTransaction" title="Loyalty Transactions" name="loyalty-transaction-grid">
+    <field name="transactionDate" />
+    <field name="transactionType" />
+    <field name="points" />
+    <field name="description" />
+  </grid>
+
+</object-views>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="StartReceivingChicks" >
+    <!--réception-->
+
+        <datetime name="breedingShedActivationDate" title="Breeding shed activation date"/>
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <many-to-one name="center" ref="Center" title="Center"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+        <date name="dateTime" title="Date"/>
+
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber" title="Tracking Number" readonly="true"/>
+        <string name="charges" title="Charges"/>
+        <many-to-one name="supplierReception" ref="com.axelor.apps.stock.db.StockMove" required="true" title="Supplier reception"/>
+        <datetime name="supplierReceptionDate" title="Supplier reception date" readonly="true"/>
+
+    <!--  infos poussins-->
+        <date name="hatchDate" title="Hatch date" readonly="true"/>
+        <integer name="dailyAge" title="Daily age" required="true" readonly="true"/>
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+
+    <!--  livraison-->
+        <integer name="receivedFemalesNumber" title="Number of females" readonly="true" />
+        <integer name="receivedMalesNumber"  title="Number of males" readonly="true"/>
+        <integer name="receivedChicksNumber" title="Total number" readonly="true" />
+        <integer name="costPrice" title="Cost price" readonly="true" />
+
+    <!--  facturation-->
+        <integer name="invoicedFemalesNumber" title="Number of females" readonly="true" />
+        <integer name="invoicedMalesNumber" title="Number of males" readonly="true" />
+        <integer name="invoicedChicksNumber" title="Total number" readonly="true" />
+        <integer name="amount" title="Amount" readonly="true" />
+        <integer name="unitPurchasePrice" title="Unit purchase price"/>
+
+        <integer name="status" title="Status" selection="poultryfarming.start.receiving-chicks.status.select" readonly="true"/>
+
+        <one-to-many name="receivingChicksLineList" ref="com.gl.apps.pf.db.StartReceivingChicksLine"
+                     mappedBy="receivingChicks" title="Per breeding shed"/>
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// receiving checks STATUS SELECT
+			    public static final int STATUS_NOT_RECEIVED = 0;
+				public static final int STATUS_RECEIVED = 1;
+                public static final int STATUS_CANCELED = 2;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="center"/>
+            <field name="trackingNumber"/>
+            <field name="supplierReception"/>
+            <field name="supplierReceptionDate"/>
+            <field name="hatchDate"/>
+            <field name="dailyAge"/>
+            <field name="breed"/>
+            <field name="receivedFemalesNumber"/>
+            <field name="receivedMalesNumber"/>
+            <field name="receivedChicksNumber"/>
+            <field name="costPrice"/>
+            <field name="invoicedFemalesNumber"/>
+            <field name="invoicedMalesNumber"/>
+            <field name="invoicedChicksNumber"/>
+            <field name="amount"/>
+            <field name="unitPurchasePrice"/>
+            <field name="unitPurchasePrice"/>
+            <field name="status"/>
+            <field name="charges"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="stock" package="com.axelor.apps.stock.db"/>
+
+  <entity name="StockMove">
+
+    <many-to-one name="fromCenter" ref="com.gl.apps.pf.db.Center" title="Center from"/>
+    <many-to-one name="toCenter" ref="com.gl.apps.pf.db.Center" title="Center to"/>
+    <many-to-one name="currentTrackingNumber"
+                 ref="com.axelor.apps.stock.db.TrackingNumber" title="Tracking Number" />
+    <many-to-one name="currentBreed" ref="com.gl.apps.pf.db.Breed" title="Breed" required="false"/>
+    <integer name="currentDailyAge" title="Daily age" />
+    <integer name="subType" title="Sub type" selection="stock.move.sub.type.select"/>
+
+    <many-to-one name="receivingChicks" ref="com.gl.apps.pf.db.StartReceivingChicks" title="Receiving Chicks" required="false"/>
+    <many-to-one name="elevTransfer" ref="com.gl.apps.pf.db.ElevTransfer" title="Breeding transfer" required="false"/>
+    <many-to-one name="elevReform" ref="com.gl.apps.pf.db.ElevReform" title="Workforces reform" required="false"/>
+    <many-to-one name="startElevMovement" ref="com.gl.apps.pf.db.StartElevMovement" title="Workforces movement" required="false"/>
+    <many-to-one name="pharmacyTreatment" ref="com.gl.apps.pf.db.PharmacyTreatment" title="Treatments and vaccinations" required="false"/>
+    <many-to-one name="productOrder" ref="com.gl.apps.pf.db.ProductOrder" title="Product order" required="false"/>
+    <many-to-one name="productRelease" ref="com.gl.apps.pf.db.ProductOrder" title="Product releases" required="false"/>
+    <many-to-one name="productConsumption" ref="com.gl.apps.pf.db.ProductConsumption" title="Product consumption" required="false"/>
+    <many-to-one name="receiptOrder" ref="com.gl.apps.pf.db.ProductOrder" title="Receipt order" required="false"/>
+
+
+    <many-to-one name="receptionReproProduction" ref="com.gl.apps.pf.db.ReceptionReproProduction" title="Reception repro production" required="false"/>
+    <many-to-one name="reproProduction" ref="com.gl.apps.pf.db.ReproProduction" title="Eggs production" required="false"/>
+    <many-to-one name="technicalSheetLine" ref="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet line" required="false"/>
+
+    <many-to-one name="hatcheryEggsReception" ref="com.gl.apps.pf.db.HatcheryEggsReception" title="Hatchery eggs reception" required="false"/>
+    <many-to-one name="incubatorEntry" ref="com.gl.apps.pf.db.IncubatorEntry" title="Incubator entry" required="false"/>
+    <many-to-one name="incubatorExit" ref="com.gl.apps.pf.db.IncubatorExit" title="Incubator exit" required="false"/>
+    <many-to-one name="hatcherEntry" ref="com.gl.apps.pf.db.HatcherEntry" title="Hatcher entry" required="false"/>
+    <many-to-one name="hatcherExit" ref="com.gl.apps.pf.db.HatcherExit" title="Hatcher exit" required="false"/>
+    <many-to-one name="hatcheryEggExit" ref="com.gl.apps.pf.db.HatcheryEggExit" title="Miscellaneous outputs" required="false"/>
+    <many-to-one name="hatcheryDeliverySale" ref="com.gl.apps.pf.db.HatcheryDeliverySale" title="Delivery sale OAC" required="false"/>
+
+    <many-to-one name="fleshChicksReception" ref="com.gl.apps.pf.db.FleshChicksReception" title="Flesh chicks reception" required="false"/>
+    <many-to-one name="livestockFeedExternalExit" ref="com.gl.apps.pf.db.LivestockFeedExternalExit" title="Livestock feed external exit" required="false"/>
+    <many-to-one name="livestockFeedProduction" ref="com.gl.apps.pf.db.LivestockFeedProduction" title="Livestock feed production" required="false"/>
+
+    <extra-code>
+      <![CDATA[
+				// STOCK MOVE SUB TYPES
+				public static final int SUB_TYPE_CHICKS_RECEPTION = 1;
+			    public static final int SUB_TYPE_PRODUCTS = 2;
+			    public static final int SUB_TYPE_WORKFORCES = 3;
+			    public static final int SUB_TYPE_TREATMENTS_VACCINATIONS = 4;
+			    public static final int SUB_TYPE_REPRO_PRODUCTION_RECEPTION = 5;
+			    public static final int SUB_TYPE_HATCHERY_EGGS_RECEPTION = 6;
+			    public static final int SUB_TYPE_INCUBATOR_ENTRIES = 7;
+			    public static final int SUB_TYPE_INCUBATOR_EXITS = 8;
+			    public static final int SUB_TYPE_HATCHER_ENTRIES = 9;
+			    public static final int SUB_TYPE_HATCHER_EXITS = 10;
+			    public static final int SUB_TYPE_HATCHERY_EGGS_EXIT = 11;
+			    public static final int SUB_TYPE_HATCHERY_DELIVERY_SALE = 12;
+                public static final int SUB_TYPE_FLESH_CHICKS_RECEPTION = 13;
+                public static final int SUB_TYPE_REPRO_PRODUCTION = 14;
+                public static final int SUB_TYPE_LIVESTOCK_FEED_PRODUCTION = 15;
+
+			]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="fromCenter"/>
+      <field name="toCenter"/>
+      <field name="currentBreed"/>
+      <field name="currentDailyAge"/>
+      <field name="receivingChicks"/>
+    </track>
+
+  </entity>
+</domain-models>
+

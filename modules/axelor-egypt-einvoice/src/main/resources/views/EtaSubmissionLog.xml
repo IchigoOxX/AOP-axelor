@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_8.1.xsd">
+
+  <grid name="eta-submission-log-grid" title="ETA Submission Logs" model="com.axelor.apps.egypt.einvoice.db.EtaSubmissionLog" edit-icon="false" canNew="false" canDelete="false">
+    <field name="invoice" width="120"/>
+    <field name="submissionDate" width="150"/>
+    <field name="submittedBy" width="120"/>
+    <field name="etaUuid" width="280"/>
+    <field name="statusSelect" width="100"/>
+  </grid>
+
+  <form name="eta-submission-log-form" title="ETA Submission Log" model="com.axelor.apps.egypt.einvoice.db.EtaSubmissionLog" canNew="false" canDelete="false" width="large">
+    <panel name="main-panel" colSpan="12">
+      <field name="invoice" readonly="true" colSpan="4"/>
+      <field name="submissionDate" readonly="true" colSpan="4"/>
+      <field name="submittedBy" readonly="true" colSpan="4"/>
+      <field name="etaUuid" readonly="true" colSpan="6"/>
+      <field name="etaLongId" readonly="true" colSpan="6"/>
+      <field name="statusSelect" readonly="true" colSpan="4"/>
+      <field name="hashKey" readonly="true" colSpan="8"/>
+    </panel>
+    
+    <panel name="payload-panel" title="Data Payloads" colSpan="12">
+      <field name="requestPayload" readonly="true" colSpan="12" widget="code-editor" type="text" height="300"/>
+      <field name="responsePayload" readonly="true" colSpan="12" widget="code-editor" type="text" height="300"/>
+    </panel>
+
+    <panel name="error-panel" title="Error Details" colSpan="12" showIf="statusSelect == 'rejected'">
+      <field name="errorMessage" readonly="true" colSpan="12" type="text" height="150"/>
+    </panel>
+  </form>
+
+</object-views>

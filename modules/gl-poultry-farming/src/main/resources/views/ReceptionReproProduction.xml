@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="reception-repro-production-form" title="Reception repro production" model="com.gl.apps.pf.db.ReceptionReproProduction" width="large"
+          onNew="action-set-default-values-reception-repro-production" canNew="false">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="elevTransfer" title="Transfer" readonly="true" required="true" colSpan="4" target-name="reference"
+                           onChange="action-group-reception-repro-production"
+                           domain="self.status = 1"/>
+                    <field name="dateTime" colSpan="4" readonly="true"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" prompt="Are you sure to validate this repro reception ?"
+                                    onClick="save,action-group-recept-production-validation" icon="fa-check" css="btn-success"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel reception" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this workforces reception ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-recept-production-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+                <panel title="Transfer:" colSpan="12" readonlyIf="status != 0">
+                    <field name="fromCenter" title="From center" colSpan="4"  readonly="true"/>
+                    <field name="center" title="To center" colSpan="4" readonly="true"/>
+                    <field name="dateElevTransfer" colSpan="4" readonly="true"/>
+                    <field name="fromBreedingShed" colSpan="4" readonly="true"/>
+                    <field name="breedingShed" colSpan="4" readonly="true"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+
+                <panel title="Subjects:" colSpan="12" readonlyIf="status != 0">
+                    <panel showTitle="false" colSpan="4">
+                        <field name="breed" readonly="true" colSpan="5"/>
+                        <field name="averageCost" readonly="true" colSpan="6"/>
+                        <panel showTitle="false" colSpan="10">
+                            <panel showTitle="false" colSpan="6">
+                                <field name="trackingNumber" readonly="true" colSpan="12"/>
+                            </panel>
+                            <panel showTitle="false" colSpan="6">
+                                <field name="globalCost" readonly="true" colSpan="6"/>
+                            </panel>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="2">
+                        <field name="dailyAge" readonly="true" colSpan="10"/>
+                        <field name="weeklyAge" readonly="true" colSpan="10"/>
+                    </panel>
+                    <panel showTitle="false" colSpan="3">
+                        <field name="toTransferChickensNumber" title="Number transferred" readonly="true" colSpan="12"/>
+                        <field name="receivedNumber" title="Number received" onChange="action-recept-repro-production-form-validate-reception-number,action-reception-repro-production-calculate-gap" colSpan="12" required="true" min="1"/>
+                        <field name="gapNumber" title="Gap" readonly="true" colSpan="12"/>
+                    </panel>
+                    <panel showTitle="false" colSpan="3">
+                        <field name="gender" readonly="true" colSpan="12"/>
+                        <field name="weight" readonly="true" colSpan="12"/>
+                        <field name="stockCorrectionReason" colSpan="12" showIf="gapNumber > 0"/>
+                    </panel>
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="reception-repro-production-grid" title="Reception repro production" model="com.gl.apps.pf.db.ReceptionReproProduction" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="elevTransfer" title="Transfer" target-name="reference"/>
+        <field name="dateTime" title="Date" readonly="true"/>
+        <field name="fromCenter" title="From center" readonly="true"/>
+        <field name="fromBreedingShed" readonly="true"/>
+        <field name="center" title="To center" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="breed" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="averageCost" readonly="true"/>
+        <field name="globalCost" readonly="true"/>
+        <field name="weeklyAge" readonly="true"/>
+        <field name="gender" readonly="true"/>
+        <field name="weight" readonly="true"/>
+        <field name="toTransferChickensNumber" title="Number transferred" readonly="true"/>
+        <field name="receivedNumber" title="Number received" onChange="action-recept-repro-production-form-validate-reception-number"/>
+
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="grey" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+
+    <action-record name="action-set-default-values-reception-repro-production"
+                   model="com.gl.apps.pf.db.ElevTransfer">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-reception-repro-production-elev-trans-changed"
+                  model="com.gl.apps.pf.db.ReceptionReproProduction">
+        <attribute if="elevTransfer != null" for="fromCenter" name="value" expr="eval: elevTransfer.fromCenter"/>
+        <attribute if="elevTransfer != null" for="center" name="value"
+                   expr="eval: elevTransfer.center"/>
+        <attribute if="elevTransfer != null" for="breedingShed" name="value"
+                   expr="eval: elevTransfer.breedingShed"/>
+        <attribute if="elevTransfer != null" for="breed" name="value"
+                   expr="eval: elevTransfer.breed"/>
+        <attribute if="elevTransfer != null" for="trackingNumber" name="value"
+                   expr="eval: elevTransfer.trackingNumber"/>
+        <attribute if="elevTransfer != null" for="gender" name="value"
+                   expr="eval: elevTransfer.gender"/>
+        <attribute if="elevTransfer != null" for="dailyAge" name="value"
+                   expr="eval: elevTransfer.center.currentDailyAge"/>
+        <attribute if="elevTransfer != null" for="weeklyAge" name="value"
+                   expr="eval: elevTransfer.center.currentWeeklyAge"/>
+        <attribute if="elevTransfer != null" name="value"
+                   expr="eval: elevTransfer.breedingShed?.lastStartTechnicalSheet?.weight" for="weight"/>
+        <attribute if="elevTransfer != null" for="dateElevTransfer" name="value"
+                   expr="eval: elevTransfer.dateTime"/>
+    </action-attrs>
+
+    <action-record name="action-reception-production-get-elev-trans-line-infos" model="com.gl.apps.pf.db.ReceptionReproProduction">
+        <field if="!elevTransfer.elevTransferLineList?.isEmpty()" name="toTransferChickensNumber"
+               expr="eval: elevTransfer.elevTransferLineList?.collect{it->it.toTransferChickensNumber}?.sum()"/>
+        <field if="!elevTransfer.elevTransferLineList?.isEmpty()" name="averageCost"
+               expr="eval: elevTransfer.elevTransferLineList?.collect{it->it.averageCost}?.sum()"/>
+        <field if="!elevTransfer.elevTransferLineList?.isEmpty()" name="globalCost"
+               expr="eval: elevTransfer.elevTransferLineList?.collect{it->it.globalCost}?.sum()"/>
+        <field name="fromBreedingShed" if="!elevTransfer.elevTransferLineList?.isEmpty()"
+               expr="eval: elevTransfer.elevTransferLineList?.collect{it.breedingShed.name}?.join(', ')"/>
+   </action-record>
+
+    <action-group name="action-group-reception-repro-production">
+        <action name="action-reception-repro-production-elev-trans-changed"/>
+        <action name="action-reception-production-get-elev-trans-line-infos"/>
+    </action-group>
+
+    <action-method name="action-method-recept-production-validate">
+        <call method="receptReproProductionValidate"
+              class="com.gl.apps.pf.web.ReceptionReproProductionController"/>
+    </action-method>
+
+    <action-validate name="action-recept-repro-production-form-validate-reception-number">
+        <error message="The total recept number is higher than the transfer number!"
+               if="receivedNumber > toTransferChickensNumber &amp;&amp; toTransferChickensNumber &lt; 0"/>
+    </action-validate>
+
+    <action-attrs name="action-reception-repro-production-calculate-gap"
+                  model="com.gl.apps.pf.db.ReceptionReproProduction">
+        <attribute if="receivedNumber > 0" for="gapNumber" name="value" expr="eval: toTransferChickensNumber - receivedNumber"/>
+    </action-attrs>
+
+
+    <action-group name="action-group-recept-production-validation">
+        <action name="action-recept-repro-production-form-validate-reception-number"/>
+        <action name="action-method-recept-production-validate"/>
+    </action-group>
+
+    <action-method name="action-method-recept-production-cancel">
+        <call method="receptReproProductionCancel"
+              class="com.gl.apps.pf.web.ReceptionReproProductionController"/>
+    </action-method>
+
+</object-views>

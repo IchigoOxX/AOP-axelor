@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcheryEggExit">
+        <one-to-many name="hatcheryEggExitList" ref="HatcheryEggExitLine"
+                     mappedBy="hatcheryEggExit" title="Hatchery egg exit lines"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+        <many-to-one name="reasonOfCancel" title="Reason of incubator entry cancel"
+                     ref="com.axelor.apps.base.db.CancelReason"/>
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <datetime name="datetime" title="Date time"/>
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery"/>
+        <string name="reason" title="Reason"
+                 selection="poultryfarming.hatchery.eggs.exit.reason.select"/>
+
+        <integer name="status" title="Status"
+                 selection="poultryfarming.hatchery.egg.exit.status.select" readonly="true"/>
+
+        <string name="note" title="Note" large="true" translatable="true"/>
+        <time name="deliveryTime" title="Delivery time"/>
+        <finder-method name="ByReference" using="reference"/>
+
+        <extra-code>
+            <![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="hatchery"/>
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="dispatchStock"/>
+            <field name="reason"/>
+            <field name="status"/>
+            <field name="note"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

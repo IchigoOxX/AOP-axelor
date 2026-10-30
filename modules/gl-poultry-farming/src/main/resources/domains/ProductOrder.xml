@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ProductOrder">
+        <one-to-many name="productOrderLineList"
+                     ref="com.gl.apps.pf.db.ProductOrderLine" mappedBy="productOrder"
+                     title="Product order Line"/>
+        <!--piéce-->
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date"/>
+        <date name="deliveryDate" title="Delivery Date"/>
+        <many-to-one name="productCategory" ref="com.axelor.apps.base.db.ProductCategory"
+                     title="Product category"/>
+
+        <!--        destination-->
+        <many-to-one name="fromUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+<!--        <boolean name="isCenter" title="For center"/>-->
+        <many-to-one name="fromCenter" ref="com.gl.apps.pf.db.Center"
+                     title="Center"/>
+<!--        <many-to-one name="fromLiveStockFeedFactory" ref="com.gl.apps.pf.db.LivestockFeedFactory"-->
+<!--                     title="Livestock feed factory"/>-->
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+
+        <!--        origin-->
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center"
+                     title="Center"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="liveStockFeedFactory" ref="com.gl.apps.pf.db.LivestockFeedFactory"
+                     title="Livestock feed factory"/>
+        <many-to-one name="purchaseRequest" ref="com.axelor.apps.purchase.db.PurchaseRequest"
+                     title="Purchase request"/>
+        <integer name="status" title="Status" selection="poultryfarming.product.order.status.select" readonly="true"/>
+        <finder-method name="ByReference" using="reference"/>
+
+        <extra-code>
+            <![CDATA[
+				// PRODUCT ORDER STATUS SELECT
+			    public static final int STATUS_NOT_RECEIVED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_VALIDATION = 2;
+				public static final int STATUS_RECEIVED = 3;
+				public static final int STATUS_RESERVED = 4;
+				public static final int STATUS_CANCELED = 5;
+				public static final int STATUS_RELEASE_CANCELED = 6;
+                public static final int STATUS_RECEPTION_CANCELED = 7;
+
+			]]>
+        </extra-code>
+
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="deliveryDate"/>
+            <field name="productCategory"/>
+            <field name="fromUnit"/>
+            <field name="fromLiveStockFeedFactory"/>
+            <field name="remainingChickensNumber"/>
+            <field name="dispatchStock"/>
+            <field name="breedingShed"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

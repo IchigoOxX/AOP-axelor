@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <selection name="livestock.species.select">
+    <option value="1">أبقار (Cattle)</option>
+    <option value="2">عجول تسمين (Beef / Calves)</option>
+    <option value="3">جاموس (Buffalo)</option>
+    <option value="4">أغنام (Sheep)</option>
+    <option value="5">ماعز (Goats)</option>
+  </selection>
+
+  <selection name="livestock.gender.select">
+    <option value="1">ذكر (Male)</option>
+    <option value="2">أنثى (Female)</option>
+  </selection>
+
+  <selection name="livestock.animal.status.select">
+    <option value="1">حلب وإنتاج حليب (Lactating / Dairy)</option>
+    <option value="2">تسمين نشط (Active Feedlot)</option>
+    <option value="3">عشار / حامل (Pregnant)</option>
+    <option value="4">جفاف (Dry Period)</option>
+    <option value="5">عزل بيطري / علاج (Quarantine)</option>
+    <option value="6">تم البيع (Sold)</option>
+    <option value="7">نفوق (Deceased)</option>
+    <option value="8">مذبوح (Slaughtered)</option>
+  </selection>
+
+  <selection name="livestock.log.status.select">
+    <option value="0">مسودة (Draft)</option>
+    <option value="1">مؤكد (Confirmed)</option>
+  </selection>
+
+  <selection name="livestock.milking.session.select">
+    <option value="1">حلبة صباحية (Morning)</option>
+    <option value="2">حلبة مسائية (Evening)</option>
+    <option value="3">حلبة الظهيرة (Noon)</option>
+  </selection>
+
+  <selection name="livestock.health.type.select">
+    <option value="1">تحصين ولقاح وقائي (Vaccination)</option>
+    <option value="2">علاج مرضي (Treatment)</option>
+    <option value="3">فحص بيطري دوري (Routine Check)</option>
+    <option value="4">رعاية ولادة (Calving Assistance)</option>
+    <option value="5">تقليم حوافر (Hoof Trimming)</option>
+  </selection>
+
+  <selection name="livestock.insemination.method.select">
+    <option value="1">تلقيح اصطناعي (Artificial Insemination)</option>
+    <option value="2">تلقيح طبيعي (Natural Mating)</option>
+  </selection>
+
+</object-views>

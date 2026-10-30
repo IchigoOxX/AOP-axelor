@@ -1,0 +1,13 @@
+---
+name: POS
+code: pos
+typeSelect: standard
+installOrder: 2000
+description: |
+   Computerized POS Management System
+image: old-app-icon.png
+modules: 
+   gl-pos
+dependsOn:
+   - supplychain
+sequence: 98

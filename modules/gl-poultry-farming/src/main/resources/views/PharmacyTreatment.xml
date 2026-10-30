@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="pharmacy-treatment-form" title="Treatments and vaccinations" model="com.gl.apps.pf.db.PharmacyTreatment"
+          width="large" onSave="action-validate-pharmacy-treatment-total-number" readonlyIf="status != 0"
+          onNew="action-set-default-values-pharmacy-treatment">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10">
+                    <field name="reference" colSpan="4"/>
+                    <field name="plannedDate" colSpan="4" title="Planned start date"/>
+                    <field name="" colSpan="4"/>
+
+                    <field name="fromRealDate" colSpan="4" requiredIf="id != null"/>
+                    <field name="toRealDate" colSpan="4" requiredIf="id != null" onChange="action-pharmacy-treatment-calculate-diff-days"/>
+                    <field name="diffDays" colSpan="4" showIf="diffDays > 0" readonly="true"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel colSpan="12" showTitle="false" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+
+                    <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                       <tbody>
+                        <tr>
+                         <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                        </tr>
+                       </tbody>
+                    </table>
+                  ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1 &amp;&amp; id != null" prompt="Are you sure to validate this pharmacy treatment ?"
+                                colSpan="12" icon="fa-check" onClick="save,action-group-pharmacy-treatment-validate" css="btn-success"/>
+                    </panel>
+                </panel>
+
+                <panel title="Breeding Shed:" colSpan="12">
+                    <field name="center" colSpan="4" required="true" domain="self.type = :_centerType"
+                           onChange="action-pharmacy-treatment-get-value,action-pharmacy-treatment-center-changed-infos"/>
+                    <field name="breedingShed" colSpan="4" onChange="action-pharmacy-treatment-breeding-shed-changed,action-pharmacy-treatment-breeding-shed-empty"
+                           domain="self.center = :center AND self.status = 2"/>
+                    <field name="dailyAge" readonly="true" colSpan="4"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="totalNumbers" readonly="true" colSpan="4"/>
+                    <field name="weeklyAge" readonly="true" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="totalMaleNumbers" title="Number of males" readonly="true" showIf="_centerType == 1" colSpan="4"/>
+                    <field name="totalFemaleNumbers" title="Number of females" readonly="true" showIf="_centerType == 1" colSpan="4"/>
+                    <field name="_breedingShedListLength" hidden="true"/>
+                </panel>
+            </panel>
+            <panel-related name="pharmacyTreatmentLineListPanel"
+                           colSpan="12" field="pharmacyTreatmentLineList"
+                           form-view="pharmacy-treatment-line-form"
+                           grid-view="pharmacy-treatment-line-grid"
+                           editable="true" />
+            <panel showTitle="false" colSpan="12">
+                <field name="notes" showTitle="false" colSpan="12" height="290" widget="html"/>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="pharmacy-treatment-grid" title="Treatments and vaccinations" model="com.gl.apps.pf.db.PharmacyTreatment" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dailyAge" readonly="true"/>
+        <field name="weeklyAge"/>
+        <field name="center"/>
+        <field name="breedingShed"/>
+        <field name="breed" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="totalNumbers" readonly="true"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="grey" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-record name="action-set-default-values-pharmacy-treatment"
+                   model="com.gl.apps.pf.db.PharmacyTreatment">
+        <field name="plannedDate" expr="eval: __datetime__"/>
+        <field name="fromRealDate" expr="eval: __datetime__"/>
+        <field name="toRealDate" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-pharmacy-treatment-breeding-shed-changed"
+                  model="com.gl.apps.pf.db.PharmacyTreatment">
+        <attribute if="breedingShed != null" for="breed" name="value"
+                   expr="eval: breedingShed.breed"/>
+        <attribute if="breedingShed != null" for="trackingNumber" name="value"
+                   expr="eval: breedingShed.currentBatchNumber"/>
+        <attribute if="breedingShed != null &amp;&amp; _centerType == 0" for="totalNumbers" name="value"
+                   expr="eval: breedingShed.totalNumbers"/>
+        <attribute if="breedingShed != null &amp;&amp; _centerType == 1" for="totalNumbers" name="value"
+                   expr="eval: breedingShed.femalesNumber + breedingShed.malesNumber"/>
+        <attribute if="breedingShed != null &amp;&amp; _centerType == 1" for="totalFemaleNumbers" name="value"
+                   expr="eval: breedingShed.femalesNumber"/>
+        <attribute if="breedingShed != null &amp;&amp; _centerType == 1" for="totalMaleNumbers" name="value"
+                   expr="eval: breedingShed.malesNumber"/>
+        <attribute if="breedingShed != null" for="dailyAge" name="value"
+                   expr="eval: breedingShed.dailyAge"/>
+        <attribute if="breedingShed != null" for="weeklyAge" name="value"
+                   expr="eval: breedingShed.weeklyAge"/>
+    </action-attrs>
+
+    <action-attrs name="action-pharmacy-treatment-breeding-shed-empty" model="com.gl.apps.pf.db.PharmacyTreatment">
+        <attribute if="center != null &amp;&amp; _centerType == 0 &amp;&amp; breedingShed == null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect { it.totalNumbers }?.sum()" for="totalNumbers"/>
+        <attribute if="center != null &amp;&amp; _centerType == 1 &amp;&amp; breedingShed == null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.femalesNumber}?.sum() + center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.malesNumber}?.sum()" for="totalNumbers"/>
+        <attribute if="center != null &amp;&amp; _centerType == 1 &amp;&amp; breedingShed == null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.femalesNumber}?.sum()" for="totalFemaleNumbers"/>
+        <attribute if="center != null &amp;&amp; _centerType == 1 &amp;&amp; breedingShed == null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.malesNumber}?.sum()" for="totalMaleNumbers"/>
+
+    </action-attrs>
+
+
+    <action-attrs name="action-pharmacy-treatment-center-changed-infos" model="com.gl.apps.pf.db.PharmacyTreatment">
+        <attribute if="center != null &amp;&amp; center.breedingShedList != null" name="value" expr="eval: center.breedingShedList?.findAll { it.status == 2 }?.size()" for="_breedingShedListLength"/>
+        <attribute if="center != null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="center != null" name="value" expr="eval: center.currentBreed" for="breed"/>
+        <attribute if="center != null" name="value" expr="eval: center.currentTrackingNumber" for="trackingNumber"/>
+        <attribute if="center != null" name="value" expr="eval: center.currentDailyAge" for="dailyAge"/>
+        <attribute if="center != null" name="value" expr="eval: center.currentWeeklyAge" for="weeklyAge"/>
+        <attribute if="center != null &amp;&amp; _centerType == 0 &amp;&amp; center.breedingShedList != null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect { it.totalNumbers }?.sum()" for="totalNumbers"/>
+        <attribute if="center != null &amp;&amp; _centerType == 1 &amp;&amp; center.breedingShedList != null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.femalesNumber}?.sum() + center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.malesNumber}?.sum()" for="totalNumbers"/>
+        <attribute if="center != null &amp;&amp; _centerType == 1 &amp;&amp; center.breedingShedList != null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.femalesNumber}?.sum()" for="totalFemaleNumbers"/>
+        <attribute if="center != null &amp;&amp; _centerType == 1 &amp;&amp; center.breedingShedList != null" name="value" expr="eval: center.breedingShedList.findAll { it.status == 2 }?.collect{it->it.malesNumber}?.sum()" for="totalMaleNumbers"/>
+    </action-attrs>
+
+    <action-record name="action-pharmacy-treatment-get-value" model="com.gl.apps.pf.db.PharmacyTreatment">
+        <field name="_medicineProductType" expr="eval: __config__.app.getApp('poultry-farming')?.medicineProductType"/>
+        <field name="_vaccineProductType" expr="eval: __config__.app.getApp('poultry-farming')?.vaccineProductType"/>
+    </action-record>
+
+    <action-attrs name="action-pharmacy-treatment-center-changed"
+                  model="com.gl.apps.pf.db.PharmacyTreatment">
+        <attribute if="center != null" for="breed" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null" for="trackingNumber" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null" for="totalNumbers" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null" for="dailyAge" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null" for="weeklyAge" name="value"
+                   expr="eval: null"/>
+    </action-attrs>
+
+    <action-validate name="action-validate-pharmacy-treatment-total-number">
+        <error message="Total number must be greater than 0 in breeding shed"
+               if="totalNumbers == 0"/>
+    </action-validate>
+
+    <action-method name="action-pharmacy-treatment-validate">
+        <call method="pharmacyTreatmentValidate"
+              class="com.gl.apps.pf.web.PharmacyTreatmentController"/>
+    </action-method>
+
+    <action-validate name="action-pharmacy-treatments-check-empty-list">
+        <error if="pharmacyTreatmentLineList.isEmpty()" message="You cannot validate ! pharmacy treatments list is empty."/>
+    </action-validate>
+
+    <action-group name="action-group-pharmacy-treatment-validate">
+        <action name="action-pharmacy-treatments-check-empty-list"/>
+        <action name="action-pharmacy-treatment-validate"/>
+    </action-group>
+
+
+    <action-attrs name="action-pharmacy-treatment-calculate-diff-days" model="com.gl.apps.pf.db.PharmacyTreatment">
+        <attribute if="toRealDate != null" for="diffDays" name="value"
+                   expr="eval: java.time.temporal.ChronoUnit.DAYS.between(fromRealDate, toRealDate) + 1"/>
+    </action-attrs>
+</object-views>

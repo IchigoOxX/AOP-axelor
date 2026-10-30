@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="Center">
+
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+      title="Unit (Department)"/>
+    <many-to-one name="associatedProductType"
+      ref="com.axelor.apps.base.db.ProductCategory" title="Associated product type"/>
+    <many-to-one name="currentBreed" ref="Breed" title="Breed" readonly="true"/>
+    <many-to-one name="currentTrackingNumber"
+                 ref="com.axelor.apps.stock.db.TrackingNumber" title="Tracking Number" readonly="true"/>
+
+    <many-to-one name="hatchery"  ref="com.gl.apps.pf.db.Hatchery" title="hatchery"/>
+    <many-to-one name="physicalLocation" ref="com.axelor.apps.stock.db.StockLocation"
+                 required="true" title="Physical location"/>
+
+
+<!--    <one-to-many name="stockMovesFromList" ref="com.axelor.apps.stock.db.StockMove"-->
+<!--                 title="Production guide" mappedBy="fromCenter"/>-->
+<!--    -->
+    <string name="reference" title="Reference" unique="true" readonly="true"/>
+    <string name="name" title="Name"/>
+    <integer name="type" title="Center type" selection="poultryfarming.domain.type.select"/>
+
+
+    <integer name="currentWeeklyAge" title="Weekly age" readonly="true">
+      <![CDATA[
+        int daily = this.getCurrentDailyAge() != null ? this.getCurrentDailyAge() : 0;
+        if (daily <= 0) {
+            return 0;
+        }
+        return (int) Math.ceil((double) daily / 7.0);
+       ]]>
+    </integer>
+    <integer name="currentDailyAge" title="Daily age" readonly="true"/>
+
+    <one-to-many name="breedingShedList" ref="BreedingShed" mappedBy="center"
+      title="Breeding shed list"/>
+    <one-to-many name="elevTransferList" ref="ElevTransfer" mappedBy="center"
+                 title="Elev transfer list"/>
+    <one-to-many name="hatcheryRecList" ref="HatcheryEggsReception" mappedBy="center"
+                 title="Hatchery list"/>
+    <many-to-many name="responsible" ref="com.axelor.auth.db.User"/>
+    <string name="note" large="true" title="Note"/>
+
+    <string name="completeRefTrackingNumber" title="Complete tracking number" readonly="true"/>
+    <finder-method name="ByReference" using="reference"/>
+
+    <extra-code>
+      <![CDATA[
+                // Center TYPE SELECT
+				public static final int TYPE_STARTUP = 0;
+				public static final int TYPE_REPRODUCTION = 1;
+				public static final int TYPE_BROILER = 2;
+				public static final int TYPE_OTHER = 3;
+
+			]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="reference"/>
+      <field name="name"/>
+      <field name="note"/>
+      <field name="type"/>
+      <field name="breedingShedList"/>
+      <field name="hatcheryRecList"/>
+      <field name="associatedProductType"/>
+      <field name="unit"/>
+      <field name="currentBreed"/>
+      <field name="hatchery"/>
+      <field name="responsible"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="elev-reform-form" title="Workforces reform" model="com.gl.apps.pf.db.ElevReform" width="large"
+          onNew="action-set-default-values-elev-reform">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4" />
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" icon="fa-check" css="btn-success"
+                                prompt="Are you sure to validate this breeding reform ?" colSpan="12"
+                                onClick="save,action-group-elev-reform-validation"/>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="cancelBtn" title="Cancel reform" showIf="status == 1" prompt="Are you sure you want to cancel this workforce reform ?"
+                                colSpan="12" icon="fa-times" css="btn-danger"
+                                onClick="poultry-farming-elev-reform-cancel"/>
+                    </panel>
+                </panel>
+                <panel title="infos:" colSpan="12" readonlyIf="status != 0">
+                    <field name="unit" title="Unit" colSpan="4" required="true" onSelect="action-attrs-company-unit-domain"
+                           onChange="action-attrs-elev-reform-unit-changed"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit and self.type = :_centerType" required="true"
+                           onChange="action-attrs-elev-reform-center-changed"/>
+                    <field name="breedingShed" colSpan="4" domain="self.center = :center AND self.status = 2"
+                           onChange="action-group-elev-reform-breeding-shed-changed" required="true"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+                </panel>
+                <panel title="Subjects:" colSpan="12" readonlyIf="status != 0">
+                    <field name="dailyAge" readonly="true" colSpan="3"/>
+                    <field name="weeklyAge" readonly="true" colSpan="3"/>
+                    <field name="maleTotalNumbers" readonly="true" colSpan="3" showIf="maleTotalNumbers > 0"/>
+                    <field name="femaleTotalNumbers" readonly="true" colSpan="3" showIf="femaleTotalNumbers > 0"/>
+                </panel>
+
+                <panel title="Destination:" colSpan="12" readonlyIf="status != 0">
+                    <field name="destination"  colSpan="4" required="true"/>
+                    <field name="slaughterhouse"  colSpan="4" requiredIf="destination == 1" showIf="destination == 1"/>
+                    <field name="inUnit" title="In" colSpan="4" required="true"/>
+                </panel>
+
+                <panel name="footer" title="Reform:" colSpan="12" readonlyIf="status != 0" showIf="maleTotalNumbers > 0 || femaleTotalNumbers">
+                    <panel colSpan="12" showIf="maleTotalNumbers > 0" title="Male:">
+                        <field name="maleReformNumber" required="true" colSpan="4" onChange="action-group-check-male-reformed-number"/>
+                        <field name="maleAverageWeight" colSpan="4" required="true" onChange="action-attrs-male-elev-reform-calculate-total-weight"/>
+                        <field name="maleUnitPrice" colSpan="4" required="true" onChange="action-attrs-male-elev-reform-calculate-global-cost"/>
+                        <field name="maleTotalAverageWeight" colSpan="4" required="true" readonly="true"/>
+                        <field name="maleGlobalCost" colSpan="4" readonly="true"/>
+
+                    </panel>
+
+                    <panel colSpan="12" showIf="femaleTotalNumbers > 0" title="Female:" readonlyIf="status != 0">
+                        <field name="femaleReformNumber" required="true" colSpan="4" onChange="action-group-check-female-reformed-number"/>
+                        <field name="femaleAverageWeight" colSpan="4" required="true" onChange="action-attrs-female-elev-reform-calculate-total-weight"/>
+                        <field name="femaleUnitPrice" colSpan="4" required="true" onChange="action-attrs-female-elev-reform-calculate-global-cost"/>
+                        <field name="femaleTotalAverageWeight" colSpan="4" required="true" readonly="true"/>
+                        <field name="femaleGlobalCost" colSpan="4" readonly="true"/>
+                    </panel>
+
+                    <panel colSpan="12" readonlyIf="status != 0">
+                        <field name="notes" showTitle="false" colSpan="12" height="200" widget="html"/>
+                    </panel>
+                </panel>
+            </panel>
+
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="elev-reform-grid" title="Workforces reform" model="com.gl.apps.pf.db.ElevReform" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date" readonly="true"/>
+        <field name="unit" />
+        <field name="center" />
+        <field name="breedingShed" />
+        <field name="breed" />
+        <field name="slaughterhouse"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <grid name="repro-production-elev-reform-technical-sheet-grid" title="Workforces reform" model="com.gl.apps.pf.db.ElevReform" edit-icon="true">
+        <field name="reference" title="N°" readonly="true"/>
+        <field name="breed" readonly="true" hidden="true"/>
+        <field name="trackingNumber" readonly="true" hidden="true"/>
+        <field name="maleReformNumber" readonly="true"/>
+        <field name="femaleReformNumber" readonly="true" />
+    </grid>
+    <form name="repro-production-elev-reform-technical-sheet-form" title="Workforces reform"
+          model="com.gl.apps.pf.db.ElevReform" width="large" >
+        <panel showTitle="false" colSpan="12">
+            <field name="reference" colSpan="4" readonly="true"/>
+            <field name="breed" colSpan="4" readonly="true" hidden="true"/>
+            <field name="maleReformNumber" colSpan="4" readonly="true" />
+            <field name="femaleReformNumber" colSpan="4" readonly="true" />
+        </panel>
+
+    </form>
+
+    <action-record name="action-set-default-values-elev-reform"
+                   model="com.gl.apps.pf.db.ElevReform">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-elev-reform-breeding-shed-changed" model="com.gl.apps.pf.db.ElevReform">
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.breed" for="breed"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.currentBatchNumber" for="trackingNumber"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.malesNumber" for="maleTotalNumbers"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.femalesNumber" for="femaleTotalNumbers"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.dailyAge" for="dailyAge"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.weeklyAge" for="weeklyAge"/>
+    </action-attrs>
+
+    <action-attrs name="action-elev-reform-breeding-shed-empty" model="com.gl.apps.pf.db.ElevReform">
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="maleTotalNumbers"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="femaleTotalNumbers"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="weeklyAge"/>
+    </action-attrs>
+
+    <action-group name="action-group-elev-reform-breeding-shed-changed">
+        <action name="action-elev-reform-breeding-shed-changed"/>
+        <action name="action-elev-reform-breeding-shed-empty"/>
+    </action-group>
+
+    <action-validate name="action-validate-male-elev-reform-validate-reform-number">
+        <error message="Total male number must be greater than reformed male number"
+               if="maleTotalNumbers > 0 &amp;&amp; maleReformNumber > maleTotalNumbers"/>
+    </action-validate>
+
+    <action-validate name="action-validate-female-elev-reform-validate-reform-number">
+        <error message="Total female number must be greater than reformed female number"
+               if="femaleTotalNumbers > 0 &amp;&amp; femaleReformNumber > femaleTotalNumbers"/>
+    </action-validate>
+
+    <action-attrs name="action-attrs-male-elev-reform-calculate-total-weight"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="maleTotalAverageWeight" name="value" expr="eval: maleAverageWeight * maleReformNumber "/>
+    </action-attrs>
+    <action-attrs name="action-attrs-female-elev-reform-calculate-total-weight"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="femaleTotalAverageWeight" name="value" expr="eval: femaleAverageWeight * femaleReformNumber "/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-male-elev-reform-calculate-global-cost"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="maleGlobalCost" name="value" expr="eval: maleUnitPrice * maleReformNumber "/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-female-elev-reform-calculate-global-cost"
+                  model="com.gl.apps.pf.db.ReproElevReform">
+        <attribute for="femaleGlobalCost" name="value" expr="eval: femaleUnitPrice * femaleReformNumber "/>
+    </action-attrs>
+
+    <action-method name="poultry-farming-elev-reform-validate">
+        <call method="ElevReformValidate"
+              class="com.gl.apps.pf.web.ElevReformController"/>
+    </action-method>
+
+    <action-group name="action-group-elev-reform-validation">
+        <action name="action-validate-male-elev-reform-validate-reform-number"/>
+        <action name="action-validate-female-elev-reform-validate-reform-number"/>
+        <action name="poultry-farming-elev-reform-validate"/>
+    </action-group>
+
+    <action-group name="action-group-check-male-reformed-number">
+        <action name="action-validate-male-elev-reform-validate-reform-number"/>
+        <action name="action-attrs-male-elev-reform-calculate-global-cost"/>
+        <action name="action-attrs-male-elev-reform-calculate-total-weight"/>
+    </action-group>
+
+    <action-group name="action-group-check-female-reformed-number">
+        <action name="action-validate-female-elev-reform-validate-reform-number"/>
+        <action name="action-attrs-female-elev-reform-calculate-global-cost"/>
+        <action name="action-attrs-female-elev-reform-calculate-total-weight"/>
+    </action-group>
+
+    <action-method name="poultry-farming-elev-reform-cancel">
+        <call method="ElevReformCancel"
+              class="com.gl.apps.pf.web.ElevReformController"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-elev-reform-center-changed">
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="maleTotalNumbers"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="femaleTotalNumbers"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="weeklyAge"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-elev-reform-unit-changed">
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="center"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="maleTotalNumbers"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="femaleTotalNumbers"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="weeklyAge"/>
+
+    </action-attrs>
+
+
+</object-views>

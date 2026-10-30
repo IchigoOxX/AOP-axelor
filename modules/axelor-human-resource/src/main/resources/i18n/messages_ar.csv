@@ -1,0 +1,1446 @@
+% in paper format,% بصيغة ورقية
+"%d expense treated successfully,",تمت معالجة %d من النفقات بنجاح،
+"%d expenses treated successfully,",تمت معالجة %d نفقات بنجاح،
+%d leave reason(s) treated and %d anomaly(ies) reported !,تمت معالجة %d من الأسباب (الأسباب) وتم الإبلاغ عن %d من الحالات الشاذة!
+%s date is invalid. It must be included in the timesheet's period.,تاريخ %s غير صالح. ويجب أن يتم تضمينه في فترة سجل الدوام.
+6 days week,6 أيام في الأسبوع
+"<><Badge bg=""warning"">At least one line of this expense exceeds the authorised amount for its type of expense.</Badge></>","<><Badge bg=""warning"">يوجد سطر واحد على الأقل من هذه النفقات يتجاوز المبلغ المصرح به لنوع النفقات الخاصة به.</Badge></>"
+<>A leave line will be created automatically every month for concerned employee if automatic incrementation is enabled.</>,<>سيتم إنشاء سطر إجازة تلقائيًا كل شهر للموظف المعني إذا تم تمكين الزيادة التلقائية.</>
+<>A leave line will be created automatically every year for concerned employee if automatic incrementation is enabled.</>,<>سيتم إنشاء سطر إجازة تلقائيًا كل عام للموظف المعني إذا تم تمكين الزيادة التلقائية.</>
+<>An employee can directly make a request of this leave reason.</>,<>يمكن للموظف أن يقدم طلبًا مباشرًا لسبب الإجازة هذا.</>
+A leave request is already accepted over this or a portion of this period of time. Please cancel the previous one to accept this one.,تم قبول طلب الإجازة بالفعل خلال هذه الفترة أو جزء منها. يرجى إلغاء الخيار السابق لقبول هذا.
+A project planning time already exists. Do you want to update it?,يوجد بالفعل وقت لتخطيط المشروع. هل تريد تحديثه؟
+ADD A LINE,أضف سطر
+Absent,غائب
+Account information,معلومات الحساب
+Accounting,المحاسبة
+Acquired,حصل
+Action,العمل
+Actions,الإجراءات
+Active,نشط
+Active employee,موظف نشيط
+Active employees,موظفون نشيطون
+Activity,النشاط
+Activity on timesheet line is not enabled.,لم يتم تمكين النشاط على سطر سجل الدوام.
+Add a line,أضف سطر
+Add an advance,أضف تقدمة
+Add lines,أضف أسطر
+Add multiple lines,إضافة أسطر متعددة
+Add to expense,أضف إلى النفقات
+Advance,تقدم
+Advance management,الإدارة المتقدمة
+Afternoon,بعد الظهر
+Alert if the manuf. order is finish,تنبيه إذا كان المصنع. انتهى الطلب
+Alerts the user if they want to log time on a finished manufacturing order.,ينبه المستخدم إذا كان يريد تسجيل الوقت على أمر التصنيع النهائي.
+All,الكل
+All allocation lines,كافة بنود التخصيص
+All companies,جميع الشركات
+All extra hours,جميع الساعات الإضافية
+All lines must have the same currency.,يجب أن تكون لجميع الخطوط نفس العملة.
+All lines must have the same employee.,يجب أن يكون لدى جميع الخطوط نفس الموظف.
+All remaining leaves will be transferred to the selected leave type. Only incremental type can be chosen.,سيتم ترحيل جميع الإجازات المتبقية إلى نوع الإجازة المحدد. يمكن اختيار النوع التزايدي فقط.
+All timesheets,جميع سجلات الدوام
+Allocated,مخصص
+Allocated time,الوقت المخصص
+Allocation Year,سنة التخصيص
+Allocation line,خط التخصيص
+Allocation lines,خطوط التخصيص
+Allocation period,فترة التخصيص
+Allocation periods,فترات التخصيص
+Allocation year,سنة التخصيص
+Allocation years,سنوات التخصيص
+Allow Injection,السماح بالحقن
+Allow allocated initialization,السماح بالتهيئة المخصصة
+Allow expense creation,السماح بإنشاء النفقات
+Allow negative value for leaves,السماح برصيد سالب للإجازات
+Allow negative values for employee leaves,السماح بالقيم السالبة لإجازات الموظف
+Allow updates via editor,السماح بالتحديثات عبر المحرر
+Allows defining a default leave reason for absences to justify.,يسمح بتحديد سبب الإجازة الافتراضي لتبرير الغياب.
+Allows defining a standard sequence for expenses.,يسمح بتحديد تسلسل قياسي للنفقات.
+Allows defining how many lunch vouchers you have left in stock.,يسمح بتحديد عدد قسائم الغداء التي تركتها في المخزون.
+Allows defining the different kilometric allowance rates. You can enter different fiscal horsepower values with a custom rate for each.,يسمح بتحديد معدلات بدل الكيلومترات المختلفة. يمكنك إدخال قيم مختلفة للقدرة المالية بمعدل مخصص لكل منها.
+"Allows defining the first day of the leave period, i.e. from which day each year the new leave period starts. For example, if it starts on June 1st, enter 1 in this field and 6 in the First month of leave period field.",يسمح بتحديد اليوم الأول من فترة الإجازة، أي من أي يوم تبدأ فترة الإجازة الجديدة كل عام. على سبيل المثال، إذا بدأت في الأول من يونيو، فأدخل 1 في هذا الحقل و6 في حقل الشهر الأول من فترة الإجازة.
+"Allows defining the first month of the leave period, i.e. from which month each year the new leave period starts. For example, if it starts on June 1st, enter 6 in this field and 1 in the First day of leave period field.",يسمح بتحديد الشهر الأول من فترة الإجازة، أي من أي شهر تبدأ فترة الإجازة الجديدة من كل عام. على سبيل المثال، إذا بدأت في الأول من يونيو، فأدخل 6 في هذا الحقل و1 في الحقل أول يوم من فترة الإجازة.
+"Allows defining whether by default the end date of a timesheet will automatically be at the end of the week, end of the month, or simply free allowing to freely choose the end date of a timesheet.",يسمح بتحديد ما إذا كان تاريخ انتهاء سجل الدوام افتراضيًا سيكون تلقائيًا في نهاية الأسبوع، أو نهاية الشهر، أو ببساطة يسمح بحرية اختيار تاريخ انتهاء سجل الدوام.
+"Allows external employees to declare expenses. Unlike expenses, these declarations do not generate an accounting entry but can be validated before being re-invoiced on a project. External employee costs are reimbursed as part of the payment of a supplier invoice.",يسمح للموظفين الخارجيين بالإعلان عن النفقات. وعلى عكس النفقات، لا تؤدي هذه الإقرارات إلى إنشاء إدخال محاسبي ولكن يمكن التحقق من صحتها قبل إعادة إصدار فاتورة بها في المشروع. يتم سداد تكاليف الموظفين الخارجيين كجزء من دفع فاتورة المورد.
+Allows indicating a minimum stock of lunch vouchers that you always want to have in stock.,يسمح بالإشارة إلى الحد الأدنى من مخزون قسائم الغداء التي تريد الاحتفاظ بها دائمًا في المخزون.
+Allows indicating the format of lunch vouchers used in the company.,يسمح بتحديد شكل قسائم الغداء المستخدمة في الشركة.
+Alone meal,وجبة وحده
+Already allocated,تم تخصيصها بالفعل
+Also export already exported payroll preparations,قم أيضًا بتصدير تجهيزات كشوف المرتبات المصدرة بالفعل
+Always,دائما
+Amendment,تعديل
+Amendment Date,تاريخ التعديل
+Amendment type,نوع التعديل
+Amendment types,أنواع التعديل
+Amount,المبلغ
+Amount limit,حد المبلغ
+Analytic distribution,توزيع مراكز التكلفة
+Analytic distribution lines,خطوط التوزيع التحليلية
+Analytic distribution template,قالب توزيع مراكز التكلفة
+Annual expenses report,تقرير المصاريف السنوية
+Annual gross salary,الراتب الإجمالي السنوي
+Annual report,التقرير السنوي
+Annual schedule,الجدول السنوي
+Anomaly,شذوذ
+App,التطبيق
+App Expense,تكلفة التطبيق
+App Leave,مغادرة التطبيق
+App Timesheet,سجل الدوام للتطبيق
+App employee,موظف التطبيق
+App expense,حساب التطبيق
+App leave,إجازة التطبيق
+App project,مشروع التطبيق
+App timesheet,سجل الدوام للتطبيق
+Application condition,شرط التقديم
+Are you sure you want to remove selected lines?,هل أنت متأكد أنك تريد إزالة الأسطر المحددة؟
+Arriving city,مدينة الوصول
+At least one line of this expense exceeds the authorised amount for its type of expense.,يتجاوز بند واحد على الأقل من هذه النفقات المبلغ المسموح به لنوع النفقات الخاص به.
+Attach to,نعلق على
+Auto incrementation disabled,تم تعطيل الزيادة التلقائية
+Auto incrementation enabled,تم تمكين الزيادة التلقائية
+Automatic generation dates must be included in the timesheet period,يجب تضمين تواريخ الإنشاء التلقائي في فترة سجل الدوام
+Automatic incrementation,الزيادة التلقائية
+Automatically generated,يتم إنشاؤه تلقائيًا
+Available,متاح
+Available Stock of Lunch Vouchers,المخزون المتاح من قسائم الغداء
+Available days,الأيام المتاحة
+Available leave days computed.,يتم احتساب أيام الإجازة المتاحة.
+Available quantity (acquired),الكمية المتوفرة (المكتسبة)
+Available quantity (before validation),الكمية المتوفرة (قبل التحقق)
+Balance,الرصيد
+Bank,بنك
+Bank Order,أمر بنكي / أمر تحويل
+Bank card,البطاقة المصرفية
+Bank cards,البطاقات المصرفية
+Bank details,البيانات البنكية
+Base amount per employee,المبلغ الأساسي لكل موظف
+Basic information,معلومات أساسية
+Batch,حزمة
+Batches,دفعات
+Batchs,دفعات
+Benefits and expenses,الفوائد والنفقات
+Birth date,تاريخ الميلاد
+Block expense tax modification,كتلة تعديل ضريبة النفقات
+Block project planning time generation,كتلة توليد وقت تخطيط المشروع
+Block project planning time generation.,منع توليد وقت تخطيط المشروع.
+Bonus coefficient,معامل المكافأة
+Bonus type,نوع المكافأة
+Bonuses,المكافآت
+Both,كلاهما
+Business days,أيام العمل
+"By activating this option, the user will only be able to enter a planned time from this selection. Be careful to define the associated values. If the configuration is not activated, no constraints will be applied to the time.",بتفعيل هذا الخيار، سيتمكن المستخدم فقط من إدخال وقت مخطط من هذا التحديد. تأكد من تحديد القيم المرتبطة. إذا لم يتم تفعيل التهيئة، فلن يتم تطبيق أي قيود على الوقت.
+"By checking this box you can define notification email templates for expenses. These are notification emails sent to users when they submit expenses. Different templates can be configured for various scenarios (confirmation, refusal, validation, etc.).",من خلال تحديد هذا المربع، يمكنك تحديد قوالب البريد الإلكتروني للإشعارات الخاصة بالنفقات. هذه هي رسائل البريد الإلكتروني للإشعارات التي يتم إرسالها إلى المستخدمين عند إرسال النفقات. يمكن تكوين قوالب مختلفة لسيناريوهات مختلفة (التأكيد، الرفض، التحقق من الصحة، وما إلى ذلك).
+"By checking this box you can define notification email templates for extra hours. These are notification emails sent to users when they submit extra hours. Different templates can be configured for various scenarios (confirmation, refusal, validation, etc.).",من خلال تحديد هذا المربع، يمكنك تحديد قوالب البريد الإلكتروني للإشعارات لساعات إضافية. هذه هي رسائل البريد الإلكتروني للإشعارات التي يتم إرسالها إلى المستخدمين عندما يرسلون ساعات عمل إضافية. يمكن تكوين قوالب مختلفة لسيناريوهات مختلفة (التأكيد، الرفض، التحقق من الصحة، وما إلى ذلك).
+"By checking this box you can define notification email templates for leave requests. These are notification emails sent to users when they submit leave requests. Different templates can be configured for various scenarios (confirmation, refusal, validation, etc.).",من خلال تحديد هذا المربع، يمكنك تحديد قوالب البريد الإلكتروني للإشعارات لطلبات الإجازة. هذه هي رسائل البريد الإلكتروني للإشعارات التي يتم إرسالها إلى المستخدمين عند إرسال طلبات الإجازة. يمكن تكوين قوالب مختلفة لسيناريوهات مختلفة (التأكيد، الرفض، التحقق من الصحة، وما إلى ذلك).
+"By checking this box you can define notification email templates for timesheets. These are notification emails sent to users when they submit a timesheet. Different templates can be configured for various scenarios (confirmation, refusal, validation, etc.).",من خلال تحديد هذا المربع، يمكنك تحديد قوالب البريد الإلكتروني للإشعارات الخاصة بسجلات الدوام. هذه هي رسائل البريد الإلكتروني التي يتم إرسالها إلى المستخدمين عندما يرسلون جدولًا زمنيًا. يمكن تكوين قوالب مختلفة لسيناريوهات مختلفة (التأكيد، الرفض، التحقق من الصحة، وما إلى ذلك).
+"By checking this box, you enable leave management in payroll exports.",من خلال تحديد هذا المربع، يمكنك تمكين إدارة الإجازات في عمليات تصدير كشوف المرتبات.
+"By defining a selection here, the user will only be able to enter a displayed planned time from this selection. Be careful to define a selection with integer or decimal type values for it to work. If no selection is defined or the configuration is not enabled, no constraints apply to the time.",من خلال تحديد التحديد هنا، لن يتمكن المستخدم إلا من إدخال الوقت المخطط المعروض من هذا التحديد. كن حذرًا عند تحديد التحديد باستخدام قيم النوع الصحيحة أو العشرية حتى يعمل. إذا لم يتم تحديد أي تحديد أو لم يتم تمكين التكوين، فلن يتم تطبيق أي قيود على الوقت.
+"By enabling this configuration, timesheets will be subject to a validation workflow by a manager. If unchecked, the user can confirm their own timesheets without validation from another person.",من خلال تمكين هذا التكوين، ستخضع سجلات الدوام لسير عمل التحقق من الصحة بواسطة المدير. إذا لم يتم تحديده، فيمكن للمستخدم تأكيد سجلات الدوام الخاصة به دون التحقق من صحتها من شخص آخر.
+"By enabling this configuration, you will be able to manage employee bonuses. A dedicated menu will appear in the employee management module.",من خلال تمكين هذا التكوين، سوف تكون قادرًا على إدارة مكافآت الموظفين. ستظهر قائمة مخصصة في وحدة إدارة الموظفين.
+"By enabling this configuration, you will be able to manage employee medical visits. A dedicated tab will appear on the employee form.",من خلال تمكين هذا التكوين، ستتمكن من إدارة الزيارات الطبية للموظفين. ستظهر علامة تبويب مخصصة في نموذج الموظف.
+"By enabling this configuration, you will be able to manage expense advances.",من خلال تمكين هذا التكوين، ستتمكن من إدارة دفعات النفقات.
+"By enabling this configuration, you will be able to manage lunch vouchers. A dedicated menu will appear in the employee management module.",من خلال تمكين هذا التكوين، ستتمكن من إدارة قسائم الغداء. ستظهر قائمة مخصصة في وحدة إدارة الموظفين.
+"By enabling this configuration, you will be able to manage payroll preparation. A dedicated menu will appear in the employee management module.",من خلال تمكين هذا التكوين، ستتمكن من إدارة إعداد كشوف المرتبات. ستظهر قائمة مخصصة في وحدة إدارة الموظفين.
+"By enabling this option, timesheet lines mentioning public holidays are automatically added to the user timesheet for the relevant period. This depends on the user public holiday planning.",من خلال تمكين هذا الخيار، تتم إضافة بنود سجل الدوام التي تشير إلى العطلات الرسمية تلقائيًا إلى سجل الدوام للمستخدم للفترة ذات الصلة. هذا يعتمد على تخطيط المستخدم للعطلات العامة.
+"By enabling this option, when an employee leave request is validated, timesheet lines mentioning the leave are automatically added to the user timesheet for the relevant period.",من خلال تمكين هذا الخيار، عندما يتم التحقق من صحة طلب إجازة الموظف، تتم إضافة بنود سجل الدوام التي تشير إلى الإجازة تلقائيًا إلى سجل الدوام للمستخدم للفترة ذات الصلة.
+CDD,سي دي دي
+COMPLEMENT,تكملة
+CP,سي بي
+CSP,مركز الطاقة
+CSV,CSV
+Calculate,احسب
+Calculated,محسوب
+Calendar,التقويم
+Calendar days,أيام تقويمية
+Can only add expense line to drafted expense.,يمكن فقط إضافة بند المصاريف إلى المصاريف التي تمت صياغتها.
+Can only be selected by HR Management,لا يمكن تحديده إلا من خلال إدارة الموارد البشرية
+Can only cancel planned or realized medical visit.,يمكن فقط إلغاء الزيارة الطبية المخططة أو المحققة.
+Can only confirm/complete from draft status.,يمكن التأكيد/الإكمال فقط من حالة المسودة.
+Can only plan draft medical visit.,يمكن فقط التخطيط لمشروع الزيارة الطبية.
+Can only realize planned medical visit.,يمكن تحقيق الزيارة الطبية المخطط لها فقط.
+Can only refuse a waiting for validation timesheet.,يمكن فقط رفض انتظار سجل الدوام للتحقق من الصحة.
+Can only validate a waiting for validation timesheet.,يمكن فقط التحقق من صحة انتظار سجل الدوام للتحقق من الصحة.
+Cancel,إلغاء
+Cancel payment,إلغاء الدفع
+Canceled,ملغي
+Canceled Expense Template,قالب النفقات الملغاة
+Canceled Extra Hours Template,نموذج الساعات الإضافية الملغاة
+Canceled Leave Request Template,نموذج طلب إجازة ملغاة
+Canceled Timesheet Template,قالب سجل الدوام الملغى
+Canteen,مقصف
+Catalog,الكتالوج
+Categorization,التصنيف
+Change of position,تغيير الموقف
+Characteristics,الخصائص
+Charges and Contributions,الرسوم والمساهمات
+Choose payment mode,اختر طريقة الدفع
+Citizenship,المواطنة
+City of birth,مدينة الميلاد
+Clear project planning times duration,مسح المدة الزمنية لتخطيط المشروع
+Close period,فترة الإغلاق
+Closed,مغلق
+Code,الرمز
+Code nature,طبيعة الكود
+Code used in payroll exports for extra hours.,الكود المستخدم في تصدير كشوف المرتبات لساعات العمل الإضافية.
+Code used in payroll exports for lunch vouchers.,الرمز المستخدم في تصدير كشوف المرتبات لقسائم الغداء.
+Code used in payroll exports for the number of working days.,الكود المستخدم في تصدير كشوف المرتبات لعدد أيام العمل.
+Coefficient,المعامل
+Coefficient for bonus,معامل المكافأة
+Cohabitee,المتعايش
+Colleague Leave Requests,طلبات إجازة الزملاء
+Collective agreement,اتفاقية جماعية
+Collective agreements,الاتفاقيات الجماعية
+Comment,تعليق
+Comments,تعليقات
+Companies,الشركات
+Company,الشركة
+Company %s does not have any expense's sequence,الشركة %s ليس لديها أي تسلسل للنفقات
+Company address,عنوان الشركة
+Company bank card,البطاقة المصرفية للشركة
+Company credit card details,تفاصيل بطاقة ائتمان الشركة
+Company department,قسم الشركة
+Company fixed phone,شركة الهاتف الثابت
+Company for which the configurations are made.,الشركة التي تم إجراء التكوينات لها.
+Company's credit card,البطاقة الائتمانية للشركة
+Complete,أكمل
+Complete my expense,أكمل نفقتي
+Complete my leave request,أكمل طلب إجازتي
+Complete my timesheet,أكمل سجل الدوام الخاص بي
+Completed,مكتمل
+Compute amounts,حساب المبالغ
+Compute distance with web service,حساب المسافة مع خدمة الويب
+Configurable,شكلي
+Configuration,التهيئة
+Confirm,تأكيد
+Confirm & Continue,تأكيد ومتابعة
+Confirmed Extra Hours Template,نموذج الساعات الإضافية المؤكدة
+Confirmed Timesheet Template,قالب سجل الدوام المؤكد
+Consolidate timesheet line on invoice,توحيد سطر سجل الدوام في الفاتورة
+Consume,تستهلك
+Contact,جهة اتصال
+Contact details,تفاصيل الاتصال
+Contact in case of emergency,الاتصال في حالة الطوارئ
+Content,المحتوى
+Continue,متابعة
+Contract,عقد عمل
+Contract extension,تمديد العقد
+Contract sub type,نوع العقد الفرعي
+Contract type,نوع العقد
+Contract types,أنواع العقود
+Contractual information,المعلومات التعاقدية
+Contrat duration must be <= to this duration,يجب أن تكون مدة العقد <= لهذه المدة
+Contrat duration must be > to this duration,يجب أن تكون مدة العقد > لهذه المدة
+Conventional Hourly Rate,سعر الساعة التقليدي
+Conventional Monthly Rate,السعر الشهري التقليدي
+Costs,التكاليف
+Counted,عد
+Country of birth,بلد الميلاد
+Create,إنشاء
+Create Leave Request,إنشاء طلب إجازة
+Create Timesheet line,إنشاء سطر سجل الدوام
+Create amendment,إنشاء التعديل
+Create expense,إنشاء حساب
+Create leave request,إنشاء طلب إجازة
+Create leave requests,إنشاء طلبات الإجازة
+Create lines for day leaves,إنشاء خطوط لإجازات اليوم
+Create lines for public holidays,إنشاء خطوط للعطلات الرسمية
+Create new user,إنشاء مستخدم جديد
+Create or update a scheduler,إنشاء أو تحديث جدولة
+Create scheduler,إنشاء جدولة
+Created automatically by increment leave batch on,يتم إنشاؤه تلقائيًا عن طريق زيادة دفعة الإجازة على
+Created by,تم إنشاؤها بواسطة
+Created on,تم الإنشاء بتاريخ
+Currency,العملة
+Current user doesn't have an employee.,المستخدم الحالي ليس لديه موظف.
+DATE D'ENTREE,تاريخ الدخول
+DATE DE SORTIE,تاريخ الرحلة
+DATE NAISS,تاريخ نايس
+DEPT NAISS,ديبت نايس
+DPAE,دباي
+DPAE filters,مرشحات DPAE
+DPAEs,DPAEs
+Daily cost,التكلفة اليومية
+Daily limit,الحد اليومي
+Daily salary cost,تكلفة الراتب اليومي
+Daily work hours,ساعات العمل اليومية
+Date,التاريخ
+Date can't be in the future,لا يمكن أن يكون التاريخ في المستقبل
+Date can't be in the future for line(s) : %s,لا يمكن أن يكون التاريخ في المستقبل للسطر (الأسطر): %s
+Date difference should be maximam 31 days.,يجب أن يكون فارق التاريخ 31 يومًا كحد أقصى.
+Date of birth,تاريخ الميلاد
+Date of hire,تاريخ الاستئجار
+Dates,مواعيد
+Day,يوم
+Day leave,إجازة يومية
+Days,أيام
+Days validated,أيام التحقق من صحة
+Deduct lunch voucher,خصم قسيمة الغداء
+Default Activity Product,منتج النشاط الافتراضي
+Default bank details are not filled for your company.,لم يتم ملء التفاصيل المصرفية الافتراضية لشركتك.
+Default day number gain,كسب رقم اليوم الافتراضي
+Department of birth,قسم الولادة
+Dependent children,الأطفال المعالون
+Description,الوصف
+Details,التفاصيل
+Display activity column in printing,عرض عمود النشاط في الطباعة
+Display planned time,عرض الوقت المخطط
+Display task column in printing,عرض عمود المهمة في الطباعة
+Display time unit,عرض وحدة الوقت
+Display timesheet line number,عرض رقم سطر سجل الدوام
+Distance travelled,المسافة المقطوعة
+Distribution date,تاريخ التوزيع
+Draft,مسودة
+Due time entries,إدخالات الوقت المناسب
+Duration,المدة
+Duration (hours),المدة (ساعات)
+Duration adjust for customer,ضبط المدة للعميل
+Duration computed.,المدة المحسوبة.
+Duration equals 0,المدة تساوي 0
+Duration(hours by day),المدة(ساعات يوميا)
+Duration(in day per day),المدة(باليوم في اليوم)
+Duration(minutes by day),المدة(دقيقة يوميا)
+E-MAIL,البريد الإلكتروني
+ETAB,إيتاب
+ETRANGER,الغريب
+Early termination,الإنهاء المبكر
+Edit Expense Selected,تحرير المصاريف تم التحديد
+Edit Leave Request Selected,تحرير طلب الإجازة تم التحديد
+Edit Start&Stop Timer On Stop,تحرير مؤقت البدء والإيقاف عند التوقف
+Edit Timesheet Selected,تحرير سجل الدوام المحدد
+Edit extra hours selected,تعديل الساعات الإضافية المحددة
+Editing timer on stop need to be enabled to set a duration.,يجب تمكين مؤقت التحرير عند التوقف لتعيين المدة.
+Editor,المحرر
+Electronic card,البطاقة الالكترونية
+Email reminder for timesheet filling batch,تذكير عبر البريد الإلكتروني لدفعة ملء سجل الدوام
+Email reminder for timesheets,تذكير بالبريد الإلكتروني للجداول الزمنية
+Email sent date,تاريخ إرسال البريد الإلكتروني
+Email sent to %s,تم إرسال البريد الإلكتروني إلى %s
+Email template sent when a leave request is canceled.,يتم إرسال نموذج البريد الإلكتروني عند إلغاء طلب الإجازة.
+Email template sent when a leave request is refused.,يتم إرسال نموذج البريد الإلكتروني عند رفض طلب الإجازة.
+Email template sent when a leave request is sent.,يتم إرسال قالب البريد الإلكتروني عند إرسال طلب الإجازة.
+Email template sent when a leave request is validated.,يتم إرسال نموذج البريد الإلكتروني عند التحقق من صحة طلب الإجازة.
+Email template sent when a timesheet is canceled.,يتم إرسال قالب البريد الإلكتروني عند إلغاء سجل الدوام.
+Email template sent when a timesheet is confirmed.,يتم إرسال قالب البريد الإلكتروني عند تأكيد سجل الدوام.
+Email template sent when a timesheet is refused.,يتم إرسال قالب البريد الإلكتروني عند رفض سجل الدوام.
+Email template sent when a timesheet is validated.,يتم إرسال قالب البريد الإلكتروني عند التحقق من صحة سجل الدوام.
+Email template sent when expenses are canceled.,يتم إرسال نموذج البريد الإلكتروني عند إلغاء النفقات.
+Email template sent when expenses are refused.,يتم إرسال نموذج البريد الإلكتروني عند رفض النفقات.
+Email template sent when expenses are sent.,يتم إرسال قالب البريد الإلكتروني عند إرسال النفقات.
+Email template sent when expenses are validated.,يتم إرسال نموذج البريد الإلكتروني عند التحقق من صحة النفقات.
+Email template sent when extra hours are canceled.,يتم إرسال نموذج البريد الإلكتروني عند إلغاء الساعات الإضافية.
+Email template sent when extra hours are confirmed.,يتم إرسال نموذج البريد الإلكتروني عند تأكيد ساعات العمل الإضافية.
+Email template sent when extra hours are refused.,يتم إرسال نموذج البريد الإلكتروني عند رفض الساعات الإضافية.
+Email template sent when extra hours are validated.,يتم إرسال نموذج البريد الإلكتروني عند التحقق من صحة الساعات الإضافية.
+Emails,رسائل البريد الإلكتروني
+Emergency contact,اتصال الطوارئ
+Emergency contact relationship,علاقة اتصال الطوارئ
+Employee,موظف
+Employee %s is not allowed to take leave in advance.,غير مسموح للموظف %s بأخذ إجازة مقدماً.
+Employee PhoneBook,دليل هاتف الموظف
+Employee advance,سلفة الموظف
+Employee advance list,قائمة سلفة الموظف
+Employee advance usage,الاستخدام المسبق للموظف
+Employee advances,سلف الموظفين
+Employee annual report template,نموذج التقرير السنوي للموظف
+Employee bonus,مكافأة الموظف
+Employee bonus amount,مبلغ مكافأة الموظف
+Employee bonus management,إدارة مكافآت الموظفين
+Employee bonus management filters,مرشحات إدارة مكافآت الموظفين
+Employee bonus mgt,مكافأة الموظف mgt
+Employee bonus type,نوع مكافأة الموظف
+Employee bonuses,مكافآت الموظفين
+Employee code,كود الموظف
+Employee dashboard,لوحة تحكم الموظف
+Employee filters,مرشحات الموظفين
+Employee firstname,الموظف
+Employee information,معلومات الموظف
+Employee lastname,اسم عائلة الموظف
+Employee phone book template,قالب دليل هاتف الموظف
+Employee planning,تخطيط الموظفين
+Employee status,حالة الموظف
+Employee to be reminded,الموظف للتذكير
+Employee vehicle list,قائمة مركبات الموظف
+Employee's other costs,تكاليف الموظف الأخرى
+Employee.annualReportOf,تقرير الموظف السنوي
+Employee.company,الشركة
+Employee.contract,عقد عمل
+Employee.contractType,نوع عقد الموظف
+Employee.country,بلد الموظف
+Employee.dailyCost,تكلفة الموظف اليومية
+Employee.dailyWork,الموظف.العمل اليومي
+Employee.department,قسم الموظفين
+Employee.departureDate,تاريخ مغادرة الموظف
+Employee.dob,الموظف.dob
+Employee.emergencyContact,اتصل بالموظف
+Employee.emergencyNumber,رقم الموظف
+Employee.endDate,تاريخ الانتهاء
+Employee.entryDate,تاريخ إدخال الموظف
+Employee.martialStatus,حالة الموظف العسكرية
+Employee.personalInformations,معلومات الموظف الشخصية
+Employee.phoneAtCustomer,الهاتف على العميل
+Employee.position,موقف الموظف
+Employee.positionList,قائمة وظائف الموظفين
+Employee.resume,سيرة ذاتية للموظف
+Employee.startDate,تاريخ بدء الموظف
+Employee.weeklyWork,الموظف.العمل الأسبوعي
+EmployeeTimesheet.fromDate,الموظفTimesheet.fromDate
+EmployeeTimesheet.toDate,الموظفTimesheet.toDate
+EmployeeTimesheet.user,المستخدم
+EmployeeTimesheet.weekTotal,الموظفTimesheet.weekTotal
+Employees,الموظفون
+Employees Management,إدارة الموظفين
+Employees computed: %d,تم حساب الموظفين: %d
+Employees failed to be computed due to anomaly: %d,فشل حساب الموظفين بسبب حالة شاذة: %d
+Employees management,إدارة شؤون الموظفين
+Employees' leaves attempted to be computed : %s,محاولة حساب إجازات الموظفين : %s
+Employees' leaves failed to be computed due to configuration anomaly : %s,فشل حساب إجازات الموظفين بسبب خطأ في التكوين: %s
+Employees' leaves failed to be computed due to missing data : %s,فشل حساب إجازات الموظفين بسبب فقدان البيانات: %s
+Employees' leaves successfully computed : %s,تم حساب إجازات الموظفين بنجاح: %s
+Employees' other costs,تكاليف أخرى للموظفين
+Employment,التوظيف
+Employment Contract Templates,نماذج عقود العمل
+Employment Contracts,عقود العمل
+Employment contract,عقد العمل
+Employment contract export batch,دفعة تصدير عقد العمل
+Employment contract template,نموذج عقد عمل
+Employment contract templates,نماذج عقود العمل
+Employment contract type,نوع عقد العمل
+Employment contract types,أنواع عقود العمل
+Employment contracts,عقود العمل
+Employment contracts exported : %s,عقود العمل المصدرة : %s
+Employment contracts/Contract amendments,عقود العمل/تعديلات العقود
+Employment.name,الاسم
+EmploymentAmendmentType.companies,شركات
+EmploymentAmendmentType.endDate,تاريخ الانتهاء
+EmploymentAmendmentType.name,الاسم
+EmploymentContractSubType.description,الوصف
+EmploymentContractType.description,الوصف
+EmploymentContractType.name,الاسم
+Employments,التوظيف
+Enable DPAE,تمكين DPAE
+Enable MyHR,تمكين MyHR
+Enable activity,تفعيل النشاط
+Enable event creation,تمكين إنشاء الحدث
+Enable expense declaration,تمكين إعلان النفقات
+Enable multiple timer,تمكين الموقت المتعدد
+Enable payroll preparation export,تمكين تصدير إعداد كشوف المرتبات
+Enable planification,تمكين التخطيط
+"Enabling MyHR activates an HR portal for employees, with menu entries giving them direct access to their HR data such as leave requests, expenses, timesheets, etc.",يؤدي تمكين MyHR إلى تنشيط بوابة الموارد البشرية للموظفين، مع إدخالات القائمة التي تتيح لهم الوصول المباشر إلى بيانات الموارد البشرية الخاصة بهم مثل طلبات الإجازات والنفقات وسجلات الدوام وما إلى ذلك.
+"Enabling this option allows creating multiple timers simultaneously. If unchecked, the user can only use one timer at a time.",يتيح تمكين هذا الخيار إنشاء مؤقتات متعددة في وقت واحد. إذا لم يتم تحديده، فيمكن للمستخدم استخدام مؤقت واحد فقط في كل مرة.
+End Date,تاريخ الانتهاء
+End On,نهاية
+End date,تاريخ الانتهاء
+End date of hire,تاريخ انتهاء الاستئجار
+End date time,تاريخ الانتهاء الوقت
+End of contract,نهاية العقد
+End of contract reason,سبب انتهاء العقد
+End of contract reasons,أسباب نهاية العقد
+End of month,نهاية الشهر
+End of the week,نهاية الاسبوع
+Establishment of the employer,تأسيس صاحب العمل
+Estimated time,الوقت المقدر
+Event,الحدث
+Event subject groovy formula,موضوع الحدث صيغة رائعة
+Exceptional leave,إجازة استثنائية
+Exclude timesheet editor,استبعاد محرر سجل الدوام
+Executive,تنفيذي
+Executive Status,الوضع التنفيذي
+Executive status,الوضع التنفيذي
+Expense,مصروف / نفقة
+Expense Journal,دفتر يومية النفقات
+Expense Notification Mail,بريد إشعار النفقات
+Expense N°,حساب رقم
+Expense Per Employee,النفقات لكل موظف
+Expense Sequence,تسلسل النفقات
+Expense Templates,قوالب النفقات
+Expense Type,نوع النفقات
+Expense date,تاريخ النفقة
+Expense declaration,إقرار المصاريف
+Expense filters,مرشحات النفقات
+Expense limit,حد النفقات
+Expense limit list,قائمة حدود النفقات
+Expense limits,حدود النفقات
+Expense line,خط النفقات
+Expense line successfully updated.,تم تحديث بند المصاريف بنجاح.
+Expense lines,خطوط المصاريف
+Expense lines to merge,بنود النفقات للدمج
+Expense paid with company's credit card,تُدفع النفقات ببطاقة ائتمان الشركة
+Expense payment,دفع المصاريف
+Expense report template,نموذج تقرير المصروفات
+Expense successfully updated.,تم تحديث المصروفات بنجاح.
+Expense successfully updated. An error occurred while sending the mail.,تم تحديث المصروفات بنجاح. حدث خطأ أثناء إرسال البريد.
+Expense tax account,حساب ضريبة المصاريف
+Expense type,نوع النفقات
+Expense types,أنواع النفقات
+Expense.advanceAmount,المبلغ المقدم
+Expense.comments,تعليقات
+Expense.companyCbSelect,شركة سي بي حدد
+Expense.currency,العملة
+Expense.employeeName,اسم الموظف
+Expense.employeeSignature,توقيع الموظف
+Expense.employerSignature,توقيع صاحب العمل
+Expense.expenseDate,تاريخ النفقة
+Expense.expenseOf,حساب
+Expense.period,الفترة المالية
+Expense.personalExpenseAmount,مبلغ النفقة الشخصية
+Expense.total,الإجمالي
+Expense.totalA.T.I,Expense.totalA.T.I
+Expense.totalAmount,المبلغ الإجمالي
+Expense.totalToRefund,إجمالي المبلغ المراد استرداده
+Expense.withdrawnCash,سحب نقدي
+ExpenseLine.amount,المبلغ
+ExpenseLine.cityFrom,ExpenseLine.cityمن
+ExpenseLine.cityTo,المدينة إلى
+ExpenseLine.client,العميل
+ExpenseLine.distance,المسافة
+ExpenseLine.expenseDate,تاريخ النفقة
+ExpenseLine.expenseType,نوع النفقات
+ExpenseLine.kilometricAllowParam,الكيلومترية السماح للمعلمة
+ExpenseLine.kilometricExpenseType,نوع المصاريف الكيلومترية
+ExpenseLine.no,لا
+ExpenseLine.project,مشروع
+ExpenseLine.toInvoice,للفاتورة
+ExpenseLine.totalTax,الضريبة الإجمالية
+ExpenseLine.untaxedAmount,المبلغ غير الخاضع للضريبة
+ExpenseLine.yes,نعم
+Expenses,المصروفات والنفقات
+Expenses amount to pay,مبلغ النفقات الواجب دفعه
+Expenses declaration,إقرار المصاريف
+Expenses to Validate,مصاريف التحقق
+Expenses to Ventilate,مصروفات جاهزة للترحيل المحاسبي
+Expenses to be Validated by your subordinates,النفقات التي سيتم التحقق من صحتها من قبل مرؤوسيك
+Experience duration,مدة الخبرة
+Export,تصدير
+Export CSV,تصدير CSV
+Export all leave requests,تصدير كافة طلبات الإجازة
+Export code,كود التصدير
+Export code for duration,كود التصدير للمدة
+Export code for extra hour management,كود التصدير لإدارة الساعات الإضافية
+Export code for lunch voucher management,كود التصدير لإدارة قسائم الغداء
+Export codes,رموز التصدير
+Export date,تاريخ التصدير
+Export des salariés,تصدير الرواتب
+Export employment contract,عقد عمل تصدير
+Export file,تصدير الملف
+Export for payroll preparation,التصدير لإعداد الرواتب
+Export payroll preparation,إعداد كشوف المرتبات التصديرية
+Export type,نوع التصدير
+Exported,تصدير
+Exports,الصادرات
+Extension Amendment,تعديل التمديد
+Extension and Miscellaneous Amendment,التمديد والتعديلات المتنوعة
+External,خارجي
+Extra Hours,ساعات اضافية
+Extra Hours Notification Mail,بريد إشعار الساعات الإضافية
+Extra Hours Templates,قوالب الساعات الإضافية
+Extra hours,الساعات الإضافية
+Extra hours filters,مرشحات الساعات الإضافية
+Extra hours request,طلب ساعات اضافية
+Extra hours to Validate,ساعات إضافية للتحقق
+Extra hours to be Validated by your subordinates,ساعات إضافية ليتم التحقق من صحتها من قبل مرؤوسيك
+Extra hours to validate,ساعات إضافية للتحقق
+Extra hours type,نوع الساعات الإضافية
+Extra hours' number,عدد الساعات الإضافية
+ExtraHours,ساعات اضافية
+F,ف
+Fetch limit,حد الجلب
+"Fetch limit for this batch. 0 will not be taken into account. In this case, the value configured in app Base will be used.",حد الجلب لهذه الدفعة. 0 لن تؤخذ في الاعتبار. في هذه الحالة، سيتم استخدام القيمة التي تم تكوينها في قاعدة التطبيق.
+File,الملف
+File types,أنواع الملفات
+Files,الملفات
+Finish,انتهى
+Finished,انتهى
+First day of leave period,أول يوم في فترة الإجازة
+First month of leave period,الشهر الأول من فترة الإجازة
+First name,الاسم الأول
+Fiscal periods,الفترات المالية
+Fiscal year,السنة المالية
+Follow-up,متابعة
+"For foreign-born employees, please enter the code 99",للموظفين الأجانب الرجاء إدخال الرمز 99
+Former employee,موظف سابق
+Former employees,موظفين سابقين
+Formula,الصيغة
+Formula variables configuration,تكوين متغيرات الصيغة
+Friday,الجمعة
+From,من
+From Date,من التاريخ
+From date,من تاريخ
+From date can't be empty,"لا يمكن أن يكون تاريخ ""من"" فارغًا"
+From generation date,من تاريخ النشأة
+Full name,الاسم الكامل
+Fullscreen Editor,محرر ملء الشاشة
+General,عام
+General Expense,مصروفات عامة
+General Expenses,مصاريف عامة
+General expense lines,بنود المصروفات العامة
+General expenses,مصاريف عمومية
+Generate Lines From Expected Planning,توليد خطوط من التخطيط المتوقع
+Generate Lines automatically,توليد الخطوط تلقائيا
+Generate human resource configurations,إنشاء تكوينات الموارد البشرية
+Generate lines,توليد خطوط
+Generate new DPAE,إنشاء DPAE جديد
+Generate payroll prepa.,إنشاء إعداد كشوف المرتبات.
+Generate periods,توليد فترات
+Generate timesheet lines,إنشاء خطوط سجل الدوام
+Given,نظرا
+Given lunch vouchers on the period,توزيع قسائم غداء للفترة
+Given project task and activity are not related.,نظرا لمهمة المشروع والنشاط ليست ذات صلة.
+Given project task and project are not related.,نظرا لمهمة المشروع والمشروع ليست ذات صلة.
+Given to Employee,تعطى للموظف
+Ground For Refusal,ارضية الرفض
+Ground for refusal,أسباب الرفض
+HR,الموارد البشرية
+HR Batch,دفعة الموارد البشرية
+HR batch filters,مرشحات دفعة الموارد البشرية
+HR batches,دفعات الموارد البشرية
+HR config,تكوين الموارد البشرية
+HR information,معلومات الموارد البشرية
+HR manager,مدير الموارد البشرية
+Hardship allowance,بدل المشقة
+Health mutual,الصحة المتبادلة
+Health mutual rejection reason,صحة سبب الرفض المتبادل
+Health mutual rejection reasons,أسباب الرفض المتبادل الصحية
+Health service,خدمة صحية
+Health service address,عنوان الخدمة الصحية
+Here is the list of the warnings and errors,فيما يلي قائمة التحذيرات والأخطاء
+Historic colleague Expenses,مصاريف الزميل التاريخية
+Historic colleague Timesheets,سجلات الدوام للزميل التاريخي
+Historic colleague extra hours,الزميل التاريخي ساعات إضافية
+Historic extra hours,ساعات اضافية تاريخية
+Historic team Expenses,مصاريف الفريق التاريخية
+Historic team leave requests,طلبات مغادرة الفريق التاريخية
+Holiday,عطلة
+Hour,ساعة
+Hourly complement,تكملة بالساعة
+Hourly gross salary,الراتب الإجمالي بالساعة
+Hourly rate,سعر الساعة
+Hours,ساعات
+Hours distribution,توزيع الساعات
+Hr batch,دفعة ساعة
+Hr config,تكوين الموارد البشرية
+HrConfig,هركونفيج
+Human Resource Manager,مدير الموارد البشرية
+Human Resource config (${ name }),تكوين الموارد البشرية (${ name })
+Human Resources Employee,موظف موارد بشرية
+Human Resources Manager,مدير الموارد البشرية
+Human Resources configuration,تكوين الموارد البشرية
+Human Resources configurations,تكوينات الموارد البشرية
+Human resource configurations,تكوينات الموارد البشرية
+I am at work,أنا في العمل
+"If enable, allow the user to select the initialization of allocated with computed planned time on the period",في حالة التمكين، اسمح للمستخدم بتحديد التهيئة المخصصة مع الوقت المخطط المحسوب في الفترة
+"If this configuration is enabled, a single product will be used on timesheets (in the activity field of the timesheet, for example a project manager product, consultant, etc.). This product is used in business financial reports to determine costs associated with time spent, and can be used when invoicing time spent to clients.",إذا تم تمكين هذا التكوين، فسيتم استخدام منتج واحد في سجلات الدوام (في حقل النشاط في سجل الدوام، على سبيل المثال، منتج مدير مشروع، مستشار، وما إلى ذلك). يُستخدم هذا المنتج في التقارير المالية للأعمال لتحديد التكاليف المرتبطة بالوقت المنقضي، ويمكن استخدامه عند إعداد فواتير الوقت المنقضي للعملاء.
+"If this option is enabled, planification will be available on project and project task views and some auto-generated planning lines will be added when generating via the project template, as well as sprint change on project tasks.",إذا تم تمكين هذا الخيار، فسيكون التخطيط متاحًا في طرق عرض المشروع ومهام المشروع وستتم إضافة بعض بنود التخطيط التي تم إنشاؤها تلقائيًا عند الإنشاء عبر قالب المشروع، بالإضافة إلى التغيير السريع في مهام المشروع.
+Imposed holidays planning,التخطيط للعطلات المفروضة
+In Trial,في المحاكمة
+In advance,مقدما
+Inactive,غير نشط
+Increase %,زيادة %
+Increment leave,زيادة الإجازة
+Information,معلومة
+Init with planning time,الحرف الأول مع وقت التخطيط
+Inject,حقن
+Inject/Consume,حقن / استهلاك
+Instruction,تعليمات
+Internal description,الوصف الداخلي
+Invalid date,التاريخ غير صالح
+Invalid date periods,فترات تاريخ غير صالحة
+"Invalid date, it can't be in the future",التاريخ غير صالح، لا يمكن أن يكون في المستقبل
+Invalid dates,تواريخ غير صالحة
+Invalid duration (must be a 0.5's multiple),المدة غير صالحة (يجب أن تكون مضاعفتها 0.5)
+Invitation,دعوة
+Invited collaborators,المتعاونون المدعوون
+Invoiced,مفوتر
+Invoicing Type for Log Times,نوع الفواتير لأوقات السجل
+It is possible here to define rules for obtaining seniority leave linked to the type of employment contract (Executive / Non-executive). The formula (groovy) used is called in the calculation of this leave in batches.,ويمكن هنا تحديد قواعد الحصول على إجازة الأقدمية المرتبطة بنوع عقد العمل (تنفيذي/غير تنفيذي). وتسمى صيغة (رائع) المستخدمة في حساب هذه الإجازة على دفعات.
+Justification,التبرير
+K.A.P.,K. A.P.
+Keep Project for Start&Stop Timer,احتفظ بالمشروع لبدء وإيقاف المؤقت
+Kilometric,الكيلومترية
+Kilometric Allowance,البدل الكيلومتري
+Kilometric Allowance Param,معلمة البدل الكيلومتري
+Kilometric Allowance Params,معلمات البدل الكيلومتري
+Kilometric Allowances,البدلات الكيلومترية
+Kilometric allowance list,قائمة المسموحات الكيلومترية
+Kilometric allowance rate,معدل البدل الكيلومتري
+Kilometric allowance rates,معدلات البدل الكيلومتري
+Kilometric allowance rule,قاعدة البدل الكيلومتري
+Kilometric allowance rule list,قائمة قواعد البدل الكيلومتري
+Kilometric allowance rules,قواعد البدل الكيلومتري
+Kilometric expense product,منتج النفقات الكيلومترية
+Kilometric line,الخط الكيلومتري
+Kilometric lines,الخطوط الكيلومترية
+Kilometric log,السجل الكيلومتري
+Kilometric log list,قائمة السجل الكيلومتري
+Kilometrice Allowance Param,معلمة بدل الكيلومترات
+Kilometrice Allowance Params,معلمات بدل الكيلومترات
+Kilometrice log,سجل الكيلومترات
+LIEU,ليو
+Label,التسمية
+Last medical visit :,آخر زيارة طبية:
+Last medical visit : XX/XX/XXXX,آخر زيارة طبية : XX/XX/XXXX
+Last medical visit date,تاريخ آخر زيارة طبية
+Last name,الاسم الأخير
+Launched every,يتم إطلاقه كل
+Leave Batch rules,ترك قواعد الدفعة
+Leave List,قائمة الإجازة
+Leave Management,إدارة الإجازات
+Leave Management Batch Rule,قاعدة دفعة إدارة الإجازة
+Leave Management Reset,إعادة ضبط إدارة الإجازة
+Leave Per Employee,إجازة لكل موظف
+Leave Reason for Leave to justify,ترك سبب الترك لتبرير
+Leave Reasons,ترك الأسباب
+Leave Request,طلب إجازة
+Leave Request Assistant,مساعد طلب ترك
+Leave Request Notification Mail,ترك رسالة إشعار الطلب
+Leave Requests,طلبات الإجازات
+Leave Requests to Validate,ترك الطلبات للتحقق
+Leave accounts,ترك الحسابات
+Leave available to date,الإجازة متاحة حتى الآن
+Leave correction,اترك التصحيح
+Leave counter reset,ترك إعادة ضبط العداد
+Leave day number,ترك رقم اليوم
+Leave days,أيام الإجازة
+Leave days' number,عدد أيام الإجازة
+Leave line,اترك السطر
+Leave managed every month,إدارة الإجازة كل شهر
+Leave managed every year,إدارة الإجازة كل عام
+Leave management,إدارة الإجازة
+Leave management batch,ترك دفعة الإدارة
+Leave management batch rule list,ترك قائمة قواعد دفعة الإدارة
+Leave period,فترة الإجازة
+Leave reason,اترك السبب
+Leave reason and day number have to be defined,يجب تحديد سبب الإجازة ورقم اليوم
+Leave reasons,اترك الأسباب
+Leave request,طلب إجازة
+Leave request batch,ترك دفعة الطلب
+Leave request filters,مرشحات طلب الإجازة
+Leave request successfully updated.,تم تحديث طلب الإجازة بنجاح.
+Leave request successfully updated. An error occurred while sending the mail.,تم تحديث طلب الإجازة بنجاح. حدث خطأ أثناء إرسال البريد.
+Leave request(s) have been correctly created.,تم إنشاء طلب (طلبات) الإجازة بشكل صحيح.
+Leave request(s) have been correctly created. Some requests were ignored as they were not correctly configured.,تم إنشاء طلب (طلبات) الإجازة بشكل صحيح. تم تجاهل بعض الطلبات لأنه لم يتم تكوينها بشكل صحيح.
+Leave requests,طلبات الإجازات
+Leave to justify,اترك للتبرير
+Leave type,نوع الإجازة
+LeaveRequest,طلب الإجازة
+Leaves,الإجازات
+Leaves Management,إدارة الأوراق
+Leaves Templates,قوالب الأوراق
+Leaves and public holidays,الإجازات والعطلات الرسمية
+Leaves and timesheets,الإجازات وسجلات الدوام
+Leaves calendar,أوراق التقويم
+Leaves request,طلب الإجازات
+Leaves request failed to be computed due to configuration anomaly : %s,فشل حساب طلب الإجازات بسبب خطأ في التكوين: %s
+Leaves request successfully computed : %s,تم حساب طلب الإجازات بنجاح: %s
+Leaves to be Validated by your subordinates,الإجازات ليتم التحقق من صحتها من قبل مرؤوسيك
+Leaving date,تاريخ المغادرة
+Level,المستوى
+Line will be attached to a subsequent timesheet,سيتم إرفاق الخط بجدول زمني لاحق
+Lines Generation Wizard,معالج إنشاء الخطوط
+Linked project planning time,ربط وقت تخطيط المشروع
+List of employees,قائمة الموظفين
+Log Time,وقت الدخول
+Log Times,أوقات السجل
+Log time,وقت الدخول
+Logged Time,الوقت المسجل
+Login,تسجيل الدخول
+Lunch Voucher,قسيمة غداء
+Lunch Voucher Employer's Share,قسيمة غداء حصة صاحب العمل
+Lunch Voucher Format,تنسيق قسيمة الغداء
+Lunch Voucher Line,خط قسيمة الغداء
+Lunch Voucher Lines,خطوط قسيمة الغداء
+Lunch Voucher Management,إدارة قسائم الغداء
+Lunch Voucher Wage Share,حصة أجر قسيمة الغداء
+Lunch Voucher's number,رقم قسيمة الغداء
+Lunch Vouchers,قسائم الغداء
+Lunch voucher advance,قسيمة الغداء مقدما
+Lunch voucher advances,سلف قسيمة الغداء
+Lunch voucher management filters,مرشحات إدارة قسائم الغداء
+Lunch voucher supplier,مورد قسيمة الغداء
+Lunch vouchers,قسائم الغداء
+Lunch vouchers distributed,تم توزيع قسائم غداء
+Lunch vouchers used,قسائم الغداء المستخدمة
+Lunch vouchers' number,رقم قسيمة الغداء
+LunchVoucher.amount,قسيمة الغداء.المبلغ
+LunchVoucher.comment,قسيمة الغداء.كومنت
+LunchVoucher.employeeShare,حصة الموظف
+LunchVoucher.employerShare,حصة صاحب العمل
+LunchVoucher.handedOn,سلمت على
+LunchVoucher.leavesFrom,يترك من
+LunchVoucher.lvFrom,LunchVoucher.lvمن
+LunchVoucher.month,قسيمة غداء. شهر
+LunchVoucher.names,أسماء
+LunchVoucher.paperNumber,رقم الورقة
+LunchVoucher.qty,الكمية
+LunchVoucher.signature,التوقيع
+LunchVoucher.signatureDocument,وثيقة التوقيع
+LunchVoucher.subtotal,قسيمة الغداء.المجموع الفرعي
+LunchVoucher.to,إلى
+LunchVoucher.total,الإجمالي
+LunchVoucherCommand,أمر قسيمة الغداء
+M,م
+MATRICULE,ماتريكول
+Maiden name,الاسم قبل الزواج
+Main,الرئيسية
+Main activity code,رمز النشاط الرئيسي
+Main employment contract,عقد العمل الرئيسي
+Main employment contract status,حالة عقد العمل الرئيسي
+Manage orphan expense lines,إدارة خطوط مصروفات اليتيم
+Manager,مدير
+Manager dashboard,لوحة تحكم المدير
+Marital name,الاسم الزوجي
+Marital status,الحالة الاجتماعية
+Married,متزوج
+Mass export list,قائمة الصادرات الجماعية
+Max amount,الحد الأقصى للمبلغ
+Maximum Condition,الحد الأقصى للحالة
+Medical Visit Reason,سبب الزيارة الطبية
+Medical Visit Reasons,أسباب الزيارة الطبية
+Medical visit,زيارة طبية
+Medical visit file,ملف الزيارة الطبية
+Medical visit list,قائمة الزيارات الطبية
+Medical visit reason,سبب الزيارة الطبية
+Medical visits,الزيارات الطبية
+Messages,الرسائل
+Meta Schedule,جدول ميتا
+Min monthly remuneration,الحد الأدنى للأجر الشهري
+Minimum Condition,الحد الأدنى للحالة
+Minimum Stock of Lunch Vouchers,الحد الأدنى لمخزون قسائم الغداء
+Minimum stock of lunch vouchers will be reached for the company %s. Minimum Stock allowed : %s. Available Stock : %s,سيتم الوصول إلى الحد الأدنى من مخزون قسائم الغداء للشركة %s. الحد الأدنى المسموح به للمخزون: %s. المخزون المتوفر : %s
+Minutes,دقائق
+Miscellaneous Amendment,تعديل متنوع
+Missing hours,الساعات المفقودة
+Monday,الاثنين
+Month,الشهر
+Monthly global cost,التكلفة العالمية الشهرية
+Monthly schedule,الجدول الشهري
+Morning,صباح
+Move,قيد محاسبي
+Move Date,تاريخ النقل
+"Move already used, you must unreconcile it first",النقل مستخدم بالفعل، يجب عليك إلغاء تسويته أولاً
+Multi-leave assistant,مساعد متعدد الإجازات
+Multiple Start&Stop Timer,متعددة بدء وإيقاف الموقت
+Multiple timer,مؤقت متعدد
+My Expenses,مصاريفي
+My Extra Hours,ساعاتي الإضافية
+My Leave Requests,طلبات إجازتي
+My Timesheets,جداول الدوام الخاصة بي
+My expenses,مصاريفي
+My extra hours,ساعاتي الإضافية
+My leave requests,طلبات إجازتي
+My timesheets,جداولي الزمنية
+MyHR,ماي اتش آر
+NOM,الاسم
+NOM DE JEUNE FILLE,نوم دي جون فيل
+NOM MARITAL,الاسم الزوجي
+NUMERO INSEE,رقم INSEE
+Name,الاسم
+Name and surname,الاسم واللقب
+Name for age variable,اسم متغير العمر
+Name for seniority variable,اسم متغير الأقدمية
+Name for total working day in a period variable,اسم لإجمالي يوم العمل في متغير الفترة
+Name for working day variable,اسم متغير يوم العمل
+Nbr in card,رقم في البطاقة
+Nbr in paper,نبر في الورق
+Nbr lunch vouchers,قسائم غداء Nbr
+Need validation,بحاجة إلى التحقق
+Net salary,صافي الراتب
+Never,أبدا
+New,جديد
+New employee,موظف جديد
+New employees,موظفين جدد
+New line,سطر جديد
+Next medical visit :,الزيارة الطبية القادمة :
+Next medical visit date,موعد الزيارة الطبية القادمة
+Nibelis,نيبيليس
+No,لا
+No Leave Request to be validated by your subordinates,لا يوجد طلب إجازة ليتم التحقق من صحته من قبل مرؤوسيك
+No Route Found,لم يتم العثور على طريق
+No employee found,لم يتم العثور على موظف
+No expense to be validated by your subordinates,لا توجد نفقات ليتم التحقق من صحتها من قبل مرؤوسيك
+No extra hours to be validated by your subordinates,لا توجد ساعات إضافية ليتم التحقق من صحتها من قبل مرؤوسيك
+No leave requests were created.,لم يتم إنشاء أي طلبات إجازة.
+No longer used,لم تعد تستخدم
+No move linked to this expense,لا توجد خطوة مرتبطة بهذه النفقات
+No project planning time exists for this task. Do you want to create new project planning lines?,لا يوجد وقت لتخطيط المشروع لهذه المهمة. هل تريد إنشاء خطوط تخطيط مشروع جديدة؟
+No such place exists,لا يوجد مثل هذا المكان
+No time sheet found for employee %s,لم يتم العثور على جدول زمني للموظف %s
+No timesheet line has been created because the duration is less than 1 minute,لم يتم إنشاء أي سطر للجدول الزمني لأن المدة أقل من دقيقة واحدة
+No timesheet lines can be generated because no duration is entered. Please fill the duration field if you want to generate timesheet lines.,لا يمكن إنشاء أي بنود للجدول الزمني لأنه لم يتم إدخال أي مدة. يرجى ملء حقل المدة إذا كنت تريد إنشاء سطور سجل الدوام.
+No timesheet to be validated by your subordinates,لا يوجد جدول زمني ليتم التحقق من صحته من قبل مرؤوسيك
+No user was found when creating the timesheet.,لم يتم العثور على مستخدم عند إنشاء سجل الدوام.
+Non-Executive,غير تنفيذي
+None,لا شيء
+Not all expenses are in the same currency. You can only create or add lines to an expense report when they have the same currency.,ليست كل النفقات بنفس العملة. لا يمكنك إنشاء بنود أو إضافتها إلى تقرير المصروفات إلا عندما تكون بنفس العملة.
+Not invoiced,لم يتم إصدار فاتورة
+Note,ملاحظة
+Number of canteen entries,عدد إدخالات المقصف
+Number of days,عدد الأيام
+"Number of days acquired at the end of the request. This takes into account the leave you earn each month, minus leave already validated.",عدد الأيام المكتسبة في نهاية الطلب. يأخذ هذا في الاعتبار الإجازة التي تكسبها كل شهر، مطروحًا منها الإجازة التي تم التحقق من صحتها بالفعل.
+Number of days before reminder,عدد الأيام قبل التذكير
+Number of days overseas,عدد الأيام في الخارج
+Number of days worked,عدد أيام العمل
+Number of lunch vouchers,عدد قسائم الغداء
+OK,موافق
+Occasional,من حين لآخر
+Old code,الكود القديم
+Old value,القيمة القديمة
+"On timesheet printing, adds a task column showing the tasks of each timesheet line.",عند طباعة سجل الدوام، تتم إضافة عمود مهمة يوضح مهام كل سطر من بنود سجل الدوام.
+"On timesheet printing, adds an activity column showing the activities of each timesheet line.",عند طباعة سجل الدوام، تتم إضافة عمود نشاط يوضح أنشطة كل سطر من بنود سجل الدوام.
+"On weekly plannings, the Activity percentage field indicates a coefficient taken into account in leave calculation based on the person activity. If the employee works part-time, the coefficient is set to 0.5 and the leave calculation is based on this value, earning fewer days than a full-time person whose coefficient is 1. Always: always uses the planning coefficient. Configurable: can be defined per leave type via the Use planning coefficient checkbox. No: the planning coefficient is not taken into account.",في التخطيطات الأسبوعية، يشير حقل النسبة المئوية للنشاط إلى المعامل الذي يتم أخذه في الاعتبار عند حساب الإجازة بناءً على نشاط الشخص. إذا كان الموظف يعمل بدوام جزئي، فسيتم تعيين المعامل على 0.5 ويستند حساب الإجازة إلى هذه القيمة، مما يكسب أيامًا أقل من الشخص الذي يعمل بدوام كامل والذي يكون معامله 1. دائمًا: يستخدم معامل التخطيط دائمًا. قابل للتكوين: يمكن تحديده لكل نوع إجازة عبر خانة الاختيار استخدام معامل التخطيط. لا: لا يؤخذ معامل التخطيط بعين الاعتبار.
+One-way,اتجاه واحد
+Only HR manager can choose this expense type.,يمكن لمدير الموارد البشرية فقط اختيار نوع النفقات هذا.
+Only missing,مفقود فقط
+Open Street Maps error: %s,خطأ في فتح خرائط الشوارع: %s
+Organization,منظمة
+Orphan expense line,خط نفقة اليتيم
+OrphanExpenseLine.title,العنوان
+Others,أخرى
+Overseas,في الخارج
+Overview,نظرة عامة
+PRENOM,برينوم
+Paper format,تنسيق الورق
+Partner,شريك أعمال
+Pause,وقفة
+Pay Company,شركة الدفع
+Pay Grid,شبكة الدفع
+Pay company main employment contract,دفع عقد العمل الرئيسي للشركة
+Pay period,فترة الدفع
+Payment,دفعة / سداد
+Payment Date,تاريخ الدفع
+Payment Status,حالة الدفع
+Payment amount,مبلغ الدفع
+Payment information,معلومات الدفع
+Payment mode,طريقة الدفع
+Payment move,حركة الدفع
+Payment voucher,سند صرف
+Payroll Leave,إجازة الرواتب
+Payroll Leaves,أوراق الرواتب
+Payroll Preparation,إعداد كشوف المرتبات
+Payroll Preparations,تحضيرات الرواتب
+Payroll Year,سنة الرواتب
+Payroll input,إدخال الرواتب
+Payroll periods,فترات الرواتب
+Payroll preparation,إعداد الرواتب
+Payroll preparation export,تصدير إعداد كشوف المرتبات
+Payroll preparation export batch,دفعة تصدير إعداد كشوف المرتبات
+Payroll preparation export page,صفحة تصدير إعداد كشوف المرتبات
+Payroll preparation filters,مرشحات إعداد الرواتب
+Payroll preparation generation,توليد إعداد كشوف المرتبات
+Payroll preparation generation batch,دفعة توليد كشوف المرتبات
+Payroll preparation generation page,صفحة إعداد كشوف المرتبات
+Payroll preparations,تحضيرات الرواتب
+Payroll preparations attempted to be generated : %s,محاولة إنشاء تحضيرات كشوف المرتبات : %s
+Payroll preparations exported : %s,تم تصدير تحضيرات كشوف المرتبات : %s
+Payroll preparations failed to be generated due to a duplicate one : %s,فشل إنشاء تحضيرات كشوف المرتبات بسبب وجود نسخة مكررة: %s
+Payroll preparations failed to be generated due to missing data : %s,فشل إنشاء تحضيرات كشوف المرتبات بسبب فقدان البيانات: %s
+Payroll preparations successfully generated : %s,تم إنشاء تحضيرات كشوف المرتبات بنجاح: %s
+Payroll year,سنة الرواتب
+Payroll years,سنوات الرواتب
+PayrollPreparation.registrationNumber,إعداد كشوف المرتبات. رقم التسجيل
+"Percentage of lunch voucher in paper format, the rest will be in electronic card.",تكون نسبة قسيمة الغداء ورقية، والباقي سيكون في البطاقة الإلكترونية.
+Period,الفترة المالية
+Period is closed,الفترة مغلقة
+Periods generation assistant,مساعد توليد الفترات
+Permanent,الدائم
+Personal expense,نفقة شخصية
+Personal expense amount,مبلغ النفقة الشخصية
+Personal information,معلومات شخصية
+Phone,الهاتف
+Phone at the customer,الهاتف على العميل
+Phonebook.employeePhonebook,دليل هاتف الموظف
+Plan,خطة
+Planification,التخطيط
+Planned,مخطط
+Planned Time Planning,تخطيط الوقت المخطط
+Planned time,الوقت المخطط
+Planned time value,القيمة الزمنية المخططة
+Planned time values,القيم الزمنية المخططة
+Planning,التخطيط
+Plannings,تخطيطات
+Plate Number,رقم اللوحة
+Please add a product,الرجاء إضافة منتج
+Please add a start date for generation,الرجاء إضافة تاريخ البدء للإنشاء
+Please add an employee's planning related to user %s,الرجاء إضافة تخطيط الموظف المتعلق بالمستخدم %s
+Please add an employee's public holiday events planning related to user %s,الرجاء إضافة تخطيط لأحداث العطلات الرسمية الخاصة بالموظف والمتعلقة بالمستخدم %s
+Please add an end date for generation,الرجاء إضافة تاريخ انتهاء للإنشاء
+Please choose an activity.,الرجاء اختيار النشاط.
+Please choose an employee.,الرجاء اختيار الموظف.
+Please configure Formula Variables for human resource for the company %s,الرجاء تكوين متغيرات الصيغة للموارد البشرية للشركة %s
+Please configure a birt template for expense report.,يرجى تكوين قالب بيرت لتقرير النفقات.
+Please configure information for human resources for the company %s,الرجاء تكوين معلومات الموارد البشرية للشركة %s
+Please configure the canceled expense template in HR config for the company %s,الرجاء تكوين قالب النفقات الملغاة في تكوين الموارد البشرية للشركة %s
+Please configure the canceled extra hours template in HR config for the company %s,الرجاء تكوين قالب الساعات الإضافية الملغاة في تكوين الموارد البشرية للشركة %s
+Please configure the canceled leave template in HR config for the company %s,الرجاء تكوين قالب الإجازة الملغاة في تكوين الموارد البشرية للشركة %s
+Please configure the expense type for kilometric allowance in HR config for the company %s,الرجاء تكوين نوع المصاريف لبدل الكيلومترات في تكوين الموارد البشرية للشركة %s
+Please configure the refused expense template in HR config for the company %s,الرجاء تكوين قالب النفقات المرفوضة في تكوين الموارد البشرية للشركة %s
+Please configure the refused extra hours template in HR config for the company %s,الرجاء تكوين قالب الساعات الإضافية المرفوضة في تكوين الموارد البشرية للشركة %s
+Please configure the refused leave template in HR config for the company %s,الرجاء تكوين قالب الإجازة المرفوضة في تكوين الموارد البشرية للشركة %s
+Please configure the sent expense template in HR config for the company %s,الرجاء تكوين قالب النفقات المرسلة في تكوين الموارد البشرية للشركة %s
+Please configure the sent extra hours template in HR config for the company %s,الرجاء تكوين قالب الساعات الإضافية المرسلة في تكوين الموارد البشرية للشركة %s
+Please configure the sent leave template in HR config for the company %s,الرجاء تكوين قالب الإجازة المرسلة في تكوين الموارد البشرية للشركة %s
+Please configure the template for email reminder,يرجى تكوين القالب للتذكير عبر البريد الإلكتروني
+Please configure the unjustified absence reason in HR config for the company %s,الرجاء تكوين سبب الغياب غير المبرر في تكوين الموارد البشرية للشركة %s
+Please configure the validated expense template in HR config for the company %s,الرجاء تكوين قالب النفقات الذي تم التحقق من صحته في تكوين الموارد البشرية للشركة %s
+Please configure the validated extra hours template in HR config for the company %s,الرجاء تكوين قالب الساعات الإضافية الذي تم التحقق من صحته في تكوين الموارد البشرية للشركة %s
+Please configure the validated leave template in HR config for the company %s,الرجاء تكوين قالب الإجازة التي تم التحقق من صحتها في تكوين الموارد البشرية للشركة %s
+Please create an employee for the user ${__user__.name},الرجاء إنشاء موظف للمستخدم ${__user__.name}
+Please create an employee for the user ${assignedTo.name},الرجاء إنشاء موظف للمستخدم ${signedTo.name}
+Please create an employee for the user %s,الرجاء إنشاء موظف للمستخدم %s
+Please fill a company.,يرجى ملء الشركة.
+Please fill a generation date.,يرجى ملء تاريخ الجيل.
+Please fill a leave period.,يرجى ملء فترة الإجازة.
+Please fill a user for the employee %s,الرجاء تعبئة اسم المستخدم للموظف %s
+Please fill the payment mode.,يرجى ملء طريقة الدفع.
+Please fill the period,يرجى ملء الفترة
+Please provide a company.,يرجى تقديم الشركة.
+Please provide a kilometric allowance parameter.,يرجى تقديم معلمة بدل الكيلومتر.
+Please provide a kilometric type.,يرجى تقديم نوع الكيلومتر.
+Please provide an expense product.,يرجى تقديم منتج النفقات.
+Please provide starting and arriving cities.,يرجى تقديم مدن البداية والوصول.
+Please select at least one expense line.,الرجاء تحديد بند حساب واحد على الأقل.
+Please set a company up on leave request,يرجى إنشاء شركة بناءً على طلب الإجازة
+"Please, add a contract of employment for employee : %s",من فضلك أضف عقد العمل للموظف : %s
+"Please, add a planning for employee : %s",من فضلك، قم بإضافة تخطيط للموظف: %s
+"Please, add a public holiday planning for employee : %s",من فضلك، أضف تخطيطًا لعطلة رسمية للموظف: %s
+"Please, choose unit in leave reason %s.",من فضلك، اختر الوحدة في سبب الإجازة %s.
+"Please, configure the number of daily work hours.",من فضلك قم بضبط عدد ساعات العمل اليومية.
+"Please, configure the time logging unit preference.",من فضلك، قم بتكوين تفضيل وحدة تسجيل الوقت.
+"Please, provide weeklyPlanning , publicHolidaysPlanning and mainContract information for selected employees",يرجى تقديم التخطيط الأسبوعي وتخطيط العطلات العامة ومعلومات العقد الرئيسي للموظفين المختارين
+"Please, select an employment contract template",من فضلك قم باختيار نموذج عقد العمل
+"Please, select an expense",من فضلك، حدد المصاريف
+Position,الموقف
+Position / Salary,المنصب / الراتب
+Presence,حضور
+Present,حاضر
+Previously hired,تم تعيينه سابقًا
+Print,طباعة
+Print contract,طباعة العقد
+Print report and files,طباعة التقرير والملفات
+Printings,مطبوعات
+Probation period,فترة الاختبار
+Probation period duration,مدة فترة الاختبار
+Probation periods,فترات الاختبار
+ProbationPeriod.maximumDuration,فترة الاختبار.الحد الأقصى للمدة
+ProbationPeriod.minimumDuration,فترة الاختبار.الحد الأدنى للمدة
+Product Activities,أنشطة المنتج
+Product Activity,نشاط المنتج
+Product dates,مواعيد المنتج
+Product expense filters,مرشحات نفقات المنتج
+Product sheet,ورقة المنتج
+Product specific attributes,سمات المنتج المحددة
+Product typology,تصنيف المنتج
+Products.items,منتجات.عناصر
+Profit-sharing beneficiary,المستفيد من تقاسم الأرباح
+Project,المشروع
+Project Dashboard,لوحة تحكم المشروع
+Project Plannings,تخطيط المشاريع
+Project and project task must be chosen together.,يجب اختيار مهمة المشروع والمشروع معًا.
+Project config.,تكوين المشروع
+Project configurations,تكوينات المشروع
+Project planning time,وقت تخطيط المشروع
+Project planning time lines,الخطوط الزمنية لتخطيط المشروع
+Project planning time on the duration,زمن تخطيط المشروع في المدة
+"Project planning time on the old sprint's dates are existing, do you want to move those to the new period ?",وقت تخطيط المشروع في تواريخ السباق القديم موجود، هل تريد نقله إلى الفترة الجديدة؟
+"Project planning time on the sprint dates are existing, do you want to update these with the new budgeted time?",وقت تخطيط المشروع في تواريخ السباق موجود، هل تريد تحديثه بالوقت الجديد المدرج في الميزانية؟
+Project planning time unit not matching with time units in base configuration.,الوحدة الزمنية لتخطيط المشروع غير متطابقة مع الوحدات الزمنية في التكوين الأساسي.
+Project task,مهمة المشروع
+ProjectPlanningTime.Activity,النشاط
+Proof file digitally signed,ملف إثبات موقع رقميًا
+Prorate with employee hire date,التناسب مع تاريخ تعيين الموظف
+Public Holiday Planning,التخطيط للعطلات الرسمية
+Public holidays,العطل الرسمية
+Public holidays planning,التخطيط للعطلات الرسمية
+Qty must be lower than %d.,يجب أن تكون الكمية أقل من %d.
+Qualification,المؤهل
+Qualification Level,مستوى المؤهل
+Qualification levels,مستويات التأهيل
+QualificationLevel.code,الرمز
+QualificationLevel.name,الاسم
+Qualifications,المؤهلات
+Quantities,الكميات
+Quantity,الكمية
+Quantity to stock,الكمية المتوفرة في المخزون
+Rate,معدل
+Realize,أدرك
+Realized,تحقق
+Reason,السبب
+Recovery leave reason,سبب إجازة التعافي
+Recruitment,التوظيف
+Ref.,المرجع.
+Referential date for seniority,التاريخ المرجعي للأقدمية
+Refresh,تحديث
+Refusal Date,تاريخ الرفض
+Refuse,رفض
+Refused,مرفوض
+Refused By,رفض بواسطة
+Refused Expense Template,نموذج النفقات المرفوضة
+Refused Extra Hours Template,نموذج رفض الساعات الإضافية
+Refused Leave Request Template,نموذج طلب إجازة مرفوض
+Refused Timesheet Template,رفض قالب سجل الدوام
+Register payment,تسجيل الدفع
+Registration certificate,شهادة التسجيل
+Registration code,رمز التسجيل
+Reimbursed,تسدد
+RejectionReason.name,الاسم
+Relationship,العلاقة
+Remaining,المتبقي
+Remaining amount,المبلغ المتبقي
+Reminder,تذكير
+Remove lines,إزالة الخطوط
+Reopen period,فترة إعادة الفتح
+Report,تقرير
+Reportings,التقارير
+Reports,التقارير
+Request date,تاريخ الطلب
+Requested,مطلوب
+Requested amount,المبلغ المطلوب
+Requested lunch vouchers on the period,طلب قسائم غداء للفترة
+Restaurant,مطعم
+Resume,استئناف
+Return to draft status,العودة إلى حالة المسودة
+Round trip,ذهابا وإيابا
+SILAE,سيلاي
+SMIC value,قيمة SMIC
+Sage,حكيم
+Salary change,تغيير الراتب
+Sale,المبيعات
+Sales,المبيعات
+Saturday,السبت
+Schedules,سجلات الدوام
+See timesheet lines,انظر خطوط سجل الدوام
+Select Expense,حدد النفقات
+Select Leave Request,حدد طلب الإجازة
+Select Timesheet,حدد سجل الدوام
+Select employee,اختر الموظف
+Select extra hours,اختر الساعات الإضافية
+Select period,اختر الفترة
+Select the expense you want to edit,حدد المصاريف التي تريد تحريرها
+Select the extra hours you want to edit,حدد الساعات الإضافية التي تريد تعديلها
+Select the leave request you want to edit,حدد طلب الإجازة الذي تريد تعديله
+Select the tax account that will be used for expense report accounting.,حدد حساب الضريبة الذي سيتم استخدامه لمحاسبة تقارير المصروفات.
+Select the timesheet you want to edit,حدد سجل الدوام الذي تريد تحريره
+Selection of the product that will be used on timesheet lines by default.,تحديد المنتج الذي سيتم استخدامه في بنود سجل الدوام بشكل افتراضي.
+Selection on display planned time,التحديد على عرض الوقت المخطط
+Send,أرسل
+Send Email,إرسال البريد الإلكتروني
+Send Expenses,إرسال النفقات
+Send reminder,إرسال تذكير
+Seniority date,تاريخ الأقدمية
+Seniority leave Management,إدارة إجازات الأقدمية
+Seniority leave management batch,دفعة إدارة إجازات الأقدمية
+Seniority leave management page,صفحة إدارة إجازات الأقدمية
+Sent Date,تاريخ الإرسال
+Sent Expense Template,نموذج النفقات المرسلة
+Sent Leave Request Template,نموذج طلب الإجازة المرسلة
+Sequence,التسلسل
+Set employees to be reminded,تعيين الموظفين ليتم تذكيرهم
+Settings,الإعدادات
+Sex,الجنس
+Show editor,عرض المحرر
+Show expenses annual report,عرض التقرير السنوي للمصروفات
+Show expenses to be validated by my subordinates,إظهار النفقات ليتم التحقق من صحتها من قبل مرؤوسي
+Show extra hours to be validated by my subordinates,إظهار الساعات الإضافية ليتم التحقق من صحتها من قبل مرؤوسي
+Show leave request,إظهار طلب الإجازة
+Show leaves to be validated by my subordinates,إظهار الإجازات ليتم التحقق من صحتها من قبل مرؤوسي
+Show planning,عرض التخطيط
+Show related moves,إظهار الحركات ذات الصلة
+Show timesheets to be validated by my subordinates,إظهار سجلات الدوام ليتم التحقق من صحتها من قبل مرؤوسي
+Signature date,تاريخ التوقيع
+Silae,سيلاي
+Single,مفردة
+Site,الموقع
+SmicValue.menu,القائمة
+SmicValue.name,الاسم
+Social Charges,الرسوم الاجتماعية
+Social security number,رقم الضمان الاجتماعي
+Some lines do not have a justification file. Do you want to proceed ?,بعض الأسطر لا تحتوي على ملف مبرر. هل تريد المتابعة؟
+Spent time,الوقت الضائع
+Sprints,سباقات السرعة
+Standard,قياسي
+Standard export do not take into account the elements from employee bonus and others,التصدير القياسي لا يأخذ بعين الاعتبار عناصر مكافأة الموظف وغيرها
+Start,ابدأ
+Start Date,تاريخ البدء
+Start On,ابدأ
+Start Time,وقت البدء
+Start date,تاريخ البدء
+Start date time,تاريخ البدء الوقت
+Start time,وقت البدء
+Start&Stop,البدء والإيقاف
+Start&Stop Timer,بدء وإيقاف الموقت
+Starting city,مدينة البداية
+Status,الحالة
+Status Timer,مؤقت الحالة
+Step by step,خطوة بخطوة
+Stock quantity status,حالة كمية المخزون
+Stop,توقف
+Sunday,الأحد
+TEL,هاتف
+TEL 2,هاتف 2
+TSTimer,TSالمؤقت
+TSTimer.Pause,وقفة
+TSTimer.Start,TSTimer.ابدأ
+TSTimer.Stop,توقف
+Taken,مأخوذة
+Task,مهمة
+Tasks,المهام
+Tasks per sprint,المهام لكل سباق
+TeamTask,تيمتاسك
+Template,القالب
+The activity is not allowed in the current project.,النشاط غير مسموح به في المشروع الحالي.
+"The bank order linked to this expense has already been carried out/rejected, and thus can't be canceled",لقد تم بالفعل تنفيذ/رفض الطلب البنكي المرتبط بهذه النفقات، وبالتالي لا يمكن إلغاؤه
+The date must be in the timesheet period.,يجب أن يكون التاريخ في فترة سجل الدوام.
+The date of timesheet line %d can't be empty,لا يمكن أن يكون تاريخ سطر سجل الدوام %d فارغًا
+The distance between %s and %s.,المسافة بين %s و%s.
+The employee %s has multiple %s leave lines,لدى الموظف %s عدة خطوط إجازة %s
+The employee %s has no %s leave line,الموظف %s ليس لديه سطر إجازة %s
+The employee %s has no birth date,الموظف %s ليس له تاريخ ميلاد
+The employee %s has no seniority date,الموظف %s ليس له تاريخ أقدمية
+The expense limit has been exceeded for the period %s to %s,تم تجاوز حد النفقات للفترة من %s إلى %s
+The expense line amount exceeds the authorized limit of ${expenseProduct?.amountLimit}. Please correct the amount or request the intervention of an HR manager.,يتجاوز مبلغ بند المصروفات الحد المسموح به وهو ${expenseProduct?.amountLimit}. يرجى تصحيح المبلغ أو طلب تدخل مدير الموارد البشرية.
+The expense line amount exceeds the authorized limit of %s. Please correct the amount or request the intervention of an HR manager.,يتجاوز مبلغ بند المصروفات الحد المسموح به وهو %s. يرجى تصحيح المبلغ أو طلب تدخل مدير الموارد البشرية.
+"The field Activity is filled automatically from the field ""Default Activity Product"" from the employee form, on the timesheets panel. You can still modify for each task though","تتم تعبئة حقل النشاط تلقائيًا من حقل ""منتج النشاط الافتراضي"" من نموذج الموظف، في لوحة سجلات الدوام. لا يزال بإمكانك التعديل لكل مهمة من خلال"
+The file is not a PDF nor an image. Please keep the original document.,الملف ليس PDF ولا صورة. يرجى الاحتفاظ بالوثيقة الأصلية.
+"The given product is not an activity, please choose a correct activity.",المنتج المحدد ليس نشاطا، يرجى اختيار النشاط الصحيح.
+The hire date of the employee will be taken into account when computing days to add,سيتم أخذ تاريخ تعيين الموظف في الاعتبار عند حساب الأيام لإضافة
+The kilometric allowance rate corresponding to the kilometric allow param %s and the company %s is missing,معدل السماح بالكيلومتر المطابق لمعلمة السماح بالكيلومتر %s والشركة %s مفقود
+The new expense is not in draft.,النفقات الجديدة ليست في المسودة.
+The start date cannot be more recent than the end date.,لا يمكن أن يكون تاريخ البدء أحدث من تاريخ الانتهاء.
+The total tax has been set to zero since the expense type blocks taxes.,تم تعيين إجمالي الضريبة على الصفر نظرًا لأن نوع المصاريف يحظر الضرائب.
+"There is already a payroll preparation for the employee %s, the company %s and the period %s",يوجد بالفعل إعداد لكشوف المرتبات للموظف %s والشركة %s والفترة %s
+There is already a project planning time in these dates.,يوجد بالفعل وقت لتخطيط المشروع في هذه التواريخ.
+There is no civil year for society %s which includes date %s,لا توجد سنة مدنية للمجتمع %s والتي تتضمن التاريخ %s
+There is no leave line for the employee %s and the reason %s.,لا يوجد سطر إجازة للموظف %s والسبب %s.
+There is no matching condition for the allowance %s,لا يوجد شرط مطابق للبدل %s
+There is no year selected for the allowance.,لم يتم تحديد سنة للحصول على البدل.
+This allows creating schedulers for monthly leave incrementation.,يتيح ذلك إنشاء جداول لزيادة الإجازات الشهرية.
+This configuration allows defining a daily hour limit for timesheets. Leave at 0 if you do not want to define a limit.,يسمح هذا التكوين بتحديد الحد الأقصى لساعات العمل اليومية في سجل الدوام. اترك عند 0 إذا كنت لا تريد تحديد حد.
+This configuration allows to fill expense lines before creating any expense. This process is similar to the mobile application one.,يسمح هذا التكوين بملء بنود النفقات قبل إنشاء أي حساب. تشبه هذه العملية تطبيق الهاتف المحمول.
+"This configuration enables the ability to select an activity on timesheet lines. Activities are service-type products with the Activity checkbox checked. An employee can then select an activity when entering time, which can be taken into account when re-invoicing time spent to a client and/or in project costs as time spent.",يمكّن هذا التكوين القدرة على تحديد نشاط على بنود سجل الدوام. الأنشطة هي منتجات من نوع الخدمة مع تحديد خانة اختيار النشاط. يمكن للموظف بعد ذلك تحديد نشاط عند إدخال الوقت، والذي يمكن أخذه في الاعتبار عند إعادة فواتير الوقت المنقضي للعميل و/أو في تكاليف المشروع كالوقت المنقضي.
+This configuration enables the management of DPAE (pre-employment declaration).,يتيح هذا التكوين إدارة DPAE (إقرار ما قبل التوظيف).
+This contact is referenced from employee %s - %s,تمت الإشارة إلى جهة الاتصال هذه من الموظف %s - %s
+This date is invalid. It must be included in the timesheet's period.,هذا التاريخ غير صالح. ويجب أن يتم تضمينه في فترة سجل الدوام.
+This expense line is related to an expense which is not in draft.,يرتبط بند المصروفات هذا بمصروف غير موجود في المسودة.
+This formula allows customizing the subject of the event that will be created. For example the formula project.fullName + ' - ' + projectTask.fullName which will display the project name and the task name on which time is planned as the event title.,تسمح هذه الصيغة بتخصيص موضوع الحدث الذي سيتم إنشاؤه. على سبيل المثال، الصيغة project.fullName + ' - ' + projectTask.fullName والتي ستعرض اسم المشروع واسم المهمة التي تم تخطيط الوقت فيها كعنوان للحدث.
+This is a kilometric expense line. Distance must be greater than 0.,هذا خط حساب كيلومتري. يجب أن تكون المسافة أكبر من 0.
+This is the email template that will be sent to employees when a reminder about their timesheets is sent to them.,هذا هو قالب البريد الإلكتروني الذي سيتم إرساله إلى الموظفين عند إرسال تذكير بجداولهم الزمنية إليهم.
+"This option allows an employee to use leave days in advance that are not yet in their leave balance, resulting in a negative leave day balance.",يسمح هذا الخيار للموظف باستخدام أيام الإجازة المقدمة التي لم يتم إدراجها بعد في رصيد إجازته، مما يؤدي إلى رصيد يوم إجازة سلبي.
+"This option allows choosing whether timesheets will be invoiced based on the activity used on timesheet lines, or based on the default activity defined on the employee form. On the employee form, this activity can be defined in the Timesheets tab, in the Product for time spent field.","يسمح هذا الخيار باختيار ما إذا كانت سيتم فوترة سجلات الدوام بناءً على النشاط المستخدم في بنود سجل الدوام، أو بناءً على النشاط الافتراضي المحدد في نموذج الموظف. في نموذج الموظف، يمكن تحديد هذا النشاط في علامة التبويب ""سجلات الدوام"" في حقل المنتج للوقت المستغرق."
+This option allows numbering timesheet lines.,يسمح هذا الخيار بترقيم سطور سجل الدوام.
+"This option consolidates timesheet lines by activity on invoices, meaning it merges multiple timesheet lines with the same activity into a single invoice line.",يقوم هذا الخيار بدمج بنود سجل الدوام حسب النشاط في الفواتير، مما يعني أنه يدمج بنود جدول زمني متعددة بنفس النشاط في سطر فاتورة واحد.
+This option enables a graphical editor on timesheets that allows entering time directly on a planning view.,يعمل هذا الخيار على تمكين محرر رسومي على سجلات الدوام مما يسمح بإدخال الوقت مباشرة في طريقة عرض التخطيط.
+This option provides the ability to use a built-in timer on timesheets to track exactly the time spent on an activity.,يوفر هذا الخيار القدرة على استخدام مؤقت مدمج في سجلات الدوام لتتبع الوقت المستغرق في النشاط بالضبط.
+This planned time value already exists.,هذه القيمة الزمنية المخططة موجودة بالفعل.
+Thursday,الخميس
+Time %,الوقت %
+Time Sheet,ورقة زمنية
+Time follow up,متابعة الوقت
+Time logging preference,تفضيل تسجيل الوقت
+Time of hire,وقت الاستئجار
+Time unit,وحدة الزمن
+Time values that users will be able to enter in planification.,قيم الوقت التي سيتمكن المستخدمون من إدخالها في التخطيط.
+Time%,الوقت٪
+Timer,مؤقت
+"Timer is already ongoing, stop it before starting a new one.",الموقّت قيد التشغيل بالفعل، أوقفه قبل بدء مؤقت جديد.
+Timer start date time,تاريخ بدء المؤقت الوقت
+Timer successfully updated.,تم تحديث الموقّت بنجاح.
+Timesheet,سجل الدوام وساعات العمل
+Timesheet Line,سطر سجل ساعات العمل
+Timesheet Line Form,نموذج خط سجل الدوام
+Timesheet Lines,أسطر سجل ساعات العمل
+Timesheet Notification Mail,بريد إشعار سجل الدوام
+Timesheet Templates,قوالب سجل الدوام
+Timesheet converted period total.,إجمالي الفترة المحولة للجدول الزمني.
+Timesheet default end date format,تنسيق تاريخ الانتهاء الافتراضي للجدول الزمني
+Timesheet editor,محرر سجل الدوام
+Timesheet filters,مرشحات سجل الدوام
+"Timesheet line list is empty, please add a timesheet line list",قائمة خطوط سجل الدوام فارغة، يرجى إضافة قائمة خطوط سجل الدوام
+Timesheet line successfully updated.,تم تحديث سطر سجل الدوام بنجاح.
+Timesheet lines,أسطر سجل ساعات العمل
+Timesheet reminder,تذكير بسجل الدوام
+Timesheet reminder line,خط تذكير سجل الدوام
+Timesheet reminder lines,خطوط تذكير سجل الدوام
+Timesheet reminder template,قالب تذكير سجل الدوام
+Timesheet reminders,تذكير سجل الدوام
+Timesheet report,تقرير سجل الدوام
+Timesheet successfully updated.,تم تحديث سجل الدوام بنجاح.
+Timesheet.fromDate,سجل الدوام.من التاريخ
+Timesheet.task,سجل الدوام.المهمة
+Timesheet.timesheetOf,سجل الدوام.سجل الدوام
+Timesheet.toDate,سجل الدوام.حتى التاريخ
+Timesheet.totalDuration,سجل الدوام.المدة الإجمالية
+TimesheetLine.duration,المدة
+TimesheetLine.product,المنتج
+TimesheetLine.project,مشروع
+TimesheetLine.timeSpent,الوقت المستغرق
+TimesheetReport,تقرير سجل الدوام
+Timesheets,سجلات ساعات العمل
+Timesheets to Validate,سجلات الدوام للتحقق من صحة
+Timesheets to be Validated by your subordinates,سيتم التحقق من صحة سجلات الدوام من قبل مرؤوسيك
+To,إلى
+To (included),إلى (متضمن)
+To Date,حتى الآن
+To be reset yearly,سيتم إعادة ضبطه سنويًا
+To calculate,لحساب
+To date,حتى الآن
+To date can't be empty,حتى الآن لا يمكن أن يكون فارغًا
+To generation date,إلى تاريخ الإنشاء
+To invoice,للفاتورة
+Too many requests,طلبات كثيرة جداً
+Tools,الأدوات
+Total,الإجمالي
+Total (h),المجموع (ح)
+Total A.T.I,إجمالي A.T.I
+Total A.T.I.,إجمالي أيه تي آي
+Total Days in the period,إجمالي الأيام في الفترة
+Total Hours per Day,إجمالي الساعات في اليوم
+Total Minutes per Day,إجمالي الدقائق في اليوم
+Total Tax,إجمالي الضريبة
+Total W.T.,إجمالي الوزن
+Total allocated time,إجمالي الوقت المخصص
+Total amount,المبلغ الإجمالي
+Total amount with tax,المبلغ الإجمالي مع الضريبة
+Total available days,إجمالي الأيام المتاحة
+Total duration,المدة الإجمالية
+Total estimated time,إجمالي الوقت المقدر
+Total leave days,إجمالي أيام الإجازة
+Total lunch vouchers,إجمالي قسائم الغداء
+Total on period (hours),إجمالي الفترة (ساعات)
+Total planned hours,إجمالي الساعات المخططة
+Total planned time,إجمالي الوقت المخطط
+Total real hours,إجمالي الساعات الحقيقية
+Total required hours,إجمالي الساعات المطلوبة
+Total spent time,إجمالي الوقت المستغرق
+Total tax,إجمالي الضريبة
+Total to pay,إجمالي الدفع
+Total to refund,إجمالي المبلغ المراد استرداده
+TotalToRefund,إجمالي الاسترداد
+Totals on period,مجاميع الفترة
+Tracking number,رقم التتبع / التشغيلة
+Training,تدريب
+Trial period duration,مدة الفترة التجريبية
+Tuesday,الثلاثاء
+Type,النوع
+Unavailable to users,غير متاح للمستخدمين
+Unique product for timesheet,منتج فريد للجدول الزمني
+Unit,الوحدة
+Untaxed amount,المبلغ غير الخاضع للضريبة
+Update date,تاريخ التحديث
+Update scheduler,تحديث جدولة
+Updated currency and current parent currency are incompatible.,العملة المحدثة والعملة الأصلية الحالية غير متوافقة.
+Updated currency and new parent currency are incompatible.,العملة المحدثة والعملة الرئيسية الجديدة غير متوافقة.
+Updated duration,المدة المحدثة
+Usable on expense,صالحة للاستعمال على حساب
+Usable on timesheet,صالحة للاستعمال في سجل الدوام
+Use employee's Activity,استخدم نشاط الموظف
+Use line's Activity,استخدم نشاط الخط
+Use unique product for timesheet,استخدم منتجًا فريدًا للجدول الزمني
+Use weekly planning coefficient,استخدم معامل التخطيط الأسبوعي
+Use weekly plannning coef.,استخدم معامل التخطيط الأسبوعي.
+Used amount,الكمية المستعملة
+User,المستخدم
+User creation,إنشاء المستخدم
+VILLE,فيل
+VOIE,ڤوي
+Vacation pay,أجر الإجازة
+Valid,صالح
+Validate,التحقق من صحة
+Validate the advance,التحقق من صحة التقدم
+Validated,معتمد / مؤكد
+Validated Expense Template,نموذج النفقات المصدق عليه
+Validated Extra Hours Template,نموذج الساعات الإضافية المصدق عليه
+Validated Leave Request Template,نموذج طلب إجازة تم التحقق منه
+Validated Timesheet Template,قالب سجل الدوام المصدق
+Validated Timesheet lines,خطوط سجل الدوام المصادق عليها
+Validated by,تم التحقق من صحته بواسطة
+Validation Date,تاريخ التحقق
+Validation needed configuration is not enabled.,لم يتم تمكين التكوين المطلوب للتحقق من الصحة.
+Value,القيمة
+Value by default on display planned time,القيمة بشكل افتراضي في عرض الوقت المخطط
+Vehicle,مركبة
+Vehicle Make,ماركة السيارة
+Vehicle Model,موديل المركبة
+Vehicles,مركبات
+Ventilate,ترحيل وتوزيع محاسبي
+Ventilated,مُرحَّل وموزع محاسبياً
+Ventilated expense can not be deleted. %s can not be deleted.,لا يمكن حذف حساب التهوية. لا يمكن حذف %s.
+Waiting,في انتظار
+Waiting Timesheet lines,انتظار خطوط سجل الدوام
+Waiting for validation,في انتظار التحقق
+Waiting validation,في انتظار التحقق
+Warning: Project planning time already exists for this task but can't be changed automatically. Do you want to create new project planning lines?,تحذير: وقت تخطيط المشروع موجود بالفعل لهذه المهمة ولكن لا يمكن تغييره تلقائيًا. هل تريد إنشاء خطوط تخطيط مشروع جديدة؟
+Wednesday,الأربعاء
+Weekly Planning,التخطيط الأسبوعي
+Weekly duration,المدة الأسبوعية
+Weekly planning,التخطيط الأسبوعي
+Weekly work duration,مدة العمل اسبوعية
+Weekly work hours,ساعات العمل الأسبوعية
+"When the checkbox is true, it enables to choose the project when filling timesheet lines VIA THE DYNAMIC EDITOR of the HR timesheet app.",عندما يكون مربع الاختيار صحيحًا، فإنه يتيح اختيار المشروع عند ملء سطور سجل الدوام عبر المحرر الديناميكي لتطبيق سجل الدوام للموارد البشرية.
+"When this configuration is enabled, an event will be associated with planned times, meaning that when time is planned for a user, an event linked to this planned time appears on their calendar.",عند تمكين هذا التكوين، سيتم ربط الحدث بالأوقات المخططة، مما يعني أنه عندما يتم تخطيط الوقت لمستخدم، يظهر حدث مرتبط بهذا الوقت المخطط في التقويم الخاص به.
+"When this option is enabled, for kilometric expenses, the number of kilometers between the departure and arrival addresses is automatically calculated using a web service connecting to Google Maps or Open Street Map. These web services are configured in the Base application settings, in the Interface tab. Note that with Google Maps, API fees may apply after a certain number of requests.","عند تمكين هذا الخيار، بالنسبة للنفقات الكيلومترية، يتم حساب عدد الكيلومترات بين عناوين المغادرة والوصول تلقائيًا باستخدام خدمة ويب متصلة بخرائط Google أو Open Street Map. يتم تكوين خدمات الويب هذه في إعدادات التطبيق الأساسية، في علامة التبويب ""الواجهة"". لاحظ أنه مع خرائط Google، قد يتم تطبيق رسوم واجهة برمجة التطبيقات (API) بعد عدد معين من الطلبات."
+"When this option is enabled, the project that was used during the last timer use is automatically reused when you start the timer again.",عند تمكين هذا الخيار، تتم إعادة استخدام المشروع الذي تم استخدامه أثناء آخر استخدام للمؤقت تلقائيًا عند بدء تشغيل المؤقت مرة أخرى.
+"When this option is not enabled, once the timer is stopped, the created timesheet line is read-only. If you enable this option, you can edit the line to modify it.",عندما لا يتم تمكين هذا الخيار، بمجرد إيقاف المؤقت، يصبح سطر سجل الدوام الذي تم إنشاؤه للقراءة فقط. إذا قمت بتمكين هذا الخيار، يمكنك تحرير السطر لتعديله.
+"When you create a kilometric expense line, an expense line will be created with the expense type you define here. Expense types are created and configured via the Configuration/Expense type menu in the Expenses module.",عندما تقوم بإنشاء بند حساب كيلومتري، سيتم إنشاء بند حساب بنوع المصاريف الذي تحدده هنا. يتم إنشاء أنواع النفقات وتكوينها عبر قائمة نوع التكوين/المصروفات في وحدة المصروفات.
+Withdrawn cash,النقود المسحوبة
+Work fixed phone,عمل هاتف ثابت
+Work hours,مواعيد العمل
+Work mobile phone,عمل جوال
+Work phones,هواتف العمل
+Working days' number,عدد أيام العمل
+Working time modification,تعديل وقت العمل
+Year,سنة
+You are not able to take leave in advance for the reason '%s'.,لا يمكنك أخذ إجازة مقدمًا للسبب '%s'.
+You can configure here the variable used in formulas for calculating seniority leave or bonuses.,يمكنك هنا تكوين المتغير المستخدم في صيغ حساب إجازة الأقدمية أو المكافآت.
+You can define here the default value for planned times.,يمكنك هنا تحديد القيمة الافتراضية للأوقات المخططة.
+You can define here the employee share amount deducted from the nominal value of the lunch voucher.,يمكنك هنا تحديد مبلغ حصة الموظف المخصومة من القيمة الاسمية لقسيمة الغداء.
+You can define here the employer share amount covered by the company on the nominal value of the lunch voucher.,يمكنك هنا تحديد مبلغ حصة صاحب العمل التي تغطيها الشركة على القيمة الاسمية لقسيمة الغداء.
+"You can indicate here the address of the occupational health service of the company. It will be automatically used on DPAE generated from an employee form, in the dedicated tab.",يمكنك الإشارة هنا إلى عنوان خدمة الصحة المهنية بالشركة. سيتم استخدامه تلقائيًا على DPAE الذي تم إنشاؤه من نموذج الموظف، في علامة التبويب المخصصة.
+"You can indicate here the occupational health service of the company. It will be automatically used on DPAE generated from an employee form, in the dedicated tab.",يمكنك الإشارة هنا إلى خدمة الصحة المهنية للشركة. سيتم استخدامه تلقائيًا على DPAE الذي تم إنشاؤه من نموذج الموظف، في علامة التبويب المخصصة.
+You can not cancel an already cancelled timesheet.,لا يمكنك إلغاء جدول زمني تم إلغاؤه بالفعل.
+You can not update a line from an expense which is not in draft.,لا يمكنك تحديث بند من نفقة ليست في المسودة.
+You can only add a timer to a drafted or a waiting for validation timesheet.,يمكنك فقط إضافة مؤقت إلى مسودة أو انتظار سجل الدوام للتحقق من الصحة.
+You can select here the lunch voucher supplier.,يمكنك هنا اختيار مورد قسيمة الغداء.
+You can't exceed the daily limit of %s hours on the %s.,لا يمكنك تجاوز الحد اليومي البالغ %s ساعة على %s.
+You exceeded the available/asked duration. Do you wish to proceed ?,لقد تجاوزت المدة المتاحة/المطلوبة. هل ترغب في المضي قدما؟
+You have already been invited to the restaurant for the following dates:,لقد تمت دعوتك بالفعل إلى المطعم في التواريخ التالية:
+You have to choose at least one timesheet,يجب عليك اختيار جدول زمني واحد على الأقل
+You must be a HR manager to have the permission to do this.,يجب أن تكون مديرًا للموارد البشرية حتى تحصل على الإذن للقيام بذلك.
+You must choose a template.,يجب عليك اختيار القالب.
+You must configure an account for expenses taxes (company : %s),يجب عليك تكوين حساب لضرائب النفقات (الشركة : %s)
+You must configure an expenses account (company : %s),يجب عليك تكوين حساب النفقات (الشركة : %s)
+You must configure an expenses journal(company : %s),يجب عليك تكوين دفتر يومية للنفقات (الشركة : %s)
+You need lines to fill your export.,أنت بحاجة إلى خطوط لملء تصديرك.
+You now have a negative number of leaves available for the reason %s,لديك الآن عدد سالب من الإجازات المتاحة للسبب %s
+You will have a negative number of leaves available.,سيكون لديك عدد سلبي من الأوراق المتاحة.
+You will not have enough leaves available for this request.,لن يكون لديك ما يكفي من الإجازات المتاحة لهذا الطلب.
+amount,المبلغ
+com.axelor.apps.hr.service.batch.HrBatchService,com.axelor.apps.hr.service.batch.HrBatchService
+hr.department,قسم الموارد البشرية
+http://www.url.com,http://www.url.com
+login name,اسم الدخول
+startOnSelect should be 1 for morning or 2 for afternoon.,يجب أن يكون startOnSelect 1 في الصباح أو 2 في فترة ما بعد الظهر.
+user group,مجموعة المستخدمين
+value:Employees Management,القيمة:إدارة الموظفين
+value:Expense Management,القيمة: إدارة النفقات
+value:Extra hours,القيمة:ساعات إضافية
+value:Leave Management,القيمة:إدارة الإجازة
+value:Timesheet Management,القيمة: إدارة سجل الدوام
+A new planning time has been created.,تم إنشاء وقت تخطيط جديد.
+Expense line has been set as to be billed but billing expenses is disabled on this project.,تم تعيين بند المصروفات ليتم تحرير فواتيره ولكن تم تعطيل مصاريف الفوترة في هذا المشروع.
+Google Maps error: %s,خطأ في خرائط Google: %s
+New project line,خط المشروع الجديد
+No Tax for the product %s,لا توجد ضريبة على المنتج %s
+Please configure the canceled timehsheet template in HR config for the company %s,الرجاء تكوين قالب سجل الدوام الملغى في تكوين الموارد البشرية للشركة %s
+Please configure the lunch voucher export path in HR config for the company %s,الرجاء تكوين مسار تصدير إيصال الغداء في تكوين الموارد البشرية للشركة %s
+Please configure the refused timehsheet template in HR config for the company %s,الرجاء تكوين قالب سجل الدوام المرفوض في تكوين الموارد البشرية للشركة %s
+Please configure the sent timehsheet template in HR config for the company %s,الرجاء تكوين قالب سجل الدوام المرسل في تكوين الموارد البشرية للشركة %s
+Please configure the unit for this type of absence,يرجى تكوين الوحدة لهذا النوع من الغياب
+Please configure the validated timehsheet template in HR config for the company %s,الرجاء تكوين قالب سجل الدوام الذي تم التحقق من صحته في تكوين الموارد البشرية للشركة %s
+"Please, enter an activity for the employee %s",الرجاء إدخال نشاط للموظف %s
+"Please, enter the number of daily work hours per employee %s",من فضلك أدخل عدد ساعات العمل اليومية لكل موظف %s
+There is an error in a formula,يوجد خطأ في الصيغة
+There is no fiscal year for society %s which includes date %s,لا توجد سنة مالية للمجتمع %s تتضمن التاريخ %s
+There is no payroll for society %s which includes date %s,لا توجد كشوف مرتبات للمجتمع %s والتي تتضمن التاريخ %s
+There is no year for society %s which includes date %s,لا توجد سنة للمجتمع %s تتضمن التاريخ %s
+This expense cannot be created because no project has been filled in and it has been noted as to be billed.,لا يمكن إنشاء هذه النفقات لأنه لم يتم ملء أي مشروع وتمت الإشارة إليه على أنه سيتم إصدار فاتورة به.
+Would you like to create a new planning time?,هل ترغب في إنشاء وقت تخطيط جديد؟

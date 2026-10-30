@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="BroilerGuide">
+    <many-to-one name="breed" ref="Breed" title="Breed" required="true" initParam="true"/>
+
+    <integer name="dayNumber" title="Day number" required="true"/>
+    <integer name="weekNumber" title="Week number" readonly="true">
+      <![CDATA[
+         if(this.getDayNumber() % 7 == 0 ) {
+            return this.getDayNumber() / 7 ;
+          }
+          return null;
+       ]]>
+    </integer>
+    <integer name="weight" title="Weight"/>
+    <integer name="dailyGainRate" title="Daily gain rate" readonly="true"> <!--Calculated: w.j - w.j-1 -->
+      <![CDATA[
+        if(this.getBreed() != null && this.getBreed().getBroilerGuideList()!=null) {
+          BroilerGuide dg =
+                  this.getBreed().getBroilerGuideList().stream()
+						  .filter(x-> x.getDayNumber() == this.getDayNumber() -1).findFirst().orElse(null);
+          if (dg != null){
+            return this.getWeight() - dg.getWeight() ;
+          }
+        }
+        return 0;
+       ]]>
+    </integer>
+    <decimal name="averageDailyGainRate" title="Average daily gain rate" readonly="true"> <!--Calculated: if dayNumber Mod 7 == 0 { sum( w.j1 - w.jn)/dayNumber} -->
+      <![CDATA[
+        if(this.getBreed() != null && this.getBreed().getBroilerGuideList()!=null) {
+            return BigDecimal.valueOf(this.getBreed().getBroilerGuideList().stream()
+                    .filter(x-> x.getDayNumber() <= this.getDayNumber())
+                    .mapToDouble(d-> d.getWeight()).average().orElse(0));
+        }
+        return BigDecimal.ZERO;
+       ]]>
+    </decimal>
+    <integer name="dailyConsumption" title="Daily consumption"/>
+    <integer name="cumulativeConsumption" title="Cumulative consumption" readonly="true"> <!--Calculated: sum( dailyConsumption.j1 - dailyConsumption.jn)} -->
+      <![CDATA[
+        if(this.getBreed() != null && this.getBreed().getBroilerGuideList()!=null) {
+            return this.getBreed().getBroilerGuideList().stream()
+                   .filter(x-> x.getDayNumber() <= this.getDayNumber())
+                   .mapToInt(d-> d.getDailyConsumption()).sum();
+        }
+        return 0;
+       ]]>
+    </integer>
+    <decimal name="iCIndicator" title="I. C. indicator"/>
+    <decimal name="setTemperature" title="Set temperature"/>
+
+    <track on="UPDATE">
+      <field name="breed"/>
+      <field name="dayNumber"/>
+      <field name="weight"/>
+      <field name="ration"/>
+      <field name="feedConversionRatio"/>
+      <field name="temperature"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+  </entity>
+
+</domain-models>

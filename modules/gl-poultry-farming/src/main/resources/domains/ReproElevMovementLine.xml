@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ReproElevMovementLine" >
+        <many-to-one name="reproTechnicalSheet"
+                     ref="com.gl.apps.pf.db.ReproTechnicalSheet" title="Technical sheet" />
+
+        <many-to-one name="elevMovement" ref="com.gl.apps.pf.db.ReproElevMovement" title="Breeding movement" required="true"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed"  title="Breeding Shed" required="true"/>
+
+        <integer name="maleMovedNumber" title="Male moved number" required="true"/>
+        <integer name="femaleMovedNumber" title="Female moved number" required="true"/>
+
+        <track on="UPDATE">
+            <field name="breedingShed"/>
+            <field name="reproTechnicalSheet"/>
+            <field name="elevMovement"/>
+            <field name="maleMovedNumber"/>
+            <field name="femaleMovedNumber"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

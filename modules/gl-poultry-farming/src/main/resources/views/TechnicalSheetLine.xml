@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="technical-sheet-line-form" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          editable="true" width="large" onLoad="action-group-technical-sheet-load" readonlyIf="status != 0">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Breeding Shed:" colSpan="10">
+                    <field name="breedingShed" title="Breeding Shed" readonly="true" colSpan="4"/>
+                    <field name="dispatchStock" readonly="true" colSpan="4"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                        <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                           <tbody>
+                            <tr>
+                             <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      ]]></viewer>
+                        </field>
+                    </panel>
+<!--                    <panel colSpan="12">-->
+<!--                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" onClick="action-technical-sheet-validate"/>-->
+<!--                    </panel>-->
+                </panel>
+                <panel title="Infos :" colSpan="12">
+                    <field name="malesNumber" readonly="true" colSpan="6"/>
+                    <field name="femalesNumber" readonly="true" colSpan="6"/>
+                </panel>
+                <panel title="Male chick:" showIf="malesNumber > 0" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="maleIsSkipDay" title="Skip day" colSpan="3"/>
+<!--                        <field name="maleSkipDayReason" title="Skip day reason" showIf="maleIsSkipDay == 1" colSpan="5"/>-->
+                    </panel>
+                    <panel title="Male infos:" colSpan="12">
+                        <field name="maleMortality" title="Mortality" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-mortality-tri"/>
+                        <field name="maleTriOut" title="Tri Out" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-mortality-tri"/>
+                        <field name="maleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="maleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="maleWeight" title="Real weight" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Male aliment consumption:" showIf="maleIsSkipDay == 0" colSpan="12">
+                        <field name="maleConsumedProduct" title="Type of aliment" colSpan="3" domain="self.productSubTypeSelect = 1" onChange="action-record-technical-sheet-male-get-product-info" onSelect="action-record-technical-sheet-male-get-center-info"/>
+                        <field name="maleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="maleConsumedProductQty" title="Quantity" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-qte"/>
+                    </panel>
+                </panel>
+                <panel title="Female chick:" showIf="femalesNumber > 0 || _centerType == 2" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="femaleIsSkipDay" title="Skip day" colSpan="3"/>
+<!--                        <field name="femaleSkipDayReason" title="Skip day reason" showIf="femaleIsSkipDay == 1" colSpan="5"/>-->
+                    </panel>
+                    <panel title="Female infos:" colSpan="12">
+                        <field name="femaleMortality" title="Mortality" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"/>
+                        <field name="femaleTriOut" title="Tri Out" hideIf="_centerType == 2" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"/>
+                        <field name="femaleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="femaleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="femaleWeight" title="Real weight" colSpan="3"/>
+                        <field name="slaughterhouse" showIf="_centerType == 2" colSpan="3"/>
+                        <field name="numberSlaughteredChicks" requiredIf="_centerType == 2" onChange="action-validate-technical-sheet-line-check-slaughtered-number" showIf="_centerType == 2"  colSpan="3"/>
+
+                    </panel>
+                    <panel/>
+                    <panel title="Female aliment consumption:" showIf="femaleIsSkipDay == 0" colSpan="12">
+                        <field name="femaleConsumedProduct"  title="Type of aliment" domain="self.productSubTypeSelect = 1" colSpan="3" onChange="action-record-technical-sheet-female-get-product-info" onSelect="action-record-technical-sheet-female-get-center-info"/>
+                        <field name="femaleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="femaleConsumedProductQty" title="Quantity" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-qte"/>
+                    </panel>
+                </panel>
+                <panel title="Breeding Shed:" colSpan="12">
+                    <panel colSpan="6">
+
+                        <panel title="Lighting" colSpan="12">
+                            <field name="lightingDuration" title="Duration" colSpan="6"/>
+                            <field name="intensity" colSpan="6"/>
+                            <field name="lightingFrom" title="From" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                            <field name="lightingTo" title="To" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                        <panel title="Other:" colSpan="12">
+                            <field name="temperatureMin" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="temperatureMax" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="humidityMin" colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="humidityMax" colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="eggWeight" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="eggMass" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="waterConsumption" colSpan="6"/>
+                            <field name="droppings" requiredIf="_centerType == 2" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="6">
+                        <field name="note" showTitle="false" colSpan="12" height="320" widget="html"/>
+                    </panel>
+
+                    <panel-related name="elevTransferLineListPanel" title="Elev transfer line List" colSpan="12"
+                                   field="elevTransferLineList" showIf="_centerType == 0"
+                                   grid-view="elev-transfer-line-technical-sheet-grid"
+                                   form-view="elev-transfer-line-technical-sheet-form"
+                                   editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevReformListPanel" title="Elev reform List" colSpan="12"
+                                   field="elevReformList" showIf="_centerType == 0 || _centerType == 1"
+                                   grid-view="repro-production-elev-reform-technical-sheet-grid"
+                                   form-view="repro-production-elev-reform-technical-sheet-form" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementListPanel" title="Elev movement List" colSpan="12"
+                                   field="elevMovementList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-technical-sheet-form"
+                                   grid-view="start-elev-movement-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementLineListPanel" title="Elev movement line List" colSpan="12"
+                                   field="elevMovementLineList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-line-technical-sheet-form"
+                                   grid-view="start-elev-movement-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="pharmacyTreatmentLineListPanel" title="Pharmacy treatment List" colSpan="12"
+                                   field="pharmacyTreatmentLineList" showIf="_centerType == 0 || _centerType == 1"
+                                   form-view="pharmacy-treatment-line-treatment-sheet-form" required="false"
+                                   grid-view="pharmacy-treatment-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="technical-sheet-line-grid" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          edit-icon="true" orderBy="breedingShed">
+        <field name="breedingShed" title="Breeding shed" readonly="true"/>
+        <field name="malesNumber" readonly="true"/>
+        <field name="femalesNumber" readonly="true"/>
+
+        <field name="maleMortality" title="Male mortality" hideIf="_centerType == 2" showIf="malesNumber > 0" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('maleMortality') >= 0"/>
+        </field>
+
+        <field name="femaleMortality" title="Female mortality" showIf="femalesNumber > 0 || _centerType == 2" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('femaleMortality') >= 0"/>
+        </field>
+        <field name="cumulatedMortality" readonly="true">
+            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>
+        </field>
+        <field name="rateMortality" readonly="true">
+            <hilite color="red" if="$get('rateMortality') >= 0"/>
+        </field>
+
+        <field name="maleTriOut" title="Male tri out" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" onChange="action-validate-technical-sheet-line-check-male-mortality-tri">
+            <hilite strong="true" color="red" if="$get('maleTriOut') >= 0"/>
+        </field>
+        <field name="femaleTriOut" title="Female tri out" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"
+               showIf="femalesNumber > 0 || _centerType == 2">
+            <hilite strong="true" color="red" if="$get('femaleTriOut') >= 0"/>
+        </field>
+        <field name="maleCumulatedLoss" title="Male cumulated loss" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true">
+            <hilite strong="true" color="red" if="$get('maleCumulatedLoss') >= 0"/>
+        </field>
+        <field name="femaleCumulatedLoss" title="Female cumulated loss" readonly="true" showIf="femalesNumber > 0">
+            <hilite strong="true" color="red" if="$get('femaleCumulatedLoss') >= 0"/>
+        </field>
+
+        <field name="femaleDisplacementIn" title="Female displacement in" readonly="true" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0"/>
+        <field name="femaleDisplacementOut" title="Female displacement out" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0" readonly="true"/>
+
+        <field name="maleDisplacementIn" title="Male displacement in" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true"/>
+        <field name="maleDisplacementOut" title="Male displacement out" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true"/>
+
+        <field name="maleReform" title="Male reform" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true"/>
+        <field name="femaleReform" title="Female reform" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0" readonly="true"/>
+
+        <field name="maleRemainingNumber" title="Male remaining number" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true">
+            <hilite color="blue" if="$get('maleRemainingNumber') >= 0"/>
+        </field>
+        <field name="femaleRemainingNumber" title="Female remaining number" readonly="true" showIf="femalesNumber > 0">
+            <hilite color="blue" if="$get('femaleRemainingNumber') >= 0"/>
+        </field>
+
+        <field name="maleWeight" title="Male weight" showIf="_centerType != 2 &amp;&amp; malesNumber > 0">
+            <hilite strong="true" color="red" if="$get('maleWeight') >= 0"/>
+        </field>
+        <field name="femaleWeight" title="Female weight" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0">
+            <hilite strong="true" color="red" if="$get('femaleWeight') >= 0"/>
+        </field>
+<!--        chair-->
+        <field name="standardWeight" showIf="__parent__.status == 1">
+            <hilite color="orange" if="$get('standardWeight') >= 0"/>
+        </field>
+        <field name="gainWeight" readonly="true">
+            <hilite color="orange" if="$get('gainWeight') >= 0"/>
+        </field>
+        <field name="gapWeight" readonly="true">
+            <hilite color="orange" if="$get('gapWeight') >= 0"/>
+        </field>
+
+        <field name="maleCoefficientVariation" title="Male CV" showIf="_centerType != 2 &amp;&amp; malesNumber > 0">
+            <hilite color="blue" if="$get('maleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="femaleCoefficientVariation" title="Female CV" showIf="_centerType != 2 &amp;&amp; malesNumber > 0">
+            <hilite color="blue" if="$get('femaleCoefficientVariation') >= 0"/>
+        </field>
+
+        <field name="maleConsumedProductQty" title="Male consumed product quantity" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" onChange="action-validate-technical-sheet-line-check-male-qte">
+            <hilite color="blue" if="$get('maleConsumedProductQty') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQty" title="Female consumed product quantity" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0" onChange="action-validate-technical-sheet-line-check-female-qte">
+            <hilite color="blue" if="$get('femaleConsumedProductQty') >= 0"/>
+        </field>
+
+        <field name="productQteStock">
+            <hilite color="orange" if="$get('productQteStock') != 0"/>
+        </field>
+
+        <field name="receptProduct" showIf="_centerType == 2">
+            <hilite color="orange" if="$get('receptProduct') != 0"/>
+        </field>
+
+        <field name="cumulatedReceptProduct" readonly="true" showIf="_centerType == 2">
+            <hilite color="orange" if="$get('cumulatedReceptProduct') != 0"/>
+        </field>
+
+        <field name="femaleConsumedProduct" title="Male consumed product quantity by chick" readonly="true" domain="self.productSubTypeSelect = 1"  showIf="femalesNumber > 0"
+               onChange="action-record-technical-sheet-female-get-product-info"
+               onSelect="action-record-technical-sheet-female-get-center-info">
+            <hilite strong="true" color="red" if="$get('femaleConsumedProduct') != null"/>
+        </field>
+        <field name="maleConsumedProduct" title="Male consumed product quantity by chick" domain="self.productSubTypeSelect = 1"
+               onChange="action-record-technical-sheet-male-get-product-info"
+               onSelect="action-record-technical-sheet-male-get-center-info"
+               readonly="true" showIf="malesNumber > 0 &amp;&amp; maleIsSkipDay == 0">
+            <hilite strong="true" color="red" if="$get('maleConsumedProduct') != null"/>
+        </field>
+
+        <field name="maleConsumedProductQtyByChick" title="Male consumed product quantity by chick" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true">
+            <hilite strong="true" color="red" if="$get('maleConsumedProductQtyByChick') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQtyByChick" title="Female consumed product quantity by chick" readonly="true" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0">
+            <hilite strong="true" color="red" if="$get('femaleConsumedProductQtyByChick') >= 0"/>
+        </field>
+
+        <field name="maleIsSkipDay" showIf="malesNumber > 0"/>
+<!--        <field name="maleSkipDayReason" showIf="maleIsSkipDay == 1"/>-->
+
+        <field name="femaleIsSkipDay" showIf="femalesNumber > 0"/>
+<!--        <field name="femaleSkipDayReason" showIf="femaleIsSkipDay == 1"/>-->
+        <field name="waterConsumption">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+        <field name="maleWaterConsumptionByAliment" title="Male consumed water by aliment" showIf="_centerType != 2 &amp;&amp; malesNumber > 0" readonly="true">
+            <hilite color="blue" if="$get('maleWaterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="femaleWaterConsumptionByAliment" title="Female consumed water by aliment" readonly="true" showIf="_centerType != 2 &amp;&amp; femalesNumber > 0">
+            <hilite color="blue" if="$get('femaleWaterConsumptionByAliment') >= 0"/>
+        </field>
+
+        <field name="humidityMin"/>
+        <field name="humidityMax"/>
+        <field name="temperatureMin"/>
+        <field name="temperatureMax"/>
+        <field name="temperatureConsg" showIf="__parent__.status == 1"/>
+        <field name="intensity"/>
+        <field name="lightingDuration"/>
+
+        <field name="standardConsumptionIndex" showIf="__parent__.status == 1"/>
+
+        <field name="medicalTreatment"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+
+    <grid name="technical-sheet-line-details-grid" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine" edit-icon="true" orderBy="-technicalSheet.reference">
+        <field name="technicalSheet.unit" title="Unit" readonly="true"/>
+        <field name="technicalSheet.center" title="Center" readonly="true"/>
+        <field name="technicalSheet.trackingNumber" title="Tracking number" readonly="true"/>
+        <field name="technicalSheet.breed" title="Breed" readonly="true"/>
+        <field name="breedingShed" title="Breeding shed" readonly="true"/>
+        <field name="maleMortality" title="Male mortality" readonly="true" hideIf="_centerType == 2">
+            <hilite color="red" strong="true" if="$get('maleMortality') >= 0"/>
+        </field>
+        <field name="femaleMortality" title="Female mortality" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleMortality') >= 0"/>
+        </field>
+        <field name="cumulatedMortality" readonly="true">
+            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>
+        </field>
+        <field name="rateMortality" readonly="true">
+            <hilite color="red" if="$get('rateMortality') >= 0"/>
+        </field>
+        <field name="maleTriOut" title="Male tri out" readonly="true" hideIf="_centerType == 2">
+            <hilite color="red" strong="true" if="$get('maleTriOut') >= 0"/>
+        </field>
+        <field name="femaleTriOut" title="Female tri out" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleTriOut') >= 0"/>
+        </field>
+        <field name="maleCumulatedLoss" title="Male cumulated loss" readonly="true" hideIf="_centerType == 2">
+            <hilite color="red" strong="true" if="$get('maleCumulatedLoss') >= 0"/>
+        </field>
+        <field name="femaleCumulatedLoss" title="Female cumulated loss" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleCumulatedLoss') >= 0"/>
+        </field>
+        <field name="femaleDisplacementIn" title="Female displacement in" readonly="true" hideIf="_centerType == 2"/>
+        <field name="femaleDisplacementOut" title="Female displacement out" readonly="true" hideIf="_centerType == 2"/>
+        <field name="maleDisplacementIn" title="Male displacement in" readonly="true" hideIf="_centerType == 2"/>
+        <field name="maleDisplacementOut" title="Male displacement out" readonly="true" hideIf="_centerType == 2"/>
+        <field name="maleReform" title="Male reform" readonly="true" hideIf="_centerType == 2"/>
+        <field name="femaleReform" title="Female reform" readonly="true" hideIf="_centerType == 2"/>
+        <field name="maleRemainingNumber" title="Male remaining number" readonly="true" hideIf="_centerType == 2">
+            <hilite color="blue" if="$get('maleRemainingNumber') >= 0"/>
+        </field>
+        <field name="femaleRemainingNumber" title="Female remaining number" readonly="true">
+            <hilite color="blue" if="$get('femaleRemainingNumber') >= 0"/>
+        </field>
+        <field name="maleWeight" title="Male weight" readonly="true" hideIf="_centerType == 2">
+            <hilite color="red" strong="true" if="$get('maleWeight') >= 0"/>
+        </field>
+        <field name="femaleWeight" title="Female weight" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleWeight') >= 0"/>
+        </field>
+        <field name="standardWeight" readonly="true">
+            <hilite color="orange" if="$get('standardWeight') >= 0"/>
+        </field>
+        <field name="gainWeight" readonly="true">
+            <hilite color="orange" if="$get('gainWeight') >= 0"/>
+        </field>
+        <field name="gapWeight" readonly="true">
+            <hilite color="orange" if="$get('gapWeight') >= 0"/>
+        </field>
+        <field name="maleCoefficientVariation" title="Male CV" readonly="true" hideIf="_centerType == 2">
+            <hilite color="blue" if="$get('maleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="femaleCoefficientVariation" title="Female CV" readonly="true">
+            <hilite color="blue" if="$get('femaleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="maleConsumedProductQty" title="Male consumed product quantity" readonly="true" hideIf="_centerType == 2">
+            <hilite color="blue" if="$get('maleConsumedProductQty') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQty" title="Female consumed product quantity" readonly="true">
+            <hilite color="blue" if="$get('femaleConsumedProductQty') >= 0"/>
+        </field>
+<!--        <field name="productQteStock" readonly="true">-->
+<!--            <hilite color="orange" if="$get('productQteStock') != 0"/>-->
+<!--        </field>-->
+<!--        <field name="receptProduct" readonly="true">-->
+<!--            <hilite color="orange" if="$get('receptProduct') != 0"/>-->
+<!--        </field>-->
+<!--        <field name="cumulatedReceptProduct" readonly="true">-->
+<!--            <hilite color="orange" if="$get('cumulatedReceptProduct') != 0"/>-->
+<!--        </field>-->
+        <field name="maleConsumedProductQtyByChick" title="Male consumed product quantity by chick" readonly="true" hideIf="_centerType == 2">
+            <hilite color="red" strong="true" if="$get('maleConsumedProductQtyByChick') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQtyByChick" title="Female consumed product quantity by chick" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleConsumedProductQtyByChick') >= 0"/>
+        </field>
+        <field name="waterConsumption" readonly="true">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+        <field name="maleWaterConsumptionByAliment" title="Male consumed water by aliment" readonly="true" hideIf="_centerType == 2">
+            <hilite color="blue" if="$get('maleWaterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="femaleWaterConsumptionByAliment" title="Female consumed water by aliment" readonly="true">
+            <hilite color="blue" if="$get('femaleWaterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="temperatureMin" readonly="true"/>
+        <field name="temperatureMax" readonly="true"/>
+        <field name="temperatureConsg" readonly="true"/>
+        <field name="standardConsumptionIndex" readonly="true"/>
+        <field name="medicalTreatment" readonly="true"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+
+    <grid name="flesh-technical-sheet-line-details-grid" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine" edit-icon="true" orderBy="-technicalSheet.reference">
+        <field name="technicalSheet.unit" title="Unit" readonly="true"/>
+        <field name="technicalSheet.center" title="Center" readonly="true"/>
+        <field name="technicalSheet.trackingNumber" title="Tracking number" readonly="true"/>
+        <field name="technicalSheet.breed" title="Breed" readonly="true"/>
+        <field name="breedingShed" title="Breeding shed" readonly="true"/>
+        <field name="femaleMortality" title="Mortality" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleMortality') >= 0"/>
+        </field>
+        <field name="cumulatedMortality" readonly="true">
+            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>
+        </field>
+        <field name="rateMortality" readonly="true">
+            <hilite color="red" if="$get('rateMortality') >= 0"/>
+        </field>
+        <field name="femaleTriOut" title="Tri out" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleTriOut') >= 0"/>
+        </field>
+        <field name="femaleCumulatedLoss" title="Cumulated loss" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleCumulatedLoss') >= 0"/>
+        </field>
+        <field name="femaleDisplacementIn" title="Displacement in" readonly="true" hideIf="_centerType == 2"/>
+        <field name="femaleDisplacementOut" title="Displacement out" readonly="true" hideIf="_centerType == 2"/>
+        <field name="femaleReform" title="Reform" readonly="true" hideIf="_centerType == 2"/>
+        <field name="femaleRemainingNumber" title="Remaining number" readonly="true">
+            <hilite color="blue" if="$get('femaleRemainingNumber') >= 0"/>
+        </field>
+        <field name="femaleWeight" title="Real weight" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleWeight') >= 0"/>
+        </field>
+        <field name="standardWeight" readonly="true">
+            <hilite color="orange" if="$get('standardWeight') >= 0"/>
+        </field>
+        <field name="gainWeight" readonly="true">
+            <hilite color="orange" if="$get('gainWeight') >= 0"/>
+        </field>
+        <field name="gapWeight" readonly="true">
+            <hilite color="orange" if="$get('gapWeight') >= 0"/>
+        </field>
+        <field name="femaleCoefficientVariation" title="CV" readonly="true">
+            <hilite color="blue" if="$get('femaleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQty" title="Consumed product quantity" readonly="true">
+            <hilite color="blue" if="$get('femaleConsumedProductQty') >= 0"/>
+        </field>
+        <field name="femaleConsumedProductQtyByChick" title="Consumed product quantity by chick" readonly="true">
+            <hilite color="red" strong="true" if="$get('femaleConsumedProductQtyByChick') >= 0"/>
+        </field>
+        <field name="productQteStock" readonly="true">
+            <hilite color="orange" if="$get('productQteStock') != 0"/>
+        </field>
+        <field name="receptProduct" readonly="true">
+            <hilite color="orange" if="$get('receptProduct') != 0"/>
+        </field>
+        <field name="cumulatedReceptProduct" readonly="true">
+            <hilite color="orange" if="$get('cumulatedReceptProduct') != 0"/>
+        </field>
+
+        <field name="waterConsumption" readonly="true">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+        <field name="femaleWaterConsumptionByAliment" title="Consumed water by aliment" readonly="true">
+            <hilite color="blue" if="$get('femaleWaterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="temperatureMin" readonly="true"/>
+        <field name="temperatureMax" readonly="true"/>
+        <field name="temperatureConsg" readonly="true"/>
+        <field name="standardConsumptionIndex" readonly="true"/>
+        <field name="medicalTreatment" readonly="true"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+    <form name="technical-sheet-line-details-form" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          editable="true" width="large" onLoad="action-group-technical-sheet-load">
+        <panel showTitle="false" colSpan="12" readonly="true">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Breeding Shed:" colSpan="10">
+                    <field name="breedingShed" title="Breeding Shed" readonly="true" colSpan="4"/>
+                    <field name="technicalSheet" readonly="true" colSpan="4" target-name="reference"/>
+                    <field name="dispatchStock" readonly="true" colSpan="4"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                        <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                           <tbody>
+                            <tr>
+                             <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                            </tr>
+                           </tbody>
+                        </table>
+                      ]]></viewer>
+                        </field>
+                    </panel>
+                    <!--                    <panel colSpan="12">-->
+                    <!--                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" onClick="action-technical-sheet-validate"/>-->
+                    <!--                    </panel>-->
+                </panel>
+                <panel title="Infos :" colSpan="12">
+                    <field name="malesNumber" readonly="true" colSpan="6"/>
+                    <field name="femalesNumber" readonly="true" colSpan="6"/>
+                </panel>
+                <panel title="Male chick:" showIf="malesNumber > 0" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="maleIsSkipDay" title="Skip day" colSpan="3"/>
+<!--                        <field name="maleSkipDayReason" title="Skip day reason" showIf="maleIsSkipDay == 1" colSpan="5"/>-->
+                    </panel>
+                    <panel title="Male infos:" colSpan="12">
+                        <field name="maleMortality" title="Mortality" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-mortality-tri"/>
+                        <field name="maleTriOut" title="Tri Out" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-mortality-tri"/>
+                        <field name="maleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="maleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="maleWeight" title="Real weight" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Male aliment consumption:" showIf="maleIsSkipDay == 0" colSpan="12">
+                        <field name="maleConsumedProduct" title="Type of aliment" colSpan="3" domain="self.productSubTypeSelect = 1" onChange="action-record-technical-sheet-male-get-product-info" onSelect="action-record-technical-sheet-male-get-center-info"/>
+                        <field name="maleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="maleConsumedProductQty" title="Quantity" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-qte"/>
+                    </panel>
+                </panel>
+                <panel title="Female chick:" showIf="femalesNumber > 0 || _centerType == 2" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="femaleIsSkipDay" title="Skip day" colSpan="3"/>
+<!--                        <field name="femaleSkipDayReason" title="Skip day reason" showIf="femaleIsSkipDay == 1" colSpan="5"/>-->
+                    </panel>
+                    <panel title="Female infos:" colSpan="12">
+                        <field name="femaleMortality" title="Mortality" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"/>
+                        <field name="femaleTriOut" title="Tri Out" hideIf="_centerType == 2" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"/>
+                        <field name="femaleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="femaleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="femaleWeight" title="Real weight" colSpan="3"/>
+                        <field name="slaughterhouse" showIf="_centerType == 2" colSpan="3"/>
+                        <field name="numberSlaughteredChicks" requiredIf="_centerType == 2" onChange="action-validate-technical-sheet-line-check-slaughtered-number" showIf="_centerType == 2"  colSpan="3"/>
+
+                    </panel>
+                    <panel/>
+                    <panel title="Female aliment consumption:" showIf="femaleIsSkipDay == 0" colSpan="12">
+                        <field name="femaleConsumedProduct"  title="Type of aliment" domain="self.productSubTypeSelect = 1" colSpan="3" onChange="action-record-technical-sheet-female-get-product-info" onSelect="action-record-technical-sheet-female-get-center-info"/>
+                        <field name="femaleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="femaleConsumedProductQty" title="Quantity" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-qte"/>
+                    </panel>
+                </panel>
+                <panel title="Breeding Shed:" colSpan="12">
+                    <panel colSpan="6">
+
+                        <panel title="Lighting" colSpan="12">
+                            <field name="lightingDuration" title="Duration" colSpan="6"/>
+                            <field name="intensity" colSpan="6"/>
+                            <field name="lightingFrom" title="From" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                            <field name="lightingTo" title="To" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                        <panel title="Other:" colSpan="12">
+                            <field name="temperatureMin" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="temperatureMax" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="humidityMin" colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="humidityMax" colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="eggWeight" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="eggMass" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="waterConsumption" colSpan="6"/>
+                            <field name="droppings" requiredIf="_centerType == 2" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="6">
+                        <field name="note" showTitle="false" colSpan="12" height="320" widget="html"/>
+                    </panel>
+
+                    <panel-related name="elevTransferLineListPanel" title="Elev transfer line List" colSpan="12"
+                                   field="elevTransferLineList" showIf="_centerType == 0"
+                                   grid-view="elev-transfer-line-technical-sheet-grid"
+                                   form-view="elev-transfer-line-technical-sheet-form"
+                                   editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevReformListPanel" title="Elev reform List" colSpan="12"
+                                   field="elevReformList" showIf="_centerType == 0 || _centerType == 1"
+                                   grid-view="repro-production-elev-reform-technical-sheet-grid"
+                                   form-view="repro-production-elev-reform-technical-sheet-form" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementListPanel" title="Elev movement List" colSpan="12"
+                                   field="elevMovementList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-technical-sheet-form"
+                                   grid-view="start-elev-movement-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementLineListPanel" title="Elev movement line List" colSpan="12"
+                                   field="elevMovementLineList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-line-technical-sheet-form"
+                                   grid-view="start-elev-movement-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="pharmacyTreatmentLineListPanel" title="Pharmacy treatment List" colSpan="12"
+                                   field="pharmacyTreatmentLineList" showIf="_centerType == 0 || _centerType == 1"
+                                   form-view="pharmacy-treatment-line-treatment-sheet-form" required="false"
+                                   grid-view="pharmacy-treatment-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+
+    <grid name="male-technical-sheet-line-grid" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          edit-icon="true" orderBy="breedingShed">
+        <field name="breedingShed" title="Breeding shed" readonly="true"/>
+        <field name="malesNumber" readonly="true" title="Total numbers"/>
+
+        <field name="maleMortality" title="Mortality" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('maleMortality') >= 0"/>
+        </field>
+
+<!--        <field name="cumulatedMortality" readonly="true">-->
+<!--            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="rateMortality" readonly="true">-->
+<!--            <hilite color="red" if="$get('rateMortality') >= 0"/>-->
+<!--        </field>-->
+
+        <field name="maleTriOut" title="Tri out" onChange="action-validate-technical-sheet-line-check-male-mortality-tri">
+            <hilite strong="true" color="red" if="$get('maleTriOut') >= 0"/>
+        </field>
+
+<!--        <field name="maleCumulatedLoss" title="Male cumulated loss" showIf="_centerType != 2" readonly="true">-->
+<!--            <hilite strong="true" color="red" if="$get('maleCumulatedLoss') >= 0"/>-->
+<!--        </field>-->
+
+<!--        <field name="maleDisplacementIn" title="Male displacement in" showIf="_centerType != 2" readonly="true"/>-->
+<!--        <field name="maleDisplacementOut" title="Male displacement out" showIf="_centerType != 2" readonly="true"/>-->
+
+<!--        <field name="maleReform" title="Male reform" showIf="_centerType != 2" readonly="true"/>-->
+
+<!--        <field name="maleRemainingNumber" title="Male remaining number" showIf="_centerType != 2" readonly="true">-->
+<!--            <hilite color="blue" if="$get('maleRemainingNumber') >= 0"/>-->
+<!--        </field>-->
+
+        <field name="maleWeight" title="Real weight">
+            <hilite strong="true" color="red" if="$get('maleWeight') >= 0"/>
+        </field>
+
+<!--        <field name="standardWeight" showIf="__parent__.status == 1" readonly="true">-->
+<!--            <hilite color="orange" if="$get('standardWeight') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="gainWeight" readonly="true">-->
+<!--            <hilite color="orange" if="$get('gainWeight') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="gapWeight" readonly="true">-->
+<!--            <hilite color="orange" if="$get('gapWeight') >= 0"/>-->
+<!--        </field>-->
+
+        <field name="maleCoefficientVariation" title="CV">
+            <hilite color="blue" if="$get('maleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="maleHomogeneity" title="Homogeneity">
+            <hilite color="blue" if="$get('maleHomogeneity') >= 0"/>
+        </field>
+        <field name="maleIsSkipDay" onChange="action-attrs-male-is-skip-day-checked"/>
+<!--        <field name="maleSkipDayReason" showIf="maleIsSkipDay == 1"/>-->
+        <field name="maleConsumedProduct" title="Product" showIf="maleIsSkipDay == 0" onChange="action-record-technical-sheet-male-get-product-info"
+               onSelect="action-record-technical-sheet-male-get-center-info" domain="self.productSubTypeSelect = 1" requiredIf="maleIsSkipDay == 0" readonlyIf="maleIsSkipDay == 1">
+            <hilite color="red" strong="true" if="$get('maleConsumedProduct') != null"/>
+        </field>
+<!--        <field name="maleConsumedProductUnit" title="Unit" showIf="maleIsSkipDay == 0"/>-->
+        <field name="maleConsumedProductQty" title="Subject consumed product quantity" showIf="maleIsSkipDay == 0" readonlyIf="maleIsSkipDay == 1" onChange="action-validate-technical-sheet-line-check-male-qte">
+            <hilite color="blue" if="$get('maleConsumedProductQty') >= 0"/>
+        </field>
+
+<!--        <field name="productQteStock">-->
+<!--            <hilite color="orange" if="$get('productQteStock') != 0"/>-->
+<!--        </field>-->
+
+<!--        <field name="receptProduct" showIf="_centerType == 2">-->
+<!--            <hilite color="orange" if="$get('receptProduct') != 0"/>-->
+<!--        </field>-->
+
+<!--        <field name="cumulatedReceptProduct" readonly="true" showIf="_centerType == 2">-->
+<!--            <hilite color="orange" if="$get('cumulatedReceptProduct') != 0"/>-->
+<!--        </field>-->
+
+<!--        <field name="maleConsumedProductQtyByChick" title="Male consumed product quantity by chick" showIf="_centerType != 2" readonly="true">-->
+<!--            <hilite strong="true" color="red" if="$get('maleConsumedProductQtyByChick') >= 0"/>-->
+<!--        </field>-->
+
+
+        <field name="waterConsumption">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+<!--        <field name="maleWaterConsumptionByAliment" title="Male consumed water by aliment" showIf="_centerType != 2" readonly="true">-->
+<!--            <hilite color="blue" if="$get('maleWaterConsumptionByAliment') >= 0"/>-->
+<!--        </field>-->
+        <field name="showParams" widget="boolean-switch" title="Show params"/>
+        <field name="humidityMin" readonlyIf="showParams == 0"/>
+        <field name="humidityMax" readonlyIf="showParams == 0"/>
+        <field name="temperatureMin" readonlyIf="showParams == 0"/>
+        <field name="temperatureMax" readonlyIf="showParams == 0"/>
+        <field name="intensity" readonlyIf="showParams == 0"/>
+        <field name="lightingDuration" readonlyIf="showParams == 0"/>
+<!--        <field name="temperatureConsg" readonly="true" showIf="__parent__.status == 1"/>-->
+
+<!--        <field name="standardConsumptionIndex" showIf="__parent__.status == 1"/>-->
+
+        <field name="medicalTreatment"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+    <form name="male-technical-sheet-line-form" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          editable="true" width="large" onLoad="action-group-technical-sheet-load" readonlyIf="status != 0">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Breeding Shed:" colSpan="10">
+                    <field name="breedingShed" title="Breeding Shed" readonly="true" colSpan="4"/>
+                    <field name="dispatchStock" readonly="true" colSpan="4"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                    <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                       <tbody>
+                        <tr>
+                         <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                        </tr>
+                       </tbody>
+                    </table>
+                  ]]></viewer>
+                        </field>
+                    </panel>
+                </panel>
+                <panel title="Infos :" colSpan="12">
+                    <field name="malesNumber" readonly="true" colSpan="6"/>
+                </panel>
+                <panel title="Male chick:" showIf="malesNumber > 0" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="maleIsSkipDay" title="Skip day" colSpan="3" onChange="action-attrs-male-is-skip-day-checked"/>
+<!--                        <field name="maleSkipDayReason" title="Skip day reason" showIf="maleIsSkipDay == 1" colSpan="5"/>-->
+                    </panel>
+                    <panel title="Male infos:" colSpan="12">
+                        <field name="maleMortality" title="Mortality" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-mortality-tri"/>
+                        <field name="maleTriOut" title="Tri Out" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-mortality-tri"/>
+                        <field name="maleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="maleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="maleWeight" title="Real weight" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Male aliment consumption:" showIf="maleIsSkipDay == 0" colSpan="12">
+                        <field name="maleConsumedProduct" title="Type of aliment" colSpan="3" domain="self.productSubTypeSelect = 1"
+                               onChange="action-record-technical-sheet-male-get-product-info"
+                               onSelect="action-record-technical-sheet-male-get-center-info"/>
+                        <field name="maleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="maleConsumedProductQty" title="Quantity" colSpan="3" onChange="action-validate-technical-sheet-line-check-male-qte"/>
+                    </panel>
+                </panel>
+                <panel title="Breeding Shed:" colSpan="12">
+
+                    <panel colSpan="6">
+                        <panel title="Lighting" colSpan="12" showIf="showParams == 1">
+                            <field name="lightingDuration" title="Duration" colSpan="6"/>
+                            <field name="intensity" colSpan="6"/>
+                            <field name="lightingFrom" title="From" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                            <field name="lightingTo" title="To" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                        <panel title="Other:" colSpan="12">
+                            <field name="waterConsumption" colSpan="6"/>
+                            <field name="showParams" widget="boolean-switch" title="Show params"/>
+                            <field name="temperatureMin" showIf="showParams == 1" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="temperatureMax" showIf="showParams == 1"  colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="humidityMin" showIf="showParams == 1"  colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="humidityMax" showIf="showParams == 1"  colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="eggWeight" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="eggMass" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="droppings" requiredIf="_centerType == 2" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="6">
+                        <field name="note" showTitle="false" colSpan="12" height="320" widget="html"/>
+                    </panel>
+
+                    <panel-related name="elevTransferLineListPanel" title="Elev transfer line List" colSpan="12"
+                                   field="elevTransferLineList" showIf="_centerType == 0"
+                                   grid-view="elev-transfer-line-technical-sheet-grid"
+                                   form-view="elev-transfer-line-technical-sheet-form"
+                                   editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevReformListPanel" title="Elev reform List" colSpan="12"
+                                   field="elevReformList" showIf="_centerType == 0 || _centerType == 1"
+                                   grid-view="repro-production-elev-reform-technical-sheet-grid"
+                                   form-view="repro-production-elev-reform-technical-sheet-form" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementListPanel" title="Elev movement List" colSpan="12"
+                                   field="elevMovementList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-technical-sheet-form"
+                                   grid-view="start-elev-movement-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementLineListPanel" title="Elev movement line List" colSpan="12"
+                                   field="elevMovementLineList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-line-technical-sheet-form"
+                                   grid-view="start-elev-movement-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="pharmacyTreatmentLineListPanel" title="Pharmacy treatment List" colSpan="12"
+                                   field="pharmacyTreatmentLineList" showIf="_centerType == 0 || _centerType == 1"
+                                   form-view="pharmacy-treatment-line-treatment-sheet-form" required="false"
+                                   grid-view="pharmacy-treatment-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <form name="female-technical-sheet-line-form" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          editable="true" width="large" onLoad="action-group-technical-sheet-load" readonlyIf="status != 0">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Breeding Shed:" colSpan="10">
+                    <field name="breedingShed" title="Breeding Shed" readonly="true" colSpan="4"/>
+                    <field name="dispatchStock" readonly="true" colSpan="4"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                    <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                       <tbody>
+                        <tr>
+                         <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                        </tr>
+                       </tbody>
+                    </table>
+                  ]]></viewer>
+                        </field>
+                    </panel>
+                </panel>
+                <panel title="Infos :" colSpan="12">
+                    <field name="femalesNumber" readonly="true" colSpan="6"/>
+                </panel>
+                <panel title="Female chick:" showIf="femalesNumber > 0 || _centerType == 2" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="femaleIsSkipDay" title="Skip day" colSpan="3" onChange="action-attrs-female-is-skip-day-checked"/>
+<!--                        <field name="femaleSkipDayReason" title="Skip day reason" showIf="femaleIsSkipDay == 1" colSpan="5"/>-->
+                    </panel>
+                    <panel title="Female infos:" colSpan="12">
+                        <field name="femaleMortality" title="Mortality" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"/>
+                        <field name="femaleTriOut" title="Tri Out" hideIf="_centerType == 2" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-mortality-tri"/>
+                        <field name="femaleCoefficientVariation" title="CV" colSpan="3"/>
+                        <field name="femaleHomogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="femaleWeight" title="Real weight" colSpan="3"/>
+                        <field name="slaughterhouse" showIf="_centerType == 2" colSpan="3"/>
+                        <field name="numberSlaughteredChicks" requiredIf="_centerType == 2" onChange="action-validate-technical-sheet-line-check-slaughtered-number" showIf="_centerType == 2" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Female aliment consumption:" showIf="femaleIsSkipDay == 0" colSpan="12">
+                        <field name="femaleConsumedProduct" title="Type of aliment" domain="self.productSubTypeSelect = 1" colSpan="3" onChange="action-record-technical-sheet-female-get-product-info" onSelect="action-record-technical-sheet-female-get-center-info"/>
+                        <field name="femaleConsumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="femaleConsumedProductQty" title="Quantity" colSpan="3" onChange="action-validate-technical-sheet-line-check-female-qte"/>
+                    </panel>
+                </panel>
+                <panel title="Breeding Shed:" colSpan="12">
+                    <panel colSpan="6">
+                        <panel title="Lighting" colSpan="12" showIf="showParamsF == 1">
+                            <field name="lightingDuration" title="Duration" colSpan="6"/>
+                            <field name="intensity" colSpan="6"/>
+                            <field name="lightingFrom" title="From" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                            <field name="lightingTo" title="To" onChange="action-validate-technical-sheet-line-check-lighting-from-to" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                        <panel title="Other:" colSpan="12">
+                            <field name="waterConsumption" colSpan="6"/>
+                            <field name="showParamsF" widget="boolean-switch" title="Show params"/>
+                            <field name="temperatureMin" showIf="showParamsF == 1" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="temperatureMax" showIf="showParamsF == 1" colSpan="6" onChange="action-validate-technical-sheet-line-check-temperature-min-max"/>
+                            <field name="humidityMin" showIf="showParamsF == 1" colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="humidityMax" showIf="showParamsF == 1" colSpan="6" onChange="action-validate-technical-sheet-line-check-humidity-min-max"/>
+                            <field name="eggWeight" showIf="_centerType == 1" colSpan="6"/>
+                            <field name="eggMass" showIf="_centerType == 1" colSpan="6"/>
+
+                            <field name="droppings" requiredIf="_centerType == 2" showIf="_centerType == 2" colSpan="6"/>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="6">
+                        <field name="note" showTitle="false" colSpan="12" height="320" widget="html"/>
+                    </panel>
+
+                    <panel-related name="elevTransferLineListPanel" title="Elev transfer line List" colSpan="12"
+                                   field="elevTransferLineList" showIf="_centerType == 0"
+                                   grid-view="elev-transfer-line-technical-sheet-grid"
+                                   form-view="elev-transfer-line-technical-sheet-form"
+                                   editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevReformListPanel" title="Elev reform List" colSpan="12"
+                                   field="elevReformList" showIf="_centerType == 0 || _centerType == 1"
+                                   grid-view="repro-production-elev-reform-technical-sheet-grid"
+                                   form-view="repro-production-elev-reform-technical-sheet-form" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementListPanel" title="Elev movement List" colSpan="12"
+                                   field="elevMovementList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-technical-sheet-form"
+                                   grid-view="start-elev-movement-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="elevMovementLineListPanel" title="Elev movement line List" colSpan="12"
+                                   field="elevMovementLineList" showIf="_centerType == 0"
+                                   form-view="start-elev-movement-line-technical-sheet-form"
+                                   grid-view="start-elev-movement-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+
+                    <panel-related name="pharmacyTreatmentLineListPanel" title="Pharmacy treatment List" colSpan="12"
+                                   field="pharmacyTreatmentLineList" showIf="_centerType == 0 || _centerType == 1"
+                                   form-view="pharmacy-treatment-line-treatment-sheet-form" required="false"
+                                   grid-view="pharmacy-treatment-line-technical-sheet-grid" editable="true"
+                                   canRemove="false" canNew="false"/>
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="female-technical-sheet-line-grid" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          edit-icon="true" orderBy="breedingShed">
+        <field name="breedingShed" title="Breeding shed" readonly="true"/>
+        <field name="femalesNumber" readonly="true" title="Total numbers"/>
+        <field name="femaleMortality" title="Mortality" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('femaleMortality') >= 0"/>
+        </field>
+<!--        <field name="cumulatedMortality" readonly="true">-->
+<!--            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="rateMortality" readonly="true">-->
+<!--            <hilite color="red" if="$get('rateMortality') >= 0"/>-->
+<!--        </field>-->
+        <field name="femaleTriOut" title="Tri out" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('femaleTriOut') >= 0"/>
+        </field>
+<!--        <field name="femaleCumulatedLoss" title="Female cumulated loss" readonly="true">-->
+<!--            <hilite strong="true" color="red" if="$get('femaleCumulatedLoss') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="femaleDisplacementIn" title="Female displacement in" readonly="true" showIf="_centerType != 2"/>-->
+<!--        <field name="femaleDisplacementOut" title="Female displacement out" showIf="_centerType != 2" readonly="true"/>-->
+<!--        <field name="femaleReform" title="Female reform" showIf="_centerType != 2" readonly="true"/>-->
+<!--        <field name="femaleRemainingNumber" title="Female remaining number" readonly="true">-->
+<!--            <hilite color="blue" if="$get('femaleRemainingNumber') >= 0"/>-->
+<!--        </field>-->
+        <field name="femaleWeight" title="Real weight">
+            <hilite strong="true" color="red" if="$get('femaleWeight') >= 0"/>
+        </field>
+
+<!--        <field name="standardWeight" showIf="__parent__.status == 1">-->
+<!--            <hilite color="orange" if="$get('standardWeight') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="gainWeight" readonly="true">-->
+<!--            <hilite color="orange" if="$get('gainWeight') >= 0"/>-->
+<!--        </field>-->
+<!--        <field name="gapWeight" readonly="true">-->
+<!--            <hilite color="orange" if="$get('gapWeight') >= 0"/>-->
+<!--        </field>-->
+        <field name="femaleCoefficientVariation" title="CV">
+            <hilite color="blue" if="$get('femaleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="femaleHomogeneity" title="Homogeneity">
+            <hilite color="blue" if="$get('femaleHomogeneity') >= 0"/>
+        </field>
+        <field name="femaleIsSkipDay" onChange="action-attrs-female-is-skip-day-checked"/>
+<!--        <field name="femaleSkipDayReason" showIf="femaleIsSkipDay == 1"/>-->
+
+        <field name="femaleConsumedProduct" title="Product" showIf="femaleIsSkipDay == 0" requiredIf="femaleIsSkipDay == 0" readonlyIf="femaleIsSkipDay == 1" colSpan="3" onChange="action-record-technical-sheet-female-get-product-info"
+               onSelect="action-record-technical-sheet-female-get-center-info" domain="self.productSubTypeSelect = 1">
+            <hilite color="red" strong="true" if="$get('femaleConsumedProduct') != null"/>
+        </field>
+<!--        <field name="femaleConsumedProductUnit" title="Unit" showIf="femaleIsSkipDay == 0"/>-->
+        <field name="femaleConsumedProductQty" title="Subject consumed product quantity" readonlyIf="femaleIsSkipDay == 1"
+               requiredIf="femaleIsSkipDay == 0" showIf="femaleIsSkipDay == 0" onChange="action-validate-technical-sheet-line-check-female-qte">
+            <hilite color="blue" if="$get('femaleConsumedProductQty') >= 0"/>
+        </field>
+<!--        <field name="productQteStock">-->
+<!--            <hilite color="orange" if="$get('productQteStock') != 0"/>-->
+<!--        </field>-->
+<!--        <field name="receptProduct" showIf="_centerType == 2">-->
+<!--            <hilite color="orange" if="$get('receptProduct') != 0"/>-->
+<!--        </field>-->
+<!--        <field name="cumulatedReceptProduct" readonly="true" showIf="_centerType == 2">-->
+<!--            <hilite color="orange" if="$get('cumulatedReceptProduct') != 0"/>-->
+<!--        </field>-->
+<!--        <field name="femaleConsumedProductQtyByChick" title="Female consumed product quantity by chick" readonly="true" showIf="_centerType != 2">-->
+<!--            <hilite strong="true" color="red" if="$get('femaleConsumedProductQtyByChick') >= 0"/>-->
+<!--        </field>-->
+        <field name="waterConsumption">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+<!--        <field name="femaleWaterConsumptionByAliment" title="Female consumed water by aliment" readonly="true" showIf="_centerType != 2">-->
+<!--            <hilite color="blue" if="$get('femaleWaterConsumptionByAliment') >= 0"/>-->
+<!--        </field>-->
+        <field name="showParamsF" widget="boolean-switch" title="Show params"/>
+        <field name="humidityMin" readonlyIf="showParamsF == 0"/>
+        <field name="humidityMax" readonlyIf="showParamsF == 0"/>
+        <field name="temperatureMin" readonlyIf="showParamsF == 0"/>
+        <field name="temperatureMax" readonlyIf="showParamsF == 0"/>
+        <field name="intensity" readonlyIf="showParamsF == 0"/>
+        <field name="lightingDuration" readonlyIf="showParamsF == 0"/>
+<!--        <field name="temperatureConsg" showIf="__parent__.status == 1"/>-->
+<!--        <field name="standardConsumptionIndex" showIf="__parent__.status == 1"/>-->
+        <field name="medicalTreatment"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+
+    <grid name="flesh-technical-sheet-line-grid" title="Technical sheet line" model="com.gl.apps.pf.db.TechnicalSheetLine"
+          edit-icon="true" orderBy="breedingShed">
+        <field name="breedingShed" title="Breeding shed" readonly="true"/>
+        <field name="femalesNumber" readonly="true" title="Numbers"/>
+        <field name="femaleMortality" title="Mortality" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('femaleMortality') >= 0"/>
+        </field>
+        <!--        <field name="cumulatedMortality" readonly="true">-->
+        <!--            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>-->
+        <!--        </field>-->
+        <!--        <field name="rateMortality" readonly="true">-->
+        <!--            <hilite color="red" if="$get('rateMortality') >= 0"/>-->
+        <!--        </field>-->
+        <field name="femaleTriOut" title="Tri out" onChange="action-validate-technical-sheet-line-check-female-mortality-tri">
+            <hilite strong="true" color="red" if="$get('femaleTriOut') >= 0"/>
+        </field>
+        <!--        <field name="femaleCumulatedLoss" title="Female cumulated loss" readonly="true">-->
+        <!--            <hilite strong="true" color="red" if="$get('femaleCumulatedLoss') >= 0"/>-->
+        <!--        </field>-->
+        <!--        <field name="femaleDisplacementIn" title="Female displacement in" readonly="true" showIf="_centerType != 2"/>-->
+        <!--        <field name="femaleDisplacementOut" title="Female displacement out" showIf="_centerType != 2" readonly="true"/>-->
+        <!--        <field name="femaleReform" title="Female reform" showIf="_centerType != 2" readonly="true"/>-->
+        <!--        <field name="femaleRemainingNumber" title="Female remaining number" readonly="true">-->
+        <!--            <hilite color="blue" if="$get('femaleRemainingNumber') >= 0"/>-->
+        <!--        </field>-->
+        <field name="femaleWeight" title="Real weight" showIf="_centerType != 2">
+            <hilite strong="true" color="red" if="$get('femaleWeight') >= 0"/>
+        </field>
+        <!--        <field name="standardWeight" showIf="__parent__.status == 1">-->
+        <!--            <hilite color="orange" if="$get('standardWeight') >= 0"/>-->
+        <!--        </field>-->
+        <!--        <field name="gainWeight" readonly="true">-->
+        <!--            <hilite color="orange" if="$get('gainWeight') >= 0"/>-->
+        <!--        </field>-->
+        <!--        <field name="gapWeight" readonly="true">-->
+        <!--            <hilite color="orange" if="$get('gapWeight') >= 0"/>-->
+        <!--        </field>-->
+        <field name="femaleCoefficientVariation" title="CV" showIf="_centerType != 2">
+            <hilite color="blue" if="$get('femaleCoefficientVariation') >= 0"/>
+        </field>
+        <field name="femaleIsSkipDay" onChange="action-attrs-female-is-skip-day-checked"/>
+<!--        <field name="femaleSkipDayReason" showIf="femaleIsSkipDay == 1"/>-->
+
+        <field name="femaleConsumedProduct" title="Type of aliment" domain="self.productSubTypeSelect = 1" colSpan="3"
+               onChange="action-record-technical-sheet-female-get-product-info" showIf="femaleIsSkipDay == 0"
+               onSelect="action-record-technical-sheet-female-get-center-info"/>
+        <field name="femaleConsumedProductUnit" title="Unit" showIf="femaleIsSkipDay == 0"/>
+        <field name="femaleConsumedProductQty" title="Subject consumed product quantity"
+               onChange="action-validate-technical-sheet-line-check-female-qte">
+            <hilite color="blue" if="$get('femaleConsumedProductQty') >= 0"/>
+        </field>
+        <!--        <field name="productQteStock">-->
+        <!--            <hilite color="orange" if="$get('productQteStock') != 0"/>-->
+        <!--        </field>-->
+        <field name="receptProduct" showIf="_centerType == 2">
+            <hilite color="orange" if="$get('receptProduct') != 0"/>
+        </field>
+        <field name="cumulatedReceptProduct" readonly="true" showIf="_centerType == 2">
+            <hilite color="orange" if="$get('cumulatedReceptProduct') != 0"/>
+        </field>
+        <!--        <field name="femaleConsumedProductQtyByChick" title="Female consumed product quantity by chick" readonly="true" showIf="_centerType != 2">-->
+        <!--            <hilite strong="true" color="red" if="$get('femaleConsumedProductQtyByChick') >= 0"/>-->
+        <!--        </field>-->
+        <field name="waterConsumption">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+        <!--        <field name="femaleWaterConsumptionByAliment" title="Female consumed water by aliment" readonly="true" showIf="_centerType != 2">-->
+        <!--            <hilite color="blue" if="$get('femaleWaterConsumptionByAliment') >= 0"/>-->
+        <!--        </field>-->
+        <field name="humidityMin"/>
+        <field name="humidityMax"/>
+        <field name="temperatureMin"/>
+        <field name="temperatureMax"/>
+        <field name="temperatureConsg" showIf="__parent__.status == 1"/>
+        <field name="intensity"/>
+        <field name="lightingDuration"/>
+        <field name="standardConsumptionIndex" showIf="__parent__.status == 1"/>
+        <field name="medicalTreatment"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+    <action-attrs name="action-attrs-get-breeding-shed-totals"
+                  model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="breedingShed != null" for="malesNumber" name="value"
+                   expr="eval: breedingShed.malesNumber"/>
+        <attribute if="breedingShed != null" for="femalesNumber" name="value"
+                   expr="eval: breedingShed.femalesNumber"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-male-is-skip-day-checked" model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="maleIsSkipDay == true" for="maleConsumedProduct" name="value"
+                   expr="eval: null"/>
+        <attribute if="maleIsSkipDay == true" for="maleConsumedProductUnit" name="value"
+                   expr="eval: null"/>
+        <attribute if="maleIsSkipDay == true" for="maleConsumedProductQty" name="value"
+                   expr="eval: BigDecimal.ZERO"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-female-is-skip-day-checked" model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="femaleIsSkipDay == true" for="femaleConsumedProduct" name="value"
+                   expr="eval: null"/>
+        <attribute if="femaleIsSkipDay == true" for="femaleConsumedProductUnit" name="value"
+                   expr="eval: null"/>
+        <attribute if="femaleIsSkipDay == true" for="femaleConsumedProductQty" name="value"
+                   expr="eval: BigDecimal.ZERO"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-technical-sheet-male-get-center-info" model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="breedingShed != null &amp;&amp; __parent__.center != null &amp;&amp; __parent__?.center.associatedProductType != null" name="domain"
+                   expr="eval:&quot;self.productCategory.id = ${__parent__.center.associatedProductType.id} AND self.dtype = 'Product'&quot;" for="femaleConsumedProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-technical-sheet-male-get-product-info"
+                  model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="maleConsumedProduct != null" for="maleConsumedProductUnit" name="value"
+                   expr="eval: maleConsumedProduct.unit"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-record-technical-sheet-female-get-center-info" model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="breedingShed != null &amp;&amp; __parent__.center != null &amp;&amp; __parent__?.center.associatedProductType != null" name="domain"
+                   expr="eval:&quot;self.productCategory.id = ${__parent__.center.associatedProductType.id} AND self.dtype = 'Product'&quot;" for="femaleConsumedProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-technical-sheet-female-get-product-info"
+                  model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="femaleConsumedProduct != null" for="femaleConsumedProductUnit" name="value"
+                   expr="eval: femaleConsumedProduct.unit"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-get-weight-for-previous-technical-sheet-line" model="com.gl.apps.pf.db.TechnicalSheetLine">
+        <attribute if="previousTechnicalSheet != null" for="maleWeight" name="value"
+                   expr="eval: previousTechnicalSheet.maleWeight"/>
+        <attribute if="previousTechnicalSheet != null" for="femaleWeight" name="value"
+                   expr="eval: previousTechnicalSheet.femaleWeight"/>
+    </action-attrs>
+
+    <action-group name="action-group-technical-sheet-load">
+        <action name="action-attrs-get-breeding-shed-totals"/>
+        <action name="action-get-weight-for-previous-technical-sheet-line"/>
+
+    </action-group>
+
+<!--    <action-method name="action-technical-sheet-validate">-->
+<!--        <call method="technicalSheetLineValidate"-->
+<!--              class="com.gl.apps.pf.web.TechnicalSheetController"/>-->
+<!--    </action-method>-->
+
+    <action-method name="action-method-get-elev-transfer-technical-sheet">
+        <call method="getTechnicalSheetElevTransferLineList"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+    <action-method name="action-method-get-elev-reform-technical-sheet">
+        <call method="getElevReformList"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-get-elev-movement-technical-sheet">
+        <call method="getElevMovementList"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-get-elev-movement-line-technical-sheet">
+        <call method="getElevMovementLineList"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-repro-get-pharmacy-treatment-technical-sheet">
+        <call method="getPharmacyTreatmentsLineList"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+<!--    <action-method name="action-method-repro-get-elev-reform-breeding-shed-changed">-->
+<!--        <call method="getReproElevReformList"-->
+<!--              class="com.gl.apps.pf.web.TechnicalSheetController"/>-->
+<!--    </action-method>-->
+
+    <action-validate name="action-validate-technical-sheet-line-check-female-mortality-tri">
+        <error message="Total female number must be greater than mortality and tri out numbers !"
+               if="(femaleMortality + femaleTriOut) > femalesNumber "/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-male-mortality-tri">
+        <error message="Total male number must be greater than mortality and tri out numbers !"
+               if="(maleMortality + maleTriOut) > malesNumber "/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-slaughtered-number">
+        <error message="Total number must be greater than number of slaughtered chicks !"
+               if="numberSlaughteredChicks > ( malesNumber + femalesNumber)"/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-lighting-from-to">
+        <error message="The start time of lighting must be less than the end time !"
+               if="lightingFrom > lightingTo"/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-temperature-min-max">
+        <error message="The maximum temperature must be above the minimum temperature !"
+               if="temperatureMin > temperatureMax"/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-humidity-min-max">
+        <error message="The maximum humidity must be above the minimum humidity !"
+               if="humidityMin > humidityMax"/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-male-qte">
+        <error message="The male consumed product quantity must be greater than 0 !"
+               if="maleIsSkipDay != true &amp;&amp;  0 >= new BigDecimal(maleConsumedProductQty).compareTo(BigDecimal.ZERO) "/>
+    </action-validate>
+
+    <action-validate name="action-validate-technical-sheet-line-check-female-qte">
+        <error message="The female consumed product quantity must be greater than 0 !"
+               if="femaleIsSkipDay != true &amp;&amp;  0 >= new BigDecimal(femaleConsumedProductQty).compareTo(BigDecimal.ZERO) "/>
+    </action-validate>
+</object-views>

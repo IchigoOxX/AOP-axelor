@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="repro-production-form" title="Eggs production" model="com.gl.apps.pf.db.ReproProduction" width="large"
+          onLoad="action-repro-production-calculate-sum"
+          onNew="action-group-repro-production-set-default-values">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Voucher:" colSpan="10" readonlyIf="status != 0">
+                    <panel showTitle="false" colSpan="6">
+                        <field name="reference" colSpan="5"/>
+                        <field name="dateTime" colSpan="5"/>
+                    </panel>
+
+                    <panel showTitle="false" colSpan="3">
+                        <field name="stockMove" readonly="true"/>
+                    </panel>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel colSpan="12">
+                        <field readonly="true" name="fsum" showTitle="false" colSpan="12">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                             ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" prompt="Are you sure to validate this egg production ?" icon="fa-check"
+                                colSpan="12" onClick="save,action-group-repro-production-validation" css="btn-success"/>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="cancelBtn" title="Cancel production" showIf="status == 1"
+                                prompt="Are you sure you want to cancel this production ?"
+                                colSpan="12" icon="fa-times" css="btn-danger"
+                                onClick="action-method-repro-production-cancel"/>
+                    </panel>
+                </panel>
+            </panel>
+
+            <panel title="Infos :" colSpan="12" readonlyIf="status != 0">
+                <panel showTitle="false" colSpan="5">
+                    <field name="center" colSpan="5"
+                           onChange="action-group-repro-production-center-changed" domain="self.type = 1 "/>
+                    <field name="unit" readonly="true" colSpan="5" onSelect="action-attrs-company-unit-domain"/>
+                    <panel showTitle="false" colSpan="10">
+                        <panel showTitle="false" colSpan="6">
+                            <field name="trackingNumber" readonly="true" colSpan="12"/>
+                        </panel>
+                        <panel showTitle="false" colSpan="6">
+                            <field name="breed" readonly="true" colSpan="12"/>
+                        </panel>
+                    </panel>
+                </panel>
+                <panel showTitle="false" colSpan="3">
+                    <field name="dailyAge" readonly="true" colSpan="10"/>
+                    <field name="weeklyAge" readonly="true" colSpan="10"/>
+                </panel>
+                <panel showTitle="false" colSpan="4">
+                    <field name="unitOfDestination" colSpan="10" onSelect="action-attrs-company-unit-domain" onChange="action-attrs-repro-production-unit-empty"/>
+                    <field name="hatchery" colSpan="10"
+                           x-domain=":unitOfDestination != null AND self.unit = :unitOfDestination "/>
+                </panel>
+            </panel>
+
+            <panel-related name="reproProductionLineListPanel" readonlyIf="hatchery == null"
+                           colSpan="12" field="reproProductionLineList"
+                           form-view="repro-production-line-form"
+                           grid-view="repro-production-line-grid" editable="true"
+                           onChange="action-group-repro-prouction-panel-changed" canNew="false" canRemove="false"/>
+
+            <panel title="Total" colSpan="12">
+                <field name="fsum" showTitle="false" readonly="true" colSpan="12">
+                    <viewer depends="reproProductionLineList"><![CDATA[
+                       <table border="1" cellpadding="1" cellspacing="1" style="height:80px; width:100%">
+                       <tbody>
+                          <tr>
+                             <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Hatching Eggs (HE)</span></strong></td>
+                             <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Double Yolk Eggs (DYE)</span></strong></td>
+                             <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Declassed Eggs (DE)</span></strong></td>
+                             <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Total Eggs</span></strong></td>
+                             <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Destroyed eggs</span></strong></td>
+                          </tr>
+                          <tr>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Broken</span></strong></td>
+                             <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Destroyed</span></strong></td>
+                          </tr>
+                          <tr>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfHeTrays')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfHe')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDYETrays')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDYE')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDETrays')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDE')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_totalTrays')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_totalEggs')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfRE')}}</span></td>
+                             <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDestroyedRe')}}</span></td>
+
+                          </tr>
+                       </tbody>
+                    </table>
+                   ]]></viewer>
+                </field>
+
+                <panel colSpan="12" hidden="true">
+                    <field name="s_numberOfHeTrays" hidden="true"/>
+                    <field name="s_numberOfHe" hidden="true"/>
+                    <field name="s_numberOfDYETrays" hidden="true"/>
+                    <field name="s_numberOfDYE" hidden="true"/>
+                    <field name="s_numberOfDETrays" hidden="true"/>
+                    <field name="s_numberOfDE" hidden="true"/>
+                    <field name="s_totalTrays" hidden="true"/>
+                    <field name="s_totalEggs" hidden="true"/>
+                    <field name="s_numberOfRE" hidden="true"/>
+                    <field name="s_numberOfDestroyedRe" hidden="true"/>
+                </panel>
+            </panel>
+            <panel name="footer" title="Complement" colSpan="12" readonlyIf="status != 0">
+                <panel colSpan="2">
+                    <field name="deliveryTime" required="true" colSpan="12"/>
+                    <field name="sendingTemperature" colSpan="12" required="true"/>
+                </panel>
+                <panel colSpan="2">
+                    <field name="company" hidden="true"/>
+                    <field name="carrierPartner" colSpan="12"
+                           domain="self.isCarrier = TRUE AND (self.companySet IS EMPTY OR :company MEMBER OF self.companySet)"
+                           form-view="partner-form" grid-view="partner-grid" canEdit="false"/>
+                    <field name="carrierDriver" colSpan="12"/>
+                </panel>
+                <panel colSpan="8">
+                    <field name="note" showTitle="false" colSpan="12" height="200" widget="html"/>
+                </panel>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="repro-production-grid" title="Repro productions" model="com.gl.apps.pf.db.ReproProduction" edit-icon="true" orderBy="-reference">
+        <field name="reference"/>
+        <field name="dateTime" title="Production Date"/>
+        <field name="unit"/>
+        <field name="center"/>
+        <field name="trackingNumber"/>
+        <field name="breed"/>
+        <field name="dailyAge"/>
+        <field name="weeklyAge"/>
+        <field name="unitOfDestination"/>
+        <field name="hatchery"/>
+        <field name="stockMove"/>
+        <field name="carrierDriver"/>
+        <field name="carrierPartner"/>
+        <field name="deliveryTime"/>
+        <field name="sendingTemperature"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-attrs name="action-record-calcul-number-of-he-trays"
+                  model="com.gl.apps.pf.db.ReproProductionLine">
+        <attribute for="numberOfHeTrays" name="value" expr="eval: numberOfHe/30 "/>
+    </action-attrs>
+
+    <action-attrs name="action-record-calcul-number-of-de-trays"
+                  model="com.gl.apps.pf.db.ReproProductionLine">
+        <attribute for="numberOfDETrays" name="value" expr="eval: numberOfDE/30 "/>
+    </action-attrs>
+
+    <action-attrs name="action-record-calcul-number-of-dye-trays"
+                  model="com.gl.apps.pf.db.ReproProductionLine">
+        <attribute for="numberOfDYETrays" name="value" expr="eval: numberOfDYE/30 "/>
+    </action-attrs>
+
+    <action-attrs name="action-record-calcul-weeklyAge-ReproProduction"
+                  model="com.gl.apps.pf.db.ReproProduction">
+        <attribute for="weeklyAge" name="value" expr="eval: (int) Math.ceil(dailyAge / 7)"/>
+    </action-attrs>
+
+    <action-group name="action-group-repro-production-center-changed">
+        <action name="action-record-get-center-info"/>
+        <action name="action-method-repro-production-get-lines-from-center"/>
+        <action name="action-record-repro-production-center-empty"/>
+    </action-group>
+
+    <action-attrs name="action-record-get-center-info"
+                  model="com.gl.apps.pf.db.ReproProduction">
+        <attribute if="center != null" for="unit" name="value" expr="eval: center.unit"/>
+        <attribute if="center != null" for="trackingNumber" name="value"
+                   expr="eval: center.currentTrackingNumber"/>
+        <attribute if="center != null" for="breed" name="value"
+                   expr="eval: center.currentBreed"/>
+        <attribute if="center != null" for="dailyAge" name="value"
+                   expr="eval: center.currentDailyAge"/>
+        <attribute if="center != null" for="weeklyAge" name="value"
+                   expr="eval: center.currentWeeklyAge"/>
+        <attribute if="center != null" name="value" expr="eval: center.unit.company" for="company"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-repro-production-center-empty"
+                  model="com.gl.apps.pf.db.ReproProduction">
+        <attribute if="center == null" for="unit" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="trackingNumber" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="dailyAge" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="weeklyAge" name="value" expr="eval: null"/>
+        <attribute if="center == null" name="value" expr="eval: null" for="company"/>
+        <attribute if="center == null" name="value" expr="eval: null" for="reproProductionLineList"/>
+    </action-attrs>
+
+    <action-method name="action-method-repro-production-get-lines-from-center">
+        <call method="getLinesFromCenter"
+              class="com.gl.apps.pf.web.ReproProductionController"/>
+    </action-method>
+
+    <action-attrs name="action-repro-production-calculate-sum"
+                  model="com.gl.apps.pf.db.ReproProduction">
+        <attribute for="s_numberOfHeTrays" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.numberOfHeTrays }.sum() : 0"/>
+        <attribute for="s_numberOfHe" name="value"
+                   expr="eval: reproProductionLineList != null ? ( reproProductionLineList .collect{ it.numberOfHe }.sum() + reproProductionLineList .collect{ it.numberOfHeGround }.sum() ) : 0"/>
+
+        <attribute for="s_numberOfDYETrays" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.numberOfDYETrays }.sum() : 0"/>
+        <attribute for="s_numberOfDYE" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.numberOfDYE }.sum() : 0"/>
+
+        <attribute for="s_numberOfDETrays" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.numberOfDETrays }.sum() : 0"/>
+        <attribute for="s_numberOfDE" name="value"
+                   expr="eval: reproProductionLineList != null ? ( reproProductionLineList .collect{ it.numberOfDE }.sum() + reproProductionLineList .collect{ it.numberOfDEGround }.sum()) : 0"/>
+
+        <attribute for="s_totalTrays" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.totalTrays }.sum() : 0"/>
+        <attribute for="s_totalEggs" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.totalEggs }.sum() : 0"/>
+
+        <attribute for="s_numberOfRE" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.numberOfRE }.sum() : 0"/>
+        <attribute for="s_numberOfDestroyedRe" name="value"
+                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.numberOfDestroyedRe }.sum() : 0"/>
+<!--        <attribute for="s_unfertilizedEggs" name="value"-->
+<!--                   expr="eval: reproProductionLineList != null ? reproProductionLineList .collect{ it.unfertilizedEggs }.sum() : 0"/>-->
+
+    </action-attrs>
+
+    <action-method name="poultry-farming-egg-production-validate">
+        <call method="eggProductionValidate"
+              class="com.gl.apps.pf.web.ReproProductionController"/>
+    </action-method>
+
+    <action-record name="action-set-default-values-reproduction"
+                   model="com.gl.apps.pf.db.ReproProduction">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-validate name="action-validate-repro-production-check-number-received-eggs">
+        <error if="reproProductionLineList &amp;&amp; ( reproProductionLineList?.collect(){ it?.numberOfDE }?.sum() + reproProductionLineList?.collect(){ it?.numberOfDYE }?.sum() +  reproProductionLineList?.collect(){ it?.numberOfRE }?.sum()) > reproProductionLineList?.collect(){ it?.totalNumberOfHe }?.sum()" message="The total eggs must be greater then received eggs number."/>
+    </action-validate>
+
+    <action-group name="action-group-repro-prouction-panel-changed">
+        <action name="action-repro-production-calculate-sum"/>
+        <action name="action-validate-repro-production-check-number-received-eggs"/>
+    </action-group>
+
+    <action-group name="action-group-repro-production-validation">
+        <action name="action-validate-repro-production-empty-list"/>
+        <action name="action-validate-repro-production-check-number-received-eggs"/>
+        <action name="poultry-farming-egg-production-validate"/>
+    </action-group>
+
+    <action-record name="action-set-default-values-repro-production-time"
+                   model="com.gl.apps.pf.db.ReproProduction">
+        <field name="deliveryTime" expr="eval: __time__"/>
+    </action-record>
+
+    <action-group name="action-group-repro-production-set-default-values">
+        <action name="action-set-default-values-reproduction"/>
+        <action name="action-set-default-values-repro-production-time"/>
+    </action-group>
+
+    <action-validate name="action-validate-repro-production-empty-list">
+        <error if="reproProductionLineList.isEmpty()" message="YYou cannot validate ! the repro production lines are empty."/>
+    </action-validate>
+
+    <action-method name="action-method-repro-production-cancel">
+        <call method="eggProductionCancel"
+              class="com.gl.apps.pf.web.ReproProductionController"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-repro-production-unit-empty">
+        <attribute if="unitOfDestination != null || unitOfDestination == null" name="value" expr="eval: null" for="hatchery"/>
+    </action-attrs>
+
+</object-views>

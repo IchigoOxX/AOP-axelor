@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="dashboard-reproduction-form" title="Reproduction dashboard" model="com.gl.apps.pf.db.DashRepro" width="large">
+        <panel-tabs name="mainPanelTab">
+            <panel title="Eggs production">
+                <panel colSpan="12" showTitle="false">
+                    <field name="trackingNumber" title="Tracking number" required="true" type="many-to-one" target-name="trackingNumberSeq" colSpan="3" x-target="com.axelor.apps.stock.db.TrackingNumber"/>
+                    <button name="Dashboard" title="Dashboard" icon="fa-refresh" css="btn-success" colSpan="2"
+                            onClick="action-method-fetch-repro-dashboard"/>
+
+                </panel>
+                <panel-related name="reproductionDashboardListPanel" title="Reproduction dashboard" colSpan="12"
+                               field="reproductionDashboardList"
+                               grid-view="repro-production-dashboard-grid"
+                               form-view="repro-production-dashboard-form"
+                               editable="true" canNew="false" canRemove="false"/>
+            </panel>
+
+        </panel-tabs>
+    </form>
+
+    <action-method name="action-method-fetch-repro-dashboard">
+        <call class="com.gl.apps.pf.web.DashboardReproController" method="getLinesReproEggsProduction"/>
+    </action-method>
+
+
+</object-views>

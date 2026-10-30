@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="livestock-feed-production-form" title="Livestock feed production" model="com.gl.apps.pf.db.LivestockFeedProduction" width="large"
+          onNew="action-set-default-values-livestock-feed-production">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Bon:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="3"/>
+                    <field name="dateTime" colSpan="3" readonly="true"/>
+                    <field name="liveStockFeedFactory" required="true" colSpan="3"/>
+                    <field name="dispatchStock" colSpan="3" readonly="true"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" css="btn-success" icon="fa-check" prompt="Are you sure to validate this production?"
+                                    onClick="save,action-group-livestock-feed-production-validation"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel production" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this livestock feed production ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="poultry-farming-livestock-feed-production"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+
+                <panel title="Aliment (final product):" colSpan="12" readonlyIf="status != 0">
+                    <field name="product" required="true" domain="self.productSubTypeSelect = 1"
+                           onChange="action-group-livestock-production-product-changed" colSpan="4"/>
+                    <field name="productName" readonly="true" colSpan="4"/>
+                    <field name="unit" readonly="true" colSpan="4"/>
+                    <field name="capacity" readonly="true" colSpan="4"/>
+                </panel>
+
+                <panel title="Values:" colSpan="12" readonlyIf="status != 0">
+                    <field name="numberOfUnitsProduced" onChange="action-attrs-livestock-production-qte-produced" colSpan="4"/>
+                    <field name="quantityProduced" readonly="true"  colSpan="4"/>
+                    <field name="salePrice" readonly="true" colSpan="4"/>
+                    <field name="totalAmount" readonly="true" colSpan="4"/>
+                </panel>
+            </panel>
+            <panel-related name="livestockFeedProductionLineListPanel" colSpan="12" field="livestockFeedProductionLineList"
+                           form-view="livestock-feed-production-line-form"
+                           grid-view="livestock-feed-production-line-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid  name="livestock-feed-production-grid" title="Livestock feed production" model="com.gl.apps.pf.db.LivestockFeedProduction" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="Reference"/>
+        <field name="dateTime" title="Date"/>
+        <field name="liveStockFeedFactory"/>
+        <field name="product"/>
+        <field name="productName"/>
+        <field name="numberOfUnitsProduced"/>
+        <field name="quantityProduced"/>
+        <field name="salePrice"/>
+        <field name="totalAmount">
+            <hilite color="blue" if="$get('totalAmount') >= 0"/>
+        </field>
+        <field name="dispatchStock"/>
+
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-group name="action-group-livestock-production-product-changed">
+        <action name="action-attrs-livestock-production-get-info"/>
+        <action name="action-method-livestock-feed-get-lines-from-product"/>
+        <action name="action-attrs-livestock-production-empty"/>
+    </action-group>
+
+    <action-attrs name="action-attrs-livestock-production-empty" model="com.gl.apps.pf.db.LivestockFeedProduction">
+        <attribute if="product == null" name="value" expr="eval: null" for="productName"/>
+        <attribute if="product == null" name="value" expr="eval: null" for="unit"/>
+        <attribute if="product == null" name="value" expr="eval: null" for="capacity"/>
+        <attribute if="product == null" name="value" expr="eval: null" for="salePrice"/>
+        <attribute if="product == null" name="value" expr="eval: null" for="livestockFeedProductionLineList"/>
+    </action-attrs>
+
+    <action-record name="action-set-default-values-livestock-feed-production"
+                   model="com.gl.apps.pf.db.LivestockFeedProduction">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-attrs-livestock-production-get-info" model="com.gl.apps.pf.db.LivestockFeedProduction">
+        <attribute if="product != null" name="value" expr="eval: product.name" for="productName"/>
+        <attribute if="product != null" name="value" expr="eval: product.unit" for="unit"/>
+        <attribute if="product != null" name="value" expr="eval: product.capacity" for="capacity"/>
+        <attribute if="product != null" name="value" expr="eval: product.salePrice" for="salePrice"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-livestock-production-qte-produced" model="com.gl.apps.pf.db.LivestockFeedProduction">
+        <attribute if="numberOfUnitsProduced != null" name="value" expr="eval: numberOfUnitsProduced * capacity" for="quantityProduced"/>
+        <attribute if="numberOfUnitsProduced != null" name="value" expr="eval: salePrice * (numberOfUnitsProduced * capacity)" for="totalAmount"/>
+    </action-attrs>
+
+    <action-method name="action-method-livestock-feed-get-lines-from-product">
+        <call method="getLinesFromProduct"
+              class="com.gl.apps.pf.web.LiveStockFeedProductionController"/>
+    </action-method>
+
+<!--    <action-attrs name="action-attrs-livestock-feed-production-qte-lines">-->
+<!--        <attribute if="!livestockFeedProductionLineList?.isEmpty()" for="quantityProduct" name="value"-->
+<!--                   expr="eval: livestockFeedProductionLineList.collect { it.compositionProduct / 100 * (numberOfUnitsProduced * capacity) }"/>-->
+<!--    </action-attrs>-->
+
+    <action-method name="poultry-farming-livestock-feed-production-validate">
+        <call method="livestockFeedProductionValidate"
+              class="com.gl.apps.pf.web.LiveStockFeedProductionController"/>
+    </action-method>
+
+    <action-validate name="action-livestock-feed-production-empty-list">
+        <error if="livestockFeedProductionLineList.isEmpty()" message="You cannot validate ! the production lines are empty."/>
+    </action-validate>
+
+    <action-group name="action-group-livestock-feed-production-validation">
+        <action name="action-livestock-feed-production-empty-list"/>
+        <action name="poultry-farming-livestock-feed-production-validate"/>
+    </action-group>
+    <action-method name="poultry-farming-livestock-feed-production">
+        <call method="livestockFeedProductionCancel"
+              class="com.gl.apps.pf.web.LiveStockFeedProductionController"/>
+    </action-method>
+
+</object-views>

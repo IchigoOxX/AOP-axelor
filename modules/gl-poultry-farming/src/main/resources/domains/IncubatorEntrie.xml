@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="IncubatorEntry">
+    <many-to-one name="loadingProgramLine" ref="IncubatorsLoadingProgramLine"
+      title="Incubators loading program line"/>
+
+    <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                 title="Dispatch Stock"/>
+    <one-to-many name="incubatorEntryLines" ref="IncubatorEntryLine"
+      mappedBy="incubatorEntry" title="Incubator entry lines" orderBy="lineNumber"/>
+    <many-to-one name="reasonOfCancel" title="Reason of incubator entry cancel"
+                 ref="com.axelor.apps.base.db.CancelReason"/>
+
+    <many-to-one name="breed" ref="Breed" title="Breed" />
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+      title="Unit (Department)" />
+    <many-to-one name="hatchery" ref="Hatchery" title="Hatchery" readonly="true"/>
+    <many-to-one name="incubator" ref="Incubator" title="Incubator"/>
+    <many-to-one name="canceledBy" ref="com.axelor.auth.db.User" title="Canceled by"
+      readonly="true"/>
+    <datetime name="datetime" title="Date"/>
+
+    <string name="reference" title="Reference" readonly="true" unique="true"/>
+    <datetime name="dateTimeProgramLine" title="Date time"/>
+    <string name="referenceProgramLine" title="Reference" readonly="true"/>
+    <datetime name="cancelDate" title="Cancel date"/>
+    <integer name="status" title="Status"
+      selection="poultryfarming.incubator.entries.status.select" readonly="true"/>
+    <string name="note" title="Note" large="true" translatable="true"/>
+
+    <finder-method name="ByReference" using="reference"/>
+    <extra-code>
+			<![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="loadingProgramLine"/>
+      <field name="incubator"/>
+      <field name="cancelDate"/>
+      <field name="incubatorEntryLines"/>
+      <field name="breed"/>
+      <field name="unit"/>
+      <field name="hatchery"/>
+      <field name="canceledBy"/>
+      <field name="reference"/>
+      <field name="dateTime"/>
+      <field name="status"/>
+      <field name="note"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+  </entity>
+
+</domain-models>

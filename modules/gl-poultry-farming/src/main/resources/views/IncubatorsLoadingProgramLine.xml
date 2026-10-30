@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="incubators-loading-program-line-grid" title="Incubators loading program lines"
+    model="com.gl.apps.pf.db.IncubatorsLoadingProgramLine" edit-icon="true"
+    orderBy="lineNumber" canDelete="false">
+
+    <hilite color="primary" if="status == 0"/>
+    <hilite color="orange" if="status == 1 "/>
+    <hilite color="success" if="status == 2"/>
+    <hilite color="grey" if="status == 3 "/>
+
+    <field name="lineNumber"/>
+    <field name="breed"
+      onChange="action.poultryfarming.hatcheries.incubators.loading.program.default"/>
+    <field name="incubationDatetime"
+      onChange="action.poultryfarming.hatcheries.incubators.loading.program.dates,action.poultryfarming.hatcheries.incubators.loading.program.dates2"/>
+    <field name="transferDatetime"
+      onChange="action.poultryfarming.hatcheries.incubators.loading.program.dates2"/>
+    <field name="hatchingDatetime"/>
+    <field name="estimatedNumberOfChicks"/>
+    <field name="status"/>
+  </grid>
+
+    <form name="incubators-loading-program-line-form" title="Incubators loading program line"
+          model="com.gl.apps.pf.db.IncubatorsLoadingProgramLine" readonlyIf="status != 0 "
+          onNew="">
+        <panel title="Overview">
+            <panel colSpan="12" showTitle="false">
+                <panel colSpan="10">
+                    <field name="lineNumber" colSpan="6"/>
+                    <field name="breed" colSpan="6" required="true"
+                           onChange="action.poultryfarming.hatcheries.incubators.loading.program.default"/>
+                </panel>
+                <panel colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                    </panel>
+                </panel>
+            </panel>
+            <panel colSpan="10">
+                <field name="incubationDatetime" onChange="action.poultryfarming.hatcheries.incubators.loading.program.dates,action.poultryfarming.hatcheries.incubators.loading.program.dates2"/>
+                <field name="transferDatetime" onChange="action.poultryfarming.hatcheries.incubators.loading.program.dates2"/>
+                <field name="hatchingDatetime"/>
+                <field name="estimatedNumberOfChicks"/>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+  <action-attrs
+    name="action.poultryfarming.hatcheries.incubators.loading.program.default"
+    model="com.gl.apps.pf.db.IncubatorsLoadingProgram">
+    <attribute if=" __self__ == null || __self__.status == 0"
+      for="estimatedNumberOfChicks" name="value"
+      expr="eval: ((__parent__?.hatchery?.incubatorCapacityInTrolleys * __parent__?.hatchery?.capacityOfATrolleyInTrays * __parent__?.hatchery?.capacityOfAnEggTray * this.breed?.hatchingRate / 100) + 0.5 ).intValue()"/>
+  </action-attrs>
+
+  <action-attrs
+    name="action.poultryfarming.hatcheries.incubators.loading.program.dates"
+    model="com.gl.apps.pf.db.IncubatorsLoadingProgram">
+    <attribute if=" __self__ == null || __self__.status == 0" for="transferDatetime"
+      name="value"
+      expr="eval: this.incubationDatetime.plusDays(__parent__?.hatchery?.numberOfIncubationDays).truncatedTo(java.time.temporal.ChronoUnit.HOURS).plusHours(__parent__?.hatchery?.numberOfIncubationHours) "/>
+  </action-attrs>
+
+  <action-attrs
+    name="action.poultryfarming.hatcheries.incubators.loading.program.dates2"
+    model="com.gl.apps.pf.db.IncubatorsLoadingProgram">
+    <attribute if=" __self__ == null || __self__.status == 0" for="hatchingDatetime"
+      name="value"
+      expr="eval: this.transferDatetime.plusDays(__parent__?.hatchery?.numberOfHatchingDays).truncatedTo(java.time.temporal.ChronoUnit.HOURS).plusHours(__parent__?.hatchery?.numberOfHoursOfHatching) "/>
+  </action-attrs>
+
+
+</object-views>

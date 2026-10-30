@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="maintenance" package="com.axelor.apps.maintenance.db"/>
+
+    <entity name="MachineProductLine">
+
+        <many-to-one name="machine" ref="com.axelor.apps.production.db.Machine"
+                     title="Machine"/>
+        <many-to-one name="product" ref="com.axelor.apps.base.db.Product" title="Product"
+                     required="false"/>
+        <many-to-one name="trackingNumber" title="Tracking number"
+                     ref="com.axelor.apps.stock.db.TrackingNumber"/>
+        <integer name="qty" title="Quantity" default="0"/>
+        <many-to-one name="equipmentMaintenance" ref="EquipementMaintenance" title="Equipment maintenance"/>
+
+        <track on="UPDATE">
+            <field name="product"/>
+            <field name="trackingNumber"/>
+            <field name="qty"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

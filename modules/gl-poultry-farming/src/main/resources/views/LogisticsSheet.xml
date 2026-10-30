@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="logics-sheet-form" title="Logistics sheet" model="com.gl.apps.pf.db.LogisticsSheet" width="large"
+          onNew="action-set-default-values-logistics-sheet">
+        <menubar>
+            <menu name="stockMoveReportsMenu" title="Reports" icon="fa-files-o">
+                <item name="printLogisticsSheetItem" title="Print Logistics sheet" action="action-report-pdf-print-logistics-sheet"/>
+            </menu>
+        </menubar>
+        <panel-tabs name="mainPanelTab">
+            <panel title="Logistic sheet" colSpan="12">
+                <panel showTitle="false" colSpan="12">
+                    <panel title="Logistic sheet:" readonlyIf="status !=0" colSpan="10">
+                        <field name="reference" readonly="true" colSpan="4"/>
+                        <field name="contractNumber" colSpan="4" onChange="action-group-logistics-sheet-contract-number-changed" target-name="contractId" domain="self.statusSelect = 2" required="true"/>
+                        <field name="supplier" readonly="true" colSpan="4"/>
+                        <field name="dateTime" colSpan="4"/>
+                        <field name="company" readonly="true" colSpan="4"/>
+                        <field name="containerNumber" colSpan="4" required="false"/>
+                        <field name="importType" colSpan="4"/>
+                        <field name="proFormat" colSpan="4" required="true"
+                               onChange="action-group-logistic-sheet-pro-format-changed"
+                               domain="self.supplierPartner = :supplier"/>
+                        <field name="commercialInvoice" colSpan="4" domain="self.operationTypeSelect = 1 AND self.statusSelect = 2" required="false"/>
+                        <field name="bL" colSpan="4" required="false"/>
+                        <field name="globalCost" readonly="true" colSpan="4"/>
+                        <field name="brand" colSpan="4" required="false"/>
+                        <field name="paymentMode" title="Ref: L/C - Documentary delivery" readonlyIf="status !=0" colSpan="4" required="false"/>
+                        <field name="maritimeCompany" colSpan="4" required="false"/>
+                    </panel>
+                    <panel showTitle="false" colSpan="2">
+                        <panel showTitle="false" colSpan="12" sidebar="true">
+                            <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                                <viewer depends="status"><![CDATA[
+                              <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                 <tbody>
+                                  <tr>
+                                   <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                  </tr>
+                                 </tbody>
+                              </table>
+                            ]]></viewer>
+                            </field>
+                            <panel colSpan="12">
+                                <button name="validerBtn" title="Validate" prompt="Are you sure to validate this logistic sheet ?" icon="fa-check" showIf="status &lt; 1" colSpan="12" css="btn-success" onClick="save,action-group-logistic-sheet-validation"/>
+                            </panel>
+                            <panel colSpan="12">
+                                <button name="receiveBtn" title="Realize" showIf="status == 1" icon="fa-check-square-o" css="btn-info" prompt="Are you sure to realize this logistic sheet ?" colSpan="12" onClick="save,poultry-farming-logistics-sheet-realize"/>
+                            </panel>
+                        </panel>
+                    </panel>
+                    <panel title="Expected dates:" readonlyIf="status !=0" colSpan="12">
+                        <field name="expectedProductionDate" title="Production date" colSpan="4" required="false"/>
+                        <field name="expectedLoadingDate" title="Filling date" colSpan="4" required="false"/>
+                        <field name="expectedArrivalDate" title="Arrival date" colSpan="4" required="false"/>
+                    </panel>
+                    <panel title="Real dates:" colSpan="12">
+                        <field name="reelProductionDate" title="Production date" colSpan="3" requiredIf="status == 1"/>
+                        <field name="reelLoadingDate" title="Filling date" colSpan="3" requiredIf="status == 1"/>
+                        <field name="confirmationDate" colSpan="3" requiredIf="status == 1"/>
+                        <field name="reelArrivalDate" title="Arrival date" colSpan="3" requiredIf="status == 1"/>
+                    </panel>
+                    <panel title="Bank:" readonlyIf="status !=0" colSpan="12">
+                        <field name="bankDhl" colSpan="4"/>
+                        <field name="predom" colSpan="4" required="false"/>
+                        <field name="" colSpan="4"/>
+                        <field name="blockageDate" colSpan="4"/>
+                        <field name="valueDate" colSpan="4"/>
+                        <field name="returnDate" colSpan="4"/>
+                        <field name="withDomiciliationTax" colSpan="4"/>
+                        <field name="domiciliationTaxDate" showIf="withDomiciliationTax == 1" colSpan="4" requiredIf="withDomiciliationTax == 1"/>
+                        <field name="domiciliationTax" showIf="withDomiciliationTax == 1" colSpan="4" requiredIf="withDomiciliationTax == 1"/>
+                        <field name="withAlgex" colSpan="4"/>
+                        <field name="algex" showIf="withAlgex == 1" colSpan="4" requiredIf="withAlgex == 1"/>
+                    </panel>
+                    <panel title="Delivery:" colSpan="12">
+                        <field name="carrier" readonlyIf="status !=0" colSpan="4" domain="self.isCarrier = true" required="false"/>
+                        <field name="shippingDate" readonlyIf="status !=0" colSpan="4" required="false"/>
+                        <field name="arrivalDate" colSpan="4" requiredIf="status == 1"/>
+                    </panel>
+                    <panel title="Other:" colSpan="12" readonlyIf="status !=0">
+                        <field name="costPrice" colSpan="3"/>
+                        <field name="douaneRate" colSpan="3"/>
+                        <field name="folderDhl" colSpan="3"/>
+                        <field name="surestarie" colSpan="3"/>
+                        <field name="forwarderCost" colSpan="3"/>
+                    </panel>
+                </panel>
+                <panel-related name="purchaseOrderLineListPanel" readonly="true" colSpan="12" field="purchaseOrderLineList"
+                               form-view="purchase-order-line-logistics-sheet-form"
+                               grid-view="purchase-order-line-logistics-sheet-grid"
+                               editable="false" canNew="false" canRemove="false"/>
+            </panel>
+            <panel name="attachmentPanel" title="Attachments">
+                <field name="attachmentList" showTitle="false" colSpan="12" canNew="false" canRemove="false" form-view="attachment-line-form" grid-view="attachment-line-grid">
+                    <editor x-show-titles="false">
+                        <panel colSpan="12">
+                            <panel colSpan="12">
+                                <label title="Doc :" colSpan="1"/>
+                                <field name="attachmentTypeTitle" readonly="true" colSpan="2" canEdit="false" style="font-weight: bold;"/>
+                                <field name="metaFile" colSpan="4" widget="binary-link" requiredIf="attachmentRequired == true"/>
+                            </panel>
+                        </panel>
+                    </editor>
+                </field>
+            </panel>
+            <!--            <panel name="attachmentsPanel" title="Attachments">-->
+            <!--                <panel-related name="attachmentListPanel" colSpan="12" field="attachmentList" form-view="attachment-line-form" grid-view="attachment-line-grid" editable="true" canNew="true" canEdit="true" canRemove="true"/>-->
+            <!--                <panel name="testPanel" title="Attachments" icon="fa-sticky-note">-->
+            <!--                    <field name="$attachmentList" showTitle="false" colSpan="12">-->
+            <!--                        <viewer><![CDATA[-->
+            <!--                         <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">-->
+            <!--                           <thead>-->
+            <!--                              <tr>-->
+            <!--                                <th></th>-->
+            <!--                                <th x-translate>Product attachment type</th>-->
+            <!--                                <th x-translate>Product attachment title</th>-->
+            <!--                                <th x-translate>file</th>-->
+            <!--                              </tr>-->
+            <!--                           </thead>-->
+            <!--                           <tbody>-->
+            <!--                             <tr ng-repeat="attachment in record.$attachmentList">-->
+            <!--                              <td>{{ attachment.attachmentTypeTitle }}</td>-->
+            <!--                              <td><input type="file" accept="image/*,.pdf" /></td>-->
+            <!--                              </tr>-->
+
+            <!--                           </tbody>-->
+            <!--                         </table>-->
+            <!--                  ]]></viewer>-->
+            <!--                        <editor>-->
+            <!--                            <field name="attachmentTypeTitle"/>-->
+            <!--                            <field name="metaFile" widget="binary-link"/>-->
+            <!--                        </editor>-->
+            <!--                    </field>-->
+            <!--                </panel>-->
+            <!--            </panel>-->
+        </panel-tabs>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="logics-sheet-grid" title="Logics-sheet" model="com.gl.apps.pf.db.LogisticsSheet" edit-icon="true" orderBy="-reference">
+<!--        <toolbar>-->
+<!--            <button name="printLogisticSheetGridBtn" title="Print" icon="fa-print" onClick="action-print-logistic-sheet"/>-->
+<!--        </toolbar>-->
+        <field name="reference" title="N°">
+            <hilite color="red" strong="true" if="$get('reference') >= 0"/>
+        </field>
+        <field name="containerNumber">
+            <hilite color="red" if="$get('containerNumber') != null"/>
+        </field>
+        <field name="dateTime" title="Date">
+            <hilite color="black" strong="true" if="$get('dateTime') != null"/>
+        </field>
+        <field name="bL">
+            <hilite color="red" if="$get('bL') != null"/>
+        </field>
+        <field name="reelArrivalDate">
+            <hilite color="red" strong="true" if="$get('reelArrivalDate') != null"/>
+        </field>
+        <field name="reelLoadingDate">
+            <hilite color="red" strong="true" if="$get('reelLoadingDate') != null"/>
+        </field>
+        <field name="proFormat">
+            <hilite color="black" strong="true" if="$get('proFormat') != null"/>
+        </field>
+        <field name="commercialInvoice">
+            <hilite color="blue" if="$get('commercialInvoice') != null"/>
+        </field>
+        <field name="costPrice"/>
+        <field name="brand">
+            <hilite color="black" strong="true" if="$get('brand') != null"/>
+        </field>
+        <field name="globalCost">
+            <hilite color="blue" strong="true" if="$get('globalCost') >=0"/>
+        </field>
+        <field name="supplier">
+            <hilite color="black" strong="true" if="$get('supplier') != null"/>
+        </field>
+        <field name="paymentMode"/>
+        <field name="domiciliationTaxDate"/>
+        <field name="blockageDate"/>
+        <field name="valueDate"/>
+        <field name="returnDate"/>
+        <field name="domiciliationTax"/>
+
+        <field name="douaneRate"/>
+        <field name="confirmationDate">
+            <hilite color="red" strong="true" if="$get('confirmationDate') != null"/>
+        </field>
+        <field name="folderDhl"/>
+        <field name="bankDhl">
+            <hilite color="red" strong="true" if="$get('bankDhl') != null"/>
+        </field>
+        <field name="surestarie"/>
+        <field name="forwarderCost"/>
+        <field name="maritimeCompany">
+            <hilite color="red" strong="true" if="$get('maritimeCompany') != null"/>
+        </field>
+
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <cards name="logistics-sheet-cards" title="Logics-sheet" css="rect-image" model="com.gl.apps.pf.db.LogisticsSheet" width="400px" orderBy="-dateTime">
+        <field name="reference"/>
+        <field name="dateTime"/>
+        <field name="supplier"/>
+        <field name="orderDate"/>
+        <field name="proFormat"/>
+        <field name="carrier"/>
+        <field name="company"/>
+        <field name="status"/>
+        <template><![CDATA[
+    <div class="span12">
+        <strong><span x-translate>Logistics sheet number : </span> {{ reference }}</strong>
+        <a class="pull-right muted">{{ $fmt('dateTime') }}</a>
+    </div>
+    <div>
+      <div>
+          <div class="span8">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            {{ supplier.fullName }}
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          </div>
+            <div class="span4 pull-right">
+            <i class="fa fa-truck" aria-hidden="true"></i>
+                <a class="pull-right muted">{{ carrier.fullName }}</a>
+            </div>
+      </div>
+      <div>
+          <div class="span6">
+                <h5>
+                    <span class="label label-important" ng-show="status == 0" x-translate>Not executed</span>
+                    <span class="label label-success" ng-show="status == 1" x-translate>Executing</span>
+                    <span class="label label-info" ng-show="status == 2" x-translate>Executed</span>
+                </h5>
+          </div>
+
+      </div>
+    </div>
+    <div class="span12" style="margin-left:0px;">
+      <span class="label label-default" style="background-color: #2185D0;" x-translate>{{ company.name }}</span>
+    </div>
+
+      ]]></template>
+    </cards>
+
+    <form name="report-view-logistics-sheet" title="Reports" model="com.gl.apps.pf.db.LogisticsSheet" width="large">
+        <panel name="mainPanel" colSpan="12" title="Logistics sheet">
+            <panel name="reportbtn" colSpan="12" itemSpan="3">
+                <field name="_LogisticId" x-type="many-to-one" target-name="reference" x-target="com.gl.apps.pf.db.LogisticsSheet" title="Logistics sheet" colSpan="3" required="true"/>
+                <button name="printpdfBtn" title="Print" colSpan="2" onClick="action-group-technical-sheet-choosen"/>
+            </panel>
+        </panel>
+    </form>
+
+    <action-record name="action-set-default-values-logistics-sheet"
+                   model="com.gl.apps.pf.db.LogisticsSheet">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-method name="poultry-farming-logistics-sheet-validate">
+        <call method="logisticsSheetValidate"
+              class="com.gl.apps.pf.web.LogisticsSheetController"/>
+    </action-method>
+    <action-validate name="action-logistic-sheet-check-empty-list">
+        <error if="purchaseOrderLineList.isEmpty()" message="You cannot validate ! purchase order list is empty."/>
+    </action-validate>
+    <action-group name="action-group-logistic-sheet-validation">
+        <action name="action-logistic-sheet-check-empty-list"/>
+        <action name="poultry-farming-logistics-sheet-validate"/>
+    </action-group>
+
+    <action-method name="poultry-farming-logistics-sheet-realize">
+        <call method="logisticsSheetRealize"
+              class="com.gl.apps.pf.web.LogisticsSheetController"/>
+    </action-method>
+
+    <action-method name="poultry-farming-logistics-sheet-get-purchase-order-lines">
+        <call method="getPurchaseOrderLineFromProFormat"
+              class="com.gl.apps.pf.web.LogisticsSheetController"/>
+    </action-method>
+    <action-attrs name="action-attrs-logistics-sheet-pro-format-get-info"
+                  model="com.gl.apps.pf.db.LogisticsSheet">
+        <attribute if="proFormat != null" for="globalCost" name="value"
+                   expr="eval: proFormat.inTaxTotal"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-logistics-sheet-get-info" model="com.gl.apps.pf.db.LogisticsSheet">
+        <attribute if="contractNumber != null" for="supplier" name="value" expr="eval: contractNumber.partner"/>
+        <attribute if="contractNumber != null" for="company" name="value" expr="eval: contractNumber.company"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-logistics-sheet-empty" model="com.gl.apps.pf.db.LogisticsSheet">
+        <attribute if="contractNumber == null" for="supplier" name="value" expr="eval: null"/>
+        <attribute if="contractNumber == null" for="company" name="value" expr="eval: null"/>
+    </action-attrs>
+
+    <action-group name="action-group-logistics-sheet-contract-number-changed">
+        <action name="action-attrs-logistics-sheet-get-info"/>
+        <action name="action-attrs-logistics-sheet-empty"/>
+    </action-group>
+
+    <action-report name="action-report-pdf-print-logistics-sheet"
+                   design="logistics_sheet_report_001.rptdesign"
+                   output="Check-logistics-sheet-${date}"
+                   format="pdf">
+        <param name="LogisticId" expr="eval:if ( id != null) {id} else (id= 0 )"/>
+        <param name="AttachmentPath" expr="eval:__config__.app.getFileUploadDir()"/>
+    </action-report>
+
+
+    <action-report name="action-report-pdf-print-choose-logistics-sheet" design="logistics_sheet_report_001.rptdesign" output="Check-logistics-sheet-${date}" format="pdf">
+        <param name="LogisticId" expr="eval:if ( _LogisticId != null) {_LogisticId.id}"/>
+        <param name="AttachmentPath" expr="eval:__config__.app.getFileUploadDir()"/>
+    </action-report>
+
+    <action-validate name="action-validate-choose-logistics-sheet">
+        <alert message="Please choose a logistic sheet !" if="_LogisticId == null"/>
+    </action-validate>
+    
+    <action-group name="action-group-technical-sheet-choosen">
+        <action name="action-validate-choose-logistics-sheet"/>
+        <action name="action-report-pdf-print-choose-logistics-sheet"/>
+    </action-group>
+
+    <action-method name="action-method-logistic-sheet-get-attachments">
+        <call method="getAttachmentsFromProduct"
+              class="com.gl.apps.pf.web.LogisticsSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-logistic-sheet-get-attachments-list">
+        <call method="getData"
+              class="com.gl.apps.pf.web.LogisticsSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-logistic-sheet-verify-requirement-attachments-list">
+        <call method="verifyAttachmentsList"
+              class="com.gl.apps.pf.web.LogisticsSheetController"/>
+    </action-method>
+
+<!--    <action-method name="action-print-logistic-sheet">-->
+<!--        <call class="com.gl.apps.pf.web.LogisticsSheetController" method="printLogisticSheet"/>-->
+<!--    </action-method>-->
+
+    <action-group name="action-group-logistic-sheet-pro-format-changed">
+        <action name="poultry-farming-logistics-sheet-get-purchase-order-lines"/>
+        <action name="action-attrs-logistics-sheet-pro-format-get-info"/>
+        <action name="action-method-logistic-sheet-get-attachments"/>
+        <action name="action-attrs-logistics-sheet-pro-format-empty"/>
+    </action-group>
+
+    <action-attrs name="action-attrs-logistics-sheet-pro-format-empty" model="com.gl.apps.pf.db.LogisticsSheet">
+        <attribute if="proFormat == null" for="globalCost" name="value" expr="eval: BigDecimal.ZERO"/>
+        <attribute if="proFormat == null" for="purchaseOrderLineList" name="value" expr="eval: null"/>
+        <attribute if="proFormat == null" for="attachmentList" name="value" expr="eval: null"/>
+    </action-attrs>
+
+</object-views>

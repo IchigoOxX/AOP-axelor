@@ -1,0 +1,58 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven {
+            url = 'https://repository.axelor.com/nexus/repository/maven-public/'
+        }
+    }
+    plugins {
+        id 'com.axelor.app' version '8.2.3'
+        id 'com.github.node-gradle.node' version '7.1.0'
+    }
+}
+
+plugins {
+    id 'com.github.node-gradle.node' version '7.1.0' apply false
+}
+rootProject.name = 'my-custom-system'
+
+include 'modules:my-module'
+include 'modules:axelor-egypt-einvoice'
+
+// Axelor Open Suite (AOS) Modules
+include 'modules:axelor-base'
+include 'modules:axelor-account'
+include 'modules:axelor-bank-payment'
+include 'modules:axelor-budget'
+include 'modules:axelor-cash-management'
+include 'modules:axelor-client-portal'
+include 'modules:axelor-contract'
+include 'modules:axelor-crm'
+include 'modules:axelor-fleet'
+include 'modules:axelor-gdpr'
+include 'modules:axelor-helpdesk'
+include 'modules:axelor-human-resource'
+include 'modules:axelor-intervention'
+include 'modules:axelor-maintenance'
+include 'modules:axelor-marketing'
+include 'modules:axelor-mobile-settings'
+include 'modules:axelor-production'
+include 'modules:axelor-project'
+include 'modules:axelor-purchase'
+include 'modules:axelor-quality'
+include 'modules:axelor-sale'
+include 'modules:axelor-stock'
+include 'modules:axelor-supplier-management'
+include 'modules:axelor-supplier-portal'
+include 'modules:axelor-supplychain'
+include 'modules:axelor-talent'
+include 'modules:gl-pos'
+include 'modules:gl-poultry-farming'
+include 'modules:gl-livestock-farming'
+include 'modules:axelor-zatca-einvoice'
+include 'modules:axelor-teamsapp'
+include 'modules:axelor-dailyts'
+include 'modules:axelor-docusign'
+include 'modules:axelor-prestashop'
+include 'modules:axelor-sendinblue'

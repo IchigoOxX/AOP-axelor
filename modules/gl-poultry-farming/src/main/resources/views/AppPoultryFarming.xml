@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<form name="app-poultry-farming-config-form" title="App poultry farming"
+    model="com.axelor.studio.db.AppPoultryFarming" width="large" canNew="false" canDelete="false">
+  <panel-tabs name="mainPanelTab">
+      <panel title="Locations settings">
+          <panel title="Default Locations" colSpan="6">
+            <field name="eggsDefaultBreedingLocation" domain="self.typeSelect = 3"/>
+            <field name="hatchryEggDefaultLocation" domain="self.typeSelect = 1"/>
+            <field name="hatcheryDefaultIncubatorLocation" domain="self.typeSelect = 1"/>
+              <field name="hatcherDefaultLocation" domain="self.typeSelect = 1"/>
+          </panel>
+
+          <panel title="Virtual pharmacy Location" colSpan="6">
+              <field name="virtualPharmacyLocation" required="true"  domain="self.typeSelect = 3" colSpan="12"/>
+          </panel>
+
+          <panel title="Virtual startup Location" colSpan="6">
+              <field name="virtualStartupLocation" required="true" domain="self.typeSelect = 3" colSpan="12"/>
+          </panel>
+          <panel title="Virtual production Location" colSpan="6">
+              <field name="virtualProductionLocation" required="true" domain="self.typeSelect = 3" colSpan="12"/>
+          </panel>
+          <panel title="Flesh Location" colSpan="6">
+              <field name="chairDefaultLocation" required="true" domain="self.typeSelect = 1" colSpan="12"/>
+          </panel>
+
+          <panel title="Virtual hatchery Location" colSpan="6">
+              <field name="virtualHatcheryLocation" required="true" domain="self.typeSelect = 3" colSpan="12"/>
+          </panel>
+          <panel title="Virtual Consumption Location" colSpan="6">
+              <field name="virtualConsumptionLocation" required="true" domain="self.typeSelect = 3" colSpan="12"/>
+          </panel>
+
+          <panel title="Physical sale Location" colSpan="6">
+              <field name="physicalSaleLocation" required="true" domain="self.typeSelect = 1" colSpan="12"/>
+          </panel>
+
+          <panel title="Virtual various outings location" colSpan="6">
+              <field name="virtualVariousOutingsLocation" required="true" domain="self.typeSelect = 3" colSpan="12"/>
+          </panel>
+      </panel>
+      <panel  title="Products">
+        <panel title="Default products" colSpan="12">
+            <field name="hatchingEggProduct"/>
+            <field name="doubleYolkEggProduct"/>
+            <field name="declassedEggsProduct"/>
+            <field name="destroyedEggsProduct"/>
+
+            <field name="rejectedEggsProduct"/>
+            <field name="unfertilizedEggsProduct"/>
+            <field name="chairChicks"/>
+        </panel>
+
+          <panel title="Starter products" colSpan="12">
+              <field name="starterMalesChicks" required="true"/>
+              <field name="starterFemalesChicks" required="true"/>
+          </panel>
+
+      </panel>
+
+      <panel  title="Pharmacy settings">
+          <field name="medicineProductType" required="true"/>
+          <field name="vaccineProductType" required="true"/>
+
+      </panel>
+
+      <panel  title="Delivery settings">
+          <panel title="Duration of delivery to the flesh" colSpan="12">
+              <field name="fleshHoursNumber" required="true"/>
+          </panel>
+
+      </panel>
+
+      <panel  title="Maintenance settings">
+          <panel title="Maintenance" colSpan="12">
+              <field name="maintenanceLocation"/>
+          </panel>
+
+      </panel>
+
+  </panel-tabs>
+    <panel-mail name="mailPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+
+</object-views>

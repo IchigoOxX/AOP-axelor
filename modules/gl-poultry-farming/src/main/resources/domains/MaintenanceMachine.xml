@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="production" package="com.axelor.apps.production.db"/>
+
+    <entity name="Machine">
+        <one-to-many name="sparePartProductsList" ref="com.axelor.apps.maintenance.db.MachineProductLine" mappedBy="machine"
+                     title="Spare part products list"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+
+        <track on="UPDATE">
+            <field name="sparePartProductsList"/>
+            <field name="dispatchStock"/>
+        </track>
+
+    </entity>
+</domain-models>
+

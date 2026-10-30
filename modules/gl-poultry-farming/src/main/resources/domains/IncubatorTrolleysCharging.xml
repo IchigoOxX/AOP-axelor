@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="IncubatorTrolleysCharging" >
+    <many-to-one name="hatchery" ref="Hatchery" title="Hatchery" required="true"/>
+    <string name="reference" title="Reference" readonly="true" unique="true"/>
+    <date name="chargingDate" title="Charging date" required="true" readonly="true"/>
+
+    <time name="deliveryTime" title="Delivery time"/>
+    <time name="arrivalTime" title="Arrival time"/>
+
+    <date name="cancelDate" title="Cancel date" readonly="true"/>
+    <integer name="status" title="Status"
+      selection="poultryfarming.incubator.trolleys.charging.status.select" readonly="true"/>
+
+    <string name="note" title="Note" large="true" translatable="true"/>
+
+    <integer name="sumNumberOfEggTrays" title="SUM Number Of Egg Trays" readonly="true">
+      <![CDATA[
+          return this.getIncubatorTrolleysChargingLineList() != null ? this.getIncubatorTrolleysChargingLineList().stream().mapToInt(x-> x.getNumberOfEggTrays()).sum() : 0 ;
+           ]]>
+    </integer>
+
+    <integer name="sumNumberOfEggs" title="SUM Number Of Egg" readonly="true">
+      <![CDATA[
+          return this.getIncubatorTrolleysChargingLineList() != null ? this.getIncubatorTrolleysChargingLineList().stream().mapToInt(x-> x.getNumberOfEggs()).sum() : 0 ;
+           ]]>
+    </integer>
+
+    <one-to-many name="incubatorTrolleysChargingLineList"
+      ref="IncubatorTrolleysChargingLine" mappedBy="incubatorTrolleysCharging"
+      title="Incubator trolleys charging lines" orderBy="lineNumber"/>
+
+    <finder-method name="ByReference" using="reference"/>
+    <extra-code>
+      <![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_VALIDATED = 1;
+				public static final int STATUS_CANCELED = 2;
+			]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="hatchery"/>
+      <field name="reference"/>
+      <field name="date"/>
+      <field name="deliveryTime"/>
+      <field name="arrivalTime"/>
+      <field name="cancelDate"/>
+      <field name="status"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

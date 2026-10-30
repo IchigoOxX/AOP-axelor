@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ProductOrderLine" >
+        <many-to-one name="productOrder" ref="com.gl.apps.pf.db.ProductOrder" title="Product order"
+                     required="true"/>
+        <many-to-one name="product"
+                     ref="com.axelor.apps.base.db.Product" title="Product"/>
+        <string name="codeProduct" title="Code" />
+        <string name="umProduct" title="U.M"/>
+        <decimal name="quantityProduct" title="Received quantity"/>
+        <decimal name="reelQuantityProduct" title="Reel quantity"/>
+        <decimal name="unitPriceProduct" title="Reception price"/>
+        <decimal name="unitPriceDefaultProduct" title="Default price"/>
+        <decimal name="gap" title="Gap"/>
+        <decimal name="rate" title="Rate"/>
+        <decimal name="unitsNumber" title="Number"/>
+        <decimal name="totalAmount" title="Total amount received"/>
+
+        <track on="UPDATE">
+            <field name="productOrder"/>
+            <field name="product"/>
+            <field name="codeProduct"/>
+            <field name="umProduct"/>
+            <field name="quantityProduct"/>
+            <field name="reelQuantityProduct"/>
+            <field name="unitPriceProduct"/>
+            <field name="unitPriceDefaultProduct"/>
+            <field name="gap"/>
+            <field name="rate"/>
+            <field name="unitsNumber"/>
+            <field name="totalAmount"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

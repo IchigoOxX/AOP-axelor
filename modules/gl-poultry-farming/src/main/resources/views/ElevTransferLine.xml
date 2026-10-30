@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="elev-transfer-line-form" title="Elev Transfer Line"
+          model="com.gl.apps.pf.db.ElevTransferLine" width="large">
+        <panel title="Overview">
+            <field name="breedingShed" readonly="true"/>
+            <field name="existentNumber" title="Existent" readonly="true"/>
+            <field name="toTransferChickensNumber" onChange="action-to-transfer-number-elev-transfer-line"/>
+            <field name="remainingChickensNumber" readonly="true">
+                <hilite background="red" if="remainingChickensNumber &lt; 0"/>
+            </field>
+            <field name="currentDailyAge" readonly="true"/>
+            <field name="currentWeeklyAge" readonly="true"/>
+            <field name="globalCost" readonly="true"/>
+            <field name="averageCost" readonly="true"/>
+            <field name="currentWeight"/>
+        </panel>
+    </form>
+
+    <grid name="elev-transfer-line-grid" title="Elev Transfer lines" model="com.gl.apps.pf.db.ElevTransferLine" edit-icon="true" orderBy="breedingShed">
+        <field name="breedingShed" readonly="true"/>
+        <field name="existentNumber" title="Existent" readonly="true"/>
+        <field name="toTransferChickensNumber" onChange="action-to-transfer-number-elev-transfer-line"/>
+        <field name="remainingChickensNumber" readonly="true">
+            <hilite background="red" if="remainingChickensNumber &lt; 0"/>
+        </field>
+        <field name="currentDailyAge" readonly="true"/>
+        <field name="currentWeeklyAge" readonly="true"/>
+        <field name="globalCost" readonly="true"/>
+        <field name="averageCost" readonly="true"/>
+        <field name="currentWeight"/>
+    </grid>
+
+    <grid name="elev-transfer-line-technical-sheet-grid" title="Elev Transfer lines" model="com.gl.apps.pf.db.ElevTransferLine" edit-icon="true" >
+        <field name="elevTransfer.reference" title="N°" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="toTransferChickensNumber" readonly="true"/>
+    </grid>
+
+    <form name="elev-transfer-line-technical-sheet-form" title="Elev Transfer Line"
+          model="com.gl.apps.pf.db.ElevTransferLine" width="large">
+        <panel title="Overview">
+            <field name="reference" title="N°" readonly="true"/>
+            <field name="breedingShed" readonly="true"/>
+            <field name="toTransferChickensNumber" readonly="true"/>
+        </panel>
+    </form>
+    <action-validate name="action-elev-transfer-check-qte">
+        <error if="elevTransferLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(ElevTransferLine).all().filter('self.elevTransfer = ?1 AND self.toTransferChickensNumber > self.existentNumber', __this__).count() > 0" message="To transfer number must be less than existent number"/>
+    </action-validate>
+
+    <action-attrs name="action-elev-transfer-calculate-remaining-number" model="com.gl.apps.pf.db.ElevTransferLine">
+        <attribute for="remainingChickensNumber" name="value" expr="eval: breedingShed.totalNumbers - toTransferChickensNumber"/>
+    </action-attrs>
+
+    <action-group name="action-validation-elev-transfer-line">
+        <action name="action-elev-transfer-check-qte"/>
+        <action name="poultry-farming-elev-transfer-validate"/>
+    </action-group>
+
+    <action-group name="action-to-transfer-number-elev-transfer-line">
+        <action name="action-elev-transfer-check-qte"/>
+        <action name="action-elev-transfer-calculate-remaining-number"/>
+    </action-group>
+</object-views>

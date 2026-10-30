@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ReproTechnicalSheet">
+
+        <one-to-one ref="com.gl.apps.pf.db.ReproTechnicalSheet" name="previousTechnicalSheet" title="Previous technical sheet"/>
+        <one-to-many name="elevReformList" ref="ReproElevReform" mappedBy="reproTechnicalSheet"
+                     title="Elev reform list"/>
+<!--        <one-to-many name="elevMovementList" ref="StartElevMovement" mappedBy="startTechnicalSheet"-->
+<!--                     title="Elev movement list"/>-->
+<!--        <one-to-many name="elevMovementLineList" ref="StartElevMovementLine" mappedBy="technicalSheet"-->
+<!--                     title="Elev movement line list"/>-->
+<!--        <one-to-many name="elevTransferLineList" ref="ElevTransferLine" mappedBy="startTechnicalSheet"-->
+<!--                     title="Elev transfer line list"/>-->
+
+        <one-to-many name="pharmacyTreatmentLineList" ref="PharmacyTreatmentLine" mappedBy="reproTechnicalSheet"
+                     title="Pharmacy treatment line list"/>
+
+        <many-to-one name="medicalTreatment"
+                     ref="com.axelor.apps.base.db.Product" title="medicalTreatment"/>
+
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <date name="dateTime" title="Date Time"/>
+
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber" title="Tracking Number"
+                     required="true"/>
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment" title="Unit (Department)"
+                     required="true"/>
+        <many-to-one name="center" ref="Center" title="Center" required="true"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+
+        <integer name="dailyAge" title="Daily age" required="true"/>
+        <integer name="weeklyAge" title="Weekly age" readonly="true">
+            <![CDATA[
+             int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+        ]]>
+        </integer>
+
+        <integer name="femalesNumber" title="Number of females"/>
+        <integer name="malesNumber" title="Number of males"/>
+
+<!--        male chicks -->
+        <integer name="maleMortality" title="Mortality"/>
+        <integer name="maleTriOut" title="Tri out"/>
+        <decimal name="maleHomogeneity" title="Homogeneity"/>
+        <decimal name="maleCoefficientVariation" title="Ration"/>
+        <decimal name="maleWeight" title="Weight"/>
+        <many-to-one name="maleConsumedProduct"
+                     ref="com.axelor.apps.base.db.Product" title="Consumed product"/>
+        <many-to-one name="maleConsumedProductUnit"
+                     ref="com.axelor.apps.base.db.Unit" title="Consumed product unit"/>
+        <decimal name="maleConsumedProductQty" title="Consumed product quantity"/>
+        <boolean name="maleIsSkipDay" title="Is skip day"/>
+        <string name="maleSkipDayReason" title="Skip day reason"/>
+        <integer name="maleCumulatedLoss" title="Cumulated Loss"/>
+        <integer name="maleDisplacementIn" title="Displacement in"/>
+        <integer name="maleDisplacementOut" title="Displacement out"/>
+        <integer name="maleReform" title="Reform"/>
+        <integer name="maleRemainingNumber" title="Remaining number"/>
+        <decimal name="maleConsumedProductQtyByChick" title="Consumed product quantity by chick"/>
+        <decimal name="maleWaterConsumptionByAliment" title="Consumed water by aliment"/>
+        <decimal name="maleCumulatedConsumedProductQtyByChick" title="Cumulated consumed product quantity by chick"/>
+
+        <!--    female chicks -->
+        <integer name="femaleMortality" title="Mortality"/>
+        <integer name="femaleTriOut" title="Tri out"/>
+        <decimal name="femaleHomogeneity" title="Homogeneity"/>
+        <decimal name="femaleCoefficientVariation" title="Ration"/>
+        <decimal name="femaleWeight" title="Weight"/>
+        <many-to-one name="femaleConsumedProduct"
+                     ref="com.axelor.apps.base.db.Product" title="Consumed product"/>
+        <many-to-one name="femaleConsumedProductUnit"
+                     ref="com.axelor.apps.base.db.Unit" title="Consumed product unit"/>
+        <decimal name="femaleConsumedProductQty" title="Consumed product quantity"/>
+        <boolean name="femaleIsSkipDay" title="Is skip day"/>
+        <string name="femaleSkipDayReason" title="Skip day reason"/>
+        <integer name="femaleCumulatedLoss" title="Cumulated Loss"/>
+        <integer name="femaleDisplacementIn" title="Displacement in"/>
+        <integer name="femaleDisplacementOut" title="Displacement out"/>
+        <integer name="femaleReform" title="Reform"/>
+        <integer name="femaleRemainingNumber" title="Remaining number"/>
+        <decimal name="femaleConsumedProductQtyByChick" title="Consumed product quantity by chick"/>
+        <decimal name="femaleWaterConsumptionByAliment" title="Consumed water by aliment"/>
+        <decimal name="femaleCumulatedConsumedProductQtyByChick" title="Cumulated consumed product quantity by chick"/>
+
+        <integer name="cumulatedMortality" title="Cumulated mortality"/>
+        <decimal name="rateMortality" title="Rate mortality" />
+
+        <decimal name="lightingDuration" title="Lighting duration"/>
+        <decimal name="intensity" title="Intensity"/>
+
+        <decimal name="temperatureMin" title="Temperature min"/>
+        <decimal name="temperatureMax" title="Temperature max"/>
+
+        <decimal name="humidityMin" title="Humidity min"/>
+        <decimal name="humidityMax" title="Humidity max"/>
+
+        <decimal name="waterConsumption" title="Water consumption"/>
+        <decimal name="eggWeight" title="Egg weight"/>
+        <decimal name="eggMass" title="Egg mass"/>
+        <many-to-one name="currentResponsible" ref="com.axelor.auth.db.User" title="Current responsible"/>
+        <integer name="status" title="Status"  selection="poultryfarming.start.technical.sheet.status.select" readonly="true" />
+        <date name="cancelDate" title="Cancel date" readonly="true"/>
+        <many-to-one name="canceledBy" ref="com.axelor.auth.db.User" title="Canceled by"
+                     readonly="true"/>
+
+        <string name="note" title="Note" large="true" translatable="true"/>
+
+        <extra-code>
+            <![CDATA[
+				// TECHNICAL SHEET STATUS SELECT
+				public static final int STATUS_DRAFT_SHEET = 0;
+			    public static final int STATUS_FINALIZED_SHEET = 1;
+			    public static final int STATUS_CANCELED = 2;
+			]]>
+        </extra-code>
+
+    </entity>
+
+</domain-models>

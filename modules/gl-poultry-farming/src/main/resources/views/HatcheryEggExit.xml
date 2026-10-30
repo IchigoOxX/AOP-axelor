@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatchery-egg-exit-form" title="Miscellaneous outputs" model="com.gl.apps.pf.db.HatcheryEggExit" width="large"
+          onNew="action-set-default-date-hatchery-egg-exit">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Infos:" readonlyIf="status != 0" colSpan="12">
+                    <field name="reference" colSpan="4"/>
+                    <field name="hatchery" colSpan="4" required="true"/>
+                    <field name="datetime" colSpan="4"/>
+
+                    <field name="deliveryTime" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="reason" colSpan="4"/>
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                      <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                         <tbody>
+                          <tr>
+                           <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                          </tr>
+                         </tbody>
+                      </table>
+                    ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validateBtn" title="Validate" css="btn-success" prompt="Are you sure you want to validate this egg exit ?" showIf="status &lt; 1" colSpan="12" icon="fa-check"
+                            onClick="save,action-group-hatchery-egg-exit-validation"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel exit" showIf="status == 1" prompt="Are you sure you want to cancel this eggs exit ?" icon="fa-times" css="btn-danger" colSpan="12"
+                            onClick="action-hatchery-eggs-exit-show-dialog-cancel-reason"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="revalidateBtn" title="Revalidate" showIf="status == 3" colSpan="12" css="btn-warning" icon="fa-refresh" onClick="save,action-hatchery-egg-exit-revalidate"/>
+                </panel>
+            </panel>
+            <panel-related name="hatcheryEggExitLinesPanel" readonlyIf="status != 0" colSpan="12" field="hatcheryEggExitList"
+                           form-view="hatchery-egg-exit-line-form"
+                           grid-view="hatchery-egg-exit-line-grid"/>
+        </panel>
+        <panel showTitle="false" colSpan="12">
+            <panel name="notePanel" title="Note" colSpan="12">
+                <field name="note" showTitle="false" height="200" colSpan="12" widget="html"/>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="hatchery-egg-exit-grid" title="Miscellaneous outputs" model="com.gl.apps.pf.db.HatcheryEggExit" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="datetime"/>
+        <field name="hatchery"/>
+        <field name="dispatchStock"/>
+        <field name="reason"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-view name="action-hatchery-eggs-exit-show-dialog-cancel-reason" model="com.gl.apps.pf.db.HatcheryEggExit" title="Cancelation">
+        <view name="hatchery-eggs-exit-cancel-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="hatchery-eggs-exit-cancel-dialog-form" title="Cancelation" model="com.gl.apps.pf.db.HatcheryEggExit">
+        <panel>
+            <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+            <button name="btnCancel" title="Validate" onClick="action-hatchery-egg-exit-cancel,close" confirm="false" style="danger" target="none"/>
+        </panel>
+    </form>
+
+    <action-record name="action-set-default-date-hatchery-egg-exit"
+                   model="com.gl.apps.pf.db.HatcheryEggExit" >
+        <field name="datetime" expr="eval: __datetime__"/>
+        <field name="deliveryTime" expr="eval: __time__"/>
+    </action-record>
+
+    <action-validate name="action-hatchery-egg-exit-check-empty-list">
+        <error if="hatcheryEggExitList.isEmpty()" message="You cannot validate ! hatchery egg exits list is empty."/>
+    </action-validate>
+
+    <action-method name="action-hatchery-egg-exit-validate">
+        <call class="com.gl.apps.pf.web.HatcheryEggExitController" method="HatcheryEggExitValidate"/>
+    </action-method>
+
+    <action-group name="action-group-hatchery-egg-exit-validation">
+        <action name="action-hatchery-egg-exit-check-empty-list"/>
+        <action name="action-hatchery-egg-exit-check-empty-details-list"/>
+        <action name="action-validate-hatchery-egg-exit-number-verify"/>
+        <action name="action-hatchery-egg-exit-validate"/>
+    </action-group>
+
+    <action-validate name="action-validate-hatchery-egg-exit-number-verify">
+        <error if="hatcheryEggExitList?.collectMany{ it.hatcheryEggExitLineDetail }?.collect{ it.numberOfExitEggs }?.sum() > hatcheryEggExitList?.collectMany{ it.hatcheryEggExitLineDetail }?.collect{ it.numberOfExistentEggs }?.sum()" message="The total existent eggs must be greater than exit eggs number."/>
+    </action-validate>
+
+    <action-method name="action-hatchery-egg-exit-cancel">
+        <call class="com.gl.apps.pf.web.HatcheryEggExitController" method="HatcheryEggExitCancel"/>
+    </action-method>
+
+    <action-method name="action-hatchery-egg-exit-revalidate">
+        <call class="com.gl.apps.pf.web.HatcheryEggExitController" method="HatcheryEggsExitRevalidate"/>
+    </action-method>
+
+    <action-validate name="action-hatchery-egg-exit-check-empty-details-list">
+        <error if="hatcheryEggExitList.stream().anyMatch(line -> line.getHatcheryEggExitLineDetail().isEmpty())" message="Hatchery egg exits details is empty !"/>
+    </action-validate>
+
+</object-views>

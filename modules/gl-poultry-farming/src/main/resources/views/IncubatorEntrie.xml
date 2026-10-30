@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="incubator-entry-form" title="Incubator entry" model="com.gl.apps.pf.db.IncubatorEntry" width="large" onNew="action-set-default-values-incubator-entry">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Infos:" readonlyIf="status != 0" colSpan="12">
+                    <field name="reference" colSpan="4"/>
+                    <field name="datetime" colSpan="4"/>
+                    <field name="loadingProgramLine" colSpan="4" required="true"
+                           domain="self.status = 0 AND self.loadingProgram.isValid = true"
+                           onChange="action-group-incubator-entry-program-charging-line-changed" target-name="completeReference"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+                    <field name="hatchery" readonly="true" colSpan="4"/>
+                    <field name="referenceProgramLine" readonly="true" title="program line reference" colSpan="4"/>
+                    <field name="dispatchStock" readonly="true" colSpan="4"/>
+                    <field name="incubator" colSpan="4" required="true" target-name="reference" domain="self.status = 0"/>
+                    <field name="dateTimeProgramLine" readonly="true" colSpan="4" title="Date time program line"/>
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                      <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                         <tbody>
+                          <tr>
+                           <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                          </tr>
+                         </tbody>
+                      </table>
+                    ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validateBtn" title="Validate" prompt="Are you sure you want to validate this incubator entry ?"
+                            showIf="status &lt; 1" colSpan="12" icon="fa-check" css="btn-success"
+                            onClick="action-group-incubator-entry-validation,save,action-incubator-entry-validate"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel entry" prompt="Are you sure you want to cancel this incubator entry ?" showIf="status == 1" colSpan="12" css="btn-danger" icon="fa-times" onClick="action-show-dialog-cancel-reason"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="revalidateBtn" title="Revalidate" showIf="status == 3" colSpan="12" css="btn-warning" icon="fa-refresh" onClick="save,action-incubator-entry-revalidate"/>
+                </panel>
+            </panel>
+            <panel-related name="incubatorEntryLinesPanel" readonlyIf="status != 0" colSpan="12" field="incubatorEntryLines"
+                           form-view="incubator-entry-line-form" showIf="id"
+                           grid-view="incubator-entry-line-grid"
+                           editable="true" canNew="true" canRemove="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="incubator-entry-grid" title="Incubator entries" model="com.gl.apps.pf.db.IncubatorEntry" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="loadingProgramLine" target-name="completeReference"/>
+        <field name="dateTimeProgramLine" />
+        <field name="datetime"/>
+        <field name="breed"/>
+        <field name="hatchery"/>
+        <field name="incubator"/>
+        <field name="dispatchStock"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-record name="action-set-default-values-incubator-entry"
+                   model="com.gl.apps.pf.db.IncubatorEntry">
+        <field name="datetime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-program-charging-line-changed"
+                  model="com.gl.apps.pf.db.IncubatorEntry">
+        <attribute if="loadingProgramLine != null" for="hatchery" name="value"
+                   expr="eval: loadingProgramLine.loadingProgram.hatchery"/>
+        <attribute if="loadingProgramLine != null" for="breed" name="value"
+                   expr="eval: loadingProgramLine.breed"/>
+        <attribute if="loadingProgramLine != null" for="referenceProgramLine" name="value"
+                   expr="eval: loadingProgramLine.lineNumber"/>
+        <attribute if="loadingProgramLine != null" for="dateTimeProgramLine" name="value"
+                   expr="eval: loadingProgramLine.incubationDatetime"/>
+        <attribute if="loadingProgramLine != null" for="_breed" name="value"
+                   expr="eval: loadingProgramLine.breed.id"/>
+    </action-attrs>
+
+    <action-attrs name="action-program-charging-line-empty" model="com.gl.apps.pf.db.IncubatorEntry">
+        <attribute if="loadingProgramLine == null" for="hatchery" name="value" expr="eval: null"/>
+        <attribute if="loadingProgramLine == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="loadingProgramLine == null" for="referenceProgramLine" name="value" expr="eval: null"/>
+        <attribute if="loadingProgramLine == null" for="dateTimeProgramLine" name="value" expr="eval: null"/>
+        <attribute if="loadingProgramLine == null" for="_breed" name="value" expr="eval: null"/>
+    </action-attrs>
+
+    <action-group name="action-group-incubator-entry-program-charging-line-changed">
+        <action name="action-program-charging-line-changed"/>
+        <action name="action-program-charging-line-empty"/>
+    </action-group>
+
+    <action-method name="action-incubator-entry-validate">
+    <call class="com.gl.apps.pf.web.IncubatorEntryController" method="IncubatorEntryValidate"/>
+    </action-method>
+
+    <action-validate name="action-validate-incubator-entry-incubator-trolley-duplicated">
+        <error if="incubatorEntryLines != null &amp;&amp; incubatorEntryLines.collect{it -> it.incubatorTrolley}.toSet().size() != incubatorEntryLines.size()"
+               message="Incubator trolley is duplicated in incubator entry line"/>
+    </action-validate>
+
+    <action-validate name="action-incubator-entry-check-empty-list">
+        <error if="incubatorEntryLines.isEmpty()" message="You cannot validate ! incubator entries list is empty."/>
+    </action-validate>
+    <action-group name="action-group-incubator-entry-validation">
+        <action name="action-incubator-entry-check-empty-list"/>
+        <action name="action-validate-incubator-entry-incubator-trolley-duplicated"/>
+    </action-group>
+
+    <action-method name="action-incubator-entry-cancel">
+        <call class="com.gl.apps.pf.web.IncubatorEntryController" method="IncubatorEntryCancel"/>
+    </action-method>
+
+    <action-view name="action-show-dialog-cancel-reason" model="com.gl.apps.pf.db.IncubatorEntry" title="Cancelation">
+        <view name="incubator-entry-cancel-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="incubator-entry-cancel-dialog-form" title="Cancelation" model="com.gl.apps.pf.db.IncubatorEntry">
+        <panel>
+            <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+            <button name="btnCancel" title="Validate" onClick="action-incubator-entry-cancel,close" confirm="false" style="danger" target="none"/>
+        </panel>
+    </form>
+
+    <action-method name="action-incubator-entry-revalidate">
+        <call class="com.gl.apps.pf.web.IncubatorEntryController" method="IncubatorEntryRevalidate"/>
+    </action-method>
+
+
+</object-views>

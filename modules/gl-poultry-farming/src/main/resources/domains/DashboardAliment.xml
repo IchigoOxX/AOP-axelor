@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="DashboardAliments">
+
+        <many-to-one name="product" ref="com.axelor.apps.base.db.Product" title="Product"/>
+        <string name="productCode"/>
+        <string name="productName"/>
+        <many-to-one name="productUnit"
+                     ref="com.axelor.apps.base.db.Unit" title="Product unit"/>
+        <decimal name="stockQty" title="Quantity"/>
+        <decimal name="saleAverageUnitPrice" title="Sale average unit price"/>
+        <decimal name="saleAmount" title="Sale amount"/>
+
+        <track on="UPDATE">
+            <field name="product"/>
+            <field name="productCode"/>
+            <field name="productName"/>
+            <field name="productUnit"/>
+            <field name="stockQty"/>
+            <field name="saleAverageUnitPrice"/>
+            <field name="saleAmount"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

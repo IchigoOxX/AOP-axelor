@@ -1,0 +1,1059 @@
+${fullName} plan. st. move,قيد محاسبي
+${product.fullName} plan. st. move,قيد محاسبي
+${product.fullName} real st. move,قيد محاسبي
+${product.fullName} reserved,${product.fullName} محجوز
+"%d order invoiced successfully,",تمت فاتورة طلب %d بنجاح،
+"%d orders invoiced successfully,",تمت فوترة %d من الطلبات بنجاح،
+"%d outgoing stock move processed successfully,",تمت معالجة %d من حركة المخزون الصادر بنجاح،
+"%d outgoing stock moves processed successfully,",تمت معالجة %d من حركات المخزون الصادرة بنجاح،
+%s : The advance payment generation failed. Please configure the bank details for the company %s and the associated payment mode %s either on the payment mode side or this Sale order %s record (hidden field).,%s : فشل إنشاء الدفعة المقدمة. الرجاء تكوين الالبيانات البنكيةية للشركة %s ووضع الدفع المرتبط %s إما على جانب وضع الدفع أو في سجل أمر البيع %s هذا (حقل مخفي).
+%s blocked : maximal accepted credit exceeded for %s.,تم حظر %s: تم تجاوز الحد الأقصى للائتمان المقبول لـ %s.
+%s please configure a virtual supplier stock location for the company %s,%s يرجى تكوين موقع مخزون المورد الافتراضي للشركة %s
+%s purchase order,أمر شراء %s
+%s requested reserved,تم حجز %s
+%s sale order,أمر بيع %s
+%s stock location,موقع المخزون %s
+"<>
+          <p>{_t('Write a Groovy expression that returns true when a product should be classified in this category. The first category matching (ordered by sequence) is assigned to the product by the batch ""Update stock history"".')}</p>
+          <table className=""table table-sm table-striped"">
+            <thead>
+              <tr>
+                <th>{_t('Variable')}</th>
+                <th>{_t('Description')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>coverageInDays</code></td>
+                <td>{_t('Stock coverage in days = currentStock / (salesLast12Months / 360)')}</td>
+              </tr>
+              <tr>
+                <td><code>salesLast12Months</code></td>
+                <td>{_t('Sum of outgoing quantities over the last 12 months')}</td>
+              </tr>
+              <tr>
+                <td><code>currentStock</code></td>
+                <td>{_t('Current total quantity (non-virtual stock locations)')}</td>
+              </tr>
+              <tr>
+                <td><code>stock6MonthsAgo</code></td>
+                <td>{_t('Approximated stock quantity 6 months ago')}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><b>{_t('Examples')}</b></p>
+          <ul>
+            <li><code>coverageInDays &gt; 0 &amp;&amp; coverageInDays &lt; 60</code> - {_t('Fast movers')}</li>
+            <li><code>coverageInDays &gt;= 180 &amp;&amp; coverageInDays &lt; 365</code> - {_t('Slow movers')}</li>
+            <li><code>salesLast12Months == 0 &amp;&amp; currentStock &gt; 0</code> - {_t('Dead stock')}</li>
+            <li><code>stock6MonthsAgo &gt; 0 &amp;&amp; currentStock &gt; stock6MonthsAgo * 1.5</code> - {_t('Accumulating stock')}</li>
+          </ul>
+          <p><Badge bg=""info"">{_t('Tip')}</Badge> {_t('Ordering matters: put the most specific rules first. The last one can use true as a catch-all fallback.')}</p>
+        </>",الترتيب مهم: ضع القواعد الأكثر تحديدًا أولاً. يمكن للأخيرة استخدام true كخيار احتياطي شامل.
+<>This packaging is different from real packagings defined during shipping process. Design for only shipping cost estimation.</>,<>تختلف هذه العبوة عن العبوات الحقيقية المحددة أثناء عملية الشحن. تصميم لتقدير تكلفة الشحن فقط.</>
+A list of all product categories for which to run the batch (children categories are automatically included). All products will be processed if this list is left empty (note that the batch may take a long time to run if you have a lot of products).,قائمة بجميع فئات المنتجات التي سيتم تشغيل الدفعة لها (يتم تضمين الفئات الفرعية تلقائيًا). ستتم معالجة جميع المنتجات إذا تركت هذه القائمة فارغة (لاحظ أن تشغيل الدفعة قد يستغرق وقتًا طويلاً إذا كان لديك الكثير من المنتجات).
+"A list of sale order lines that will be processed. The lines that can be selected are the ones conforming to the following conditions :\nProduct is storable\nProduct is managed in stock\nProduct (and its category/family) is not excluded from mrp\nSale order/quotation has the same stockLocation or a subLocation\nIf MPS, product must be a finished product\nDelivered quantity of the line must be lower than total quantity\nThe line must conform to one or several of the mrp move types",قائمة بنود أوامر البيع التي ستتم معالجتها. البنود التي يمكن اختيارها هي التي تطابق الشروط التالية: المنتج قابل للتخزين، مدار في المخزون، غير مستبعد من تخطيط الاحتياجات، له نفس موقع المخزون، كمية التسليم أقل من الإجمالي.
+A supplier partner must be selected,يجب اختيار شريك المورد
+ADR,أدر
+Accepted Credit,الائتمان المقبول
+Account configuration,تكوين الحساب
+Accounting Batch,الدفعة المحاسبية
+Accounting Family Dashboard,لوحة معلومات العائلة المحاسبية
+Accounting Family sale turnover (Excl. Tax) per month,المحاسبة حجم مبيعات مبيعات العائلة (باستثناء الضرائب) شهريًا
+Accumulating stock,مخزون متراكم
+Action,العمل
+Actions,الإجراءات
+Activate partial invoicing for incoming moves,تفعيل الفواتير الجزئية للحركات الواردة
+Activate partial invoicing for outgoing moves,تفعيل الفوترة الجزئية للحركات الصادرة
+Add child packaging,إضافة عبوة فرعية
+Add packaging lines,اضافة خطوط تعبئة
+Add packaging lines from selected stock move lines,إضافة خطوط تعبئة من خطوط حركة المخزون المحددة
+Add stock move lines,إضافة خطوط حركة المخزون
+Add to cart,أضف إلى السلة
+All invoices have been generated for this purchase order.,تم إنشاء كافة الفواتير لأمر الشراء هذا.
+All invoices have been generated for this sale order.,تم إنشاء كافة الفواتير لأمر البيع هذا.
+All products,كافة المنتجات
+Allocated Qty,الكمية المخصصة
+Allocated qty,الكمية المخصصة
+Allow Subscriptions for Sale orders,السماح بالاشتراكات لأوامر البيع
+Allow complete manually sale order,السماح بإكمال أمر البيع يدويًا
+Allow finish manually purchase order,السماح بإنهاء أمر الشراء يدويا
+Allow timetable invoicing,السماح بفواتير سجل الدوام
+Amount,المبلغ
+Amount invoiced W.T.,مبلغ الفاتورة W.T.
+Amount not invoiced,المبلغ غير مفوتر
+Amount remaining to use,المبلغ المتبقي للاستخدام
+Amount to invoice,مبلغ الفاتورة
+An error have been detected on following pricings : %s.,تم اكتشاف خطأ في الأسعار التالية: %s.
+An invoice at status draft or validated is linked to the stock move %s. Please contact the invoicing/accounting department before any changes.,الفاتورة في حالة المسودة أو التي تم التحقق من صحتها مرتبطة بنقل المخزون %s. يرجى الاتصال بقسم الفواتير/المحاسبة قبل إجراء أي تغييرات.
+An invoice not canceled already exists for the incoming stock move %s,توجد فاتورة لم يتم إلغاؤها بالفعل لنقل المخزون الوارد %s
+An invoice not canceled already exists for the outgoing stock move %s,توجد فاتورة لم يتم إلغاؤها بالفعل لنقل المخزون الصادر %s
+Analytic Move Line,بند القيد التحليلي
+Analytic distribution lines,خطوط التوزيع التحليلية
+Analytic distribution template,قالب توزيع مراكز التكلفة
+Analytic move line,بند القيد التحليلي
+Analytic move lines,خطوط التحرك التحليلية
+Analytics,تحليلات
+App,التطبيق
+App Supplychain,سلسلة توريد التطبيقات
+App supplychain,سلسلة توريد التطبيق
+Approximated stock quantity 6 months ago,كمية المخزون التقريبية منذ 6 أشهر
+Archived,مؤرشف
+"Are you sure you want to change status to ""Collected"" ?","هل أنت متأكد أنك تريد تغيير الحالة إلى ""مجمع""؟"
+Are you sure you want to run the calculation ? Calculation can take a long time.,هل أنت متأكد أنك تريد إجراء العملية الحسابية؟ يمكن أن يستغرق الحساب وقتًا طويلاً.
+Associated estimated delivery mrp line,خط MRP للتسليم المقدر المرتبط
+At least one sale order line must be selected,يجب تحديد بند أمر بيع واحد على الأقل
+"At least one stock move is in litigation, do you really want to validate passed for payment ?",هناك حركة واحدة على الأقل للأسهم قيد التقاضي، هل تريد حقًا التحقق من صحة الدفع؟
+At least one stock move line must be selected.,يجب تحديد خط نقل مخزون واحد على الأقل.
+Auto allocate during an availability request,التخصيص التلقائي أثناء طلب التوفر
+Auto allocate stock on other stock moves,تخصيص المخزون تلقائيًا على حركات المخزون الأخرى
+Auto allocate stock on receipt,تخصيص المخزون تلقائيًا عند الاستلام
+Auto fill delivery real quantity,تسليم تلقائي للكمية الحقيقية
+Auto fill receipt real quantity,تعبئة تلقائية لإيصال الكمية الحقيقية
+Auto request reserved qty,الطلب التلقائي الكمية المحجوزة
+Auto-assign rotation stock category,تعيين فئة دوران المخزون تلقائيًا
+Availability,التوفر
+Availability mean time,التوفر يعني الوقت
+Availability requests,طلبات التوفر
+Available,متاح
+Available status,الحالة المتاحة
+Available stock,المخزون المتاح
+Available variables,المتغيرات المتاحة
+Average product availability time in working days,متوسط ​​وقت توفر المنتج في أيام العمل
+Average product delivery time in working days,متوسط ​​وقت تسليم المنتج في أيام العمل
+Batch update stock history :,تحديث تاريخ المخزون دفعة واحدة :
+Batches,دفعات
+Batchs,دفعات
+Block deallocation on availability request,حظر التخصيص بناءً على طلب التوفر
+Block delivery,تسليم البلوك
+Blocked by,محظور بواسطة
+Blocked until,محظور حتى
+Blocking comment for delivery,منع التعليق للتسليم
+Blocking delivery reason,سبب منع التسليم
+Blocking delivery until,منع التسليم حتى
+Blocking reason,سبب المنع
+Blockings,المحظورات
+Both 'Generate invoice from sale order' and 'Generate invoice from stock move' are selected. It is recommended to select only one option at a time to avoid double invoicing.,"تم تحديد كل من ""إنشاء فاتورة من أمر البيع"" و""إنشاء فاتورة من حركة المخزون"". يوصى بتحديد خيار واحد فقط في كل مرة لتجنب الفواتير المزدوجة."
+Building quantity,كمية البناء
+Buyers,المشترين
+Calculate all BOM levels,حساب كافة مستويات BOM
+Calculation End Date,تاريخ انتهاء الحساب
+Calculation Start Date,تاريخ بدء الحساب
+Calculation date,تاريخ الحساب
+Calculation ended,انتهت العملية الحسابية
+Calculation in progress,جاري الحساب
+Calculation number,رقم الحساب
+Calculation started,بدأ الحساب
+Calculation type,نوع الحساب
+Call for tenders,دعوة لتقديم العطاءات
+Can only be cancelled from drafted or confirmed forecast.,لا يمكن إلغاؤها إلا من التوقعات المصاغة أو المؤكدة.
+Can only be collected if validated.,لا يمكن جمعها إلا إذا تم التحقق من صحتها.
+Can only be confirmed from drafted forecast.,لا يمكن تأكيده إلا من خلال التوقعات المصاغة.
+Can only go back to confirmed if completed.,لا يمكن العودة إلى التأكيد إلا في حالة اكتماله.
+Can only return to validated from finished purchase order.,لا يمكن العودة إلا إلى التحقق من صحة أمر الشراء النهائي.
+Can't cancel a stock move that is partially or totally invoiced.,لا يمكن إلغاء حركة المخزون الذي تمت فوترته جزئيًا أو كليًا.
+Can't remove delivered detail line %s.,لا يمكن إزالة سطر التفاصيل الذي تم تسليمه %s.
+Cancel,إلغاء
+Cancel reason on changing purchase order,إلغاء سبب تغيير أمر الشراء
+Cancel reason on changing sale order,إلغاء سبب تغيير أمر البيع
+Cancel stock allocation ?,إلغاء تخصيص الأسهم؟
+Cancelled,ملغي
+Carriage paid threshold,حد النقل المدفوع
+"Carriage paid threshold is exceeded, all shipment cost lines are removed",تم تجاوز حد النقل المدفوع، وتمت إزالة كافة بنود تكلفة الشحن
+Carrier,الناقل
+Cart,العربة
+Cart lines,خطوط العربة
+Carts,عربات
+Change allocated qty,تغيير الكمية المخصصة
+Change requested reserved qty,التغيير المطلوب الكمية المحجوزة
+Change reserved qty,تغيير الكمية المحجوزة
+Changing the delivery partner updates the order’s delivery address. Would you like to update all lines with this new address?,يؤدي تغيير شريك التوصيل إلى تحديث عنوان تسليم الطلب. هل ترغب في تحديث جميع الخطوط بهذا العنوان الجديد؟
+Check min or max rate,التحقق من الحد الأدنى أو الأقصى للمعدل
+Check stock compliance with stock rules,التحقق من التزام المخزون بقواعد المخزون
+Check stocks in a sale order,فحص الأسهم في أمر البيع
+Child stock move lines,بنود حركة المخزون الفرعية
+Children packaging,تغليف الاطفال
+Code,الرمز
+Collected,جمعت
+Color,اللون
+Color used to highlight this category when displayed on product forms,اللون المستخدم لتمييز هذه الفئة عند عرضها في نماذج المنتجات
+Comment,تعليق
+Comments,تعليقات
+Companies,الشركات
+Company,الشركة
+Company for which the configurations are set.,الشركة التي تم تعيين التكوينات لها.
+Complete sale order when all has been invoiced,أكمل أمر البيع عندما يتم إصدار فاتورة للجميع
+Comput. cost,حساب. التكلفة
+Compute sub stock locations,حساب مواقع المخزون الفرعي
+Computed value,القيمة المحسوبة
+Configuration,التهيئة
+Configuration Level,مستوى التهيئة
+Confirm,تأكيد
+Confirm Purchase order generation,تأكيد إنشاء أمر الشراء
+Confirmation,تأكيد
+Confirmation date,تاريخ التأكيد
+Confirmed,مؤكد
+Consider only late sales,خذ بعين الاعتبار المبيعات المتأخرة فقط
+Consolidate the proposals per supplier,توحيد العروض لكل مورد
+Consume manuf order quantity,استهلاك كمية طلب المصنع
+Contact,جهة اتصال
+Contact partner,اتصل بالشريك
+Contract/Subscription,العقد/الاشتراك
+Cost price calculation,حساب سعر التكلفة
+Cost to apply,تكلفة التقديم
+Costs computed,التكاليف المحسوبة
+Costs updated,تم تحديث التكاليف
+Could not find MRP with sequence %s.,تعذر العثور على MRP بالتسلسل %s.
+Could not find eligible email template for stock rules: %s,تعذر العثور على قالب بريد إلكتروني مؤهل لقواعد المخزون: %s
+Could not find recipients for message generated from stock rules: %s,تعذر العثور على مستلمي الرسالة التي تم إنشاؤها من قواعد المخزون: %s
+Could not process MRP %s since its computation is already ongoing.,تعذرت معالجة MRP %s نظرًا لأن حسابه جاري بالفعل.
+Country,الدولة
+Cpte Ana. AXIS1,كبت آنا. المحور1
+Cpte Ana. AXIS2,كبت آنا. المحور2
+Cpte Ana. AXIS3,كبت آنا. المحور3
+Cpte Ana. AXIS4,كبت آنا. المحور 4
+Cpte Ana. AXIS5,كبت آنا. المحور5
+Create interco invoice as validated,إنشاء فاتورة إنتركو كما تم التحقق من صحتها
+Create interco purchase quotation as requested,إنشاء عرض أسعار الشراء الداخلي كما هو مطلوب
+Create interco sale quotation as finalized,قم بإنشاء عرض أسعار بيع داخلي كما هو نهائي
+Create purchase counterpart on this status,قم بإنشاء نظير الشراء على هذه الحالة
+Create sale counterpart on this status,قم بإنشاء نظير بيع على هذه الحالة
+Created by,تم إنشاؤها بواسطة
+Created by interco,تم الإنشاء بواسطة إنتركو
+Created from SOP,تم الإنشاء من SOP
+Created manually,تم الإنشاء يدوياً
+Created on,تم الإنشاء بتاريخ
+Cumulative qty,الكمية التراكمية
+Current date,التاريخ الحالي
+Current date + days,التاريخ الحالي + الأيام
+Current total inventory value (qty x previous cost),إجمالي قيمة المخزون الحالية (الكمية × التكلفة السابقة)
+Current total quantity (non-virtual stock locations),إجمالي الكمية الحالية (مواقع المخزون الفعلية)
+Current total quantity of the product across non-virtual stock locations,إجمالي كمية المنتج الحالية عبر مواقع المخزون الفعلية
+Cust. Invoices,فواتير العملاء
+Customer,عميل
+Customer Stock Move to invoice,نقل مخزون العميل إلى الفاتورة
+Customer dedicated,مخصص للعميل
+Customer deliveries filters,مرشحات تسليم العملاء
+Customer deliveries management,إدارة توصيلات العملاء
+Customer delivery,تسليم العملاء
+Customer shipping carriage paid configuration,التكوين المدفوع لعربة شحن العملاء
+Customs code nomenclature is missing on product %s.,تسمية الرمز الجمركي مفقودة في المنتج %s.
+Cut off generation,قطع الجيل
+DECLARATION OF EXCHANGES OF GOODS BETWEEN MEMBER STATES OF THE EUROPEAN COMMUNITY,إعلان تبادل السلع بين الدول الأعضاء في المجموعة الأوروبية
+Dashlet.Moves,القيود المحاسبية
+Date,التاريخ
+Date of shipment,تاريخ الشحن
+Date to match delivery delay,التاريخ المطابق لتأخير التسليم
+Date to respect delays,موعد لاحترام التأخير
+Day (end of month),اليوم (نهاية الشهر)
+Dead stock,مخزون راكد
+Declaration of exchange filters,إعلان مرشحات الصرف
+Declaration of exchanges,إعلان التبادلات
+Declaration of exchanges of goods,إعلان تبادل البضائع
+Declaration of exchanges of goods template,نموذج إعلان تبادل البضائع
+Declaration of exchanges of services template,نموذج إعلان تبادل الخدمات
+Declarations of exchanges,إعلانات التبادلات
+Default estimated date in stock move from purchase order,التاريخ المقدر الافتراضي في حركة المخزون من أمر الشراء
+Default estimated date in stock move from sale order,التاريخ المقدر الافتراضي في حركة المخزون من أمر البيع
+Default rate,المعدل الافتراضي
+Default rate to apply,المعدل الافتراضي للتطبيق
+Default rate to apply when calculation runs,المعدل الافتراضي للتطبيق عند تشغيل الحساب
+Default stock location,موقع المخزون الافتراضي
+Defines which sale order lines generate a delivery note line. 'Storable products' and 'Services' control product type filtering. 'Managed lines only' ignores product type and includes only lines with 'Managed in stock move' checked.,يحدد بنود أمر البيع التي تُنشئ إشعار تسليم. 'البنود المدارة فقط' تتجاهل نوع المنتج وتتضمن البنود المحددة بـ 'مدار في حركة المخزون' فقط.
+Delay,تأخير
+Delay pricing,التسعير المؤجل
+Delayed invoicing,تأخر الفواتير
+Delivered,تم التوصيل
+Delivered to,تم التسليم إلى
+Deliveries Cancelled,تم إلغاء عمليات التسليم
+Deliveries History,تاريخ التسليم
+Deliveries to prepare,تسليمات للتحضير
+Delivery,التسليم / الإرسال
+Delivery State,حالة التسليم
+Delivery blocking,منع التسليم
+Delivery blocking done by,تم حظر التسليم بواسطة
+Delivery conditions,شروط التسليم
+Delivery line,خط التسليم
+Delivery notes,أذونات التسليم / إشعارات التسليم
+Delivery or receipt state,حالة التسليم أو الاستلام
+Delivery partner,شريك التوصيل
+Delivery state,حالة التسليم
+Depreciation,الإهلاك
+Depreciation rate calculation,حساب معدل التخفيض / الإهلاك
+Depreciation rate configuration,إعداد معدل التخفيض / الإهلاك
+Depreciation rate configurations,إعدادات معدل التخفيض / الإهلاك
+"Depreciation reduces the WAP, valorization increases it",التخفيض يقلل متوسط السعر المرجح (WAP)، والتثمين يزيده
+Depreciation reduces the weighted average price. Valorization increases it,التخفيض يقلل متوسط السعر المرجح، والتثمين يزيده
+Description,الوصف
+Direct order,أمر مباشر
+Direct order default stock location,موقع المخزون الافتراضي للطلب المباشر
+Direct order stock location,موقع مخزون الطلب المباشر
+Display product without proposal,عرض المنتج بدون مقترح
+Don't take in consideration for the stock computation,لا تأخذ بعين الاعتبار حساب السهم
+Don't take in consideration on MRP,لا تأخذ في الاعتبار MRP
+Draft,مسودة
+Edited by user,تم التعديل بواسطة المستخدم
+Element,العنصر
+End date,تاريخ الانتهاء
+Entry of stock,دخول المخزون
+Error during the computation of MRP %s,حدث خطأ أثناء حساب MRP %s
+Error generating subscription invoice(s): '%s',حدث خطأ أثناء إنشاء فاتورة (فواتير) الاشتراك: '%s'
+Error that happened during the computation,خطأ حدث أثناء الحساب
+Estimate packaging,تقدير التعبئة والتغليف
+Estimated delivery date,تاريخ التسليم المتوقع
+Estimated packagings,العبوات المقدرة
+Estimated shipping date,تاريخ الشحن المقدر
+European declaration of services,الإعلان الأوروبي للخدمات
+Evaluation order. Categories with a lower sequence are evaluated first; the first formula returning true is assigned,ترتيب التقييم. الفئات ذات التسلسل الأقل يتم تقييمها أولاً؛ يتم تعيين أول صيغة تعطي نتيجة صحيحة
+Examples,أمثلة
+Exclude from MRP,استبعاد من MRP
+Exclude late sales,استبعاد المبيعات المتأخرة
+Expected realisation date,تاريخ التنفيذ المتوقع
+Expected/Future Quantity,الكمية المتوقعة/المستقبلية
+Expedition,إكسبيديشن
+Export,تصدير
+Export directory is not configured.,لم يتم تكوين دليل التصدير.
+Failed to load depreciation rate import configuration.,فشل تحميل إعداد استيراد معدل التخفيض.
+Fast movers,أصناف سريعة الحركة
+Fetch limit,حد الجلب
+"Fetch limit for this batch. 0 will not be taken into account. In this case, the value configured in app Base will be used.",حد الجلب لهذه الدفعة. 0 لن تؤخذ في الاعتبار. في هذه الحالة، سيتم استخدام القيمة التي تم تكوينها في قاعدة التطبيق.
+Field fieldSelect is null for %s,الحقل fieldSelect فارغ لـ %s
+Field of application,مجال التطبيق
+Field to select,الحقل المراد تحديده
+Fill real quantities,املأ الكميات الحقيقية
+Filters,عوامل التصفية
+Fiscal year,السنة المالية
+FixedAsset.Location,الموقع
+Forecast date,تاريخ التوقعات
+Forecasted customer invoices,فواتير العملاء المتوقعة
+Forecasted invoice customer account,حساب العميل الفاتورة المتوقعة
+Forecasted invoice supplier account,حساب مورد الفاتورة المتوقع
+Forecasted supplier invoices,فواتير الموردين المتوقعة
+Forecasts,التوقعات
+Format,التنسيق
+Formula,الصيغة
+Forwarder,وكيل
+Freight Carrier,ناقلة بضائع
+Freight Carrier Delay,تأخير ناقلة الشحن
+Freight Carrier Pricing,تسعير شركات الشحن
+Freight carrier delay,تأخير ناقلة الشحن
+Freight carrier mode,وضع ناقلة الشحن
+Freight carrier pricing,تسعير شركات الشحن
+From Date,من التاريخ
+From stock location,من موقع المخزون
+Full name,الاسم الكامل
+Future quantity,الكمية المستقبلية
+Generate Invoice,إنشاء الفاتورة
+Generate all possible proposals,توليد كافة المقترحات الممكنة
+Generate call for tender for all possible lines,توليد دعوة لتقديم العطاءات لجميع الخطوط الممكنة
+Generate call for tender for selected lines,إنشاء إعلان مناقصة لخطوط مختارة
+Generate call for tenders,توليد دعوة للمناقصات
+Generate customer deliveries automatically,توليد تسليمات العملاء تلقائيا
+Generate inc. moves for products,توليد شركة. حركات للمنتجات
+Generate inc. moves for services,توليد شركة. تحركات للخدمات
+Generate invoice from purchase order,إنشاء فاتورة من أمر الشراء
+Generate invoice from sale order,إنشاء فاتورة من أمر البيع
+Generate invoice from stock move,إنشاء فاتورة من حركة المخزون
+Generate invoices,توليد الفواتير
+Generate one invoice per incoming stockMove,قم بإنشاء فاتورة واحدة لكل مخزون وارد
+Generate one invoice per outgoing stockMove,قم بإنشاء فاتورة واحدة لكل عملية نقل مخزون صادرة
+Generate out. moves for,توليد الحركات الصادرة لـ
+Generate proposal,توليد الاقتراح
+Generate proposals,توليد المقترحات
+Generate proposals for selected lines,إنشاء مقترحات لخطوط مختارة
+Generate purchase orders automatically,توليد أوامر الشراء تلقائيا
+Generate single invoice,إنشاء فاتورة واحدة
+Generate supplier arrivals automatically,توليد وصول الموردين تلقائيا
+Generate supply chain configurations,إنشاء تكوينات سلسلة التوريد
+Generate the invoice,قم بإنشاء الفاتورة
+Generated sale order,أمر بيع تم إنشاؤه
+"Groovy formula returning true if the product belongs to this category. Available variables: coverageInDays, salesLast12Months, currentStock, stock6MonthsAgo","صيغة Groovy تُرجع صحيحًا إذا كان المنتج ينتمي لهذه الفئة. المتغيرات المتاحة: coverageInDays, salesLast12Months, currentStock, stock6MonthsAgo"
+Gross mass,الكتلة الإجمالية
+Growth coefficient,معامل النمو
+Has carriage paid possibility,لديه إمكانية النقل المدفوع
+Hazard number,رقم الخطر
+Hide Unit Amounts,إخفاء مبالغ الوحدة
+I,أنا
+II,الثاني
+III,الثالث
+Ideal Qty,الكمية المثالية
+"If checked, after the allocation of a stock move, the remaining quantity will be allocated on other stock moves.",إذا تم تحديده، بعد تخصيص حركة المخزون، سيتم تخصيص الكمية المتبقية على تحركات المخزون الأخرى.
+"If checked, the requested quantity will be equal to the quantity in the order lines.",إذا تم تحديدها، فستكون الكمية المطلوبة مساوية للكمية الموجودة في بنود الأمر.
+"If checked, the selected product categories include the products of all their sub-categories, and a depreciation rate configuration set on a parent category applies to the products of its sub-categories",إذا تم التحديد، فستشمل فئات المنتجات المحددة منتجات جميع فئاتها الفرعية، وينطبق إعداد معدل التخفيض على الفئات الفرعية
+"If this configuration is enabled, it is not possible to deallocate quantities on a delivery note that is in availability request.",إذا تم تمكين هذا التكوين، فمن غير الممكن إلغاء تخصيص الكميات في إشعار التسليم الموجود في طلب التوفر.
+"If this configuration is enabled, when an availability request is made from a delivery note, a product stock check will be performed, and a warning message will appear if the stock quantities are insufficient.",إذا تم تمكين هذا التكوين، عند تقديم طلب توفر من إذن التسليم / الشحن، سيتم إجراء فحص مخزون المنتج، وستظهر رسالة تحذير إذا كانت كميات المخزون غير كافية.
+"If you have enabled the stock configuration Separate shipment operations, it is then possible to request automatic allocation during an availability request. If so, a warning message will be displayed asking if you want to allocate the goods. If you refuse, only a reservation request will be made. This configuration is incompatible with the Auto request reserved qty option.",إذا قمت بتمكين عمليات الشحن المنفصلة لتكوين المخزون، فمن الممكن بعد ذلك طلب التخصيص التلقائي أثناء طلب التوفر. إذا كان الأمر كذلك، فسيتم عرض رسالة تحذيرية تسألك عما إذا كنت تريد تخصيص البضائع. وفي حالة الرفض، سيتم تقديم طلب حجز فقط. هذا التكوين غير متوافق مع خيار الكمية المحجوزة للطلب التلقائي.
+Ignore end date,تجاهل تاريخ الانتهاء
+Import,استيراد
+Import CSV,استيراد ملف CSV
+Include element without date,تضمين عنصر بدون تاريخ
+Include elements with a date later than MRP end date.,قم بتضمين عناصر ذات تاريخ لاحق لتاريخ انتهاء MRP.
+Include in DEB,تضمين في DEB
+Include late sales,تضمين المبيعات المتأخرة
+Include only stock locations dedicated to customers,تضمين مواقع المخزون المخصصة للعملاء فقط
+Include sales with a planned delivery date in the past but which have not yet been delivered.,قم بتضمين المبيعات التي لها تاريخ تسليم مخطط له في الماضي ولكن لم يتم تسليمها بعد.
+Include title lines on stock move,تضمين أسطر العناوين في حركة المخزون
+Incorrect product in the stock move %s,منتج غير صحيح في حركة المخزون %s
+Incoterm,مصطلحات التجارة الدولية (Incoterms)
+Indicators,المؤشرات
+Information,معلومات
+Input file,ملف الإدخال
+Insurance date credit,رصيد تاريخ التأمين
+Interco,انتركو
+Interco from invoice,انتركو من الفاتورة
+Interco from purchase,إنتركو من الشراء
+Interco from sale,انتركو من البيع
+Introduction,مقدمة
+Invoice,فاتورة
+Invoice %s type is not filled.,نوع الفاتورة %s غير ممتلئ.
+Invoice all,فاتورة الكل
+Invoice an advance payment,فاتورة دفعة مقدمة
+Invoice blocking,حظر الفاتورة
+Invoice blocking reason,سبب حظر الفاتورة
+Invoice blocking reasons,أسباب حجب الفاتورة
+Invoice controlled,التحكم في الفاتورة
+Invoice created,تم إنشاء الفاتورة
+Invoice generated,تم إنشاء الفاتورة
+Invoice on timetable,فاتورة على سجل الدوام
+Invoice orders,أوامر الفاتورة
+Invoice orders batch type,أوامر الفاتورة نوع الدفعة
+Invoice orders configuration,تكوين أوامر الفاتورة
+Invoice outgoing stock moves,فاتورة تحركات المخزون الصادر
+Invoice partially stock move,فاتورة حركة المخزون جزئيا
+Invoice selected lines,فاتورة الخطوط المحددة
+Invoice timetable has been updated because a part of the order has already been invoiced. Amount to be spread over the timetable : %s,تم تحديث سجل الدوام للفاتورة لأنه تمت فوترة جزء من الطلب بالفعل. المبلغ الذي سيتم توزيعه على سجل الدوام : %s
+Invoiced,مفوتر
+Invoiced Qty,الكمية المفوترة
+Invoiced partner,شريك الفاتورة
+Invoiced periods,فترات الفاتورة
+Invoiced to,تم إرسال الفاتورة إلى
+Invoices,الفواتير
+Invoicing,الفوترة
+Invoicing Blocking,حظر الفواتير
+Invoicing State,حالة الفواتير
+Invoicing batch,دفعة الفواتير
+Invoicing blocked customer deliveries,فواتير عمليات تسليم العملاء المحظورة
+Invoicing of this stock move is blocked.,تم حظر تحرير فواتير حركة المخزون هذه.
+Invoicing status,حالة الفاتورة
+Is ISPM 15 required,هل المعيار الدولي رقم 15 مطلوب
+Is amount in %,هو المبلغ في٪
+Is certificate of conformity required,هل شهادة المطابقة مطلوبة
+Is merged stock move line,تم دمج خط حركة المخزون
+It is not allowed to invoice a greater quantity %s than the delivered quantity %s. Please check the invoice line with this product %s.,لا يُسمح بإصدار فاتورة بكمية أكبر %s من الكمية التي تم تسليمها %s. الرجاء التحقق من بند الفاتورة مع هذا المنتج %s.
+It is not possible to delete a stock move line with allocated or reserved quantity.,لا يمكن حذف بند قيد محاسبي المخزون بالكمية المخصصة أو المحجوزة.
+Label,ملصق
+Label number,رقم الملصق
+Late Deliveries,التسليم المتأخر
+Late sales,مبيعات متأخرة
+Left empty,ترك فارغا
+Limit of stock location line to add to the cart.,حد خط موقع المخزون المراد إضافته إلى سلة التسوق.
+Limited qty,الكمية محدودة
+Line numberFiscal valueTaker,رقم السطر: القيمة المالية
+Line numberNomenclatureSource or destination countryFiscal valueRegimeNet massSupplementary unitNature of transactionMode of transportDepartmentCountry of originAcquirerProduct codeProduct namePartnerInvoice,رقم السطرالتسميةبلد المصدر أو الوجهةالقيمة الماليةالنظامالكتلة الصافيةالوحدة التكميليةطبيعة المعاملةطريقة النقلالقسمبلد المنشأالمستحوذرمز المنتجاسم المنتجالشريكفاتورة
+Lines to invoice,بنود الفاتورة
+Logistical form,النموذج اللوجستي
+Logistical form or parent packaging must be provided.,يجب توفير النموذج اللوجستي أو التغليف الأصلي.
+Logistical form successfully updated.,تم تحديث النموذج اللوجستي بنجاح.
+LogisticalForm.customerCode,رمز العميل
+LogisticalForm.customerName,اسم العميل
+LogisticalForm.date,التاريخ
+LogisticalForm.item,نموذج لوجستي
+LogisticalForm.itemDescription,وصف النموذج اللوجستي
+LogisticalForm.numberOfParcels: {0} - LogisticalForm.numberOfPallets: {1} - LogisticalForm.totalGrossMass ({2}): {3} - LogisticalForm.totalNetMass ({4}): {5},LogisticalForm.numberOfParcels: {0} - LogisticalForm.numberOfPallets: {1} - LogisticalForm.totalGrossMass ({2}): {3} - LogisticalForm.totalNetMass ({4}): {5}
+LogisticalForm.packagingNumber,رقم النموذج اللوجستي
+LogisticalForm.packingList,قائمة التعبئة
+LogisticalForm.shippingComments,نموذج لوجستي.الشحن التعليقات
+MPS,MPS
+MRP,MRP
+MRP Type,نوع MRP
+MRP Types,أنواع MRP
+MRP families,عائلات MRP
+MRP family,عائلة MRP
+MRP forecast,توقعات MRP
+MRP forecasts,توقعات MRP
+MRP move types,أنواع حركات التصنيع (MRP)
+MRP number,رقم MRP
+MRP n°%s is now finished,تم الآن الانتهاء من MRP n°%s
+MRP sequence is missing.,تسلسل MRP مفقود.
+MRP to compute,MRP لحساب
+Manage advance payments from payment conditions,إدارة الدفعات المقدمة من شروط الدفع
+Manage stock reservation,إدارة حجز المخزون
+Managed in stock move,مدار في حركة المخزون
+Managed in stock move by default,مدار في حركة المخزون افتراضيًا
+Managed lines only,البنود المدارة فقط
+Manufacturing operation status,حالة عملية التصنيع
+Manufacturing order status,حالة أمر التصنيع
+Mass Cust. Stock Move Invoicing,فوترة مجمعة لحركات مخزون العملاء
+Mass Sale Order Line Invoicing,فوترة بنود أوامر البيع مجمعًا
+Mass Suppl. Stock Move Invoicing,فوترة مجمعة لحركات مخزون الموردين
+Mass invoicing,فوترة مجمعة
+Maturity,نضج
+Max. rate,الحد الأقصى للمعدل
+Maximum acceptable rate,الحد الأقصى للمعدل المقبول
+Maximum acceptable rate. Values above this will be flagged.,الحد الأقصى للمعدل المقبول. سيتم وضع علامة على القيم الأعلى.
+Maximum level,المستوى الأقصى
+Min qty,الحد الأدنى للكمية
+Min. rate,الحد الأدنى للمعدل
+Minimum acceptable rate,الحد الأدنى للمعدل المقبول
+Minimum acceptable rate. Values below this will be flagged.,الحد الأدنى للمعدل المقبول. سيتم وضع علامة على القيم الأقل.
+Missing,مفقود
+Missing manuf order quantity,كمية طلب المصنع مفقودة
+Month,الشهر
+"More than one freight carrier pricing line selected, please select only one line.",تم تحديد أكثر من خط تسعير لشركة شحن، يرجى تحديد سطر واحد فقط.
+Move,قيد محاسبي
+Mrp,مرب
+Mrp calculation is already on going.,حساب Mrp قيد التنفيذ بالفعل.
+Mrp line,خط MRP
+MrpList.code,الرمز
+MrpList.createdOn,تم إنشاؤه في
+MrpList.cumulativeQty,الكمية التراكمية
+MrpList.endDate,تاريخ الانتهاء
+MrpList.forecastDate,تاريخ التوقعات
+MrpList.forecastsTitle,عنوان التوقعات
+MrpList.maturityDate,تاريخ الاستحقاق
+MrpList.maxLevel,المستوى الأقصى
+MrpList.minQty,الحد الأدنى للكمية
+MrpList.name,الاسم
+MrpList.parentProductCategory,فئة المنتج الأصلي
+MrpList.partner,شريك أعمال
+MrpList.price,السعر
+MrpList.product,المنتج
+MrpList.productCategoriesTitle,عنوان فئات المنتجات
+MrpList.productCategory,فئة المنتج
+MrpList.productFamiliesTitle,عنوان عائلات المنتجات
+MrpList.productFamily,عائلة المنتجات
+MrpList.productType,نوع المنتج
+MrpList.productsTitle,عنوان المنتجات
+MrpList.qty,الكمية
+MrpList.relatedTo,ذات صلة ب
+MrpList.saleOrdersTitle,عنوان أوامر البيع
+MrpList.salePrice,سعر البيع
+MrpList.stockLocation,موقع التخزين / المستودع
+MrpList.title,العنوان
+MrpList.totalATI,إجمالي ATI
+MrpList.totalWT,الوزن الإجمالي
+MrpList.type,النوع
+MrpList.unit,وحدة
+MrpWeeks.createdOn,تم إنشاؤه في
+MrpWeeks.endDate,تاريخ الانتهاء
+MrpWeeks.maxLevel,المستوى الأقصى
+MrpWeeks.product,المنتج
+MrpWeeks.stockLocation,موقع التخزين / المستودع
+MrpWeeks.title,العنوان
+MrpWeeks.unit,وحدة
+MrpWeeks.week,الاسبوع
+Name,الاسم
+Net mass,الكتلة الصافية
+No call for tender can be generated from these lines.,لا يمكن إنشاء أي دعوة لتقديم العطاءات من هذه السطور.
+No default supplier is defined for the product %s,لم يتم تعريف أي مورد افتراضي للمنتج %s
+No delivery stock move to generate for this purchase order,لا يوجد نقل لمخزون التسليم ليتم إنشاؤه لأمر الشراء هذا
+No delivery stock move to generate for this sale order,لا يوجد نقل لمخزون التسليم ليتم إنشاؤه لأمر البيع هذا
+No items have been selected.,لم يتم اختيار أي عناصر.
+"No product matches the selected filters. Products must have a stock rotation category to be revalued; run the ""Update stock history"" batch to assign them automatically.","لا يوجد منتج يطابق الفلاتر المحددة. يجب أن يكون للمنتجات فئة دوران مخزون لإعادة تقييمها؛ قم بتشغيل معالجة ""تحديث سجل المخزون""."
+No proposal can be generated from these lines.,لا يمكن إنشاء أي اقتراح من هذه السطور.
+No stock location valid. Please uncheck the chosen stock location 'is not in MRP'.,"لا يوجد موقع مخزون صالح. يرجى إلغاء تحديد موقع المخزون المختار ""غير موجود في MRP""."
+Non-deductible tax not authorized for sale orders. Please remove the non-deductible tax on product.,ضريبة غير قابلة للخصم غير مصرح بها لأوامر البيع. يرجى إزالة الضريبة غير القابلة للخصم على المنتج.
+None,لا شيء
+Not delivered,لم يتم التسليم
+Not enough quantity are available for reservation for product %s (%s),لا تتوفر كمية كافية للحجز للمنتج %s (%s)
+Not invoiced,لم يتم إصدار فاتورة
+Note,ملاحظة
+Number of Product per Accounting Family,عدد المنتجات لكل عائلة محاسبية
+Number of Product per Category,عدد المنتجات لكل فئة
+Number of days,عدد الأيام
+OK,موافق
+Offset in months,الإزاحة بالأشهر
+"Once this configuration is enabled, on delivery notes, real quantities are automatically filled based on planned quantities. If the configuration is disabled, real quantities must be filled manually upon shipment.",بمجرد تمكين هذا التكوين، في مذكرات التسليم، تتم تعبئة الكميات الحقيقية تلقائيًا بناءً على الكميات المخططة. إذا تم تعطيل التكوين، فيجب ملء الكميات الحقيقية يدويًا عند الشحن.
+"Once this configuration is enabled, on receipt notes, real quantities are automatically filled based on planned quantities. If the configuration is disabled, real quantities must be filled manually upon receipt.",بمجرد تمكين هذا التكوين، في مذكرات الاستلام، تتم تعبئة الكميات الحقيقية تلقائيًا بناءً على الكميات المخططة. إذا تم تعطيل التكوين، فيجب تعبئة الكميات الحقيقية يدويًا عند الاستلام.
+One of the timetables has a percentage exceeding 100%.,أحد سجلات الدوام لديه نسبة تتجاوز 100٪.
+One or several rates are invalid.,معدل واحد أو أكثر غير صالح.
+One or several stock move lines are not fully packaged.,لم يتم تعبئة واحد أو أكثر من خطوط حركة المخزون بشكل كامل.
+One-off sale outgoing quantity,الكمية الصادرة للبيع لمرة واحدة
+One-off sales,مبيعات لمرة واحدة
+One-off sales excluded,تم استبعاد المبيعات لمرة واحدة
+One-off sales included,وشملت المبيعات لمرة واحدة
+One-off sales only,مبيعات لمرة واحدة فقط
+Only CSV files are supported for import.,ملفات CSV مدعومة للاستيراد فقط.
+Open sale order,أمر بيع مفتوح
+Operation choice,اختيار العملية
+Order %s,طلبات
+Order invoicing report:,تقرير فواتير الطلب:
+Order up to date,الطلب محدث
+Order(s) processed,تمت معالجة الطلب (الطلبات)
+Ordered by,مرتبة بواسطة
+Ordering matters: put the most specific rules first. The last one can use true as a catch-all fallback.,الترتيب مهم: ضع القواعد الأكثر تحديدًا أولاً. يمكن للأخيرة استخدام true كخيار احتياطي شامل.
+Orders,أوامر / طلبات
+Origin,الأصل
+Origin purchase order line,سطر أمر الشراء الأصلي
+Origin sale order line,سطر أمر بيع الأصل
+Origins,أصول
+Out of stock,نفذ من المخزون
+Outgoing quantity (One-off sale excluded),الكمية الصادرة (باستثناء البيع لمرة واحدة)
+Outgoing stock move invoicing report:,تقرير فواتير حركة المخزون الصادر:
+PFP Status,حالة PFP
+PO line,خط البريد
+PO lines,خطوط البريد
+Pack lines,خطوط الحزمة
+Package used,الحزمة المستخدمة
+Packaging,التعبئة والتغليف
+Packaging group,مجموعة التعبئة والتغليف
+Packaging level,مستوى التغليف
+Packaging line,خط التعبئة والتغليف
+Packaging line successfully deleted.,تم حذف سطر التغليف بنجاح.
+Packaging line successfully updated.,تم تحديث خط التعبئة والتغليف بنجاح.
+Packaging lines,خطوط التعبئة والتغليف
+Packaging number,رقم التغليف
+Packaging successfully removed.,تمت إزالة العبوة بنجاح.
+Packaging successfully updated.,تم تحديث العبوة بنجاح.
+Packaging.palletNo <strong>{0}</strong> - Packaging.totalGrossMass ({1}): <strong>{2}</strong> - Packaging.totalNetMass ({3}): <strong>{4}</strong>,Packaging.palletNo <strong>{0}</strong> - Packaging.totalGrossMass ({1}): <strong>{2}</strong> - Packaging.totalNetMass ({3}): <strong>{4}</strong>
+Packaging.parcelNo <strong>{0}</strong> - Packaging.totalGrossMass ({1}): <strong>{2}</strong> - Packaging.totalNetMass ({3}): <strong>{4}</strong>,Packaging.parcelNo <strong>{0}</strong> - Packaging.totalGrossMass ({1}): <strong>{2}</strong> - Packaging.totalNetMass ({3}): <strong>{4}</strong>
+PackagingLine.qty,الكمية
+PackagingLine.stockMoveNo {0} / PackagingLine.refNo {1},PackagingLine.stockMoveNo {0} / PackagingLine.refNo {1}
+Packagings,عبوات
+Parent Stock location,موقع المخزون الأصلي
+Parent line,الخط الأصلي
+Parent packaging,تغليف الوالدين
+Parent stock move line,بند حركة المخزون الرئيسي
+Partial invoicing of outgoing stock move with tracking number activated is not supported.,لا يتم دعم الفوترة الجزئية لنقل المخزون الصادر مع تنشيط رقم التتبع.
+Partially delivered,تم تسليمها جزئيا
+Partially invoiced,مفوترة جزئيا
+Partner,شريك أعمال
+Partner is missing on stock move %s.,الشريك مفقود أثناء حركة المخزون %s.
+Payment condition,شروط السداد
+Payment mode,طريقة الدفع
+Payment period (N days / Month),فترة السداد (N أيام / شهر)
+Percentage,نسبة
+Period,الفترة المالية
+Period type,نوع الفترة
+Picking Order Info,اختيار معلومات الطلب
+Please configure a correct value for the sale order date used for reservation.,يرجى تكوين قيمة صحيحة لتاريخ أمر البيع المستخدم للحجز.
+Please configure the advance payment product,الرجاء تكوين منتج الدفع المقدم
+Please confirm the sale order before invoicing.,يرجى تأكيد أمر البيع قبل إصدار الفواتير.
+Please do not enter negative quantity for reservation.,الرجاء عدم إدخال كمية سلبية للحجز.
+Please enter amount to invoice.,الرجاء إدخال المبلغ للفاتورة.
+Please fill a quantity to invoice.,يرجى ملء الكمية للفاتورة.
+Please fill unit for product %s,الرجاء ملء الوحدة للمنتج %s
+Please generate a stock move for this sale order before modifying allocated quantity.,يرجى إنشاء حركة مخزون لأمر البيع هذا قبل تعديل الكمية المخصصة.
+Please select a forecasted invoice customer account in the accounting batch,الرجاء تحديد حساب عميل الفاتورة المتوقعة في الدفعة المحاسبية
+Please select a forecasted invoice supplier account in the accounting batch,يرجى تحديد حساب مورد الفاتورة المتوقع في الدفعة المحاسبية
+Please select an element to run calculation,الرجاء تحديد عنصر لإجراء العملية الحسابية
+Please select at least one line to generate a proposal.,يرجى تحديد سطر واحد على الأقل لإنشاء الاقتراح.
+"Please select at least one product, product category or product family.",يرجى تحديد منتج أو فئة منتج أو عائلة منتج واحدة على الأقل.
+Please select one freight carrier pricing line.,برجاء تحديد خط تسعير واحد لشركة شحن.
+Please uncheck picking order edited box from this stock move from Cust. Shipment to prepare menu entry.,يرجى إلغاء تحديد مربع تحرير طلب الانتقاء من عملية حركة المخزون هذه من العميل. شحنة لإعداد إدخال القائمة.
+Please validate the purchase order before invoicing.,يرجى التحقق من صحة أمر الشراء قبل إصدار الفواتير.
+"Please, select a currency for the order %s",من فضلك، حدد عملة للطلب %s
+"Please, select a supplier for the line %s",الرجاء تحديد مورد للسطر %s
+Previous cost,التكلفة السابقة
+Previous rate,المعدل السابق
+Previously applied revaluation rate stored on the product,معدل إعادة التقييم المطبق سابقًا والمخزن على المنتج
+Price,السعر
+Pricing,التسعير
+Pricing rules,قواعد التسعير
+Print,طباعة
+Printings,مطبوعات
+Product,منتج
+Product Accounting Family,عائلة محاسبة المنتجات
+Product Categories,فئات المنتجات
+Product Category,فئة المنتج
+Product Type,نوع المنتج
+Product cannot be regenerated because delivered / invoiced sale order lines are using it.,لا يمكن إعادة إنشاء المنتج لأن بنود أمر البيع المُسلَّم/المفوتر تستخدمه.
+Product categories,فئات المنتجات
+Product category,فئة المنتج
+Product category for this depreciation rate configuration,فئة المنتج لإعداد معدل التخفيض هذا
+Product code,رمز المنتج
+Product families,عائلات المنتجات
+Product family,عائلة المنتج
+Product family for this depreciation rate configuration,عائلة المنتج لإعداد معدل التخفيض هذا
+Product is missing.,المنتج مفقود.
+Product launches/withdrawal each month,إطلاق/سحب المنتج كل شهر
+Product must be a packaging.,يجب أن يكون المنتج عبارة عن عبوة.
+Product stock for %s is not enough for availability request,مخزون المنتج لـ %s غير كافٍ لطلب التوفر
+Product sub-types,أنواع المنتجات الفرعية
+Product type,نوع المنتج
+Product type distribution,توزيع نوع المنتج
+Products,المنتجات
+Products DB 1,المنتجات دي بي 1
+Products Details,تفاصيل المنتجات
+Products of %s have been added to your cart.,تمت إضافة منتجات %s إلى سلة التسوق الخاصة بك.
+Project identically over the next few months,المشروع مماثل خلال الأشهر القليلة المقبلة
+Projected Stock,المخزون المتوقع
+Projected stock,المخزون المتوقع
+Projection details,تفاصيل الإسقاط
+Projection' s number of month,رقم الإسقاط الشهري
+Proposal,اقتراح
+Proposal generated,تم إنشاء الاقتراح
+Proposal select,حدد الاقتراح
+Proposals have been generated successfully.,تم إنشاء المقترحات بنجاح.
+Purchase,المشتريات
+Purchase order,أمر شراء
+Purchase order %s has already been fully received. This stock move cannot be realized.,أمر الشراء %s تم استلامه بالكامل بالفعل. لا يمكن تنفيذ حركة المخزون هذه.
+Purchase order line,سطر أمر الشراء
+"Purchase order or sale order without estimated delivery date and manufacturing order without planned date. In this case, we use the MRP start date (today)",أمر الشراء أو أمر البيع بدون تاريخ التسليم المقدر وأمر التصنيع بدون التاريخ المخطط له. في هذه الحالة، نستخدم تاريخ بدء تخطيط متطلبات المواد (اليوم)
+Purchase order quantity,كمية أمر الشراء
+Purchase order without incoming stock move,أمر شراء بدون تحرك المخزون الوارد
+Purchase order without stock move,أمر شراء بدون حركة مخزنية
+Purchase orders,أوامر الشراء
+Purchase proposal,اقتراح الشراء
+Purchase proposal / Estimated delivery,اقتراح الشراء / التسليم المقدر
+Purchases orders,أوامر الشراء
+Qty,الكمية
+Qty remaining to package,الكمية المتبقية للحزمة
+Qty to deliver,الكمية المطلوب تسليمها
+Qty to invoice,الكمية للفاتورة
+Quantity,الكمية
+Quantity cannot be lower than already delivered quantity on detail line %s.,لا يمكن أن تكون الكمية أقل من الكمية التي تم تسليمها بالفعل في سطر التفاصيل %s.
+Quantity requested,الكمية المطلوبة
+Quotations,عروض الأسعار
+Rate to apply,المعدل المراد تطبيقه
+Rates,المعدلات
+Real Qty,الكمية الحقيقية
+Real qty changed by user,الكمية الفعلية التي تم تغييرها بواسطة المستخدم
+Real quantity,الكمية الحقيقية
+Real/Current Quantity,الكمية الحقيقية/الحالية
+Receipt state,حالة الاستلام
+Ref,المرجع
+Refill Qty,إعادة ملء الكمية
+Refresh availability,تحديث التوفر
+Related to,ذات صلة ب
+Related to select,ذات صلة لتحديد
+Remaining Qty,الكمية المتبقية
+Requested reserved qty,الكمية المحجوزة المطلوبة
+Requested reserved quantity,الكمية المحجوزة المطلوبة
+Reservation date time,تاريخ الحجز الوقت
+Reserved quantity,الكمية المحجوزة
+Reserved stock move lines,خطوط حركة المخزون المحجوزة
+Result,النتيجة
+Results,النتائج
+Returnable,قابل للإرجاع
+Revaluation,إعادة التقييم
+Revaluation by product family,إعادة التقييم حسب عائلة المنتج
+Revaluation rate,معدل إعادة التقييم
+Rotation stock category,فئة دوران المخزون
+Run calculation,تشغيل الحساب
+Run stock batch,تشغيل دفعة المخزون
+SO line,بند أمر البيع
+SO lines,بنود أمر البيع
+SOL to invoice,SOL للفاتورة
+Sale,المبيعات
+Sale Batch,دفعة بيع
+Sale forecast,توقعات البيع
+Sale order,أمر بيع
+Sale order date used for stock reservation,تاريخ أمر البيع المستخدم لحجز المخزون
+Sale order line,سطر أمر البيع
+Sale order line to invoice,سطر أمر البيع إلى الفاتورة
+Sale order lines to invoice,بنود أمر البيع للفاتورة
+Sale order quantity,كمية أمر البيع
+Sale order without outgoing stock move,أمر بيع بدون حركة المخزون الصادر
+Sale order without stock move,أمر بيع بدون حركة مخزنية
+Sale orders,أوامر البيع
+SaleOrder,أمر بيع
+Sales,المبيعات
+Sales forecast,توقعات المبيعات
+Sales order,أمر بيع
+Sales order line,سطر أمر المبيعات
+Sales orders,أوامر البيع
+Sales quotations,عروض أسعار المبيعات
+Salesperson or buyer set,مجموعة مندوب مبيعات أو مشتري
+Salespersons,مندوبي المبيعات
+Schedule,سجل الدوام
+Security,الأمن
+Security delay (days),التأخير الأمني ​​(أيام)
+See projected stock,انظر المخزون المتوقع
+See stock history,انظر تاريخ المخزون
+Select,حدد
+Select all,حدد الكل
+Select carrier,حدد الناقل
+Select stock move lines,حدد خطوط حركة المخزون
+Select supplier partner,حدد شريك المورد
+Select the customer account for accrued revenue (usually 4181) for end-of-year adjustments.,حدد حساب العميل للإيرادات المتراكمة (عادةً 4181) لتسويات نهاية العام.
+Select the lines to invoice,حدد السطور المراد فاتورة بها
+Select the supplier account for accrued expenses (usually 4081) for end-of-year adjustments.,حدد حساب المورد للنفقات المستحقة (عادةً 4081) لتسويات نهاية العام.
+Select timetables to invoice,حدد سجلات الدوام للفاتورة
+Sequence,التسلسل
+Sequence to order MRP results,تسلسل ترتيب نتائج MRP
+Services,الخدمات
+"Set one or more dimensions (product, product category, product family, stock rotation category). The configuration applies to a product only if it matches all the dimensions set on the line.",حدد بعدًا واحدًا أو أكثر (منتج، فئة منتج، عائلة منتج، فئة دوران مخزون). ينطبق الإعداد على المنتج فقط إذا طابق جميع الأبعاد المحددة.
+Settings,الإعدادات
+Shipment Mode,وضع الشحن
+Shipment mode,وضع الشحن
+Shipping cost,تكلفة الشحن
+Show Total,إظهار الإجمالي
+Slow movers,أصناف بطيئة الحركة
+Specific package,حزمة محددة
+Specific product for this depreciation rate configuration,منتج معين لإعداد معدل التخفيض هذا
+Standard,قياسي
+Standard delay (days),التأخير القياسي (أيام)
+Status,الحالة
+Status considered to filter a purchase order,الحالة التي تم النظر فيها لتصفية أمر الشراء
+Status considered to filter a sale order,الحالة التي تم النظر فيها لتصفية أمر البيع
+Status select,الحالة اختر
+Statuses to take into account,حالات يجب مراعاتها
+Stock,المخزون
+Stock Locations content,محتوى مواقع المخزون
+Stock coverage in days = currentStock / (salesLast12Months / 360),تغطية المخزون بالأيام = المخزون الحالي / (المبيعات لآخر 12 شهرًا / 360)
+Stock details,تفاصيل المخزون
+Stock details by product,تفاصيل المخزون حسب المنتج
+Stock history,تاريخ المخزون
+Stock history line,خط تاريخ المخزون
+Stock history updated,تم تحديث تاريخ المخزون
+Stock location,موقع التخزين / المستودع
+Stock location is missing for the purchase order %s.,موقع المخزون مفقود لأمر الشراء %s.
+Stock location is missing for the sale order %s.,موقع المخزون مفقود لأمر البيع %s.
+Stock location lines by product,خطوط موقع المخزون حسب المنتج
+Stock move,حركة المخزون
+Stock move %s has already been invoiced.,لقد تمت فاتورة حركة المخزون %s بالفعل.
+Stock move %s has been created for this sale order,تم إنشاء حركة المخزون %s لأمر البيع هذا
+Stock move has already been totally invoiced.,لقد تم بالفعل تحرير فاتورة حركة المخزون بالكامل.
+Stock move line,بند حركة المخزون
+Stock move lines,بنود حركات المخزون
+Stock move lines concerned by cut off,خطوط تحرك الأسهم المعنية بقطع
+Stock move type,نوع حركة السهم
+Stock move(s) processed,تمت معالجة حركة (حركات) المخزون
+Stock moves,حركات المخزون
+Stock reservation feature cannot be active when we are managing stock locations on stock move line.,لا يمكن أن تكون ميزة حجز المخزون نشطة عندما نقوم بإدارة مواقع المخزون على خط حركة المخزون.
+Stock revaluation,إعادة تقييم المخزون
+Stock revaluation computed,تم احتساب إعادة تقييم المخزون
+Stock revaluation rate configuration,إعداد معدل إعادة تقييم المخزون
+Stock revaluation updated,تم تحديث إعادة تقييم المخزون
+Stock rotation categories,فئات دوران المخزون
+Stock rotation category,فئة دوران المخزون
+Stock rotation category (formula-based) for this depreciation rate configuration,فئة دوران المخزون (المستندة إلى صيغة) لإعداد معدل التخفيض هذا
+Stock unit value,القيمة للوحدة من المخزون
+StockMove,ستوك موف
+Storable products,منتجات قابلة للتخزين
+Subscription,الاشتراك
+Subscription invoice generation report :,تقرير إنشاء فاتورة الاشتراك :
+Subscription invoices to validate,فواتير الاشتراك للتحقق
+Sum of outgoing quantities over the last 12 months,مجموع الكميات الصادرة خلال الـ 12 شهرًا الماضية
+Suppl. Invoices,فواتير الموردين
+Supplier,مورد
+Supplier Catalog,كتالوج الموردين
+Supplier Delivery time,وقت تسليم المورد
+Supplier Stock Move to invoice,نقل مخزون المورد إلى الفاتورة
+Supplier arrival,وصول المورد
+Supplier arrivals management,إدارة وصول الموردين
+Supplier shipping carriage paid configuration,التكوين المدفوع لمركبة شحن المورد
+Supply chain config,تكوين سلسلة التوريد
+Supply chain config (${ name }),تكوين سلسلة التوريد (${ name })
+Supply chain configuration,تكوين سلسلة التوريد
+Supply chain configurations,تكوينات سلسلة التوريد
+Supply method,طريقة العرض
+Supplychain Batch,دفعة سلسلة التوريد
+Supplychain batch,دفعة سلسلة التوريد
+Supplychain batch filters,مرشحات دفعة سلسلة التوريد
+Supplychain batches,دفعات سلسلة التوريد
+Take in account sub categories,خذ في الاعتبار الفئات الفرعية
+Tax number is missing on partner %s.,الرقم الضريبي مفقود على الشريك %s.
+Team,فريق
+Template,القالب
+Terminate purchase order on Receipt,إنهاء أمر الشراء عند الاستلام
+Terminate sale order on delivery,إنهاء أمر البيع عند التسليم
+Terms,الشروط
+The allocated quantity must not be greater than the quantity in the stock move line %s.,يجب ألا تكون الكمية المخصصة أكبر من الكمية الموجودة في سطر حركة المخزون %s.
+The amount to be spread over the timetable is negative.,المبلغ الذي سيتم توزيعه على سجل الدوام سلبي.
+The amount to invoice is superior than the amount in the sale order,المبلغ الموجود في الفاتورة أكبر من المبلغ الموجود في أمر البيع
+The client is required and must be the same for all sale orders,مطلوب العميل ويجب أن يكون هو نفسه لجميع أوامر البيع
+The company %s doesn't have any configured sequence for MRP,ليس لدى الشركة %s أي تسلسل مكون لـ MRP
+The company is required and must be the same for all purchase orders,الشركة مطلوبة ويجب أن تكون واحدة لجميع طلبات الشراء
+The company is required and must be the same for all sale orders,الشركة مطلوبة ويجب أن تكون واحدة لجميع أوامر البيع
+The currency is required and must be the same for all sale orders,العملة مطلوبة ويجب أن تكون واحدة لجميع أوامر البيع
+The customer account is blocked because he has late payments.,تم حظر حساب العميل بسبب تأخره في الدفع.
+The delivered partner must be the same for all sale orders,يجب أن يكون الشريك المسلم هو نفسه لجميع أوامر البيع
+"The execution of MRP n°%s is now finished, you can click above to see the results.",تم الآن تنفيذ MRP n°%s، يمكنك النقر أعلاه لرؤية النتائج.
+The fiscal position must be the same for all purchase orders,يجب أن يكون الوضع المالي هو نفسه لجميع أوامر الشراء
+The fiscal position must be the same for all sale orders,يجب أن يكون الوضع المالي هو نفسه لجميع أوامر البيع
+The following stock move lines are already associated with invoice lines and can not be splitted: %s,بنود حركة المخزون التالية مرتبطة بالفعل ببنود الفاتورة ولا يمكن تقسيمها: %s
+The formula is not valid:,الصيغة غير صالحة:
+The incoterm must be the same for all sale orders,يجب أن يكون مصطلح التجارة الدولية هو نفسه لجميع أوامر البيع
+The incoterm must be the same for all sale orders.,يجب أن يكون مصطلح التجارة الدولية هو نفسه لجميع أوامر البيع.
+The interco configuration must be the same for all purchase orders,يجب أن يكون تكوين الاتصال الداخلي هو نفسه لجميع أوامر الشراء
+The interco configuration must be the same for all sale orders.,يجب أن يكون تكوين الاتصال الداخلي هو نفسه بالنسبة لجميع أوامر البيع.
+The invoice for the stock move %s can't be generated because of this following error : %s,لا يمكن إنشاء فاتورة حركة المخزون %s بسبب هذا الخطأ التالي: %s
+The invoice has already been generated.,لقد تم بالفعل إنشاء الفاتورة.
+The invoice's unit is different and inconvertible into the stock move's unit.,وحدة الفاتورة مختلفة وغير قابلة للتحويل إلى وحدة حركة المخزون.
+The invoiced partner must be the same for all sale orders,يجب أن يكون الشريك المفوتر هو نفسه لجميع أوامر البيع
+The packaging line qty can not be greater than the stock move line's qty remaining to package.,لا يمكن أن تكون كمية خط التعبئة والتغليف أكبر من الكمية المتبقية لخط حركة المخزون للتغليف.
+The process was stopped because the computation is stuck in an infinite loop. This error can be caused by a configuration error.,تم إيقاف العملية لأن الحساب عالق في حلقة لا نهائية. يمكن أن يكون سبب هذا الخطأ خطأ في التكوين.
+The product will not be delivered in time for its corresponding need.,لن يتم تسليم المنتج في الوقت المناسب لاحتياجاته المقابلة.
+The proposal has been successfully generated.,لقد تم إنشاء الاقتراح بنجاح.
+The purchase order %s invoiced amount cannot be greater than its total amount.,لا يمكن أن يكون مبلغ فاتورة أمر الشراء %s أكبر من المبلغ الإجمالي.
+The purchase order line can't be deleted because it is linked to a realized stock move.,لا يمكن حذف بند أمر الشراء لأنه مرتبط بعملية نقل مخزون محققة.
+The purchase order line can't be deleted because it is linked to an invoice.,لا يمكن حذف سطر أمر الشراء لأنه مرتبط بفاتورة.
+The purchase order line qty can't be lower than the qty already invoiced.,لا يمكن أن تكون كمية سطر أمر الشراء أقل من الكمية التي تمت فوترتها بالفعل.
+The purchase order line qty can't be lower than the qty already realized.,لا يمكن أن تكون كمية سطر أمر الشراء أقل من الكمية المحققة بالفعل.
+The purchase order trading name is missing.,الاسم التجاري لأمر الشراء مفقود.
+The quantity to invoice is greater than the quantity in the purchase order,الكمية الموجودة في الفاتورة أكبر من الكمية الموجودة في أمر الشراء
+The quantity to invoice is greater than the quantity in the sale order,الكمية الموجودة في الفاتورة أكبر من الكمية الموجودة في أمر البيع
+The realized quantity for product %s is greater than the remaining quantity to receive (%s) on purchase order %s.,الكمية المنفذة للمنتج %s أكبر من الكمية المتبقية للاستلام (%s) في أمر الشراء %s.
+The requested quantity must be greater than the already delivered quantity.,يجب أن تكون الكمية المطلوبة أكبر من الكمية التي تم تسليمها بالفعل.
+The requested quantity must not be greater than the quantity in the stock move line %s.,يجب ألا تكون الكمية المطلوبة أكبر من الكمية الموجودة في سطر حركة المخزون %s.
+The reservation for an availability requested stock move cannot be lowered.,لا يمكن خفض الحجز الخاص بنقل المخزون المطلوب للتوفر.
+The sale order %s invoiced amount cannot be greater than its total amount.,لا يمكن أن يكون مبلغ فاتورة أمر البيع %s أكبر من المبلغ الإجمالي.
+The shipping cost is accounted for in the sale order's total cost and affects the margin.,يتم احتساب تكلفة الشحن في التكلفة الإجمالية لأمر البيع وتؤثر على الهامش.
+The stock location must be usable on sale order.,يجب أن يكون موقع المخزون قابلاً للاستخدام في أمر البيع.
+The supplier is required and must be the same for all purchase orders,المورد مطلوب ويجب أن يكون هو نفسه لجميع طلبات الشراء
+The total of the order must be equal or superior than the advance payment total.,يجب أن يكون إجمالي الطلب مساويًا أو أعلى من إجمالي الدفعة المقدمة.
+The trading name must be the same for all purchase orders.,يجب أن يكون الاسم التجاري هو نفسه لجميع أوامر الشراء.
+The trading name must be the same for all sale orders.,يجب أن يكون الاسم التجاري هو نفسه لجميع أوامر البيع.
+There are no lines to invoice,لا توجد خطوط للفاتورة
+There are no selected timetables to invoice,لا توجد جداول زمنية محددة للفاتورة
+There are too many stock location lines to add to the cart. The limit configured is %s.,يوجد عدد كبير جدًا من خطوط مواقع المخزون التي يمكن إضافتها إلى سلة التسوق. الحد الذي تم تكوينه هو %s.
+"There is a configuration error, partner %s is its own parent.",يوجد خطأ في التكوين، الشريك %s هو الأصل الخاص به.
+There is at least one draft or planned stock move for this sale order.,توجد مسودة واحدة أو نقل مخزون مخطط له على الأقل لأمر البيع هذا.
+There is no analytic distribution on %s purchase order line,لا يوجد توزيع تحليلي على سطر أمر الشراء %s
+There is no analytic distribution on %s sale order line,لا يوجد توزيع تحليلي على سطر أمر البيع %s
+There is no configured sequence for the Packaging,لا يوجد تسلسل تم تكوينه للتغليف
+There is no supplier catalog for this product,لا يوجد كتالوج الموردين لهذا المنتج
+"This configuration defines how the estimated date of the delivery note should be filled when it is not specified in the order. You can define here whether the estimated date of the delivery note will be automatically filled with the current date, or if it will be filled taking into account the current date plus a delay in days (e.g. current date + 10 days), or if it is left empty, which will require manual entry.",يحدد هذا التكوين كيفية ملء التاريخ المقدر لإذن التسليم / الشحن عندما لا يكون محددًا في الأمر. يمكنك هنا تحديد ما إذا كان التاريخ المقدر لسند التسليم سيتم ملؤه تلقائيًا مع التاريخ الحالي، أو إذا كان سيتم ملؤه مع مراعاة التاريخ الحالي بالإضافة إلى تأخير بالأيام (مثل التاريخ الحالي + 10 أيام)، أو إذا تم تركه فارغًا، الأمر الذي سيتطلب الإدخال اليدوي.
+This configuration defines the default stock location used for direct order (drop shipment) type orders.,يحدد هذا التكوين موقع المخزون الافتراضي المستخدم لأوامر نوع الأمر المباشر (الشحن المسقط).
+"This configuration enables interco management from invoices. Interco is an intercompany flow, when company A invoices company B. In the case of this configuration, when a sale invoice is created by company B, a purchase invoice for company B will be automatically created.","يتيح هذا التكوين إدارة الاتصال الداخلي من الفواتير. Interco عبارة عن تدفق بين الشركات الشقيقة، عندما تقوم الشركة ""أ"" بإصدار فواتير للشركة ""ب"". في حالة هذا التكوين، عندما يتم إنشاء فاتورة بيع بواسطة الشركة ""ب""، سيتم إنشاء فاتورة شراء للشركة ""ب"" تلقائيًا."
+"This configuration enables interco management from purchase orders. Interco is an intercompany flow, when company A places an order with company B. In the case of this configuration, when a purchase quotation/order is created by company A, an equivalent sale quotation/order for company B will be automatically created.","يتيح هذا التكوين إدارة الاتصال الداخلي من أوامر الشراء. Interco عبارة عن تدفق بين الشركات الشقيقة، عندما تقدم الشركة ""أ"" طلبًا مع الشركة ""ب"". في حالة هذا التكوين، عندما يتم إنشاء عرض أسعار/أمر شراء بواسطة الشركة ""أ""، سيتم إنشاء عرض أسعار/أمر بيع مكافئ للشركة ""ب"" تلقائيًا."
+"This configuration enables interco management from sale orders. Interco is an intercompany flow, when company A places an order with company B. In the case of this configuration, when a sale quotation/order is created by company B, an equivalent purchase quotation/order for company A will be automatically created.","يتيح هذا التكوين إدارة الاتصال الداخلي من أوامر البيع. Interco عبارة عن تدفق بين الشركات الشقيقة، عندما تقدم الشركة ""أ"" طلبًا مع الشركة ""ب"". في حالة هذا التكوين، عندما يتم إنشاء عرض أسعار/أمر بيع بواسطة الشركة ""ب""، سيتم إنشاء عرض أسعار/أمر شراء مكافئ للشركة ""أ"" تلقائيًا."
+This configuration enables invoice generation from purchase orders. A Generate control invoice button will appear on orders and allow to generate invoices from orders.,يتيح هذا التكوين إمكانية إنشاء الفاتورة من أوامر الشراء. سيظهر زر إنشاء فاتورة مراقبة على الطلبات وسيسمح بإنشاء فواتير من الطلبات.
+This configuration enables invoice generation from sale orders. A Generate invoice button will appear on sale orders and allow to generate invoices from orders.,يتيح هذا التكوين إمكانية إنشاء الفاتورة من أوامر البيع. سيظهر زر إنشاء فاتورة على أوامر البيع وسيسمح بإنشاء فواتير من الطلبات.
+"This configuration enables partial invoicing for delivery notes, offering the possibility to either generate an invoice for the entire stock move, or to generate a partial invoice by choosing the lines to invoice.",يتيح هذا التكوين إعداد فواتير جزئية لمذكرات التسليم، مما يوفر إمكانية إما إنشاء فاتورة لنقل المخزون بالكامل، أو إنشاء فاتورة جزئية عن طريق اختيار السطور المراد إعداد فاتورة بها.
+"This configuration enables partial invoicing for receipt notes, offering the possibility to either generate an invoice for the entire stock move, or to generate a partial invoice by choosing the lines to invoice.",يتيح هذا التكوين إعداد فواتير جزئية لإشعارات الاستلام، مما يوفر إمكانية إما إنشاء فاتورة لنقل المخزون بالكامل، أو إنشاء فاتورة جزئية عن طريق اختيار السطور المراد إعداد فاتورة لها.
+"This configuration enables stock reservation. In case of insufficient stock, this allows to make a stock reservation that will trigger a future allocation request once the items become available in stock again.",يتيح هذا التكوين حجز المخزون. في حالة عدم كفاية المخزون، يسمح ذلك بإجراء حجز المخزون الذي سيؤدي إلى طلب تخصيص مستقبلي بمجرد توفر العناصر في المخزون مرة أخرى.
+This configuration enables subscription-type sale orders (with recurring invoicing).,يتيح هذا التكوين أوامر البيع من نوع الاشتراك (مع الفواتير المتكررة).
+This configuration enables the ability to invoice timetables of sale orders.,يمكّن هذا التكوين القدرة على فوترة سجلات الدوام لأوامر البيع.
+"This configuration enables the generation of delivery notes from sale orders. A Generate delivery note button will appear on sale orders and allow to manually generate delivery notes. For automatic generation, you need to enable the Generate customer deliveries automatically configuration.",يتيح هذا التكوين إمكانية إنشاء مذكرات التسليم من أوامر البيع. سيظهر زر إنشاء إذن التسليم / الشحن في أوامر البيع وسيسمح بإنشاء إشعارات التسليم يدويًا. بالنسبة للإنشاء التلقائي، تحتاج إلى تمكين تكوين إنشاء عمليات تسليم العملاء تلقائيًا.
+"This configuration enables the generation of receipt notes from purchase orders. A Generate receipt note button will appear on purchase orders and allow to manually generate receipt notes. For automatic generation, you need to enable the Generate supplier arrivals automatically configuration.",يمكّن هذا التكوين من إنشاء مذكرات الاستلام من أوامر الشراء. سيظهر زر إنشاء مذكرة إيصال في أوامر الشراء وسيسمح بإنشاء إشعارات الاستلام يدويًا. بالنسبة للإنشاء التلقائي، تحتاج إلى تمكين تكوين إنشاء وصولات الموردين تلقائيًا.
+"This operation cannot be performed. Available stock for product %s: %s, stock needed: %s. Please deallocate.",لا يمكن تنفيذ هذه العملية. المخزون المتوفر للمنتج %s: %s، المخزون المطلوب: %s. يرجى إلغاء التخصيص.
+This option prevents adding by mistake too many products in carts from a stock location.,يمنع هذا الخيار إضافة عدد كبير جدًا من المنتجات عن طريق الخطأ إلى عربات التسوق من موقع المخزون.
+This product is not stock managed.,هذا المنتج لا تتم إدارة المخزون.
+This quantity is not available in stock.,هذه الكمية غير متوفرة في المخزون.
+"This sale order line is linked to a packaging line, please remove it first from the sale order's packaging.",يرتبط سطر أمر البيع هذا بخط تعبئة، يرجى إزالته أولاً من عبوة أمر البيع.
+"This stock move cannot be removed from the logisticsal form, as it shares one of its packaging %s with another stock move.",لا يمكن إزالة عملية حركة المخزون هذه من النموذج اللوجستي، حيث أنها تشترك في إحدى عبواتها %s مع عملية نقل مخزون أخرى.
+This stock move is not valid for this logistical form.,حركة المخزون هذه غير صالحة لهذا النموذج اللوجستي.
+This stock move line can not be chosen.,لا يمكن اختيار خط حركة المخزون هذا.
+"This stock move needs to be invoiced manually, manual intervention is needed : %s",يجب أن يتم تحرير فاتورة حركة المخزون يدويًا، ويلزم التدخل اليدوي: %s
+Timetable,سجل الدوام
+Timetable computation date,تاريخ حساب سجل الدوام
+Timetable template,قالب سجل الدوام
+Timetable template line,سطر قالب سجل الدوام
+Timetable template lines,خطوط قالب سجل الدوام
+Timetable templates,قوالب سجل الدوام
+Timetables,سجلات الدوام
+Timetables can only be invoiced from a sale order or a purchase order.,لا يمكن إصدار فاتورة بسجلات الدوام إلا من خلال أمر بيع أو أمر شراء.
+Tip,تلميح
+Title,العنوان
+To Date,حتى الآن
+To process,لمعالجة
+To stock location,لموقع المخزون
+Tools,الأدوات
+Total gross mass,إجمالي الكتلة الإجمالية
+Total net mass,إجمالي الكتلة الصافية
+Total price,السعر الاجمالي
+Total subscription invoice(s) generated: %s,إجمالي فاتورة (فواتير) الاشتراك التي تم إنشاؤها: %s
+Total value,القيمة الإجمالية
+Total value gap,فارق القيمة الإجمالية
+Tracking number,رقم التتبع / التشغيلة
+Tracking number search,البحث عن رقم التتبع
+Transport rates,أسعار النقل
+Type,النوع
+UN code,رمز الأمم المتحدة
+UN codes,رموز الأمم المتحدة
+Undo manual changes,التراجع عن التغييرات اليدوية
+Unit,الوحدة
+Unit price,سعر الوحدة
+Unit prices in A.T.I and in W.T. can't be mix,لا يمكن الخلط بين أسعار الوحدات في A.T.I وW.T
+Unselect,قم بإلغاء التحديد
+Unsupported product type: %s,نوع المنتج غير مدعوم: %s
+Update costs,تحديث التكاليف
+Update costs date,تحديث تاريخ التكاليف
+Update rates,تحديث المعدلات
+Update stock history,تحديث تاريخ المخزون
+Update stock history configuration,تحديث تكوين سجل المخزون
+Usable on purchase order,صالحة للاستعمال في أمر الشراء
+Usable on sale order,صالحة للاستعمال في أمر البيع
+Used Credit,الائتمان المستخدم
+Used stock rules,قواعد المخزون المستعملة
+Validate,التحقق من صحة
+Validate scenario,التحقق من صحة السيناريو
+Validated for invoicing,تم التحقق من صحة الفواتير
+Validation step for invoicing outgoing stock move,خطوة التحقق من صحة إعداد فواتير حركة المخزون الصادر
+Valorization,التثمين
+Valuation difference after applying the rate: qty x (new cost - previous cost),فارق التقييم بعد تطبيق المعدل: الكمية × (التكلفة الجديدة - التكلفة السابقة)
+Valued gap,الفارق المثمن
+Variable,المتغير
+Verify product stock before availabity request,التحقق من مخزون المنتج قبل طلب التوفر
+Warn delay from supplier,تحذير التأخير من المورد
+Warning : Estimated shipping date isn't updated due to pricing set on sale order.,تحذير: لا يتم تحديث تاريخ الشحن المقدر بسبب التسعير المحدد في أمر البيع.
+Warning : One or more lines are blocked for delivery,تحذير: هناك خط واحد أو أكثر محجوب للتسليم
+"When 'Generate out. moves for managed lines only' is active in configuration, only lines with this option checked will be included in the delivery note.",عندما يكون خيار 'توليد الحركات الصادرة للبنود المدارة فقط' نشطًا، سيتم تضمين البنود المحددة بهذا الخيار فقط في إشعار التسليم.
+"When 'Generate out. moves for managed lines only' is active, new sale order lines with this product will be included in delivery notes by default.",عندما يكون خيار 'توليد الحركات الصادرة للبنود المدارة فقط' نشطًا، سيتم تضمين بنود أوامر البيع الجديدة لهذا المنتج في إشعارات التسليم افتراضيًا.
+"When this configuration is enabled, a Manually complete sale order button appears on sale orders and allows to manually move orders to Confirmed order status.",عند تمكين هذا التكوين، يظهر زر إكمال أمر البيع يدويًا في أوامر البيع ويسمح بنقل الأوامر يدويًا إلى حالة الأمر المؤكد.
+"When this configuration is enabled, a Terminate order button appears on purchase orders and allows to manually move orders to Terminated status.",عند تمكين هذا التكوين، يظهر زر إنهاء الطلب في أوامر الشراء ويسمح بنقل الطلبات يدويًا إلى الحالة المنتهية.
+"When this configuration is enabled, a new menu entry Orders awaiting delivery note appears in the Sales module, and allows to view all orders that do not yet have generated delivery notes. This configuration is not available if the Generate customer deliveries automatically configuration is enabled.",عند تمكين هذا التكوين، يظهر إدخال قائمة جديد للطلبات التي تنتظر إذن التسليم / الشحن في وحدة المبيعات، ويسمح بعرض جميع الطلبات التي لم يتم إنشاء مذكرات تسليم لها بعد. لا يتوفر هذا التكوين إذا تم تمكين تكوين إنشاء عمليات تسليم العملاء تلقائيًا.
+"When this configuration is enabled, a new menu entry Orders awaiting receipt note appears in the Purchases module, and allows to view all orders that do not yet have generated receipt notes. This configuration is not available if the Generate supplier arrivals automatically configuration is enabled.",عند تمكين هذا التكوين، يظهر إدخال قائمة جديد للطلبات التي تنتظر ملاحظة الاستلام في وحدة المشتريات، ويسمح بعرض جميع الطلبات التي لم يتم إنشاء إشعارات استلام لها بعد. لا يتوفر هذا التكوين إذا تم تمكين تكوين إنشاء وصول الموردين تلقائيًا.
+"When this configuration is enabled, a purchase order will automatically move to Terminated status when all receipt notes linked to this order are realized.",عند تمكين هذا التكوين، سينتقل أمر الشراء تلقائيًا إلى الحالة منتهية عند تحقق جميع مذكرات الاستلام المرتبطة بهذا الطلب.
+"When this configuration is enabled, a purchase quotation automatically generated via interco will be created in Finalized status.",عند تمكين هذا التكوين، سيتم إنشاء عرض أسعار الشراء الذي يتم إنشاؤه تلقائيًا عبر الاتصال الداخلي في الحالة النهائية.
+"When this configuration is enabled, a sale order will automatically move to Completed order status when all delivery notes linked to this order are realized.",عند تمكين هذا التكوين، سينتقل أمر البيع تلقائيًا إلى حالة الأمر المكتمل عندما يتم تحقيق كافة ملاحظات التسليم المرتبطة بهذا الأمر.
+"When this configuration is enabled, a sale quotation automatically generated via interco will be created in Finalized status.",عند تمكين هذا التكوين، سيتم إنشاء عرض أسعار البيع الذي يتم إنشاؤه تلقائيًا عبر الاتصال الداخلي في الحالة النهائية.
+"When this configuration is enabled, advance payment management is done at the payment conditions level. It becomes possible to define an advance payment percentage on payment conditions, and if the payment condition of an order requires an advance payment, the order can only be confirmed if an advance payment has been recorded.",عند تمكين هذا التكوين، تتم إدارة الدفعة المقدمة على مستوى شروط الدفع. أصبح من الممكن تحديد نسبة الدفعة المقدمة على شروط الدفع، وإذا كان شرط الدفع للطلب يتطلب دفعة مقدمة، فلا يمكن تأكيد الطلب إلا إذا تم تسجيل دفعة مقدمة.
+"When this configuration is enabled, an invoice automatically generated via interco will be created in Validated status.",عند تمكين هذا التكوين، سيتم إنشاء فاتورة يتم إنشاؤها تلقائيًا عبر الاتصال الداخلي في حالة التحقق من الصحة.
+"When this configuration is enabled, it will be possible to generate receipt notes via the stock module for service-type products. Services will not be managed in stock but it will be possible to generate receipt notes for these services.",عند تمكين هذا التكوين، سيكون من الممكن إنشاء إشعارات الاستلام عبر وحدة المخزون للمنتجات من نوع الخدمة. لن تتم إدارة الخدمات في المخزون ولكن سيكون من الممكن إنشاء مذكرات استلام لهذه الخدمات.
+"When this configuration is enabled, it will be possible to generate receipt notes via the stock module for storable products.",عند تمكين هذا التكوين، سيكون من الممكن إنشاء إشعارات الاستلام عبر وحدة المخزون للمنتجات القابلة للتخزين.
+"When this configuration is enabled, the order will automatically move to Completed order status once the Invoiced excl. tax amount equals the Total excl. tax of the order. This will happen when all invoices linked to the order move to Ventilated status.","عند تمكين هذا التكوين، سينتقل الطلب تلقائيًا إلى حالة الطلب المكتمل بمجرد استبعاد ""مفوتر"". مبلغ الضريبة يساوي الإجمالي باستثناء. ضريبة الطلب. سيحدث هذا عندما تنتقل جميع الفواتير المرتبطة بالأمر إلى حالة الترحيل والتوزيع المحاسبي."
+"When this configuration is enabled, the stock level of a product is checked when creating a quotation/order line, and a warning message is displayed if the selected product is not available in sufficient quantity in stock.",عند تمكين هذا التكوين، يتم التحقق من مستوى مخزون المنتج عند إنشاء بند عرض أسعار/أمر، ويتم عرض رسالة تحذير إذا كان المنتج المحدد غير متوفر بكمية كافية في المخزون.
+"When this configuration is enabled, this adds a validation step when generating an invoice from a delivery note.",عند تمكين هذا التكوين، يؤدي ذلك إلى إضافة خطوة التحقق من الصحة عند إنشاء فاتورة من إشعار التسليم.
+"When this configuration is enabled, this allows to complete the allocation quantity of a stock move in order to reach the reservation quantity upon product receipt. If there are multiple reservations on this product, the ERP will allocate in priority the reservation whose sale order date is the oldest.",عند تمكين هذا التكوين، يسمح ذلك بإكمال كمية التخصيص لنقل المخزون للوصول إلى كمية الحجز عند استلام المنتج. إذا كانت هناك حجوزات متعددة على هذا المنتج، فسيقوم نظام تخطيط موارد المؤسسات (ERP) بتخصيص الأولوية للحجز الذي يكون تاريخ أمر البيع الخاص به هو الأقدم.
+"When this configuration is enabled, when a sale order is confirmed, if it contains lines with products whose procurement method is Purchase type, a purchase order is automatically generated in draft status.",عند تمكين هذا التكوين، عند تأكيد أمر البيع، إذا كان يحتوي على بنود تحتوي على منتجات تكون طريقة الشراء الخاصة بها هي نوع الشراء، فسيتم إنشاء أمر شراء تلقائيًا في حالة المسودة.
+"When this configuration is enabled, when purchase orders move to Validated status, receipt notes are automatically generated, without having to click the Generate receipt note button from orders.",عند تمكين هذا التكوين، عندما تنتقل أوامر الشراء إلى حالة التحقق من الصحة، يتم إنشاء مذكرات الاستلام تلقائيًا، دون الحاجة إلى النقر فوق الزر إنشاء مذكرة إيصال من الطلبات.
+"When this configuration is enabled, when sale orders move to Confirmed order status, delivery notes are automatically generated, without having to click the Generate delivery note button from orders.",عند تمكين هذا التكوين، عندما تنتقل أوامر البيع إلى حالة الأمر المؤكد، يتم إنشاء مذكرات التسليم تلقائيًا، دون الحاجة إلى النقر فوق الزر إنشاء مذكرة تسليم من الطلبات.
+"When this configuration is enabled, you will be able to generate invoices from delivery notes and receipt notes using a Generate invoice button.",عند تمكين هذا التكوين، ستتمكن من إنشاء الفواتير من مذكرات التسليم ومذكرات الاستلام باستخدام زر إنشاء فاتورة.
+"When this is active, sale order will be automatically set to 'Order completed' status once 'Amount invoiced W.T.' is equal to 'Total W.T.'. This will happen when all invoices linked to the sale order get to status 'Ventilated'","عندما يكون هذا نشطًا، سيتم تعيين أمر البيع تلقائيًا على حالة ""اكتمل الطلب"" بمجرد ""المبلغ المفوتر بالتكلفة"". يساوي ""إجمالي الوزن"". سيحدث هذا عندما تصل جميع الفواتير المرتبطة بأمر البيع إلى الحالة ""جيدة التهوية"""
+Would you like to update all lines with this stock location?,هل ترغب في تحديث جميع الخطوط بموقع المخزون هذا؟
+"Write a Groovy expression that returns true when a product should be classified in this category. The first category matching (ordered by sequence) is assigned to the product by the batch ""Update stock history"".","اكتب تعبير Groovy يُرجع صحيحًا لتصنيف المنتج في هذه الفئة. الفئة الأولى المطابقة يتم تعيينها للمنتج عبر معالجة ""تحديث سجل المخزون""."
+"You can define here at which status(es) purchase quotations/orders are taken into account in the stock details of a product, at the Supplier order quantity indicator level.",يمكنك تحديد هنا الحالة (الحالات) التي يتم فيها أخذ عروض أسعار/أوامر الشراء في الاعتبار في تفاصيل مخزون المنتج، على مستوى مؤشر كمية طلب المورد.
+"You can define here at which status(es) sale quotations/orders are taken into account in the stock details of a product, at the Customer order quantity indicator level.",يمكنك تحديد هنا الحالة (الحالات) التي يتم فيها أخذ عروض أسعار/أوامر البيع في الاعتبار في تفاصيل مخزون المنتج، على مستوى مؤشر كمية طلب العميل.
+You can define here which order date to take into account to prioritize reservation requests among confirmation date and estimated shipping date.,يمكنك هنا تحديد تاريخ الطلب الذي يجب مراعاته لتحديد أولويات طلبات الحجز بين تاريخ التأكيد وتاريخ الشحن المتوقع.
+You can select here a default cancel reason for sale orders that will be displayed when cancelling an order.,يمكنك هنا تحديد سبب الإلغاء الافتراضي لأوامر البيع الذي سيتم عرضه عند إلغاء الطلب.
+You can select here at which status of a purchase order the equivalent sale order is generated for the other company.,يمكنك هنا تحديد حالة أمر الشراء التي يتم فيها إنشاء أمر البيع المعادل للشركة الأخرى.
+You can select here at which status of a sale order the equivalent purchase order is generated for the other company.,يمكنك هنا تحديد حالة أمر البيع التي يتم فيها إنشاء أمر الشراء المعادل للشركة الأخرى.
+You can select here the BIRT template for the declaration of exchange of goods.,يمكنك هنا تحديد نموذج BIRT لإعلان تبادل البضائع.
+You can select here the BIRT template for the declaration of exchange of services.,يمكنك هنا اختيار قالب BIRT لإعلان تبادل الخدمات.
+You cannot request reservation with a negative quantity.,لا يمكنك طلب الحجز بكمية سلبية.
+You have to choose at least one incoming stock move,يجب عليك اختيار حركة أسهم واردة واحدة على الأقل
+You have to choose at least one outgoing stock move,يجب عليك اختيار حركة مخزون صادرة واحدة على الأقل
+You must configure a Supply chain module for the company %s,يجب عليك تكوين وحدة سلسلة التوريد للشركة %s
+You must configure a cancel reason on changing purchase order in app supplychain.,يجب عليك تكوين سبب الإلغاء عند تغيير أمر الشراء في سلسلة توريد التطبيق.
+You must configure a cancel reason on changing sale order in app supplychain.,يجب عليك تكوين سبب الإلغاء لتغيير أمر البيع في سلسلة توريد التطبيق.
+You must configure a forecasted invoiced customer account for the company %s,يجب عليك تكوين حساب عميل مفوتر متوقع للشركة %s
+You must configure a forecasted invoiced supplier account for the company %s,يجب عليك تكوين حساب مورد متوقع مفوتر للشركة %s
+You must configure an advance payment account for the company %s,يجب عليك تكوين حساب الدفعة المقدمة للشركة %s
+You must configure an supplier advance payment account for the company %s,يجب عليك تكوين حساب الدفعة المقدمة للمورد للشركة %s
+com.axelor.apps.supplychain.job.BillSubJob,com.axelor.apps.supplychain.job.BillSubJob
+com.axelor.apps.supplychain.job.MrpJob,com.axelor.apps.supplychain.job.MrpJob
+com.axelor.apps.supplychain.service.batch.SupplychainBatchService,com.axelor.apps.supplychain.service.batch.SupplychainBatchService
+day(s),يوم(أيام)
+declarationOfExchanges.ProductType.product,إعلانOfExchanges.ProductType.product
+declarationOfExchanges.Service,تصريحOfExchanges.Service
+import.name,الاسم
+import.verb,فعل
+mainPanel,اللوحة الرئيسية
+month(s),الشهر (الأشهر)
+value:Delivered instead of,القيمة: تم التسليم بدلاً من
+value:Delivered to,القيمة: تم التسليم إلى
+value:Invoiced instead of,القيمة:تم إصدار فاتورة بها بدلاً من
+value:Invoiced to,القيمة:تم إرسال الفاتورة إلى
+value:Order for,القيمة:طلب
+value:Ordered by,القيمة:مرتبة بواسطة
+value:Supplychain,القيمة: سلسلة التوريد
+"A list of sale order lines that will be processed. The lines that can be selected are the ones conforming to the following conditions :\nProduct is storable\nProduct is managed in stock\nProduct is not excluded from mrp\nSale order/quotation has the same stockLocation or a subLocation\nIf MPS, product must be a finished product\nDelivered quantity of the line must be lower than total quantity\nThe line must conform to one or several of the mrp move types",قائمة بنود أمر البيع التي سيتم معالجتها. البنود التي يمكن تحديدها هي تلك المطابقة للشروط التالية:\nالمنتج قابل للتخزين\nالمنتج مدار في المخزون\nالمنتج غير مستبعد من mrp\nأمر البيع/عرض الأسعار له نفس موقع المخزون أو موقع فرعي\nإذا كان MPS، يجب أن يكون المنتج منتجًا نهائيًا\nيجب أن تكون الكمية المسلمة من السطر أقل من الكمية الإجمالية\nيجب أن يتوافق السطر مع واحد أو أكثر من أنواع حركات التصنيع (MRP)
+Accounting cut off generation report :,تقرير إنشاء القيود المحاسبية :
+An active stock move (%s) already exists for the sale order %s.,توجد بالفعل حركة مخزون نشطة (%s) لأمر البيع %s.
+Generate out. moves for products,توليد خارجا. حركات للمنتجات
+Generate out. moves for services,توليد خارجا. تحركات للخدمات
+Incoterm must be filled,يجب ملء مصطلح التجارة الدولية
+Mass sale order line invoicing,فوترة بنود أوامر البيع مجمعًا
+No invoice was generated,لم يتم إنشاء فاتورة
+Please configure the advance payment account for the company %s,الرجاء تكوين حساب الدفعة المقدمة للشركة %s
+Please configure the sale order invoicing product,الرجاء تكوين منتج فوترة أمر البيع
+The MRP has been reset and results deleted.,تمت إعادة تعيين MRP وحذف النتائج.
+The MRP have been reset and their results deleted.,تمت إعادة تعيين MRP وحذف نتائجها.
+The component %s - %s not referenced in the product list selected for the MRP or in the BOM route should be added on the MRP.,يجب إضافة المكون %s - %s غير المشار إليه في قائمة المنتجات المحددة لـ MRP أو في مسار قائمة مكونات الصنف إلى MRP.
+The stock location must be the same for all purchase orders.,يجب أن يكون موقع المخزون هو نفسه بالنسبة لجميع أوامر الشراء.
+"When this configuration is enabled, it will be possible to generate delivery notes via the stock module for service-type products. Services will not be managed in stock but it will be possible to generate delivery notes for these services.",عند تمكين هذا التكوين، سيكون من الممكن إنشاء ملاحظات التسليم عبر وحدة المخزون للمنتجات من نوع الخدمة. لن تتم إدارة الخدمات في المخزون ولكن سيكون من الممكن إنشاء مذكرات تسليم لهذه الخدمات.
+"When this configuration is enabled, it will be possible to generate delivery notes via the stock module for storable products.",عند تمكين هذا التكوين، سيكون من الممكن إنشاء ملاحظات التسليم عبر وحدة المخزون للمنتجات القابلة للتخزين.

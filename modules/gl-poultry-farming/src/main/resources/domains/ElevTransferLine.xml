@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ElevTransferLine" >
+        <many-to-one name="elevTransfer"
+                     ref="com.gl.apps.pf.db.ElevTransfer" title="Elev Transfer"
+                     required="true"/>
+        <many-to-one name="technicalSheetLine"
+                     ref="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet line" />
+        <many-to-one name="startTechnicalSheet"
+                     ref="com.gl.apps.pf.db.StartTechnicalSheet" title="Technical sheet" />
+
+        <many-to-one name="breedingShed"
+                     ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" required="true"/>
+        <integer name="existentNumber" title="Existent" />
+        <integer name="toTransferChickensNumber" title="To Transfer" />
+        <integer name="remainingChickensNumber" title="Remaining" />
+        <decimal name="globalCost" title="Global cost" />
+        <decimal name="averageCost" title="Average cost" />
+        <integer name="currentDailyAge" title="Daily age"/>
+        <integer name="currentWeeklyAge" title="Weekly age"/>
+        <decimal name="currentWeight" title="Weight" />
+
+        <track on="UPDATE">
+            <field name="elevTransfer"/>
+            <field name="technicalSheetLine"/>
+            <field name="startTechnicalSheet"/>
+            <field name="breedingShed"/>
+            <field name="existentNumber"/>
+            <field name="toTransferChickensNumber"/>
+            <field name="remainingChickensNumber"/>
+            <field name="globalCost"/>
+            <field name="averageCost"/>
+            <field name="currentDailyAge"/>
+            <field name="currentWeeklyAge"/>
+            <field name="currentWeight"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

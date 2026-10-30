@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcheryEggExitLine">
+        <many-to-one name="hatcheryEggExit" ref="HatcheryEggExit" title="Hatchery egg exit"/>
+        <one-to-many name="hatcheryEggExitLineDetail" ref="HatcheryEggExitLineDetail"
+                     mappedBy="hatcheryEggExitLine" title="Egg exit line detail"/>
+
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber" title="Tracking Number"/>
+
+        <track on="UPDATE">
+            <field name="hatcheryEggExit"/>
+            <field name="center"/>
+            <field name="breed"/>
+            <field name="trackingNumber"/>
+            <field name="hatcheryEggExitLineDetail"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

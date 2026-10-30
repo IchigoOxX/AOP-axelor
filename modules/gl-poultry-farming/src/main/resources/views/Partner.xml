@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="partner-customer-form" name="partner-form" title="Customer" model="com.axelor.apps.base.db.Partner"
+          extension="true">
+<!--        <extend target="/">-->
+<!--            <attribute name="onNew" value="action-partner-set-is-prospect-false"/>-->
+<!--        </extend>-->
+<!--        <extend target="//field[@name='firstName']">-->
+<!--            <insert position="after">-->
+<!--                <button name="testBtn" title="Test"-->
+<!--                        onClick="save,action-method-partner-set-default-compt-values,save"/>-->
+<!--            </insert>-->
+<!--        </extend>-->
+        <extend target="//field[@name='emailAddress']">
+            <insert position="after">
+                <field name="dateOfBirth" colSpan="3" />
+                <field name="placeOfBirth" colSpan="3"/>
+                <field name="" colSpan="6"/>
+                <field name="isCin" colSpan="1"/>
+                <field name="nationalIdentityCard" showIf="isCin == 1" colSpan="2" requiredIf="isCin == 1 &amp;&amp; partnerTypeSelect == 2"/>
+                <field name="passport" showIf="isCin == 0" colSpan="2" requiredIf="isCin == 0 &amp;&amp; partnerTypeSelect == 2"/>
+                <field name="expiryDate" colSpan="2"/>
+            </insert>
+        </extend>
+
+        <extend target="//panel[@name='generalContactDetailsPanel']">
+            <insert position="after">
+                <panel name="drivingLicencePanel" title="Driving licence" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="drivingLicenseNumber" colSpan="4" if-module="axelor-fleet" requiredIf="axelor-fleet &amp;&amp; partnerTypeSelect == 2"/>
+                    <field name="dateOfDrivingLicense" colSpan="4"/>
+                    <field name="expiredDateDrivingLicense" colSpan="4" if-module="axelor-fleet" requiredIf="axelor-fleet &amp;&amp; partnerTypeSelect == 2"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//panel[@name='postalAddressesPanel']">
+            <insert position="before">
+                <panel name="activePanel" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="isActive" colSpan="6"/>
+                </panel>
+            </insert>
+        </extend>
+
+        <extend target="//panel[@name='assignedToPanel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel[@name='partnerRoleSetPanel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+
+        <extend target="//field[@name='language']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='currency']">
+            <attribute name="required" value="false"/>
+        </extend>
+        <extend target="//field[@name='companySet']">
+            <attribute name="onSelect" value="action-attr-get-currency-value"/>
+        </extend>
+        <extend target="//field[@name='fixedPhone']">
+            <attribute name="x-initial-country" value="TN"/>
+        </extend>
+
+        <extend target="//field[@name='mobilePhone']">
+            <attribute name="x-initial-country" value="TN"/>
+            <attribute name="requiredIf" value="partnerTypeSelect == 2"/>
+        </extend>
+
+        <extend target="//field[@name='fixedPhone']">
+            <attribute name="x-initial-country" value="TN"/>
+        </extend>
+
+        <extend target="//panel[@name='generalContactDetailsPanel']">
+            <attribute name="hideIf" value="partnerTypeSelect == 1"/>
+        </extend>
+
+        <extend target="//panel[@name='drivingLicencePanel']">
+            <attribute name="hideIf" value="partnerTypeSelect == 1"/>
+        </extend>
+
+        <extend target="//field[@name='partnerCategory']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='industrySector']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='source']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='department']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel[@name='functionPanel']">
+            <attribute name="showIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='registrationCode']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='siren']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='nic']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='saleTurnover']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='mainActivity']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='paymentDelay']">
+            <attribute name="if" value="!__config__.app.isApp('cash-management')"/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='parentPartner']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='sellerCode']">
+            <attribute name="showIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isKeyAccount']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isNurturing']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='sizeSelect']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+
+    </form>
+
+    <form id="partner-contact-form-id" name="partner-contact-form" title="Contact" model="com.axelor.apps.base.db.Partner"
+          extension="true">
+
+        <extend target="//field[@name='jobTitleFunction']">
+            <insert position="before">
+                <panel name="activePanel" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="isActive" colSpan="6"/>
+                </panel>
+            </insert>
+        </extend>
+
+        <extend target="//field[@name='emailAddress']">
+            <insert position="after">
+                <field name="dateOfBirth" colSpan="3" />
+                <field name="placeOfBirth" colSpan="3"/>
+                <field name="isCin" colSpan="1"/>
+                <field name="nationalIdentityCard" showIf="isCin == 1" colSpan="2" requiredIf="isCin == 1 &amp;&amp; partnerTypeSelect == 2"/>
+                <field name="passport" showIf="isCin == 0" colSpan="2" requiredIf="isCin == 0 &amp;&amp; partnerTypeSelect == 2"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='mainAddress']">
+            <insert position="after">
+                <panel name="drivingLicencePanel" title="Driving licence" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="drivingLicenseNumber" colSpan="4" if-module="axelor-fleet" requiredIf="axelor-fleet"/>
+                    <field name="dateOfDrivingLicense" colSpan="4"/>
+                    <field name="expiredDateDrivingLicense" colSpan="4" requiredIf="axelor-fleet" if-module="axelor-fleet"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='mobilePhone']">
+            <attribute name="x-initial-country" value="TN"/>
+            <attribute name="requiredIf" value="partnerTypeSelect == 2"/>
+        </extend>
+        <extend target="//field[@name='fixedPhone']">
+            <attribute name="x-initial-country" value="TN"/>
+            <attribute name="requiredIf" value="partnerTypeSelect == 1"/>
+        </extend>
+
+        <extend target="//field[@name='isMainContact']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isDoNotCall']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isDoNotEmail']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isProspect']">
+            <attribute name="hideIf" value="!isContact || !$readonly()"/>
+        </extend>
+    </form>
+
+
+    <grid id="partner-customer-grid-id" name="partner-customer-grid" title="Customers" model="com.axelor.apps.base.db.Partner" extension="true">
+        <extend target="//field[@name='fixedPhone']">
+            <insert position="before">
+                <field hideIf="isCin != true" name="nationalIdentityCard"/>
+                <field hideIf="isCin == true" name="passport"/>
+                <field name="mobilePhone"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='fixedPhone']">
+            <insert position="after">
+                <field name="drivingLicenseNumber"/>
+                <field name="dateOfDrivingLicense"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partnerCategory']">
+            <insert position="after">
+                <field name="hasBlockedAccount">
+                    <hilite if="hasBlockedAccount == true" background="red"/>
+                </field>
+            </insert>
+        </extend>
+        <extend target="//field[@name='emailAddress.address']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='partnerCategory']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+    </grid>
+
+<!--    <form id="partner-address-form-id" name="partner-address-form" title="Address" model="com.axelor.apps.base.db.PartnerAddress"-->
+<!--          extension="true" >-->
+<!--        <extend target="/">-->
+<!--            <attribute name="onNew" value="action-set-default-values-partner-address"/>-->
+<!--        </extend>-->
+<!--        <extend target="/">-->
+<!--            <attribute name="onLoad" value="action-set-default-values-partner-address"/>-->
+<!--        </extend>-->
+<!--    </form>-->
+
+<!--    <action-record name="action-set-default-values-partner-address"-->
+<!--                   model="com.axelor.apps.base.db.PartnerAddress">-->
+<!--        <field name="isInvoicingAddr" expr="eval: true"/>-->
+<!--        <field name="isDeliveryAddr" expr="eval: true"/>-->
+<!--        <field name="isDefaultAddr" expr="eval: true"/>-->
+<!--    </action-record>-->
+
+
+    <action-record name="action-business-project-batch-record-on-new"
+                   model="com.axelor.apps.base.db.Partner">
+        <field name="company" expr="eval:__user__.activeCompany"
+               if="__user__.activeCompany != null"/>
+        <field name="company" expr="eval:__repo__(Company).all().fetchOne()"
+               if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1"/>
+    </action-record>
+
+    <action-record name="action-attr-get-currency-value" model="com.axelor.apps.base.db.Partner">
+        <field name="currency"
+               expr="eval: __user__?.activeCompany?.currency"/>
+    </action-record>
+
+    <action-method name="action-method-partner-set-default-compt-values">
+        <call class="com.gl.apps.pf.web.PartnerController" method="AddComptInfo"/>
+    </action-method>
+
+<!--    <action-record name="action-partner-set-is-prospect-to-false" model="com.axelor.apps.base.db.Partner">-->
+<!--        <field name="isProspect" expr="0"/>-->
+<!--    </action-record>-->
+
+    <action-attrs name="action-partner-set-is-prospect-false">
+        <attribute name="value" for="isProspect" expr="eval:false"/>
+    </action-attrs>
+
+</object-views>
+
+
+

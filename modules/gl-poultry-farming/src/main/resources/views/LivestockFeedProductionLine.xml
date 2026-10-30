@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="livestock-feed-production-line-form" title="Livestock feed production Line"
+          model="com.gl.apps.pf.db.LivestockFeedProductionLine" width="large">
+        <panel title="Overview">
+            <field name="product" readonly="true"/>
+            <field name="codeProduct" readonly="true"/>
+            <field name="umProduct" readonly="true"/>
+            <field name="quantityProduct" readonly="true"/>
+            <field name="compositionProduct" readonly="true"/>
+            <field name="loss" readonly="true"/>
+            <field name="unitPriceProduct" readonly="true"/>
+            <field name="totalAmount" readonly="true"/>
+        </panel>
+    </form>
+
+    <grid name="livestock-feed-production-line-grid" title="Livestock feed production Line" model="com.gl.apps.pf.db.LivestockFeedProductionLine"
+          edit-icon="true" orderBy="codeProduct">
+        <field name="product" readonly="true"/>
+        <field name="codeProduct" readonly="true"/>
+        <field name="umProduct" readonly="true"/>
+        <field name="quantityProduct" readonly="true"/>
+        <field name="compositionProduct" readonly="true"/>
+        <field name="loss" readonly="true"/>
+        <field name="unitPriceProduct" readonly="true"/>
+        <field name="totalAmount" readonly="true"/>
+    </grid>
+
+    <action-attrs name="action-attrs-livestock-feed-production-qte-lines">
+        <attribute if="__parent__.numberOfUnitsProduced != 0" for="quantityProduct" name="value"
+                   expr="eval: compositionProduct / 100 * (__parent__.numberOfUnitsProduced * __parent__.capacity) "/>
+    </action-attrs>
+
+</object-views>

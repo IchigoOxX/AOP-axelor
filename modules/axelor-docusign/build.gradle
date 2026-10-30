@@ -1,0 +1,19 @@
+apply plugin:"com.axelor.app"
+
+apply from: "../libs.gradle"
+apply from: "../version.gradle"
+
+apply {
+	version = addonsVersion
+}
+
+axelor {
+	title "Axelor DocuSign"
+	description "Axelor DocuSign Module"
+}
+
+dependencies {
+    api project(":modules:axelor-base")
+    api project(":modules:axelor-sale")
+    implementation 'com.docusign:docusign-esign-java:3.18.0'
+}

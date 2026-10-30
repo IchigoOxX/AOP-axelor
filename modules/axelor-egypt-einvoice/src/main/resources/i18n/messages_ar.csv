@@ -1,0 +1,33 @@
+ETA E-Invoicing,الفاتورة الإلكترونية المصرية
+ETA Configuration,إعدادات الفاتورة الإلكترونية
+ETA Submission Logs,سجلات الإرسال للضرائب
+Submittable Invoices,فواتير جاهزة للإرسال
+Submittable Customer Invoices,فواتير العملاء الجاهزة للإرسال
+Submittable Customer Credit Notes,إشعارات الدائن للعملاء الجاهزة للإرسال
+Submittable Supplier Invoices,فواتير الموردين الجاهزة للإرسال
+Submittable Supplier Debit Notes,إشعارات المدين للموردين الجاهزة للإرسال
+ETA E-Invoice,الفاتورة الإلكترونية (ETA)
+Submit to ETA,إرسال إلى الضرائب
+Update Status from ETA,تحديث الحالة من الضرائب
+ETA Metadata,بيانات الضرائب الإضافية
+ETA Status,حالة الضرائب
+ETA Submission Date,تاريخ الإرسال للضرائب
+ETA Submitted By,تم الإرسال بواسطة
+ETA UUID,الرقم الفريد للفاتورة (UUID)
+ETA Long ID,المعرف الطويل (Long ID)
+ETA Hash Key,رمز التحقق (Hash Key)
+ETA QR Code,رمز الاستجابة السريعة (QR Code)
+ETA Configurations,إعدادات الضرائب المصرية
+Test Connection,اختبار الاتصال
+ETA API Configuration,إعدادات واجهة برمجة تطبيقات الضرائب
+Taxpayer Information,بيانات الممول
+Local Signer Configuration,إعدادات جهاز التوقيع المحلي
+ETA Submission Log,سجل إرسال الفاتورة الإلكترونية
+Data Payloads,محتوى البيانات المرسلة والمستقبلة
+Error Details,تفاصيل الخطأ
+Active,نشط
+Company,الشركة
+Environment,البيئة
+Tax Registration Number,رقم التسجيل الضريبي
+Activity Code,كود النشاط
+Is active?,هل هو نشط؟

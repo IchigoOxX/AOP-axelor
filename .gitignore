@@ -1,0 +1,48 @@
+# Gradle
+.gradle/
+.gradle_home/
+build/
+bin/
+
+# Development Tools & IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Artifacts & Local Settings
+/implementation_plan*.md
+/walkthrough*.md
+/installation_tutorial.md
+/full_conversation_transcript.txt
+
+# Python & PowerShell scripts
+*.py
+*.pyc
+*.ps1
+__pycache__/
+.env
+venv/
+
+# Local Tools & Agent Skills
+.tools/
+.agents/
+claude-skills/
+
+# JavaScript dependencies
+node_modules/
+
+# Temporary scratch files, dumps, backups & private scripts
+/account_menus.txt
+/all_menu_titles.txt
+/modules/axelor_dump.txt
+/modules/poultry_java_views.txt
+/translations_backup/
+scripts/

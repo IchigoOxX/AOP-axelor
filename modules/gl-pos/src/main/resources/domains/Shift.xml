@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="pos" package="com.axelor.pos.db"/>
+
+    <entity name="Shift" sequential="true">
+
+        <string name="shiftNumber" title="Shift Number" />
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+
+        <many-to-one name="cashier" ref="com.axelor.auth.db.User" />
+        <date name="shiftDate" title="Date"/>
+        <datetime name="openingHour" title="Opening Hour"/>
+        <datetime name="closingHour" title="Closing Hour"/>
+        <integer name="status" title="Shift Status" selection="pos.shift.status"/>
+<!--        <string name="status" title="Status" />-->
+        <string name="notes" title="Notes"/>
+
+        <!-- Financial Attributes -->
+        <decimal name="startingCash" title="Starting Cash"/>
+        <decimal name="cashIn" title="Cash In"/>
+        <decimal name="cashOut" title="Cash Out"/>
+        <decimal name="totalSales" title="Total Sales"/>
+        <decimal name="totalRefunds" title="Total Refunds"/>
+        <decimal name="totalDiscounts" title="Total Discounts"/>
+        <decimal name="netSales" title="Total Sales"/>
+        <decimal name="cashBalance" title="Cash Balance"/>
+
+        <!-- Sales Attributes -->
+        <integer name="numberOfSales" title="Number of Sales"/>
+        <integer name="totalTransactions" title="Total Transactions"/>
+        <integer name="itemsSold" title="Items Sold"/>
+
+    </entity>
+
+</domain-models>
+

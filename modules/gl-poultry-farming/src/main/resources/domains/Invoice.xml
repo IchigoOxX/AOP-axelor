@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="account" package="com.axelor.apps.account.db"/>
+
+    <entity name="Invoice">
+        <many-to-one name="contract" ref="com.axelor.apps.contract.db.Contract" title="Contract"/>
+        <many-to-one name="firstPartner" ref="com.axelor.apps.base.db.Partner" title="First partner"/>
+        <many-to-one name="secondPartner" ref="com.axelor.apps.base.db.Partner" title="Second partner"/>
+        <date name="departureDate" title="Date of departure"/>
+        <date name="returnDate" title="Date of return"/>
+        <integer name="daysNbr" title="Number of days"/>
+
+        <many-to-one name="unit"
+                     ref="com.axelor.apps.base.db.Unit" title="Unit"/>
+        <decimal name="unitAmount" title="Unit amount"/>
+        <boolean name="guarantee" title="Guarantee" required="false" default="false"/>
+        <many-to-one name="paymentModeGuarantee" ref="com.axelor.apps.account.db.PaymentMode"
+                     title="Payment Mode"/>
+        <decimal name="amount" title="Amount" scale="3" precision="20"/>
+
+        <track on="UPDATE">
+            <field name="contract"/>
+            <field name="secondPartner"/>
+            <field name="departureDate"/>
+            <field name="departureTime"/>
+            <field name="returnDate"/>
+            <field name="returnTime"/>
+        </track>
+
+    </entity>
+</domain-models>

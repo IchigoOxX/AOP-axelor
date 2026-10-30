@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="IncubatorsLoadingProgram" >
+    <many-to-one name="hatchery" ref="com.gl.apps.pf.db.Hatchery"
+      title="Hatchery"/>
+    <string name="reference" title="Reference" readonly="true" unique="true"/>
+    <date name="creationDate" title="Creation date" required="true"/>
+    <boolean name="isValid" title="Is valid"/>
+
+    <integer name="sumEstimatedNumberOfChicks" title="Sum Estimated Number Of Chicks"
+      readonly="true">
+      <![CDATA[
+          return this.getLoadingProgramLineList() != null ? this.getLoadingProgramLineList().stream().mapToInt(x-> x.getEstimatedNumberOfChicks()).sum() : 0 ;
+           ]]>
+    </integer>
+
+    <one-to-many name="loadingProgramLineList"
+      ref="com.gl.apps.pf.db.IncubatorsLoadingProgramLine" mappedBy="loadingProgram"
+      title="Loading program lines" orderBy="lineNumber"/>
+
+    <finder-method name="ByReference" using="reference"/>
+
+    <track on="UPDATE">
+      <field name="hatchery"/>
+      <field name="reference"/>
+      <field name="creationDate"/>
+      <field name="isValid"/>
+      <field name="loadingProgramLineList"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

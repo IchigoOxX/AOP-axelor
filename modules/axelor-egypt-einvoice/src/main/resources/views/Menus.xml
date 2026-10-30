@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_8.1.xsd">
+
+  <!-- Root menu item for ETA under Invoicing root -->
+  <menuitem name="menu-eta-einvoicing-root" title="ETA E-Invoicing" parent="invoice-root" order="900" icon="file-text"/>
+
+  <!-- Action to open ETA Configuration -->
+  <action-view name="action-eta-config-view" title="ETA Configuration" model="com.axelor.apps.egypt.einvoice.db.EtaConfig">
+    <view type="grid" name="eta-config-grid"/>
+    <view type="form" name="eta-config-form"/>
+  </action-view>
+  <menuitem name="menu-eta-config" title="ETA Configuration" parent="menu-eta-einvoicing-root" action="action-eta-config-view" order="10"/>
+
+  <!-- Action to open ETA Submission Logs -->
+  <action-view name="action-eta-submission-log-view" title="ETA Submission Logs" model="com.axelor.apps.egypt.einvoice.db.EtaSubmissionLog">
+    <view type="grid" name="eta-submission-log-grid"/>
+    <view type="form" name="eta-submission-log-form"/>
+  </action-view>
+  <menuitem name="menu-eta-submission-logs" title="ETA Submission Logs" parent="menu-eta-einvoicing-root" action="action-eta-submission-log-view" order="20"/>
+
+  <!-- Action to open Customer Invoices for submission -->
+  <action-view name="action-eta-submittable-customer-invoices-view" title="Submittable Customer Invoices" model="com.axelor.apps.account.db.Invoice">
+    <view type="grid" name="invoice-grid"/>
+    <view type="form" name="invoice-form"/>
+    <domain>self.operationTypeSelect = 3 AND self.statusSelect = 3</domain>
+    <context name="_operationTypeSelect" expr="eval:3"/>
+  </action-view>
+  <menuitem name="menu-eta-submittable-customer-invoices" title="Submittable Customer Invoices" parent="menu-eta-einvoicing-root" action="action-eta-submittable-customer-invoices-view" order="30"/>
+
+  <!-- Action to open Customer Credit Notes for submission -->
+  <action-view name="action-eta-submittable-customer-refunds-view" title="Submittable Customer Credit Notes" model="com.axelor.apps.account.db.Invoice">
+    <view type="grid" name="invoice-grid"/>
+    <view type="form" name="invoice-form"/>
+    <domain>self.operationTypeSelect = 4 AND self.statusSelect = 3</domain>
+    <context name="_operationTypeSelect" expr="eval:4"/>
+  </action-view>
+  <menuitem name="menu-eta-submittable-customer-refunds" title="Submittable Customer Credit Notes" parent="menu-eta-einvoicing-root" action="action-eta-submittable-customer-refunds-view" order="35"/>
+
+  <!-- Action to open Supplier Invoices for submission -->
+  <action-view name="action-eta-submittable-supplier-invoices-view" title="Submittable Supplier Invoices" model="com.axelor.apps.account.db.Invoice">
+    <view type="grid" name="invoice-grid"/>
+    <view type="form" name="invoice-form"/>
+    <domain>self.operationTypeSelect = 1 AND self.statusSelect = 3</domain>
+    <context name="_operationTypeSelect" expr="eval:1"/>
+  </action-view>
+  <menuitem name="menu-eta-submittable-supplier-invoices" title="Submittable Supplier Invoices" parent="menu-eta-einvoicing-root" action="action-eta-submittable-supplier-invoices-view" order="40"/>
+
+  <!-- Action to open Supplier Debit Notes for submission -->
+  <action-view name="action-eta-submittable-supplier-refunds-view" title="Submittable Supplier Debit Notes" model="com.axelor.apps.account.db.Invoice">
+    <view type="grid" name="invoice-grid"/>
+    <view type="form" name="invoice-form"/>
+    <domain>self.operationTypeSelect = 2 AND self.statusSelect = 3</domain>
+    <context name="_operationTypeSelect" expr="eval:2"/>
+  </action-view>
+  <menuitem name="menu-eta-submittable-supplier-refunds" title="Submittable Supplier Debit Notes" parent="menu-eta-einvoicing-root" action="action-eta-submittable-supplier-refunds-view" order="45"/>
+
+</object-views>

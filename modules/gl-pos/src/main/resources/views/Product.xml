@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="product-form-id" name="product-form" title="Product" model="com.axelor.apps.base.db.Product"
+          extension="true" >
+
+        <extend target="//panel[@name='unitsPanel']">
+            <insert position="after">
+                <panel name="discountPanel" title="Discount Information" colSpan="12">
+<!--                    <field name="discountAvailable" colSpan="6"/>-->
+                    <field name="discountPercentage" colSpan="6"/>
+                    <field name="discountAmount" colSpan="6"/>
+                </panel>
+
+                <panel name="offerPanel" title="Offer Information" colSpan="12">
+<!--                    <field name="offerAvailable" colSpan="6"/>-->
+                    <field name="offerStartsAtQty" colSpan="6"/>
+                    <field name="offerDiscountPercentage" colSpan="6"/>
+                </panel>
+
+<!--                <panel name="additionalInfoPanel" title="Additional Information" colSpan="12">-->
+<!--                    <field name="isRefundable" colSpan="6"/>-->
+<!--                    <field name="availableInStore" colSpan="6"/>-->
+<!--                    <field name="placementInStore" colSpan="6"/>-->
+<!--                    <field name="reorderLevel" colSpan="6"/>-->
+<!--                    <field name="reorderQty" colSpan="6"/>-->
+<!--                    <field name="salesRank" colSpan="6"/>-->
+<!--                    <field name="lastSoldDate" colSpan="6"/>-->
+<!--                    <field name="totalSold" colSpan="6"/>-->
+<!--                </panel>-->
+            </insert>
+        </extend>
+
+    </form>
+
+</object-views>

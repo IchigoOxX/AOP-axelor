@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ProductConsumption">
+        <one-to-many name="productConsumptionLineList"
+                     ref="com.gl.apps.pf.db.ProductConsumptionLine" mappedBy="productConsumption"
+                     title="Product consumption Line"/>
+
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date"/>
+        <many-to-one name="productCategory" ref="com.axelor.apps.base.db.ProductCategory"
+                     title="Product category"/>
+
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove" title="Dispatch Stock"/>
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery" required="false"/>
+
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+
+        <integer name="status" title="Status" selection="poultryfarming.repro.production.status.select" readonly="true"/>
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// PRODUCT CONSUMPTION STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+			]]>
+        </extra-code>
+
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="productCategory"/>
+            <field name="dispatchStock"/>
+            <field name="center"/>
+            <field name="breedingShed"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

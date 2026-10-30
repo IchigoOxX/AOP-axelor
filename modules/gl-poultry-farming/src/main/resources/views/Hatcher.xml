@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="hatcher-grid" title="Hatcher" model="com.gl.apps.pf.db.Hatcher"
+    canNew="false" canEdit="false" canDelete="false" canSave="false" edit-icon="false">
+    <hilite background="lightgreen" if="status == 0"/>
+    <hilite background="red" if="status == 1 "/>
+    <hilite background="white" if="status == 2"/>
+    <field name="hatchery"/>
+    <field name="reference"/>
+    <field name="status"/>
+    <field name="statusDate"/>
+    <field name="exitDate"/>
+  </grid>
+
+  <form name="hatcher-form" title="Hatcher" model="com.gl.apps.pf.db.Hatcher" width="large" canNew="false" onLoad="action-record-get-hatcher-capacity-trolleys">
+    <panel title="Overview">
+      <panel colSpan="6">
+        <field colSpan="12" name="reference"/>
+      </panel>
+      <panel colSpan="2"/>
+      <panel colSpan="4">
+        <button name="status" colSpan="12" icon="fa-file-text"
+                onClick="action-show-hatcher-stop-status" widget="info-button" readonlyIf="id == null" />
+        <field name="status" hidden="true"/>
+      </panel>
+      <panel colSpan="6">
+        <field colSpan="12" name="capacityOfTheHatcherInTrolleys"/>
+        <field  colSpan="12" name="hatchery" readonly="true"/>
+      </panel>
+      <panel colSpan="6" readonly="true">
+        <field colSpan="12" name="statusDate"/>
+        <field colSpan="12" name="status"/>
+      </panel>
+
+    </panel>
+    <panel-tabs name="mainPanelTab">
+      <panel name="stringOfTrolleyslistPanel" title="Trolleys list">
+        <panel-related name="trolleysList" colSpan="12" field="trolleysList"
+          form-view="hatcher-trolleys-form" grid-view="hatcher-trolleys-grid" editable="true"
+          canNew="false" canDelete="false"/>
+      </panel>
+    </panel-tabs>
+    <panel-mail name="mailsPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+
+  <action-view name="action-show-hatcher-stop-status" model="com.gl.apps.pf.db.Hatcher" title="Cancelation">
+    <view name="hatcher-stop-dialog-form" type="form"/>
+    <view-param name="popup" value="reload"/>
+    <view-param name="popup-save" value="false"/>
+    <view-param name="show-confirm" value="false"/>
+    <view-param name="show-toolbar" value="false"/>
+    <context name="_showRecord" expr="eval: __self__.id"/>
+    <context name="$isReadOnly" expr="true"/>
+  </action-view>
+
+  <form name="hatcher-stop-dialog-form" title="Status hatcher" model="com.gl.apps.pf.db.Hatcher">
+    <panel colSpan="12">
+      <panel colSpan="9" title="Overview:">
+        <field name="reference" title="N°" colSpan="6"/>
+        <field name="hatchery" colSpan="6"/>
+        <field name="stopDate" colSpan="6"/>
+        <field name="status" hidden="true"/>
+      </panel>
+      <panel colSpan="3">
+        <button name="btnStop" title="Stop" prompt="Are you sure you want to stop this hatcher ?" showIf="status == 1" label="Stop" onClick="action-show-dialog-input-reason-stop-hatcher" colSpan="12" style="danger"/>
+        <button name="btnFree" title="Free" prompt="Are you sure you want to empty this hatcher ?" showIf="status == 2" colSpan="12" onClick="action-validate-hatcher-re-free,action-hatcher-method-change-status-to-free" style="primary" label="Free"/>
+      </panel>
+    </panel>
+  </form>
+
+  <action-view name="action-show-dialog-input-reason-stop-hatcher" model="com.gl.apps.pf.db.Hatcher" title="Stop">
+    <view name="hatcher-dialog-form-stop" type="form"/>
+    <view-param name="show-toolbar" value="false"/>
+    <view-param name="popup" value="reload"/>
+    <view-param name="popup-save" value="false"/>
+    <view-param name="show-confirm" value="false"/>
+    <view-param name="height" value="200"/>
+    <context name="_id" expr="eval: id"/>
+  </action-view>
+
+  <form name="hatcher-dialog-form-stop" title="Hatcher stopping" model="com.gl.apps.pf.db.Hatcher" onNew="action-set-default-stop-date-hatcher">
+    <panel>
+      <field name="stopDate" readonly="true" colSpan="12"/>
+      <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+      <button name="btnStop" title="Stop" onClick="action-hatcher-method-change-status-to-stopped,close" confirm="false" style="primary" target="none"/>
+    </panel>
+  </form>
+
+  <form name="hatcher-trolleys-form" title="Trolleys list"
+    model="com.gl.apps.pf.db.IncubatorTrolley">
+    <panel title="Overview">
+      <field name="reference" title="Reference"/>
+      <field name="entryDate" title="Entry Date"/>
+      <field name="quantity" title="Quantity"/>
+      <field name="status" title="Status"/>
+    </panel>
+  </form>
+
+  <grid name="hatcher-trolleys-grid" title="Trolleys list"
+    model="com.gl.apps.pf.db.IncubatorTrolley">
+    <field name="reference" title="Reference"/>
+    <field name="entryDate" title="Entry Date"/>
+    <field name="quantity" title="Quantity"/>
+    <field name="status" title="Status">
+      <hilite background="cyan" if="$get('status') == 0"/>
+      <hilite background="green" if="$get('status') == 1"/>
+      <hilite background="lightblue" if="$get('status') == 2"/>
+      <hilite background="cyan" if="$get('status') == 3"/>
+      <hilite background="orange" if="$get('status') == 4"/>
+      <hilite background="red" if="$get('status') == 5"/>
+    </field>
+  </grid>
+
+  <cards name="hatcher-cards" title="Incubators" css="rect-image" model="com.gl.apps.pf.db.Hatcher" width="20%" orderBy="reference" canNew="false">
+    <toolbar>
+      <button name="checkDuplicateBtn" title="Check duplicate" onClick="action-general-check-duplicate-records"/>
+    </toolbar>
+
+    <field name="reference" title="Reference"/>
+    <field name="trolleysList"/>
+    <field name="strTrolleysList"/>
+    <field name="statusDate"/>
+    <field name="status"/>
+    <field name="hatchery"/>
+    <field name="exitDate"/>
+    <template><![CDATA[
+
+  <table border="1" cellpadding="1" style="background-color: {{status == 0 ? 'lime' : (status == 1 ? 'OrangeRed' : 'white') }}; height:150px; width:100%">
+  <tbody>
+    <tr>
+      <td style="text-align:center"><span style="font-size:18px"><strong>{{$fmt('reference')}}</strong></span></td>
+    </tr>
+    <tr>
+      <td>
+      <p><strong><span x-translate>Hatchery:</span></strong> {{$fmt('hatchery')}}<br />
+      <p><strong><span x-translate>Occupied on:</span></strong> {{$fmt('statusDate')}}</p>
+      <p><strong><span x-translate>Trolleys</span></strong> {{$fmt('trolleysList')}} : {{$fmt('strTrolleysList')}}<br />
+      <p><strong><span x-translate>Release scheduled on:</span></strong> {{$fmt('exitDate')}}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+]]></template>
+  </cards>
+
+
+  <action-method name="action-hatcher-method-change-status-to-stopped">
+    <call method="StopHatcher"
+          class="com.gl.apps.pf.web.HatcherController"/>
+  </action-method>
+
+  <action-record name="action-set-default-stop-date-hatcher"
+                 model="com.gl.apps.pf.db.Hatcher" >
+    <field name="stopDate" expr="eval: __datetime__" if="stopDate == null"/>
+  </action-record>
+
+  <action-validate name="action-validate-hatcher-re-free">
+    <error if="(stopDate.plusDays(hatchery?.hatcherCleaningTime)).isAfter(__datetime__.toLocalDateTime())" message="It is impossible to free the hatcher because it is in the crawl space."/>
+  </action-validate>
+
+  <action-method name="action-hatcher-method-change-status-to-free">
+    <call method="FreeHatcher"
+          class="com.gl.apps.pf.web.HatcherController"/>
+  </action-method>
+
+  <action-record name="action-record-get-hatcher-capacity-trolleys" model="com.gl.apps.pf.db.Hatcher">
+    <field if="id != null" name="capacityOfTheHatcherInTrolleys" expr="eval: hatchery.capacityOfTheHatcherInTrolleys"/>
+  </action-record>
+
+</object-views>

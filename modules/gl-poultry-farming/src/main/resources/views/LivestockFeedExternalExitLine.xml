@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="livestock-feed-external-exit-line-form" title="Livestock feed external exit Line"
+          model="com.gl.apps.pf.db.LivestockFeedProductionLine" width="large">
+        <panel title="Overview">
+            <field name="product" readonly="true"/>
+            <field name="codeProduct" readonly="true"/>
+            <field name="umProduct" readonly="true"/>
+            <field name="capacity" readonly="true"/>
+            <field name="unitNumber" readonly="true"/>
+            <field name="exitQuantity" readonly="true"/>
+            <field name="salePrice" readonly="true"/>
+            <field name="saleTotalAmount" readonly="true"/>
+            <field name="deliveryPrice" onChange="action-attrs-livestock-feed-external-exit-calculate-cost-price"/>
+            <field name="deliveryTotalAmount" readonly="true"/>
+            <field name="costPrice" readonly="true"/>
+            <field name="costTotalAmount" readonly="true"/>
+        </panel>
+    </form>
+
+    <grid name="livestock-feed-external-exit-line-grid" title="Livestock feed external exit Line" model="com.gl.apps.pf.db.LivestockFeedProductionLine" edit-icon="true" orderBy="codeProduct">
+        <field name="product" readonly="true"/>
+        <field name="codeProduct" readonly="true"/>
+        <field name="umProduct" readonly="true"/>
+        <field name="capacity" readonly="true"/>
+        <field name="unitNumber" readonly="true"/>
+        <field name="exitQuantity" readonly="true"/>
+        <field name="salePrice" readonly="true"/>
+        <field name="saleTotalAmount" readonly="true"/>
+        <field name="deliveryPrice" onChange="action-attrs-livestock-feed-external-exit-calculate-cost-price"/>
+        <field name="deliveryTotalAmount" readonly="true"/>
+        <field name="costPrice" readonly="true"/>
+        <field name="costTotalAmount" readonly="true"/>
+    </grid>
+
+    <action-attrs name="action-attrs-livestock-feed-external-exit-calculate-cost-price"
+                  model="com.gl.apps.pf.db.LivestockFeedProductionLine">
+        <attribute if="deliveryPrice != 0" for="deliveryTotalAmount" name="value" expr="eval: deliveryPrice * exitQuantity"/>
+        <attribute if="deliveryPrice != 0" for="costPrice" name="value" expr="eval: salePrice - deliveryPrice"/>
+        <attribute if="deliveryPrice != 0" for="costTotalAmount" name="value" expr="eval: (salePrice - deliveryPrice) * exitQuantity"/>
+    </action-attrs>
+
+</object-views>

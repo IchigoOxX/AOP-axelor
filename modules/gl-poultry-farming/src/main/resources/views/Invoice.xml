@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="invoice-form-id" name="invoice-form" title="Invoice" model="com.axelor.apps.account.db.Invoice" extension="true">
+        <extend target="//button[@name='validateBtn']">
+            <insert position="after">
+                <field name="fodecTotal" hidden="true"/>
+                <field name="dcTotal" hidden="true"/>
+                <field name="tvaTotal" hidden="true"/>
+            </insert>
+        </extend>
+        <extend target="//panel[@name='addressPanel']">
+            <insert position="after">
+                <panel name="taxStampPanel" colSpan="6" sidebar="true" canCollapse="true">
+                    <field name="paymentMode" colSpan="12" hideIf="$partnerTypeSelect == 2"/>
+                    <field name="paymentCondition" colSpan="12" hideIf="$partnerTypeSelect == 2"/>
+                </panel>
+            </insert>
+        </extend>
+
+        <extend target="//field[@name='reportsBtn']">
+            <insert position="after">
+                <button name="printBtn" title="Print" icon="fa-print" readonlyIf="!id" onClick="action-report-pdf-print-fleet-invoice"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <insert position="after">
+                <panel name="contractPanel" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="contract" colSpan="3"
+                           onSelect="action-invoice-attrs-domains-contract"
+                           onChange="action-car-rental-contract-second-partner-changed,action-car-rental-contract-second-partner-reset-values"
+                           target-name="contractId"/>
+                    <field name="firstPartner" title="Driver 1" readonly="true" colSpan="2" showIf="$partnerTypeSelect == 1"/>
+                    <field name="secondPartner" title="Driver 2" readonly="true" colSpan="2"/>
+                    <field name="departureDate" readonly="true" colSpan="2"/>
+                    <field name="returnDate" readonly="true" colSpan="2"/>
+
+                    <field name="$partnerTypeSelect" colSpan="3" hidden="true"/>
+                </panel>
+                    <panel name="unitAmountPanel" title="Amount" colSpan="12" sidebar="true" canCollapse="true" readonly="true">
+                        <field name="unitAmount" colSpan="3"/>
+                        <field name="daysNbr" readonly="true" colSpan="3" title="Days"/>
+                        <field name="unit" colSpan="3"/>
+                    </panel>
+                    <panel name="guaranteePanel" title="Guarantee" colSpan="12" sidebar="true" canCollapse="true" readonly="true">
+                        <field name="guarantee" colSpan="3"/>
+                        <field name="paymentModeGuarantee" colSpan="3"/>
+                        <field name="amount" colSpan="3"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="onChange" value="action-car-rental-contract-second-partner-reset-values"/>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="onChange" value="action-car-rental-partner-changed,action-car-rental-partner-values-changed,action-group-account-invoice-partner-onchange-client"/>
+        </extend>
+        <extend target="//field[@name='priceList']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='fiscalPosition']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='contactPartner']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="onSelect" value="action-invoice-attrs-domains-first-partner"/>
+        </extend>
+        <extend target="//field[@name='operationTypeSelect']">
+            <attribute name="hideIf" value="statusSelect &lt; 1 || partner == null || !$readonly()"/>
+
+        </extend>
+        <extend target="//field[@name='operationSubTypeSelect']">
+            <attribute name="showIf" value="statusSelect != 2 &amp;&amp; operationSubTypeSelect == 2"/>
+        </extend>
+
+
+        <extend target="//field[@name='bankDetails']">
+            <attribute name="hideIf" value="$partnerTypeSelect == 2"/>
+        </extend>
+        <extend target="//field[@name='partnerTaxNbr']">
+            <attribute name="hideIf" value="$partnerTypeSelect == 2"/>
+            <attribute name="readonlyIf" value=""/>
+            <attribute name="readonly" value="true"/>
+        </extend>
+        <extend target="//field[@name='paymentMode']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='paymentCondition']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+    </form>
+
+    <grid id="invoice-grid-id" name="invoice-grid" title="Invoices" model="com.axelor.apps.account.db.Invoice" extension="true">
+        <extend target="//field[@name='invoiceId']">
+            <insert position="after">
+                <field name="contract.contractId"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <insert position="after">
+                <field name="secondPartner" title="Driver 2"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="title" value="Driver 1"/>
+        </extend>
+        <extend target="//field[@name='dueDate']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+    </grid>
+
+    <action-attrs name="action-car-rental-partner-changed" model="com.axelor.apps.account.db.Invoice">
+<!--        <attribute if="partner != null &amp;&amp; partner.fiscalPosition != null" for="taxStamp" name="value"-->
+<!--                   expr="eval: partner.companySet?.collect{it.accountConfig?.taxStamp}?.sum()"/>-->
+        <attribute if="partner != null &amp;&amp; !partner.partnerAddressList?.isEmpty()" for="addressStr" name="value"
+                   expr="eval: partner.partnerAddressList?.collect{it.address.addressL4}?.join(', ')"/>
+        <attribute if="partner != null" for="$partnerTypeSelect" name="value"
+                   expr="eval: partner.partnerTypeSelect"/>
+        <attribute if="partner != null &amp;&amp; !partner.partnerAddressList?.isEmpty()" for="address" name="value"
+                   expr="eval:  partner?.partnerAddressList?.collect{it->it.address}?.first()"/>
+        <attribute if="partner != null" for="partnerTaxNbr" name="value"
+                   expr="eval:  partner.taxNbr"/>
+
+    </action-attrs>
+<!--    <action-attrs name="action-car-rental-partner-values-changed" model="com.axelor.apps.account.db.Invoice">-->
+<!--        <attribute if="partner == null" for="taxStamp" name="value"-->
+<!--                   expr="eval: 0"/>-->
+<!--    </action-attrs>-->
+
+    <action-attrs name="action-car-rental-contract-second-partner-changed" model="com.axelor.apps.account.db.Invoice">
+        <attribute if="contract != null" for="secondPartner" name="value"
+                   expr="eval: contract.secondPartner"/>
+        <attribute if="contract != null" for="departureDate" name="value"
+                   expr="eval: contract.departureDate"/>
+        <attribute if="contract != null" for="returnDate" name="value"
+                   expr="eval: contract.returnDate"/>
+        <attribute if="contract != null" for="daysNbr" name="value"
+                   expr="eval: java.time.temporal.ChronoUnit.DAYS.between(contract.departureDate, contract.returnDate)"/>
+        <attribute if="contract != null" for="firstPartner" name="value"
+                   expr="eval: contract.partner"/>
+        <attribute if="contract != null" for="unit" name="value"
+                   expr="eval: contract.unit"/>
+        <attribute if="contract != null" for="unitAmount" name="value"
+                   expr="eval: contract.unitAmount"/>
+        <attribute if="contract != null" for="guarantee" name="value"
+                   expr="eval: contract.guarantee"/>
+        <attribute if="contract != null" for="paymentModeGuarantee" name="value"
+                   expr="eval: contract.paymentMode"/>
+        <attribute if="contract != null" for="amount" name="value"
+                   expr="eval: contract.amount"/>
+
+    </action-attrs>
+
+    <action-attrs name="action-car-rental-contract-second-partner-reset-values" model="com.axelor.apps.account.db.Invoice">
+        <attribute if="contract == null || partner == null" for="secondPartner" name="value"
+                   expr="eval: null"/>
+        <attribute if="contract == null || partner == null" for="departureDate" name="value"
+                   expr="eval: null"/>
+        <attribute if="contract == null || partner == null" for="returnDate" name="value"
+                   expr="eval: null"/>
+    </action-attrs>
+
+    <action-attrs name="action-invoice-attrs-domains-first-partner">
+        <attribute name="domain" for="partner"
+                   expr="eval: &quot; self.isActive = true AND self.blockingList IS EMPTY &quot;"/>
+    </action-attrs>
+
+    <action-attrs name="action-invoice-attrs-domains-contract">
+        <attribute if="partner != null &amp;&amp; partner.partnerTypeSelect == 2" name="domain" expr="eval: &quot; self.partner = :partner AND self.statusSelect = 2 AND self.isPaid = false &quot;" for="contract"/>
+        <attribute if="partner != null &amp;&amp; partner.partnerTypeSelect == 1" name="domain" expr="eval: &quot; self.companyPartner = :partner AND self.statusSelect = 2 AND self.isPaid = false &quot;" for="contract"/>
+    </action-attrs>
+
+    <action-report name="action-report-pdf-print-fleet-invoice"
+                   design="facture_location.rptdesign"
+                   output="Check-invoive-${date}" format="pdf">
+        <param name="id" expr="eval:if ( id != null) {id} else (id= 0 )"/>
+    </action-report>
+
+    <action-method name="action-set-contract-paid">
+        <call class="com.gl.apps.pf.web.InvoiceController"
+              method="SetInvoicePaid"/>
+    </action-method>
+
+</object-views>
+
+

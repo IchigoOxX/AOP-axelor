@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="technical-sheet-form" title="Daily technical sheet" model="com.gl.apps.pf.db.TechnicalSheet" width="large"
+          onNew="action-group-flesh-get-product-order" onLoad="action-group-flesh-get-product-order"
+          readonlyIf="status != 0">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Technical sheet:" colSpan="10">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4" readonly="true" title="Date"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel colSpan="12" showTitle="false" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" prompt="Are you sure to validate this technical sheet ?" icon="fa-check"
+                                colSpan="12" onClick="save,action-group-technical-sheet-validate" css="btn-success"/>
+                    </panel>
+                </panel>
+
+                <panel title="Infos:" colSpan="12">
+                    <field name="unit" title="Unit" colSpan="4" required="true" canNew="true" canEdit="true" onSelect="action-attrs-company-unit-domain"
+                           onChange="action-attrs-technical-sheet-unit-changed"/>
+                    <field name="center" colSpan="4" required="true" canNew="true" canEdit="true" domain="(:unit is null or self.unit = :unit or self.unit.id = :unit.id) and (:_centerType is null or self.type = :_centerType)"
+                           onChange="action-group-technical-sheet-get-last-date-previous"/>
+                    <field name="dailyAge" readonly="true" colSpan="4"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="currentResponsible" readonly="true" colSpan="4"/>
+                    <field name="weeklyAge" readonly="true" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+                    <field name="productOrder" target-name="reference" colSpan="4" requiredIf="_centerType == 2" showIf="_centerType == 2"/>
+                    <field name="completeRefTrackingNumber" readonly="true" colSpan="4" showIf="_centerType == 2"/>
+                </panel>
+<!--                <panel-related name="technicalSheetLineListPanel"-->
+<!--                               colSpan="12" field="technicalSheetLineList" readonlyIf="status != 0"-->
+<!--                               form-view="technical-sheet-line-form"-->
+<!--                               grid-view="technical-sheet-line-grid"-->
+<!--                               editable="true" canEdit="true" canNew="false" canRemove="false"/>-->
+                <panel-related name="maleTechnicalSheetLineListPanel"
+                               colSpan="12" field="maleTechnicalSheetLineList" readonlyIf="status != 0"
+                               form-view="male-technical-sheet-line-form" hideIf="_centerType == 2"
+                               grid-view="male-technical-sheet-line-grid"
+                               editable="true" canEdit="true" canNew="false" canRemove="false"/>
+
+                <panel-related name="femaleTechnicalSheetLineListPanel"
+                               colSpan="12" field="femaleTechnicalSheetLineList" readonlyIf="status != 0"
+                               form-view="female-technical-sheet-line-form"
+                               grid-view="female-technical-sheet-line-grid" hideIf="_centerType == 2"
+                               editable="true" canEdit="true" canNew="false" canRemove="false"/>
+
+                <panel-related name="technicalSheetLineListPanel"
+                               colSpan="12" field="femaleTechnicalSheetLineList" readonlyIf="status != 0"
+                               form-view="female-technical-sheet-line-form"
+                               grid-view="flesh-technical-sheet-line-grid"
+                               editable="true" canEdit="true" canNew="false" canRemove="false"
+                               title="Technical Sheet line"
+                               showIf="_centerType == 2"/>
+
+
+            </panel>
+
+            <panel showTitle="false" colSpan="12">
+                <field name="notes" showTitle="false" colSpan="12" height="290" widget="html"/>
+            </panel>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="technical-sheet-grid" title="Technical sheet" model="com.gl.apps.pf.db.TechnicalSheet" orderBy="-reference"
+          edit-icon="true" canEdit="false">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date" readonly="true"/>
+        <field name="unit"/>
+        <field name="center"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="breed" readonly="true"/>
+        <field name="dailyAge" readonly="true"/>
+        <field name="weeklyAge"/>
+        <field name="currentResponsible"/>
+
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="grey" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-attrs name="action-technical-sheet-center-changed"
+                  model="com.gl.apps.pf.db.TechnicalSheet">
+        <attribute if="center != null" for="breed" name="value"
+                   expr="eval: center.currentBreed"/>
+        <attribute if="center != null" for="trackingNumber" name="value"
+                   expr="eval: center.currentTrackingNumber"/>
+        <attribute if="center != null" for="dailyAge" name="value"
+                   expr="eval: center.currentDailyAge"/>
+        <attribute if="center != null" for="weeklyAge" name="value"
+                   expr="eval: center.currentWeeklyAge"/>
+        <attribute if="center != null" for="completeRefTrackingNumber" name="value"
+                   expr="eval: center.completeRefTrackingNumber"/>
+    </action-attrs>
+
+    <action-attrs name="action-reset-values-technical-sheet-center-changed"
+                  model="com.gl.apps.pf.db.TechnicalSheet">
+        <attribute if="center == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="trackingNumber" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="dailyAge" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="weeklyAge" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="currentResponsible" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="maleTechnicalSheetLineList" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="femaleTechnicalSheetLineList" name="value" expr="eval: null"/>
+    </action-attrs>
+
+    <action-method name="action-method-technical-sheet-center-changed">
+        <call method="getLinesFromCenter"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-group name="action-group-technical-sheet-get-last-date-previous">
+        <action name="action-technical-sheet-center-changed"/>
+        <action name="action-method-technical-sheet-center-changed"/>
+        <action name="action-method-male-technical-sheet-line-get-date"/>
+        <action name="action-method-female-technical-sheet-line-get-date"/>
+        <action name="action-method-process-all-technical-sheet-lines"/>
+        <action name="action-reset-values-technical-sheet-center-changed"/>
+        <!--        <action name="action-method-technical-sheet-line-get-date"/>-->
+    </action-group>
+
+    <action-method name="action-technical-sheet-validate-lines">
+        <call method="technicalSheetValidate"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-technical-sheet-line-get-date">
+        <call method="getDateTechnicalSheetLine"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-male-technical-sheet-line-get-date">
+        <call method="getDateMaleTechnicalSheetLine"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+    <action-method name="action-method-female-technical-sheet-line-get-date">
+        <call method="getDateFemaleTechnicalSheetLine"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+    <action-method name="action-method-process-all-technical-sheet-lines">
+        <call method="processAllTechnicalSheetLine"
+              class="com.gl.apps.pf.web.TechnicalSheetController"/>
+    </action-method>
+
+    <action-validate name="action-technical-sheet-check-male-empty-list">
+        <error if="maleTechnicalSheetLineList.isEmpty()" message="You cannot validate ! male technical sheet list is empty."/>
+    </action-validate>
+
+    <action-validate name="action-technical-sheet-check-female-empty-list">
+        <error if="femaleTechnicalSheetLineList.isEmpty()" message="You cannot validate ! female technical sheet list is empty."/>
+    </action-validate>
+
+    <action-record name="action-attr-flesh-chicks-reception-flesh-chick" model="com.gl.apps.pf.db.TechnicalSheet">
+        <field name="_fleshChair" expr="eval: __config__.app.getApp('poultry-farming')?.chairChicks"/>
+    </action-record>
+
+    <action-attrs name="action-attr-flesh-chicks-reception-product-order" model="com.gl.apps.pf.db.ProductOrder">
+        <attribute name="domain" expr="eval: 'self.id IN (SELECT DISTINCT so.id FROM ProductOrder so JOIN ProductOrderLine sol ON so.id = sol.productOrder WHERE sol.product = :_fleshChair AND so.status = 3 AND :dateTime >= so.deliveryDate)'" for="productOrder"/>
+    </action-attrs>
+
+    <action-group name="action-group-flesh-get-product-order">
+        <action name="action-attr-flesh-chicks-reception-flesh-chick"/>
+        <action name="action-attr-flesh-chicks-reception-product-order"/>
+    </action-group>
+
+    <action-group name="action-group-technical-sheet-validate">
+        <action name="action-technical-sheet-check-male-empty-list"/>
+        <action name="action-technical-sheet-check-female-empty-list"/>
+        <action name="action-technical-sheet-validate-lines"/>
+    </action-group>
+
+    <action-attrs name="action-attrs-technical-sheet-unit-changed">
+        <attribute if="unit != null || unit == null" for="breedingShed" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="center" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="trackingNumber" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="dailyAge" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="weeklyAge" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="currentResponsible" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="maleTechnicalSheetLineList" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="femaleTechnicalSheetLineList" name="value" expr="eval: null"/>
+    </action-attrs>
+
+</object-views>

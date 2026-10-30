@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="product-order-line-form" title="Product order Line"
+          model="com.gl.apps.pf.db.ProductOrderLine" width="large">
+        <panel title="Overview">
+            <field name="product" onChange="action-attrs-product-order-info"/>
+            <field name="codeProduct" readonly="true"/>
+            <field name="umProduct" readonly="true"/>
+            <field name="quantityProduct" />
+        </panel>
+    </form>
+
+    <grid name="product-order-line-grid" title="Product order Line" model="com.gl.apps.pf.db.ProductOrderLine" edit-icon="true" >
+        <field name="product" onChange="action-attrs-product-order-info" onSelect="action-attrs-get-products-by-category-type"/>
+        <field name="codeProduct" readonly="true"/>
+        <field name="umProduct" readonly="true"/>
+        <field name="quantityProduct" required="true"/>
+
+    </grid>
+
+    <grid name="product-release-line-grid" title="Product order Line" model="com.gl.apps.pf.db.ProductOrderLine" edit-icon="true" >
+        <field name="product"/>
+        <field name="codeProduct" readonly="true"/>
+        <field name="umProduct" readonly="true"/>
+        <field name="quantityProduct" readonly="true" onChange="action-product-release-line-calculate-total-amount"/>
+        <field name="unitPriceProduct" required="true" onChange="action-product-release-line-calculate-total-amount"/>
+        <field name="totalAmount" readonly="true"/>
+    </grid>
+
+    <form name="product-release-line-form" title="Product release Line"  model="com.gl.apps.pf.db.ProductOrderLine" width="large">
+        <panel title="Overview">
+            <field name="product"/>
+            <field name="codeProduct" readonly="true"/>
+            <field name="umProduct" readonly="true"/>
+            <field name="quantityProduct" readonly="true" onChange="action-product-release-line-calculate-total-amount"/>
+            <field name="unitPriceProduct" required="true" onChange="action-product-release-line-calculate-total-amount"/>
+            <field name="totalAmount" readonly="true"/>
+        </panel>
+    </form>
+
+    <grid name="order-reception-line-grid" title="Product order Line" model="com.gl.apps.pf.db.ProductOrderLine" edit-icon="true">
+        <field name="product" readonly="true"/>
+        <field name="codeProduct" readonly="true"/>
+        <field name="umProduct" readonly="true"/>
+        <field name="quantityProduct" readonly="true"/>
+        <field name="reelQuantityProduct" title="Reel quantity" onChange="action-group-product-order-line-reel-quantity-changed"/>
+        <field name="gap" readonly="true"/>
+        <field name="rate" readonly="true"/>
+        <field name="unitsNumber" title="Number of units" readonly="true"/>
+        <field name="unitPriceDefaultProduct" readonly="true"/>
+        <field name="unitPriceProduct" readonly="true" />
+        <field name="totalAmount" readonly="true"/>
+    </grid>
+
+    <form name="order-reception-line-form" title="Product order Line" model="com.gl.apps.pf.db.ProductOrderLine" width="large" >
+        <panel title="Overview">
+            <field name="product" readonly="true"/>
+            <field name="codeProduct" readonly="true"/>
+            <field name="umProduct" readonly="true"/>
+            <field name="quantityProduct" readonly="true"/>
+            <field name="reelQuantityProduct" title="Reel quantity" onChange="action-group-product-order-line-reel-quantity-changed"/>
+            <field name="gap" readonly="true"/>
+            <field name="rate" readonly="true"/>
+            <field name="unitsNumber" title="Number of units" readonly="true"/>
+            <field name="unitPriceDefaultProduct" readonly="true"/>
+            <field name="unitPriceProduct" readonly="true" />
+            <field name="totalAmount" readonly="true"/>
+        </panel>
+    </form>
+
+    <action-attrs name="action-attrs-product-order-info"
+                  model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute if="product != null" for="codeProduct" name="value"
+                   expr="eval: product.code"/>
+        <attribute if="product != null" for="umProduct" name="value"
+                   expr="eval: product.unit.labelToPrinting"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-get-products-by-category-type" model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute name="domain" expr="eval:&quot;self.productCategory.id = ${__parent__?.productCategory?.id} AND self.dtype = 'Product'&quot;" for="product"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-release-line-calculate-total-amount"
+                  model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute for="totalAmount" name="value" expr="eval: unitPriceProduct * quantityProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-reception-line-calculate-gap"
+                  model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute for="gap" name="value" expr="eval:  quantityProduct - reelQuantityProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-reception-line-calculate-rate"
+                  model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute for="rate" name="value" expr="eval: gap * 100"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-reception-line-calculate-units-number"
+                  model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute for="unitsNumber" name="value" expr="eval: reelQuantityProduct / product.grossMass"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-reception-line-get-default-product-price"
+                  model="com.gl.apps.pf.db.ProductOrderLine">
+        <attribute for="unitPriceDefaultProduct" name="value" expr="eval: product.salePrice"/>
+    </action-attrs>
+
+    <action-group name="action-group-product-order-line-reel-quantity-changed">
+        <action name="action-product-reception-line-calculate-gap"/>
+        <action name="action-product-reception-line-calculate-rate"/>
+        <action name="action-product-reception-line-calculate-units-number"/>
+        <action name="action-product-reception-line-get-default-product-price"/>
+    </action-group>
+</object-views>

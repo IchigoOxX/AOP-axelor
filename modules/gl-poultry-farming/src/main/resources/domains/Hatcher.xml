@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="Hatcher" >
+    <many-to-one name="hatchery" ref="Hatchery" title="Hatchery" readonly="true"/>
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+      title="Unit (Department)"/>
+    <one-to-many name="trolleysList" ref="HatcherTrolley" mappedBy="hatcher"
+      title="Trolleys list" orderBy="reference"/>
+    <many-to-one name="reasonOfCancel" title="Reason of hatcher stopping"
+                 ref="com.axelor.apps.base.db.CancelReason"/>
+
+    <string name="strTrolleysList" title="Trolleys list" readonly="true">
+      <![CDATA[
+            if(this.getTrolleysList() != null) {
+              return this.getTrolleysList().stream()
+                      .map(n -> String.valueOf(n.getReference()))
+                      .collect(java.util.stream.Collectors.joining("/"));
+            }
+            return null ;
+       ]]>
+    </string>
+    <string name="reference" title="Reference" readonly="true" />
+    <datetime name="statusDate" title="Status date" readonly="true"/>
+    <integer name="status" title="Status" selection="poultryfarming.hatcher.status.select"
+      readonly="true"/>
+<!--    add this field-->
+    <integer name="capacityOfTheHatcherInTrolleys" title="Capacity of the hatcher in trolleys"/>
+    <datetime name="stopDate" title="Stop date" readonly="true"/>
+    <string name="note" title="Note" large="true" translatable="true"/>
+    <index columns="hatchery,reference" unique="true"/>
+
+    <finder-method name="ByReference" using="hatchery,reference"/>
+
+    <extra-code>
+      <![CDATA[
+				public static final int STATUS_FREE = 0;
+				public static final int STATUS_BUSY = 1;
+				public static final int STATUS_STOPPED = 2;
+			]]>
+    </extra-code>
+    <track on="UPDATE">
+      <field name="reference"/>
+      <field name="statusDate"/>
+      <field name="status"/>
+      <field name="hatchery"/>
+      <field name="incubator"/>
+      <field name="unit"/>
+      <field name="note"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+  </entity>
+
+</domain-models>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcheryDeliverySaleLine">
+        <many-to-one name="hatcheryDeliverySale" ref="HatcheryDeliverySale" title="Hatchery delivery sale"/>
+
+        <string name="code" title="Code"/>
+        <many-to-one name="product" ref="com.axelor.apps.base.db.Product"
+                     title="Product"/>
+        <many-to-one name="purchaseUnit" ref="com.axelor.apps.base.db.Unit"
+                     title="Purchase unit"/>
+
+        <decimal name="availableQty" title="Available qty"/>
+        <integer name="capacity" title="Capacity"/>
+
+        <decimal name="deliveredQty" title="Delivered qty"/>
+        <integer name="deliveredQtyUnits" title="Delivered qty units"/>
+
+        <decimal name="reelDeliveredQty" title="Real delivered qty"/>
+        <integer name="reelDeliveredQtyUnits" title="Real delivered qty units"/>
+
+        <decimal name="remainingQty" title="Remaining qty"/>
+        <integer name="remainingQtyUnits" title="Remaining qty units"/>
+
+        <track on="UPDATE">
+            <field name="code"/>
+            <field name="product"/>
+            <field name="purchaseUnit"/>
+            <field name="availableQty"/>
+            <field name="capacity"/>
+            <field name="deliveredQty"/>
+            <field name="deliveredQtyUnits"/>
+            <field name="remainingQty"/>
+            <field name="remainingQtyUnits"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

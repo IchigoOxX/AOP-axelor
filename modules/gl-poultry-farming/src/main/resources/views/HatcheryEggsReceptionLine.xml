@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="hatchery-eggs-reception-line-grid" title="Hatchery Eggs Reception Line" edit-icon="true" orderBy="breedingShed"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="lineNumber" title="Line number" readonly="true"/>
+    <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+
+    <!--Oeufs à couver (OAC)-->
+    <field name="numberOfHeTrays"  title="HE repro trays" />
+    <field name="numberOfHe" title="HE repro eggs" />
+
+    <field name="receivedNumberOfHeTrays" title="HE recept trays" onChange="action-group-hatchery-egg-reception-calculate-he" />
+    <field name="receivedNumberOfHe" title="HE recept eggs" onChange="action-group-hatchery-egg-reception-calculation-he" />
+
+    <field name="gapHatchingEggs" title="HE gap" />
+
+    <!--Oeufs double jaune (ODJ)-->
+    <field name="numberOfDyeTrays" title="DYE repro trays" />
+    <field name="numberOfDye" title="DYE repro eggs"/>
+
+
+    <field name="receivedNumberOfDyeTrays" title="DYE recept trays" onChange="action-group-hatchery-egg-reception-calculate-dye" />
+    <field name="receivedNumberOfDye" title="DYE recept eggs"  onChange="action-group-hatchery-egg-reception-calculation-dye"/>
+
+    <field name="gapDoubleYolkEggs" title="DYE gap"/>
+
+
+    <!--Oeufs déclassés (OD)-->
+    <field name="numberOfDeTrays" title="DE repro trays"/>
+    <field name="numberOfDe" title="DE repro eggs"/>
+
+
+    <field name="receivedNumberOfDeTrays" title="DE recept trays" onChange="action-group-hatchery-egg-reception-calculate-de"/>
+    <field name="receivedNumberOfDe" title="DE recept eggs"  onChange="action-group-hatchery-egg-reception-calculation-de" />
+
+    <field name="gapDeclassedEggs" title="DE gap"/>
+
+    <!--Total oeufs-->
+    <field name="sumOfHETrays" title="Total repro trays" readonly="true"/>
+    <field name="sumOfHE" title="Total reproduction" readonly="true"/>
+    <field name="receivedSumOfHETrays" title="Total recept trays" readonly="true"/>
+    <field name="receivedSumOfHE" title="Total received" readonly="true"/>
+    <field name="totalGap" title="Number of eggs gap" readonly="true"/>
+
+    <!--Oeufs détruits-->
+    <field name="numberOfRe" title="Number of destroyed eggs"/>
+
+  </grid>
+
+    <!--Actions Oeufs à couver (OAC)-->
+    <action-attrs name="action-reproduction-line-calculate-het" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="receivedNumberOfHe" name="value" expr="eval: (receivedNumberOfHeTrays ?: 0) * 30"/>
+    </action-attrs>
+
+    <action-attrs name="action-reproduction-line-calculate-he" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="receivedNumberOfHeTrays" name="value"
+                   expr="eval: (int) Math.ceil((receivedNumberOfHe ?: 0) / 30)"/>
+    </action-attrs>
+
+    <action-attrs name="action-reproduction-line-calculate-ec-he" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="gapHatchingEggs" name="value"
+                   expr="eval: (numberOfHe - receivedNumberOfHe  )"/>
+    </action-attrs>
+
+    <action-attrs name="action-receive-production-line-calculate-tot" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute name="value" expr="eval: (receivedNumberOfHe ?: 0) + (receivedNumberOfDye ?: 0) + (receivedNumberOfDe ?: 0)" for="receivedSumOfHE"/>
+        <attribute name="value" expr="eval: (receivedNumberOfHeTrays ?: 0) + (receivedNumberOfDyeTrays ?: 0) + (receivedNumberOfDeTrays ?: 0)" for="receivedSumOfHETrays"/>
+        <attribute name="value" expr="eval: (gapHatchingEggs ?: 0) + (gapDoubleYolkEggs ?: 0) + (gapDeclassedEggs ?: 0)" for="totalGap"/>
+
+    </action-attrs>
+
+    <!--Actions Oeufs à couver (ODJ)-->
+
+    <action-attrs name="action-reproduction-line-calculate-det" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="receivedNumberOfDye" name="value" expr="eval: (receivedNumberOfDyeTrays ?: 0) * 30"/>
+    </action-attrs>
+
+    <action-attrs name="action-reproduction-line-calculate-de" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="receivedNumberOfDyeTrays" name="value"
+                   expr="eval: (int) Math.ceil((receivedNumberOfDye ?: 0) / 30)"/>
+    </action-attrs>
+
+    <action-attrs name="action-reproduction-line-calculate-ec-de" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="gapDoubleYolkEggs" name="value"
+                   expr="eval: ( numberOfDye - receivedNumberOfDye )"/>
+    </action-attrs>
+
+    <!--Actions Oeufs à couver (OD)-->
+
+    <action-attrs name="action-reproduction-line-calculate-oet" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="receivedNumberOfDe" name="value" expr="eval: (receivedNumberOfDeTrays ?: 0) * 30"/>
+    </action-attrs>
+
+    <action-attrs name="action-reproduction-line-calculate-oe" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="receivedNumberOfDeTrays" name="value"
+                   expr="eval: (int) Math.ceil((receivedNumberOfDe ?: 0) / 30)"/>
+    </action-attrs>
+
+    <action-attrs name="action-reproduction-line-calculate-ec-oe" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <attribute for="gapDeclassedEggs" name="value"
+                   expr="eval: ( numberOfDe - receivedNumberOfDe )"/>
+    </action-attrs>
+
+    <action-attrs name="action-repro-production-line-calculate-ket" model="com.gl.apps.pf.db.HatcheryEggsReception">
+        <attribute for="receivedNumberOfDye" name="value" expr="eval: (receivedNumberOfDyeTrays ?: 0) * 30"/>
+        <attribute for="totalGap" name="value"
+                   expr="eval: (receivedNumberOfDyeTrays ?: 0) + (receivedNumberOfDyeTrays ?: 0) + (numberOfDETrays ?: 0)"/>
+    </action-attrs>
+
+    <action-attrs name="action-repro-production-line-calculate-ke" model="com.gl.apps.pf.db.ReproProduction">
+        <attribute for="receivedNumberOfDyeTrays" name="value"
+                   expr="eval: ((receivedNumberOfDye ?: 0) / 30)"/>
+    </action-attrs>
+<action-group name="action-group-hatchery-egg-reception-calculate-he">
+    <action name="action-reproduction-line-calculate-het"/>
+    <action name="action-reproduction-line-calculate-ec-he"/>
+    <action name="action-receive-production-line-calculate-tot"/>
+</action-group>
+
+<action-group name="action-group-hatchery-egg-reception-calculation-he">
+    <action name="action-reproduction-line-calculate-he"/>
+    <action name="action-reproduction-line-calculate-ec-he"/>
+    <action name="action-receive-production-line-calculate-tot"/>
+</action-group>
+
+    <action-group name="action-group-hatchery-egg-reception-calculate-dye">
+        <action name="action-reproduction-line-calculate-det"/>
+        <action name="action-reproduction-line-calculate-ec-de"/>
+        <action name="action-receive-production-line-calculate-tot"/>
+    </action-group>
+
+    <action-group name="action-group-hatchery-egg-reception-calculation-dye">
+        <action name="action-reproduction-line-calculate-de"/>
+        <action name="action-reproduction-line-calculate-ec-de"/>
+        <action name="action-receive-production-line-calculate-tot"/>
+    </action-group>
+
+    <action-group name="action-group-hatchery-egg-reception-calculate-de">
+        <action name="action-reproduction-line-calculate-oet"/>
+        <action name="action-reproduction-line-calculate-ec-oe"/>
+        <action name="action-receive-production-line-calculate-tot"/>
+    </action-group>
+
+    <action-group name="action-group-hatchery-egg-reception-calculation-de">
+        <action name="action-reproduction-line-calculate-oe"/>
+        <action name="action-reproduction-line-calculate-ec-oe"/>
+        <action name="action-receive-production-line-calculate-tot"/>
+    </action-group>
+
+
+    <form name="hatchery-eggs-reception-line-form" title="Hatchery Eggs Reception Line" model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+        <panel title="Overview">
+            <field name="lineNumber" title="Line number" readonly="true"/>
+            <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+            <panel title="HE eggs" colSpan="12">
+                <field name="numberOfHe" title="HE repro eggs" colSpan="3"
+                       onChange="action-record-calcul-number-of-he-trays-hatchery-eggs-reception-line"/>
+                <field name="numberOfHeTrays" title="HE repro trays" readonly="true" colSpan="3" />
+                <field name="receivedNumberOfHe" title="HE recept eggs" colSpan="3"
+                       onChange="action-record-calcul-received-number-of-he-trays-hatchery-eggs-reception-line"/>
+                <field name="receivedNumberOfHeTrays" title="HE recept trays" onChange="action-group-hatchery-egg-reception-calculate-he" colSpan="3"/>
+            </panel>
+
+            <panel title="DYE eggs" colSpan="12">
+                <field name="numberOfDye" title="DYE repro eggs" onChange="action-record-calcul-number-of-dye-trays-hatchery-eggs-reception-line" colSpan="3"/>
+                <field name="numberOfDyeTrays" title="DYE repro trays" readonly="true" colSpan="3"/>
+                <field name="receivedNumberOfDye" title="DYE recept eggs" onChange="action-record-calcul-received-number-of-dye-trays-hatchery-eggs-reception-line" colSpan="3"/>
+                <field name="receivedNumberOfDyeTrays" title="DYE recept trays" onChange="action-group-hatchery-egg-reception-calculate-dye" colSpan="3"/>
+            </panel>
+
+            <panel title="DE eggs" colSpan="12">
+                <field name="numberOfDe" title="DE repro eggs" onChange="action-record-calcul-number-of-de-trays-hatchery-eggs-reception-line" colSpan="3"/>
+                <field name="numberOfDeTrays" title="DE repro trays" readonly="true" colSpan="3"/>
+                <field name="receivedNumberOfDe" title="DE recept eggs" onChange="action-record-calcul-received-number-of-de-trays-hatchery-eggs-reception-line" colSpan="3"/>
+                <field name="receivedNumberOfDeTrays" title="DE recept trays" onChange="action-group-hatchery-egg-reception-calculate-de" colSpan="3"/>
+            </panel>
+
+            <panel title="Total" colSpan="12">
+                <field name="sumOfHE" title="Total reproduction" onChange="action-record-calcul-sum-of-he-hatchery-eggs-reception-line" colSpan="3"/>
+                <field name="sumOfHETrays" title="Total repro trays" readonly="true" colSpan="3"/>
+                <field name="receivedSumOfHE" title="Total received" onChange="action-record-calcul-received-sum-of-he-hatchery-eggs-reception-line" colSpan="3"/>
+                <field name="receivedSumOfHETrays" title="Total recept trays" readonly="true" colSpan="3"/>
+            </panel>
+
+            <panel title="Gap" colSpan="12">
+                <field name="gapHatchingEggs" title="HE gap" colSpan="3"/>
+                <field name="gapDoubleYolkEggs" title="DYE gap" colSpan="3"/>
+                <field name="gapDeclassedEggs" title="DE gap" colSpan="3"/>
+                <field name="totalGap" title="Number of eggs gap" colSpan="3"/>
+            </panel>
+
+            <field name="numberOfRe" title="Number of destroyed eggs" readonly="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+  <action-record
+    name="action-record-calcul-number-of-he-trays-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="numberOfHeTrays" expr="eval: numberOfHe/30 "/>
+  </action-record>
+
+  <action-record
+    name="action-record-calcul-received-number-of-he-trays-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="receivedNumberOfHeTrays" expr="eval:receivedNumberOfHe/30 "/>
+  </action-record>
+
+  <action-record
+    name="action-record-calcul-number-of-dye-trays-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="numberOfDyeTrays" expr="eval: numberOfDye/30 "/>
+  </action-record>
+
+  <action-record
+    name="action-record-received-calcul-number-of-dye-trays-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="receivedNumberOfDyeTrays" expr="eval: receivedNumberOfDye/30 "/>
+  </action-record>
+
+  <action-record
+    name="action-record-calcul-number-of-de-trays-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="numberOfDeTrays" expr="eval: numberOfDe/30 "/>
+  </action-record>
+
+  <action-record
+    name="action-record-calcul-received-number-of-de-trays-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="receivedNumberOfDeTrays" expr="eval: receivedNumberOfDe/30 "/>
+  </action-record>
+
+  <action-record
+    name="action-record-calcul-received-sum-of-he-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="receivedSumOfHETrays" expr="eval: receivedSumOfHE/30 "/>
+  </action-record>
+
+  <action-record name="action-record-calcul-sum-of-he-hatchery-eggs-reception-line"
+    model="com.gl.apps.pf.db.HatcheryEggsReceptionLine">
+    <field name="sumOfHETrays" expr="eval: sumOfHE/30 "/>
+  </action-record>
+
+    <action-validate name="action-hatchery-egg-reception-validate-he-trays-number">
+        <error if="hatcheryEggsReceptionLineList &amp;&amp; hatcheryEggsReceptionLineList?.collect(){ it?.receivedNumberOfHeTrays}?.sum() > hatcheryEggsReceptionLineList?.collect(){ it?.numberOfHeTrays }?.sum()" message="The received number of HE eggs trays must be less then HE eggs trays."/>
+    </action-validate>
+
+    <action-validate name="action-hatchery-egg-reception-validate-he-number">
+        <error if="hatcheryEggsReceptionLineList &amp;&amp; hatcheryEggsReceptionLineList?.collect(){ it?.receivedNumberOfHe }?.sum() > hatcheryEggsReceptionLineList?.collect(){ it?.numberOfHe }?.sum()" message="The received number of HE eggs must be less then HE eggs."/>
+    </action-validate>
+
+    <action-validate name="action-hatchery-egg-reception-validate-dye-trays-number">
+        <error if="hatcheryEggsReceptionLineList &amp;&amp; hatcheryEggsReceptionLineList?.collect(){ it?.receivedNumberOfDyeTrays }?.sum() > hatcheryEggsReceptionLineList?.collect(){ it?.numberOfDyeTrays }?.sum()" message="The received number of DYE eggs trays must be less then DYE eggs trays."/>
+    </action-validate>
+
+    <action-validate name="action-hatchery-egg-reception-validate-dye-number">
+        <error if="hatcheryEggsReceptionLineList &amp;&amp; hatcheryEggsReceptionLineList?.collect(){ it?.receivedNumberOfDye }?.sum() > hatcheryEggsReceptionLineList?.collect(){ it?.numberOfDye }?.sum()" message="The received number of DYE eggs must be less then DYE eggs."/>
+    </action-validate>
+
+
+    <action-validate name="action-hatchery-egg-reception-validate-de-trays-number">
+        <error if="hatcheryEggsReceptionLineList &amp;&amp; hatcheryEggsReceptionLineList?.collect(){ it?.receivedNumberOfDeTrays }?.sum() > hatcheryEggsReceptionLineList?.collect(){ it?.numberOfDeTrays }?.sum()" message="The received number of DE eggs trays must be less then DE eggs trays."/>
+    </action-validate>
+
+    <action-validate name="action-hatchery-egg-reception-validate-de-number">
+        <error if="hatcheryEggsReceptionLineList &amp;&amp; hatcheryEggsReceptionLineList?.collect(){ it?.receivedNumberOfDe }?.sum() > hatcheryEggsReceptionLineList?.collect(){ it?.numberOfDe }?.sum()" message="The received number of DYE eggs must be less then DYE eggs."/>
+    </action-validate>
+
+
+</object-views>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="LivestockFeedExternalExit">
+        <one-to-many name="livestockFeedExternalExitLineList" ref="com.gl.apps.pf.db.LivestockFeedExternalExitLine"
+                     mappedBy="livestockFeedExternalExit" title="Livestock feed external exit"/>
+
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date" />
+
+        <many-to-one name="customerDelivery" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Customer delivery"/>
+        <many-to-one name="partner" ref="com.axelor.apps.base.db.Partner"
+                      title="Partners"/>
+        <many-to-one name="carrierPartner" ref="com.axelor.apps.base.db.Partner" title="Carrier"/>
+        <date name="estimatedDate" title="Estimated date"/>
+
+        <integer name="status" title="Status" selection="poultryfarming.livestock.feed.external.exit.status.select" readonly="true"/>
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// ELEV TRANSFER STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_DELIVERED = 1;
+				public static final int STATUS_CANCELED = 2;
+
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="customerDelivery"/>
+            <field name="customerDeliveryRef"/>
+            <field name="partner"/>
+            <field name="carrierPartner"/>
+            <field name="estimatedDate"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+
+        </track>
+    </entity>
+
+</domain-models>

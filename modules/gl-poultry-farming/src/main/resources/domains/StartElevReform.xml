@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="StartElevReform">
+
+        <many-to-one name="technicalSheetLine"
+                     ref="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet line" />
+
+        <!--piéce-->
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date" />
+
+        <!-- infos -->
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center"
+                     title="Center"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+                     title="Tracking Number" required="true"/>
+        <many-to-one name="startTechnicalSheet"
+                     ref="com.gl.apps.pf.db.StartTechnicalSheet" title="Technical sheet" />
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+
+        <!--  subjects-->
+        <integer name="dailyAge" title="Daily age" readonly="true"/>
+        <integer name="weeklyAge" title="Weekly age" readonly="true">
+            <![CDATA[
+            int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+        ]]>
+        </integer>
+        <integer name="totalNumbers" title="Total numbers" readonly="true"/>
+
+        <!--  destination-->
+        <integer name="destination" title="Destination" selection="poultryfarming.elev.reform.destination.select"/>
+        <many-to-one name="slaughterhouse" ref="com.gl.apps.pf.db.Slaughterhouse"
+                     title="Slaughterhouse"/>
+        <integer name="inUnit" title="In" selection="poultryfarming.elev.reform.unit.select"/>
+
+        <!--  effectifs réformé-->
+        <integer name="reformNumber" title="Reformed number" required="true"/>
+        <decimal name="averageWeight" title="Average weight" required="true"/>
+        <decimal name="totalAverageWeight" title="Total average weight" required="true"/>
+
+        <decimal name="unitPrice" title="Unit price" required="true"/>
+        <decimal name="globalCost" title="Global cost" required="true"/>
+
+        <string name="notes" large="true" title="Notes"/>
+        <integer name="status" title="Status" selection="poultryfarming.elev.transfer.status.select" readonly="true"/>
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// ELEV TRANSFER STATUS SELECT
+			    public static final int STATUS_NOT_RECEIVED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_RECEIVED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+				// START BREEDING GENDER SELECT
+                public static final String GENDER_MALE = "M";
+                public static final String GENDER_FEMALE = "F";
+			]]>
+        </extra-code>
+
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="unit"/>
+            <field name="center"/>
+            <field name="breedingShed"/>
+            <field name="trackingNumber"/>
+            <field name="breed"/>
+            <field name="weeklyAge"/>
+            <field name="dailyAge"/>
+            <field name="totalNumbers"/>
+            <field name="destination"/>
+            <field name="inUnit"/>
+            <field name="reformNumber"/>
+            <field name="averageWeight"/>
+            <field name="totalAverageWeight"/>
+            <field name="unitPrice"/>
+            <field name="globalCost"/>
+            <field name="notes"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

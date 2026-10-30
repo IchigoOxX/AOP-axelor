@@ -1,0 +1,914 @@
+"%d bank statement couldn't be deleted, please check the logs.",تعذر حذف كشف حساب بنكي بنسبة %d، يرجى التحقق من السجلات.
+%d errors occurred. Please check tracebacks for details.,حدث %d خطأ. يرجى التحقق من التتبع للحصول على التفاصيل.
+%d line successfully rejected,تم رفض %d سطر بنجاح
+%d lines successfully rejected,تم رفض %d سطر بنجاح
+%s : Bank statement line %s amount can't be null,%s : لا يمكن أن يكون مبلغ سطر كشف الحساب البنكي %s فارغًا
+%s : MoveLine amount is not equals with bank statement line %s,%s : مبلغ MoveLine لا يساوي سطر كشف الحساب البنكي %s
+%s : Please configure an ICS number for the company %s.,%s : الرجاء تكوين رقم ICS للشركة %s.
+"%s : Please, configure a default signer for the company %s",%s : من فضلك، قم بتكوين الموقّع الافتراضي للشركة %s
+"%s : Please, configure a sequence for the Bill of exchange and the company %s",%s : من فضلك قم بتكوين تسلسل للكمبيالة والشركة %s
+"%s : Please, configure a sequence for the International Credit Transfers and the company %s",%s : من فضلك قم بتكوين تسلسل لتحويلات الأرصدة الدولية والشركة %s
+"%s : Please, configure a sequence for the International Direct Debits and the company %s",%s : من فضلك، قم بتكوين تسلسل للديون الدولية المباشرة والشركة %s
+"%s : Please, configure a sequence for the International Treasury Transfers and the company %s",%s : من فضلك قم بتكوين تسلسل لتحويلات الخزينة الدولية والشركة %s
+"%s : Please, configure a sequence for the National Treasury Transfers and the company %s",%s : من فضلك، قم بتكوين تسلسل لتحويلات الخزينة الوطنية والشركة %s
+"%s : Please, configure a sequence for the Other Bank Orders and the company %s",%s : من فضلك، قم بتكوين تسلسل لأوامر البنك الأخرى والشركة %s
+"%s : Please, configure a sequence for the SEPA Credit Transfers and the company %s",%s : من فضلك، قم بتكوين تسلسل لتحويلات ائتمان SEPA والشركة %s
+"%s : Please, configure a sequence for the SEPA Direct Debits and the company %s",%s : من فضلك، قم بتكوين تسلسل لديون SEPA المباشرة والشركة %s
+"%s : Please, configure an account for the bank order for the external bank to bank transfer for the company %s",%s : يرجى تكوين حساب للطلب البنكي من البنك الخارجي إلى التحويل البنكي للشركة %s
+"%s : Please, configure an account for the bank order for the internal bank to bank transfer for the company %s",%s : من فضلك قم بتكوين حساب للطلب البنكي للتحويل البنكي الداخلي للشركة %s
+%s : You must configure bank payment's information for the company %s,%s : يجب عليك تكوين معلومات الدفع البنكي للشركة %s
+%s: no postal address has been found on the partner.,%s: لم يتم العثور على عنوان بريدي للشريك.
+%s: the country ISO alpha-2 code is missing on the postal address.,%s: كود الدولة (ISO alpha-2) مفقود في العنوان البريدي.
+%s: the town name is missing on the postal address.,%s: اسم المدينة مفقود في العنوان البريدي.
+10 - Bank details IBAN,10- البيانات البنكية IBAN
+10 - Sender bank details type,10 - تفاصيل بنك المرسل نوع
+10 - Sequence,10 - التسلسل
+11 - Bank details code,11- رمز البيانات البنكية
+11 - Sender bank details IBAN,11 - تفاصيل بنك المرسل IBAN
+12 - Bank order currency,12- عملة أمر البنك
+13 - Total,13 - المجموع
+14 - Sender bank details type,14- تفاصيل بنك المرسل نوع
+15 - Sender bank details IBAN,15 - تفاصيل بنك المرسل IBAN
+16 - Bank order currency,16- عملة أمر البنك
+16 - Economic reason code,16- رمز السبب الاقتصادي
+17-3 - File format qualifying date,17-3 - تاريخ تأهيل تنسيق الملف
+18 - Order debit type index,18 - فهرس نوع الأمر المدين
+18 - Payment mode select,18 - طريقة الدفع اختر
+19 - Fees imputation mode,19- طريقة احتساب الرسوم
+19 - Order index type,19 - نوع فهرس الطلب
+20 - Bank order date,20- تاريخ أمر البنك
+21 - Currency,21- العملة
+24-1 - Qualifying of date,24-1 - تاريخ التأهل
+24-2 - Date,24-2 - التاريخ
+25 - Currency,25- العملة
+4 - Bank details type,4- البيانات البنكية نوع
+4 - Bank name,4- اسم البنك
+4 - Generation date,4- تاريخ الإنشاء
+4-1 - Payment Reason 1,4-1 - سبب الدفع 1
+4-2 - Payment Reason 2,4-2 - سبب الدفع 2
+4-3 - Payment Reason 3,4-3 - سبب الدفع 3
+4-4 - Payment Reason 4,4-4 - سبب الدفع 4
+5 - Bank address,5- عنوان البنك
+5 - Bank details IBAN,5- البيانات البنكية IBAN
+5 - Sender company,5- شركة المرسل
+6 - Bank code,6- رمز البنك
+6 - Bank details owner name,6- البيانات البنكية اسم المالك
+6 - Registration code,6- رمز التسجيل
+6 - Sender address,6- عنوان المرسل
+7 - Country code,7- رمز البلد
+7 - Registration code,7- رمز التسجيل
+7 - Sequence,7 - التسلسل
+8 - Sequence,8 - التسلسل
+9 - Bank details type,9- نوع البيانات البنكية
+9 - Country code,9 - رمز البلد
+9-1 - Special instructions 1,9-1 - تعليمات خاصة 1
+9-2 - Special instructions 2,9-2 - تعليمات خاصة 2
+9-3 - Special instructions 3,9-3 - تعليمات خاصة 3
+A - Register code,أ - رمز التسجيل
+Acceptance code per recipient line,رمز القبول لكل سطر مستلم
+Accepted Bank Details Identifiers,معرفات البيانات البنكية المقبولة
+Accepted LCR,مقبول LCR
+Account balance,رصيد الحساب
+Account management is missing.,إدارة الحساب مفقودة.
+Account management list,قائمة إدارة الحساب
+Accounting,المحاسبة
+Accounting Dashboard,لوحة المحاسبة
+Accounting Dashboard with invoice terms,لوحة تحكم محاسبية مع شروط الفاتورة
+Accounting Move Line(s) to reconcile,محاسبة نقل السطر (الخطوط) للتوفيق
+Accounting auto,محاسبة السيارات
+Accounting details,تفاصيل المحاسبة
+Accounting information,معلومات محاسبية
+Accounting move trigger select,تحديد مشغل نقل المحاسبة
+Accounting settings,الإعدادات المحاسبية
+Accounting.Account,المحاسبة.الحساب
+Action,العمل
+Active,نشط
+Additional information,معلومات إضافية
+Allow orders with a transfer currency different from bank details currency,السماح للطلبات بعملة تحويل مختلفة عن عملة التفاصيل المصرفية
+Already accounted,تم حسابه بالفعل
+Already reconciled,تصالحت بالفعل
+Amount Rejected,المبلغ المرفوض
+Amount in transfer's currency,المبلغ بعملة التحويل
+Amount of the semi-interval of confidence for the amounts,مقدار نصف فترة الثقة للمبالغ
+Amount remaining to reconcile,المبلغ المتبقي للتسوية
+Amount value of a bank order line is not valid,قيمة المبلغ لسطر أمر البنك غير صالحة
+Analytic,تحليلية
+Analytic distribution template,قالب توزيع مراكز التكلفة
+Anomaly has been detected during file generation for bank order %s,تم اكتشاف حالة غير طبيعية أثناء إنشاء الملف لأمر بنكي %s
+Anomaly has been detected during file generation for the additional detail record of the bank order line %s,تم اكتشاف حالة شاذة أثناء إنشاء الملف لسجل التفاصيل الإضافي لسطر الأمر البنكي %s
+Anomaly has been detected during file generation for the beneficiary bank detail record of the bank order line %s,تم اكتشاف خطأ أثناء إنشاء الملف لسجل البيانات البنكية المستفيد لسطر الأمر البنكي %s
+Anomaly has been detected during file generation for the detail record of the bank order line %s,تم اكتشاف حالة شاذة أثناء إنشاء الملف للسجل التفصيلي لسطر الأمر البنكي %s
+Anomaly has been detected during file generation for the endorsed detail record of the bank order line %s,تم اكتشاف حالة شاذة أثناء إنشاء الملف لسجل التفاصيل المعتمد لسطر الأمر البنكي %s
+Anomaly has been detected during file generation for the further information detail record of the bank order line %s,تم اكتشاف حالة شاذة أثناء إنشاء الملف للحصول على سجل تفصيلي للمعلومات الإضافية لسطر الأمر البنكي %s
+Anomaly has been detected during file generation for the sender record of the bank order %s,تم اكتشاف خطأ أثناء إنشاء الملف لسجل مرسل الأمر البنكي %s
+Anomaly has been detected during file generation for the total record of the bank order %s,تم اكتشاف خطأ أثناء إنشاء الملف للسجل الإجمالي للأمر البنكي %s
+App,التطبيق
+App bank payment,الدفع البنكي للتطبيق
+Are you sure you want merge the selected bank orders ?,هل أنت متأكد أنك تريد دمج الأوامر البنكية المحددة؟
+Arithmetic total,المجموع الحسابي
+"As the date of your order is in the past, it will be updated to today.",بما أن تاريخ طلبك كان في الماضي، فسيتم تحديثه إلى اليوم.
+Assignment or pledge outside Dailly agreement,التنازل أو التعهد خارج الإتفاقية اليومية
+Associated MoveLine,المرتبطة MoveLine
+Auto accounting,محاسبة السيارات
+Auto reconcile,التوفيق التلقائي
+Automatic,آلي
+Automatic accounting ?,المحاسبة التلقائية؟
+Automatic pointing,التأشير التلقائي
+Available,متاح
+Awaiting signature,في انتظار التوقيع
+B1 - Operation code,B1 - رمز العملية
+B2 - Numbering record,B2 - سجل الترقيم
+B3 - Sender number,B3 - رقم المرسل
+BOR,بور
+Balance,الرصيد
+Balance btn,الرصيد بالمليار
+Balance updated date,تاريخ تحديث الرصيد
+Bank Account,الحساب البنكي
+Bank Balance,رصيد البنك
+Bank Order,أمر بنكي / أمر تحويل
+Bank Order Details,تفاصيل الطلب البنكي
+Bank Order Lines,خطوط أوامر البنك
+Bank Order Status,حالة الطلب البنكي
+Bank Order line,سطر أوامر البنك
+Bank Order lines,خطوط أوامر البنك
+Bank Orders,أوامر البنك / أوامر التحويل
+Bank Orders economic reason,أوامر البنك لسبب اقتصادي
+Bank Orders economic reasons,أوامر البنك لأسباب اقتصادية
+Bank Orders file format,تنسيق ملف أوامر البنك
+Bank Orders file formats,تنسيقات ملفات أوامر البنك
+Bank Reconciliation,التسوية البنكية
+Bank Reconciliation Lines,بنود التسوية البنكية
+Bank Reconciliations,التسويات والمطابقات البنكية
+Bank Statement,كشف حساب بنكي
+Bank Statement / Reconciliations,كشف حساب البنك / التسويات
+Bank Statement detail,تفاصيل كشف الحساب البنكي
+Bank Statement line,بند كشف الحساب البنكي
+Bank Statement line print wizard,معالج طباعة سطر كشف الحساب البنكي
+Bank Statement lines,بنود كشف الحساب البنكي
+Bank Statements,كشوفات الحسابات البنكية
+Bank Statements file format,تنسيق ملف كشف الحساب البنكي
+Bank Statements file formats,تنسيقات ملف كشف الحساب البنكي
+Bank accounting / reconciliation rule,المحاسبة البنكية / قاعدة التسوية
+Bank details,البيانات البنكية
+Bank details are inactive.,البيانات البنكية غير نشطة.
+Bank details in account management is missing.,التفاصيل المصرفية في إدارة الحساب مفقودة.
+Bank details is missing on invoice %s.,التفاصيل المصرفية مفقودة في الفاتورة %s.
+Bank details not validated,لم يتم التحقق من صحة البيانات البنكية
+Bank details tree,شجرة البيانات البنكية
+Bank order,أمر بنكي / أمر تحويل
+Bank order Date,تاريخ الطلب البنكي
+Bank order amount,مبلغ أمر البنك
+Bank order config.,تكوين أمر البنك
+Bank order confirmation,تأكيد الطلب البنكي
+Bank order currency,عملة الطلب البنكي
+Bank order due Date,تاريخ استحقاق الأمر البنكي
+Bank order export folder does not exist: %s,مجلد تصدير الأمر البنكي غير موجود: %s
+Bank order export folder path,مسار مجلد تصدير أمر البنك
+Bank order file format,تنسيق ملف أمر البنك
+Bank order file formats,تنسيقات ملف أوامر البنك
+Bank order generation,توليد أوامر البنك
+Bank order line,سطر أمر البنك
+Bank order realization,تنفيذ أمر البنك
+Bank orders,أوامر البنك / أوامر التحويل
+Bank orders can only be deleted at draft or canceled status.,لا يمكن حذف الطلبات المصرفية إلا في حالة المسودة أو الإلغاء.
+Bank payment batch,دفعة الدفع البنكي
+Bank payment config (${ name }),تكوين الدفع البنكي (${ name })
+Bank payment configuration,تكوين الدفع البنكي
+Bank payment configurations,تكوينات الدفع البنكي
+Bank reconcile amount must be inferior or equal to credit or debit.,يجب أن يكون مبلغ التسوية البنكية أقل أو مساويا للدائن أو المدين.
+Bank reconciled amount,المبلغ المطابق للبنك
+Bank reconciliation,التسوية البنكية
+Bank reconciliation Line,خط تسوية البنك
+Bank reconciliation Lines,بنود التسوية البنكية
+Bank reconciliation filters,مرشحات التسوية البنكية
+Bank reconciliation statement,بيان تسوية البنك
+Bank reconciliation statement template,نموذج بيان التسوية البنكية
+Bank reconciliations,التسويات والمطابقات البنكية
+Bank statement,كشف حساب بنكي
+Bank statement already imported. Aborted.,تم استيراد كشف الحساب البنكي بالفعل. تم إحباطه.
+Bank statement details,تفاصيل كشف الحساب البنكي
+Bank statement line AFK120 filters,سطر كشف الحساب البنكي مرشحات AFK120
+Bank statement line print wizard,معالج طباعة سطر كشف الحساب البنكي
+Bank statement lines,بنود كشف الحساب البنكي
+Bank statement lines template,قالب بنود كشف حساب البنك
+Bank statement queries,الاستعلام عن كشف الحساب البنكي
+Bank statement query,الاستعلام عن كشف حساب البنك
+Bank statement rule,قاعدة كشف الحساب البنكي
+Bank statement rules,قواعد كشف الحساب البنكي
+Bank statement(s) has been removed successfully,تمت إزالة كشف الحساب (الحسابات) البنكية بنجاح
+Bank statements file formats,تنسيقات ملفات كشف الحساب البنكي
+Bank to Bank Transfers,التحويلات من بنك إلى بنك
+Bank to bank account for external order (multiple company),حساب من بنك إلى بنك للطلب الخارجي (شركات متعددة)
+Bank to bank account for internal order (unique company),حساب من بنك إلى بنك للطلب الداخلي (شركة فريدة)
+BankDetails/Payment Mode/Interbank code configuration,البيانات البنكية/وضع الدفع/تكوين رمز Interbank
+BankOrder.partnerTypeSelect,نوع الشريك حدد
+BankReconciliation.account,الحساب (التسوية البنكية)
+BankReconciliation.amount,المبلغ (التسوية البنكية)
+BankReconciliation.cash_account,حساب نقدي (التسوية البنكية)
+BankReconciliation.code,الرمز
+BankReconciliation.company,الشركة
+BankReconciliation.credit,دائن
+BankReconciliation.currency,العملة
+BankReconciliation.debit,مدين
+BankReconciliation.journal,دفتر اليومية
+BankReconciliation.moves_unaccounted,تحركات غير محسوبة (التسوية البنكية)
+BankReconciliation.name,الاسم
+BankReconciliation.ongoing,التسوية البنكية.مستمرة
+BankReconciliation.page1Title,عنوان الصفحة 1 (التسوية البنكية)
+BankReconciliation.page2Title,عنوان الصفحة 2 (التسوية البنكية)
+BankReconciliation.reference,مرجع التسوية البنكية
+BankReconciliation.report_date,تاريخ التقرير (التسوية البنكية)
+BankReconciliation.report_edition_date,تاريخ إصدار التقرير (التسوية البنكية)
+BankReconciliation.to_date,حتى الآن (التسوية البنكية)
+BankReconciliation.type,النوع (التسوية البنكية)
+BankReconciliation.unreconciled_move_lines,بنود القيد غير المتوافقة (التسوية البنكية)
+BankReconciliationStatement.SummaryTitle,عنوان الملخص (كشف التسوية البنكية)
+BankReconciliationStatement.account,الحساب (كشف التسوية البنكية)
+BankReconciliationStatement.accountBalance,رصيد الحساب (كشف التسوية البنكية)
+BankReconciliationStatement.accountBankGap,فجوة الحساب البنكي (كشف التسوية البنكية)
+BankReconciliationStatement.accountCode,رمز الحساب (كشف التسوية البنكية)
+BankReconciliationStatement.actualBalance,التوازن الفعلي (كشف التسوية البنكية)
+BankReconciliationStatement.amountRemaining,المبلغ المتبقي (كشف التسوية البنكية)
+BankReconciliationStatement.amountToReconcile,مبلغ للتوفيق (كشف التسوية البنكية)
+BankReconciliationStatement.bankBalance,رصيد البنك (كشف التسوية البنكية)
+BankReconciliationStatement.bankDetails,البيانات البنكية
+BankReconciliationStatement.code,الرمز
+BankReconciliationStatement.company,الشركة
+BankReconciliationStatement.credit,دائن
+BankReconciliationStatement.currency,العملة
+BankReconciliationStatement.date,التاريخ
+BankReconciliationStatement.debit,مدين
+BankReconciliationStatement.description,الوصف
+BankReconciliationStatement.journal,دفتر اليومية
+BankReconciliationStatement.journalCode,رمز دفتر اليومية
+BankReconciliationStatement.line,الخط (كشف التسوية البنكية)
+BankReconciliationStatement.mainTitle,العنوان الرئيسي (كشف التسوية البنكية)
+BankReconciliationStatement.name,الاسم
+BankReconciliationStatement.noLineFoundMessage,لم يتم العثور على سطر الرسالة (كشف التسوية البنكية)
+BankReconciliationStatement.page1Title,عنوان الصفحة 1 (كشف التسوية البنكية)
+BankReconciliationStatement.page2Title,عنوان الصفحة 2 (كشف التسوية البنكية)
+BankReconciliationStatement.reconciliationGap,فجوة التسوية المحاسبية (كشف التسوية البنكية)
+BankReconciliationStatement.reference,مرجع (كشف التسوية البنكية)
+BankReconciliationStatement.unreconileAccountBalance,رصيد الحساب غير قابل للتسوية (كشف التسوية البنكية)
+BankReconciliationStatementNew.accountingBalanceOn,بيان تسوية البنكNew.accountingBalanceOn
+BankReconciliationStatementNew.accountingExtract,خلاصة محاسبية
+BankReconciliationStatementNew.balanceAfterReconcilation,بيان تسوية البنكNew.balanceAfterReconcilation
+BankReconciliationStatementNew.balanceExtractOn,استخراج الرصيد على
+BankReconciliationStatementNew.bank,بيان تسوية البنكNew.bank
+BankReconciliationStatementNew.bankStatementExtract,استخراج كشف حساب بنكي
+BankReconciliationStatementNew.comment,بيان التسوية المحاسبية المصرفيةNew.com
+BankReconciliationStatementNew.correctedDateTimeLabel,تسمية الوقت والتاريخ المصححة
+BankReconciliationStatementNew.correctedUserLabel,تسمية المستخدم المصححة
+BankReconciliationStatementNew.from,من
+BankReconciliationStatementNew.iban,بيان التسوية المحاسبية المصرفيةNew.iban
+BankReconciliationStatementNew.label,بيان تسوية البنكNew.label
+BankReconciliationStatementNew.mainTitle,العنوان الرئيسي
+BankReconciliationStatementNew.moveDate,تاريخ النقل
+BankReconciliationStatementNew.nonPostedMoveStatement,بيان التحرك غير المنشور
+BankReconciliationStatementNew.operationDate,بيان تسوية البنكNew.operationDate
+BankReconciliationStatementNew.originDate,تاريخ المصدر
+BankReconciliationStatementNew.postedNbr,بيان التسوية المحاسبية المصرفيةNew.postedNbr
+BankReconciliationStatementNew.to,إلى
+BankReconciliationStatementNew.toBeConfirmed,بيان تسوية البنكNew.toBeConfirmed
+BankReconciliationStatementNew.totalGeneralBalance,بيان تسوية البنكNew.totalالرصيد العام
+BankReconciliationStatementNew.valueDate,تاريخ القيمة
+BankStatement.Import,استيراد
+BankStatement.accountCurrency,عملة الحساب
+BankStatement.bankAccount,الحساب البنكي
+BankStatement.creationDateFrom,تاريخ الإنشاء من
+BankStatement.creationDateTo,تاريخ الإنشاء إلى
+BankStatement.credit,دائن
+BankStatement.debit,مدين
+BankStatement.exempt,معفاة
+BankStatement.finalBalance,الرصيد النهائي
+BankStatement.headerText,نص الرأس
+BankStatement.iban,ايبان
+BankStatement.initialBalance,الرصيد الأولي
+BankStatement.label,التسمية
+BankStatement.movement,حركة
+BankStatement.operationDate,تاريخ العملية
+BankStatement.origin,المصدر
+BankStatement.reference,بيان البنك.المرجع
+BankStatement.title,العنوان
+BankStatement.totalOfOperations,مجموع العمليات
+BankStatement.unavailable,كشف الحساب البنكي.غير متاح
+BankStatement.valueDate,تاريخ القيمة
+BankStatement.yes,نعم
+Batch,الدفعة
+Batch step,خطوة دفعة
+Bill of exchange bank orders sequences,تسلسل أوامر البنك للكمبيالة
+Bill of exchange data type,نوع بيانات الكمبيالة
+Bill of exchange generation,توليد كمبيالة
+Bill of exchange receivable account,حساب الكمبيالة المستحقة القبض
+Bill of exchanges,كمبيالة
+Binding file,ملف ملزم
+"By filling in this field, the selected tax will be applied to the move lines for which the tax is mandatory instead of the one filled in the configuration of the account",من خلال ملء هذا الحقل، سيتم تطبيق الضريبة المحددة على بنود القيود المحاسبية التي تكون الضريبة إلزامية عليها بدلاً من الضريبة المملوءة في تكوين الحساب
+C1 - Convention type,C1 - نوع الاتفاقية
+C1 - Receiver address: Number and name lane,C1 - عنوان جهاز الاستقبال: رقم واسم المسار
+C1 - Sequence,C1 - التسلسل
+C1-2 - Receiver reference,C1-2 - مرجع جهاز الاستقبال
+C2 - Company name,C2 - اسم الشركة
+C2 - Deposit date,C2 - تاريخ الإيداع
+C2 - Receiver address: City,C2 - عنوان جهاز الاستقبال: المدينة
+C2 - Receiver company name,C2 - اسم شركة المتلقي
+C2 - Receiver name,C2 - اسم المتلقي
+C2 - Sender company name,C2 - اسم الشركة المرسلة
+C3 - Receiver address: ZIP code,C3 - عنوان جهاز الاستقبال: الرمز البريدي
+C3 - Sender company name,C3 - اسم الشركة المرسلة
+Can't load while another reconciliation is open,لا يمكن التحميل أثناء فتح تسوية أخرى
+Cancel,إلغاء
+Cancel bill of exchange,إلغاء الكمبيالة
+Canceled,ملغي
+Cancellation of Bill of Exchange for invoice %s,إلغاء سند الصرف للفاتورة %s
+Carried out,تم
+Carry out,نفذ
+Cash account,حساب نقدي
+Cash out after expiration of unpaid bill's return period,السحب بعد انتهاء فترة إرجاع الفاتورة غير المدفوعة
+Cheque,تحقق
+Code,الرمز
+Collection and credit lump sum after maturity,تحصيل وائتمان المبلغ المقطوع بعد الاستحقاق
+Comment,تعليق
+Commission exemption index,مؤشر الإعفاء من العمولة
+Company,الشركة
+Company bank details is missing in batch.,التفاصيل المصرفية للشركة مفقودة دفعة واحدة.
+Company currency,عملة الشركة
+Company currency amount,مبلغ عملة الشركة
+Company for which the configurations are set.,الشركة التي تم تعيين التكوينات لها.
+Company is missing.,الشركة مفقودة.
+Compute balances,حساب الأرصدة
+Computed Balance,الرصيد المحسوب
+Computed balance in accounting and Ending Balance of the statement should be equal to validate the Statement,يجب أن يكون الرصيد المحسوب في المحاسبة والرصيد الختامي للبيان مساوياً للتحقق من صحة البيان
+Confidence index,مؤشر الثقة
+Config. per country,التكوين. لكل دولة
+Confirm,تأكيد
+Confirm auto. the bank orders,تأكيد تلقائي. أوامر البنك
+Confirmed,مؤكد
+Consolidate bank order lines per partner,توحيد بنود الأوامر البنكية لكل شريك
+Correct,صحيح
+Corrected,تم التصحيح
+Corrected date time,التاريخ والوقت المصحح
+Corrected user,تصحيح المستخدم
+Correction,تصحيح
+Counter,عداد
+Counterpart account,الحساب النظير
+Country,الدولة
+Credit,دائن
+Credit Transfers,التحويلات البنكية الدائنة / أوامر الدفع
+Credit transfer bank orders sequences,تسلسل أوامر التحويل البنكي
+CreditTransferPartnerReimbursement (batch),CreditTransferPartnerReimbursement (دفعة)
+Currency,العملة
+Currency in company bank details is missing.,العملة في التفاصيل المصرفية للشركة مفقودة.
+Current bank statement doesn't contain a final line,كشف الحساب البنكي الحالي لا يحتوي على سطر نهائي
+Current bank statement doesn't contain an initial line,كشف الحساب البنكي الحالي لا يحتوي على سطر أولي
+Current bank statement's initial balance does not match previous bank statement's final balance,الرصيد الأولي لكشف الحساب البنكي الحالي لا يتطابق مع الرصيد النهائي لكشف الحساب البنكي السابق
+Customer,عميل
+Customer invoices,فواتير العملاء
+D1 - Bank address,D1 - عنوان البنك
+D1 - Bank domiciliation,د1 - توطين البنك
+D1 - Sender bank address,D1 - عنوان بنك المرسل
+D1-1 - Bank order sequence,D1-1 - تسلسل أمر البنك
+D2-1 - Acceptation,د2-1 - القبول
+D2-1 - Entry code,D2-1 - رمز الإدخال
+D2-2 - Daily code,D2-2 - الكود اليومي
+D2-3 - Currency code,D2-3 - رمز العملة
+D3 - Receiver bank code,D3 - رمز البنك المتلقي
+D3 - Sender bank code,D3 - رمز البنك المرسل
+D3 - Sort code,D3 - رمز الترتيب
+D4 - Account number,د4 - رقم الحساب
+D4 - Receiver bank sort code,D4 - رمز فرز البنك المتلقي
+D4 - Sender bank sort code,D4 - رمز فرز البنك المرسل
+D5 - Receiver bank account number,D5 - رقم الحساب البنكي للمستلم
+D5 - Sender bank account number,D5 - رقم الحساب البنكي للمرسل
+Dailly code,الكود اليومي
+Date,التاريخ
+Debit,مدين
+Decrypt and download file,فك تشفير وتحميل الملف
+Decrypt file,فك تشفير الملف
+Decrypt file password,فك تشفير كلمة مرور الملف
+Decrypt file to send,فك تشفير الملف لإرسال
+Decrypt generated file,فك تشفير الملف الذي تم إنشاؤه
+Default Currency,العملة الافتراضية
+Default additional information,المعلومات الإضافية الافتراضية
+Default economic reason,السبب الاقتصادي الافتراضي
+Default fees imputation,احتساب الرسوم الافتراضية
+Default payment Mode,وضع الدفع الافتراضي
+Default receiver country,بلد الاستقبال الافتراضي
+Default signatory,الموقع الافتراضي
+Delete,حذف
+Description,الوصف
+Description label,تسمية الوصف
+Direct Debits,الخصم المباشر
+Direct debit,الخصم المباشر
+Direct debit bank orders sequences,تسلسل أوامر البنك بالخصم المباشر
+Direct debit data type,نوع بيانات الخصم المباشر
+Discounted transfer under a Dailly agreement,تحويل مخفض بموجب اتفاقية يومية
+Display additional information,عرض معلومات إضافية
+Display economic reason,عرض السبب الاقتصادي
+Display fees imputation,عرض احتساب الرسوم
+Display further information,عرض مزيد من المعلومات
+Display payment mode,عرض طريقة الدفع
+Display receiver address,عرض عنوان جهاز الاستقبال
+Display receiver country,عرض بلد المتلقي
+Display the invoice,عرض الفاتورة
+Draft,مسودة
+Due date,تاريخ الاستحقاق
+Duration (days) of the semi-interval of convidence for the dates,مدة (أيام) نصف فترة الثقة للتواريخ
+E - Bank order amount,هـ - مبلغ أمر البنك
+E - Mandatory area,هـ - المنطقة الإلزامية
+E1 - Amount,E1 - المبلغ
+E1 - Total amount,E1 - المبلغ الإجمالي
+E2 - Mandatory area,E2 - منطقة إلزامية
+Each (un)reconciliation with the status 'Under correction' updates immediately the reconciled amount of the relevant line,"كل تسوية (غير) بالحالة ""تحت التصحيح"" تقوم فورًا بتحديث مبلغ التسوية للسطر ذي الصلة"
+Economic reason,سبب اقتصادي
+Effect Date,تاريخ النفاذ
+Email adress is missing for partner %s,عنوان البريد الإلكتروني مفقود للشريك %s
+Employee,موظف
+Enable bank order file encryption,تمكين تشفير ملف الطلب البنكي
+Ending Balance,الرصيد الختامي
+Ent. Credit,دائن
+Ent. Currency,العملة
+Ent. Debit,مدين
+Entry,دخول
+Entry code,رمز الدخول
+Equivalent amount in sender bank details' currency,مبلغ معادل بعملة البيانات البنكية المرسل
+Error during file decryption.,حدث خطأ أثناء فك تشفير الملف.
+Error while reading the csv file. Make sure that decimal values use a dot and not a comma.,حدث خطأ أثناء قراءة ملف CSV. تأكد من أن القيم العشرية تستخدم نقطة وليس فاصلة.
+Error while reading the input XML file.,حدث خطأ أثناء قراءة ملف XML للإدخال.
+Error: File format unmarshalling process failed.,خطأ: فشلت عملية إلغاء تنظيم تنسيق الملف.
+Error: No bank statement found.,خطأ: لم يتم العثور على كشف حساب بنكي.
+Error: The bank details doesn't exist.,خطأ: البيانات البنكية غير موجودة.
+Exempt,معفى
+Expense,مصروف / نفقة
+Export file,تصدير الملف
+F - Receiver label,F - تسمية المتلقي
+F1 - Due date,F1 - تاريخ الاستحقاق
+F1 - Value's date,F1 - تاريخ القيمة
+F2-1 - Creation date,F2-1 - تاريخ الإنشاء
+F3 - Sender bank siren number,F3 - رقم صفارة الإنذار للبنك المرسل
+F3 - Sender company siren number,F3 - رقم صفارة الشركة المرسلة
+F3-4 - SIREN number,F3-4 - رقم صفارة الإنذار
+Failed to create a move for the invoice payment.,فشل في إنشاء عملية دفع الفاتورة.
+Failed to create bank order from invoice payment,فشل في إنشاء أمر بنكي من دفع الفاتورة
+Fees imputation,احتساب الرسوم
+"Field indicating the confidence index for automatic reconcile. Green dot means 'Equal amount and date in range', orange dot means 'Equal amount and date out of range', red dot means 'Amount and date in range'","حقل يشير إلى مؤشر الثقة للتسوية التلقائية. النقطة الخضراء تعني ""المبلغ والتاريخ المتساويان في النطاق""، والنقطة البرتقالية تعني ""المبلغ والتاريخ المتساويان خارج النطاق""، والنقطة الحمراء تعني ""المبلغ والتاريخ في النطاق"""
+File,الملف
+File format,تنسيق الملف
+File generation date,تاريخ إنشاء الملف
+File generation supported,دعم إنشاء الملفات
+File to send,ملف للإرسال
+Files,الملفات
+Final balance,الرصيد النهائي
+Final balance btn,الرصيد النهائي btn
+Financial Discount,الخصم المالي
+Financial Discount in value,الخصم المالي بالقيمة
+"For the rules of type 'Move line's fetching', the 'Payment account management' record selected is only used to select the right bank account and company on which the rule applies and doesn't take into account the payment mode.","بالنسبة للقواعد من النوع ""جلب بند القيد""، يتم استخدام سجل ""إدارة حساب الدفع"" المحدد فقط لتحديد الحساب البنكي المناسب والشركة المناسبة التي تنطبق عليها القاعدة ولا يأخذ في الاعتبار وضع الدفع."
+From,من
+From Date,من التاريخ
+From accounting entry,من القيد المحاسبي
+Fully reconciled ?,مُسوّاة ومُطابقة تماما؟
+Functional Origin,مصدر القيد / المستند المنشئ
+Further information,مزيد من المعلومات
+G - Deposit reference,ز - مرجع الإيداع
+G - Sender reference,G - مرجع المرسل
+G1 - Bank code,G1 - رمز البنك
+G1 - Bank establisment code,G1 - رمز تأسيس البنك
+General,عام
+Generate Bank order,إنشاء أمر بنكي
+Generate bank payment configurations,إنشاء تكوينات الدفع البنكي
+Generated entry customized labels,تم إنشاء تسميات مخصصة للإدخال
+Generated file,الملف الذي تم إنشاؤه
+Get date,احصل على التاريخ
+Global attributes,السمات العالمية
+Green,أخضر
+Hybrid,هجين
+ICS Number,رقم ICS
+"If checked, the bank order form view will use an editor widget, which simplifies data entry but may cause performance issues when the bank order has too many lines.",في حالة تحديده، ستستخدم طريقة عرض نموذج الطلب البنكي عنصر واجهة المستخدم للمحرر، مما يعمل على تبسيط إدخال البيانات ولكنه قد يتسبب في حدوث مشكلات في الأداء عندما يحتوي الأمر البنكي على عدد كبير جدًا من الأسطر.
+"If enabled, on the bank reconciliation form, when the Load statement button is clicked, automatic accounting will be executed.",إذا تم تمكينه، في نموذج التسوية البنكية، عند النقر فوق زر تحميل كشف الحساب، سيتم تنفيذ المحاسبة التلقائية.
+Import,استيراد
+Imported,مستورد
+Include other bank statements,قم بتضمين بيانات البنك الأخرى
+Initial balance,الرصيد الأولي
+Interbank code/Payment mode,رمز ما بين البنوك/وضع الدفع
+Interbank payment order,أمر الدفع بين البنوك
+International Bank to Bank Transfers,البنك الدولي للتحويلات البنكية
+International Credit Transfer,تحويل الرصيد الدولي
+International Credit Transfers,التحويلات البنكية الدولية الدائنة
+International Direct Debit,الخصم الدولي المباشر
+International Direct Debits,الخصم المباشر الدولي
+International Treasury transfer,تحويل الخزينة الدولية
+International credit transfers,التحويلات البنكية الدولية الدائنة
+International direct debits,الخصم المباشر الدولي
+International treasury transfers,تحويلات الخزينة الدولية
+Invoice,فاتورة
+Invoice term,شرط الدفع للفاتورة
+Invoices to be processed,الفواتير التي ستتم معالجتها
+Is posted,تم النشر
+Is selected bank reconciliation,تم تحديد التسوية البنكية
+Journal,دفتر اليومية
+Journals,دفاتر اليومية
+LCR,إل سي آر
+LCR Bank orders,أوامر بنك LCR
+LCR bank orders,أوامر بنك LCR
+Label,التسمية
+"Legend for dynamic parameter manage in bank payment config : %amt+ for a tolerance of +X% on amount, %amt- for -X%, %date for a tolerance of + or - X days",وسيلة إيضاح لإدارة المعلمات الديناميكية في تكوين الدفع البنكي: %amt+ لتفاوت +X% على المبلغ، %amt- لـ -X%، %date لتفاوت + أو - X من الأيام
+Lettering to invoice,كتابة الفاتورة
+Line type,نوع الخط
+Load bank statements,تحميل كشوفات البنك
+Load other bank statements,تحميل بيانات البنك الأخرى
+Manage bank to bank transfer payment,إدارة الدفع بالتحويل البنكي إلى البنك
+Manage bill of exchange,إدارة الكمبيالة
+Manage credit transfer payment,إدارة دفع تحويل الرصيد
+Manage direct debit payment,إدارة الدفع بالخصم المباشر
+Manual,دليل
+Merge bank orders,دمج أوامر البنك
+Missing bank statement file,ملف كشف حساب البنك مفقود
+Missing bank statement file format,تنسيق ملف كشف الحساب البنكي مفقود
+Missing journal while creating a move from a bank reconciliation.,دفتر اليومية مفقود أثناء إنشاء عملية نقل من التسوية البنكية.
+Monthly payment schedules,جداول الدفع الشهرية
+MonthlyPaymentScheduleLines (batch),خطوط جدول الدفع الشهرية (دفعة)
+Move,قيد محاسبي
+Move Line,بند القيد المحاسبي
+Move line,بند القيد المحاسبي
+Move line's fetch query,نقل استعلام جلب السطر
+Move line's fetching,نقل جلب الخط
+Move line's query formula has not been evaluated to a Move line,لم يتم تقييم صيغة استعلام بند القيد إلى خط نقل
+Move lines,بنود القيود المحاسبية
+Movement,الحركة
+Moves amount remaining to reconcile,ينقل المبلغ المتبقي للتسوية
+Moves generated,القيود المحاسبية المولدة
+Moves ongoing reconciled balance,تحريك رصيد التسوية المستمر
+Moves reconciled line balance,تحريك توازن الخط التوفيقي
+Moves theoretical balance,يحرك التوازن النظري
+Moves unreconciled line balance,نقل رصيد الخط غير المطابق
+Multicurrency,متعددة العملات
+Multidate,متعدد
+Multiple reconcile,التوفيق المتعدد
+Multiple reconciles,تسويات ومطابقات متعددة
+Name,الاسم
+National Bank to Bank Transfers,البنك الوطني للتحويلات البنكية
+National Treasury transfer,نقل الخزينة الوطنية
+National treasury transfer,نقل الخزينة الوطنية
+Nbt:%s,ملحوظة:%s
+New theoretical balance,التوازن النظري الجديد
+No address has been defined in the receiver %s,لم يتم تعريف أي عنوان في جهاز الاستقبال %s
+No address has been defined in the sender company %s,لم يتم تعريف أي عنوان في شركة المرسل %s
+No bank orders found,لم يتم العثور على طلبات بنكية
+No folder path has been defined in the payment mode %s,لم يتم تعريف أي مسار للمجلد في وضع الدفع %s
+No indication,لا يوجد إشارة
+No processed payment schedule lines,لا توجد بنود جدول الدفع التي تمت معالجتها
+None,لا شيء
+Not accepted LCR,غير مقبول LCR
+Not exempt,ليست معفاة
+Not reconciled and onGoing,غير مُسوّاة ومُطابقة ومستمرة
+Not rejected,لم يتم الرفض
+Number of lines,عدد الأسطر
+Only validated payment schedule lines can be rejected.,يمكن رفض بنود جدول الدفع التي تم التحقق منها فقط.
+Opening and closing balance don't match with the sum of movements.,الرصيد الافتتاحي والختامي لا يتطابقان مع مجموع الحركات.
+Operation Code,كود التشغيل
+Operation date,تاريخ العملية
+Orange,برتقالي
+Order Type,نوع الطلب
+Order debit type,نوع الخصم للطلب
+Order overall debit,طلب الخصم الإجمالي
+Origin,الأصل
+Origin label,تسمية الأصل
+Origins,أصول
+Other,أخرى
+Other bank order types,أنواع أوامر البنك الأخرى
+Overall debit by transfer currency,إجمالي الخصم بعملة التحويل
+Parent payment schedule cannot be null.,لا يمكن أن يكون جدول الدفع الأصلي خاليًا.
+Partially reconciled bank statement line,سطر كشف حساب بنكي تمت تسويته جزئيًا
+Partially rejected,مرفوض جزئيا
+Partner,شريك أعمال
+Partner active UMR is missing.,الشريك UMR النشط مفقود.
+Partner fetch's method,طريقة جلب الشريك
+Partner is missing.,الشريك مفقود.
+Partner's fetch query,استعلام جلب الشريك
+Partner's fetching,جلب الشريك
+Partner's query formula has not been evaluated to a Partner,لم يتم تقييم صيغة استعلام الشريك إلى شريك
+Password,كلمة المرور
+Payment Mode,طريقة الدفع
+Payment Reason,سبب الدفع
+Payment account management,إدارة حساب الدفع
+Payment method is missing.,طريقة الدفع مفقودة.
+Payment mode is missing on the invoice %s,وضع الدفع مفقود في الفاتورة %s
+Payment reason line1,سبب الدفع السطر 1
+Payment reason line2,سبب الدفع السطر 2
+Payment reason line3,سبب الدفع سطر 3
+Payment reason line4,سبب الدفع السطر 4
+Payment schedule,جدول الدفع
+Payment schedule line,خط جدول الدفع
+Payment schedule line cannot be null.,لا يمكن أن يكون سطر جدول الدفع خاليًا.
+Payment schedule line rejection,رفض سطر جدول الدفع
+Payment schedule line rejection filters,مرشحات رفض سطر جدول الدفع
+Payment schedule lines,خطوط جدول الدفع
+Payment schedule lines to reject,بنود جدول الدفع المراد رفضها
+Payment schedules,جداول السداد
+Payment session,جلسة الدفع
+Piece dates,مواعيد القطعة
+Piece due dates,مواعيد تسليم القطعة
+Piece references,مراجع القطعة
+Please add an Active UMR to the partner %s for the bank details %s.,الرجاء إضافة UMR نشط إلى الشريك %s للحصول على البيانات البنكية %s.
+Please fill bank order date,يرجى ملء تاريخ الطلب البنكي
+Please fill bank order type,يرجى ملء نوع الطلب البنكي
+Please fill partner type for the bank order,يرجى ملء نوع الشريك للطلب البنكي
+Please fill the address in %s's partner details.,الرجاء ملء العنوان في تفاصيل شريك %s.
+Please fill the bank address in the receiver bank details.,يرجى ملء عنوان البنك في البيانات البنكية المتلقي.
+Please fill the bank details,يرجى ملء البيانات البنكية
+Please fill the bank in the receiver bank details.,يرجى ملء البنك في البيانات البنكية المتلقي.
+Please fill the bank order file format on the payment mode %s,الرجاء ملء تنسيق ملف الطلب البنكي في وضع الدفع %s
+Please fill the city in %s's partner details.,الرجاء ملء المدينة في تفاصيل شريك %s.
+Please fill the receiver bank details,يرجى ملء البيانات البنكية المتلقي
+Please fill the sender bank details currency.,يرجى ملء عملة البيانات البنكية المرسل.
+Please fill the sender company,الرجاء تعبئة اسم الشركة المرسلة
+Please fill the zip in %s's partner details.,الرجاء ملء الملف المضغوط بتفاصيل شريك %s.
+"Please input here the expected text to be filled into the description field for the accounting entry to be generated by this rule. Label can be a simple text or computed through a groovy formula with starting point the bank reconciliation line. If no custom label input, then the system will use by default the description field of the bank reconciliation line. As a reminder, description label must be 255 char. max.",يرجى إدخال النص المتوقع ملؤه هنا في حقل الوصف حتى يتم إنشاء الإدخال المحاسبي بواسطة هذه القاعدة. يمكن أن تكون التسمية عبارة عن نص بسيط أو يتم حسابها من خلال صيغة رائعة مع نقطة البداية في سطر تسوية البنك. إذا لم يتم إدخال تسمية مخصصة، فسيستخدم النظام بشكل افتراضي حقل الوصف الخاص ببند التسوية البنكية. للتذكير، يجب أن يكون عنوان الوصف 255 حرفًا. الأعلى.
+"Please input here the expected text to be filled into the origin field for the accounting entry to be generated by this rule. Label can be a simple text or computed through a groovy formula with starting point the bank reconciliation line. If no custom label input, then the system will use by default the reference field of the bank reconciliation line. As a reminder, label must be 255 char. max.",يرجى إدخال النص المتوقع أن يتم ملؤه هنا في حقل الأصل حتى يتم إنشاء الإدخال المحاسبي بواسطة هذه القاعدة. يمكن أن تكون التسمية عبارة عن نص بسيط أو يتم حسابها من خلال صيغة رائعة مع نقطة البداية في سطر تسوية البنك. إذا لم يتم إدخال تسمية مخصصة، فسيستخدم النظام بشكل افتراضي الحقل المرجعي لبند التسوية البنكية. للتذكير، يجب أن يكون حجم التسمية 255 حرفًا. الأعلى.
+Please select a cash account in the bank statement rule %s,الرجاء تحديد حساب نقدي في قاعدة كشف الحساب البنكي %s
+Please select a company for the bank order lines inserted,الرجاء تحديد شركة لسطور الأوامر البنكية المدرجة
+Please select a counterpart account in the bank statement rule %s,الرجاء تحديد حساب مقابل في قاعدة كشف الحساب البنكي %s
+Please select a partner for the bank order lines inserted,الرجاء تحديد شريك لبنود الأمر البنكي المدرجة
+Please select a payment mode,الرجاء تحديد طريقة الدفع
+Please select at least one bank reconciliation line (button on right side of table).,يرجى تحديد سطر تسوية بنكي واحد على الأقل (الزر الموجود على الجانب الأيمن من الجدول).
+Please select at least one bank reconciliation line for multiple reconciles,الرجاء تحديد بند تسوية بنكية واحد على الأقل لإجراء تسويات متعددة
+Please select at least two bank orders,يرجى تحديد طلبين مصرفيين على الأقل
+Please select draft bank orders only,الرجاء تحديد مسودات الأوامر البنكية فقط
+Please select one bank reconciliation line,الرجاء تحديد بند تسوية بنك واحد
+Please select one bank statement line and one accounting move line,يرجى تحديد سطر كشف حساب بنكي واحد وسطر قيد محاسبي واحد
+Please select one move line,الرجاء تحديد خط نقل واحد
+Please select some bank orders that have the same currency,الرجاء تحديد بعض الأوامر البنكية التي لها نفس العملة
+Please select some bank orders that have the same partner type,يرجى تحديد بعض الطلبات المصرفية التي لها نفس نوع الشريك
+Please select some bank orders that have the same payment mode,يرجى تحديد بعض الطلبات البنكية التي لها نفس طريقة الدفع
+Please select some bank orders that have the same sender bank details,يرجى تحديد بعض الطلبات المصرفية التي لها نفس البيانات البنكية المرسل
+Please select some bank orders that have the same sender company,الرجاء تحديد بعض الطلبات البنكية التي لها نفس الشركة المرسلة
+Please select some bank orders that have the same status,الرجاء تحديد بعض الأوامر البنكية التي لها نفس الحالة
+Please select statements,الرجاء تحديد العبارات
+Please set a currency in the sender bank details : %s.,يرجى ضبط العملة في البيانات البنكية المرسل: %s.
+Pledge of receivables under a Dailly agreement,رهن المستحقات بموجب اتفاقية يومية
+Postal address format,تنسيق العنوان البريدي
+Posted number,الرقم المرسل
+Print,طباعة
+Print bank statement lines,طباعة خطوط كشف الحساب البنكي
+Printings,مطبوعات
+Qualifying of amount,مؤهل المبلغ
+Qualifying of date,تاريخ التأهل
+Query,استعلام
+Received,تم الاستلام
+Receiver,المتلقي
+Receiver Info.,معلومات المتلقي.
+Receiver address,عنوان المتلقي
+Receiver address required,عنوان المتلقي مطلوب
+Receiver country,بلد الاستقبال
+Receiver move,تحرك المتلقي
+Reconcile selected,التوفيق بين المحدد
+Reconciled bank statement line,سطر كشف حساب البنك المطابق
+Reconciled move lines,بنود القيود المحاسبية المُسوّاة ومُطابقة
+Reconciliation auto,التسوية الآلية
+Reconciliation corrected at,تم تصحيح التسوية المحاسبية في
+Red,أحمر
+Reference,المرجع
+Reimbursement,السداد
+Reject,رفض
+Reject Move,رفض النقل
+Reject Reason,سبب الرفض
+Reject information,رفض المعلومات
+Reject selected lines,رفض الأسطر المحددة
+Rejected,مرفوض
+Rejection Status,حالة الرفض
+Rejection date,تاريخ الرفض
+Rejection reason,سبب الرفض
+Rejects/Return Reason Code,رمز سبب الرفض/الإرجاع
+Related to,ذات صلة ب
+Related to select,ذات صلة لتحديد
+Remains to be reconciled,يبقى للتصالح
+Represent,تمثل
+Reveiver and sender,المرسل والمرسل
+Rule type,نوع القاعدة
+Run bank reconciliation,تشغيل تسوية بنكية
+SEPA Bank to Bank Transfers,التحويلات البنكية من بنك SEPA
+SEPA Credit Transfer,تحويل رصيد سيبا
+SEPA Credit Transfers,التحويلات البنكية لمنطقة SEPA
+SEPA Direct Debit,الخصم المباشر لمنطقة SEPA
+SEPA Direct Debits,الخصم المباشر لمنطقة SEPA
+SEPA credit transfers,التحويلات البنكية لمنطقة SEPA
+SEPA direct debits,الخصم المباشر لمنطقة SEPA
+Search and accounting rule Config.,تكوين قاعدة البحث والمحاسبة.
+Searched label,التسمية التي تم البحث عنها
+See Bank Order Lines,راجع خطوط أوامر البنك
+See bank statement lines,راجع بنود كشف الحساب البنكي
+Select,حدد
+Select / Unselect,تحديد / إلغاء التحديد
+Select move lines to reconciles,حدد بنود القيود المحاسبية للتوفيق بين
+Selected bank reconciliation is under correction and can not be deleted,التسوية البنكية المحددة قيد التصحيح ولا يمكن حذفها
+Selected bank reconciliation is validated and can not be deleted,تم التحقق من صحة التسوية البنكية المحددة ولا يمكن حذفها
+Selection total for bank reconciliation lines,إجمالي التحديد لبنود التسوية البنكية
+Selection total for unreconciliated move lines,إجمالي التحديد لبنود القيد غير التوفيقية
+Send a Bank Order,إرسال أمر تحويل بنكي
+Send a bank order,إرسال أمر تحويل بنكي
+Send bank order,إرسال أمر البنك
+Send note bills,إرسال فواتير مذكرة
+Sender,المرسل
+Sender Bank details,تفاصيل بنك المرسل
+Sender Company,شركة المرسل
+Sender Info.,معلومات المرسل.
+Sending date,تاريخ الإرسال
+Sent to bank,تم الإرسال إلى البنك
+Seq.,تسلسل.
+Sequence,التسلسل
+Sequence is already used,التسلسل مستخدم بالفعل
+Show reconciled move lines,إظهار بنود القيود المحاسبية التوفيقية
+Some entries from the reconciliation have an empty moveLine and an account filled. The cash account is required to generate automatically the counterpart Move Lines for those entries.,تحتوي بعض الإدخالات من التسوية على خط نقل فارغ وحساب مملوء. الحساب النقدي مطلوب لإنشاء بنود القيود المحاسبية النظيرة تلقائيًا لتلك الإدخالات.
+Some entries from the reconciliation have an empty moveLine and an account filled. The journal is required to generate automatically the Move/Move Lines for those entries.,تحتوي بعض الإدخالات من التسوية على خط نقل فارغ وحساب مملوء. مطلوب من دفتر اليومية إنشاء بنود القيود المحاسبية/النقل تلقائيًا لتلك الإدخالات.
+Some move lines are linked to a validated bank reconciliation and should not be modified.,ترتبط بعض بنود النقل بتسوية بنكية تم التحقق من صحتها ولا ينبغي تعديلها.
+Special instructions,تعليمات خاصة
+Special instructions line1,سطر التعليمات الخاصة 1
+Special instructions line2,سطر التعليمات الخاصة 2
+Special instructions line3,سطر التعليمات الخاصة 3
+Specific attributes,سمات محددة
+Specific tax,ضريبة محددة
+Starting Balance,رصيد البداية
+Statement amount remaining to reconcile,كشف المبلغ المتبقي للتسوية
+Statement ongoing reconciled balance,بيان رصيد التسويات الجارية
+Statement reconciled line balance,بيان تسوية رصيد السطر
+Statement theoretical balance,بيان التوازن النظري
+Statement unrereconciled line balance,كشف رصيد سطر غير مطابق
+Status,الحالة
+Stm. Credit,دائن
+Stm. Debit,مدين
+Structured,مهيكل
+Supplier,مورد
+Technical Origin,الأصل الفني
+Template,القالب
+Test function,وظيفة الاختبار
+"The Iban is mandatory for the partner %s, bank order %s",رقم Iban إلزامي للشريك %s، أمر مصرفي %s
+The bank details %s attached to the invoice/ invoice term %s and to the partner %s is inactive. Only invoices with active bank details can be processed.,البيانات البنكية %s المرفقة بالفاتورة/مصطلح الفاتورة %s وبالشريك %s غير نشطة. يمكن معالجة الفواتير التي تحتوي على تفاصيل بنكية نشطة فقط.
+The bank details type is not compatible with the accepted types in file format.,نوع البيانات البنكية غير متوافق مع الأنواع المقبولة في تنسيق الملف.
+The bank order %s has been generated successfully.,تم إنشاء الأمر البنكي %s بنجاح.
+The bank reconciliation currency is different from the bank details currency so the reconciliation cannot be initiated. Please select a currency which is equal to the bank statement currency.,تختلف عملة التسوية البنكية عن عملة البيانات البنكية، لذلك لا يمكن بدء التسوية. يرجى تحديد عملة تساوي عملة كشف الحساب البنكي.
+The company %s does not have bank order sequence,الشركة %s ليس لديها تسلسل أمر مصرفي
+The field encryption.bankorder.password in config file must be filled.,يجب ملء الحقلcryption.bankorder.password في ملف التكوين.
+The following postal addresses do not meet the SEPA structured address requirements:,العناوين البريدية التالية لا تفي بمتطلبات العنوان المهيكل لـ SEPA:
+The move %s can't be reversed because it is linked to a bank reconciliation with status validated,لا يمكن عكس الحركة %s لأنها مرتبطة بتسوية بنكية بحالة تم التحقق من صحتها
+The movelines %s are already reconciled with another bank statement line. Multiple bank statement lines can't be reconciled with the same move line.,تمت تسوية بنود القيود المحاسبية %s بالفعل مع سطر كشف حساب بنكي آخر. لا يمكن تسوية بنود كشف حساب بنكية متعددة مع نفس بند القيد.
+The moves %s couldn't be reversed because these are linked to a bank reconciliation with status validated,لا يمكن عكس الحركات %s لأنها مرتبطة بتسوية بنكية مع التحقق من صحة الحالة
+The password is incorrect.,كلمة المرور غير صحيحة.
+The payment status will not update.,لن يتم تحديث حالة الدفع.
+The postal address format %s is not supported by the file format %s.,تنسيق العنوان البريدي %s غير مدعوم في تنسيق الملف %s.
+The receiver bank details currency is not compatible with the currency in bank order.,عملة البيانات البنكية المستلم غير متوافقة مع العملة الموجودة في الطلب البنكي.
+The receiver bank details for the line %s is inactive.,البيانات البنكية المستلم للسطر %s غير نشطة.
+The receiver bank details type is not compatible with the accepted types in file format.,نوع البيانات البنكية المتلقي غير متوافق مع الأنواع المقبولة في تنسيق الملف.
+"The recipient partner attached to the employee does not have an associated bank account, please create one.",الشريك المتلقي المرتبط بالموظف ليس لديه حساب مصرفي مرتبط، يرجى إنشاء حساب.
+"The selected bank statement doesn't contain, at the lines level, any information allowing to identify which bank details it concerns. Please verify the format of the data source or the configuration of the bank details in the software and please make sure both are matching.",لا يحتوي كشف الحساب البنكي المحدد، على مستوى البنود، على أي معلومات تسمح بتحديد البيانات البنكية المعنية. يرجى التحقق من تنسيق مصدر البيانات أو تكوين البيانات البنكية في البرنامج والرجاء التأكد من تطابقهما.
+The sender bank details currency is not compatible with the currency in bank order.,عملة البيانات البنكية المرسل غير متوافقة مع العملة الموجودة في الطلب البنكي.
+The sender bank details is inactive.,تفاصيل بنك المرسل غير نشطة.
+The validation of this payment session is supposed to generate a bank order with multiple execution dates while the file format associated with the payment mode does not support the multidate. Please select an adequate file format within the payment mode settings or change the parameter for the accounting date selection.,من المفترض أن يؤدي التحقق من صحة جلسة الدفع هذه إلى إنشاء أمر بنكي بتواريخ تنفيذ متعددة بينما لا يدعم تنسيق الملف المرتبط بوضع الدفع التواريخ المتعددة. يرجى تحديد تنسيق ملف مناسب ضمن إعدادات وضع الدفع أو تغيير المعلمة لاختيار تاريخ المحاسبة.
+There is at least one incomplete bank reconciliation. Are you sure you want to continue?,توجد تسوية بنكية واحدة غير مكتملة على الأقل. هل أنت متأكد أنك تريد الاستمرار؟
+There is no file linked to this origin.,لا يوجد ملف مرتبط بهذا الأصل.
+"This action is irreversible, do you want to continue ?",هذا الإجراء لا يمكن التراجع عنه، هل تريد المتابعة؟
+This allows encrypting bank order files according to the properties file settings. Enabling this option will not encrypt old files.,يتيح ذلك تشفير ملفات الأوامر البنكية وفقًا لإعدادات ملف الخصائص. لن يؤدي تمكين هذا الخيار إلى تشفير الملفات القديمة.
+This configuration enables bank-to-bank transfer payment management directly from the application.,يتيح هذا التكوين إدارة الدفع بالتحويل من بنك إلى بنك مباشرةً من التطبيق.
+"This configuration enables bill of exchange management, meaning you can manage bank orders of LCR type (lettre de change releve).",يتيح هذا التكوين إدارة الكمبيالات، مما يعني أنه يمكنك إدارة الأوامر البنكية من نوع LCR (lettre de Change releve).
+This configuration enables credit transfer payment management directly from the application.,يتيح هذا التكوين إدارة دفع تحويل الائتمان مباشرة من التطبيق.
+This configuration enables direct debit payment management directly from the application.,يتيح هذا التكوين إدارة الدفع بالخصم المباشر مباشرة من التطبيق.
+"This field, when checked, enables the automatic pointing function during bank reconciliation sessions. Pointing can also be done manually as a complement.",يؤدي هذا الحقل، عند تحديده، إلى تمكين وظيفة التأشير التلقائي أثناء جلسات التسوية البنكية. يمكن أيضًا إجراء الإشارة يدويًا كمكمل.
+This move line %s can not be archived because its bank reconciliation amount is superior to 0.,لا يمكن أرشفة بند القيد %s هذا لأن مبلغ التسوية البنكية الخاص به أكبر من 0.
+To,إلى
+To Date,حتى الآن
+"To use the generated move in the formula, you can use the variable 'generatedMove'",لاستخدام الحركة التي تم إنشاؤها في الصيغة، يمكنك استخدام المتغير 'generatedMove'
+Total amount,المبلغ الإجمالي
+Total amount in company currency,المبلغ الإجمالي بعملة الشركة
+Total amount of bank order lines must be equal to the bank order amount,يجب أن يكون المبلغ الإجمالي لبنود الأمر البنكي مساوياً لمبلغ الأمر البنكي
+Total cashed,إجمالي الأموال النقدية
+Total of selected move lines,إجمالي بنود القيود المحاسبية المحددة
+Total paid,إجمالي المبلغ المدفوع
+Totally rejected,مرفوض تماما
+Transfer or other,نقل أو غيره
+Treasury transfer Bank orders sequences,تحويلات الخزينة تسلسل أوامر البنك
+Type,النوع
+Unavailability index,مؤشر عدم التوفر
+Unavailable,غير متاح
+Under correction,تحت التصحيح
+Unit debit by operation,خصم الوحدة بالعملية
+Unknown SEPA type for file generation,نوع SEPA غير معروف لإنشاء الملف
+Unknown direct debit data type,نوع بيانات الخصم المباشر غير معروف
+Unknown format for file generation,تنسيق غير معروف لإنشاء الملف
+Unknown format for file import process,تنسيق غير معروف لعملية استيراد الملف
+Unreconcile selected,تم تحديد عدم التوفيق
+Unreconciled and On-going Reconciliation MoveLines,بنود القيود غير المُسوّاة وقيد التسوية
+Unreconciled bank statement line,سطر كشف حساب بنكي لم تتم تسويته
+Use editor in bank order form,استخدم المحرر في نموذج الطلب البنكي
+Use iban only,استخدم الآيبان فقط
+Validate,التحقق من صحة
+Validate reconciliation,التحقق من صحة التسوية المحاسبية
+Validated,معتمد / مؤكد
+Validated By,تم التحقق من صحته بواسطة
+Validated On,تم التحقق من صحته
+Validation date,تاريخ التحقق
+Value date,تاريخ القيمة
+Warning: this payment is related to a carried out bank order. Do you want to reverse the payment accounting entry ?,تحذير: هذه الدفعة مرتبطة بأمر مصرفي تم تنفيذه. هل تريد عكس إدخال محاسبة الدفع؟
+With formula,بالصيغة
+You can configure here the sequence that will be used for SEPA credit transfers of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه لتحويلات ائتمان منطقة SEPA لهذه الشركة.
+You can configure here the sequence that will be used for SEPA direct debits of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه للديون المباشرة لمنطقة SEPA لهذه الشركة.
+You can configure here the sequence that will be used for bills of exchange of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه لسندات التبادل الخاصة بهذه الشركة.
+You can configure here the sequence that will be used for international credit transfers of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه لتحويلات الائتمان الدولية لهذه الشركة.
+You can configure here the sequence that will be used for international direct debits of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه للخصومات الدولية المباشرة لهذه الشركة.
+You can configure here the sequence that will be used for international treasury transfers of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه لتحويلات الخزانة الدولية لهذه الشركة.
+You can configure here the sequence that will be used for national treasury transfers of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه لتحويلات الخزانة الوطنية لهذه الشركة.
+You can configure here the sequence that will be used for other bank order types of this company.,يمكنك هنا تكوين التسلسل الذي سيتم استخدامه لأنواع الأوامر المصرفية الأخرى لهذه الشركة.
+You can select here the template used for bank reconciliation statement printings.,يمكنك هنا تحديد القالب المستخدم لطباعة كشف التسوية البنكية.
+You can select here the template used for bank statement lines printings.,يمكنك هنا تحديد القالب المستخدم لطباعة بنود كشف الحساب البنكي.
+You can't validate this bank order. you need to fill at least one bank order line,لا يمكنك التحقق من صحة هذا الطلب المصرفي. تحتاج إلى ملء سطر أمر مصرفي واحد على الأقل
+Your bank detail's bank account for bank details %s (%s) is different from the cash account of the account config for %s's bank statement rule (%s). Please fix it before auto accounting the bank statement.,يختلف الحساب البنكي الخاص بالبيانات البنكية للحصول على الالبيانات البنكيةية %s (%s) عن الحساب النقدي الخاص بتكوين الحساب لقاعدة كشف الحساب البنكي لـ %s (%s). يرجى إصلاحه قبل المحاسبة التلقائية لكشف الحساب البنكي.
+and,و
+bankorder.invoicePayment,دفع الفاتورة
+by,بواسطة
+camt.052.001.02.rep,camt.052.001.02.rep
+camt.053.001.02.stm,camt.053.001.02.stm
+camt.054.001.02.abb,camt.054.001.02.abb
+camt.054.001.02.act,camt.054.001.02.act
+camt.054.001.02.add,camt.054.001.02.add
+camt.054.001.02.ard,camt.054.001.02.ard
+camt.054.001.02.rct,camt.054.001.02.rct
+camt.054.001.02.rdd,camt.054.001.02.rdd
+camt.054.001.02.rsd,camt.054.001.02.rsd
+camt.054.001.xx.add,camt.054.001.xx.add
+camt.fin.mt940.stm,camt.fin.mt940.stm
+camt.fin.mt942.rep,camt.fin.mt942.rep
+camt.xxx.cb2a.cbc,camt.xxx.cb2a.cbc
+camt.xxx.cfonb120.rep,camt.xxx.cfonb120.rep
+camt.xxx.cfonb120.stm,camt.xxx.cfonb120.stm
+camt.xxx.cfonb240.ach,camt.xxx.cfonb240.ach
+camt.xxx.cfonb240.act,camt.xxx.cfonb240.act
+camt.xxx.cfonb240.ard,camt.xxx.cfonb240.ard
+camt.xxx.cfonb240.atg,camt.xxx.cfonb240.atg
+camt.xxx.cfonb240.ati,camt.xxx.cfonb240.ati
+camt.xxx.cfonb240.cai,camt.xxx.cfonb240.cai
+camt.xxx.cfonb240.dri,camt.xxx.cfonb240.dri
+camt.xxx.cfonb240.pco,camt.xxx.cfonb240.pco
+camt.xxx.cfonb240.rch,camt.xxx.cfonb240.rch
+camt.xxx.cfonb240.rco,camt.xxx.cfonb240.rco
+camt.xxx.cfonb240.rct,camt.xxx.cfonb240.rct
+camt.xxx.cfonb240.rep,camt.xxx.cfonb240.rep
+camt.xxx.cfonb240.rsd,camt.xxx.cfonb240.rsd
+camt.xxx.cfonb240.rtg,camt.xxx.cfonb240.rtg
+camt.xxx.cfonb240.rti,camt.xxx.cfonb240.rti
+camt.xxx.cfonb560.ara,camt.xxx.cfonb560.ara
+csv.jma.dot,csv.jma.dot
+csv.ymd.dot,csv.ymd.dot
+pain.001.001.02.ict,Pain.001.001.02.ict
+pain.001.001.02.mct,Pain.001.001.02.mct
+pain.001.001.02.rft,Pain.001.001.02.rft
+pain.001.001.02.sct,Pain.001.001.02.sct
+pain.001.001.02.xct,Pain.001.001.02.xct
+pain.001.001.03.ict,Pain.001.001.03.ict
+pain.001.001.03.sct,Pain.001.001.03.sct
+pain.001.001.03.xct,Pain.001.001.03.xct
+pain.001.001.09.sct,تحويل SEPA الائتماني (pain.001.001.09.sct)
+pain.002.001.01.ara,Pain.002.001.01.ara
+pain.002.001.02.ack,Pain.002.001.02.ack
+pain.002.001.02.ara,Pain.002.001.02.ara
+pain.002.001.03.ack,Pain.002.001.03.ack
+pain.002.001.03.ara,Pain.002.001.03.ara
+pain.008.001.01.sbb,Pain.008.001.01.sbb
+pain.008.001.01.sdd,Pain.008.001.01.sdd
+pain.008.001.02.sbb,Pain.008.001.02.sbb
+pain.008.001.02.sdd,Pain.008.001.02.sdd
+pain.008.001.08.sbb,الخصم المباشر بين الشركات SEPA B2B (pain.008.001.08.sbb)
+pain.008.001.08.sdd,الخصم المباشر SEPA Core (pain.008.001.08.sdd)
+pain.fin.mt101.dct,Pain.fin.mt101.dct
+pain.fin.mt101.mct,Pain.fin.mt101.mct
+pain.fin.mt101.xct,Pain.fin.mt101.xct
+pain.xxx.cfonb160.dco,Pain.xxx.cfonb160.dco
+pain.xxx.cfonb160.dct,Pain.xxx.cfonb160.dct
+pain.xxx.cfonb160.dda,Pain.xxx.cfonb160.dda
+pain.xxx.cfonb160.ddd,Pain.xxx.cfonb160.ddd
+pain.xxx.cfonb160.dtg,Pain.xxx.cfonb160.dtg
+pain.xxx.cfonb160.dvd,Pain.xxx.cfonb160.dvd
+pain.xxx.cfonb160.ict,Pain.xxx.cfonb160.ict
+pain.xxx.cfonb240.bco,Pain.xxx.cfonb240.bco
+pain.xxx.cfonb240.tch,Pain.xxx.cfonb240.tch
+pain.xxx.cfonb320.dct,Pain.xxx.cfonb320.dct
+pain.xxx.cfonb320.rft,Pain.xxx.cfonb320.rft
+pain.xxx.cfonb320.sct,Pain.xxx.cfonb320.sct
+pain.xxx.cfonb320.xct,Pain.xxx.cfonb320.xct
+pain.xxx.fff.ech,Pain.xxx.fff.ech
+pain.xxx.fff.lch,Pain.xxx.fff.lch
+pain.xxx.payext912.vct,Pain.xxx.payext912.vct
+pain.xxx.payext96a.vct,Pain.xxx.payext96a.vct
+pain.xxx.payord912.ict,Pain.xxx.payord912.ict
+pain.xxx.payord912.xct,Pain.xxx.payord912.xct
+pain.xxx.vcom400.vct,Pain.xxx.vcom400.vct
+value:Bank payment,القيمة: الدفع البنكي
+■,■
+▲,▲
+◉,◉
+%s : Computed balance and Ending Balance must be equal,%s : يجب أن يكون الرصيد المحسوب والرصيد النهائي متساويين
+A bank order %s already exist for the invoice %s.,يوجد أمر بنكي %s بالفعل للفاتورة %s.
+Amount value of the bank order is not valid,قيمة مبلغ الأمر البنكي غير صالحة
+Number of retrieved bank statements: %d.,عدد كشوفات الحساب البنكية المستردة: %d.
+Please select a reconciliation line,الرجاء تحديد سطر التسوية
+Please select a signatory,الرجاء اختيار الموقع
+Please select one bank reconciliation line and one move line,برجاء تحديد بند تسوية بنك واحد وبند قيد محاسبي واحد
+The analytic distribution is required in the move lines for account %s but no template has been set in the account configuration,توزيع مراكز التكلفة مطلوب في بنود القيد للحساب %s ولكن لم يتم تعيين أي قالب في تكوين الحساب
+The bank order is not properly signed. Please correct it and sign it again.,لم يتم توقيع الطلب البنكي بشكل صحيح. يرجى تصحيحه والتوقيع عليه مرة أخرى.
+"To validate the reconciliation, each line must be marked with one or more move line, either existing or configured (Account, Third party). A move line will be generated automatically on the account and journal associated with the reconciliation session.",للتحقق من صحة التسوية، يجب وضع علامة على كل سطر ببند قيد واحد أو أكثر، سواء كان موجودًا أو تم تكوينه (الحساب، الطرف الثالث). سيتم إنشاء بند قيد تلقائياً في الحساب والمجلة المرتبطين بجلسة التسوية.

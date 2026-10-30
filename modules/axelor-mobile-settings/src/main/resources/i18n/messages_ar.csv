@@ -1,0 +1,238 @@
+"A JPQL SELECT query must be used. The first information fetched from the query must be the label and the second one the value. <br>Example : <br>SELECT partner.fullName, count(so.id) FROM Partner partner LEFT JOIN SaleOrder so on partner.id = so.clientPartner GROUP BY partner.fullName <br>Note : <br>- The JPQL query must select at least 2 values. <br>- The first selected value must be a string type. <br>- The second selected value must be a number type (long, decimal, integer). <br>- If more than 2 values are selected, they will be ignored. <br>",يجب استخدام استعلام JPQL SELECT. يجب أن تكون المعلومات الأولى التي يتم جلبها من الاستعلام هي التسمية والثانية هي القيمة. <br>مثال: <br>اختر Partner.fullName، count(so.id) من الشريك الشريك LEFT JOIN SaleOrder وهكذا على Partner.id = so.clientPartner GROUP BY Partner.fullName <br>ملاحظة: <br>- يجب أن يحدد استعلام JPQL قيمتين على الأقل. <br>- يجب أن تكون القيمة الأولى المحددة من نوع سلسلة. <br>- القيمة الثانية المحددة يجب أن تكون من نوع رقم (طويل، عشري، عدد صحيح). <br>- إذا تم تحديد أكثر من قيمتين، فسيتم تجاهلهما. <br>
+AOS view,عرض AOS
+Action,العمل
+Activate favorites management,تفعيل إدارة المفضلة
+Activate inbox access,تفعيل الوصول إلى البريد الوارد
+Activate invoicing on projects,تفعيل الفواتير على المشاريع
+Activate multi currency,تفعيل العملات المتعددة
+Active menus,القوائم النشطة
+Activities,أنشطة
+Activity,النشاط
+All,الكل
+Allow creation,السماح بالإنشاء
+Allow deletion,السماح بالحذف
+Allow download,السماح بالتنزيل
+Allow edition of date,السماح بإصدار التاريخ
+Allow files to be downloaded from the mobile application.,السماح بتنزيل الملفات من تطبيق الهاتف المحمول.
+Allow kilometric expenses,السماح بالنفقات الكيلومترية
+Allow line creation of expense details,السماح بإنشاء سطر تفاصيل النفقات
+Allow line creation of timesheet details,السماح بإنشاء سطر تفاصيل سجل الدوام
+Allow manual creation of expense,السماح بإنشاء النفقات يدويًا
+Allow manual creation of timesheet,السماح بإنشاء سجل الدوام يدويًا
+Allow new files to be uploaded,السماح بتحميل الملفات الجديدة
+Allow renaming,السماح بإعادة تسمية
+Allow users to manage carrier option for customer deliveries.,السماح للمستخدمين بإدارة خيار الناقل لعمليات تسليم العملاء.
+Allows files to be deleted from the mobile application if the user has the necessary permissions.,يسمح بحذف الملفات من تطبيق الهاتف المحمول إذا كان لدى المستخدم الأذونات اللازمة.
+Allows folders to be created from the mobile application.,يسمح بإنشاء المجلدات من تطبيق الهاتف المحمول.
+Allows new files to be created from the mobile application if the user has the necessary permissions.,يسمح بإنشاء ملفات جديدة من تطبيق الهاتف المحمول إذا كان لدى المستخدم الأذونات اللازمة.
+Allows renaming of files or folders from the mobile application.,يسمح بإعادة تسمية الملفات أو المجلدات من تطبيق الهاتف المحمول.
+"Allows stock move lines to be displayed one by one on the mobile app, with a link to the full list. If the option is unchecked, all lines are displayed directly. By default, the simplified mode is enabled.",يتيح عرض بنود حركة المخزون سطرًا بسطر على تطبيق الهاتف المحمول مع رابط للقائمة الكاملة. إذا لم يتم التحديد، فسيتم عرض جميع البنود مباشرة. الوضع المبسط مفعل افتراضيًا.
+"Allows the user to define the position of the menu in the list. By default, the new menu entry is positioned at the end, but it can also be inserted between two existing menus. The order value for standard menus is its index in the list multiplied by 10. So to position a new menu between the first and second menu entries, you need to give it an order between 10 and 20.",يسمح للمستخدم بتحديد موضع القائمة في القائمة. افتراضيًا، يتم وضع إدخال القائمة الجديد في النهاية، ولكن يمكن أيضًا إدراجه بين قائمتين موجودتين. قيمة الترتيب للقوائم القياسية هي فهرسها في القائمة مضروبًا في 10. لذا، لتتمكن من وضع قائمة جديدة بين مدخلي القائمة الأولى والثانية، عليك أن تعطيها ترتيبًا بين 10 و20.
+Allows to filter the product types displayed on the mobile application in the sales section.,يسمح بتصفية أنواع المنتجات المعروضة على تطبيق الهاتف المحمول في قسم المبيعات.
+Allows users to fill in the username field on the login page with the qr code present on the user's form view.,يسمح للمستخدمين بملء حقل اسم المستخدم في صفحة تسجيل الدخول باستخدام رمز الاستجابة السريعة الموجود في عرض النموذج الخاص بالمستخدم.
+Allows you to customize the active menus for this application. If the menus are not configured then all the menus of the application are available.,يتيح لك تخصيص القوائم النشطة لهذا التطبيق. إذا لم يتم تكوين القوائم، فستكون جميع قوائم التطبيق متاحة.
+"Allows you to define carrier modes that require the user to scan the carrier tracking number during shipment. When a user validates a customer delivery with one of the carrier modes specified in this configuration, an alert will appear on the screen asking the user to scan the carrier tracking number.",يتيح تحديد طرق الشحن التي تتطلب مسح رقم التتبع ضوئيًا أثناء الشحن. عندما يؤكد المستخدم تسليم العميل بإحدى هذه الطرق، سيظهر تنبيه يطلب مسح رقم التتبع.
+Allows you to define favorite files for quick access in a dedicated menu on the mobile application.,يتيح لك تحديد الملفات المفضلة للوصول السريع إليها في قائمة مخصصة على تطبيق الهاتف المحمول.
+Allows you to define favorite folders on the DMS to create shortcuts on the mobile application.,يتيح لك تحديد المجلدات المفضلة على نظام إدارة المستندات (DMS) لإنشاء اختصارات على تطبيق الهاتف المحمول.
+"Allows you to define which fields are visible on timers and timesheet lines form views. By default, if nothing is selected, all fields are visible. This configuration extends the employee's configuration for time allocation.",يسمح لك بتحديد الحقول التي تكون مرئية في طرق عرض نماذج سطور سجل الدوام وأجهزة ضبط الوقت. افتراضيًا، إذا لم يتم تحديد أي شيء، فستكون كافة الحقول مرئية. يعمل هذا التكوين على توسيع تكوين الموظف لتخصيص الوقت.
+Allows you to enable this package on the mobile application.,يسمح لك بتمكين هذه الحزمة على تطبيق الهاتف المحمول.
+App,التطبيق
+App configuration,تكوين التطبيق
+App mobile,التطبيق المحمول
+App mobile settings,إعدادات الهاتف المحمول للتطبيق
+Application,التطبيق
+Authorized roles,الأدوار المعتمدة
+"Authorized values for menuType : menu, separator or submenu",القيم المعتمدة لنوع القائمة: قائمة أو فاصل أو قائمة فرعية
+Bar,شريط
+Barcode,باركود
+"Bootstrap icon name, see https://icons.getbootstrap.com/",اسم رمز Bootstrap، راجع https://icons.getbootstrap.com/
+CRM,إدارة علاقات العملاء (CRM)
+CRM config,تكوين إدارة علاقات العملاء
+Chart,رسم بياني
+Chart 1,الرسم البياني 1
+Chart 2,الرسم البياني 2
+Chart 3,الرسم البياني 3
+Chart 4,الرسم البياني 4
+Chart type,نوع الرسم البياني
+Chart.indicator,مؤشر الرسم البياني
+Config CRM,تكوين إدارة علاقات العملاء
+Config DMS,تكوين DMS
+Config HR,تكوين الموارد البشرية
+Config Helpdesk,مكتب مساعدة التكوين
+Config Intervention,تدخل التكوين
+Config Maintenance,صيانة التكوين
+Config Production,إنتاج التكوين
+Config Project,مشروع التكوين
+Config Purchase,شراء التكوين
+Config Quality,جودة التكوين
+Config Sale,بيع التكوين
+Config Stock,مخزون التكوين
+Current Android build,إصدار Android الحالي
+Custom field,حقل مخصص
+Custom menu entry,إدخال القائمة المخصصة
+Customize menus,تخصيص القوائم
+Customize translations,تخصيص الترجمات
+DMS,نظام إدارة المستندات (DMS)
+DMS config,تكوين DMS
+DMS root on the mobile application,جذر DMS على تطبيق الهاتف المحمول
+DMSFile added to favorites successfully,تمت إضافة DMSFile إلى المفضلة بنجاح
+DMSFile removed from favorites successfully,تمت إزالة DMSFile من المفضلة بنجاح
+Dashboard management,إدارة لوحة التحكم
+Default DMS root on the mobile application,جذر DMS الافتراضي على تطبيق الهاتف المحمول
+Default detection for QI,الكشف الافتراضي عن QI
+Default detection id for QI,معرف الكشف الافتراضي لـ QI
+Defines the default value to be used for detection when creating quality improvement sheets on the mobile application.,يحدد القيمة الافتراضية التي سيتم استخدامها للكشف عند إنشاء أوراق تحسين الجودة على تطبيق الهاتف المحمول.
+Defines whether products from the configurator are to be displayed on the mobile application or not.,يحدد ما إذا كان سيتم عرض المنتجات من أداة التهيئة على تطبيق الهاتف المحمول أم لا.
+"Defines whether variants are managed with the generic product or directly by the variant product. If the configuration is activated, you must go through the generic product to select a variant, otherwise all variants are displayed and selectable on the application.",يحدد ما إذا كانت المتغيرات تتم إدارتها باستخدام المنتج العام أو مباشرة بواسطة المنتج المتغير. إذا تم تنشيط التكوين، فيجب عليك المرور عبر المنتج العام لتحديد متغير، وإلا فسيتم عرض جميع المتغيرات وقابلة للتحديد في التطبيق.
+Donut,دونات
+Enable addition of new lines in customer delivery.,- تمكين إضافة خطوط جديدة في توصيل العملاء.
+Enable addition of new lines in supplier arrival.,تمكين إضافة خطوط جديدة عند وصول الموردين.
+Enable app,تمكين التطبيق
+Enable default stock location management,تمكين إدارة موقع المخزون الافتراضي
+Enable inventory validation.,تمكين التحقق من صحة المخزون.
+Enable line addition,تمكين إضافة السطر
+Enable line verification,تمكين التحقق من الخط
+Enable line verification on customer deliveries,تمكين التحقق من الخط عند تسليم العملاء
+Enable line verification on internal moves,تمكين التحقق من الخط على القيود المحاسبية الداخلية
+Enable line verification on inventories,تمكين التحقق من الخط على المخزونات
+Enable line verification on supplier arrivals,تمكين التحقق من الخط عند وصول الموردين
+Enable project invoicing,تمكين فواتير المشروع
+Enable stock correction validation.,تمكين التحقق من صحة تصحيح المخزون.
+"Enable the user to create a new menu entry with custom title, icon and order.",تمكين المستخدم من إنشاء إدخال قائمة جديد بعنوان مخصص وأيقونة وترتيب.
+Enable tracker messages.,تمكين رسائل التعقب.
+Enable validation,تمكين التحقق
+Enables favorites management on the mobile application. Users will have access to a favorites menu with their saved files and a new menu for each favorite folder for quick access.,تمكن إدارة المفضلة على تطبيقات الهاتف المتحرك. سيتمكن المستخدمون من الوصول إلى قائمة المفضلة التي تحتوي على ملفاتهم المحفوظة وقائمة جديدة لكل مجلد مفضل للوصول السريع.
+"Enabling this setting, allows you to see on the mobile application the comments and changes that are tracked on the web application.",يتيح لك تمكين هذا الإعداد رؤية التعليقات والتغييرات التي يتم تتبعها على تطبيق الويب على تطبيق الهاتف المحمول.
+Expenses,المصروفات والنفقات
+Favourite files,الملفات المفضلة
+Favourite folders,المجلدات المفضلة
+Fields to show on timesheet,الحقول المطلوب إظهارها في سجل الدوام
+Files,الملفات
+Folders,المجلدات
+"For each of the following features, if configuration is enabled, users will be asked to confirm the tracking number or product of the line before accessing the details screen. If the setting is disabled, they will be able to access the details screen directly.",بالنسبة لكل من الميزات التالية، إذا تم تمكين التكوين، سيُطلب من المستخدمين تأكيد رقم التتبع أو منتج الخط قبل الوصول إلى شاشة التفاصيل. إذا تم تعطيل الإعداد، فسيتمكنون من الوصول إلى شاشة التفاصيل مباشرة.
+Freight carrier mode requiring a tracking number during shipment,طريقة شحن البضائع التي تتطلب رقم تتبع أثناء الشحن
+Freight carrier modes,أوضاع نقل البضائع
+General,عام
+General configuration,التكوين العام
+Generate QR Code,توليد رمز الاستجابة السريعة
+Generate barcode,توليد باركود
+HR,الموارد البشرية
+HR config,تكوين الموارد البشرية
+Helpdesk,الدعم الفني
+Helpdesk config,تكوين مكتب المساعدة
+Icon name,إسم الأيقونة
+"If no role selected, everyone can use this feature. Else, only roles selected have the ability to use this feature.",إذا لم يتم تحديد أي دور، فيمكن للجميع استخدام هذه الميزة. بخلاف ذلك، فإن الأدوار المحددة فقط هي التي لديها القدرة على استخدام هذه الميزة.
+"If this configuration is enabled, users can add new lines to the enabled feature on mobile application.",إذا تم تمكين هذا التكوين، فيمكن للمستخدمين إضافة خطوط جديدة إلى الميزة الممكّنة في تطبيق الهاتف المحمول.
+"If this configuration is enabled, users will be able to directly validate the enabled feature on mobile application.",إذا تم تمكين هذا التكوين، فسيتمكن المستخدمون من التحقق من صحة الميزة الممكّنة مباشرةً على تطبيق الهاتف المحمول.
+"Indicates the minimal required version of the mobile application. If the user's version is different than the one indicated, the mobile app will require the user to update to have access to the app.",يشير إلى الإصدار الأدنى المطلوب من تطبيق الهاتف المحمول. إذا كان إصدار المستخدم مختلفًا عن الإصدار المشار إليه، فسيطلب تطبيق الهاتف المحمول من المستخدم التحديث حتى يتمكن من الوصول إلى التطبيق.
+Intervention,الخدمات الميدانية / الصيانة الميدانية
+Intervention config,تكوين التدخل
+Key,مفتاح
+Line,السطر
+"List of active menus for this application. Menus need to be added to this list to make them accessible on the mobile application. Once a menu has been added, you can restrict access to it to the associated roles.",قائمة القوائم النشطة لهذا التطبيق. يجب إضافة القوائم إلى هذه القائمة لتسهيل الوصول إليها عبر تطبيق الهاتف المحمول. بمجرد إضافة القائمة، يمكنك تقييد الوصول إليها على الأدوار المرتبطة بها.
+List of roles that have access to this application. If the field is empty then everyone has access to the application. If it contains at least one role then only users with one of the roles present have access to the application.,قائمة الأدوار التي يمكنها الوصول إلى هذا التطبيق. إذا كان الحقل فارغًا، فيمكن للجميع الوصول إلى التطبيق. إذا كان يحتوي على دور واحد على الأقل، فلن يتمكن سوى المستخدمين الذين لديهم أحد الأدوار الموجودة من الوصول إلى التطبيق.
+"List of roles with access to this menu. If the field is empty, then everyone has access to the menu. If it contains at least one role, then only users with one of the roles present have access to the menu. However, if the application itself has restrictions on roles, then the user must have a role included in the authorized roles for the application concerned, as well as a role entered in this field.",قائمة الأدوار التي يمكنها الوصول إلى هذه القائمة. إذا كان الحقل فارغًا، فيمكن للجميع الوصول إلى القائمة. إذا كانت تحتوي على دور واحد على الأقل، فلن يتمكن سوى المستخدمين الذين لديهم أحد الأدوار الموجودة من الوصول إلى القائمة. ومع ذلك، إذا كان التطبيق نفسه يحتوي على قيود على الأدوار، فيجب أن يكون لدى المستخدم دور مضمن في الأدوار المعتمدة للتطبيق المعني، بالإضافة إلى دور تم إدخاله في هذا الحقل.
+Maintenance,الصيانة
+Maintenance config,تكوين الصيانة
+Manage carrier option,إدارة خيار الناقل
+Manuf order,أمر المنوف
+Manufacturing,تصنيع
+Manufacturing operation,عملية التصنيع
+Menu,القائمة
+Menu name,اسم القائمة
+Menu order,ترتيب القائمة
+Menu title,عنوان القائمة
+Menu translation,ترجمة القائمة
+Menu type,نوع القائمة
+Menus config,تكوين القوائم
+Minimal required version of the mobile application.,الحد الأدنى من الإصدار المطلوب من تطبيق الهاتف المحمول.
+Mobile Chart,مخطط الجوال
+Mobile Menu,قائمة الجوال
+Mobile Menus,قوائم الجوال
+Mobile app,تطبيق الجوال
+Mobile apps,تطبيقات الجوال
+Mobile chart,مخطط الجوال
+Mobile config,تكوين الجوال
+Mobile dashboard,لوحة القيادة المتنقلة
+Mobile dashboard line,خط لوحة القيادة المتنقلة
+Mobile dashboard line list,قائمة خطوط لوحة القيادة المتنقلة
+Mobile dashboard lines,خطوط لوحة القيادة المتنقلة
+Mobile dashboard list,قائمة لوحة القيادة للجوال
+Mobile dashboards,لوحات المعلومات المتنقلة
+Mobile menus and screens have been created.,تم إنشاء قوائم وشاشات الهاتف المحمول.
+Mobile screen,شاشة موبايل
+Mobile screens,شاشات الجوال
+Mobile shortcut,اختصار الجوال
+Mobile shortcut list,قائمة اختصارات الجوال
+Mobile shortcuts,اختصارات الجوال
+Mobile tracebacks,تتبعات الجوال
+Mobile translations,ترجمات الجوال
+Mobile web view,عرض الويب على الهاتف المحمول
+Mobile web views,مشاهدات الويب للجوال
+Name,الاسم
+None,لا شيء
+On customer deliveries,عند تسليم العملاء
+On internal moves,في القيود المحاسبية الداخلية
+On inventories,على المخزون
+On stock corrections,على تصحيحات الأسهم
+On supplier arrivals,عند وصول الموردين
+Parent application,تطبيق الوالدين
+Parent application of the dashboard menu entry.,التطبيق الأصلي لإدخال قائمة لوحة القيادة.
+Parent application of the menu entry.,التطبيق الأصلي لإدخال القائمة.
+Parent menu name,اسم القائمة الرئيسية
+Pie,فطيرة
+Production config,تكوين الإنتاج
+Project,المشروع
+Project config,تكوين المشروع
+Project task,مهمة المشروع
+Purchase,المشتريات
+Purchase config,شراء التكوين
+Quality,الجودة
+Quality config,تكوين الجودة
+Query,استعلام
+Reporting to display,تقرير للعرض
+Response,الرد
+Response of the query for settings,استجابة الاستعلام عن الإعدادات
+Response of the query of the chart,الرد على استعلام الرسم البياني
+Run,تشغيل
+Sale,المبيعات
+Sale config,تكوين البيع
+"Saves the current build of the mobile application linked to this instance. If the user is behind the minimum required version, he'll be prompted to download the version saved here.",يحفظ الإصدار الحالي لتطبيق الهاتف المحمول المرتبط بهذه النسخة. إذا كان المستخدم خلف الحد الأدنى المطلوب من الإصدار، فستتم مطالبته بتنزيل الإصدار المحفوظ هنا.
+Screen,شاشة
+Screen name,اسم الشاشة
+See web views,انظر مشاهدات الويب
+Select all menus,حدد كافة القوائم
+Separator,فاصل
+"Set the default DMS root for all users on the mobile application. If no value is entered, the global root will be used. If the user has a specific value, this field will be ignored.",قم بتعيين جذر DMS الافتراضي لجميع المستخدمين على تطبيق الهاتف المحمول. إذا لم يتم إدخال أي قيمة، فسيتم استخدام الجذر العام. إذا كان لدى المستخدم قيمة محددة، فسيتم تجاهل هذا الحقل.
+Shortcut management,إدارة الاختصارات
+Shortcuts display,عرض الاختصارات
+Show charts,عرض المخططات
+Show configurator products,عرض منتجات التكوين
+Show generic product,عرض المنتج العام
+Simplified display of stock move lines,عرض مبسط لبنود حركة المخزون
+Stock,المخزون
+Stock config,تكوين المخزون
+Submenu,القائمة الفرعية
+Submenu needs a parent menu.,القائمة الفرعية تحتاج إلى القائمة الرئيسية.
+Technical name,الاسم الفني
+Technical name should be the menu key used in module export on mobile application.,يجب أن يكون الاسم الفني هو مفتاح القائمة المستخدم في تصدير الوحدة على تطبيق الهاتف المحمول.
+"The query contains forbidden keyword such as UPDATE, DELETE or FUNCTION.",يحتوي الاستعلام على كلمة أساسية محظورة مثل UPDATE أو DELETE أو FUNCTION.
+There is an error with the query : \n,يوجد خطأ في الاستعلام: \n
+This configuration allows all users to access their inbox.,يسمح هذا التكوين لجميع المستخدمين بالوصول إلى البريد الوارد الخاص بهم.
+Timesheets,سجلات ساعات العمل
+Title,العنوان
+Types of products to display,أنواع المنتجات المعروضة
+Url,رابط
+Usable on shortcut,صالحة للاستعمال على الاختصار
+Use custom chart,استخدم الرسم البياني المخصص
+Use qrCode for user connection,استخدم qrCode لاتصال المستخدم
+"Used to define the EDM root for the user on the mobile application. If no value is entered, the value defined in the mobile application configuration will be used.",يستخدم لتحديد جذر EDM للمستخدم على تطبيق الهاتف المحمول. إذا لم يتم إدخال أي قيمة، فسيتم استخدام القيمة المحددة في تكوين تطبيق الهاتف المحمول.
+User,المستخدم
+View dashboards,عرض لوحات المعلومات
+View tracebacks,عرض الآثار
+Visible in mobile application,مرئية في تطبيق الهاتف المحمول
+You do not have access to this record,ليس لديك حق الوصول إلى هذا السجل
+all,الكل
+isOneLineShortcut.Grid,الشبكة
+mobileMenu.Order,أمر / طلب
+value:Axelor Mobile Settings,القيمة: إعدادات Axelor Mobile

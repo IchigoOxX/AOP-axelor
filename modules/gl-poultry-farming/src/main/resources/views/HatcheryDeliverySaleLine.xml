@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatchery-delivery-sale-line-form" title="Delivery sale lines" editable="true"
+          model="com.gl.apps.pf.db.HatcheryDeliverySaleLine" width="large">
+        <panel title="Overview" colSpan="12" showTitle="false">
+            <panel title="Infos:" colSpan="12">
+                <field name="code" colSpan="6" readonly="true"/>
+                <field name="product" readonly="true" colSpan="6"/>
+                <field name="purchaseUnit" readonly="true" colSpan="6"/>
+                <field name="availableQty" readonly="true" colSpan="6"/>
+                <field name="capacity" readonly="true" colSpan="6"/>
+
+                <field name="deliveredQty" colSpan="6" readonly="true"/>
+                <field name="deliveredQtyUnits" colSpan="6" readonly="true"/>
+
+                <field name="reelDeliveredQty" onChange="action-attrs-hatchery-delivery-sale-number-changed" colSpan="6"/>
+                <field name="reelDeliveredQtyUnits" readonly="true"/>
+
+                <field name="remainingQty" readonly="true" colSpan="6"/>
+                <field name="remainingQtyUnits" readonly="true" colSpan="6"/>
+            </panel>
+        </panel>
+    </form>
+
+    <grid name="hatchery-delivery-sale-line-grid" title="Delivery sale lines" model="com.gl.apps.pf.db.HatcheryDeliverySaleLine" edit-icon="true">
+        <field name="code" readonly="true"/>
+        <field name="product" readonly="true"/>
+        <field name="purchaseUnit" readonly="true"/>
+        <field name="availableQty" readonly="true"/>
+        <field name="capacity" readonly="true"/>
+
+        <field name="deliveredQty" readonly="true"/>
+        <field name="deliveredQtyUnits" readonly="true"/>
+
+        <field name="reelDeliveredQty" onChange="action-attrs-hatchery-delivery-sale-number-changed"/>
+        <field name="reelDeliveredQtyUnits" readonly="true"/>
+
+        <field name="remainingQty" readonly="true">
+            <hilite background="red" if="0 > remainingQty"/>
+        </field>
+        <field name="remainingQtyUnits" readonly="true">
+            <hilite background="red" if="0> remainingQtyUnits"/>
+        </field>
+    </grid>
+
+
+    <action-attrs name="action-attrs-hatchery-delivery-sale-number-changed"
+                  model="com.gl.apps.pf.db.HatcheryDeliverySaleLine">
+        <attribute if="reelDeliveredQty != 0" for="reelDeliveredQtyUnits" name="value"
+                   expr="eval: (int) Math.ceil( reelDeliveredQty / capacity )"/>
+        <attribute if="reelDeliveredQty != 0" for="remainingQty" name="value"
+                   expr="eval: deliveredQty - reelDeliveredQty "/>
+        <attribute if="reelDeliveredQty != 0" for="remainingQtyUnits" name="value"
+                   expr="eval: deliveredQtyUnits - (int) Math.ceil( reelDeliveredQty / capacity ) "/>
+    </action-attrs>
+
+
+</object-views>

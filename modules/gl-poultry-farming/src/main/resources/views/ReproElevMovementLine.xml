@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="repro-elev-movement-line-form" title="Breeding movement lines" editable="true"
+          model="com.gl.apps.pf.db.ReproElevMovementLine" width="large">
+        <panel title="Overview">
+            <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+            <field name="maleMovedNumber" title="Male moved number"/>
+            <field name="femaleMovedNumber" title="Female moved number"/>
+        </panel>
+    </form>
+
+    <grid name="repro-elev-movement-line-grid" title="Breeding movement lines" model="com.gl.apps.pf.db.ReproElevMovementLine" edit-icon="true">
+        <field name="breedingShed" readonly="true"/>
+        <field name="maleMovedNumber" title="Male moved number"/>
+        <field name="femaleMovedNumber" title="Female moved number"/>
+    </grid>
+
+
+</object-views>

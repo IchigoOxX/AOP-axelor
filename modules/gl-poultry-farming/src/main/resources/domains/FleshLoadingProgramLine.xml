@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="FleshLoadingProgramLine" >
+        <many-to-one name="fleshReceptionDispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Flesh chicks reception dispatch Stock"/>
+
+        <many-to-one name="fleshLoadingProgram" ref="FleshLoadingProgram"
+                     title="Flesh loading program"/>
+
+        <many-to-one name="hatcherExit" ref="HatcherExit" title="Hatcher exit"/>
+
+        <string name="lineNumber" title="Line Number" readonly="true"/>
+        <many-to-one name="breed" ref="Breed" title="Breed"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed"  title="Breeding Shed"/>
+
+        <datetime name="plannedLoadingDatetime" title="Planned loading date and time"/>
+        <datetime name="realLoadingDatetime" title="Real loading date and time"/>
+
+        <integer name="numberOfChicks" title="Number of chicks"/>
+        <integer name="numberOfChicksPerCage" title="Number of chicks per cage"/>
+
+        <integer name="age" title="Age"/>
+        <integer name="period" title="Period in days"/>
+        <date name="slaughterFromDatetime" title="Slaughter from date"/>
+        <date name="slaughterToDatetime" title="Slaughter to date"/>
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+
+
+        <string name="completeReference" title="Reference" readonly="true">
+            <![CDATA[
+            String completeReference = this.getFleshLoadingProgram().getReference() + " " + this.getLineNumber();
+            return completeReference;
+        ]]>
+        </string>
+
+        <integer name="status" title="Status"
+                 selection="poultryfarming.flesh.loading.program.line.status.select" readonly="true"/>
+
+        <extra-code>
+            <![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="fleshLoadingProgram"/>
+            <field name="breed"/>
+            <field name="lineNumber"/>
+            <field name="breedingShed"/>
+            <field name="plannedLoadingDatetime"/>
+            <field name="realLoadingDatetime"/>
+            <field name="numberOfChicks"/>
+            <field name="numberOfChicksPerCage"/>
+            <field name="age"/>
+            <field name="period"/>
+            <field name="slaughterFromDatetime"/>
+            <field name="slaughterToDatetime"/>
+            <field name="completeReference"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

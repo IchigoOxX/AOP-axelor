@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<form name="hatchery-eggs-reception-form" title="Hatchery eggs reception" width="large" canNew="false"
+      model="com.gl.apps.pf.db.HatcheryEggsReception"
+      onLoad="action-hatchery-eggs-reception-calculate-group">
+    <panel showTitle="false" colSpan="12">
+      <panel showTitle="false" colSpan="12">
+        <panel title="Production:" colSpan="10" readonlyIf="status != 0">
+          <panel showTitle="false" colSpan="6">
+            <field name="hatchery" title="Hatchery" colSpan="5"/>
+            <field name="reproProduction" title="N° production" colSpan="5"
+              target-name="reference"
+              onChange="action-record-affect-repro-production-dateTime , action-affect-hatchery-eggs-reception-lines"
+              domain="self.hatchery = :hatchery and self.status = 1"/>
+          </panel>
+          <panel showTitle="false" colSpan="3">
+            <field name="dateOfOrigin" title="Production Date" readonly="true"/>
+          </panel>
+          <panel showTitle="false" colSpan="3">
+            <field name="stockMove" readonly="true"/>
+          </panel>
+        </panel>
+        <panel showTitle="false" colSpan="2">
+          <panel colSpan="12" readonlyIf="status != 0">
+            <field readonly="true" name="fsum" showTitle="false" colSpan="12">
+                <viewer depends="status"><![CDATA[
+                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                   <tbody>
+                    <tr>
+                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                    </tr>
+                   </tbody>
+                </table>
+             ]]></viewer>
+            </field>
+          </panel>
+
+          <panel colSpan="12">
+            <button name="validerBtn" title="Validate" showIf="id != null &amp;&amp; ( status == 4 || status == 0) "
+                    colSpan="12" css="btn-success" icon="fa-check"
+                    prompt="Are you sure you want to validate this eggs reception ?"
+                    onClick="save,action-group-hatchery-egg-reception-validation"/>
+            <button name="realizeBtn" title="Realize" showIf="status == 1" icon="fa-check-square-o"
+                    prompt="Are you sure you want to realize this eggs reception ?" css="btn-info" colSpan="12"
+                    onClick="save,poultry-farming-egg-reception-realize"/>
+          </panel>
+          <panel colSpan="12">
+            <button name="cancelBtn" title="Cancel reception" showIf="status == 2" prompt="Are you sure you want to cancel this hatchery eggs reception ?"
+                    icon="fa-times" css="btn-danger" colSpan="12"
+                    onClick="action-method-hatchery-eggs-reception-cancel"/>
+          </panel>
+
+        </panel>
+      </panel>
+      <panel showTitle="false" hideIf="reproProduction == null" colSpan="12">
+        <panel title="Reception:" colSpan="4" readonlyIf="status != 0">
+          <panel showTitle="false" colSpan="12">
+            <field name="reference" title="N°" readonly="true" colSpan="6"/>
+            <field name="dateTime" title="Reception Date" colSpan="6"/>
+          </panel>
+        </panel>
+        <panel title="Origin:" colSpan="4" readonlyIf="status != 0">
+          <field name="unit" title="Unit" readonly="true"/>
+          <field name="center" title="Center" readonly="true"
+            domain="self.unit = unit  AND self in (SELECT p FROM Center p join p.unit c where c in :unit) "/>
+          <field name="trackingNumber" title="Batch number" readonly="true"/>
+          <field name="breed" title="Breed" readonly="true"/>
+        </panel>
+        <panel title="Infos:" colSpan="4" sidebar="false" attached="false" readonlyIf="status != 0">
+          <field name="dailyAge" title="Age in days" readonly="true" colSpan="6"
+            onChange="action-record-calcul-age-en-semaine"/>
+          <field name="weeklyAge" title="Weekly age"/>
+        </panel>
+        <panel name="linesPanel" colSpan="12">
+          <panel-related name="hatcheryEggsReceptionPanel" colSpan="12"
+                         field="hatcheryEggsReceptionLineList"
+                         form-view="hatchery-eggs-reception-line-form"
+                         grid-view="hatchery-eggs-reception-line-grid"
+                         onChange="action-hatchery-eggs-reception-calculate-group"
+                         canRemove="false" canNew="false" editable="true"/>
+        </panel>
+        <panel title="Total" colSpan="12">
+
+          <field readonly="true" name="fsum" showTitle="false" colSpan="12">
+            <viewer depends="hatcheryEggsReceptionLineList"><![CDATA[
+               <table border="1" cellpadding="1" cellspacing="1" style="height:80px; width:100%">
+                 <tbody>
+                    <tr>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>HE repro.</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>HE recept.</span></strong></td>
+                       <td colspan="1" rowspan="2" style="text-align:center; width:6%"><strong><span style="font-size:11px" x-translate>HE gap</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>DYE repro.</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>DYE recept.</span></strong></td>
+                       <td colspan="1" rowspan="2" style="text-align:center; width:6%"><strong><span style="font-size:11px" x-translate>DYE gap</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>DE repro.</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>DE recept.</span></strong></td>
+                       <td colspan="1" rowspan="2" style="text-align:center; width:6%"><strong><span style="font-size:11px" x-translate>DE gap</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Total repro.</span></strong></td>
+                       <td colspan="2" rowspan="1" style="text-align:center; width:8.75%"><strong><span style="font-size:11px" x-translate>Total recept.</span></strong></td>
+                       <td colspan="1" rowspan="2" style="text-align:center; width:6%"><strong><span style="font-size:11px" x-translate>Number of eggs gap</span></strong></td>
+                       <td colspan="1" rowspan="2" style="text-align:center; width:6%"><strong><span style="font-size:11px" x-translate>Number of destroyed eggs</span></strong></td>
+                    </tr>
+                    <tr>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate >Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Eggs</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Number</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Trays</span></strong></td>
+                       <td style="text-align:center; width:4.375%"><strong><span style="font-size:11px" x-translate>Number</span></strong></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfHeTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfHe')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_receivedNumberOfHeTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_receivedNumberOfHe')}}</span></td>
+                      <td style="text-align:right; width:6%"><span style="font-size:11px">{{$fmt('s_ec_numberOfHe')}}</span></td>
+
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDyeTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDye')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_receivedNumberOfDyeTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_receivedNumberOfDye')}}</span></td>
+                      <td style="text-align:right; width:6%"><span style="font-size:11px">{{$fmt('s_ec_numberOfDye')}}</span></td>
+
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDeTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_numberOfDe')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_receivedNumberOfDeTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_receivedNumberOfDe')}}</span></td>
+                      <td style="text-align:right; width:6%"><span style="font-size:11px">{{$fmt('s_ec_numberOfDe')}}</span></td>
+
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_tot_reproTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_tot_repro')}}</span></td>
+
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_tot_receivedReproTrays')}}</span></td>
+                      <td style="text-align:right; width:4.375%"><span style="font-size:11px">{{$fmt('s_tot_receivedRepro')}}</span></td>
+
+                      <td style="text-align:right; width:6%"><span style="font-size:11px">{{$fmt('s_tot_ec')}}</span></td>
+                      <td style="text-align:right; width:6%"><span style="font-size:11px">{{$fmt('s_numberOfRe')}}</span></td>
+                    </tr>
+                 </tbody>
+              </table>
+
+           ]]></viewer>
+          </field>
+
+          <panel hidden="true">
+            <field name="s_numberOfHeTrays" hidden="true"/>
+            <field name="s_numberOfHe" hidden="true"/>
+            <field name="s_receivedNumberOfHeTrays" hidden="true"/>
+            <field name="s_receivedNumberOfHe" hidden="true"/>
+            <field name="s_ec_numberOfHe" hidden="true"/>
+
+            <field name="s_numberOfDyeTrays" hidden="true"/>
+            <field name="s_numberOfDye" hidden="true"/>
+            <field name="s_receivedNumberOfDyeTrays" hidden="true"/>
+            <field name="s_receivedNumberOfDye" hidden="true"/>
+            <field name="s_ec_numberOfDye" hidden="true"/>
+
+            <field name="s_numberOfDeTrays" hidden="true"/>
+            <field name="s_numberOfDe" hidden="true"/>
+            <field name="s_receivedNumberOfDeTrays" hidden="true"/>
+            <field name="s_receivedNumberOfDe" hidden="true"/>
+            <field name="s_ec_numberOfDe" hidden="true"/>
+
+            <field name="s_tot_reproTrays" hidden="true"/>
+            <field name="s_tot_repro" hidden="true"/>
+
+            <field name="s_tot_receivedReproTrays" hidden="true"/>
+            <field name="s_tot_receivedRepro" hidden="true"/>
+
+            <field name="s_tot_ec" hidden="true"/>
+            <field name="s_numberOfRe" hidden="true"/>
+          </panel>
+        </panel>
+        <panel name="footer" title="Complement" colSpan="12">
+          <panel colSpan="2">
+            <field name="deliveryTime" colSpan="12" readonly="true"/>
+            <field name="arrivalTime" colSpan="12"  required="true" onChange="action-validate-hatchery-eggs-reception-arrival-time"/>
+            <field name="sendingTemperature" colSpan="12" required="true"/>
+          </panel>
+          <panel colSpan="2">
+            <field name="company" hidden="true"/>
+            <field name="carrierPartner" colSpan="12"
+                   domain="self.isCarrier = TRUE AND (self.companySet IS EMPTY OR :company MEMBER OF self.companySet)"
+                   form-view="partner-form" grid-view="partner-grid" canEdit="false"/>
+            <field name="carrierDriver" colSpan="12"/>
+
+          </panel>
+          <panel colSpan="8">
+            <field name="note" showTitle="false" colSpan="12" height="200" widget="html"/>
+          </panel>
+        </panel>
+      </panel>
+    </panel>
+    <panel-mail name="mailsPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+
+  <grid name="hatchery-eggs-reception-grid" title="Receiving eggs " canNew="false" orderBy="-reference"
+    model="com.gl.apps.pf.db.HatcheryEggsReception" edit-icon="true">
+    <field name="reference" title="N°"/>
+    <field name="dateTime" title="Date"/>
+    <field name="reproProduction" target-name="reference"/>
+    <field name="breed" title="Breed"/>
+    <field name="hatchery" title="Hatchery"/>
+    <field name="center"/>
+    <field name="stockMove"/>
+    <field name="trackingNumber" title="Tracking Number"/>
+    <field name="dailyAge"/>
+    <field name="deliveryTime"/>
+    <field name="arrivalTime"/>
+    <field name="sendingTemperature"/>
+    <field name="status">
+      <!--<hilite background="primary" if="$get('status') == 0"/>-->
+      <hilite background="green" if="$get('status') == 1"/>
+      <hilite background="lightblue" if="$get('status') == 2"/>
+      <hilite background="red" if="$get('status') == 3"/>
+      <hilite background="orange" if="$get('status') == 4"/>
+  </field>
+  </grid>
+
+  <action-record name="action-record-date-of-origin-hatchery-eggs-reception"
+    model="com.gl.apps.pf.db.HatcheryEggsReception">
+    <field name="dateOfOrigin" expr="eval:LocalDate.now()"/>
+    <field name="dateTime" expr="eval:LocalDate.now()"/>
+  </action-record>
+
+  <action-record name="action-record-affect-repro-production-dateTime"
+    model="com.gl.apps.pf.db.HatcheryEggsReception">
+    <field if="reproProduction != null" name="dateTime" expr="eval: reproProduction.dateTime"/>
+    <field if="reproProduction != null" name="unit" expr="eval: reproProduction.unit"/>
+    <field if="reproProduction != null" name="center" expr="eval: reproProduction.center"/>
+    <field if="reproProduction != null" name="breed" expr="eval: reproProduction.breed"/>
+    <field if="reproProduction != null" name="trackingNumber"
+      expr="eval: reproProduction.trackingNumber"/>
+    <field if="reproProduction != null" name="hatchery" expr="eval: reproProduction.hatchery"/>
+    <field if="reproProduction != null" name="dailyAge" expr="eval: reproProduction.dailyAge"/>
+    <field if="reproProduction != null" name="weeklyAge"
+      expr="eval: reproProduction.weeklyAge"/>
+    <field if="reproProduction != null" name="dateOfOrigin"
+      expr="eval: reproProduction.dateTime"/>
+    <field if="reproProduction != null" name="deliveryTime" expr="eval: reproProduction.deliveryTime"/>
+  </action-record>
+
+  <action-method name="action-affect-hatchery-eggs-reception-lines">
+    <call method="getLinesFromPrduction"
+      class="com.gl.apps.pf.web.HatcheryEggsReceptionController"/>
+  </action-method>
+
+  <action-record name="action-record-calcul-age-en-semaine"
+    model="com.gl.apps.pf.db.HatcheryEggsReception">
+    <field if="reproProduction != null" name="weeklyAge" expr="eval: dailyAge/7 "/>
+  </action-record>
+
+  <action-group name="action-hatchery-eggs-reception-calculate-group">
+    <action name="action-hatchery-eggs-reception-calculate-sum"/>
+    <action name="action-hatchery-eggs-reception-calculate-ec"/>
+  </action-group>
+
+
+  <action-attrs name="action-hatchery-eggs-reception-calculate-sum"
+                model="com.gl.apps.pf.db.HatcheryEggsReception">
+
+<!--    OAC repro.-->
+    <attribute for="s_numberOfHeTrays" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfHeTrays }.sum() : 0"/>
+    <attribute for="s_numberOfHe" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfHe }.sum() : 0"/>
+
+<!--    OAC récept.-->
+    <attribute for="s_receivedNumberOfHeTrays" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.receivedNumberOfHeTrays }.sum() : 0"/>
+    <attribute for="s_receivedNumberOfHe" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.receivedNumberOfHe }.sum() : 0"/>
+
+    <!--    ODJ repro.-->
+    <attribute for="s_numberOfDyeTrays" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfDyeTrays }.sum() : 0"/>
+    <attribute for="s_numberOfDye" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfDye }.sum() : 0"/>
+
+    <!--    ODJ récept.-->
+    <attribute for="s_receivedNumberOfDyeTrays" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.receivedNumberOfDyeTrays }.sum() : 0"/>
+    <attribute for="s_receivedNumberOfDye" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.receivedNumberOfDye }.sum() : 0"/>
+
+    <!--    DE repro.-->
+    <attribute for="s_numberOfDeTrays" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfDeTrays }.sum() : 0"/>
+    <attribute for="s_numberOfDe" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfDe }.sum() : 0"/>
+
+    <!--    DE récept.-->
+    <attribute for="s_receivedNumberOfDeTrays" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.receivedNumberOfDeTrays }.sum() : 0"/>
+    <attribute for="s_receivedNumberOfDe" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.receivedNumberOfDe }.sum() : 0"/>
+
+<!--    Nombre d'oeufs détruits-->
+    <attribute for="s_numberOfRe" name="value"
+               expr="eval: hatcheryEggsReceptionLineList != null ? hatcheryEggsReceptionLineList .collect{ it.numberOfRe }.sum() : 0"/>
+  </action-attrs>
+
+  <action-attrs name="action-hatchery-eggs-reception-calculate-ec"
+                model="com.gl.apps.pf.db.HatcheryEggsReception">
+
+    <!--    OAC Ecart-->
+    <attribute for="s_ec_numberOfHe" name="value"
+               expr="eval: s_numberOfHe - s_receivedNumberOfHe " />
+
+    <!--    ODJ Ecart-->
+    <attribute for="s_ec_numberOfDye" name="value"
+               expr="eval: s_numberOfDye - s_receivedNumberOfDye " />
+
+    <!--    DE Ecart-->
+    <attribute for="s_ec_numberOfDe" name="value"
+               expr="eval: s_numberOfDe - s_receivedNumberOfDe" />
+
+<!--    Total repro.-->
+    <attribute for="s_tot_reproTrays" name="value"
+               expr="eval: s_numberOfHeTrays + s_numberOfDyeTrays + s_numberOfDeTrays" />
+
+    <attribute for="s_tot_repro" name="value"
+               expr="eval: s_numberOfHe + s_numberOfDye + s_numberOfDe " />
+
+    <!--    Total récept.-->
+    <attribute for="s_tot_receivedReproTrays" name="value"
+               expr="eval: s_receivedNumberOfHeTrays + s_receivedNumberOfDyeTrays + s_receivedNumberOfDeTrays" />
+
+    <attribute for="s_tot_receivedRepro" name="value"
+               expr="eval: s_receivedNumberOfHe + s_receivedNumberOfDye + s_receivedNumberOfDe " />
+
+<!--    Nombre d'oeufs ecart-->
+    <attribute for="s_tot_ec" name="value"
+               expr="eval: ( s_numberOfHe - s_receivedNumberOfHe) + (s_numberOfDye - s_receivedNumberOfDye ) + (s_numberOfDe - s_receivedNumberOfDe) " />
+
+  </action-attrs>
+
+  <action-method name="poultry-farming-egg-reception-validate">
+    <call method="eggReceptionValidate"
+      class="com.gl.apps.pf.web.HatcheryEggsReceptionController"/>
+  </action-method>
+
+  <action-validate name="action-hatchery-eggs-reception-check-empty-list">
+    <error if="hatcheryEggsReceptionLineList.isEmpty()" message="You cannot validate ! hatchery eggs reception list is empty."/>
+  </action-validate>
+
+  <action-group name="action-group-hatchery-egg-reception-validation">
+    <action name="action-hatchery-eggs-reception-check-empty-list"/>
+    <action name="poultry-farming-egg-reception-validate"/>
+  </action-group>
+
+  <action-method name="poultry-farming-egg-reception-realize">
+    <call method="eggReceptionConfirmStock" class="com.gl.apps.pf.web.HatcheryEggsReceptionController"/>
+  </action-method>
+
+  <action-validate name="action-validate-hatchery-eggs-reception-arrival-time">
+    <error message="Arrival time must be greater than delivery time!"
+           if="deliveryTime > arrivalTime"/>
+  </action-validate>
+
+  <action-method name="action-method-hatchery-eggs-reception-cancel">
+    <call method="eggReceptionCancel"
+          class="com.gl.apps.pf.web.HatcheryEggsReceptionController"/>
+  </action-method>
+
+</object-views>

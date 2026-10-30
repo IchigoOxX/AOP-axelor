@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+
+    <grid name="repro-production-dashboard-grid" title="Reproduction dashboard" model="com.gl.apps.pf.db.DashboardRepro" edit-icon="true">
+        <field name="center" readonly="true"/>
+        <field name="breedingShed" readonly="true" title="Breeding shed">
+            <hilite color="red" strong="true" if="$get('breedingShed') != null"/>
+        </field>
+        <field name="he" readonly="true">
+            <hilite color="green" strong="false" if="$get('he') != 0"/>
+        </field>
+        <field name="dye" readonly="true">
+            <hilite color="green" strong="false" if="$get('dye') >= 0"/>
+        </field>
+        <field name="de" readonly="true">
+            <hilite color="green" strong="false" if="$get('de') >= 0"/>
+        </field>
+        <field name="total" readonly="true">
+            <hilite color="green" strong="false" if="$get('total') >= 0"/>
+        </field>
+        <field name="rateHe" readonly="true">
+            <hilite color="info" strong="false" if="$get('rateHe') >= 0"/>
+        </field>
+        <field name="rateDye" readonly="true">
+            <hilite color="info" strong="false" if="$get('rateDye') >= 0"/>
+        </field>
+
+        <field name="rateDe" readonly="true">
+            <hilite color="info" strong="false" if="$get('rateDe') >= 0"/>
+        </field>
+
+    </grid>
+
+    <form name="repro-production-dashboard-form" title="Reproduction dashboard" model="com.gl.apps.pf.db.DashboardRepro" width="large">
+        <panel showTitle="false" colSpan="12" readonly="true">
+            <panel title="Infos:" colSpan="12" readonly="true">
+                <field name="he"/>
+                <field name="rateHe"/>
+                <field name="dye"/>
+                <field name="rateDye"/>
+                <field name="de"/>
+                <field name="rateDe"/>
+                <field name="total"/>
+
+            </panel>
+        </panel>
+    </form>
+
+    <grid name="eggs-per-center-dashboard-grid" title="Eggs dashboard" model="com.gl.apps.pf.db.DashboardRepro" edit-icon="true">
+
+        <field name="center" readonly="true" title="Center">
+            <hilite color="red" strong="true" if="$get('center') != null"/>
+        </field>
+        <field name="he" readonly="true">
+            <hilite color="green" strong="false" if="$get('he') != 0"/>
+        </field>
+        <field name="dye" readonly="true">
+            <hilite color="green" strong="false" if="$get('dye') >= 0"/>
+        </field>
+        <field name="de" readonly="true">
+            <hilite color="green" strong="false" if="$get('de') >= 0"/>
+        </field>
+        <field name="total" readonly="true">
+            <hilite color="green" strong="false" if="$get('total') >= 0"/>
+        </field>
+
+    </grid>
+
+    <form name="eggs-per-center-dashboard-form" title="Eggs dashboard" model="com.gl.apps.pf.db.DashboardRepro" width="large">
+        <panel showTitle="false" colSpan="12" readonly="true">
+            <panel title="Infos:" colSpan="12" readonly="true">
+                <field name="center"/>
+                <field name="dye"/>
+                <field name="de"/>
+                <field name="total"/>
+
+            </panel>
+        </panel>
+    </form>
+
+
+    <grid name="eggs-per-breeding-shed-dashboard-grid" title="Eggs dashboard" model="com.gl.apps.pf.db.DashboardRepro" edit-icon="true">
+
+        <field name="center" readonly="true" title="Center">
+            <hilite color="blue" strong="true" if="$get('center') != null"/>
+        </field>
+        <field name="breedingShed" readonly="true">
+            <hilite color="orange" strong="true" if="$get('breedingShed') != null"/>
+        </field>
+        <field name="he" readonly="true">
+            <hilite color="green" strong="false" if="$get('he') != 0"/>
+        </field>
+        <field name="dye" readonly="true">
+            <hilite color="green" strong="false" if="$get('dye') >= 0"/>
+        </field>
+        <field name="de" readonly="true">
+            <hilite color="green" strong="false" if="$get('de') >= 0"/>
+        </field>
+        <field name="total" readonly="true">
+            <hilite color="green" strong="false" if="$get('total') >= 0"/>
+        </field>
+
+    </grid>
+
+    <form name="eggs-per-breeding-shed-dashboard-form" title="Eggs dashboard" model="com.gl.apps.pf.db.DashboardRepro" width="large">
+        <panel showTitle="false" colSpan="12" readonly="true">
+            <panel title="Infos:" colSpan="12" readonly="true">
+                <field name="center"/>
+                <field name="breedingShed"/>
+                <field name="dye"/>
+                <field name="de"/>
+                <field name="total"/>
+
+            </panel>
+        </panel>
+    </form>
+    <grid name="eggs-per-center-tracking-number-dashboard-grid" title="Eggs dashboard" model="com.gl.apps.pf.db.DashboardRepro" edit-icon="true">
+
+        <field name="center" readonly="true" title="Center">
+            <hilite color="deeporange" strong="true" if="$get('center') != null"/>
+        </field>
+        <field name="trackingNumber" readonly="true">
+            <hilite color="blue" strong="true" if="$get('center') != null"/>
+        </field>
+        <field name="he" readonly="true">
+            <hilite color="green" strong="false" if="$get('he') != 0"/>
+        </field>
+        <field name="dye" readonly="true">
+            <hilite color="green" strong="false" if="$get('dye') >= 0"/>
+        </field>
+        <field name="de" readonly="true">
+            <hilite color="green" strong="false" if="$get('de') >= 0"/>
+        </field>
+        <field name="total" readonly="true">
+            <hilite color="green" strong="false" if="$get('total') >= 0"/>
+        </field>
+
+    </grid>
+
+
+
+</object-views>

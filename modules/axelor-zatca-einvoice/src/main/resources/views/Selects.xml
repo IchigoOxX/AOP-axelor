@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <selection name="zatca.environment.select">
+    <option value="1">بيئة التطوير والتجربة (Sandbox)</option>
+    <option value="2">بيئة المحاكاة (Simulation Portal)</option>
+    <option value="3">بيئة الإنتاج الحقيقية (Production Fatoora)</option>
+  </selection>
+
+  <selection name="zatca.invoice.type.select">
+    <option value="1">فاتورة ضريبية قياسية B2B (Standard Tax Invoice)</option>
+    <option value="2">فاتورة ضريبية مبسطة B2C (Simplified Tax Invoice)</option>
+    <option value="3">إشعار دائن (Credit Note)</option>
+    <option value="4">إشعار مدين (Debit Note)</option>
+  </selection>
+
+  <selection name="zatca.submission.status.select">
+    <option value="1">مسودة (Draft)</option>
+    <option value="2">جاري الإرسال والتوقيع (Submitting)</option>
+    <option value="3">معتمدة ومفسوحة (Cleared)</option>
+    <option value="4">مقبولة ومُبلّغ عنها (Reported)</option>
+    <option value="5">مرفوضة من الهيئة (Rejected)</option>
+  </selection>
+
+</object-views>
+

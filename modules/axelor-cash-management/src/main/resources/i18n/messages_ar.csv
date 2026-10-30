@@ -1,0 +1,161 @@
+1,1
+10,10
+11,11
+12,12
+13,13
+14,14
+15,15
+16,16
+17,17
+18,18
+19,19
+2,2
+20,20
+21,21
+22,22
+23,23
+24,24
+25,25
+26,26
+27,27
+28,28
+3,3
+4,4
+5,5
+6,6
+7,7
+8,8
+9,9
+<h4>Forecasts in out total</h4>,<h4>إجمالي التوقعات</h4>
+Actualize,تحقيق
+Amount,المبلغ
+An existing forecast recap/report already covers part of this period for the same company and bank accounts (%s). Data may appear duplicated in the treasury dashboard.,يغطي ملخص/تقرير التوقعات الموجود بالفعل جزءًا من هذه الفترة لنفس الشركة والحسابات البنكية (%s). قد تظهر البيانات مكررة في لوحة معلومات الخزانة.
+Balance,الرصيد
+Balance by bank details,الرصيد حسب البيانات البنكية
+Bank,بنك
+Bank details,البيانات البنكية
+Best,الأفضل
+Both,كلاهما
+Calculation Date,تاريخ الحساب
+Cash Management Dashboard,لوحة إدارة النقد
+Cash balance over time,الرصيد النقدي مع مرور الوقت
+Cash management,إدارة النقد
+Comments,تعليقات
+Company,الشركة
+Configuration,التهيئة
+Currency,العملة
+Current balance,الرصيد الحالي
+Custom,مخصص
+Date,التاريخ
+Details,التفاصيل
+Display,عرض
+Element,العنصر
+Employee,موظف
+End Of Month,نهاية الشهر
+Ending Balance,الرصيد الختامي
+Estimated date,التاريخ المقدر
+Estimated duration after order creation (in days),المدة المقدرة بعد إنشاء الطلب (بالأيام)
+Expense,مصروف / نفقة
+Forecast,توقعات
+Forecast Assistant,مساعد التنبؤ
+Forecast Assistant filters,مرشحات مساعد التنبؤ
+Forecast Assistants,مساعدو التنبؤ
+Forecast Dashboard,لوحة التوقعات
+Forecast Recap,خلاصة التوقعات
+Forecast Recap Line Type,نوع خط تلخيص التوقعات
+Forecast Recap line Types,أنواع بنود ملخص التوقعات
+Forecast Recaps,ملخصات التوقعات
+Forecast Report,تقرير التوقعات
+Forecast Reports,تقارير التوقعات
+Forecast Type,نوع التوقعات
+Forecast Types,أنواع التوقعات
+Forecast filters,مرشحات التوقعات
+Forecast generator,مولد التوقعات
+Forecast recap,خلاصة التوقعات
+Forecast recap filters,مرشحات خلاصة التوقعات
+Forecast recap line type updated.,تم تحديث نوع سطر ملخص التوقعات.
+ForecastLine.amount,المبلغ
+ForecastLine.balance,الرصيد
+ForecastLine.estimatedDate,التاريخ المقدر
+ForecastLine.relatedToName,متعلق بالاسم
+ForecastLine.type,النوع
+ForecastLineType.in,في
+ForecastLineType.out,خارج
+ForecastOpportunitiesType.base,قاعدة
+ForecastOpportunitiesType.best,الأفضل
+ForecastOpportunitiesType.no,لا
+ForecastOpportunitiesType.worst,أسوأ
+ForecastRecap.bankDetailsIban,البيانات البنكية ايبان
+ForecastRecap.calculationDate,تاريخ الحساب
+ForecastRecap.company,الشركة
+ForecastRecap.currency,العملة
+ForecastRecap.endingBalance,الرصيد الختامي
+ForecastRecap.fromDate,من تاريخ
+ForecastRecap.operationDetails,تفاصيل ForecastRecap.operation
+ForecastRecap.opportunitiesTypeSelect,نوع الفرص حدد
+ForecastRecap.startingBalance,رصيد البداية
+ForecastRecap.title,العنوان
+ForecastRecap.toDate,حتى الآن
+ForecastRecapLine.balance,الرصيد
+ForecastRecapLine.relatedToSelect,ذات صلة بتحديد
+Forecasts,التوقعات
+Forecasts generated,التوقعات التي تم إنشاؤها
+Forecasts in out total,التوقعات في المجموع
+From,من
+From Date,من التاريخ
+Functional origin,مصدر القيد / المستند المنشئ
+Generate,توليد
+IBAN / BBAN,رقم الحساب المصرفي الدولي / BBAN
+Invalid dates,تواريخ غير صالحة
+Invoice,فاتورة
+Is complete,اكتمل
+Journals to take into account,دفاتر اليومية المشمولة
+Line,السطر
+Lines,الأسطر
+Manual Forecast,توقعات يدوية
+Manual forecasts,توقعات يدوية
+Marges,هوامش
+Month,شهر
+Move,قيد محاسبي
+Name,الاسم
+No,لا
+Operation type,نوع العملية
+Opportunity,فرصة بيعية
+Pay Day,يوم الدفع
+Payment mode,طريقة الدفع
+Periodicity,الدورية
+Please fill periodicity.,يرجى ملء دورية.
+Please select a company,الرجاء اختيار شركة
+Populate,تعبئة
+Previsional Marges,الهوامش السابقة
+Previsional Sales,المبيعات الأولية
+Previsional Spending,الإنفاق المسبق
+Purchase order,أمر شراء
+Realization date,تاريخ الإنجاز
+Reason,السبب
+Reference,المرجع
+Related to select,ذات صلة لتحديد
+Salary,الراتب
+Sale order,أمر بيع
+Sales,المبيعات
+Salesperson,مندوب مبيعات
+Seq.,تسلسل.
+Sequence,التسلسل
+Spending,الإنفاق
+Starting Balance,رصيد البداية
+Starting date should not be in the past,يجب ألا يكون تاريخ البدء في الماضي
+Statuses to take into account,حالات يجب مراعاتها
+Take into account opportunies,خذ بعين الاعتبار الفرص
+The company %s doesn't have any configured sequence for ForcastRecap,ليس لدى الشركة %s أي تسلسل تم تكوينه لـ ForcastRecap
+The company %s doesn't have any configured sequence for Forecast,ليس لدى الشركة %s أي تسلسل تم تكوينه للتنبؤ
+To,إلى
+To Date,حتى الآن
+Type,النوع
+Update,تحديث
+Use for report,استخدم للتقرير
+User,المستخدم
+Value %s is not supported for forecast recap line type.,القيمة %s غير مدعومة لنوع سطر ملخص التنبؤ.
+Week,الاسبوع
+Worst,أسوأ
+value:Cash management,القيمة: إدارة النقد
+No move type found for element : %s,لم يتم العثور على نوع نقل للعنصر : %s

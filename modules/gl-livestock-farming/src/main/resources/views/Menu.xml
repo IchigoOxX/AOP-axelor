@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <!-- Main Livestock Root Menu -->
+  <menuitem name="livestock-root" title="Livestock &amp; Dairy" order="-198" icon="fa-paw" icon-background="#2e7d32" />
+
+  <!-- Sub-menus -->
+  <menuitem name="livestock-animals" parent="livestock-root" order="10" title="Herd &amp; Animals Register" icon="fa-list-alt" action="livestock.animal.all" />
+  <menuitem name="livestock-milk" parent="livestock-root" order="20" title="Daily Milk Production" icon="fa-tint" action="livestock.milk.log.all" />
+  <menuitem name="livestock-weight" parent="livestock-root" order="30" title="Fattening &amp; Weight Logs" icon="fa-line-chart" action="livestock.weight.log.all" />
+  <menuitem name="livestock-breeding" parent="livestock-root" order="40" title="Breeding &amp; Insemination" icon="fa-venus-mars" action="livestock.breeding.log.all" />
+  <menuitem name="livestock-health" parent="livestock-root" order="50" title="Veterinary Health &amp; Treatments" icon="fa-medkit" action="livestock.health.log.all" />
+  <menuitem name="livestock-feed" parent="livestock-root" order="60" title="Feed &amp; Nutrition" icon="fa-cutlery" action="livestock.feed.log.all" />
+  
+  <menuitem name="livestock-reports" parent="livestock-root" order="70" title="Reports &amp; KPIs" icon="fa-bar-chart" />
+  <menuitem name="livestock-reports-animals" parent="livestock-reports" order="1" title="Herd Inventory Report" action="livestock.animal.all" />
+  <menuitem name="livestock-reports-milk" parent="livestock-reports" order="2" title="Milk Production Report" action="livestock.milk.log.all" />
+
+  <!-- Action Views -->
+  <action-view name="livestock.animal.all" title="Herd &amp; Animals Register" model="com.gl.apps.livestock.db.LivestockAnimal">
+    <view type="grid" name="livestock-animal-grid" />
+    <view type="form" name="livestock-animal-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="livestock.milk.log.all" title="Daily Milk Production" model="com.gl.apps.livestock.db.LivestockMilkLog">
+    <view type="grid" name="livestock-milk-log-grid" />
+    <view type="form" name="livestock-milk-log-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="livestock.weight.log.all" title="Fattening &amp; Weight Logs" model="com.gl.apps.livestock.db.LivestockWeightLog">
+    <view type="grid" name="livestock-weight-log-grid" />
+    <view type="form" name="livestock-weight-log-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="livestock.breeding.log.all" title="Breeding &amp; Insemination" model="com.gl.apps.livestock.db.LivestockBreedingLog">
+    <view type="grid" name="livestock-breeding-log-grid" />
+    <view type="form" name="livestock-breeding-log-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="livestock.health.log.all" title="Veterinary Health &amp; Treatments" model="com.gl.apps.livestock.db.LivestockHealthLog">
+    <view type="grid" name="livestock-health-log-grid" />
+    <view type="form" name="livestock-health-log-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="livestock.feed.log.all" title="Feed &amp; Nutrition" model="com.gl.apps.livestock.db.LivestockFeedLog">
+    <view type="grid" name="livestock-feed-log-grid" />
+    <view type="form" name="livestock-feed-log-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+</object-views>

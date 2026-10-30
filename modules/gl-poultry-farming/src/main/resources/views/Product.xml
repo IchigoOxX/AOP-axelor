@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="product-form-id" name="product-form" title="Product" model="com.axelor.apps.base.db.Product"
+          extension="true" >
+        <extend target="/">
+            <attribute name="onSave" value="save,action-product-set-default-values"/>
+        </extend>
+        <extend target="//field[@name='netMass']">
+            <insert position="after">
+                <field name="capacity" colSpan="6"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='isAnalyticCapture']">
+            <insert position="before">
+                <field name="productDefaultConfiguration" colSpan="6"
+                       canNew="true" canEdit="true" canRemove="true"/>
+            </insert>
+        </extend>
+        <extend target="//panel[@name='packingPanel']">
+            <insert position="after">
+                <panel name="attachmentTypePanel" title="Attachments type">
+                    <panel title="Attachments type list" colSpan="12" showTitle="false">
+                        <panel-related name="productAttachmentTypeListPanel" colSpan="12" field="productAttachmentTypeList"
+                           form-view="product-attachment-type-line-form"
+                           grid-view="product-attachment-type-line-grid"
+                           editable="true" canNew="true" canRemove="true" canEdit="true"/>
+                    </panel>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='stockManaged']">
+            <insert position="after">
+                <field name="allowNegativeStock" />
+            </insert>
+        </extend>
+        <extend target="//field[@name='productFamily']">
+            <attribute name="onChange" value="action-product-set-category-domain"/>
+        </extend>
+        <extend target="//field[@name='productCategory']">
+            <attribute name="onChange" value="action-product-set-allow-negative-stock-value"/>
+        </extend>
+
+    </form>
+
+    <action-method name="action-product-set-default-values">
+        <call class="com.gl.apps.pf.web.ProductController" method="SetProductDefaultValues"/>
+    </action-method>
+
+
+    <action-attrs name="action-product-set-category-domain">
+        <attribute if="productFamily != NULL" name="domain" expr="eval: &quot;self.categoryDefaultFamily = :productFamily OR self.categoryDefaultFamily IS NULL&quot;" for="productCategory"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-set-allow-negative-stock-value">
+        <attribute name="value" expr="eval: productCategory?.allowNegativeStock" for="allowNegativeStock"/>
+    </action-attrs>
+</object-views>
+
+
+

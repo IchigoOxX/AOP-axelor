@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <!-- ================= ANIMAL GRID & FORM ================= -->
+  <grid model="com.gl.apps.livestock.db.LivestockAnimal" title="Herd &amp; Animals Register" name="livestock-animal-grid" orderBy="-entryDate">
+    <hilite if="statusSelect == 5" color="danger" />
+    <hilite if="statusSelect == 3" color="info" />
+    <hilite if="statusSelect == 1" color="success" />
+    <field name="earTag" />
+    <field name="name" />
+    <field name="speciesSelect" />
+    <field name="breed" />
+    <field name="genderSelect" />
+    <field name="statusSelect" widget="Badge" />
+    <field name="currentWeight" />
+    <field name="unit" />
+    <field name="location" />
+    <field name="company" />
+  </grid>
+
+  <form model="com.gl.apps.livestock.db.LivestockAnimal" title="Livestock Animal Profile" name="livestock-animal-form" width="large"
+        onNew="action-livestock-animal-record-on-new">
+    <panel name="mainPanel" title="Animal Identification &amp; Info" colSpan="12">
+      <field name="earTag" colSpan="4" css="bold" />
+      <field name="name" colSpan="4" />
+      <field name="speciesSelect" colSpan="4" />
+      <field name="breed" colSpan="4" />
+      <field name="genderSelect" colSpan="4" />
+      <field name="statusSelect" widget="NavSelect" colSpan="4" />
+      <field name="company" colSpan="4" />
+      <field name="unit" colSpan="4" required="true" />
+      <field name="location" colSpan="4" />
+    </panel>
+
+    <panel-tabs>
+      <panel name="growthPanel" title="Weights &amp; Growth Tracking" colSpan="12">
+        <field name="birthDate" colSpan="4" />
+        <field name="entryDate" colSpan="4" />
+        <field name="birthWeight" colSpan="4" />
+        <field name="currentWeight" colSpan="4" css="bold" />
+        <field name="lastWeighDate" colSpan="4" />
+      </panel>
+
+      <panel name="pedigreePanel" title="Pedigree &amp; Lineage Records" colSpan="12">
+        <field name="dam" colSpan="6" domain="self.genderSelect = 2" />
+        <field name="damTag" colSpan="6" />
+        <field name="sireTag" colSpan="6" />
+      </panel>
+
+      <panel name="financialPanel" title="Financial &amp; Supplier Details" colSpan="12">
+        <field name="partner" colSpan="6" />
+        <field name="purchasePrice" colSpan="6" />
+        <field name="salePrice" colSpan="6" />
+        <field name="exitDate" colSpan="6" />
+        <field name="exitReason" colSpan="6" />
+        <field name="dispatchStock" colSpan="6" readonly="true" />
+      </panel>
+
+      <panel name="notesPanel" title="Veterinary &amp; Administrative Notes" colSpan="12">
+        <field name="notes" colSpan="12" widget="text" />
+      </panel>
+    </panel-tabs>
+  </form>
+
+  <!-- ================= MILK LOG GRID & FORM ================= -->
+  <grid model="com.gl.apps.livestock.db.LivestockMilkLog" title="Daily Milk Production" name="livestock-milk-log-grid" orderBy="-logDate">
+    <hilite if="statusSelect == 1" color="success" />
+    <field name="logDate" />
+    <field name="sessionSelect" />
+    <field name="animal" />
+    <field name="quantityLiters" aggregate="sum" />
+    <field name="fatPercentage" />
+    <field name="proteinPercentage" />
+    <field name="storageTank" />
+    <field name="milkProduct" />
+    <field name="unit" />
+    <field name="statusSelect" widget="Badge" />
+    <field name="stockMove" />
+    <field name="company" />
+  </grid>
+
+  <form model="com.gl.apps.livestock.db.LivestockMilkLog" title="Record Milk Production" name="livestock-milk-log-form" width="large"
+        onNew="action-livestock-milk-log-record-on-new">
+    <toolbar>
+      <button name="btnConfirm" title="Confirm &amp; Generate Stock Move"
+              onClick="save,action-livestock-milk-method-confirm"
+              showIf="statusSelect == 0" icon="fa-check" css="btn-success" />
+    </toolbar>
+
+    <panel name="headerPanel" colSpan="12">
+      <field name="statusSelect" widget="NavSelect" colSpan="12" showTitle="false" />
+    </panel>
+
+    <panel name="mainPanel" title="Milking Session Details" colSpan="12">
+      <field name="logDate" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="sessionSelect" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="company" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="unit" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="animal" colSpan="4" domain="self.statusSelect in (1, 3)" readonlyIf="statusSelect == 1" />
+      <field name="quantityLiters" colSpan="4" css="bold" readonlyIf="statusSelect == 1" />
+      <field name="storageTank" colSpan="4" required="true" readonlyIf="statusSelect == 1" />
+      <field name="milkProduct" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="fatPercentage" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="proteinPercentage" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="stockMove" colSpan="4" readonly="true" />
+      <field name="notes" colSpan="12" readonlyIf="statusSelect == 1" />
+    </panel>
+  </form>
+
+  <!-- ================= FEED LOG GRID & FORM ================= -->
+  <grid model="com.gl.apps.livestock.db.LivestockFeedLog" title="Feed &amp; Nutrition" name="livestock-feed-log-grid" orderBy="-feedDate">
+    <hilite if="statusSelect == 1" color="success" />
+    <field name="feedDate" />
+    <field name="location" />
+    <field name="fromLocation" />
+    <field name="feedProduct" />
+    <field name="quantityKg" aggregate="sum" />
+    <field name="unitCost" />
+    <field name="totalCost" aggregate="sum" />
+    <field name="unit" />
+    <field name="statusSelect" widget="Badge" />
+    <field name="stockMove" />
+    <field name="company" />
+  </grid>
+
+  <form model="com.gl.apps.livestock.db.LivestockFeedLog" title="Feed Ration &amp; Distribution" name="livestock-feed-log-form" width="large"
+        onNew="action-livestock-feed-log-record-on-new">
+    <toolbar>
+      <button name="btnConfirm" title="Confirm &amp; Generate Stock Move"
+              onClick="save,action-livestock-feed-method-confirm"
+              showIf="statusSelect == 0" icon="fa-check" css="btn-success" />
+    </toolbar>
+
+    <panel name="headerPanel" colSpan="12">
+      <field name="statusSelect" widget="NavSelect" colSpan="12" showTitle="false" />
+    </panel>
+
+    <panel name="mainPanel" title="Ration &amp; Nutrition Details" colSpan="12">
+      <field name="feedDate" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="company" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="unit" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="fromLocation" colSpan="6" required="true" readonlyIf="statusSelect == 1" />
+      <field name="location" colSpan="6" required="true" readonlyIf="statusSelect == 1" />
+      <field name="feedProduct" colSpan="6" required="true" readonlyIf="statusSelect == 1" />
+      <field name="quantityKg" colSpan="6" css="bold" onChange="action-livestock-feed-method-on-cost-change" readonlyIf="statusSelect == 1" />
+      <field name="unitCost" colSpan="4" onChange="action-livestock-feed-method-on-cost-change" readonlyIf="statusSelect == 1" />
+      <field name="totalCost" colSpan="4" readonly="true" />
+      <field name="stockMove" colSpan="4" readonly="true" />
+      <field name="notes" colSpan="12" readonlyIf="statusSelect == 1" />
+    </panel>
+  </form>
+
+  <!-- ================= HEALTH LOG GRID & FORM ================= -->
+  <grid model="com.gl.apps.livestock.db.LivestockHealthLog" title="Veterinary Health &amp; Treatments" name="livestock-health-log-grid" orderBy="-eventDate">
+    <hilite if="statusSelect == 1" color="success" />
+    <field name="eventDate" />
+    <field name="animal" />
+    <field name="typeSelect" />
+    <field name="diagnosis" />
+    <field name="medicineProduct" />
+    <field name="quantityUsed" />
+    <field name="pharmacyLocation" />
+    <field name="veterinarian" />
+    <field name="withdrawalEndDate" />
+    <field name="statusSelect" widget="Badge" />
+    <field name="stockMove" />
+  </grid>
+
+  <form model="com.gl.apps.livestock.db.LivestockHealthLog" title="Veterinary Procedure &amp; Vaccination" name="livestock-health-log-form" width="large"
+        onNew="action-livestock-health-log-record-on-new">
+    <toolbar>
+      <button name="btnConfirm" title="Confirm &amp; Generate Stock Move"
+              onClick="save,action-livestock-health-method-confirm"
+              showIf="statusSelect == 0" icon="fa-check" css="btn-success" />
+    </toolbar>
+
+    <panel name="headerPanel" colSpan="12">
+      <field name="statusSelect" widget="NavSelect" colSpan="12" showTitle="false" />
+    </panel>
+
+    <panel name="mainPanel" title="Health Status &amp; Treatment" colSpan="12">
+      <field name="eventDate" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="typeSelect" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="company" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="animal" colSpan="6" required="true" readonlyIf="statusSelect == 1" />
+      <field name="veterinarian" colSpan="6" readonlyIf="statusSelect == 1" />
+      <field name="diagnosis" colSpan="12" readonlyIf="statusSelect == 1" />
+      <field name="medicineProduct" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="quantityUsed" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="pharmacyLocation" colSpan="4" readonlyIf="statusSelect == 1" />
+      <field name="dosage" colSpan="6" readonlyIf="statusSelect == 1" />
+      <field name="withdrawalEndDate" colSpan="6" readonlyIf="statusSelect == 1" />
+      <field name="stockMove" colSpan="6" readonly="true" />
+      <field name="notes" colSpan="12" widget="text" readonlyIf="statusSelect == 1" />
+    </panel>
+  </form>
+
+  <!-- ================= BREEDING LOG GRID & FORM ================= -->
+  <grid model="com.gl.apps.livestock.db.LivestockBreedingLog" title="Breeding &amp; Insemination" name="livestock-breeding-log-grid" orderBy="-inseminationDate">
+    <hilite if="isPregnant == true" color="success" />
+    <field name="inseminationDate" />
+    <field name="animal" />
+    <field name="methodSelect" />
+    <field name="sireBreed" />
+    <field name="semenProduct" />
+    <field name="isPregnant" />
+    <field name="expectedDryOffDate" />
+    <field name="expectedCalvingDate" />
+    <field name="actualCalvingDate" />
+    <field name="calfEarTag" />
+    <field name="newbornCalf" />
+  </grid>
+
+  <form model="com.gl.apps.livestock.db.LivestockBreedingLog" title="Breeding &amp; Pregnancy Status" name="livestock-breeding-log-form" width="large"
+        onNew="action-livestock-breeding-log-record-on-new">
+    <toolbar>
+      <button name="btnRegisterCalf" title="Register Calf Birth"
+              onClick="save,action-livestock-breeding-method-register-birth"
+              showIf="actualCalvingDate != null &amp;&amp; calfEarTag != null &amp;&amp; newbornCalf == null"
+              icon="fa-plus-circle" css="btn-success" />
+    </toolbar>
+
+    <panel name="mainPanel" title="Insemination Data" colSpan="12">
+      <field name="inseminationDate" colSpan="4" onChange="action-livestock-breeding-method-on-insemination-change" />
+      <field name="methodSelect" colSpan="4" />
+      <field name="company" colSpan="4" />
+      <field name="animal" colSpan="6" domain="self.genderSelect = 2" />
+      <field name="sireBreed" colSpan="6" />
+      <field name="semenProduct" colSpan="6" />
+      <field name="technician" colSpan="6" />
+    </panel>
+
+    <panel name="pregnancyPanel" title="Gestation &amp; Calving Monitoring" colSpan="12">
+      <field name="pregnancyCheckDate" colSpan="4" />
+      <field name="isPregnant" widget="boolean-switch" colSpan="4" onChange="action-livestock-breeding-method-on-insemination-change" />
+      <field name="expectedDryOffDate" colSpan="4" />
+      <field name="expectedCalvingDate" colSpan="4" />
+      <field name="actualCalvingDate" colSpan="4" />
+      <field name="calfGenderSelect" colSpan="4" />
+      <field name="calfEarTag" colSpan="4" />
+      <field name="newbornCalf" colSpan="4" readonly="true" />
+      <field name="notes" colSpan="12" />
+    </panel>
+  </form>
+
+  <!-- ================= WEIGHT LOG GRID & FORM ================= -->
+  <grid model="com.gl.apps.livestock.db.LivestockWeightLog" title="Fattening &amp; Weight Logs" name="livestock-weight-log-grid" orderBy="-weighDate">
+    <field name="weighDate" />
+    <field name="animal" />
+    <field name="weight" />
+    <field name="daysSinceLastWeigh" />
+    <field name="dailyGainKg" />
+    <field name="company" />
+  </grid>
+
+  <form model="com.gl.apps.livestock.db.LivestockWeightLog" title="Record Periodic Weight" name="livestock-weight-log-form" width="large"
+        onNew="action-livestock-weight-log-record-on-new">
+    <toolbar>
+      <button name="btnCalculateADG" title="Calculate ADG"
+              onClick="save,action-livestock-weight-method-calculate-adg"
+              icon="fa-calculator" css="btn-info" />
+    </toolbar>
+
+    <panel name="mainPanel" title="Weight &amp; Feed Conversion Ratio" colSpan="12">
+      <field name="weighDate" colSpan="4" />
+      <field name="company" colSpan="4" />
+      <field name="animal" colSpan="4" required="true" />
+      <field name="weight" colSpan="4" css="bold" required="true" />
+      <field name="daysSinceLastWeigh" colSpan="4" readonly="true" />
+      <field name="dailyGainKg" colSpan="4" css="bold" readonly="true" />
+      <field name="notes" colSpan="12" />
+    </panel>
+  </form>
+
+  <!-- ================= ACTION METHODS ================= -->
+  <action-method name="action-livestock-milk-method-confirm">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="confirmMilkLog" />
+  </action-method>
+
+  <action-method name="action-livestock-feed-method-confirm">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="confirmFeedLog" />
+  </action-method>
+
+  <action-method name="action-livestock-feed-method-on-cost-change">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="onFeedCostChange" />
+  </action-method>
+
+  <action-method name="action-livestock-health-method-confirm">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="confirmHealthLog" />
+  </action-method>
+
+  <action-method name="action-livestock-breeding-method-on-insemination-change">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="onInseminationChange" />
+  </action-method>
+
+  <action-method name="action-livestock-breeding-method-register-birth">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="registerBirth" />
+  </action-method>
+
+  <action-method name="action-livestock-weight-method-calculate-adg">
+    <call class="com.gl.apps.livestock.web.LivestockOperationsController" method="computeWeightGain" />
+  </action-method>
+
+  <!-- ================= ACTION RECORDS (onNew) ================= -->
+  <action-record name="action-livestock-animal-record-on-new" model="com.gl.apps.livestock.db.LivestockAnimal">
+    <field name="company" expr="eval: __user__.activeCompany" if="__user__.activeCompany != null" />
+    <field name="company" expr="eval: __repo__(Company).all().fetchOne()" if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1" />
+    <field name="unit" expr="eval: __user__.department" if="__user__.department != null" />
+    <field name="unit" expr="eval: __repo__(CompanyDepartment).all().filter('self.company = :comp').bind('comp', __user__.activeCompany).fetchOne()" if="__user__.department == null &amp;&amp; __user__.activeCompany != null &amp;&amp; __repo__(CompanyDepartment).all().filter('self.company = :comp').bind('comp', __user__.activeCompany).count() == 1" />
+    <field name="statusSelect" expr="eval: 1" />
+    <field name="speciesSelect" expr="eval: 1" />
+    <field name="genderSelect" expr="eval: 2" />
+    <field name="entryDate" expr="eval: __date__" />
+  </action-record>
+
+  <action-record name="action-livestock-milk-log-record-on-new" model="com.gl.apps.livestock.db.LivestockMilkLog">
+    <field name="company" expr="eval: __user__.activeCompany" if="__user__.activeCompany != null" />
+    <field name="company" expr="eval: __repo__(Company).all().fetchOne()" if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1" />
+    <field name="unit" expr="eval: __user__.department" if="__user__.department != null" />
+    <field name="unit" expr="eval: __repo__(CompanyDepartment).all().filter('self.company = :comp').bind('comp', __user__.activeCompany).fetchOne()" if="__user__.department == null &amp;&amp; __user__.activeCompany != null &amp;&amp; __repo__(CompanyDepartment).all().filter('self.company = :comp').bind('comp', __user__.activeCompany).count() == 1" />
+    <field name="logDate" expr="eval: __date__" />
+    <field name="sessionSelect" expr="eval: 1" />
+    <field name="statusSelect" expr="eval: 0" />
+  </action-record>
+
+  <action-record name="action-livestock-feed-log-record-on-new" model="com.gl.apps.livestock.db.LivestockFeedLog">
+    <field name="company" expr="eval: __user__.activeCompany" if="__user__.activeCompany != null" />
+    <field name="company" expr="eval: __repo__(Company).all().fetchOne()" if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1" />
+    <field name="unit" expr="eval: __user__.department" if="__user__.department != null" />
+    <field name="unit" expr="eval: __repo__(CompanyDepartment).all().filter('self.company = :comp').bind('comp', __user__.activeCompany).fetchOne()" if="__user__.department == null &amp;&amp; __user__.activeCompany != null &amp;&amp; __repo__(CompanyDepartment).all().filter('self.company = :comp').bind('comp', __user__.activeCompany).count() == 1" />
+    <field name="feedDate" expr="eval: __date__" />
+    <field name="statusSelect" expr="eval: 0" />
+  </action-record>
+
+  <action-record name="action-livestock-health-log-record-on-new" model="com.gl.apps.livestock.db.LivestockHealthLog">
+    <field name="company" expr="eval: __user__.activeCompany" if="__user__.activeCompany != null" />
+    <field name="company" expr="eval: __repo__(Company).all().fetchOne()" if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1" />
+    <field name="eventDate" expr="eval: __date__" />
+    <field name="typeSelect" expr="eval: 1" />
+    <field name="statusSelect" expr="eval: 0" />
+  </action-record>
+
+  <action-record name="action-livestock-breeding-log-record-on-new" model="com.gl.apps.livestock.db.LivestockBreedingLog">
+    <field name="company" expr="eval: __user__.activeCompany" if="__user__.activeCompany != null" />
+    <field name="company" expr="eval: __repo__(Company).all().fetchOne()" if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1" />
+    <field name="inseminationDate" expr="eval: __date__" />
+    <field name="methodSelect" expr="eval: 1" />
+    <field name="isPregnant" expr="eval: false" />
+  </action-record>
+
+  <action-record name="action-livestock-weight-log-record-on-new" model="com.gl.apps.livestock.db.LivestockWeightLog">
+    <field name="company" expr="eval: __user__.activeCompany" if="__user__.activeCompany != null" />
+    <field name="company" expr="eval: __repo__(Company).all().fetchOne()" if="__user__.activeCompany == null &amp;&amp; __repo__(Company).all().count() == 1" />
+    <field name="weighDate" expr="eval: __date__" />
+  </action-record>
+
+</object-views>

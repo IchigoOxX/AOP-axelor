@@ -1,0 +1,10 @@
+name: zatca-einvoice
+title: الفوترة الإلكترونية والزكاة (ZATCA)
+description: الربط والتكامل مع هيئة الزكاة والضريبة والجمارك السعودية (المرحلة الثانية - فاتورة)
+author: Axelor
+version: 1.0.0
+depends:
+  - base
+  - account
+  - sale
+

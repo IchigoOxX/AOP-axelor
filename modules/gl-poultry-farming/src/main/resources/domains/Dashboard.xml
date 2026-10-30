@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="Dashboard">
+        <one-to-many name="eggsPerCenterList" ref="com.gl.apps.pf.db.DashboardRepro" title="List"/>
+        <one-to-many name="eggsPerBreedingShedList" ref="com.gl.apps.pf.db.DashboardRepro" title="List"/>
+        <one-to-many name="eggsPerCenterPerTrackingNumberList" ref="com.gl.apps.pf.db.DashboardRepro" title="List"/>
+
+        <one-to-many name="chicksProductionSalesList" ref="com.gl.apps.pf.db.ChicksDashboard" title="List"/>
+        <one-to-many name="alimentsStockList" ref="com.gl.apps.pf.db.DashboardAliments" title="List"/>
+        <one-to-many name="productConsumptionList" ref="com.gl.apps.pf.db.DashboardAliments" title="List"/>
+
+        <many-to-one name="firstUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="secondUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="thirdUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="fourthUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="fifthUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="sixthUnit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+
+        <track on="UPDATE">
+            <field name="eggsPerCenterList"/>
+            <field name="eggsPerBreedingShedList"/>
+            <field name="eggsPerCenterPerTrackingNumberList"/>
+            <field name="chicksProductionSalesList"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

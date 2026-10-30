@@ -1,0 +1,1093 @@
+% Gap,% فجوة
+%d line(s) treated and %d anomaly(ies) reported !,تمت معالجة %d سطر (أسطر) والإبلاغ عن %d حالة (خطوط) شاذة!
+%s building,مبنى %s
+%s consume,%s يستهلك
+%s missing,%s مفقود
+* %s Computed work in progress valuation,* تقييم %s العمل المحسوب قيد التقدم
+* %s Filled SOP lines,* %s خطوط SOP مملوءة
+105,105
+5,5
+<>This bill of material is used in a sale order. Generate a new version if you need to edit it.</>,<>يتم استخدام قائمة المواد هذه في أمر البيع. قم بإنشاء نسخة جديدة إذا كنت تريد تعديلها.</>
+<b>Missing components</b> :<br/>%s,<b>المكونات المفقودة</b> :<br/>%s
+A cancel reason must be selected,يجب تحديد سبب الإلغاء
+"A list of sale order lines that will be processed. The lines that can be selected are the ones conforming to the following conditions :\nProduct is storable\nProduct is managed in stock\nProduct (and its category/family) is not excluded from mrp\nSale order/quotation has the same stockLocation or a subLocation\nIf MPS, product must be a finished product\nDelivered quantity of the line must be lower than total quantity\nThe line must conform to one or several of the mrp move types",قائمة بنود أوامر البيع التي ستتم معالجتها. البنود التي يمكن اختيارها هي التي تطابق الشروط التالية: المنتج قابل للتخزين، مدار في المخزون، غير مستبعد من تخطيط الاحتياجات، له نفس موقع المخزون، كمية التسليم أقل من الإجمالي.
+A manufacturing order already covers the quantity to produce for product %s.,يغطي أمر تصنيع بالفعل الكمية المراد إنتاجها للمنتج %s.
+Action,العمل
+Actions,الإجراءات
+Add Manuf. Order,أمر / طلب
+Add a control entry,إضافة إدخال تحكم
+Add a control plan,إضافة خطة تحكم
+Add a new sale order line,إضافة سطر أمر بيع جديد
+All Child MO,كل طفل مو
+All Current Manufacturing Orders,جميع طلبات التصنيع الحالية
+All Upcoming Manufacturing Orders,جميع طلبات التصنيع القادمة
+Allocate,تخصيص
+Allocate all,تخصيص الكل
+Allow to personalize bill of material,السماح بتخصيص قائمة المواد
+Allow to personalize production process,السماح بتخصيص عملية الإنتاج
+Alternative Bill of materials,قائمة المواد البديلة
+Anomalies,الشذوذات
+App,التطبيق
+App Supplychain,سلسلة توريد التطبيقات
+App manufacturing,تصنيع التطبيقات
+App production,إنتاج التطبيق
+Applicable,ينطبق
+Approval,الموافقة
+Are you sure you want to merge those manufacturing orders?,هل أنت متأكد أنك تريد دمج أوامر التصنيع تلك؟
+Are you sure you want to run the calculation ? Calculation can take a long time.,هل أنت متأكد أنك تريد إجراء العملية الحسابية؟ يمكن أن يستغرق الحساب وقتًا طويلاً.
+As soon as possible,في أسرع وقت
+At the latest,على أبعد تقدير
+Auto request qty for manuf orders,طلب الكمية تلقائيًا لطلبات التصنيع
+Automatic email was not sent because no default email account and/or no valid email account was found : please create one.,لم يتم إرسال بريد إلكتروني تلقائي لأنه لم يتم العثور على حساب بريد إلكتروني افتراضي و/أو لم يتم العثور على حساب بريد إلكتروني صالح: يرجى إنشاء واحد.
+Automatically plan after fusion,التخطيط تلقائيًا بعد الدمج
+Automatically plan the manuf. orders generated from sale order,تخطيط المصنع تلقائيا. الأوامر المتولدة من أمر البيع
+Available stock,المخزون المتوفر
+Average Price,متوسط ​​السعر
+BOM,قائمة المواد (BOM)
+BOM currently has no status,BOM حاليًا ليس له حالة
+BOM is already on draft status,BOM موجود بالفعل في حالة المسودة
+BOM.billOfMaterialList,قائمة المواد
+BOM.company,الشركة
+BOM.defineSubBillOfMaterial,تحديد قائمة المواد / شجرة المنتج (BOM) الفرعية
+BOM.hasNoManageStock,ليس لديه مخزون إدارة
+BOM.priority,BOM.الأولوية
+BOM.qty,الكمية
+BOM.residualProducts,المنتجات المتبقية
+BOM.title,العنوان
+BOM.unit,وحدة
+BOM.versionNumber,رقم الاصدار
+Back to draft,العودة إلى المسودة
+Barcode,باركود
+Barcode Type,نوع الباركود
+Batchs,دفعات
+Bill of material,قائمة المواد / شجرة المنتج (BOM)
+Bill of material line,بند قائمة المواد
+Bill of material line list,قائمة بنود شجرة المنتج
+Bill of materials,قائمة المواد / شجرة المنتج (BOM)
+Bill of materials import,فاتورة استيراد المواد
+Bill of materials import line,خط استيراد المواد
+Bill of materials import line tree,شجرة بنود استيراد قائمة المواد
+Bill of materials import lines,بنود استيراد قائمة المواد
+Bill of materials import source,مصدر استيراد قائمة المواد / شجرة المنتج (BOM)
+Bill of materials import sources,قائمة مصادر استيراد المواد
+Bill of materials imports,فاتورة واردات المواد
+Bill of materials name is too long (maximum 255 characters).,اسم قائمة المواد طويل جدًا (الحد الأقصى 255 حرفًا).
+BillOfMaterial,قائمة المواد / شجرة المنتج (BOM)
+Bills of material,قوائم المواد / شجرة المنتج (BOM)
+Bills of material filters,فواتير مرشحات المواد
+Bills of materials,قوائم المواد / شجرة المنتج (BOM)
+Bills of materials generated,قوائم المواد / شجرة المنتج (BOM) التي تم إنشاؤها
+Binding file,ملف ملزم
+Block production,إنتاج البلوك
+Blocking comment for production,منع التعليق على الإنتاج
+Blocking production reason,سبب حجب الإنتاج
+Blocking production until,منع الإنتاج حتى
+BoM,قائمة المواد (BOM)
+BoM line,خط BoM
+Bom child tree list,قائمة شجرة أطفال بوم
+Bom level,مستوى بوم
+Bom tree list,قائمة شجرة بوم
+Brand,العلامة التجارية
+Budget item,بند الميزانية
+Buying currency,شراء العملة
+Buying date,تاريخ الشراء
+Buying price,سعر الشراء
+"By enabling this, the total cost price will be calculated by considering the real duration (including hours) of production cycle.",من خلال تمكين ذلك، سيتم حساب إجمالي سعر التكلفة من خلال النظر في المدة الحقيقية (بما في ذلك الساعات) لدورة الإنتاج.
+Calculation in progress,جاري الحساب
+Calculation quantity,حساب الكمية
+Calculation quantity should not be zero.,يجب ألا تكون كمية الحساب صفراً.
+Calculation type,نوع الحساب
+Calendars,التقاويم
+Cancel,إلغاء
+Cancel Reason,إلغاء السبب
+Cancel Reasons,أسباب الإلغاء
+Cancel reason,إلغاء السبب
+Cancel reservation,إلغاء الحجز
+Canceled,ملغي
+Cancellation,الإلغاء
+Cancellation confirmation,تأكيد الإلغاء
+Cancelled MOs,العمليات الملغاة
+Cancelled Operations,العمليات الملغاة
+Cannot add a manufacturing order without a production process. Please check that your chosen bill of materials has a valid production process.,لا يمكن إضافة أمر تصنيع بدون عملية إنتاج. يرجى التأكد من أن قائمة المواد التي اخترتها تتضمن عملية إنتاج صالحة.
+Cannot compute the number of cycles because the production process line is missing. Please check the manufacturing order routing configuration.,تعذر حساب عدد الدورات بسبب فقدان خط سير عملية الإنتاج. يرجى التحقق من إعدادات مسار أمر التصنيع.
+Cannot make BOM applicable that is not validated,لا يمكن جعل BOM قابلاً للتطبيق ولم يتم التحقق من صحته
+Cannot make BOM obsolete that is not applicable,لا يمكن جعل قائمة مكونات الصنف (BOM) قديمة وغير قابلة للتطبيق
+Cannot make prod process applicable that is not validated,لا يمكن جعل عملية الإنتاج قابلة للتطبيق ولم يتم التحقق من صحتها
+Cannot make prod process obsolete that is not applicable,لا يمكن جعل عملية الإنتاج قديمة وغير قابلة للتطبيق
+Cannot regenerate because the bill of material is in use in production (one manuf order exist),لا يمكن التجديد لأن قائمة المواد قيد الاستخدام في الإنتاج (يوجد أمر تصنيع واحد)
+Cannot regenerate because the product is already in production (one manuf order exist),لا يمكن التجديد لأن المنتج قيد الإنتاج بالفعل (يوجد طلب تصنيع واحد)
+Cannot validate BOM that is not draft,لا يمكن التحقق من صحة قائمة مكونات الصنف التي ليست مسودة
+Cannot validate prod process that is not draft,لا يمكن التحقق من صحة عملية الإنتاج التي ليست مسودة
+Capacity,القدرة
+Capacity settings,إعدادات السعة
+Category,الفئة
+Change allocated qty,تغيير الكمية المخصصة
+Children MO,أطفال مو
+Code,الرمز
+Comments,تعليقات
+Company,الشركة
+Company_currency,عملة_الشركة
+Completed,مكتمل
+Component,المكون
+Components,المكونات
+Components default stock location,موقع المخزون الافتراضي للمكونات
+Components valuation method for BOM,طريقة تقييم المكونات لقائمة مكونات الصنف
+Components valuation method for manuf. order,أمر / طلب
+Compute cost price,حساب سعر التكلفة
+Compute total forecast,حساب إجمالي التوقعات
+Compute work in progress valuation,حساب تقييم العمل الجاري
+Computed_cost,التكلفة_المحسوبة
+Condition,الحالة
+Configuration,التهيئة
+Configuration issue in product %s: the MRP execution was canceled because a loop was detected when searching for components in BOM.,مشكلة التكوين في المنتج %s: تم إلغاء تنفيذ MRP بسبب اكتشاف حلقة عند البحث عن مكونات في قائمة مكونات الصنف (BOM).
+Configuration issue: the MRP execution was canceled because a loop was detected when searching for components in BOM.,مشكلة في التكوين: تم إلغاء تنفيذ MRP بسبب اكتشاف حلقة عند البحث عن مكونات في قائمة مكونات الصنف (BOM).
+Configurator BOM,مكون BOM
+Configurator BOM component,مكون BOM المكون
+Configurator BOM components,مكونات BOM المكونة
+Configurator BOM tree view,عرض شجرة مكون BOM
+Configurator BoM,مكون BoM
+Configurator Phase,مرحلة التكوين
+Configurator Phases,مراحل التكوين
+Configurator Prod Process,عملية إنتاج المكوّن
+Configurator Prod Process filters,مرشحات عملية منتج التكوين
+Configurator creators,منشئو التكوين
+Configurator prod product,منتج همز التكوين
+Configurator prod products,منتجات همز التكوين
+Configurator production process,عملية إنتاج التكوين
+Configurators,التكوينات
+Configurators BOMs,تكوينات BOMs
+Configurators BOMs tree,شجرة مكونات مكونات الصنف
+Confirm cancellation,تأكيد الإلغاء
+Confirm forecasts,تأكيد التوقعات
+Consignment stock,مخزون الشحن
+Consume in stock moves,الاستهلاك في حركات المخزون
+Consumed product,المنتج المستهلك
+Consumed product waste,مخلفات المنتجات المستهلكة
+Consumed products,المنتجات المستهلكة
+Consumed products on phases,المنتجات المستهلكة على مراحل
+Consumed quantity,الكمية المستهلكة
+Consumption,الاستهلاك
+Consumption qty,كمية الاستهلاك
+Content lines,خطوط المحتوى
+Continuity by default,الاستمرارية بشكل افتراضي
+Control entry,دخول التحكم
+Control on receipt,التحكم في الاستلام
+Control plan line,خط خطة التحكم
+Control plan lines,خطوط خطة التحكم
+Control plans,خطط التحكم
+Cost,التكلفة
+Cost (W.T.),التكلفة (بالوزن)
+Cost Price,سعر التكلفة
+Cost calculations,حسابات التكلفة
+Cost per process line,التكلفة لكل خط عملية
+Cost price,سعر التكلفة
+Cost sheet,ورقة التكاليف
+Cost sheet - %s,ورقة التكلفة - %s
+Cost sheet group,مجموعة ورقة التكلفة
+Cost sheet group for product,مجموعة ورقة التكلفة للمنتج
+Cost sheet group for work center,مجموعة ورقة التكلفة لمركز العمل
+Cost sheet groups,مجموعات بطاقة / بيان التكاليف
+Cost sheet line,سطر ورقة التكلفة
+Cost sheet line detail,تفاصيل سطر ورقة التكلفة
+Cost sheet lines,بنود ورقة التكلفة
+Cost sheet valuation,تقييم ورقة التكلفة
+Cost sheets,أوراق التكلفة
+Cost sheets tree,شجرة أوراق التكلفة
+Cost type,نوع التكلفة
+CostSheet,ورقة التكلفة
+CostSheet.ManufOrderNumber,رقم أمر التصنيع
+CostSheet.billOfMaterial,قائمة المواد / شجرة المنتج (BOM)
+CostSheet.calculationDate,ورقة التكلفة.حساب التاريخ
+CostSheet.calculationType,ورقة التكلفة. نوع الحساب
+CostSheet.calculationTypeBillOfMaterial,نوع الحساب قائمة المواد / شجرة المنتج (BOM)
+CostSheet.calculationTypeEndOfProduction,نوع الحساب نهاية الإنتاج
+CostSheet.calculationTypePartialEndOfProduction,نوع الحساب نهاية جزئية للإنتاج
+CostSheet.calculationTypeWorkInProgress,نوع الحساب قيد التنفيذ
+CostSheet.company,الشركة
+CostSheet.costPrice,ورقة التكلفة.سعر التكلفة
+CostSheet.costSheetLineBomLevel,خط ورقة التكلفة مستوى بوم
+CostSheet.costSheetLineCode,كود سطر ورقة التكلفة
+CostSheet.costSheetLineConsumptionQty,كمية خط استهلاك ورقة التكلفة
+CostSheet.costSheetLineCostSheetGroup,مجموعة أوراق التكلفة سطر ورقة التكلفة
+CostSheet.costSheetLineName,اسم سطر ورقة التكلفة
+CostSheet.costSheetLineUnit,وحدة خط ورقة التكلفة
+CostSheet.costSheetLines,خطوط ورقة التكلفة
+CostSheet.createdBy,ورقة التكلفة.تم إنشاؤها بواسطة
+CostSheet.createdOn,تم إنشاؤه في
+CostSheet.currency,العملة
+CostSheet.dateOfEdition,تاريخ الطبعة
+CostSheet.legend,ورقة التكلفة.أسطورة
+CostSheet.lineType,نوع الخط
+CostSheet.lineTypeConsumeProduct,نوع الخط يستهلك المنتج
+CostSheet.lineTypeConsumeProductWaste,نوع الخط يستهلك مخلفات المنتج
+CostSheet.lineTypeHuman,نوع الخط بشري
+CostSheet.lineTypeIndirectCost,نوع الخط تكلفة غير مباشرة
+CostSheet.lineTypeProduceProduct,نوع الخط إنتاج المنتج
+CostSheet.lineTypeWorkCenter,مركز عمل من نوع الخط
+CostSheet.manufOrder,طلب تصنيع
+CostSheet.title,العنوان
+Cost_to_apply,التكلفة_للتطبيق
+Costing settings,إعدادات التكلفة
+Could not find main bill of materials generated (BoM level 0).,تعذر العثور على الفاتورة الرئيسية للمواد التي تم إنشاؤها (مستوى BoM 0).
+Create a bill of material,إنشاء قائمة مواد (BOM)
+Create a production process,إنشاء عملية إنتاج
+Create production order,إنشاء أمر الإنتاج
+Created by,تم إنشاؤها بواسطة
+Created from bom import,تم إنشاؤها من استيراد بوم
+Created on,تم الإنشاء بتاريخ
+Created product,تم إنشاء المنتج
+Created products,منتجات تم إنشاؤها
+Currency,العملة
+Current production configuration does not permit to have operation orders with no duration nor interoperation time on the same machine and at the same time. (Operation: %s),لا يسمح تكوين الإنتاج الحالي بالحصول على أوامر تشغيل بدون مدة أو وقت تشغيل بيني على نفس الجهاز وفي نفس الوقت. (العملية: %s)
+Customer,عميل
+Customer dedicated,مخصص للعميل
+Customize BOM,تخصيص بوم
+Customize production process,تخصيص عملية الإنتاج
+Cycle unit,وحدة الدورة
+Dashboard,لوحة المؤشرات والتحكم
+Data import failed,فشل استيراد البيانات
+Date of calculation,تاريخ الحساب
+Date to respect delays,موعد لاحترام التأخير
+Dates,مواعيد
+Deallocate,إلغاء تخصيص
+Deallocate all,إلغاء تخصيص الكل
+Declare delivery to outsource partner,أعلن التسليم إلى شريك الاستعانة بمصادر خارجية
+Default BOM,قائمة مكونات الصنف الافتراضية
+Default Bill of materials,قائمة المواد الافتراضية
+Default sequence,التسلسل الافتراضي
+Default work center product,منتج مركز العمل الافتراضي
+Define as default BOM of product,تحديد قائمة مكونات الصنف الافتراضية للمنتج
+Define sub bill of material,تحديد قائمة المواد الفرعية
+Define sub bill of materials,تحديد قائمة المواد الفرعية
+Define with a configurator,تحديد باستخدام مكون
+Define with a script,حدد باستخدام برنامج نصي
+Description,الوصف
+Descriptions,الوصف
+Details,التفاصيل
+Diff,فرق
+Diff consume manuf order,فرق استهلاك أمر التصنيع
+Diff consume operation order,فرق استهلاك أمر العملية
+Difference,الفرق
+Differences,الاختلافات
+Direct Manufacturing,التصنيع المباشر
+Direct Material,المواد المباشرة
+Disable BOM lines generation in sale order.,تعطيل إنشاء بنود قائمة مكونات الصنف (BOM) في أمر البيع.
+Disable prod process lines generation in sale order.,تعطيل إنشاء خطوط عملية الإنتاج في أمر البيع.
+Display products tree,عرض شجرة المنتجات
+Disposal date,تاريخ التخلص
+Do you really wish to create a new version of this bill of materials ?,هل ترغب حقًا في إنشاء نسخة جديدة من قائمة المواد هذه؟
+Do you really wish to create a new version of this production process ?,هل ترغب حقًا في إنشاء نسخة جديدة من عملية الإنتاج هذه؟
+Documents,المستندات
+Draft,مسودة
+Draft MOs,مشروع MOs
+Draft Operations,مشروع العمليات
+Draft orders,مسودة الأوامر
+Duration (days),المدة (أيام)
+Duration (hours),المدة (ساعات)
+Duration / cycle (hhh:mm:ss),المدة / الدورة (hhh:mm:ss)
+Duration / cycle (in hours),المدة / الدورة (بالساعات)
+Duration between two cycles (hhh:mm:ss),المدة بين دورتين (hhh:mm:ss)
+Duration on MOs,المدة على MOs
+Employee,موظف
+Employee scheduling,جدولة الموظفين
+Enable Tool Management,تمكين إدارة الأدوات
+Enable production configurator,تمكين مكون الإنتاج
+Enable the process for other products,تمكين العملية للمنتجات الأخرى
+End Month,نهاية الشهر
+End date,تاريخ الانتهاء
+End month should be after Start Month,يجب أن يكون شهر النهاية بعد شهر البداية
+End of production,نهاية الإنتاج
+Ending duration (hhh:mm:ss),مدة الانتهاء (hhh:mm:ss)
+Ending duration of the machine.,انتهاء مدة الجهاز.
+Error : You must configure a raw material requirement reporting sequence for the company %s,خطأ: يجب عليك تكوين تسلسل تقارير متطلبات المواد الخام للشركة %s
+Error during production's order's creation,خطأ أثناء إنشاء أمر الإنتاج
+Error that happened during the computation,خطأ حدث أثناء الحساب
+Error while generating bill of material: the product of the bill of material is supposed to be computed from a script but the script did not return a product.,حدث خطأ أثناء إنشاء قائمة المواد: من المفترض أن يتم حساب منتج قائمة المواد من برنامج نصي ولكن البرنامج النصي لم يُرجع منتجًا.
+Error while generating bill of material: the product of the bill of material is supposed to be filled in the configurator BOM but it was empty.,حدث خطأ أثناء إنشاء قائمة المواد: من المفترض أن تتم تعبئة منتج قائمة المواد في قائمة مكونات الصنف الخاصة بتكوين المواد ولكنها كانت فارغة.
+Error while generating bill of material: the product of the bill of material is supposed to be generated from the configurator but the configurator did not generate a product.,حدث خطأ أثناء إنشاء قائمة المواد: من المفترض أن يتم إنشاء منتج قائمة المواد من أداة التهيئة ولكن أداة التهيئة لم تقم بإنشاء منتج.
+Every manufacturing orders have already been generated for selected lines.,لقد تم بالفعل إنشاء كل أوامر التصنيع لخطوط مختارة.
+Every manufacturing orders have already been generated.,لقد تم بالفعل إنشاء كل طلبات التصنيع.
+Every sale order lines have already generated a production order.,لقد قامت كل بنود أمر البيع بإنشاء أمر إنتاج بالفعل.
+Every selected sale order lines have already generated a production order.,لقد قامت كل بنود أمر البيع المحددة بإنشاء أمر إنتاج بالفعل.
+Expected/Future Quantity,الكمية المتوقعة/المستقبلية
+Fetch limit,حد الجلب
+"Fetch limit for this batch. 0 will not be taken into account. In this case, the value configured in app Base will be used.",حد الجلب لهذه الدفعة. 0 لن تؤخذ في الاعتبار. في هذه الحالة، سيتم استخدام القيمة التي تم تكوينها في قاعدة التطبيق.
+Fill SOP real values,املأ القيم الحقيقية SOP
+Filters,عوامل التصفية
+Finish,انتهى
+Finished,انتهى
+Finished MOs,العمليات النهائية
+Finished Operations,العمليات المنتهية
+Finished products,المنتجات النهائية
+Finished products default stock location,موقع المخزون الافتراضي للمنتجات النهائية
+Finite,منتهية
+Forecast,توقعات
+Forecast date,تاريخ التوقعات
+Forecast on historic,توقعات تاريخية
+Forecasts,التوقعات
+Friday hours,دوام الجمعة
+From,من
+From Date,من التاريخ
+General BoM,بنك الإدارة العام
+General production processes,عمليات الإنتاج العامة
+Generate MO.,إنشاء مو.
+Generate MPS forecasts,توليد توقعات MPS
+Generate Sales and Operations Planning Lines,إنشاء خطوط تخطيط المبيعات والعمليات
+Generate a purchase order on MO planning,إنشاء أمر شراء على تخطيط MO
+Generate new version,إنشاء نسخة جديدة
+Generate periods,توليد فترات
+Generate production configurations,إنشاء تكوينات الإنتاج
+Generate production order for sale orders,إنشاء أمر إنتاج لأوامر البيع
+Generate production orders,توليد أوامر الإنتاج
+Generate production orders automatically,توليد أوامر الإنتاج تلقائيا
+Generate proposals,توليد المقترحات
+Generate waste stock move,توليد حركة مخزون النفايات
+Growth Coefficient,معامل النمو
+HR Cost Settings,إعدادات تكلفة الموارد البشرية
+HR Duration Per Cycle (hhh:mm:ss),مدة الموارد البشرية لكل دورة (hhh:mm:ss)
+Hazard phrases,عبارات خطر
+High,عالية
+Historic period,فترة تاريخية
+Hours of use,ساعات الاستخدام
+Human,إنسان
+Human Duration (hh:mm:ss),المدة البشرية (ساعة:دقيقة:ثانية ثانية)
+Human Duration (in hours),المدة البشرية (بالساعات)
+Human Resources,الموارد البشرية
+Human and Machine,الإنسان والآلة
+Human resources,الموارد البشرية
+Human times,زمن الإنسان
+Hundredth of an hour input,مائة ساعة إدخال
+"If checked, reservation will be automatically made for components when planning manufacturing orders.",إذا تم تحديده، فسيتم إجراء الحجز تلقائيًا للمكونات عند التخطيط لأوامر التصنيع.
+Image,صورة
+Import,استيراد
+Import CSV,استيراد ملف CSV
+Import source,مصدر الاستيراد
+Imported,مستورد
+Imported bill of material tree,شجرة قائمة المواد المستوردة
+In manuf order,بأمر التصنيع
+In operation order,في أمر التشغيل
+In progress,قيد التنفيذ
+Indirect,غير مباشر
+Indirect cost,تكلفة غير مباشرة
+Infinite,لانهائي
+Information,معلومات
+Inheritate the finished products from the MO to the deliveries,توريث المنتجات النهائية من MO إلى عمليات التسليم
+Invalid date,التاريخ غير صالح
+Invalid scheduling and capacity configuration.,الجدولة وتكوين السعة غير صالحين.
+Is closed,مغلق
+Is generated,يتم توليد
+Is to produce,هو إنتاج
+Is with difference,مع الاختلاف
+Is workshop,هي ورشة
+It will remove subcontractor tag from all partners. This change is irreversible,سيؤدي ذلك إلى إزالة علامة المقاول من الباطن من جميع الشركاء. هذا التغيير لا رجعة فيه
+Label,التسمية
+Last overhaul date,تاريخ آخر إصلاح
+Last production price,آخر سعر للإنتاج
+Late Planned MOs,العمليات المخططة المتأخرة
+Late Planned Operations,العمليات المخططة المتأخرة
+Launch quantity,كمية الإطلاق
+Lead time,المهلة
+Level,المستوى
+List of Wastes Per Product,قائمة النفايات لكل منتج
+Low,منخفض
+MO,مو
+MO's comment from sale order,تعليق مو من أمر البيع
+MO's comment from sale order line,تعليق MO من سطر أمر البيع
+MO's valuation method,طريقة تقييم MO
+MOs Finished late,تم الانتهاء من MOs في وقت متأخر
+MOs In Progress,MOs قيد التقدم
+MOs In Standby,MOs في وضع الاستعداد
+MOs to invoice,MOs للفاتورة
+MPS,MPS
+MPS Charge,شحن MPS
+MPS Weekly schedules,جداول MPS الأسبوعية
+MPS number,رقم MPS
+MRP,MRP
+MRP Type,نوع MRP
+MRP Types,أنواع MRP
+MRP forecasts,توقعات MRP
+Machine,آلة
+Machine Information,معلومات الآلة
+Machine Planning,تخطيط الآلة
+Machine Type,نوع الآلة
+Machine Types,أنواع الآلات
+Machine charge,شحن الآلة
+Machine settings,إعدادات الجهاز
+Machine times,أوقات الآلة
+Machine's planning,تخطيط الآلة
+Machine.planningMachineBtn,ماكينة تخطيط بي تي ان
+Machines,آلات
+Main bill of materials generated,تم إنشاء الفاتورة الرئيسية للمواد
+Main configurations,التكوينات الرئيسية
+Maintenance cost,تكلفة الصيانة
+Make it applicable,اجعلها قابلة للتطبيق
+Make it obsolete,اجعلها قديمة
+Manage Master Production Scheduling Charge,إدارة رسوم جدولة الإنتاج الرئيسي
+Manage bill of materials versions,إدارة إصدارات قائمة المواد
+Manage consumed products on operations,إدارة المنتجات المستهلكة على العمليات
+Manage consumed products on phases,إدارة المنتجات المستهلكة على مراحل
+Manage cost sheet group,إدارة مجموعة أوراق التكلفة
+Manage outsourcing,إدارة الاستعانة بمصادر خارجية
+Manage production process versions,إدارة إصدارات عملية الإنتاج
+Manage residual products on BOM,إدارة المنتجات المتبقية في قائمة مكونات الصنف
+Manage work center group,إدارة مجموعة مركز العمل
+Manage workshop,إدارة ورشة العمل
+Manual mo seq,دليل مو تسلسل
+Manuf Order consummed product,تصنيع طلب المنتج المستهلك
+Manuf Order product to consume,تصنيع طلب المنتج للاستهلاك
+Manuf order list,قائمة طلبات المصنع
+Manuf. date,التاريخ
+Manuf. reference,مانوف. مرجع
+ManufOrder,أمر التصنيع
+ManufOrder.billOfMaterial,قائمة المواد / شجرة المنتج (BOM)
+ManufOrder.company,الشركة
+ManufOrder.costPrice,سعر التكلفة
+ManufOrder.editionDate,تاريخ الإصدار
+ManufOrder.effective,فعالة
+ManufOrder.endDate,تاريخ الانتهاء
+ManufOrder.forecast,توقعات
+ManufOrder.from,من
+ManufOrder.inProgress,قيد التنفيذ
+ManufOrder.machine,آلة
+ManufOrder.moCommentFromSaleOrder,مو تعليق من أمر البيع
+ManufOrder.noLocation,لا يوجد موقع
+ManufOrder.num,رقم
+ManufOrder.operation,عملية تشغيلية
+ManufOrder.operationDetails,تفاصيل عملية التصنيع
+ManufOrder.operations,العمليات التشغيلية
+ManufOrder.origin,المصدر
+ManufOrder.plannedEndDate,تاريخ الانتهاء المخطط له
+ManufOrder.plannedStartDate,تاريخ البدء المخطط
+ManufOrder.product,المنتج
+ManufOrder.productBarcode,باركود المنتج
+ManufOrder.productCode,رمز المنتج
+ManufOrder.productName,اسم المنتج
+ManufOrder.productionProcess,عملية التصنيع
+ManufOrder.productsToPrepare,منتجات للتحضير
+ManufOrder.quantity,الكمية
+ManufOrder.rack,رف
+ManufOrder.seq,تسلسل
+ManufOrder.serial,مسلسل
+ManufOrder.standBy,الاستعداد
+ManufOrder.startDate,تاريخ البدء
+ManufOrder.status,الحالة
+ManufOrder.stockLocation,موقع التخزين / المستودع
+ManufOrder.title,العنوان
+ManufOrder.to,إلى
+ManufOrder.total,الإجمالي
+ManufOrder.trackingNumber,رقم التتبع / التشغيلة
+ManufOrder.workCenter,مركز العمل
+Manufacturer,الصانع
+Manufacturing,تصنيع
+Manufacturing Dashboard,لوحة التصنيع
+Manufacturing Operation,عملية التصنيع
+Manufacturing Operation Duration,مدة عملية التصنيع
+Manufacturing Operation Durations,مدة عملية التصنيع
+Manufacturing Order,أمر تصنيع / إنتاج
+Manufacturing Order (StockMove In),أمر التصنيع (حركة المخزون)
+Manufacturing Order (StockMove Out),أمر التصنيع (خروج المخزون)
+Manufacturing operation,عملية التصنيع
+Manufacturing operation status successfully updated.,تم تحديث حالة عملية التصنيع بنجاح.
+Manufacturing operations,عمليات التصنيع
+Manufacturing operations maximum priority,عمليات التصنيع ذات الأولوية القصوى
+Manufacturing order,أمر تصنيع / إنتاج
+Manufacturing order %s is already planned.,أمر التصنيع %s مخطط له بالفعل.
+Manufacturing order filters,مرشحات أمر التصنيع
+Manufacturing order merge result,نتيجة دمج أمر التصنيع
+Manufacturing order sequence,تسلسل أمر التصنيع
+Manufacturing order successfully updated.,تم تحديث أمر التصنيع بنجاح.
+Manufacturing orders,أوامر التصنيع
+Manufacturing orders have been added to the existent production order.,تمت إضافة أوامر التصنيع إلى أمر الإنتاج الموجود.
+Manufacturing orders on StandBy,أوامر التصنيع في وضع الاستعداد
+Manufacturing period,فترة التصنيع
+Manufacturing periods,فترات التصنيع
+Manufacturing proposal,اقتراح التصنيع
+Margin,الهامش
+Margin coefficient,معامل الهامش
+Mark,مارك
+Master Production Scheduling Charge,رسوم جدولة الإنتاج الرئيسي
+Max call reached when trying to find a time slot for operation %s.,تم الوصول إلى الحد الأقصى للاتصال عند محاولة البحث عن فترة زمنية للعملية %s.
+Max depth reached when copying BOM.,الحد الأقصى للعمق الذي تم الوصول إليه عند نسخ BOM.
+Max loop call reached when trying to compute end date.,تم الوصول إلى الحد الأقصى لاستدعاء الحلقة عند محاولة حساب تاريخ الانتهاء.
+Max loop call reached when trying to compute start date.,تم الوصول إلى الحد الأقصى لاستدعاء الحلقة عند محاولة حساب تاريخ البدء.
+Max. capacity / cycle,الأعلى. القدرة / الدورة
+Merge,دمج
+Merged,تم الدمج
+Merged MO,مو مدمج
+Merged manuf orders,طلبيات تصنيع مدمجة
+Message template,قالب الرسالة
+Min. capacity / cycle,دقيقة. القدرة / الدورة
+Missing quantity,الكمية مفقودة
+Monday hours,دوام يوم الاثنين
+Move types,أنواع القيود
+Moves In/Out,يتحرك داخل / خارج
+Mps Charge,تهمة Mps
+MpsCharge.code,الرمز
+MpsCharge.endMonth,نهاية الشهر
+MpsCharge.startMonth,شهر البدء
+MpsCharge.title,العنوان
+Multi Level MO tree,شجرة MO متعددة المستويات
+Multi level MO,متعدد المستويات MO
+Multi-level planning,تخطيط متعدد المستويات
+Multiple same product selected in the list.,تم تحديد العديد من المنتجات نفسها في القائمة.
+My RFQs,طلبات عروض الأسعار الخاصة بي
+My Sales,مبيعاتي
+Name,الاسم
+Name cannot be null for prod process line to generate. Please correct on prod process line configurator id : %s.,لا يمكن أن يكون الاسم خاليًا حتى يتم إنشاء سطر عملية المنتج. الرجاء التصحيح على معرّف مكون سطر عملية المنتج: %s.
+Name cannot be null for prod process to generate. Please correct on prod process configurator id : %s.,لا يمكن أن يكون الاسم خاليًا حتى يتم إنشاء عملية الإنتاج. الرجاء تصحيح معرف مكون عملية المنتج: %s.
+Nb of digits for BOM quantities,ملحوظة من الأرقام لكميات قائمة مكونات الصنف
+Need / MPS,الحاجة / MPS
+Need / Manufacturing order,الحاجة / أمر التصنيع
+Need / Manufacturing proposal,الحاجة / اقتراح التصنيع
+New production order(s) have been created for selected lines.,تم إنشاء أمر (أوامر) إنتاج جديدة لبنود محددة.
+New production order(s) have been created.,تم إنشاء أمر (أوامر) إنتاج جديدة.
+Next overhaul date,تاريخ الإصلاح التالي
+No continuity,لا استمرارية
+No manufacturing order could be generated for the following lines:,تعذر إنشاء أمر تصنيع للبنود التالية:
+No period has been found in the weekly planning for the manufacturing operation %s,لم يتم العثور على فترة في التخطيط الأسبوعي لعملية التصنيع %s
+No product has been found with these filters. Please check your filters,لم يتم العثور على أي منتج مع هذه المرشحات. يرجى التحقق من عوامل التصفية
+No production order could be generated. Make sure that everything has been configured correctly.,تعذر إنشاء أمر إنتاج. تأكد من تهيئة كل شيء بشكل صحيح.
+Normal,عادي
+Not enough quantity in products to consume for: %s,لا توجد كمية كافية في المنتجات للاستهلاك من أجل: %s
+Not manage stock,لا إدارة المخزون
+Note,ملاحظة
+Number of components,عدد المكونات
+Number of phases,عدد المراحل
+Number of stations,عدد المحطات
+OK,موافق
+Obsolete,عفا عليها الزمن
+On Finish,عند الانتهاء
+On Start,في البداية
+On operations start,عند بدء العمليات
+On order start,عند بدء الطلب
+One production order per sale order,أمر إنتاج واحد لكل أمر بيع
+Open MO tree,افتح شجرة MO
+Open tree,شجرة مفتوحة
+Operating duration,مدة التشغيل
+Operation,عملية تشغيلية
+Operation Continuity,استمرارية العملية
+Operation line,خط التشغيل
+Operation name,اسم العملية
+OperationOrder.associatedBOM,بوم المرتبطة
+OperationOrder.cycleDuration,مدة الدورة
+OperationOrder.dates,مواعيد طلب العملية
+OperationOrder.delayBtwCycle,تأخير بالمناسبة دورة
+OperationOrder.machine,آلة
+OperationOrder.num,رقم
+OperationOrder.operationDetails,تفاصيل عملية الطلب
+OperationOrder.operationName,اسم العملية
+OperationOrder.operationRequirement,متطلبات التشغيل
+OperationOrder.plannedEndDate,تاريخ الانتهاء المخطط له
+OperationOrder.plannedStartDate,تاريخ البدء المخطط
+OperationOrder.productBarcode,باركود المنتج
+OperationOrder.productName,اسم المنتج
+OperationOrder.productToPrepare,تحضير المنتج
+OperationOrder.qty,عملية الطلب.الكمية
+OperationOrder.realEndDate,تاريخ الانتهاء الحقيقي
+OperationOrder.realStartDate,تاريخ البدء الحقيقي
+OperationOrder.relatedToProduct,المتعلقة بالمنتج
+OperationOrder.startTime,وقت البدء
+OperationOrder.stopTime,وقت التوقف
+OperationOrder.title,العنوان
+OperationOrder.trackingNumber,رقم التتبع / التشغيلة
+Operations,العمليات التشغيلية
+Operations Finished late,انتهت العمليات في وقت متأخر
+Operations In Progress,العمليات قيد التقدم
+Operations In Standby,العمليات في وضع الاستعداد
+Operations to invoice,عمليات الفاتورة
+Operations with difference,العمليات مع الفرق
+Optional,اختياري
+Optional continuity,استمرارية اختيارية
+Options,الخيارات
+Order Lines,بنود الطلب / بنود الأمر
+Origin,الأصل
+Origin manuf order,طلب تصنيع المنشأ
+Original bill of materials,قائمة المواد الأصلية (BOM)
+Original production process,عملية الإنتاج الأصلية
+Out manuf order,أمر تصنيع
+Outgoing moves,القيود المحاسبية الصادرة
+Outgoing outsource stock move,حركة مخزون الاستعانة بمصادر خارجية الصادرة
+Outsourcable,الاستعانة بمصادر خارجية
+Outsource declaration,إعلان الاستعانة بمصادر خارجية
+Outsourced,الاستعانة بمصادر خارجية
+Outsourcing,الاستعانة بمصادر خارجية
+Outsourcing duration,مدة الاستعانة بمصادر خارجية
+Outsourcing location,موقع الاستعانة بمصادر خارجية
+Outsourcing manuf order,طلب الاستعانة بمصادر خارجية للتصنيع
+Outsourcing order,أمر الاستعانة بمصادر خارجية
+Outsourcing purchase order cannot be generated. Please fill hours unit in your base configuration.,لا يمكن إنشاء أمر شراء الاستعانة بمصادر خارجية. يرجى ملء وحدة الساعات في التكوين الأساسي الخاص بك.
+Outsourcing purchase orders,الاستعانة بمصادر خارجية لأوامر الشراء
+Outsourcing purchases,الاستعانة بمصادر خارجية للمشتريات
+Outsourcing stock location,الاستعانة بمصادر خارجية لموقع المخزون
+Outsourcing stock moves,الاستعانة بمصادر خارجية لتحركات الأسهم
+Parent,الوالد
+Parent BOM,شجرة المواد الأصلية
+Parent Configurator BOM,مكون الأصل BOM
+Parent MO,الوالد مو
+Parents are not set properly in input file.,لم يتم تعيين الآباء بشكل صحيح في ملف الإدخال.
+Partial Finish,تشطيب جزئي
+Partial end of production,نهاية جزئية للإنتاج
+Partner,شريك أعمال
+Pause,وقفة
+Per Cycle,لكل دورة
+Per hour,في الساعة
+Per piece,للقطعة الواحدة
+Period,الفترة المالية
+Periods generation assistant,مساعد توليد الفترات
+Permanent,الدائم
+Permanent manufacturing orders,طلبات التصنيع الدائمة
+Personalized,شخصية
+Personalized BoM,BoM شخصي
+Personalized production processes,عمليات الإنتاج الشخصية
+Phase,المرحلة
+Phase consumption is not enabled for this operation. Please add the consumed products directly to the manufacturing order.,لم يتم تمكين استهلاك المرحلة لهذه العملية. يرجى إضافة المنتجات المستهلكة مباشرة إلى أمر التصنيع.
+Phases,المراحل
+Picture,صورة
+Plan,خطة
+Plan only product with missing quantities,خطط فقط للمنتج ذو الكميات الناقصة
+Plan selected orders and discard others,تخطيط الطلبات المحددة وتجاهل الطلبات الأخرى
+Planification,التخطيط
+Planned,مخطط
+Planned MOs,العمليات المخططة
+Planned Operations,العمليات المخططة
+Planned Qty,الكمية المخططة
+Planned dates,التواريخ المخططة
+Planned end,النهاية المخطط لها
+Planned end date,تاريخ الانتهاء المخطط
+Planned end with waiting date t,النهاية المخطط لها مع تاريخ الانتظار t
+Planned human duration (hhh:mm:ss),المدة البشرية المخططة (hhh:mm:ss)
+Planned machine duration (hhh:mm:ss),مدة الماكينة المخططة (hhh:mm:ss)
+Planned operations,العمليات المخططة
+Planned outsourced operations,عمليات الاستعانة بمصادر خارجية المخطط لها
+Planned start,البداية المخططة
+Planned start date,تاريخ البدء المخطط
+Planning and performances,التخطيط والأداء
+Planning duration (hhh:mm:ss),مدة التخطيط (hhh:mm:ss)
+Please enter valid forecast date,الرجاء إدخال تاريخ توقعات صالح
+Please fill the machine in the workcenter %s.,الرجاء ملء الجهاز في مركز العمل %s.
+Please fill the work center group with at least one work center.,يرجى ملء مجموعة مركز العمل بمركز عمل واحد على الأقل.
+"Please select an element (a product, a product category or a product family) to run calculation",الرجاء تحديد عنصر (منتج، فئة منتج، أو عائلة منتج) لإجراء الحساب
+Please select at least one MO,الرجاء تحديد MO
+Please select at least one product in the list.,واحد على الأقل الرجاء تحديد منتج واحد على الأقل في القائمة.
+Please select more than one manufacturing order.,برجاء اختيار أكثر من أمر تصنيع.
+Please select something to merge,الرجاء تحديد شيء لدمجه
+Please take the following comment into account:,يرجى أخذ التعليق التالي بعين الاعتبار:
+Pre-fill operations,عمليات التعبئة المسبقة
+Previous_cost,السابق_التكلفة
+Previsional charge per machine (% per day),الرسوم الأولية لكل آلة (٪ في اليوم)
+Previsional charge rate (% per day),معدل الرسوم المسبق (% في اليوم)
+Previsional charge rate (% per hour),معدل الشحن المسبق (% في الساعة)
+Previsional charge rate by machine (% per day),معدل الشحن المسبق حسب الآلة (% في اليوم)
+Previsional charge rate by machine (% per hour),معدل الشحن المسبق للآلة (% في الساعة)
+Print,طباعة
+Print Production Process,عملية إنتاج الطباعة
+Print planned date on manuf order ?,طباعة التاريخ المقرر على أمر تصنيع؟
+Print the cost sheet line detail,طباعة تفاصيل سطر ورقة التكلفة
+Printings,مطبوعات
+Priority,الأولوية
+Prod process,عملية الإنتاج
+Prod process currently has no status,عملية الإنتاج حاليًا ليس لها حالة
+Prod process filters,مرشحات عملية المنتج
+Prod process is already on draft status,عملية الإنتاج موجودة بالفعل في حالة المسودة
+Prod process line,خط إنتاج المنتج
+Prod process template,قالب عملية الإنتاج
+ProdProcess.company,الشركة
+ProdProcess.consumeProduct,استهلاك المنتج
+ProdProcess.description,الوصف
+ProdProcess.isOperation,هي العملية
+ProdProcess.isOutsourcing,هو الاستعانة بمصادر خارجية
+ProdProcess.label,التسمية
+ProdProcess.name,الاسم
+ProdProcess.outsourcing,الاستعانة بمصادر خارجية
+ProdProcess.phases,مراحل عملية الإنتاج
+ProdProcess.priority,الأولوية
+ProdProcess.producedProductStockLocation,موقع مخزون المنتج المنتج
+ProdProcess.product,المنتج
+ProdProcess.qty,الكمية
+ProdProcess.stockLocation,موقع التخزين / المستودع
+ProdProcess.unit,وحدة
+ProdProcess.workcenter,مركز العمل
+Produced product,المنتج المنتج
+Produced products,المنتجات المنتجة
+Produced quantity,الكمية المنتجة
+Produced ratio,النسبة المنتجة
+Producible qty,الكمية القابلة للإنتاج
+Product,منتج
+"Product %s is not a storable product, only storable products can be produced.",المنتج %s ليس منتجًا قابلاً للتخزين، يمكن إنتاج المنتجات القابلة للتخزين فقط.
+Product approval,الموافقة على المنتج
+Product approvals,موافقات المنتج
+Product cannot be null for prod product to generate. Please correct on prod product configurator id : %s.,لا يمكن أن يكون المنتج فارغًا حتى يتم إنشاء المنتج. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+Product/ManufOrder fields should not be filled if type is 'System'.,"لا ينبغي ملء حقول المنتج/أمر التصنيع إذا كان النوع ""النظام""."
+Product_code,رمز_المنتج
+Product_name,اسم_المنتج
+Production,الإنتاج
+Production & manufacturing Orders,طلبات الإنتاج والتصنيع
+Production Batch,دفعة الإنتاج
+Production and cost settings,إعدادات الإنتاج والتكلفة
+Production batch,دفعة الإنتاج
+Production batch filters,مرشحات دفعة الإنتاج
+Production batches,دفعات الإنتاج
+Production blocking,حجب الإنتاج
+Production blocking done by,تم حظر الإنتاج بواسطة
+Production config,تكوين الإنتاج
+Production config (${ name }),تكوين الإنتاج (${ name })
+Production configuration,تكوين الإنتاج
+Production configurations,تكوينات الإنتاج
+Production is blocked for product %s.,الإنتاج محظور للمنتج %s.
+Production note,مذكرة الإنتاج
+Production order,أمر إنتاج
+Production order filters,مرشحات أمر الإنتاج
+Production order generated,تم إنشاء أمر الإنتاج
+Production order management from sale order,إدارة أوامر الإنتاج من أمر البيع
+Production order wizard,معالج أمر الإنتاج
+Production orders,أوامر الإنتاج
+Production orders closed,أوامر الإنتاج مغلقة
+Production process,عملية الإنتاج
+Production process configurator,مكون عملية الإنتاج
+Production processes,عمليات الإنتاج
+Production stock location,موقع مخزون الإنتاج
+Production stock locations,مواقع مخزون الإنتاج
+Production virtual stock location,موقع المخزون الافتراضي للإنتاج
+Production waste,مخلفات الإنتاج
+Production.productStandard,إنتاج المنتج القياسي
+Productions orders,أوامر الإنتاج
+Products,المنتجات
+Products Wastes,مخلفات المنتجات
+Products for generated purchase order,منتجات أمر الشراء الذي تم إنشاؤه
+Products to consume,منتجات للاستهلاك
+Products to produce,المنتجات المراد إنتاجها
+Public Holiday Planning,التخطيط للعطلات الرسمية
+"Purchase currency is missing for product %s, please configure it.",عملة الشراء مفقودة للمنتج %s، الرجاء تكوينها.
+Purchase orders,أوامر الشراء
+Purchases Order filters,مرشحات أوامر الشراء
+Qty,الكمية
+Qty cannot be null for prod product to generate. Please correct on prod product configurator id : %s.,لا يمكن أن تكون الكمية فارغة حتى يتم إنشاء المنتج. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+Quality,الجودة
+Quality alerts,تنبيهات الجودة
+Quality improvement,تحسين الجودة
+Quantity,الكمية
+Quantity Wasted per Product,الكمية المهدرة لكل منتج
+Quantity produced,الكمية المنتجة
+Quantity successfully updated.,تم تحديث الكمية بنجاح.
+Quantity to produce,الكمية المراد إنتاجها
+Rate,معدل
+Rate type,نوع السعر
+Ratio,نسبة
+Raw material requirement,متطلبات المواد الخام
+Raw material requirement filters,مرشحات متطلبات المواد الخام
+RawMaterialRequirement.available,متطلبات المواد الخام متاحة
+RawMaterialRequirement.company,الشركة
+RawMaterialRequirement.from,من
+RawMaterialRequirement.manufOrder,طلب تصنيع
+RawMaterialRequirement.missingQuantity,الكمية المفقودة
+RawMaterialRequirement.neededQuantity,الكمية المطلوبة
+RawMaterialRequirement.product,المنتج
+RawMaterialRequirement.stockLocation,موقع التخزين / المستودع
+RawMaterialRequirement.stockLocations,مواقع التخزين
+RawMaterialRequirement.title,العنوان
+RawMaterialRequirement.to,إلى
+Real,حقيقي
+Real Qty,الكمية الحقيقية
+Real dates,التواريخ الحقيقية
+Real duration (hh:mm:ss),المدة الحقيقية (hh:mm:ss)
+Real end,النهاية الحقيقية
+Real end date,تاريخ الانتهاء الحقيقي
+Real operations,العمليات الحقيقية
+Real production,انتاج حقيقي
+Real sales,مبيعات حقيقية
+Real start,البداية الحقيقية
+Real start date,تاريخ البدء الحقيقي
+Real stock,مخزون حقيقي
+Real/Current Quantity,الكمية الحقيقية/الحالية
+Reportings,التقارير
+Reports,التقارير
+Request reservation,طلب حجز
+Request successfully completed,تم الطلب بنجاح
+Reserve all,حجز الكل
+Residual product,المنتج المتبقي
+Residual products,المنتجات المتبقية
+Residual products default stock location,موقع المخزون الافتراضي للمنتجات المتبقية
+Resources,الموارد
+Result,النتيجة
+Result Tree,شجرة النتائج
+Result grid,شبكة النتائج
+Results,النتائج
+Resume,استئناف
+Return to draft status,العودة إلى حالة المسودة
+Revaluation at actual prices,إعادة التقييم بالأسعار الفعلية
+Run calculation,تشغيل الحساب
+S&OP,S&OP
+S&OP/MPS,S&OP/MPS
+SO line,بند أمر البيع
+SO lines,بنود أمر البيع
+SOP Real Values Batch,دفعة القيم الحقيقية SOP
+Safety,السلامة
+Sale order,أمر بيع
+Sale order line,سطر أمر البيع
+Sale order line %s has no product.,بند أمر البيع %s لا يحتوي على منتج.
+Sale order line details,تفاصيل سطر أمر البيع
+Sale order line details list,قائمة تفاصيل سطر أمر البيع
+Sale order lines details,تفاصيل بنود أمر البيع
+Sale orders,أوامر البيع
+Sales and Operations Planning,تخطيط المبيعات والعمليات
+Sales and Operations Planning Line,خط تخطيط المبيعات والعمليات
+Sales and Operations Planning Lines,خطوط تخطيط المبيعات والعمليات
+Sales and Operations Planning Lines generation,توليد خطوط تخطيط المبيعات والعمليات
+Sales forecast,توقعات المبيعات
+Saturday hours,دوام السبت
+Scheduling,جدولة
+Send email when manufacturing order finished,إرسال بريد إلكتروني عند الانتهاء من أمر التصنيع
+Send email when manufacturing order partially finished,إرسال بريد إلكتروني عند الانتهاء من أمر التصنيع جزئيًا
+Sequence,التسلسل
+Sequence by workshop,التسلسل حسب ورشة العمل
+Serial Nbr,الرقم التسلسلي
+Serial Number,رقم تسلسلي
+Set to zero,ضبط على صفر
+Show all requirements ?,عرض كافة المتطلبات؟
+Show requirements by MO,عرض المتطلبات حسب MO
+Sop,سوب
+Split by tracking numbers,تقسيم حسب أرقام التتبع
+Standard purchases,المشتريات القياسية
+Standby,الاستعداد
+Start,ابدأ
+Start Month,شهر البدء
+Start and End Month should not be more than 12 months apart,يجب ألا يكون الفاصل بين شهر البداية والنهاية أكثر من 12 شهرًا
+Start date,تاريخ البدء
+Started,بدأت
+Started by,بدأ بواسطة
+Starting Date,تاريخ البدء
+Starting duration (hhh:mm:ss),مدة البدء (hhh:mm:ss)
+Status,الحالة
+Status considered to filter a manuf order,الحالة التي تم النظر فيها لتصفية طلب تصنيع
+Stock Location,موقع التخزين / المستودع
+Stock location,موقع التخزين / المستودع
+Stock location for produced product,موقع المخزون للمنتج المنتج
+Stock location for residual products,موقع المخزون للمنتجات المتبقية
+Stock location is missing from the prod process and in the component default stock location in stock configuration.,موقع المخزون مفقود من عملية المنتج وفي موقع المخزون الافتراضي للمكون في تكوين المخزون.
+Stock move,حركة المخزون
+Stock move in,تحرك السهم في
+Stock move line,بند حركة المخزون
+Stock move lines,بنود حركات المخزون
+Stock move realize order select,حركة السهم تحقق الأمر حدد
+Stock moves,حركات المخزون
+Stock moves in,يتحرك السهم في
+Stock moves out,يتحرك السهم للخارج
+Stopped by,توقف عند
+Stopping Date,تاريخ التوقف
+Sub Total gross profit,إجمالي الربح الفرعي
+Sub Total markup,العلامات الإجمالية الفرعية
+Sub margin rate,معدل الهامش الفرعي
+Sub total cost price,سعر التكلفة الإجمالية الفرعية
+Subcontracting,مقاولات من الباطن
+Subcontracting service,خدمة التعاقد من الباطن
+Subcontractor,مقاول من الباطن
+Subcontractors,مقاولون من الباطن
+Subcontractors arrivals,وصول مقاولين الباطن
+Subcontractors deliveries,تسليمات مقاولين الباطن
+Subtract the product residuals cost on Cost sheet,اطرح تكلفة المنتج المتبقي في ورقة التكلفة
+Sunday hours,ساعات الأحد
+Supplier,مورد
+Supplier RFQ/PO,المورد RFQ/PO
+Supply method for manufacturing orders,طريقة التوريد لطلبات التصنيع
+Surcharge,تكلفة إضافية
+The Calculation quantity of the bill of material %s is equal to zero.,الكمية الحسابية لفاتورة المادة %s تساوي الصفر.
+The available stock already covers the quantity to produce for product %s.,المخزون المتاح يغطي بالفعل الكمية المطلوب إنتاجها للمنتج %s.
+The bill of materials %s of product %s has no production process.,قائمة المواد %s للمنتج %s لا تحتوي على عملية إنتاج.
+The condition formula to generate the bill of material returns null value or is not consistent. Please correct on configurator BOM id : %s.,تُرجع صيغة الشرط لإنشاء قائمة المواد قيمة فارغة أو أنها غير متسقة. الرجاء التصحيح على معرف BOM للمكون: %s.
+The condition formula to generate the prod process line returns null value or is not consistent. Please correct on prod process line configurator id : %s.,تُرجع الصيغة الشرطية لإنشاء سطر عملية الإنتاج قيمة فارغة أو أنها غير متسقة. الرجاء التصحيح على معرّف مكون سطر عملية المنتج: %s.
+The condition formula to generate the prod product returns null value or is not consistent. Please correct on prod product configurator id : %s.,تُرجع الصيغة الشرطية لإنشاء منتج المنتج قيمة فارغة أو أنها غير متسقة. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+"The following fields will be reset: manufacturing operation line, manuf Order product to consume, consummed manuf order product , continue ?",سيتم إعادة تعيين الحقول التالية: خط عملية التصنيع، طلب المنتج للاستهلاك، منتج طلب التصنيع المستهلك، متابعة؟
+The formula script to fill the checkbox manage consumed products on phases returns null value or is not consistent. Please correct on prod process configurator id : %s.,يقوم البرنامج النصي للصيغة لملء مربع الاختيار بإدارة المنتجات المستهلكة على مراحل بإرجاع قيمة فارغة أو غير متسق. الرجاء تصحيح معرف مكون عملية المنتج: %s.
+The formula script to fill the name returns null value. Please correct on prod process configurator id : %s.,يقوم البرنامج النصي للصيغة لملء الاسم بإرجاع قيمة فارغة. الرجاء تصحيح معرف مكون عملية المنتج: %s.
+The formula script to fill the name returns null value. Please correct on prod process line configurator id : %s.,يقوم البرنامج النصي للصيغة لملء الاسم بإرجاع قيمة فارغة. الرجاء التصحيح على معرّف مكون سطر عملية المنتج: %s.
+The formula script to fill the product returns null value. Please correct on prod product configurator id : %s.,يقوم البرنامج النصي للصيغة لملء المنتج بإرجاع قيمة فارغة. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+The formula script to fill the qty returns null value. Please correct on prod product configurator id : %s.,يقوم البرنامج النصي للصيغة لملء الكمية بإرجاع قيمة فارغة. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+The formula script to fill the unit returns null value. Please correct on prod product configurator id : %s.,يقوم البرنامج النصي للصيغة لملء الوحدة بإرجاع قيمة فارغة. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+The formula script to fill the work center returns null value. Please correct on prod process line configurator id : %s.,يقوم البرنامج النصي للصيغة لملء مركز العمل بإرجاع قيمة فارغة. الرجاء التصحيح على معرّف مكون سطر عملية المنتج: %s.
+"The last manufacturing operation planned end date will overflow beyond the manuf order planned end date, do you wish to continue?",تاريخ الانتهاء المخطط له لعملية التصنيع الأخيرة سوف يتجاوز تاريخ الانتهاء المخطط لأمر التصنيع، هل ترغب في الاستمرار؟
+The line with the product %s can not be deleted as it is referenced in manufacturing order(s): <br> %s,لا يمكن حذف السطر الذي يحتوي على المنتج %s لأنه تمت الإشارة إليه في أمر (أوامر) التصنيع: <br> %s
+The line with the product %s can not be deleted as it is referenced in sale order(s): <br> %s,لا يمكن حذف السطر الذي يحتوي على المنتج %s لأنه تمت الإشارة إليه في أمر (أوامر) البيع: <br> %s
+The line with the product %s can not be deleted as it is referenced in sale order(s): <br> %s and %s more,لا يمكن حذف السطر الذي يحتوي على المنتج %s لأنه تمت الإشارة إليه في أمر (أوامر) البيع: <br> %s و%s المزيد
+The manuf order couldn't be generated for the product %s. Please fill a company on the linked BOM.,تعذر إنشاء أمر التصنيع للمنتج %s. يرجى ملء اسم الشركة في قائمة مكونات الصنف المرتبطة.
+The manufacturing operation is already finished and cannot be moved.,لقد انتهت عملية التصنيع بالفعل ولا يمكن نقلها.
+The manufacturing order for %s could not be generated because it has no bill of material.,تعذر إنشاء أمر التصنيع لـ %s لأنه لا يحتوي على قائمة مواد.
+The manufacturing order for %s could not be generated because the bill of material has no production process.,تعذر إنشاء أمر التصنيع لـ %s لأن قائمة المواد لا تحتوي على عملية إنتاج.
+The manufacturing order is being modified by another session. Please refresh the page and try again.,يتم تعديل أمر التصنيع بواسطة جلسة أخرى. يرجى تحديث الصفحة والمحاولة مرة أخرى.
+The manufacturing order planned for %s can not be planned before today's date. Please adjust it. (Used date time %s),لا يمكن التخطيط لأمر التصنيع المخطط لـ %s قبل تاريخ اليوم. يرجى تعديله. (التاريخ والوقت المستخدم %s)
+The manufacturing order was canceled.,تم إلغاء أمر التصنيع.
+"The merge must concern only manufacturing orders with Draft or Planned status, with the same products and same workshop stock location and with all bill of materials compatibles.",يجب أن يتعلق الدمج فقط بأوامر التصنيع ذات الحالة مسودة أو مخططة، مع نفس المنتجات ونفس موقع مخزون ورشة العمل ومع جميع قوائم المواد المتوافقة.
+"The merge must concern only manufacturing orders with Draft or Planned status, with the same products and with all bill of materials compatibles.",يجب أن يتعلق الدمج فقط بأوامر التصنيع ذات الحالة مسودة أو مخططة، وبنفس المنتجات وبجميع قوائم المواد المتوافقة.
+The period cannot exceed 20 days,لا يمكن أن تتجاوز المدة 20 يومًا
+The planned end date is inferior to the actual date,تاريخ الانتهاء المخطط له أقل من التاريخ الفعلي
+The product %s is not in the bill of materials related to this production process,المنتج %s غير موجود في قائمة المواد المتعلقة بعملية الإنتاج هذه
+The product cost cannot be changed because the product cost type is not manual,لا يمكن تغيير تكلفة المنتج لأن نوع تكلفة المنتج ليس يدويًا
+The product will not be manufactured in time for its corresponding need.,لن يتم تصنيع المنتج في الوقت المناسب لاحتياجاته المقابلة.
+The production process and the bill of material must be applicable,يجب أن تكون عملية الإنتاج وقائمة المواد قابلة للتطبيق
+The quantity of the bill of material %s is equal to zero.,كمية فاتورة المادة %s تساوي الصفر.
+"The result formula of '%s' in configurator prod process '%s' could not be converted in a Stock location, please verify the formula.",تعذر تحويل الصيغة الناتجة لـ '%s' في عملية إنتاج المكوّن '%s' في موقع المخزون، يرجى التحقق من الصيغة.
+The supply method for product %s must be set to 'Produce' or 'Stock and produce'.,يجب ضبط طريقة التوريد للمنتج %s على 'إنتاج' أو 'مخزون وإنتاج'.
+"The system found a loop in your bill of materials, please correct concerned data",لقد عثر النظام على حلقة في قائمة المواد الخاصة بك، يرجى تصحيح البيانات المعنية
+The template to send message for manufacturing order is missing.,قالب إرسال رسالة أمر التصنيع مفقود.
+The time the machine starts before it can be used.,الوقت الذي يبدأ فيه تشغيل الجهاز قبل استخدامه.
+The unit of the bill of material %s is missing. Please correct it.,وحدة قائمة المواد %s مفقودة. يرجى تصحيحه.
+There currently is a ${difference} ${currency?.symbol?:currency?.name} difference between your total forecast and the S&OP forecast. Proceed?,يوجد حاليًا فرق ${difference} ${currency?.symbol?:currency?.name} بين إجمالي توقعاتك وتوقعات S&OP. يتابع؟
+There is no applicable bill of materials for %s,لا توجد قائمة مواد قابلة للتطبيق لـ %s
+There is no bill of materials for product %s.,لا توجد قائمة مواد للمنتج %s.
+There is no production or manufacturing order to generate for one of the selected lines.,لا يوجد أمر إنتاج أو تصنيع يتم إنشاؤه لأحد الخطوط المحددة.
+There no's defined nomenclature for product %s (%s),لا توجد تسميات محددة للمنتج %s (%s)
+There's no configured sequence for fabrication's orders,لا يوجد تسلسل محدد لأوامر التصنيع
+There's no configured sequence for production's orders,لا يوجد تسلسل محدد لأوامر الإنتاج
+This bill of materials already has the following versions : <br/>%s And these versions may also have ones. Do you still wish to create a new one ?,تحتوي قائمة المواد هذه بالفعل على الإصدارات التالية : <br/>%s وقد تحتوي هذه الإصدارات أيضًا على إصدارات أخرى. هل مازلت ترغب في إنشاء واحدة جديدة؟
+This config allows to automatically fill the deliveries from the finished products of the manufacturing orders.,يسمح هذا التكوين بملء عمليات التسليم تلقائيًا من المنتجات النهائية لأوامر التصنيع.
+"This configuration defines the default component stock location for the company. Received components will be stored there, and components needed for production will be picked from there.",يحدد هذا التكوين موقع مخزون المكونات الافتراضي للشركة. سيتم تخزين المكونات المستلمة هناك، وسيتم اختيار المكونات اللازمة للإنتاج من هناك.
+This configuration defines the default finished products location for the company. Finished products will be stored there.,يحدد هذا التكوين الموقع الافتراضي للمنتجات النهائية للشركة. سيتم تخزين المنتجات النهائية هناك.
+This configuration defines the default production virtual location for the company. Internal stock moves made during a manufacturing order (input moves for manufacturing and output moves once manufacturing is done) will use this location for production by default.,يحدد هذا التكوين الموقع الافتراضي للإنتاج للشركة. ستستخدم تحركات المخزون الداخلية التي تتم أثناء أمر التصنيع (حركات المدخلات للتصنيع وتحركات المخرجات بمجرد الانتهاء من التصنيع) هذا الموقع للإنتاج بشكل افتراضي.
+"This configuration defines the default waste location for the company for production waste. In case of waste output stock moves during manufacturing, they will be sent to this stock location by default.",يحدد هذا التكوين موقع النفايات الافتراضي للشركة لنفايات الإنتاج. في حالة تحرك مخزون مخرجات النفايات أثناء التصنيع، سيتم إرسالها إلى موقع المخزون هذا افتراضيًا.
+This production process already has the following versions : <br/> %s And these versions may also have ones. Do you still wish to create a new one ?,تحتوي عملية الإنتاج هذه بالفعل على الإصدارات التالية : <br/> %s وقد تحتوي هذه الإصدارات أيضًا على إصدارات أخرى. هل مازلت ترغب في إنشاء واحدة جديدة؟
+This stock move is linked to a manufacturing order and can't be canceled.,ترتبط حركة المخزون هذه بأمر التصنيع ولا يمكن إلغاؤها.
+This workflow is not supported for manufacturing operation status.,سير العمل هذا غير مدعوم لحالة عملية التصنيع.
+Thursday hours,دوام الخميس
+Time before next operation,الوقت قبل العملية التالية
+Time before the next operation of the same manufacturing order.,الوقت قبل العملية التالية لنفس أمر التصنيع.
+Time between two cycles. This is the time to wait until the end of a cycle to start a new cycle.,الوقت بين دورتين. هذا هو الوقت المناسب للانتظار حتى نهاية الدورة لبدء دورة جديدة.
+Time between two operations (hhh:mm:ss),الوقت بين عمليتين (hhh:mm:ss)
+Time between two operations. This is the time to wait until the end of a operation to start a new one within the work center.,الوقت بين عمليتين. هذا هو الوقت المناسب للانتظار حتى نهاية العملية لبدء عملية جديدة داخل مركز العمل.
+Time difference (Minutes),فارق التوقيت (دقائق)
+Time difference per manufacturing order,فارق التوقيت لكل أمر تصنيع
+Title,العنوان
+To,إلى
+To Date,حتى الآن
+To consume manuf order,لاستهلاك طلب تصنيع
+To consume operation order,لاستهلاك أمر العملية
+To consume prod process line,لاستهلاك خط معالجة المنتج
+To consume products,لاستهلاك المنتجات
+To produce manuf order,لإنتاج أمر التصنيع
+Too many days,أيام كثيرة جداً
+Too many iterations when searching for children bills of materials. Please check for bill of materials being in its own component list.,هناك عدد كبير جدًا من التكرارات عند البحث عن قوائم المواد / شجرة المنتج (BOM) الخاصة بالأطفال. يرجى التحقق من وجود قائمة المواد في قائمة المكونات الخاصة بها.
+Too many recursive calls to create the bill of materials.,هناك عدد كبير جدًا من الاستدعاءات العودية لإنشاء قائمة المواد.
+Too many recursive calls to import the bill of material configurator.,يوجد عدد كبير جدًا من الاستدعاءات المتكررة لاستيراد مكون قائمة المواد / شجرة المنتج (BOM).
+Tool,أداة
+Tool Information,معلومات الأداة
+Tools,الأدوات
+Total Planned Duration,إجمالي المدة المخططة
+Total Real Duration,إجمالي المدة الحقيقية
+Total duration in hours,المدة الإجمالية بالساعات
+Total forecast,إجمالي التوقعات
+Total hours,إجمالي الساعات
+Total lead time duration,إجمالي مدة المهلة
+Total price,السعر الاجمالي
+Tracking number,رقم التتبع / التشغيلة
+Tracking number search,البحث عن رقم التتبع
+Trading name,اسم التداول
+Tuesday hours,ساعات الثلاثاء
+Type,النوع
+Type of control device,نوع جهاز التحكم
+Type select,اكتب حدد
+Type select icon,اكتب أيقونة التحديد
+Undo manual changes,التراجع عن التغييرات اليدوية
+Unit,الوحدة
+Unit cannot be null for prod product to generate. Please correct on prod product configurator id : %s.,لا يمكن أن تكون الوحدة فارغة حتى يتم إنشاء المنتج. الرجاء التصحيح على معرف مكون منتج المنتج: %s.
+Unit cost price,سعر تكلفة الوحدة
+Unit price,سعر الوحدة
+Unknown parent context class.,فئة السياق الأصل غير معروفة.
+Unrecognized capacity for company %s production configuration,سعة غير معروفة لتكوين إنتاج الشركة %s
+Update planned quantities (Components and FP),تحديث الكميات المخططة (المكونات وFP)
+Update product cost price,تحديث سعر تكلفة المنتج
+Update real quantities (Components and FP),تحديث الكميات الحقيقية (المكونات وFP)
+Uploaded file is not a CSV file,الملف الذي تم تحميله ليس ملف CSV
+Urgent,عاجل
+Usable on production,صالحة للاستعمال في الإنتاج
+Use generated product,استخدم المنتج الذي تم إنشاؤه
+User,المستخدم
+User Dashboard,لوحة تحكم المستخدم
+Validate,التحقق من صحة
+Validated,معتمد / مؤكد
+Valuation Batch,دفعة التقييم
+Valuation date,تاريخ التقييم
+Version management,إدارة الإصدارات
+Version number,رقم الإصدار
+Warn delay from manufacturing,تحذير من تأخير التصنيع
+Warning :,تحذير :
+Warning : One or more lines are blocked for production,تحذير: تم حظر خط واحد أو أكثر من الإنتاج
+Warning: The current product exists in produced products of the manuf order.,تحذير: المنتج الحالي موجود في المنتجات المنتجة حسب طلب المصنع.
+Waste,نفايات
+Waste description,وصف النفايات
+Waste rate (%),معدل الهدر (%)
+Waste stock location,موقع مخزون النفايات
+Waste stock move,تحرك مخزون النفايات
+Wasted product quantity successfully updated.,تم تحديث كمية المنتج المهدرة بنجاح.
+Wednesday hours,ساعات الاربعاء
+"When enabled, allows you to input in hours (example: 7,50 hours instead of 007:30:00).","عند التمكين، يسمح لك بإدخال الساعات (على سبيل المثال: 7,50 ساعة بدلاً من 007:30:00)."
+"When enabled, new prod process and prod process line will have their option to generate purchase order set to true.",عند التمكين، سيكون لدى عملية الإنتاج الجديدة وخط عملية الإنتاج خيار إنشاء أمر الشراء المعين على true.
+Where-used list,قائمة الأماكن المستخدمة
+Work center,مركز العمل
+Work center cannot be null for prod process line to generate. Please correct on prod process line configurator id : %s.,لا يمكن أن يكون مركز العمل خاليًا حتى يتم إنشاء سطر عملية المنتج. الرجاء التصحيح على معرّف مكون سطر عملية المنتج: %s.
+Work center filters,مرشحات مركز العمل
+Work center group,مجموعة مركز العمل
+Work center group cannot be null for prod process line to generate. Please correct on prod process line configurator id : %s.,لا يمكن أن تكون مجموعة مركز العمل فارغة حتى يتم إنشاء سطر عملية الإنتاج. الرجاء التصحيح على معرّف مكون سطر عملية المنتج: %s.
+Work center group planning,تخطيط مجموعة مركز العمل
+Work center groups,مجموعات مركز العمل
+Work center is missing from prod process line %s-%s.,مركز العمل مفقود من سطر عملية المنتج %s-%s.
+Work center type,نوع مركز العمل
+Work centers,مراكز العمل
+Work in progress,جاري العمل
+Work in progress valuation,تقييم العمل قيد التنفيذ
+WorkCenter,مركز العمل
+WorkInProgressValuation.title,العنوان
+Workshop,ورشة عمل
+Year,سنة
+You can not merge manufacturing orders without unit.,لا يمكنك دمج أوامر التصنيع بدون وحدة.
+You can't manage the consumed products on phases because this production process is related to several bills of material,لا يمكنك إدارة المنتجات المستهلكة على مراحل لأن عملية الإنتاج هذه مرتبطة بعدة قوائم مواد
+You can't remove this record,لا يمكنك إزالة هذا السجل
+You cannot delete realized stock move lines.,لا يمكنك حذف خطوط حركة المخزون المحققة.
+You must add a positive quantity,يجب عليك إضافة كمية موجبة
+You must configure a component default stock location for company %s.,يجب عليك تكوين موقع المخزون الافتراضي للمكون للشركة %s.
+You must configure a finished products default stock location for company %s.,يجب عليك تكوين موقع المخزون الافتراضي للمنتجات النهائية للشركة %s.
+You must configure a production for company %s,يجب عليك تكوين إنتاج للشركة %s
+You must configure a production virtual stock location for company %s,يجب عليك تكوين موقع مخزون ظاهري للإنتاج للشركة %s
+You must configure a residual products default stock location for company %s.,يجب عليك تكوين موقع المخزون الافتراضي للمنتجات المتبقية للشركة %s.
+You must configure a sequence for manufacturing order for company %s,يجب عليك تكوين تسلسل لأمر التصنيع للشركة %s
+You must configure a waste stock location for company %s.,يجب عليك تكوين موقع مخزون النفايات للشركة %s.
+You must select a nomenclature,يجب عليك تحديد التسمية
+Your production process is empty.,عملية الإنتاج الخاصة بك فارغة.
+Your production virtual stock location is not an outsourcing location.,موقع المخزون الافتراضي للإنتاج الخاص بك ليس موقعًا للاستعانة بمصادر خارجية.
+Your scheduling configuration is at the latest. you need to fill the estimated shipping date to be able to plan your manufacturing orders.,تكوين الجدولة الخاص بك على أبعد تقدير. تحتاج إلى ملء تاريخ الشحن المقدر لتتمكن من تخطيط طلبات التصنيع الخاصة بك.
+Your scheduling configuration is at the latest. you need to fill the planned end date to be able to plan your manufacturing orders.,تكوين الجدولة الخاص بك على أبعد تقدير. تحتاج إلى ملء تاريخ الانتهاء المخطط له لتتمكن من تخطيط طلبات التصنيع الخاصة بك.
+Your time on this operation is paused. The status of the operation has not been updated as someone is still working on it.,تم إيقاف وقتك في هذه العملية مؤقتًا. لم يتم تحديث حالة العملية حيث لا يزال هناك من يعمل عليها.
+Your time on this operation is paused. This operation cannot be stopped because other operators are still working on it. You can go to the web instance to force stop the operation.,تم إيقاف وقتك في هذه العملية مؤقتًا. لا يمكن إيقاف هذه العملية لأن المشغلين الآخرين ما زالوا يعملون عليها. يمكنك الانتقال إلى مثيل الويب لفرض إيقاف العملية.
+inOrOut is invalid,inOrOut غير صالح
+name,الاسم
+status,الحالة
+value:Manufacturing,القيمة: التصنيع
+%d MO created.,تم إنشاء %d MO.
+"A list of sale order lines that will be processed. The lines that can be selected are the ones conforming to the following conditions :\nProduct is storable\nProduct is managed in stock\nProduct is not excluded from mrp\nSale order/quotation has the same stockLocation or a subLocation\nIf MPS, product must be a finished product\nDelivered quantity of the line must be lower than total quantity\nThe line must conform to one or several of the mrp move types",قائمة بنود أمر البيع التي سيتم معالجتها. البنود التي يمكن تحديدها هي تلك المطابقة للشروط التالية:\nالمنتج قابل للتخزين\nالمنتج مدار في المخزون\nالمنتج غير مستبعد من mrp\nأمر البيع/عرض الأسعار له نفس موقع المخزون أو موقع فرعي\nإذا كان MPS، يجب أن يكون المنتج منتجًا نهائيًا\nيجب أن تكون الكمية المسلمة من السطر أقل من الكمية الإجمالية\nيجب أن يتوافق السطر مع واحد أو أكثر من أنواع حركات التصنيع (MRP)
+All products has been consumed,تم استهلاك جميع المنتجات
+Calculate all BOM levels,حساب كافة مستويات BOM
+Calculation date,تاريخ الحساب
+Calculation number,رقم الحساب
+Companies,الشركات
+Comput. cost,حساب. التكلفة
+Cost price calculation,حساب سعر التكلفة
+Cost to apply,تكلفة التقديم
+Costs computed,التكاليف المحسوبة
+Costs updated,تم تحديث التكاليف
+Export,تصدير
+Impossible to generate outsourcing purchase order. Please fill unit on your product.,من المستحيل إنشاء أمر شراء الاستعانة بمصادر خارجية. يرجى ملء الوحدة على المنتج الخاص بك.
+Input file,ملف الإدخال
+Maximum level,المستوى الأقصى
+No production order could be generated. Make sure that everything has been configured correctly. Reminder: check that the order lines that should be produced have their supply method set to 'produce' and that the chosen BoM has a production process associated to it.,"لا يمكن إنشاء أمر إنتاج. تأكد من أنه تم تكوين كل شيء بشكل صحيح. تذكير: تأكد من أن بنود الأمر التي يجب إنتاجها تم تعيين طريقة التوريد الخاصة بها على ""إنتاج"" وأن قائمة المواد المختارة لديها عملية إنتاج مرتبطة بها."
+Please fill unit for product %s.,الرجاء ملء الوحدة للمنتج %s.
+Previous cost,التكلفة السابقة
+Product categories,فئات المنتجات
+Product families,عائلات المنتجات
+Product sub-types,أنواع المنتجات الفرعية
+Production's order created,تم إنشاء أمر الإنتاج
+Status select,الحالة اختر
+The bill of materials %s has been generated,تم إنشاء قائمة المواد %s
+The outsourcing receipt stock location is missing from the stock config,موقع مخزون إيصالات الاستعانة بمصادر خارجية مفقود من تكوين المخزون
+The produced product stock location is missing in the prod process,موقع مخزون المنتج المنتج مفقود في عملية الإنتاج
+Update costs,تحديث التكاليف
+Update costs date,تحديث تاريخ التكاليف
+Workshops,ورش العمل
+import.name,الاسم
+import.verb,فعل

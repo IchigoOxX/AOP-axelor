@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="product-attachment-type-line-form" title="Product attachment type line" editable="true"
+          model="com.gl.apps.pf.db.ProductAttachmentType" width="large">
+        <panel title="Overview">
+            <field name="title" colSpan="6"/>
+            <field name="isRequired" colSpan="6"/>
+            <field name="note" colSpan="12"/>
+        </panel>
+    </form>
+
+    <grid name="product-attachment-type-line-grid" title="Product attachment type lines" model="com.gl.apps.pf.db.ProductAttachmentType" edit-icon="true">
+        <field name="title"/>
+        <field name="note"/>
+        <field name="isRequired"/>
+    </grid>
+
+
+</object-views>

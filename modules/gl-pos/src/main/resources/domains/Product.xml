@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns="http://axelor.com/xml/ns/domain-models"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="base" package="com.axelor.apps.base.db"/>
+
+    <entity name="Product">
+        <string name="brand" title="Brand"/>
+
+        <!-- Discounts -->
+        <boolean name="discountAvailable" title="Discount Available"/>
+        <decimal name="discountPercentage" title="Discount Percentage" precision="15" scale="2"/>
+        <decimal name="discountAmount" title="Discount Amount" precision="15" scale="2"/>
+
+        <!-- Refundability -->
+        <boolean name="isRefundable" title="Refundable"/>
+
+        <!-- Availability -->
+        <boolean name="availableInStore" title="Available In Store"/>
+        <string name="placementInStore" title="Placement in Store"/>
+
+        <!-- Reorder Information -->
+        <integer name="reorderLevel" title="Reorder Level"/>
+        <integer name="reorderQty" title="Reorder Quantity"/>
+
+        <!-- Sales Information -->
+        <integer name="salesRank" title="Sales Rank"/>
+        <date name="lastSoldDate" title="Last Sold Date"/>
+        <integer name="totalSold" title="Total Sold"/>
+
+        <!-- Offer Attributes -->
+        <boolean name="offerAvailable" title="Offer Available"/>
+        <integer name="offerStartsAtQty" title="Offer Quantity"/>
+        <decimal name="offerDiscountPercentage" title="Offer Discount Percentage" precision="15" scale="2"/>
+
+    </entity>
+
+</domain-models>
+

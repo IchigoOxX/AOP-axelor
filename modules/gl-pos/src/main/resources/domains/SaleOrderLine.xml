@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="sale" package="com.axelor.apps.sale.db"/>
+
+    <entity name="SaleOrderLine">
+
+        <integer name="status" title="Status" selection="pos.sale.order.line.status"/>
+
+        <!-- Refund -->
+        <integer name="refundQuantity" title="Refund Quantity"/>
+        <string name="refundReason" title="Refund Reason"/>
+
+    </entity>
+
+</domain-models>

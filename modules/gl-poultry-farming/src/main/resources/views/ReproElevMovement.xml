@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="repro-production-elev-movement-form" title="Workforces movement"
+          model="com.gl.apps.pf.db.ReproElevMovement" width="large"
+          onNew="action-set-default-values-repro-elev-movement">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4" />
+                    <field name="dispatchStock" colSpan="4" readonly="true" />
+                </panel>
+
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" css="btn-success" prompt="Are you sure to validate this breeding displacement ?" icon="fa-check"
+                                onClick="save,action-group-repro-elev-movement-validation"/>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="cancelBtn" title="Cancel movement" showIf="status == 1" prompt="Are you sure you want to cancel this workforce movement ?"
+                                colSpan="12" icon="fa-times" css="btn-danger"
+                                onClick="poultry-farming-elev-repro-movement-cancel"/>
+                    </panel>
+
+                </panel>
+                <panel title="infos:" colSpan="12" readonlyIf="status != 0">
+                    <field name="unit" title="Unit" colSpan="4" required="true" onSelect="action-attrs-company-unit-domain" onChange="action-repro-elev-movement-unit-empty"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit AND self.type = 1" required="true" onChange="action-repro-elev-movement-center-empty"/>
+                    <field name="breedingShed" colSpan="4" domain="self.center = :center AND self.status = 2"
+                           onChange="action-group-repro-elev-movement-breeding-shed-changed" required="true"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+
+                </panel>
+                <panel title="Subjects:" colSpan="12" readonlyIf="status != 0">
+                    <field name="dailyAge" readonly="true" colSpan="3"/>
+                    <field name="weeklyAge" readonly="true" colSpan="3"/>
+                    <field name="maleTotalNumbers" readonly="true" colSpan="3"/>
+                    <field name="femaleTotalNumbers" readonly="true" colSpan="3"/>
+
+                </panel>
+                <panel title="Destination:" colSpan="12">
+                    <panel-related name="reproElevMovementLineListPanel" colSpan="12"
+                                   readonlyIf="status != 0"
+                                   editable="true" canNew="false" canRemove="false"
+                                   field="reproElevMovementLineList"
+                                   form-view="repro-elev-movement-line-form"
+                                   grid-view="repro-elev-movement-line-grid" />
+                </panel>
+            </panel>
+
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="repro-production-elev-movement-grid" title="Workforces movement" model="com.gl.apps.pf.db.ReproElevMovement" edit-icon="true">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date" readonly="true"/>
+        <field name="unit" />
+        <field name="center" />
+        <field name="breedingShed" />
+        <field name="breed" />
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+
+    <action-record name="action-set-default-values-repro-elev-movement"
+                   model="com.gl.apps.pf.db.ReproElevMovement">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-group name="action-group-repro-elev-movement-breeding-shed-changed">
+        <action name="action-repro-elev-movement-breeding-shed-changed"/>
+        <action name="action-method-repro-elev-movement-get-lines-from-breeding-shed"/>
+        <action name="action-repro-elev-movement-breeding-shed-empty"/>
+    </action-group>
+
+    <action-attrs name="action-repro-elev-movement-breeding-shed-changed"
+                  model="com.gl.apps.pf.db.ReproElevMovement">
+        <attribute if="breedingShed != null" for="breed" name="value"
+                   expr="eval: breedingShed.breed"/>
+        <attribute if="breedingShed != null" for="trackingNumber" name="value"
+                   expr="eval: breedingShed.currentBatchNumber"/>
+        <attribute if="breedingShed != null" for="maleTotalNumbers" name="value"
+                   expr="eval: breedingShed.malesNumber"/>
+        <attribute if="breedingShed != null" for="femaleTotalNumbers" name="value"
+                   expr="eval: breedingShed.femalesNumber"/>
+        <attribute if="breedingShed != null" for="dailyAge" name="value"
+                   expr="eval: breedingShed.dailyAge"/>
+        <attribute if="breedingShed != null" for="weeklyAge" name="value"
+                   expr="eval: breedingShed.weeklyAge"/>
+    </action-attrs>
+
+    <action-attrs name="action-repro-elev-movement-breeding-shed-empty"
+                  model="com.gl.apps.pf.db.ReproElevMovement">
+        <attribute if="breedingShed == null" for="breed" name="value"
+                   expr="eval: null"/>
+        <attribute if="breedingShed == null" for="trackingNumber" name="value"
+                   expr="eval: null"/>
+        <attribute if="breedingShed == null" for="maleTotalNumbers" name="value"
+                   expr="eval: null"/>
+        <attribute if="breedingShed == null" for="femaleTotalNumbers" name="value"
+                   expr="eval: null"/>
+        <attribute if="breedingShed == null" for="dailyAge" name="value"
+                   expr="eval: null"/>
+        <attribute if="breedingShed == null" for="weeklyAge" name="value"
+                   expr="eval: null"/>
+        <attribute if="breedingShed == null" for="reproElevMovementLineList" name="value"
+                   expr="eval: null"/>
+    </action-attrs>
+
+    <action-attrs name="action-repro-elev-movement-center-empty" model="com.gl.apps.pf.db.ReproElevMovement">
+        <attribute if="center != null || center == null" for="breedingShed" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="breed" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="trackingNumber" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="maleTotalNumbers" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="femaleTotalNumbers" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="dailyAge" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="weeklyAge" name="value"
+                   expr="eval: null"/>
+        <attribute if="center != null || center == null" for="reproElevMovementLineList" name="value"
+                   expr="eval: null"/>
+    </action-attrs>
+
+    <action-attrs name="action-repro-elev-movement-unit-empty" model="com.gl.apps.pf.db.ReproElevMovement">
+        <attribute if="unit != null || unit == null" for="breedingShed" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="center" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="trackingNumber" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="maleTotalNumbers" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="femaleTotalNumbers" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="dailyAge" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="weeklyAge" name="value" expr="eval: null"/>
+        <attribute if="unit != null || unit == null" for="reproElevMovementLineList" name="value" expr="eval: null"/>
+    </action-attrs>
+
+    <action-method name="action-method-repro-elev-movement-get-lines-from-breeding-shed">
+        <call method="getLinesReproElevMovementFromBreedingShed"
+              class="com.gl.apps.pf.web.ReproElevMovementController"/>
+    </action-method>
+
+    <action-validate name="action-validate-repro-elev-movement-validate-male-moved-number">
+        <error if="reproElevMovementLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(ReproElevMovementLine).all().filter('self.elevMovement = ?1 ', __this__).fetchStream().mapToInt(t-> t.getMaleMovedNumber())?.sum() > __this__.getMaleTotalNumbers()" message="The total male number must be greater then moved male number."/>
+    </action-validate>
+
+    <action-validate name="action-validate-repro-elev-movement-validate-female-moved-number">
+        <error if="reproElevMovementLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(ReproElevMovementLine).all().filter('self.elevMovement = ?1 ', __this__).fetchStream().mapToInt(t-> t.getFemaleMovedNumber())?.sum() > __this__.getFemaleTotalNumbers()" message="The total female number must be greater then moved female number."/>
+    </action-validate>
+
+
+    <action-method name="action-repro-elev-movement-validate">
+        <call method="reproElevMovValidate"
+              class="com.gl.apps.pf.web.ReproElevMovementController"/>
+    </action-method>
+
+    <action-group name="action-group-repro-elev-movement-validation">
+        <action name="action-product-movement-check-empty-list"/>
+        <action name="action-validate-repro-elev-movement-validate-male-moved-number"/>
+        <action name="action-validate-repro-elev-movement-validate-female-moved-number"/>
+        <action name="action-repro-elev-movement-validate"/>
+    </action-group>
+
+    <action-validate name="action-product-movement-check-empty-list">
+        <error if="reproElevMovementLineList.isEmpty()" message="You cannot validate ! Breeding shed list is empty."/>
+    </action-validate>
+
+    <action-method name="poultry-farming-elev-repro-movement-cancel">
+        <call method="reproElevMovCancel"
+              class="com.gl.apps.pf.web.ReproElevMovementController"/>
+    </action-method>
+</object-views>

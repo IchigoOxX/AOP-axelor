@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="incubator-entry-line-form" title="Incubator entries lines" editable="true"
+          model="com.gl.apps.pf.db.IncubatorEntryLine" width="large">
+        <panel title="Overview" colSpan="12">
+            <panel title="Order:" colSpan="10">
+                <field name="incubatorTrolley" required="true"
+                       onSelect="action-incubator-entry-line-incubator-trolley-selected"
+                       onChange="action-incubator-entry-line-incubator-trolley-changed"/>
+                <field name="breedingShed"/>
+                <field name="currentDailyAge"/>
+                <field name="currentWeeklyAge"/>
+                <field name="center" readonly="true"/>
+                <field name="trackingNumber" readonly="true"/>
+                <field name="loadingType" readonly="true"/>
+                <field name="traysNumber" readonly="true"/>
+                <field name="eggsNumber" readonly="true"/>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center; background-color: rgb(238, 238, 238);">
+                                               <strong>
+                                                    <span style="font-size:22px; color: {{$fmt('status') == 0 ? '#2980b9' : ($fmt('status') == 1 ? 'green' : ($fmt('status') == 2 ? 'lightblue' : ($fmt('status') == 3 ? 'orange' : 'red')))}}">
+                                                        {{$fmt('status')}}
+                                                    </span>
+                                               </strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            ]]></viewer>
+                    </field>
+                </panel>
+            </panel>
+        </panel>
+    </form>
+
+    <grid name="incubator-entry-line-grid" title="Incubator entries lines" model="com.gl.apps.pf.db.IncubatorEntryLine" orderBy="incubatorTrolley"
+          edit-icon="true">
+        <field name="incubatorTrolley" required="true" onSelect="action-incubator-entry-line-incubator-trolley-selected" onChange="action-incubator-entry-line-incubator-trolley-changed" />
+        <field name="breedingShed" readonly="true"/>
+        <field name="currentDailyAge" readonly="true"/>
+        <field name="currentWeeklyAge" readonly="true"/>
+        <field name="center" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="loadingType" readonly="true"/>
+        <field name="traysNumber" readonly="true"/>
+        <field name="eggsNumber" readonly="true"/>
+        <field name="status" title="Incubator trolley status">
+            <hilite background="cyan" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="orange" if="$get('status') == 3"/>
+            <hilite background="red" if="$get('status') == 4"/>
+        </field>
+
+    </grid>
+    <action-attrs name="action-incubator-entry-line-incubator-trolley-selected" model="com.gl.apps.pf.db.IncubatorEntryLine">
+        <attribute name="domain" expr="eval: &quot; self.id IN (SELECT DISTINCT it.id
+                FROM IncubatorTrolley it
+                JOIN IncubatorTrolleysChargingLine itcl ON it.id = itcl.incubatorTrolley
+                WHERE itcl.breed.id = ${__parent__?.breed?.id}
+                AND it.status = 1) &quot;" for="incubatorTrolley"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-incubator-entry-line-incubator-trolley-changed" model="com.gl.apps.pf.db.IncubatorEntryLine">
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.capacityOfATrolleyInTrays" for="traysNumber"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.capacityOfATrolleyInTrays * 30" for="eggsNumber"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].center" for="center"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].breedingShed" for="breedingShed"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].chargingLineDetailList[0].breedingShed.dailyAge" for="currentDailyAge"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].chargingLineDetailList[0].breedingShed.weeklyAge" for="currentWeeklyAge"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].batchNumber" for="trackingNumber"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].chargingType" for="loadingType"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].numberOfEggTrays" for="traysNumber"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.incubatorTrolleysChargingLineList[0].numberOfEggs" for="eggsNumber"/>
+        <attribute if="incubatorTrolley != null" name="value" expr="eval: incubatorTrolley.status" for="status"/>
+    </action-attrs>
+
+<!--    <action-attrs name="action-incubator-trolley-incubator" model="com.gl.apps.pf.db.IncubatorEntryLine">-->
+<!--        <attribute for="incubatorTrolley" name="domain" expr="eval: &quot; self.incubator = ${__parent__?.incubator} AND self.status = 0 &quot;"/>-->
+<!--    </action-attrs>-->
+
+
+</object-views>

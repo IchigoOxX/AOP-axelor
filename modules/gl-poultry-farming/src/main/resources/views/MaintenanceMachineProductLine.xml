@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="maintenance-machine-product-line-grid" title="Products"
+          model="com.axelor.apps.maintenance.db.MachineProductLine" canNew="false" canEdit="false"
+          canSave="false" canDelete="false" edit-icon="false">
+        <field name="product" domain="self.productCategory.name ='PDR'" />
+        <field name="qty"/>
+        <field name="trackingNumber"/>
+    </grid>
+
+    <form name="maintenance-machine-product-line-form" title="Products" width="large" model="com.axelor.apps.maintenance.db.MachineProductLine" canNew="false">
+        <panel title="Overview">
+            <field colSpan="6" name="product" domain="self.productCategory.name ='PDR'"/>
+            <field colSpan="6" name="qty"/>
+            <field colSpan="6" name="trackingNumber"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+</object-views>

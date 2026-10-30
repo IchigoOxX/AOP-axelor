@@ -1,0 +1,833 @@
+%s : You must configure Sales module for company %s,%s : يجب عليك تكوين وحدة المبيعات للشركة %s
+%s has been added to your cart.,تمت إضافة %s إلى سلة التسوق الخاصة بك.
+"<>Standard: Display sale order lines the classic way.<br>Editable: This configuration enables you to activate an editable grid on quotation / sales order lines, allowing you to quickly add and complete quotation lines from the grid view.<br>Editable tree: Activate multi-level sale order lines.</>",<>قياسي: عرض بنود أمر البيع بالطريقة الكلاسيكية.<br>قابل للتحرير: يمكّنك هذا التكوين من تنشيط شبكة قابلة للتحرير على بنود عرض الأسعار / أمر المبيعات، مما يسمح لك بإضافة بنود عرض الأسعار وإكمالها بسرعة من عرض الشبكة.<br>شجرة قابلة للتحرير: تنشيط بنود أمر البيع متعدد المستويات.</>
+A JavaScript boolean expression against the current form values.,تعبير منطقي JavaScript مقابل قيم النموذج الحالية.
+A cancel reason must be selected,يجب تحديد سبب الإلغاء
+ABC analysis,تحليل ABC للمخزون
+ATI,ايه تي آي
+AbcAnalysis.endDate,تاريخ الانتهاء
+AbcAnalysis.startDate,تاريخ البدء
+Accepted Credit,الائتمان المقبول
+Access to parent sale order,الوصول إلى أمر بيع الأصل
+Accounted Revenue,الإيرادات المحاسبية
+Accounting Family sale turnover (Excl. Tax) per month,المحاسبة حجم مبيعات مبيعات العائلة (باستثناء الضرائب) شهريًا
+Action,العمل
+Actions,الإجراءات
+Activate,تفعيل
+Activate past versions recovery,تفعيل استرداد الإصدارات السابقة
+Actual version overwritten.,النسخة الفعلية الكتابة فوق.
+"Actual version saved, past version recovered.",تم حفظ الإصدار الفعلي، وتم استرداد الإصدار السابق.
+Add Line from Configurator,إضافة سطر من أداة التهيئة
+Add Pack,أضف حزمة
+Add a new sale order line,إضافة سطر أمر بيع جديد
+Add a pack,أضف حزمة
+Add to cart,أضف إلى السلة
+Adv. payment amount,ظرف. مبلغ الدفع
+Advance Payment,دفعة مقدمة
+Advance Payments,الدفعات المقدمة
+Advance payment A.T.I. total,الإجمالي
+Advance payment amount needed,مطلوب مبلغ الدفعة المقدمة
+Advance payment needed,مطلوب الدفع مقدما
+Advance payment total,إجمالي الدفعة المقدمة
+Advance payments,الدفعات المقدمة
+All customer credit will be updated.,سيتم تحديث جميع رصيد العملاء.
+Allocate,تخصيص
+Allocate all,تخصيص الكل
+Allocated stock,المخزون المخصص
+Allow pending order modification,السماح بتعديل الأمر المعلق
+Allow the duplication of sale quotation line. The line will be recomputed from its configurator if possible.,السماح بتكرار سطر عرض أسعار البيع. سيتم إعادة حساب الخط من مكونه إذا كان ذلك ممكنًا.
+Allow to edit configurator values inside the generated sale order line. Product will then be modified and line regenerated.,السماح بتحرير قيم المكوّن داخل سطر أمر البيع الذي تم إنشاؤه. سيتم بعد ذلك تعديل المنتج وإعادة إنشاء الخط.
+Allows assigning a number to quotation/order lines and displaying it on the quotation.,يسمح بتعيين رقم لأسطر عرض الأسعار/الأمر وعرضه على عرض الأسعار.
+"Allows defining a maximum accepted credit amount by default for all customers. If a customer exceeds this amount, a salesperson will not be able to confirm a new order. An administrator can manually unblock the customer. This credit amount is found on customer forms (Accounting information tab). It can be modified on a case-by-case basis for each customer.",يسمح بتحديد الحد الأقصى لمبلغ الائتمان المقبول بشكل افتراضي لجميع العملاء. إذا تجاوز العميل هذا المبلغ، فلن يتمكن مندوب المبيعات من تأكيد الطلب الجديد. يمكن للمسؤول إلغاء حظر العميل يدويًا. تم العثور على مبلغ الائتمان هذا في نماذج العملاء (علامة التبويب المعلومات المحاسبية). ويمكن تعديله على أساس كل حالة على حدة لكل عميل.
+"Allows defining on a customer that specifically for this customer, if a certain product is sold, complementary products are either automatically added to the quotation or proposed as options. This configuration complements the standard complementary product management defined at the product level, which applies to all partners.",يسمح بتحديد العميل أنه لهذا العميل على وجه التحديد، إذا تم بيع منتج معين، فسيتم إضافة المنتجات التكميلية تلقائيًا إلى عرض الأسعار أو اقتراحها كخيارات. يكمل هذا التكوين إدارة المنتج التكميلية القياسية المحددة على مستوى المنتج، والتي تنطبق على جميع الشركاء.
+Allows defining the default holdback percentage applied by the company. This default rate can be modified at the payment conditions level or on a case-by-case basis on invoices.,يسمح بتحديد نسبة العائق الافتراضية التي تطبقها الشركة. يمكن تعديل هذا المعدل الافتراضي على مستوى شروط الدفع أو على أساس كل حالة على حدة في الفواتير.
+Allows displaying on quotation lines the product description (description field from the product form).,يسمح بعرض وصف المنتج على بنود الأسعار (حقل الوصف من نموذج المنتج).
+Amount,المبلغ
+Amount A.T.I.,المبلغ A.T.I.
+Amount Tax,ضريبة المبلغ
+Amount Tax (via percentages),ضريبة المبلغ (بالنسبة المئوية)
+Amount invoiced W.T.,مبلغ الفاتورة W.T.
+Amount remaining to order,المبلغ المتبقي للطلب
+Amount to be spread over the timetable,المبلغ الذي سيتم توزيعه على سجل الدوام
+An attribute with the same name already exists.,توجد سمة بنفس الاسم بالفعل.
+"An error occurred during the duplication of sale order line. Therefore, only a simple copy has been made, please see tracebacks for more details.",حدث خطأ أثناء تكرار سطر أمر البيع. لذلك، تم عمل نسخة بسيطة فقط، يرجى الاطلاع على التتبع لمزيد من التفاصيل.
+"An error occurred during the generation of the product with configurator, please see tracebacks for more details.",حدث خطأ أثناء إنشاء المنتج باستخدام أداة التهيئة، يرجى الاطلاع على التتبع لمزيد من التفاصيل.
+Analytic distribution,توزيع مراكز التكلفة
+Analytic distribution required on sale order line,توزيع مراكز التكلفة مطلوب على سطر أمر البيع
+App,التطبيق
+App sale,بيع التطبيق
+At least one sale order line has a stock move with availability request.,يحتوي بند أمر بيع واحد على الأقل على عملية نقل مخزون مع طلب التوفر.
+Attributes,السمات
+Authorizations,التراخيص
+Authorized groups,المجموعات المعتمدة
+Authorized users,المستخدمون المعتمدون
+Availability Request,طلب التوفر
+Availability request,طلب التوفر
+Available stock,المخزون المتوفر
+Average margin rate,متوسط ​​معدل الهامش
+Average margin rate per customer,متوسط ​​معدل الهامش لكل عميل
+Average markup,متوسط ​​العلامات
+Average markup per customer,متوسط ​​العلامات لكل عميل
+Average price,متوسط ​​السعر
+Back to confirmed order,العودة إلى الطلب المؤكد
+Base W.T.,قاعدة W.T
+Batchs,دفعات
+Bi-monthly,نصف شهرية
+Block order creation,إنشاء أمر الكتلة
+Blocked,محظور
+Calculated fields on configurator,الحقول المحسوبة على المكوّن
+Can only cancel a drafted or finalized sale order.,يمكن فقط إلغاء أمر البيع الذي تمت صياغته أو الانتهاء منه.
+Can only complete a confirmed sale order.,يمكن فقط إكمال أمر البيع المؤكد.
+Can only confirm a finalized quotation.,يمكن فقط تأكيد عرض السعر النهائي.
+Can only finalize a drafted quotation.,يمكن فقط وضع اللمسات الأخيرة على مسودة عرض الأسعار.
+Cancel,إلغاء
+Cancel Reason,إلغاء السبب
+Cancel Reasons,أسباب الإلغاء
+Cancel reason,إلغاء السبب
+Cancel reservation,إلغاء الحجز
+Canceled,ملغي
+Cancellation,الإلغاء
+Cancellation confirmation,تأكيد الإلغاء
+Cart,العربة
+Cart line,خط العربة
+Cart line list,قائمة خطوط العربة
+Cart lines,خطوط العربة
+Carts,عربات
+Catalog,الكتالوج
+Category,الفئة
+Category sale turnover (Excl. Tax) per month,فئة مبيعات المبيعات (باستثناء الضريبة) شهريًا
+Change allocated qty,تغيير الكمية المخصصة
+Change requested reserved qty,التغيير المطلوب الكمية المحجوزة
+Changes were made to the configurator creator. Please activate the configurator creator to use it.,تم إجراء تغييرات على منشئ التكوين. يرجى تفعيل منشئ التكوين لاستخدامه.
+Characteristics,الخصائص
+Check Duplicate,تحقق من التكرار
+Check the script,تحقق من البرنامج النصي
+Children sale orders,طلبات بيع الاطفال
+Client box in sale order,صندوق العميل في أمر البيع
+Client is sale blocked:,تم حظر بيع العميل:
+Close opportunity when one of the linked sale orders is confirmed,إغلاق الفرصة عند تأكيد أحد أوامر البيع المرتبطة
+Code,الرمز
+Comment,تعليق
+Comment to display,تعليق للعرض
+Comment to display on delivery,تعليق للعرض عند التسليم
+Comment to display on invoice,تعليق لعرضه على الفاتورة
+Comment to display on picking order,تعليق للعرض عند اختيار الطلب
+Comment to display on proforma,تعليق لعرضه على النموذج
+Company,الشركة
+Company bank,بنك الشركة
+Company currency,عملة الشركة
+Company for which the configurations are made.,الشركة التي تم إجراء التكوينات لها.
+Complementary lines,خطوط مكملة
+Complementary product,منتج تكميلي
+Complementary product list,قائمة المنتجات التكميلية
+Complementary product(s),المنتج (المنتجات) التكميلية
+Complementary products,منتجات تكميلية
+Complete manually sale order,إكمال أمر البيع يدويا
+Components,المكونات
+Compute price with sublines,حساب السعر بالخطوط الفرعية
+Conditions,الشروط
+Configuration,التهيئة
+Configurator,معالج التهيئة
+Configurator BoM,مكون BoM
+Configurator creator filters,مرشحات منشئ التكوين
+Configurator creator name,اسم منشئ التكوين
+Configurator creators,منشئو التكوين
+Configurator formula list,قائمة صيغة المكوِّن
+Configurator is not activated.,لم يتم تنشيط المكوّن.
+Configurator model,نموذج التكوين
+Configurator version is different than its configurator creator.,يختلف إصدار Configurator عن منشئ التكوين الخاص به.
+"Configurator version is different than the version of its configurator creator, therefore only a simple duplicate will be created, proceed ?",يختلف إصدار Configurator عن إصدار منشئ التكوين الخاص به، وبالتالي سيتم إنشاء نسخة مكررة بسيطة فقط، تابع؟
+ConfiguratorCreator,منشئ التكوين
+ConfiguratorCreators,منشئو التكوين
+Configurators,التكوينات
+Configure,تكوين
+Confirm,تأكيد
+Confirm cancellation,تأكيد الإلغاء
+Confirm merge sale order,تأكيد أمر بيع الدمج
+Confirm order,تأكيد الطلب
+Confirmation,تأكيد
+Confirmation date,تاريخ التأكيد
+Confirmed by,تم التأكيد بواسطة
+Confirmer,مؤكد
+Consider zero cost and zero price lines in the margin,ضع في اعتبارك خطوط التكلفة الصفرية والسعر الصفري في الهامش
+Contact partner,اتصل بالشريك
+Contacts,جهات الاتصال
+Content,المحتوى
+Contract end date,تاريخ انتهاء العقد
+Contract period in months,مدة العقد بالأشهر
+Contract start date,تاريخ بدء العقد
+Copy needing update,نسخة تحتاج إلى التحديث
+Country,الدولة
+Create Order from this Template,أنشئ طلبًا من هذا القالب
+Create order with missing products,إنشاء طلب بالمنتجات المفقودة
+Create the quotation,إنشاء عرض السعر
+Create the sale order,إنشاء أمر البيع
+Created by,تم إنشاؤها بواسطة
+Created on,تم الإنشاء بتاريخ
+Creation date,تاريخ الإنشاء
+Creation for every sale order lines,إنشاء خطوط لكل أمر بيع
+Creation for the sale order,إنشاء أمر البيع
+Currency,العملة
+Current Login user,مستخدم تسجيل الدخول الحالي
+Current User,المستخدم الحالي
+Currently ordered A.T.I.,تم الطلب حاليًا من A.T.I.
+Currently ordered W.T.,أمرت حاليا W.T.
+Custom css class to apply.,فئة CSS مخصصة لتطبيقها.
+Custom field,حقل مخصص
+Custom fields,الحقول المخصصة
+Customer,عميل
+Customer Catalog,كتالوج العملاء
+Customer Catalog Lines,خطوط كتالوج العملاء
+Customer Credit,ائتمان العملاء
+Customer catalog lines,خطوط كتالوج العملاء
+Customer contact,الاتصال بالعميل
+Customer deliveries,تسليم العملاء
+Customer deliveries details,تفاصيل تسليم العملاء
+Customer information,معلومات العميل
+Customer partner price list,قائمة أسعار شريك العميل
+Customer partner price lists,قوائم أسعار شريك العملاء
+Customer reference,مرجع العميل
+Customers,العملاء
+Customers / prospects,العملاء / العملاء المحتملين
+Customised,حسب الطلب
+Dashboard,لوحة المؤشرات والتحكم
+Data file,ملف البيانات
+Date,التاريخ
+Dates,مواعيد
+Day,يوم
+Deallocate,إلغاء تخصيص
+Deallocate all,إلغاء تخصيص كافة
+Decimal,عشري
+Default holdback percentage,نسبة العائق الافتراضية
+Default unit,الوحدة الافتراضية
+Define as template,تحديد كقالب
+Delivered,تم التسليم
+Delivered quantity,الكمية المسلمة
+Delivery,التسليم / الإرسال
+Delivery address,عنوان التسليم
+Delivery conditions,شروط التسليم
+Description,الوصف
+Desired delivery date,تاريخ التسليم المطلوب
+Details Lines,خطوط التفاصيل
+Discount,خصم
+Discount amount,مبلغ الخصم
+Discount derogation (%),استثناء الخصم (%)
+Discount rate,نسبة الخصم
+Discount type,نوع الخصم
+Discounts need review,الخصومات تحتاج إلى مراجعة
+Display customer code on printing,عرض رمز العميل عند الطباعة
+Display delivery condition on printing,عرض شرط التسليم على الطباعة
+Display estimated shipping dates on printing,عرض مواعيد الشحن المقدرة على الطباعة
+Display lines,خطوط العرض
+Display product code on printing,عرض رمز المنتج عند الطباعة
+Display product picture on printing,عرض صورة المنتج على الطباعة
+Display sale order line number,عرض رقم سطر أمر البيع
+Display saleman on printing,عرض سالمان على الطباعة
+Display sublines on report,عرض الخطوط الفرعية في التقرير
+Display tax detail on printing,عرض تفاصيل الضريبة على الطباعة
+Displayed Product name,اسم المنتج المعروض
+Do not display the header and end of pack,لا تعرض رأس ونهاية الحزمة
+Do you want to proceed ?,هل تريد المتابعة؟
+Draft,مسودة
+Draft quotation,مسودة عرض السعر
+Duplicate with configurator,مكررة مع مكون
+Durations,المدة
+Edit order,تعديل الطلب
+Editable,قابل للتحرير
+Editable tree,شجرة قابلة للتحرير
+Editing configurator values from the sale order line is not allowed.,لا يُسمح بتعديل قيم المكوّن من بند أمر البيع.
+Editor,المحرر
+Either the sale order or the product is null.,إما أن أمر البيع أو المنتج لاغٍ.
+Empty cart,عربة فارغة
+Enable business configurator,تمكين مكون الأعمال
+Enable calculation of the entire quotation's prices,تمكين حساب أسعار عرض الأسعار بالكامل
+Enable cart management,تمكين إدارة سلة التسوق
+Enable customer catalog management,تمكين إدارة كتالوج العملاء
+Enable discount on editable lines,تمكين الخصم على الخطوط القابلة للتحرير
+Enable edition of configurators,تمكين إصدار المكوّنات
+Enable line duplication,تمكين تكرار الخط
+Enable product description copy,تمكين نسخة وصف المنتج
+"Enables business configurators, accessible from the Configurations menu in the Sales module. Once configured, the configurator allows creating a custom product during quotation with guided options, specific characteristics, adaptive pricing, etc.",تمكين مكوني الأعمال، ويمكن الوصول إليهما من قائمة التكوينات في وحدة المبيعات. بمجرد تكوينه، يسمح المكوِّن بإنشاء منتج مخصص أثناء عرض الأسعار مع خيارات موجهة وخصائص محددة وتسعير قابل للتكيف وما إلى ذلك.
+"Enables the ability to manage customer catalogs, meaning the ability to indicate that certain products have different names for certain customers (different product name and/or code).",تمكين القدرة على إدارة كتالوجات العملاء، مما يعني القدرة على الإشارة إلى أن بعض المنتجات لها أسماء مختلفة لعملاء معينين (اسم منتج و/أو رمز مختلف).
+Enabling this configuration allows the user to put products aside in a cart to generate an order at a later date.,يتيح تمكين هذا التكوين للمستخدم وضع المنتجات جانبًا في سلة التسوق لإنشاء طلب في وقت لاحق.
+End date,تاريخ الانتهاء
+End of current contract period,نهاية فترة العقد الحالية
+End of validity,نهاية الصلاحية
+Estimated delivery date,تاريخ التسليم المتوقع
+Estimated shipping date,تاريخ الشحن المقدر
+Every lines have been completely ordered.,لقد تم طلب كل الخطوط بالكامل.
+Example: accessing the name of the user,مثال: الدخول إلى اسم المستخدم
+Examples,أمثلة
+Excel,اكسل
+Export,تصدير
+Fetch limit,حد الجلب
+"Fetch limit for this batch. 0 will not be taken into account. In this case, the value configured in app Base will be used.",حد الجلب لهذه الدفعة. 0 لن تؤخذ في الاعتبار. في هذه الحالة، سيتم استخدام القيمة التي تم تكوينها في قاعدة التطبيق.
+Fill incoterm,املأ المصطلح التجاري الدولي
+Filter products by trading name,تصفية المنتجات حسب الاسم التجاري
+Finalize,إنهاء
+Finalized quotation,عرض السعر النهائي
+Financial terms,المصطلحات المالية
+Fiscal position,الوضع الضريبي
+Formula,الصيغة
+Fortnightly,كل أسبوعين
+Freeze fields,تجميد الحقول
+From Date,من التاريخ
+Full name,الاسم الكامل
+Generate,توليد
+Generate Product,توليد المنتج
+Generate advance payment invoice,إنشاء فاتورة الدفعة المقدمة
+Generate configurator,إنشاء مكون
+Generate customer deliveries,توليد تسليمات العملاء
+Generate invoice,إنشاء فاتورة
+Generate product,توليد المنتج
+Generate production order,إنشاء أمر الإنتاج
+Generate purchase order,إنشاء أمر الشراء
+Generate sale configurations,إنشاء تكوينات البيع
+Generate the order,أنشئ الأمر
+Generate the pdf printing during sale order finalization,قم بإنشاء طباعة pdf أثناء إنهاء أمر البيع
+Generated purchase orders,أوامر الشراء التي تم إنشاؤها
+Generation type,نوع الجيل
+Global discount,الخصم العالمي
+Go to last version,الذهاب إلى الإصدار الأخير
+Gross Profit,إجمالي الربح
+Group products on printings,مجموعة المنتجات الخاصة بالمطبوعات
+Half-yearly,نصف سنوي
+Help,مساعدة
+Hide Discount on prints,إخفاء الخصم على المطبوعات
+Hide Unit Amounts,إخفاء مبالغ الوحدة
+Hide unit amounts,إخفاء كميات الوحدات
+Historical,تاريخية
+"If this option is enabled, a panel allowing to sell this product by trading name appears on product forms. This allows defining which products trading names can sell, and filtering only sellable products by trading name on quotations.",إذا تم تمكين هذا الخيار، فستظهر لوحة تسمح ببيع هذا المنتج بالاسم التجاري في نماذج المنتج. يتيح ذلك تحديد المنتجات التي يمكن للأسماء التجارية بيعها، وتصفية المنتجات القابلة للبيع فقط حسب الاسم التجاري في عروض الأسعار.
+"If this option is enabled, it is mandatory that on each order line (Analytics tab), the Analytic distribution template field is filled in.","إذا تم تمكين هذا الخيار، فمن الضروري ملء حقل قالب توزيع مراكز التكلفة في كل سطر أمر (علامة التبويب ""التحليلات"")."
+"If this option is enabled, when the quotation moves to finalized status, a PDF copy of the quotation is automatically saved in the document management system.",إذا تم تمكين هذا الخيار، فعندما ينتقل عرض الأسعار إلى الحالة النهائية، يتم حفظ نسخة PDF من عرض الأسعار تلقائيًا في نظام إدارة المستندات.
+"If this option is not enabled, the default printing settings for quotations/orders will be those of the company. By enabling this option, you can configure specific printing settings per quotation/order.",إذا لم يتم تمكين هذا الخيار، فستكون إعدادات الطباعة الافتراضية لعروض الأسعار/الطلبات هي إعدادات الشركة. من خلال تمكين هذا الخيار، يمكنك تكوين إعدادات طباعة محددة لكل عرض أسعار/طلب.
+"If you have set a line display type to editable or editable tree, you can manage discounts directly from the editable line list without having to open the line in a popup.",إذا قمت بتعيين نوع عرض الخط على شجرة قابلة للتحرير أو قابلة للتحرير، فيمكنك إدارة الخصومات مباشرةً من قائمة الخطوط القابلة للتحرير دون الحاجة إلى فتح الخط في نافذة منبثقة.
+"If you want to enable this configuration, interco sale order can not be created at finalized quotation. Please change the configuration in supplychain application.",إذا كنت تريد تمكين هذا التكوين، فلا يمكن إنشاء أمر بيع داخلي عند عرض الأسعار النهائي. الرجاء تغيير التكوين في تطبيق سلسلة التوريد.
+Ignore missing products,تجاهل المنتجات المفقودة
+Import configurator creators,استيراد منشئي التكوين
+Import log,سجل الاستيراد
+In ATI,في ATI
+Indicators,المؤشرات
+Industry Sector,قطاع الصناعة
+Info.,معلومات.
+Information,معلومات
+Internal Note,ملاحظة داخلية
+Internal Number,رقم داخلي
+Internal note,ملاحظة داخلية
+Invoice Lines,بنود الفاتورة
+Invoice an advance payment,فاتورة دفعة مقدمة
+Invoiced,مفوتر
+Invoicing,الفوترة
+Is Active,نشط
+Is amount in % ?,هل المبلغ % ؟
+Is complementary partner products handled,هل يتم التعامل مع المنتجات الشريكة التكميلية
+Is complementary products unhandled yet,هل المنتجات التكميلية لم يتم التعامل معها بعد
+Is sol price total of sub lines,هو سعر سول مجموع الخطوط الفرعية
+It is not possible to delete a confirmed order.,لا يمكن حذف الطلب المؤكد.
+"It is possible to choose whether quotations/orders are always established excluding tax, always including tax, by default excluding tax, or by default including tax. The by default excluding tax and by default including tax options allow case-by-case modification (via a checkbox).",من الممكن اختيار ما إذا كانت عروض الأسعار/الأوامر يتم إنشاؤها دائمًا باستثناء الضريبة، أو تضمين الضريبة دائمًا، أو استبعاد الضريبة بشكل افتراضي، أو تضمين الضريبة بشكل افتراضي. يسمح خيار استبعاد الضريبة بشكل افتراضي، وخيارات تضمين الضريبة بشكل افتراضي، بتعديل كل حالة على حدة (من خلال مربع اختيار).
+Label,التسمية
+Label to be displayed on sale orders,الملصق الذي سيتم عرضه على أوامر البيع
+Last Year To Date,العام الماضي حتى الآن
+Last reminder,تذكير أخير
+Legal note on sale order,مذكرة قانونية بشأن أمر البيع
+Level,المستوى
+Line list display type,نوع عرض قائمة الخطوط
+Line production commentary,تعليق خط الإنتاج
+Lines to confirm,سطور للتأكيد
+Lines to recover,خطوط للاسترداد
+List of sale orders to merge is empty,قائمة أوامر البيع المطلوب دمجها فارغة
+Main sale order line,خط أمر البيع الرئيسي
+Main/Invoicing address,العنوان الرئيسي/الفواتير
+Manage multiple sale quantity,إدارة كمية البيع المتعددة
+Manage partner complementary product,إدارة المنتج التكميلي للشريك
+Manage sale order versions,إدارة إصدارات أمر البيع
+Manage sales unit on products,إدارة وحدة المبيعات على المنتجات
+Manual,دليل
+Manual Unblock,رفع الحظر يدويا
+Manufacturing Orders,أوامر التصنيع
+Maps,خرائط
+Margin,الهامش
+Margin (%),الهامش (%)
+Markup (%),العلامات (%)
+Max,ماكس
+Max discount,أقصى خصم
+Merge into single quotation,دمج في عرض سعر واحد
+Merge into single sale order,الدمج في أمر بيع واحد
+Merge quotations,دمج عروض الأسعار
+Merge sale orders,دمج أوامر البيع
+Merge sale quotation,دمج عرض أسعار البيع
+Meta field,حقل التعريف
+Meta json,ميتا جيسون
+Min,مين
+Missing mapped by: unidirectional one-to-many are not supported by the configurator.,مفقود تم تعيينه بواسطة: لا يدعم المكوّن خيار واحد إلى متعدد أحادي الاتجاه.
+Month,الشهر
+Monthly,شهري
+My Opportunities,فرصي
+My Proposals,مقترحاتي
+My Sales,مبيعاتي
+My Sales Orders,طلباتي البيعية
+My Team Proposals,مقترحات فريقي
+My Team Sales,مبيعات فريقي
+My Templates,قوالبي
+My Today Activities,نشاطي اليوم
+My Turnover per month,حجم أعمالي شهريا
+My templates,قوالبي
+Name,الاسم
+Name to use in scripts,الاسم الذي سيتم استخدامه في البرامج النصية
+Nbr of Units sold (Orders) by category,عدد الوحدات المباعة (الطلبات) حسب الفئة
+New version,نسخة جديدة
+Next invoicing date,تاريخ الفاتورة التالي
+Next invoicing end period date,تاريخ انتهاء فترة الفاتورة التالية
+Next invoicing start period date,تاريخ فترة بدء الفواتير التالية
+Next pricing,التسعير التالي
+No Of Units,عدد الوحدات
+No lines were generated. Please check that at least one line has a quantity to order.,لم يتم إنشاء أي خطوط. يرجى التأكد من أن سطرًا واحدًا على الأقل يحتوي على الكمية المطلوب طلبها.
+No order line needs to be generated for this cart.,لا يلزم إنشاء سطر طلب لهذه العربة.
+No pricing scale used for this record,لا يوجد مقياس تسعير مستخدم لهذا السجل
+No unit is set for this product: %s,لم يتم تعيين وحدة لهذا المنتج: %s
+Not delivered,لم يتم التسليم
+Not invoiced,لم يتم إصدار فاتورة
+Notice period in days,فترة الإشعار بالأيام
+OR,أو
+Old qty,الكمية القديمة
+Old version sale order,أمر بيع النسخة القديمة
+"On a quotation/order, in the Delivery information tab, there is a Delivery conditions text field. If this option is enabled, the content of this field will appear on the printing.",في عرض الأسعار/الطلب، في علامة التبويب معلومات التسليم، يوجد حقل نصي لشروط التسليم. إذا تم تمكين هذا الخيار، فسيظهر محتوى هذا الحقل على الطباعة.
+On change,على التغيير
+"On quotation/order printing, displays the customer code.",عند طباعة عرض الأسعار/الطلب، يتم عرض رمز العميل.
+"On quotation/order printing, displays the estimated shipping dates, adding an extra column.",عند طباعة عرض الأسعار/الطلب، يتم عرض تواريخ الشحن المقدرة، مع إضافة عمود إضافي.
+"On quotation/order printing, displays the product code.",عند طباعة عرض الأسعار/الطلب، يتم عرض رمز المنتج.
+"On quotation/order printing, displays the product picture. This is the image visible on the product form.",عند طباعة عرض الأسعار/الطلب، يتم عرض صورة المنتج. هذه هي الصورة المرئية في نموذج المنتج.
+"On quotation/order printing, displays the salesperson name.",عند طباعة عرض الأسعار/الطلب، يتم عرض اسم مندوب المبيعات.
+"On quotation/order printing, displays the tax details (name, rate, and amount).",عند طباعة عرض الأسعار/الطلب، يتم عرض تفاصيل الضريبة (الاسم والسعر والمبلغ).
+One of the lines has its quantity inferior to its ordered quantity.,أحد الخطوط لديه كميته أقل من الكمية المطلوبة.
+"One product is sold at loss, are you sure you want to finalize the quotation ?",تم بيع منتج واحد بخسارة، هل أنت متأكد من أنك تريد إنهاء عرض الأسعار؟
+One-off sale,بيع لمرة واحدة
+Only if,فقط إذا
+Opportunity,فرصة بيعية
+Optional,اختياري
+Options,الخيارات
+Order Date,تاريخ الطلب
+Order Number,رقم الطلب
+Order all,اطلب الكل
+Order being edited,الطلب قيد التعديل
+Order bloqued message,طلب رسالة محظورة
+Order completed,اكتمل الطلب
+Order confirmed,تم تأكيد الطلب
+Order creation for cart when stock is missing,إنشاء الطلب لعربة التسوق عندما يكون المخزون مفقودًا
+Ordered qty,الكمية المطلوبة
+Ordering status,حالة الطلب
+Origin sale quotation,تسعيرة بيع الأصل
+Original product,منتج اصلي
+Original sale order,أمر البيع الأصلي
+Other information,معلومات أخرى
+Overview,نظرة عامة
+PDF,قوات الدفاع الشعبي
+Pack,حزمة
+Pack Management,إدارة الحزم
+PackLine,باك لاين
+Parent,الوالد
+Parent sale order line,سطر أمر البيع الأصلي
+Partially delivered,تم تسليمها جزئيا
+Partially invoiced,مفوترة جزئيا
+Partially ordered,أمر جزئيا
+Partner,شريك أعمال
+Partner Type,نوع الشريك
+Past versions,الإصدارات السابقة
+Period duration,مدة الفترة
+Periodicity type,نوع الدورية
+Please enter at least one detail line.,الرجاء إدخال سطر تفاصيل واحد على الأقل.
+Please fill printing settings on sale order %s.,الرجاء ملء إعدادات الطباعة لأمر البيع %s.
+Please select a customer,الرجاء تحديد العميل
+Please select a customer to be able to convert opportunity into quotation.,يرجى تحديد عميل لتتمكن من تحويل الفرصة إلى عرض أسعار.
+Please select product variant for following product(s) :,الرجاء تحديد متغير المنتج للمنتج (المنتجات) التالية:
+Please select the sale order(s) to print.,الرجاء تحديد أمر (أوامر) البيع المراد طباعتها.
+Previous pricing,التسعير السابق
+Price,السعر
+Price List,قائمة الأسعار
+Price calculation details,تفاصيل حساب السعر
+Price list,قائمة الأسعار
+Price lists,قوائم الأسعار
+Pricing,التسعير
+Pricing rules,قواعد التسعير
+Print,طباعة
+Print subtotal / line,طباعة المجموع الفرعي / السطر
+Print subtotal per line,طباعة المجموع الفرعي لكل سطر
+Printing,طباعة
+Printing config per Sale Order,تكوين الطباعة لكل أمر بيع
+Printing settings,إعدادات الطباعة
+Printings,مطبوعات
+Product,منتج
+Product Accounting Family,عائلة محاسبة المنتجات
+Product Accounting Family Sales Turnover this year vs last year,محاسبة المنتج حجم مبيعات المبيعات العائلية هذا العام مقارنة بالعام الماضي
+Product Category,فئة المنتج
+Product Name,اسم المنتج
+Product code on catalog,رمز المنتج في الكتالوج
+Product creator,منشئ المنتج
+Product generated,تم إنشاء المنتج
+Product meta field,حقل تعريف المنتج
+Product name on catalog,اسم المنتج في الكتالوج
+Product sale turnover (Excl. Tax) last 12 month,حجم مبيعات المنتجات (باستثناء الضرائب) في آخر 12 شهرًا
+Product sale turnover (Excl. Tax) per month,معدل دوران مبيعات المنتج (باستثناء الضرائب) شهريًا
+Product type icon select,حدد رمز نوع المنتج
+Product variant,متغير المنتج
+Production,الإنتاج
+Production canceled,تم إلغاء الإنتاج
+Production finished,انتهى الإنتاج
+Production in draft,الإنتاج في المسودة
+Production in progress,جاري الإنتاج
+Production note,مذكرة الإنتاج
+Production on standby,الإنتاج في وضع الاستعداد
+Production planned,الإنتاج المخطط
+Production process,عملية الإنتاج
+Products,المنتجات
+Products & services,المنتجات والخدمات
+Proforma invoice,فاتورة أولية
+Prospects,العملاء المرتقبون
+Prototype,النموذج الأولي
+Qty,الكمية
+Qty to order,الكمية للطلب
+Quantity,الكمية
+"Quantity in generated sale order line, 1 if left empty.",الكمية في سطر أمر البيع الذي تم إنشاؤه، 1 إذا تركت فارغة.
+Quantity should not be less than the ordered quantity.,يجب ألا تقل الكمية عن الكمية المطلوبة.
+Quarterly,ربع سنوية
+Query to database,الاستعلام إلى قاعدة البيانات
+Quotation,عرض سعر
+Quotation lines,بنود عرض السعر
+Quotation/sale order created,تم إنشاء عرض الأسعار/أمر البيع
+Quotations template,قالب عروض الأسعار
+Quotations to merge,عروض أسعار للدمج
+Quote/Order,عرض سعر/طلب
+Recompute prices,إعادة حساب الأسعار
+Recover from this version,التعافي من هذا الإصدار
+Reference,المرجع
+Reference already existing,المرجع موجود بالفعل
+References,المراجع
+Regenerate Product,تجديد المنتج
+Regenerate line,إعادة إنشاء الخط
+Register a deposit,تسجيل إيداع
+Report type,نوع التقرير
+Reportings,التقارير
+Reports,التقارير
+Request reservation,طلب حجز
+Reservation requested,تم طلب الحجز
+Reserve all,حجز الكل
+Reverse charged,عكس مشحونة
+SO Tax line,خط ضريبة SO
+SO Tax lines,بنود ضريبة أمر البيع
+SO line,بند أمر البيع
+SO lines,بنود أمر البيع
+Sale,المبيعات
+Sale Batch,دفعة بيع
+Sale Order,أمر بيع
+Sale batch,دفعة بيع
+Sale batch filters,مرشحات دفعة البيع
+Sale batches,دفعات البيع
+Sale blocking,منع البيع
+Sale config,تكوين البيع
+Sale config (${ name }),تكوين البيع (${ name })
+Sale configuration,تكوين البيع
+Sale configurations,تكوينات البيع
+Sale details by product,تفاصيل البيع حسب المنتج
+Sale order,أمر بيع
+Sale order does not have configurator to duplicate.,لا يحتوي أمر البيع على مكون للتكرار.
+Sale order generated,تم إنشاء أمر البيع
+Sale order id,معرف أمر البيع
+Sale order line,سطر أمر البيع
+Sale order line field,حقل سطر أمر البيع
+Sale order line list,قائمة سطر أوامر البيع
+Sale order lines,خطوط أمر البيع
+Sale order lines filter,مرشح بنود أمر البيع
+Sale order quotation,عرض أسعار أمر البيع
+Sale order template,نموذج أمر البيع
+Sale orders,أوامر البيع
+Sale orders ATI/WT,أوامر البيع ATI/WT
+Sale orders to merge,أوامر بيع للدمج
+Sale quotation,عرض سعر مبيعات
+Sale quotations,عروض أسعار المبيعات
+Sale quotations/orders,عروض أسعار / أوامر البيع
+Sale.Pricing,تخفيضات.التسعير
+SaleOrder.afterDiscount,بعد الخصم (أمر البيع)
+SaleOrder.bank,بنك (أمر البيع)
+SaleOrder.base,قاعدة (أمر البيع)
+SaleOrder.cheque,تحقق (أمر البيع)
+SaleOrder.customer,عميل
+SaleOrder.customerCode,رمز العميل (أمر البيع)
+SaleOrder.customerRef,مرجع العميل (أمر البيع)
+SaleOrder.date,التاريخ
+SaleOrder.deliveryAddress,عنوان التسليم (أمر البيع)
+SaleOrder.deliveryCondition,حالة التسليم (أمر البيع)
+SaleOrder.description,الوصف
+SaleOrder.discountAmount,مبلغ الخصم (أمر البيع)
+SaleOrder.duration,طلب البيع.المدة
+SaleOrder.endOfValidityDate,تاريخ انتهاء الصلاحية (أمر البيع)
+SaleOrder.estimatedDeliveryDate,تاريخ التسليم المقدر (أمر البيع)
+SaleOrder.exemptionReason,سبب الإعفاء (أمر البيع)
+SaleOrder.invoicingAddrs,عنوان الفواتير (أمر البيع)
+SaleOrder.isIspmRequired,هل مطلوب ISPM (أمر البيع)
+SaleOrder.no,لا (أمر البيع)
+SaleOrder.note,ملاحظة (أمر البيع)
+SaleOrder.order,أمر / طلب
+SaleOrder.others,أخرى (أمر البيع)
+SaleOrder.paymentCondition,شروط السداد
+SaleOrder.paymentMode,طريقة الدفع
+SaleOrder.periodicity,طلب البيع.الفترة
+SaleOrder.priceExclTax,السعر بدون الضريبة (أمر البيع)
+SaleOrder.priceInclTax,السعر شامل الضريبة (أمر البيع)
+SaleOrder.productCode,رمز المنتج (أمر البيع)
+SaleOrder.productDescription,وصف المنتج (أمر البيع)
+SaleOrder.productName,اسم المنتج (أمر البيع)
+SaleOrder.productSequence,تسلسل المنتج (أمر البيع)
+SaleOrder.proforma,الشكل (أمر البيع)
+SaleOrder.qtyUnit,وحدة الكمية (أمر البيع)
+SaleOrder.quote,عرض سعر (أمر البيع)
+SaleOrder.salemanEmail,البريد الإلكتروني سالمان (أمر البيع)
+SaleOrder.salemanName,اسم سالمان (أمر البيع)
+SaleOrder.salemanPhone,هاتف سالمان (أمر البيع)
+SaleOrder.shipmentDate,تاريخ الشحن (أمر البيع)
+SaleOrder.shippingCost,تكلفة الشحن (أمر البيع)
+SaleOrder.subscriptionContract,عقد الاشتراك (أمر البيع)
+SaleOrder.supplier,مورد
+SaleOrder.supplyRef,مرجع العرض (أمر البيع)
+SaleOrder.tax,ضريبة
+SaleOrder.taxAmount,مبلغ الضريبة
+SaleOrder.taxCode,رمز الضريبة (أمر البيع)
+SaleOrder.taxes,الضرائب
+SaleOrder.totalDiscount,إجمالي الخصم (أمر البيع)
+SaleOrder.totalExclTax,الإجمالي غير شامل الضريبة (أمر البيع)
+SaleOrder.totalExclTaxWithoutDiscount,الإجمالي غير شامل الضريبة بدون خصم (أمر البيع)
+SaleOrder.totalInclTax,الإجمالي شامل الضريبة (أمر البيع)
+SaleOrder.totalTax,الضريبة الإجمالية (أمر البيع)
+SaleOrder.totalTaxes,إجمالي الضرائب (أمر البيع)
+SaleOrder.type,نوع طلب البيع
+SaleOrder.unitPrice,سعر الوحدة (أمر البيع)
+SaleOrder.validityDate,تاريخ الصلاحية (أمر البيع)
+SaleOrderLine.endOfPack,نهاية الحزمة
+SaleOrderLine.total,الإجمالي
+Sales,المبيعات
+Sales Manager,مدير المبيعات
+Sales Manager Details,تفاصيل مدير المبيعات
+Sales Order filters,مرشحات أوامر البيع
+Sales TurnOver by Product this year vs last year,معدل دوران المبيعات حسب المنتج هذا العام مقارنة بالعام الماضي
+Sales Turnover (Orders) by month by category,حجم المبيعات (الطلبات) حسب الشهر حسب الفئة
+Sales Turnover This year vs Last year,دوران المبيعات هذا العام مقارنة بالعام الماضي
+Sales Turnover YTD vs Last year by Product Accounting Family,معدل دوران المبيعات منذ بداية العام مقارنة بالعام الماضي حسب عائلة محاسبة المنتجات
+Sales distribution per product accounting family,توزيع المبيعات حسب عائلة محاسبة المنتج
+Sales distribution per product category,توزيع المبيعات حسب فئة المنتج
+Sales follow-up,متابعة المبيعات
+Sales order,أمر بيع
+Sales per country,المبيعات لكل دولة
+Sales turnover comparison per month this year vs past years,مقارنة معدل دوران المبيعات شهريًا هذا العام مقابل السنوات الماضية
+Sales turnover comparison per month this year vs past years by accounting family,مقارنة معدل دوران المبيعات شهريًا هذا العام مقابل السنوات الماضية حسب عائلة المحاسبة
+Sales turnover this year vs last year,حجم المبيعات هذا العام مقارنة بالعام الماضي
+Sales turnover this year vs past years,حجم المبيعات هذا العام مقارنة بالسنوات الماضية
+Sales unit,وحدة المبيعات
+Salesperson,مندوب مبيعات
+Salesperson Details,تفاصيل مندوب المبيعات
+Save actual version,حفظ النسخة الفعلية
+See quotation lines,انظر سطور عرض السعر
+See sale orders lines,انظر بنود أوامر البيع
+See stock details,انظر تفاصيل المخزون
+Select this optional complementary product,حدد هذا المنتج التكميلي الاختياري
+Selected,تم التحديد
+Send email,إرسال البريد الإلكتروني
+Separate in a new quotation,منفصل في عرض سعر جديد
+Seq.,تسلسل.
+Shipping costs,تكاليف الشحن
+Show Total,إظهار الإجمالي
+Show on configurator,عرض على المكوّن
+Show total,عرض الإجمالي
+So line creator,إذن منشئ الخط
+Specific notes,ملاحظات محددة
+Specific package,حزمة محددة
+Specific tax note,مذكرة ضريبية محددة
+Specify a boolean expression to collapse/expend this panel.,حدد تعبيرًا منطقيًا لطي/توسيع هذه اللوحة.
+Specify the default span for child items. Default value is 6.,حدد النطاق الافتراضي للعناصر الفرعية. القيمة الافتراضية هي 6.
+"Specify the number of columns taken by the widget (1,2,..12). Default value is 6.",حدد عدد الأعمدة التي التقطتها الأداة (1،2،..12). القيمة الافتراضية هي 6.
+Specify whether given custom field is panel-tab or not. Default value is false (true or false).,حدد ما إذا كان الحقل المخصص المحدد هو علامة تبويب اللوحة أم لا. القيمة الافتراضية خاطئة (صواب أو خطأ).
+Specify whether the panel is collapsible. Default value is false (true or false).,حدد ما إذا كانت اللوحة قابلة للطي أم لا. القيمة الافتراضية خاطئة (صواب أو خطأ).
+Specify whether to show the title. Default value is true (true or false).,حدد ما إذا كنت تريد إظهار العنوان أم لا. القيمة الافتراضية صحيحة (صواب أو خطأ).
+Split quotations and orders,تقسيم عروض الأسعار والأوامر
+Standard,قياسي
+"Standard operation like +, -, *, / can be used and will work correctly with BigDecimal.",يمكن استخدام العمليات القياسية مثل +، -، *، / وستعمل بشكل صحيح مع BigDecimal.
+"Standard: Display the classic order line list. Editable: This configuration enables an editable list on quotation/order lines, allowing quick addition and completion of lines from the list view. Editable tree: Activate multi-level customer order lines.",قياسي: عرض قائمة بند الأمر الكلاسيكي. قابل للتحرير: يتيح هذا التكوين قائمة قابلة للتحرير على بنود عروض الأسعار/الطلبات، مما يسمح بإضافة البنود وإكمالها بسرعة من عرض القائمة. شجرة قابلة للتحرير: تنشيط خطوط أوامر العملاء متعددة المستويات.
+Start date,تاريخ البدء
+Status,الحالة
+Stock Moves,حركات المخزون
+Stock location,موقع التخزين / المستودع
+Stock moves,حركات المخزون
+String,سلسلة
+String interpolation can also be used,يمكن أيضًا استخدام استيفاء السلسلة
+Sub Total gross profit,إجمالي الربح الفرعي
+Sub Total markup,العلامات الإجمالية الفرعية
+Sub margin rate,معدل الهامش الفرعي
+SubTotal cost price,سعر التكلفة الإجمالي الفرعي
+Subscription,الاشتراك
+Subscription text to display,نص الاشتراك للعرض
+Supplier,مورد
+Swap discount type,نوع خصم المبادلة
+Tacit agreement,اتفاق ضمني
+Target custom model,الهدف النموذجي المخصص
+Tax,ضريبة
+Tax Equiv,المعادل الضريبي
+Tax Lines,بنود الضريبة
+Tax number,الرقم الضريبي
+Tax type,نوع الضريبة
+Taxes,الضرائب
+Team,فريق
+Template,القالب
+Template created by,تم إنشاء القالب بواسطة
+Templates,قوالب
+Test this creator,اختبر هذا المبدع
+The ATI configuration must be the same for all sale orders,يجب أن يكون تكوين ATI هو نفسه لجميع أوامر البيع
+The client Partner is required and must be the same for all sale orders,مطلوب شريك العميل ويجب أن يكون هو نفسه لجميع أوامر البيع
+The client provided is not a customer of the given company: %s.,العميل المقدم ليس عميلاً للشركة المحددة: %s.
+The company %s doesn't have any configured sequence for sale orders,ليس لدى الشركة %s أي تسلسل مكون لأوامر البيع
+The company configuration doesn't allow you to manage the exclusion or inclusion of taxes.,لا يسمح لك تكوين الشركة بإدارة استبعاد الضرائب أو تضمينها.
+The company is required and must be the same for all sale orders,الشركة مطلوبة ويجب أن تكون واحدة لجميع أوامر البيع
+The contact provided is not a contact partner of the client.,جهة الاتصال المقدمة ليست شريك اتصال للعميل.
+The currency is required and must be the same for all sale orders,العملة مطلوبة ويجب أن تكون واحدة لجميع أوامر البيع
+"The field %s is of type %s, but the configured script returned value is of type %s.",الحقل %s من النوع %s، لكن قيمة البرنامج النصي الذي تم إرجاعه هي من النوع %s.
+The fiscal position must be the same for all sale orders,يجب أن يكون الوضع المالي هو نفسه لجميع أوامر البيع
+The packaging process was stopped because it exceeded the maximum number of iterations.,تم إيقاف عملية التعبئة لأنها تجاوزت الحد الأقصى لعدد التكرارات.
+The partner's language is different from the current language. Description and product name are in :,لغة الشريك مختلفة عن اللغة الحالية. الوصف واسم المنتج موجودان في :
+The sale order was canceled,تم إلغاء أمر البيع
+The script must be written in,يجب كتابة السيناريو باللغة
+"The selected price list is no longer valid, do you still want to continue?",قائمة الأسعار المحددة لم تعد صالحة، هل مازلت تريد الاستمرار؟
+The syntax of the script is correct.,بناء جملة البرنامج النصي صحيح.
+The tax number must be the same for all sale orders,يجب أن يكون الرقم الضريبي هو نفسه لجميع أوامر البيع
+The total amount of quotation is zero.,المبلغ الإجمالي لعرض السعر هو صفر.
+"The width can be specified as percentage or fixed value.The fix width can be either in \'px\' or \'em\', \'px\' is assumed if not specified.",يمكن تحديد العرض كنسبة مئوية أو قيمة ثابتة. يمكن أن يكون العرض الثابت إما بـ \'px\' أو \'em\'، ويفترض \'px\' إذا لم يتم تحديده.
+There are lines with a discount superior to the maximal authorized discount.,توجد خطوط بخصم يفوق الحد الأقصى للخصم المصرح به.
+This Year To Date,هذا العام حتى الآن
+"This configuration allows choosing whether, in case of missing stock for products in the cart, you want to create the order with the missing products, block order creation, or ignore the missing products.",يسمح هذا التكوين باختيار ما إذا كنت تريد، في حالة فقدان مخزون المنتجات في سلة التسوق، إنشاء الطلب بالمنتجات المفقودة أو حظر إنشاء الطلب أو تجاهل المنتجات المفقودة.
+"This configuration enables you to recalculate line prices using a quotation. The recalculation will take into account pricing, if any, then the partner price lists.",يمكّنك هذا التكوين من إعادة حساب أسعار البنود باستخدام عرض الأسعار. ستأخذ عملية إعادة الحساب في الاعتبار الأسعار، إن وجدت، ثم قوائم أسعار الشركاء.
+This field allows you to customize a customer box with information of your choice on quotation/order printings using an HTML field.,يتيح لك هذا الحقل تخصيص صندوق العميل بالمعلومات التي تختارها بشأن مطبوعات عروض الأسعار/الطلبات باستخدام حقل HTML.
+"This function is useful when the units of purchase of a product from a supplier are different from your sales units (for example if you buy a product by the ton and resell it by the kilo). When creating a customer order, the selected product will be directly shown with its sales unit, avoiding manual conversions.",تكون هذه الوظيفة مفيدة عندما تكون وحدات شراء المنتج من أحد الموردين مختلفة عن وحدات المبيعات الخاصة بك (على سبيل المثال، إذا قمت بشراء منتج بالطن وأعدت بيعه بالكيلو). عند إنشاء طلب عميل، سيتم عرض المنتج المحدد مباشرة مع وحدة المبيعات الخاصة به، مع تجنب التحويلات اليدوية.
+This is the default sales unit for a product when it is created.,هذه هي وحدة المبيعات الافتراضية للمنتج عند إنشائه.
+This is the default validity duration for quotations that will be automatically filled in when creating a quotation.,هذه هي مدة الصلاحية الافتراضية لعروض الأسعار التي سيتم ملؤها تلقائيًا عند إنشاء عرض أسعار.
+"This option allows defining multiple sale quantities on a product. You can specify that a product can only be sold in certain multiples (for example quantities of 5/10/15 if the multiple is 5). If the quantity selected on an order line differs, the line cannot be validated and a message will indicate the allowed quantities.",يتيح هذا الخيار تحديد كميات بيع متعددة على المنتج. يمكنك تحديد أنه لا يمكن بيع المنتج إلا بمضاعفات معينة (على سبيل المثال كميات 5/10/15 إذا كان المضاعف 5). إذا اختلفت الكمية المحددة في بند الأمر، فلا يمكن التحقق من صحة البند وستظهر رسالة تشير إلى الكميات المسموح بها.
+"This option allows modification of a confirmed order. When an order is being modified, invoice and delivery note generation is blocked. If a delivery note is in planned status, it will remain blocked at that status as long as the order is being modified.",يسمح هذا الخيار بتعديل الطلب المؤكد. عندما يتم تعديل أمر، يتم حظر إنشاء الفاتورة وإشعار التسليم. إذا كان إشعار التسليم في الحالة المخططة، فسيظل محظورًا عند هذه الحالة طالما يتم تعديل الأمر.
+"This option automatically saves each quotation version and allows recovering them at any time if you wish to revert to a previous version, by selecting the quotation lines you want to recover.",يقوم هذا الخيار تلقائيًا بحفظ كل إصدار عرض أسعار ويسمح باستعادتها في أي وقت إذا كنت ترغب في العودة إلى إصدار سابق، وذلك عن طريق تحديد بنود عرض السعر التي تريد استردادها.
+"This option enables the ability to create multiple versions of a quotation, allowing modification of a quotation to create a new version. Each version is stored as a PDF in the document management system. If you wish to recover a past quotation version, you must also enable the option Activate past versions recovery.",يتيح هذا الخيار القدرة على إنشاء إصدارات متعددة من عرض الأسعار، مما يسمح بتعديل عرض الأسعار لإنشاء إصدار جديد. يتم تخزين كل إصدار كملف PDF في نظام إدارة المستندات. إذا كنت ترغب في استرداد نسخة عرض أسعار سابقة، فيجب عليك أيضًا تمكين خيار تنشيط استرداد الإصدارات السابقة.
+"This option enables the ability to manage product packs. A pack groups products/services that are sold together. Once a pack is selected on a quotation, all products composing the pack are added to the quotation.",يمكّن هذا الخيار القدرة على إدارة حزم المنتجات. تجمع الحزمة المنتجات/الخدمات التي يتم بيعها معًا. بمجرد تحديد حزمة في عرض الأسعار، تتم إضافة جميع المنتجات التي تتكون منها الحزمة إلى عرض الأسعار.
+This product currency is empty: %s,عملة المنتج هذه فارغة: %s
+This sale order is completed.,اكتمل أمر البيع هذا.
+"This script has errors, please see server logs for more details.",يحتوي هذا البرنامج النصي على أخطاء، يرجى مراجعة سجلات الخادم لمزيد من التفاصيل.
+"This script returned value is of type %s, it should return a value of type %s instead.",القيمة التي تم إرجاعها لهذا البرنامج النصي هي من النوع %s، ويجب أن يُرجع قيمة من النوع %s بدلاً من ذلك.
+"This will duplicate lines and their configurator when possible, do you want to proceed ?",سيؤدي هذا إلى تكرار الخطوط ومكوِّنها عندما يكون ذلك ممكنًا، هل تريد المتابعة؟
+Timetable,سجل الدوام
+Title,العنوان
+Title type line can not have sublines.,لا يمكن أن يحتوي سطر نوع العنوان على خطوط فرعية.
+To Date,حتى الآن
+Tools,الأدوات
+Total A.T.I.,إجمالي أيه تي آي
+Total A.T.I. in company currency,إجمالي أيه تي آي بعملة الشركة
+Total V.A.T.,إجمالي ضريبة القيمة المضافة
+Total W.T.,إجمالي الوزن
+Total W.T. before discount,إجمالي الوزن قبل الخصم
+Total W.T. in company currency,إجمالي الوزن بعملة الشركة
+Total cost in company currency,التكلفة الإجمالية بعملة الشركة
+Total cost price,سعر التكلفة الاجمالية
+Total order amount per salesman,إجمالي مبلغ الطلب لكل بائع
+Total ordered A.T.I.,إجمالي طلبات A.T.I.
+Total ordered W.T.,إجمالي الطلب W.T.
+Total price,السعر الاجمالي
+Total quantity sold,إجمالي الكمية المباعة
+Total stock,إجمالي المخزون
+Total tax,إجمالي الضريبة
+Trading name,اسم التداول
+TurnOver,دوران
+Turnover,دوران
+Turnover (excl. Tax) per team,معدل الدوران (باستثناء الضرائب) لكل فريق
+Turnover Study,دراسة دوران
+Turnover per customer category,معدل الدوران لكل فئة عميل
+Turnover per customer sector,حجم التداول لكل قطاع العملاء
+Turnover per customer type,معدل الدوران لكل نوع عميل
+Turnover per month per salesman,معدل الدوران شهريًا لكل بائع
+Type,النوع
+Type select normal,اكتب حدد عادي
+Unable to generate the sale order: company %s has several trading names. Please create the sale order manually to select a trading name.,تعذر إنشاء أمر البيع: الشركة %s لديها أسماء تجارية متعددة. يرجى إنشاء أمر البيع يدويًا لتحديد اسم تجاري.
+Unable to start the simulation because one or more products in the order have a sold quantity that is not a multiple of the default packaging defined in their product form.,غير قادر على بدء المحاكاة لأن منتجًا واحدًا أو أكثر من المنتجات الموجودة في الطلب يحتوي على كمية مباعة ليست من مضاعفات العبوة الافتراضية المحددة في نموذج المنتج الخاص بهم.
+Unable to start the simulation. One or more items are too heavy to be carried by the existing packagings.,غير قادر على بدء المحاكاة. هناك عنصر واحد أو أكثر ثقيل جدًا بحيث لا يمكن حمله بواسطة العبوات الموجودة.
+Unable to start the simulation. One or more items are too large to fit into the existing packagings.,غير قادر على بدء المحاكاة. هناك عنصر واحد أو أكثر كبير جدًا بحيث لا يتناسب مع العبوات الموجودة.
+Unit,الوحدة
+Unit cost price in company currency,سعر تكلفة الوحدة بعملة الشركة
+Unit price A.T.I.,سعر الوحدة
+Unit price W.T.,سعر الوحدة بالوزن
+Unit price discounted,سعر الوحدة مخفضة
+Unrenewed,غير متجدد
+Unselect this optional complementary product,قم بإلغاء تحديد هذا المنتج التكميلي الاختياري
+Update customer's accepted credit,تحديث الائتمان المقبول للعميل
+Update from,التحديث من
+Update from configurator,التحديث من المكوّن
+Update from product,تحديث من المنتج
+Used credit has been exceeded. The quotation must be manually unblocked to generate the order.,لقد تم تجاوز الرصيد المستخدم. يجب إلغاء حظر عرض الأسعار يدويًا لإنشاء الأمر.
+User,المستخدم
+User assigned to customer,تم تعيين المستخدم للعميل
+User to fill salesperson,المستخدم لملء مندوب مبيعات
+VAT exemption reason,سبب الإعفاء من ضريبة القيمة المضافة
+Validate and generate the line,التحقق من صحة وإنشاء السطر
+Validate changes,التحقق من صحة التغييرات
+Validated,معتمد / مؤكد
+Validity duration,مدة الصلاحية
+Validity duration per default,مدة الصلاحية الافتراضية
+Value,القيمة
+Version,النسخة
+Version Number,رقم الإصدار
+Version date,تاريخ الإصدار
+Version number,رقم الإصدار
+WT,وت
+"Warning, a completed order can't be changed anymore, do you want to continue?",تحذير، لا يمكن تغيير الطلب المكتمل بعد الآن، هل تريد المتابعة؟
+"Watch out, a sale order was already created with this external reference.",انتبه، لقد تم بالفعل إنشاء أمر بيع باستخدام هذا المرجع الخارجي.
+Weekly,أسبوعي
+"When activated, the total margin of a sale order will take into account sale order lines where the cost price or the sale price is zero.",عند التنشيط، سيأخذ الهامش الإجمالي لأمر البيع في الاعتبار بنود أمر البيع حيث يكون سعر التكلفة أو سعر البيع صفرًا.
+"When an order is linked to an opportunity, enabling this option will automatically move the opportunity to closed won status when the order is confirmed.",عندما يتم ربط أمر بفرصة، فإن تمكين هذا الخيار سيؤدي تلقائيًا إلى نقل الفرصة إلى حالة الفوز المغلق عند تأكيد الأمر.
+"When creating a quotation, allows choosing whether it is automatically assigned to the active/connected user creating the quotation, or to the salesperson responsible for the customer.",عند إنشاء عرض أسعار، يسمح باختيار ما إذا كان سيتم تعيينه تلقائيًا للمستخدم النشط/المتصل الذي يقوم بإنشاء عرض الأسعار، أو لمندوب المبيعات المسؤول عن العميل.
+"When enabled, confirming a sale quotation will generate a new sale order. This configuration allow the partial validation of a sale quotation.",عند التمكين، سيؤدي تأكيد عرض أسعار البيع إلى إنشاء أمر بيع جديد. يسمح هذا التكوين بالتحقق الجزئي من عرض أسعار البيع.
+"When enabled, sale order lines price will be computed based on their sub lines.",عند التمكين، سيتم حساب سعر بنود أمر البيع بناءً على بنودها الفرعية.
+Widget Attributes,سمات القطعة
+Word,كلمة
+Workshop,ورشة عمل
+Would you like to update all lines with this new address?,هل ترغب في تحديث جميع الخطوط بهذا العنوان الجديد؟
+Wrong keyword given to the query.,كلمة رئيسية خاطئة تم تقديمها للاستعلام.
+Year,سنة
+Year 1 To Date,السنة 1 حتى الآن
+Year 2 To Date,السنة الثانية حتى الآن
+Yearly,سنوي
+"You are using a product for which the '%s' pricing should be applied.</br>However, it could not be applied.</br>Please check your pricing if this does not seem normal.",أنت تستخدم منتجًا ينبغي تطبيق تسعير '%s' عليه.</br>ومع ذلك، لا يمكن تطبيقه.</br>يُرجى التحقق من التسعير الخاص بك إذا كان هذا لا يبدو طبيعيًا.
+"You can add your legal notices in this field, which will appear on quotation and order printings.",يمكنك إضافة إشعاراتك القانونية في هذا الحقل، والتي ستظهر على مطبوعات عروض الأسعار والطلبات.
+You can define here the default printing template for the company quotations/orders.,يمكنك هنا تحديد قالب الطباعة الافتراضي لعروض أسعار/طلبات الشركة.
+You can not choose this product for this order: %s,لا يمكنك اختيار هذا المنتج لهذا الطلب: %s
+You can not create sale order as some products are not in stock.,لا يمكنك إنشاء أمر بيع لأن بعض المنتجات غير متوفرة في المخزون.
+You can not delete lines with an ordered quantity superior to 0.,لا يمكنك حذف البنود ذات الكمية المطلوبة أعلى من 0.
+You can not enable quotation and order split if past version recovery is enabled.,لا يمكنك تمكين عرض الأسعار وتقسيم الطلب إذا تم تمكين استرداد الإصدار السابق.
+You can not order more than %s for the line with the product %s.,لا يمكنك طلب أكثر من %s للسطر مع المنتج %s.
+You can not order more than the quantity to order left.,لا يمكنك طلب أكثر من الكمية المتبقية للطلب.
+You can only add a line to a draft sale order.,يمكنك فقط إضافة سطر إلى مسودة أمر البيع.
+You cannot bill together lines that do not have the same delivery address. Please use partial billing for lines with the same delivery address.,لا يمكنك إرسال فاتورة معًا للخطوط التي ليس لها نفس عنوان التسليم. يرجى استخدام الفوترة الجزئية للخطوط التي لها نفس عنوان التسليم.
+You have to choose at least two sale orders,يجب عليك اختيار أمرين بيع على الأقل
+You have to choose at least two sale quotations,يجب عليك اختيار عرضي أسعار بيع على الأقل
+You must configure a script to fill the created product code.,يجب عليك تكوين برنامج نصي لملء رمز المنتج الذي تم إنشاؤه.
+You must configure a script to fill the created product name.,يجب عليك تكوين برنامج نصي لملء اسم المنتج الذي تم إنشاؤه.
+You must configure a script to fill the product name in the created sale order line.,يجب عليك تكوين برنامج نصي لملء اسم المنتج في سطر أمر البيع الذي تم إنشاؤه.
+You must fill a partner for the opportunity %s.,يجب عليك ملء شريك للفرصة %s.
+copy,نسخ
+gives access to a repository with the same syntax as the repositories in java,يتيح الوصول إلى مستودع بنفس بناء الجملة مثل المستودعات في Java
+gives access to connected user.,يتيح الوصول إلى المستخدم المتصل.
+gives access to the id of parent sale order (when adding a sale order line with this configurator),يتيح الوصول إلى معرف أمر البيع الأصلي (عند إضافة سطر أمر بيع مع هذا المكوِّن)
+gives access to today date and,يتيح الوصول إلى تاريخ اليوم و
+import.verb,فعل
+is used for concatenation,يستخدم للتسلسل
+orderingStatus.closed,مغلق
+searching Partners that are suppliers and with a name starting with “A”,"البحث عن شركاء موردين تبدأ أسماؤهم بالحرف ""أ"""
+searching for Product with id = 1:,البحث عن منتج بالمعرف = 1:
+searching for ProductFamily with the code ‘SERV’,"البحث عن ProductFamily بالرمز ""SERV"""
+to current date time.,إلى وقت التاريخ الحالي.
+value:Sale,القيمة: بيع
+Allow the user to apply a global discount on a sale order. Global discount and discount per line are not cumulative.,السماح للمستخدم بتطبيق خصم عالمي على أمر البيع. الخصم العالمي والخصم لكل سطر ليسا تراكميين.
+Enable global discount on sale order,تفعيل الخصم العالمي على أمر البيع
+Invoice by delivery impose that all sale order lines must have service or stockable product with provision from stock,تفرض الفاتورة بالتسليم أن جميع بنود أمر البيع يجب أن تحتوي على خدمة أو منتج قابل للتخزين مع توفيره من المخزون
+No product family is set for this product: %s,لم يتم تعيين عائلة منتجات لهذا المنتج: %s
+Product should not be null,يجب ألا يكون المنتج فارغًا
+You have to choose at least one sale order,عليك اختيار أمر بيع واحد على الأقل
+You have to choose at least one sale quotation,يجب عليك اختيار عرض أسعار بيع واحد على الأقل

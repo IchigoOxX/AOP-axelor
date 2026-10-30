@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="account" package="com.axelor.apps.account.db"/>
+
+    <entity name="FiscalPosition">
+<!--        <boolean name="applyStamp" title="Apply stamp"/>-->
+<!--        <boolean name="applyFodec" title="Apply FODEC"/>-->
+<!--        <boolean name="applyDc" title="Apply DC"/>-->
+
+        <track on="UPDATE">
+<!--            <field name="applyStamp"/>-->
+<!--            <field name="applyFodec"/>-->
+<!--            <field name="applyDc"/>-->
+        </track>
+
+    </entity>
+
+</domain-models>

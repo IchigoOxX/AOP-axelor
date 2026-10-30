@@ -1,0 +1,1156 @@
+${fullName} plan. st. move,قيد محاسبي
+${fullName} real st. move,قيد محاسبي
+%) on the WAP of,%) على WAP لـ
+%s Reverse stock move (From %s),%s حركة عكسية للأسهم (من %s)
+"<><Badge bg=""warning"">Warning : Delivery address is missing.</Badge></>","<><Badge bg=""warning"">تحذير: عنوان التسليم مفقود.</Badge></>"
+<B>%s or %s</B> not found,لم يتم العثور على <B>%s أو %s</B>
+A cancel reason must be selected,يجب تحديد سبب الإلغاء
+A partial stock move has been generated (%s),تم إنشاء حركة جزئية للمخزون (%s)
+ABC analysis,تحليل ABC للمخزون
+AbcAnalysis.stockLocation,موقع التخزين / المستودع
+Account selection to carrier,اختيار الحساب للناقل
+Accounting family,الأسرة المحاسبية
+Accounting value,القيمة المحاسبية
+Action,العمل
+Actions,الإجراءات
+Activate bar code generation for stock location,تفعيل إنشاء الرمز الشريطي لموقع المخزون
+Activate bar code generation for stock move,تفعيل توليد الباركود لحركات المخزون
+Activate bar code generation for tracking number,تفعيل إنشاء الرمز الشريطي لرقم التتبع
+Add a control entry,إضافة إدخال تحكم
+Add stock move(s) to logistical form,أضف حركة (حركات) المخزون إلى النموذج اللوجستي
+Address,العنوان
+Alert,تنبيه
+All storable products used in DEB must have net mass and mass unit information for customs.,يجب أن تحتوي جميع المنتجات القابلة للتخزين المستخدمة في DEB على معلومات عن الكتلة الصافية ووحدة الكتلة للجمارك.
+Allocate,تخصيص
+Allocate all,تخصيص الكل
+Allocations of costs,مخصصات التكاليف
+Allow internal stock move on logistical form,السماح بتحرك المخزون الداخلي بالشكل اللوجستي
+Allows to add every product from the common stock location,يسمح بإضافة كل منتج من موقع المخزون المشترك
+"An error occurred while importing the file data, product not found with code :",حدث خطأ أثناء استيراد بيانات الملف، لم يتم العثور على المنتج بالكود :
+"An error occurred while importing the file data, there are multiple products with code :",حدث خطأ أثناء استيراد بيانات الملف، هناك منتجات متعددة بالكود :
+An error occurred while importing the file data. Please contact your application administrator to check Traceback logs.,حدث خطأ أثناء استيراد بيانات الملف. الرجاء الاتصال بمسؤول التطبيق الخاص بك للتحقق من سجلات التتبع.
+An incoming partial stock move has been generated (%s),تم إنشاء حركة جزئية للمخزون الوارد (%s)
+An outgoing partial stock move has been generated (%s),تم إنشاء نقل جزئي للمخزون الصادر (%s)
+App,التطبيق
+App base,قاعدة التطبيقات
+App stock,مخزون التطبيق
+Approved for invoicing,تمت الموافقة على الفواتير
+Archived,مؤرشف
+Are you sure you want to go back to provision ?,هل أنت متأكد أنك تريد العودة إلى توفير الخدمة؟
+Are you sure you want to realize this stock move?,هل أنت متأكد أنك تريد تحقيق حركة السهم هذه؟
+Are you sure you want to validate the carrier?,هل أنت متأكد أنك تريد التحقق من صحة الناقل؟
+Arrival product qty,وصول كمية المنتج
+Arrivals,الوصول
+Arrivals History,تاريخ الوصول
+Auto product tracking Nbr. order,أمر / طلب
+Auto sale tracking Nbr. order,أمر / طلب
+Auto select product tracking Nbr.,تحديد تلقائي لتتبع المنتج Nbr.
+Auto select sale tracking Nbr.,تحديد تلقائي لتتبع المبيعات Nbr.
+Av. for product,شارع. للمنتج
+Availability,التوفر
+Availability request,طلب التوفر
+Available,متاح
+Available qty,الكمية المتاحة
+Available qty for product,الكمية المتاحة للمنتج
+Available status,الحالة المتاحة
+Average,متوسط
+Average Price,متوسط ​​السعر
+Avg outgoing quantity on 12 past months (One-off sale excluded),متوسط ​​الكمية الصادرة خلال 12 شهرًا الماضية (باستثناء البيع لمرة واحدة)
+Back to provision,العودة إلى توفير
+Backorder,طلب متأخر
+Backorder Id,معرف الطلب الخلفي
+Backorder Stock Move,حركة المخزون المؤجل
+Bad stock move type,نوع حركة الأسهم السيئة
+Barcode,الباركود
+Barcode Type,نوع الباركود
+Barcode type that will be used by default on stock locations.,نوع الرمز الشريطي الذي سيتم استخدامه بشكل افتراضي في مواقع المخزون.
+Barcode type that will be used by default on tracking numbers.,نوع الرمز الشريطي الذي سيتم استخدامه بشكل افتراضي على أرقام التتبع.
+Barter,مقايضة
+Batchs,دفعات
+Block all stock movements on the selected stock location and its sub locations.,حظر كافة حركات المخزون في موقع المخزون المحدد ومواقعه الفرعية.
+Block stock moves?,حظر حركات المخزون؟
+Both source location address and delivery (to) address are required to define the delivery itinerary,مطلوب كلاً من عنوان موقع المصدر وعنوان التسليم (إلى) لتحديد مسار التسليم
+Buyer,المشتري
+Buyer/Seller,المشتري / البائع
+CSV,CSV
+Calculate,احسب
+Can only be validated if provisioned,لا يمكن التحقق من صحتها إلا إذا تم توفيرها
+Can only cancel a planned or realized stock move.,يمكن فقط إلغاء حركة المخزون المخططة أو المحققة.
+Can only cancel a validated inventory.,يمكن إلغاء المخزون المعتمد فقط.
+Can only complete a started inventory.,يمكن إكمال المخزون الذي بدأ فقط.
+Can only plan a draft inventory.,يمكن التخطيط فقط لمسودة المخزون.
+Can only plan a drafted stock move.,يمكن فقط التخطيط لتحركات الأسهم المسودة.
+Can only return to draft if cancelled.,لا يمكن العودة إلى المسودة إلا في حالة الإلغاء.
+Can only return to provision if was validated or collected,لا يمكن العودة إلى الحكم إلا إذا تم التحقق من صحته أو جمعه
+Can only start a draft inventory.,يمكن فقط بدء مسودة المخزون.
+Can only validate a drafted stock correction.,لا يمكن إلا التحقق من صحة تصحيح الأسهم المسودة.
+Can't delete a line linked to a realized stock move line.,لا يمكن حذف خط مرتبط بخط حركة المخزون المحقق.
+Can't delete a planned stock move,لا يمكن حذف حركة المخزون المخطط لها
+Can't delete a realized stock move,لا يمكن حذف حركة السهم المحققة
+Can't realize this stock move because of the ongoing inventory %s.,لا يمكن تحقيق حركة المخزون هذه بسبب المخزون المستمر %s.
+Cancel,إلغاء
+Cancel picking,إلغاء الانتقاء
+Cancel reason,إلغاء السبب
+Cancel reservation,إلغاء الحجز
+Cancel storage,إلغاء التخزين
+Cancelation,الإلغاء
+Canceled,ملغي
+Cancellation,الإلغاء
+Cancellation confirmation,تأكيد الإلغاء
+Cancelled Arrivals,الوافدون الملغاة
+Cannot go back to draft status.,لا يمكن العودة إلى حالة المسودة.
+Cannot realize a stock move that is not planned.,لا يمكن تحقيق حركة الأسهم التي لم يتم التخطيط لها.
+Cannot validate an inventory that is not completed.,لا يمكن التحقق من صحة المخزون الذي لم يكتمل.
+Carriage (Sea/Air) to port of import,النقل (بحري / جوي) إلى ميناء الاستيراد
+Carriage to place of destination,النقل إلى مكان الوجهة
+Carriage to port of export,النقل إلى ميناء التصدير
+Carrier,الناقل
+Carrier validated,تم التحقق من صحة الناقل
+Cart contents,محتويات سلة التسوق
+Cart stock location content,محتوى موقع مخزون سلة التسوق
+Certificate of conformity,شهادة المطابقة
+Certificate of conformity title,شهادة المطابقة عنوان
+Change allocated qty,تغيير الكمية المخصصة
+Check Duplicate,تحقق من التكرار
+Check expiration date at stock move realization,التحقق من تاريخ انتهاء الصلاحية عند تحقيق حركة المخزون
+Choose a template,اختر قالب
+Code,الرمز
+Collected,جمعت
+Collection date,تاريخ التجميع
+Comment to display on picking order,تعليق للعرض عند اختيار الطلب
+Comment to display on stock move,تعليق للعرض عند تحرك السهم
+Comments,تعليقات
+Comments updated;,تم تحديث التعليقات؛
+Commercial regularization resulting in value increase,التنظيم التجاري يؤدي إلى زيادة القيمة
+Commercial regularization resulting in value reduction,التنظيم التجاري يؤدي إلى تخفيض القيمة
+Common destination location,موقع الوجهة المشتركة
+Common source location,موقع المصدر المشترك
+Company,الشركة
+Company Unit price W.T.,سعر الوحدة للشركة W.T.
+Company account,حساب الشركة
+Company address is empty.,عنوان الشركة فارغ.
+Company cannot be null.,لا يمكن أن تكون الشركة فارغة.
+Company for which the configurations are set.,الشركة التي تم تعيين التكوينات لها.
+Complete,أكمل
+Completed,مكتمل
+Compliant,متوافق
+Compliant arrival product qty,كمية المنتج المتوافقة
+Computation priority,أولوية الحساب
+Configuration,التهيئة
+Confirm,تأكيد
+Confirm cancellation,تأكيد الإلغاء
+Conformity,المطابقة
+Conformity Certificates,شهادات المطابقة
+Conformity certificate,شهادة المطابقة
+Conformity certificate template,نموذج شهادة المطابقة
+ConformityCertificate.certificateNumber,رقم الشهادة
+ConformityCertificate.customerName,اسم العميل
+ConformityCertificate.designation,التسمية
+ConformityCertificate.externalReference,مرجع خارجي
+ConformityCertificate.function,شهادة المطابقة.وظيفة
+ConformityCertificate.lotNoRef,الكثير لا المرجع
+ConformityCertificate.name,الاسم
+ConformityCertificate.numberAndDateDelivery,رقم وتاريخ التسليم
+ConformityCertificate.orderDate,تاريخ الطلب
+ConformityCertificate.orderNumber,رقم الطلب
+ConformityCertificate.partNumber,رقم الجزء
+ConformityCertificate.qtyUnit,وحدة الكمية
+ConformityCertificate.quantity,الكمية
+ConformityCertificate.sequence,تسلسل
+ConformityCertificate.signature,التوقيع
+ConformityCertificate.stockMoveLineRowNum,رقم صف خط حركة المخزون
+Consignments by post,الإرساليات بالبريد
+Control entry,دخول التحكم
+Control on Receipt,التحكم في الاستلام
+Control stock rules are activated by supply chain batch.,يتم تنشيط قواعد مراقبة المخزون من خلال مجموعة سلسلة التوريد.
+Correction Reason,سبب التصحيح
+Cost price,سعر التكلفة
+Country,الدولة
+Country of origin,بلد المنشأ
+Create inventory,إنشاء المخزون
+Create new tracking numbers,إنشاء أرقام تتبع جديدة
+Created by,تم إنشاؤها بواسطة
+Created on,تم الإنشاء بتاريخ
+Current,الحالي
+Current Qty,الكمية الحالية
+Current qty,الكمية الحالية
+Current quantity problem,مشكلة الكمية الحالية
+Cust. Shipment to prepare,العميل. شحنة للتحضير
+Customer account,حساب العميل
+Customer account number,رقم حساب العميل
+Customer account number to carrier,رقم حساب العميل للناقل
+Customer account numbers to carriers,أرقام حسابات العملاء لشركات النقل
+Customer average delivery delay,متوسط ​​تأخير تسليم العميل
+Customer deliveries,تسليم العملاء
+Customer deliveries by country,تسليمات العملاء حسب الدولة
+Customer deliveries filters,مرشحات تسليم العملاء
+Customer deliveries statistics,إحصائيات تسليمات العملاء
+Customer returns,إرجاع العميل
+Customer virtual stock location,موقع المخزون الافتراضي للعميل
+Customs,الجمارك
+Customs code,الرمز الجمركي
+Customs code nomenclature,تسميات الرمز الجمركي
+Customs code nomenclature:all,تسميات الرمز الجمركي:الكل
+Cut off move generated,قطع الحركة الناتجة
+Dashboard,لوحة المؤشرات والتحكم
+Dashlet.Moves,القيود المحاسبية
+Data is null or empty,البيانات فارغة أو فارغة
+Date,التاريخ
+Date and time,التاريخ والوقت
+Date t,التاريخ ر
+Dates,بلح
+Days,أيام
+Deallocate,إلغاء تخصيص
+Deallocate all,إلغاء تخصيص الكل
+Declaration of exchanges for %s is not supported.,إعلان التبادلات لـ %s غير معتمد.
+Default external stock location,موقع المخزون الخارجي الافتراضي
+Default from stock location for sales and to stock location for purchases,الافتراضي من موقع المخزون للمبيعات وإلى موقع المخزون للمشتريات
+Default signatory user,المستخدم الموقع الافتراضي
+Default stock location,موقع المخزون الافتراضي
+Default stock location by site,موقع المخزون الافتراضي حسب الموقع
+Default to stock location for sales and from stock location for purchases,الافتراضي لموقع المخزون للمبيعات ومن موقع المخزون للمشتريات
+Default unit,الوحدة الافتراضية
+Default unit when creating a new product.,الوحدة الافتراضية عند إنشاء منتج جديد.
+Defense or intergovernmental program,الدفاع أو البرنامج الحكومي الدولي
+Deferred invoicing,الفواتير المؤجلة
+Define ideal Qty,تحديد الكمية المثالية
+Define max Qty,تحديد الكمية القصوى
+Delay,تأخير
+Delayed invoicing,تأخر الفواتير
+Deliver to customer,التسليم للعميل
+Deliver to customer is not set.,لم يتم تعيين التسليم إلى العميل.
+Deliveries,عمليات التسليم
+Deliveries Cancelled,تم إلغاء عمليات التسليم
+Deliveries Details,تفاصيل التسليم
+Deliveries History,تاريخ التسليم
+Deliveries to prepare,تسليمات للتحضير
+Delivery delay (days),تأخير التسليم (أيام)
+Delivery for trial sale,تسليم للبيع التجريبي
+Delivery number,رقم التسليم
+Delivery stock move,تحرك مخزون التسليم
+Deported stock location,موقع المخزون المرحل
+Description,الوصف
+Destination location,موقع الوجهة
+Detailed stock,مخزون مفصل
+Details,التفاصيل
+Details of the tracking number's availables,تفاصيل رقم التتبع المتوفر
+Details of the tracking number's unavailables,تفاصيل أرقام التتبع غير المتوفرة
+Dimension 0,البعد 0
+Dimension 1,البعد 1
+Dimension 2,البعد 2
+Dimension 3,البعد 3
+Dimensional,الأبعاد
+Dimensions,الأبعاد
+Dimensions and masses,الأبعاد والكتل
+Dimensions title,عنوان الأبعاد
+Display accounting value in location financial data printing,عرض القيمة المحاسبية في موقع طباعة البيانات المالية
+Display available tracking numbers,عرض أرقام التتبع المتاحة
+Display average price in printing,عرض متوسط ​​السعر في الطباعة
+Display barcode on Picking printing,عرض الباركود عند اختيار الطباعة
+Display customer code on picking printing,عرض رمز العميل عند اختيار الطباعة
+Display external ref. on certificate of conformity printing,عرض المرجع الخارجي. على طباعة شهادة المطابقة
+Display line details on printing,عرض تفاصيل الخط عند الطباعة
+Display order reference and order date,عرض مرجع الطلب وتاريخ الطلب
+Display partner sequence on printing,عرض تسلسل الشريك عند الطباعة
+Display price on printing,عرض السعر على الطباعة
+Display product code on printing,عرض رمز المنتج عند الطباعة
+Display purchase value in location financial data printing,عرض قيمة الشراء في الموقع طباعة البيانات المالية
+Display sale value in location financial data printing,عرض قيمة البيع في موقع طباعة البيانات المالية
+Display tracking number details on Picking printing,عرض تفاصيل رقم التتبع عند اختيار الطباعة
+Display tracking number details on certificate of conformity printing,عرض تفاصيل رقم التتبع على طباعة شهادة المطابقة
+Do you want to allocate all the products ?,هل تريد تخصيص جميع المنتجات؟
+Do you want to generate backorder for not delivered quantities?,هل تريد إنشاء طلب متأخر للكميات التي لم يتم تسليمها؟
+Do you want to generate backorder for not received quantities?,هل تريد إنشاء طلب متأخر للكميات التي لم يتم استلامها؟
+Do you want to proceed?,هل تريد المتابعة؟
+Does not include quantities from sub stock locations,لا يشمل الكميات من مواقع المخزون الفرعي
+Draft,مسودة
+Draft move,مسودة التحرك
+Economic area,المنطقة الاقتصادية
+Electronic signature,التوقيع الالكتروني
+Email sent,تم إرسال البريد الإلكتروني
+Enable incoterm,تمكين مصطلح التجارة الدولية
+Enable product description copy,تمكين نسخة وصف المنتج
+Enable site management for stock,تمكين إدارة الموقع للمخزون
+End date,تاريخ الانتهاء
+Error: %s field is required and can not be null,خطأ: الحقل %s مطلوب ولا يمكن أن يكون فارغًا
+Estimated Date,التاريخ المقدر
+Estimated date,التاريخ المقدر
+Excl. out of stock products,باستثناء منتجات غير متوفرة
+Exonerated shipment and transfer,شحن ونقل بريء
+"Expected BigDecimal as result during the computation of field %s, please fix the corresponding formula.",من المتوقع أن تكون النتيجة BigDecimal أثناء حساب الحقل %s، يرجى إصلاح الصيغة المقابلة.
+Expected Qty,الكمية المتوقعة
+Expected/Future Quantity,الكمية المتوقعة/المستقبلية
+Expired product(s): %s,المنتج (المنتجات) منتهية الصلاحية: %s
+Export,تصدير
+Export customs declaration,البيان الجمركي للتصدير
+External,خارجي
+External delivery comment,تعليق التسليم الخارجي
+FIFO,يصرف أولاً
+Field,المجال
+Field's formula,صيغة الحقل
+Fields formula,صيغة الحقول
+"Fields linked to the shipment are differents, the value of the oldest will be kept.",تختلف الحقول المرتبطة بالشحنة، وسيتم الاحتفاظ بقيمة الأقدم.
+File %s successfully imported.,تم استيراد الملف %s بنجاح.
+File (CSV),ملف (CSV)
+File Format,تنسيق الملف
+Fill in products from movements,تعبئة المنتجات من الحركات
+Fill inventory,ملء المخزون
+Fill inventory with,املأ المخزون بـ
+Filter on available products,تصفية على المنتجات المتاحة
+Filters,عوامل التصفية
+Final product density,كثافة المنتج النهائي
+Financial leasing,التأجير التمويلي
+Firm purchase or sale,شركة شراء أو بيع
+Fixed transport installations,تجهيزات النقل الثابت
+Forecasted Stock,الأسهم المتوقعة
+Formula,الصيغة
+Forwarder,وكيل
+Freight Carrier,ناقلة بضائع
+Freight carrier mode,وضع ناقلة الشحن
+Freight carrier modes,أوضاع نقل البضائع
+From,من
+From Date,من التاريخ
+From address,من العنوان
+From date,من تاريخ
+From rack,من الرف
+From stock location,من موقع المخزون
+Full name,الاسم الكامل
+Fullname,الاسم الكامل
+Fully spread over logistical forms,منتشرة بالكامل على الأشكال اللوجستية
+Future,المستقبل
+Future Qty,الكمية المستقبلية
+Future qty,الكمية المستقبلية
+Gap,فجوة
+Gap value,قيمة الفجوة
+General,عام
+General Stock Details,تفاصيل عامة عن المخزون
+Generate a new stock move,إنشاء حركة سهم جديدة
+Generate control invoice,إنشاء فاتورة مراقبة
+Generate credit note,إنشاء مذكرة ائتمان
+Generate invoice,إنشاء فاتورة
+Generate new production auto tracking Nbr.,إنشاء تتبع تلقائي للإنتاج جديد Nbr.
+Generate new purchase auto tracking Nbr.,إنشاء تتبع تلقائي للشراء الجديد Nbr.
+Generate new sale auto tracking Nbr.,إنشاء تتبع سيارات بيع جديد Nbr.
+Generate picked products,إنشاء منتجات مختارة
+Generate reversion,توليد الارتداد
+Generate stock configurations,إنشاء تكوينات المخزون
+Gross Mass,الكتلة الإجمالية
+Group products on printings,مجموعة المنتجات الخاصة بالمطبوعات
+Header,الترويسة
+Historical Period,الفترة التاريخية
+ISPM standard required,مطلوب معيار ISPM
+Ideal Qty,الكمية المثالية
+Import customs clearance,استيراد تخليص جمركي
+Import duties and taxes,رسوم وضرائب الاستيراد
+"Impossible to create a picked product for product %s, no stock found for company %s",من المستحيل إنشاء منتج منتقى للمنتج %s، لم يتم العثور على مخزون للشركة %s
+In progress,قيد التنفيذ
+Incl. obsolete products,بما في ذلك. منتجات قديمة
+Incl. sub location stock,بما في ذلك. مخزون الموقع الفرعي
+Include out of stocks products,تضمين المنتجات غير المتوفرة في المخزون
+Include virtual sub location,تضمين الموقع الفرعي الافتراضي
+Incoming amount,المبلغ الوارد
+Incoming move,إذن إضافة / حركة واردة
+Incoming move information,معلومات التحرك الوارد
+Incoming move lines,خطوط التحرك الواردة
+Incoming quantity,الكمية الواردة
+Incorrect product for stock correction,منتج غير صحيح لتصحيح المخزون
+Incorrect product in inventory line,منتج غير صحيح في سطر المخزون
+Incoterm,مصطلحات التجارة الدولية (Incoterms)
+Incoterm Code,كود مصطلح التجارة الدولية
+Incoterm Name,اسم مصطلح التجارة الدولية
+Incoterms,مصطلحات التجارة الدولية (Incoterms)
+Information,معلومات
+Insurance,التأمين
+Internal,داخلي
+Internal Stock Move filters,مرشحات حركة المخزون الداخلي
+Internal Stock Moves,حركات المخزون الداخلية
+Internal delivery comment,تعليق التسليم الداخلي
+Internal move,تحويل مخزني داخلي
+Internal move information,معلومات التحرك الداخلي
+Internal move lines,خطوط التحرك الداخلي
+Internal stock move,تحرك المخزون الداخلي
+Intracommunity acquisition taxable in france,الاستحواذ داخل المجتمع الخاضع للضريبة في فرنسا
+Inventories,المخزونات
+Inventories History,تاريخ المخزونات
+Inventories filters,مرشحات المخزون
+Inventory,المخزون / الجرد
+Inventory Calendar,تقويم الجرد
+Inventory N°,رقم الجرد
+Inventory Title,عنوان الجرد
+Inventory line,خط المخزون
+Inventory line successfully updated,تم تحديث سطر المخزون بنجاح
+Inventory lines,بنود المخزون
+Inventory successfully updated,تم تحديث المخزون بنجاح
+Inventory template,قالب الجرد
+Inventory valuation type,نوع تقييم المخزون
+Inventory virtual stock location,موقع المخزون الافتراضي للمخزون
+Inventory's lines' list has been filled.,تم ملء قائمة سطور المخزون.
+Inventory.barcode,المخزون.الباركود
+Inventory.category,فئة الجرد
+Inventory.code,الرمز
+Inventory.company,الشركة
+Inventory.createdOn,تم إنشاؤه في
+Inventory.date,التاريخ
+Inventory.description,الوصف
+Inventory.fromRack,من الرف
+Inventory.lastInventoryDate,تاريخ آخر جرد
+Inventory.lineStockLocation,موقع مخزون الخط
+Inventory.plannedEndDateT,تاريخ الانتهاء المخطط له t
+Inventory.plannedStartDateT,تاريخ البدء المخطط له ر
+Inventory.product,جرد.المنتج
+Inventory.productCategory,فئة المنتج
+Inventory.productFamily,عائلة المنتجات
+Inventory.rack,المخزون.رف
+Inventory.realQty,الكمية الحقيقية
+Inventory.stockLocation,موقع التخزين / المستودع
+Inventory.title,العنوان
+Inventory.toRack,للرف
+Inventory.trackingNumber,رقم التتبع / التشغيلة
+Inventory.unit,وحدة الجرد
+Invoiced,مفوتر
+Is ISPM15 required,هل المعيار ISPM15 مطلوب
+Is avg price changed,هل تغير متوسط ​​السعر
+Is certificate of conformity required,هل شهادة المطابقة مطلوبة
+Is certificate of conformity signed,هل شهادة المطابقة موقعة
+Is real qty modified by user,هل تم تعديل الكمية الحقيقية بواسطة المستخدم
+Is reversion,هل الارتداد
+LIFO,ليفو
+Label,التسمية
+Last Future Stock Move,حركة السهم المستقبلية الأخيرة
+Last inventory,آخر مخزون
+Last inventory date,تاريخ آخر جرد
+Last inventory real qty,آخر مخزون الكمية الحقيقية
+Late Deliveries,التسليم المتأخر
+Late customer deliveries,تأخر تسليم العملاء
+Late supplier arrivals,تأخر وصول الموردين
+Line length too big,طول الخط كبير جدًا
+Line successfully added to stock move with id %s,تمت إضافة السطر بنجاح إلى حركة المخزون بالمعرف %s
+Line successfully split.,تم تقسيم الخط بنجاح.
+Line successfully updated.,تم تحديث الخط بنجاح.
+Lines,الأسطر
+Lines created successfully,تم إنشاء الأسطر بنجاح
+Links,روابط
+Loading on truck in port of import,التحميل على الشاحنات في ميناء الاستيراد
+Loading on vessel/airplane in port of export,التحميل على السفينة/الطائرة في ميناء التصدير
+Location Content,محتوى الموقع
+Location Lines,خطوط الموقع
+Location content,محتوى الموقع
+Location content details,تفاصيل محتوى الموقع
+Location financial data,البيانات المالية الموقع
+Logistical form,النموذج اللوجستي
+Logistical form filters,مرشحات النموذج اللوجستي
+Logistical form printing detailed,طباعة النموذج اللوجستي تفصيلي
+Logistical form printing settings,إعدادات طباعة النموذج اللوجستي
+Logistical forms,النماذج اللوجستية
+Manage backorder,إدارة الطلب المتأخر
+Manage backorder?,إدارة الطلب المتأخر؟
+Manage production tracking Nbr.,إدارة تتبع الإنتاج Nbr.
+Manage purchase tracking Nbr.,إدارة تتبع الشراء Nbr.
+Manage sale tracking Nbr.,إدارة تتبع المبيعات Nbr.
+Manage stock location on stock move lines,إدارة موقع المخزون على خطوط حركة المخزون
+Manual,دليل
+Manufacturing order,أمر تصنيع / إنتاج
+Map,الخريطة
+Mass,قداس
+Mass in kg,الكتلة بالكيلو جرام
+Mass move,حركة مخزنية مجمعة
+Mass move enabled,تم تمكين الحركة الجماعية
+Mass moves,حركات مخزنية مجمعة
+Mass stock move,تحرك جماعي للأسهم
+Mass stock move need,حاجة إلى تحرك جماعي للمخزون
+Mass stock moves,حركات المخزون الجماعية
+Mass stock moves need,تحتاج حركات المخزون الجماعية إلى
+Materials for construction contract,مواد لعقد البناء
+Max stock,الحد الأقصى للمخزون
+Max stock date,الحد الأقصى لتاريخ المخزون
+Max. Qty,الأعلى. الكمية
+Maximum iteration for looking tracking numbers parent has been reached. Please check any circular parent dependencies.,تم الوصول إلى الحد الأقصى للتكرار للبحث عن أرقام التتبع الأصلية. يرجى التحقق من أي تبعيات أصلية دائرية.
+Merge stock moves,دمج حركات المخزون
+Merged,تم الدمج
+Message template,قالب الرسالة
+Message template for stock rules,قالب رسالة لقواعد الأسهم
+Metric weight,الوزن المتري
+Metric weight in kg/m,الوزن المتري بالكيلو جرام/م
+Min stock,الحد الأدنى للمخزون
+Min stock date,الحد الأدنى لتاريخ المخزون
+Min. Qty,دقيقة. الكمية
+Missing,مفقود
+Missing logistical form sequence for company %s,تسلسل النموذج اللوجستي مفقود للشركة %s
+Mode of transport,وسيلة النقل
+Month,الشهر
+Move canceled,تم إلغاء النقل
+Move created,تم إنشاء النقل
+Move details,نقل التفاصيل
+Move origin type,نقل نوع الأصل
+Move realized,تم التحرك
+Moved quantity is equal to 0 or less (%s),الكمية المنقولة تساوي 0 أو أقل (%s)
+Moves Cancelled,تم إلغاء القيود المحاسبية
+Moves History,تحركات التاريخ
+Moves To Prepare,القيود المحاسبية للتحضير
+Multi clients logistical form,نموذج لوجستي متعدد العملاء
+Must set mass unit in stock configuration for customs.,يجب تعيين وحدة الكتلة في تكوين المخزون للجمارك.
+Name,الاسم
+Nature of transaction,طبيعة الصفقة
+Nbr of incoming moves,عدد القيود المحاسبية الواردة
+Nbr of outgoing moves,نبر القيود المحاسبية الصادرة
+Net mass,الكتلة الصافية
+No,لا
+No Tracking Numbers Added,لم تتم إضافة أرقام التتبع
+"No dimension could be computed, please make sure that you have the necessary field to compute at least one field",لا يمكن حساب أي بُعد، يرجى التأكد من أن لديك الحقل الضروري لحساب حقل واحد على الأقل
+No economic area is configured for %s.,لم يتم تكوين أي منطقة اقتصادية لـ %s.
+No inventory lines has been created.,لم يتم إنشاء بنود المخزون.
+No new stock move was generated,لم يتم إنشاء أي حركة جديدة للأسهم
+No record found,لم يتم العثور على أي سجل
+No reversion generated,لم يتم إنشاء أي إرجاع
+"No stock correction needed, current quantity in stock equals real quantity.",لا حاجة لتصحيح المخزون، الكمية الحالية في المخزون تساوي الكمية الحقيقية.
+No stock location has been selected.,لم يتم تحديد موقع المخزون.
+No stock moves found for this inventory.,لم يتم العثور على حركات المخزون لهذا المخزون.
+Non temporary implying transfer of property without compensation,غير مؤقت يعني نقل الملكية دون تعويض
+Non-compliant,غير متوافق
+Not invoiced,لم يتم إصدار فاتورة
+Note,ملاحظة
+Notes,ملاحظات
+Number Of Packages,عدد الحزم
+Number Of Palettes,عدد اللوحات
+Number of customer deliveries,عدد تسليمات العملاء
+Number of periods,عدد الفترات
+Number of pieces,عدد القطع
+Old qty,الكمية القديمة
+OnTime Deliveries,التسليم في الوقت المحدد
+Operation after custom work return to initial state,العملية بعد العمل المخصص تعود إلى الحالة الأولية
+Operation after custom work return to other state,العملية بعد العمل المخصص تعود إلى حالة أخرى
+Operations for custom work non return,عمليات العمل المخصص غير المرتجع
+Operations for custom work return,عمليات إرجاع العمل المخصص
+Origin,الأصل
+Origin inventory line,خط مخزون الأصل
+Origin stock move,تحرك السهم الأصلي
+Origin stock move line,خط حركة المخزون الأصلي
+Other expeditions,بعثات أخرى
+Other introductions,مقدمات أخرى
+Other returns,عوائد أخرى
+Other transactions,معاملات أخرى
+Outgoing amount,المبلغ الصادر
+Outgoing move,إذن صرف / حركة صادرة
+Outgoing move information,معلومات النقل الصادرة
+Outgoing move lines,خطوط التحرك الصادرة
+Outgoing quantity,الكمية الصادرة
+Outsourcing receipt stock location,الاستعانة بمصادر خارجية لموقع مخزون الاستلام
+Own propulsion,الدفع الخاص
+PFP authorized,معتمد من PFP
+PFP litigation,التقاضي PFP
+Packagings,عبوات
+Parent customs code,الرمز الجمركي الأصلي
+Parent stock location,موقع المخزون الأصلي
+Partial stock move (From,نقل جزئي للمخزون (من
+Partially available,متاح جزئيًا
+Partially invoiced,مفوتر جزئيًا
+Partner,شريك أعمال
+Partner product quality rating,تقييم جودة منتج الشريك
+Partner product quality ratings,تقييمات جودة منتج الشريك
+Partner stock settings,إعدادات أسهم الشريك
+Period,الفترة المالية
+Perishable,قابل للتلف
+Perishable expiration date,تاريخ انتهاء الصلاحية قابل للتلف
+Pick,اختر
+Pick all / the rest,اختر الكل / الباقي
+Pick products,اختر المنتجات
+Picked,مختار
+Picked product,المنتج المختار
+Picked products,منتجات مختارة
+Picked qty,الكمية المختارة
+Picked qty / Qty to pick,الكمية المختارة / الكمية للاختيار
+Picking order edit date,تاريخ تحرير أمر الانتقاء
+"Picking order has been edited for this stock move, it can not be canceled.",تم تعديل أمر الانتقاء لحركة المخزون هذه، ولا يمكن إلغاؤه.
+Picking order is edited,تم تعديل ترتيب الانتقاء
+Picking order printing detailed,طباعة أمر الانتقاء تفصيلية
+Picking printed,قطف مطبوع
+Picking stock move template,اختيار قالب نقل الأسهم
+PickingStockMove.aspect,الجانب
+PickingStockMove.code,الرمز
+PickingStockMove.customerCode,رمز العميل
+PickingStockMove.deliveryCondition,حالة التسليم
+PickingStockMove.externalReference,مرجع خارجي
+PickingStockMove.lineNumber,رقم السطر
+PickingStockMove.manual,دليل
+PickingStockMove.mark,علامة
+PickingStockMove.note,ملاحظة
+PickingStockMove.qty,الكمية
+PickingStockMove.signaling,اشارة
+PickingStockMove.visa,تأشيرة
+PickingStockMove.weekCode,رمز الاسبوع
+PickingStockMove.withWithout,مع بدون
+Pickup default stock location,موقع المخزون الافتراضي للاستلام
+Plan,خطة
+Planned,مخطط
+Planned End Date,تاريخ الانتهاء المخطط له
+Planned Inventories,المخزونات المخططة
+Planned Start Date,تاريخ البدء المخطط
+Planned move,التحرك المخطط
+Planned stock move,تحرك السهم المخطط
+Planned stock move line list,قائمة خطوط حركة المخزون المخطط لها
+Planned stock move lines,خطوط حركة المخزون المخطط لها
+Please add a quality control default stock location for company %s in the app stock configuration,الرجاء إضافة موقع المخزون الافتراضي لمراقبة الجودة للشركة %s في تكوين مخزون التطبيق
+Please configure mass units for this product packing : %s,الرجاء تكوين وحدات الكتلة لتعبئة هذا المنتج: %s
+Please enter a valid split quantity,الرجاء إدخال كمية مقسمة صالحة
+Please fill all inventory lines,يرجى ملء كافة بنود المخزون
+Please fill estimated delivery date for product %s from %s,الرجاء ملء تاريخ التسليم المقدر للمنتج %s من %s
+Please fill in the delivery (to) address to get the delivery itinerary.,يرجى ملء عنوان التسليم (إلى) للحصول على خط سير التسليم.
+Please fill in the source (from) location address to get the delivery itinerary.,يرجى ملء عنوان الموقع المصدر (من) للحصول على خط سير التسليم.
+"Please fill printing settings on following stock moves: ${__repo__(StockMove).all().filter('self.id IN ?1 AND self.printingSettings IS NULL', id?:_ids).fetch()?.collect{it.stockMoveSeq}?.join(', ')}","يرجى ملء إعدادات الطباعة على حركات المخزون التالية: ${__repo__(StockMove).all().filter('self.id IN ?1 AND self.printingSettings IS NULL', id?:_ids).fetch()?.collect{it.stockMoveSeq}?.join(', ')}"
+Please fill printing settings on following stock moves: %s,يرجى ملء إعدادات الطباعة على حركات المخزون التالية: %s
+Please fill the conformity for the product(s) : %s,برجاء ملئ استمارة المطابقة للمنتج (المنتجات): %s
+Please fill the tracking number for the product(s) : %s,يرجى ملء رقم التتبع للمنتج (المنتجات): %s
+Please fill unit for the stock location line in %s for the product %s.,الرجاء ملء الوحدة لسطر موقع المخزون في %s للمنتج %s.
+Please fill unit for the stock location line with tracking number %s in %s for the product %s.,يرجى ملء الوحدة الخاصة بسطر موقع المخزون برقم التتبع %s في %s للمنتج %s.
+Please filled supplier shipment date and supplier shipment reference.,يرجى ملء تاريخ شحنة المورد ومرجع شحنة المورد.
+Please indicate a new quantity.,يرجى الإشارة إلى كمية جديدة.
+Please select at least 2 stock moves,يرجى تحديد حركتين للأسهم على الأقل
+Please select at least one stock move.,الرجاء تحديد حركة سهم واحدة على الأقل.
+Please select lines to split,الرجاء تحديد الأسطر لتقسيمها
+Please select only one logistical form.,يرجى اختيار نموذج لوجستي واحد فقط.
+Please select the Stock Location(s) to print.,الرجاء تحديد موقع (مواقع) المخزون المراد طباعته.
+Please select the stock move(s) to print,يرجى تحديد حركة (حركات) المخزون للطباعة
+Please set an economic are in AppStock.,يرجى تعيين الاقتصادية في AppStock.
+Prepare,تحضير
+Prepare products to move,تجهيز المنتجات للتحرك
+Price,السعر
+Price history,تاريخ الأسعار
+Price used for WAP,السعر المستخدم لـ WAP
+Print,طباعة
+Print Incoming Move,طباعة الحركة الواردة
+Print Internal Move,طباعة الحركة الداخلية
+Print Outgoing Move,طباعة الحركة الصادرة
+Print Picking StockMove(s),طباعة انتقاء حركة (حركات) المخزون
+Print StockMove(s),طباعة StockMove(s)
+Print certificate of conformity,طباعة شهادة المطابقة
+Print packing list,طباعة قائمة التعبئة
+Print picking order,طباعة أمر الانتقاء
+Printing Type,نوع الطباعة
+Printing settings,إعدادات الطباعة
+Printing template,قالب الطباعة
+Printings,مطبوعات
+Product,منتج
+Product cannot be null.,لا يمكن أن يكون المنتج فارغًا.
+Product category,فئة المنتج
+Product code,رمز المنتج
+Product deliveries in qty by country,تسليم المنتجات بالكمية حسب البلد
+Product deliveries in qty by country by accounting family,تسليم المنتجات بالكمية حسب البلد حسب عائلة المحاسبة
+Product model,نموذج المنتج
+Product name,اسم المنتج
+Product quantity in other stock locations,كمية المنتج في مواقع المخزون الأخرى
+Product to pick,المنتج للاختيار
+Product tracking number,رقم تتبع المنتج
+Product type,نوع المنتج
+Product's stocks %s (%s) are not in sufficient quantity to realize the delivery,مخزون المنتج %s (%s) ليس بكمية كافية لتحقيق التسليم
+Product's stocks %s (%s) exceeds maximum stock rules.,مخزون المنتج %s (%s) يتجاوز الحد الأقصى لقواعد المخزون.
+Product's stocks %s (%s) would become negative (%s) in stock location %s. Please check the quantities and the units.,مخزون المنتج %s (%s) سيصبح سالبًا (%s) في موقع المخزون %s. يرجى التحقق من الكميات والوحدات.
+"Product's stocks %s (%s), tracking number %s are not in sufficient quantity to realize the delivery",مخزون المنتج %s (%s) ورقم التتبع %s ليس بكمية كافية لتحقيق التسليم
+"Product's stocks %s (%s), tracking number %s would become negative (%s) in stock location %s. Please check the quantities and the units.",مخزون المنتج %s (%s)، رقم التتبع %s سيصبح سالبًا (%s) في موقع المخزون %s. يرجى التحقق من الكميات والوحدات.
+Production Qty by tracking,كمية الإنتاج عن طريق التتبع
+Production Stock Move in Planned,تحرك مخزون الإنتاج المخطط له
+Production Stock Move out Planned,تم التخطيط لنقل مخزون الإنتاج
+Production stock move in realized,حركة مخزون الإنتاج محققة
+Production stock move out realized,تم تحقيق خروج مخزون الإنتاج
+Production tracking management,إدارة تتبع الإنتاج
+Products,المنتجات
+Products to move,منتجات للتحرك
+Products whose future quantity is less than the minimum quantity allowed,المنتجات التي تكون كميتها المستقبلية أقل من الحد الأدنى المسموح به
+Products.items,منتجات.عناصر
+Profile,الملف الشخصي
+Provision,توفير
+Purchase Qty by tracking,شراء الكمية عن طريق تتبع
+Purchase order,أمر شراء
+Purchase price,سعر الشراء
+"Purchase price in company currency, used for declaration of exchange.",سعر الشراء بعملة الشركة، المستخدم لإعلان التبادل.
+Purchase tracking management,إدارة تتبع الشراء
+Purchase value,قيمة الشراء
+Qty,الكمية
+Qty to pick,الكمية للاختيار
+Quality,الجودة
+Quality control default stock location,موقع المخزون الافتراضي لمراقبة الجودة
+Quality rating,تصنيف الجودة
+Quantities,الكميات
+Quantity,الكمية
+Quantity in database,الكمية في قاعدة البيانات
+Rack,رف
+Racks range,نطاق الرفوف
+Real Qty,الكمية الحقيقية
+Real qty,الكمية الحقيقية
+Real qty updated;,تم تحديث الكمية الحقيقية؛
+Real quantity must not be equal to 0 and should be less than expected quantity.,يجب ألا تساوي الكمية الحقيقية 0 ويجب أن تكون أقل من الكمية المتوقعة.
+Real quantity problem,مشكلة الكمية الحقيقية
+Real valuation,التقييم الحقيقي
+Real/Current Quantity,الكمية الحقيقية/الحالية
+Realize,أدرك
+Realize picking,تحقيق الانتقاء
+Realize stock moves upon parcel/pallet collection,تحقيق تحركات المخزون عند جمع الطرود / البليت
+Realize storing,تحقيق التخزين
+Realized,تحقق
+Realized stock move lines,خطوط حركة الأسهم المحققة
+Reason,السبب
+Reason updated;,تم تحديث السبب؛
+Receipt default stock location,استلام موقع المخزون الافتراضي
+Receipt stock move,إيصال تحرك المخزون
+Recompute stock location lines,إعادة حساب خطوط موقع المخزون
+Ref.,المرجع.
+Refill Qty,إعادة ملء الكمية
+Refill type,نوع الملء
+Refresh the products net mass,تحديث المنتجات الكتلة الصافية
+Regime,النظام
+Related tracking numbers,أرقام التتبع ذات الصلة
+Rental loan leasing more than 24 months,قرض إيجاري تأجير أكثر من 24 شهر
+Replacement of non returned goods,استبدال البضائع غير المرتجعة
+Replacement of returned goods,استبدال البضائع المرتجعة
+Reportings,التقارير
+Reports,التقارير
+Request completed,اكتمل الطلب
+Request reservation,طلب حجز
+Require to fill conformity for products ticked 'Control on Receipt',"يلزم ملء المطابقة للمنتجات التي تم تحديدها بـ ""التحكم في الاستلام"""
+Require to fill the shipment information,يتطلب ملء معلومات الشحنة
+Reservation requested,تم طلب الحجز
+Reserved qty,الكمية المحجوزة
+Return Surplus,فائض العائد
+Return of goods,إعادة البضائع
+Return surplus,فائض العائد
+Reversions,الإرتدادات
+Sale Qty by tracking,بيع الكمية عن طريق التتبع
+Sale price,سعر البيع
+Sale tracking management,إدارة تتبع المبيعات
+Sale value,قيمة البيع
+Same company,نفس الشركة
+Same from stock location and to stock location,نفس الشيء من موقع المخزون وإلى موقع المخزون
+Same manuf order,نفس طلب التصنيع
+Same partner,نفس الشريك
+Same trading name,نفس الاسم التجاري
+Search,بحث
+See stock details,انظر تفاصيل المخزون
+See stock move lines,انظر بنود حركات المخزون
+Select format to Export,حدد التنسيق للتصدير
+Select products from location,اختر المنتجات من الموقع
+Select tracking numbers,حدد أرقام التتبع
+Selected move lines to add,بنود القيود المحاسبية المحددة لإضافتها
+Selected quantity,الكمية المختارة
+Seller,البائع
+Send email on stock move realization,إرسال بريد إلكتروني بشأن تحقيق حركة المخزون
+Send email on supplier arrival cancellation,إرسال بريد إلكتروني عند إلغاء وصول المورد
+Send email when planning stock move,إرسال بريد إلكتروني عند التخطيط لنقل المخزون
+Send email when saving logistical form,إرسال بريد إلكتروني عند حفظ النموذج اللوجستي
+Send notification,إرسال إشعار
+Separate the shipment operations,فصل عمليات الشحن
+Seq.,تسلسل.
+Sequence,التسلسل
+Serial Nbr,الرقم التسلسلي
+Ship/Receive all products,شحن/استلام جميع المنتجات
+Shipment Mode,وضع الشحن
+Shipment mode,وضع الشحن
+Shipped date,تاريخ الشحن
+Shipped qty,الكمية المشحونة
+Shipping default stock location,موقع المخزون الافتراضي للشحن
+Show ADR details,عرض تفاصيل ADR
+Show Generated Stock Move,إظهار حركة الأسهم الناتجة
+Show detailed stock,عرض المخزون التفصيلي
+Show or hide the products in the logistical form impression,إظهار أو إخفاء المنتجات بالشكل اللوجستي انطباع
+Show stock move lines,إظهار بنود حركات المخزون
+Show stock move(s),عرض حركة (حركات) السهم
+Signatory user,المستخدم الموقع
+Site,الموقع
+Source location,موقع المصدر
+Special operations,العمليات الخاصة
+Special split,تقسيم خاص
+Specify the barcode type by stock location,تحديد نوع الباركود حسب موقع المخزون
+Specify the barcode type by tracking number configuration,حدد نوع الباركود عن طريق تكوين رقم التتبع
+Split,سبليت
+Split by tracking numbers,تقسيم حسب أرقام التتبع
+Split by unit,تقسيم حسب الوحدة
+Split in Qty of,تقسيم الكمية من
+Split into 2,انقسم إلى 2
+Split into fulfilled line and unfulfilled one,انقسم إلى سطر مكتمل وآخر غير مكتمل
+Split quantity cannot be higher than real quantity.,لا يمكن أن تكون الكمية المقسمة أعلى من الكمية الحقيقية.
+Split quantity cannot be negative.,لا يمكن أن تكون الكمية المقسمة سالبة.
+Start,ابدأ
+State,الدولة
+Status,الحالة
+Status must be planned or draft,يجب تخطيط الحالة أو مسودة
+Status updated;,تم تحديث الحالة؛
+Step,الخطوة
+Stock,المخزون
+Stock Batch,دفعة المخزون
+Stock Correction,تصحيح السهم
+Stock Correction Reason,سبب تصحيح السهم
+Stock Correction Reasons,أسباب تصحيح السهم
+Stock Corrections,تصحيحات الاسهم
+Stock History,تاريخ المخزون
+Stock Location,موقع التخزين / المستودع
+Stock Location Tree,شجرة موقع المخزون
+Stock Location content,محتوى موقع المخزون
+Stock Locations,مواقع التخزين
+Stock Locations content,محتوى مواقع المخزون
+Stock Move,حركة المخزون
+Stock Move Lines,بنود حركات المخزون
+Stock Move Origin,أصل حركة المخزون
+Stock Moves,حركات المخزون
+Stock Moves consumption historical,السهم يحرك الاستهلاك التاريخي
+Stock Moves consumption planned,استهلاك تحركات المخزون المخطط
+Stock Moves historical,تحركات السهم تاريخية
+Stock Moves planned,حركات المخزون المخطط لها
+Stock Rules,قواعد الأسهم
+Stock batch,دفعة المخزون
+Stock batches,دفعات المخزون
+Stock config,تكوين المخزون
+Stock config (${ name }),تكوين المخزون (${ name })
+Stock configuration,تكوين المخزون
+Stock configurations,تكوينات المخزون
+Stock control,مراقبة المخزون
+Stock correction,تصحيح السهم
+Stock depreciation,إهلاك المخزون
+Stock history,تاريخ المخزون
+Stock history line,خط تاريخ المخزون
+Stock history lines,خطوط تاريخ المخزون
+Stock location,موقع التخزين / المستودع
+Stock location barcode type,نوع الباركود لموقع المخزون
+Stock location content,محتوى موقع المخزون
+Stock location details,تفاصيل موقع المخزون
+Stock location filters,مرشحات موقع المخزون
+Stock location is missing for these lines : %s,موقع المخزون مفقود لهذه الأسطر: %s
+Stock location line,خط موقع المخزون
+Stock location line history,سجل خط موقع المخزون
+Stock location lines by product,خطوط موقع المخزون حسب المنتج
+Stock location print failed,فشلت طباعة موقع المخزون
+Stock location print ready,طباعة موقع المخزون جاهزة
+Stock location template,قالب موقع المخزون
+Stock location tree,شجرة موقع المخزون
+Stock location value,قيمة موقع المخزون
+Stock location value on form view,قيمة موقع المخزون في عرض النموذج
+Stock location(s),موقع (مواقع) المخزون
+Stock locations,مواقع التخزين
+Stock managed,إدارة المخزون
+Stock management,إدارة المخزون
+Stock move,حركة المخزون
+Stock move barcode type,نوع باركود حركة المخزون
+Stock move content,محتوى حركة المخزون
+Stock move information,معلومات تحرك السهم
+Stock move line,بند حركة المخزون
+Stock move line filters,مرشحات خط حركة المخزون
+Stock move line quantity availability.,توفر كمية خط حركة المخزون.
+Stock move lines,بنود حركات المخزون
+Stock move lines to package,خطوط حركة المخزون إلى الحزمة
+Stock move lines to select,خطوط حركة المخزون لتحديد
+Stock move printing settings,إعدادات طباعة حركة المخزون
+Stock move with id %s successfully realized.,تمت عملية حركة المخزون بالمعرف %s بنجاح.
+Stock move(s) must belong to the same client as the logistical form.,يجب أن تنتمي حركة (حركات) المخزون إلى نفس العميل مثل النموذج اللوجستي.
+Stock move(s) status must be planned.,يجب التخطيط لحالة نقل (حركات) المخزون.
+Stock moves,حركات المخزون
+Stock per day,المخزون يوميا
+Stock reservation feature cannot be active when we are managing stock locations on stock move line.,لا يمكن أن تكون ميزة حجز المخزون نشطة عندما نقوم بإدارة مواقع المخزون على خط حركة المخزون.
+Stock revaluation,إعادة تقييم المخزون
+Stock rule,قاعدة الأسهم
+Stock rule information,معلومات قاعدة الأسهم
+Stock rules,قواعد المخزون
+Stock rules created,تم إنشاء قواعد المخزون
+Stock valorization,تثمين المخزون
+Stock's movement's type undefined,نوع حركة السهم غير محدد
+StockLocation.accountingValue,القيمة المحاسبية
+StockLocation.code,الرمز
+StockLocation.date,التاريخ
+StockLocation.detailsByStockLocation,التفاصيل حسب موقع المخزون
+StockLocation.location,الموقع
+StockLocation.locationAndSubLocationsTotalContent,الموقع والمواقع الفرعية إجمالي المحتوى
+StockLocation.locationFinancialData,البيانات المالية للموقع
+StockLocation.locationTotalContent,الموقع المحتوى الإجمالي
+StockLocation.locations,المواقع
+StockLocation.productName,اسم المنتج
+StockLocation.purchaseValue,قيمة الشراء
+StockLocation.qtyUnit,وحدة الكمية
+StockLocation.saleValue,قيمة البيع
+StockLocation.stockLocationContent,محتوى موقع المخزون
+StockLocation.total,الإجمالي
+StockLocation.totalAccountingValue,القيمة المحاسبية الإجمالية
+StockLocation.totalPurchaseValue,إجمالي قيمة الشراء
+StockLocation.totalSaleValue,اجمالي قيمة البيع
+StockLocation.totalWapValue,إجمالي قيمة الواب
+StockLocation.unitValue,قيمة الوحدة
+StockLocation.wapValue,قيمة الواب
+StockMove.barcode,باركود (حركة المخزون)
+StockMove.comments,تعليقات (حركة المخزون)
+StockMove.customer,عميل
+StockMove.customerPartnerSeq,تسلسل شريك العميل (حركة المخزون)
+StockMove.date,التاريخ
+StockMove.deliveryAddress,عنوان التسليم (حركة المخزون)
+StockMove.deliveryDetails,تفاصيل StockMove.delivery
+StockMove.deliveryOrder,أمر التسليم (حركة المخزون)
+StockMove.description,الوصف
+StockMove.grossMass,الكتلة الإجمالية (حركة المخزون)
+StockMove.internalMove,تحويل مخزني داخلي
+StockMove.isAdr,هو الإعلان (حركة المخزون)
+StockMove.isAdrInfo,هي معلومات الإعلان (حركة المخزون)
+StockMove.ispm,ispm (حركة المخزون)
+StockMove.limitedQty,الكمية محدودة (حركة المخزون)
+StockMove.lotNoRef,الكثير لا المرجع (حركة المخزون)
+StockMove.mass,ستوكموف.ماس
+StockMove.movePreparedBy,التحرك من إعداد (حركة المخزون)
+StockMove.netMass,الكتلة الصافية (حركة المخزون)
+StockMove.numOfPackages,عدد الحزم (حركة المخزون)
+StockMove.numOfPalettes,عدد اللوحات (حركة المخزون)
+StockMove.orderDate,تاريخ الطلب (حركة المخزون)
+StockMove.pickingOrder,ترتيب الانتقاء (حركة المخزون)
+StockMove.product,المنتج (حركة المخزون)
+StockMove.productionNote,StockMove.productionملاحظة
+StockMove.purchaseOrder,أمر شراء
+StockMove.qtyUnit,وحدة الكمية (حركة المخزون)
+StockMove.rackNbr,رف رقم (حركة المخزون)
+StockMove.receivedBy,تلقاه (حركة المخزون)
+StockMove.receptionOrder,أمر الاستقبال (حركة المخزون)
+StockMove.reference,مرجع (حركة المخزون)
+StockMove.stockPreparedBy,المخزون من إعداد (حركة المخزون)
+StockMove.supplierPartnerSeq,تسلسل شريك المورد (حركة المخزون)
+StockMove.unitPrice,سعر الوحدة (حركة المخزون)
+StockMove.variant,البديل (حركة المخزون)
+StockMove.weight,الوزن (حركة المخزون)
+Stocks,الأسهم
+Store,المتجر
+Store all / the rest,تخزين الكل / الباقي
+Store products,منتجات المتجر
+Stored,مخزنة
+Stored product list,قائمة المنتجات المخزنة
+Stored products,المنتجات المخزنة
+Stored qty,الكمية المخزنة
+Stored qty / Qty to store,الكمية المخزنة / الكمية المراد تخزينها
+Successfully updated,تم التحديث بنجاح
+Supplementary unit,الوحدة التكميلية
+Supplier,مورد
+Supplier Shipment Date,تاريخ شحن المورد
+Supplier Shipment Ref,مرجع شحنة المورد
+Supplier arrival product qty,كمية المنتج وصول المورد
+Supplier arrivals,وصول الموردين
+Supplier arrivals filters,مرشحات وصول الموردين
+Supplier quality rating,تصنيف جودة المورد
+Supplier returns,عوائد المورد
+Supplier virtual stock location,موقع المخزون الافتراضي للمورد
+Team to alert,فريق للتنبيه
+Text in certificate of conformity,النص في شهادة المطابقة
+The bar code holds the stock move's sequence information,يحتوي الباركود على معلومات تسلسل حركة المخزون
+The chosen partner is not a carrier.,الشريك المختار ليس الناقل.
+"The move doesn't contain any product, do you wish to continue ?",النقل لا يحتوي على أي منتج، هل ترغب في الاستمرار؟
+The partner to deliver to is not a customer or is not part of the company.,الشريك الذي سيتم التوصيل إليه ليس عميلاً أو ليس جزءًا من الشركة.
+The partner to deliver to is required.,مطلوب الشريك الذي سيتم التوصيل إليه.
+The partner's language is different from the current language. Description and product name are in :,لغة الشريك مختلفة عن اللغة الحالية. الوصف واسم المنتج موجودان في :
+"The print for stock location %s is ready, see attached file.",طباعة موقع المخزون %s جاهزة، يرجى مراجعة الملف المرفق.
+The product %s have already been stored,تم بالفعل تخزين المنتج %s
+The product %s is missing a stock location (source or dest). Please make sure that the cart stock location and stock location in the product is filled.,المنتج %s يفتقد موقع المخزون (المصدر أو الوجهة). يرجى التأكد من ملء موقع مخزون عربة التسوق وموقع المخزون في المنتج.
+The product is not available in the stock location source indicated (%s),المنتج غير متوفر في مصدر موقع المخزون المشار إليه (%s)
+The quantity by lot must be greater than 0,يجب أن تكون الكمية بالقرعة أكبر من 0
+The stock location must not be virtual and part of the company.,يجب ألا يكون موقع المخزون افتراضيًا وجزءًا من الشركة.
+The template to send message on realization is missing.,قالب إرسال الرسالة عند التنفيذ مفقود.
+The template to send message on save is missing.,قالب إرسال الرسالة عند الحفظ مفقود.
+The total net mass is higher than the total gross mass.,إجمالي الكتلة الصافية أعلى من إجمالي الكتلة الإجمالية.
+"The tracking number configuration quantity is equal to zero, it must be at least one.",كمية تكوين رقم التتبع تساوي صفرًا، ويجب أن تكون واحدة على الأقل.
+The type of cancel reason doesn't match with stock move,نوع سبب الإلغاء لا يتطابق مع حركة المخزون
+The unit is missing on a stock location line,الوحدة مفقودة في خط موقع المخزون
+There is currently no such file in the specified folder or the folder may not exists.,لا يوجد حاليًا مثل هذا الملف في المجلد المحدد أو قد لا يكون المجلد موجودًا.
+There is more than one line for same product with same tracking number.,يوجد أكثر من خط لنفس المنتج بنفس رقم التتبع.
+There's no configured sequence for inventory for company,لا يوجد تسلسل مكون للمخزون للشركة
+There's no configured sequence for mass stock move for the company %s,لا يوجد تسلسل تم تكوينه لنقل المخزون الجماعي للشركة %s
+There's no configured sequence for stock's delivery for the company %s,لا يوجد تسلسل مكون لتسليم المخزون للشركة %s
+There's no configured sequence for stock's intern moves for the company %s,لا يوجد تسلسل مكون لتحركات المتدربين في الشركة %s
+There's no configured sequence for stock's receptions for the company %s,لا يوجد تسلسل مكون لاستلامات المخزون للشركة %s
+There's no configured sequence for tracking number for the product %s:%s,لا يوجد تسلسل مكون لرقم التتبع للمنتج %s:%s
+There's no product in stock location.,لا يوجد منتج في موقع المخزون.
+"This batch will recompute stock location quantities and reset all WAP history lines, are you sure you want to continue ?",ستعمل هذه الدفعة على إعادة حساب كميات موقع المخزون وإعادة تعيين جميع سطور محفوظات WAP، هل أنت متأكد من رغبتك في المتابعة؟
+"This checkbox enables the incoterms feature, which can be configured in the corresponding menu entry under the configuration menu of the stock module.",تعمل خانة الاختيار هذه على تمكين ميزة مصطلحات التجارة الدولية، والتي يمكن تهيئتها في إدخال القائمة المقابل ضمن قائمة التكوين الخاصة بوحدة المخزون.
+This configuration allows indicating the company customer account number with the various carriers it uses. This number will be automatically filled in on logistical forms based on the selected carrier.,يسمح هذا التكوين بالإشارة إلى رقم حساب عميل الشركة مع شركات النقل المختلفة التي تستخدمها. سيتم ملء هذا الرقم تلقائيًا في النماذج اللوجستية بناءً على شركة النقل المحددة.
+"This configuration allows you to define a tolerance threshold for WAP calculation. If the WAP change exceeds the defined percentage, the user will be alerted.",يتيح لك هذا التكوين تحديد حد التسامح لحساب WAP. إذا تجاوز تغيير WAP النسبة المئوية المحددة، فسيتم تنبيه المستخدم.
+This configuration controls whether the product description from the product record is displayed on stock move lines in a description field.,يتحكم هذا التكوين فيما إذا كان وصف المنتج من سجل المنتج سيتم عرضه على بنود حركة المخزون في حقل الوصف.
+This configuration defines the default customer location for the company. Customer delivery stock moves will have this destination location by default (or source location for customer returns).,يحدد هذا التكوين موقع العميل الافتراضي للشركة. سيكون لتحركات مخزون تسليم العملاء موقع الوجهة هذا افتراضيًا (أو موقع المصدر لمرتجعات العملاء).
+"This configuration defines the default destination location for supplier receipt stock moves, i.e. the location where supplier receipts will be received.",يحدد هذا التكوين موقع الوجهة الافتراضي لتحركات مخزون إيصالات المورد، أي الموقع الذي سيتم فيه استلام إيصالات المورد.
+This configuration defines the default inventory virtual location for the company.,يحدد هذا التكوين الموقع الافتراضي للمخزون الافتراضي للشركة.
+"This configuration defines the default method for inventory valuation (among WAP, stock location WAP value, accounting value, purchase value and sale value).",يحدد هذا التكوين الطريقة الافتراضية لتقييم المخزون (بين WAP وقيمة WAP لموقع المخزون والقيمة المحاسبية وقيمة الشراء وقيمة البيع).
+"This configuration defines the default method for stock valuation (among WAP, stock location WAP value, accounting value, purchase value and sale value).",يحدد هذا التكوين الطريقة الافتراضية لتقييم المخزون (بين WAP وقيمة WAP لموقع المخزون والقيمة المحاسبية وقيمة الشراء وقيمة البيع).
+This configuration defines the default outsourcing virtual location for the company. This location will be used for production outsourcing.,يحدد هذا التكوين الموقع الافتراضي للاستعانة بمصادر خارجية للشركة. سيتم استخدام هذا الموقع للاستعانة بمصادر خارجية للإنتاج.
+This configuration defines the default quality control location for the company.,يحدد هذا التكوين الموقع الافتراضي لمراقبة الجودة للشركة.
+This configuration defines the default shipping location for customer deliveries. Customer deliveries will be shipped from this source location.,يحدد هذا التكوين موقع الشحن الافتراضي لعمليات تسليم العملاء. سيتم شحن شحنات العملاء من موقع المصدر هذا.
+"This configuration defines the default signatory for certificates of conformity, whose name will appear on printings, along with the associated electronic signature if configured on the user record.",يحدد هذا التكوين المُوقع الافتراضي لشهادات المطابقة، والذي سيظهر اسمه على المطبوعات، إلى جانب التوقيع الإلكتروني المرتبط إذا تم تكوينه في سجل المستخدم.
+This configuration defines the default supplier location for the company. Supplier receipt stock moves will have this source location by default.,يحدد هذا التكوين موقع المورد الافتراضي للشركة. سيكون لتحركات مخزون إيصالات الموردين هذا الموقع المصدر بشكل افتراضي.
+This configuration defines the email template sent to the customer when a stock move changes from Draft to Planned status.,يحدد هذا التكوين قالب البريد الإلكتروني الذي يتم إرساله إلى العميل عندما يتغير حركة المخزون من الحالة المسودة إلى الحالة المخططة.
+This configuration defines the email template sent to the customer when a stock move changes from Planned to Realized status.,يحدد هذا التكوين قالب البريد الإلكتروني الذي يتم إرساله إلى العميل عندما يتغير حركة المخزون من الحالة المخطط لها إلى الحالة المحققة.
+This configuration defines the email template sent to the supplier when a supplier receipt is cancelled.,يحدد هذا التكوين قالب البريد الإلكتروني الذي يتم إرساله إلى المورد عند إلغاء إيصال المورد.
+This configuration defines the message template sent when a defined stock rule triggers an email alert indicating that the product quantity in stock is insufficient.,يحدد هذا التكوين قالب الرسالة المرسلة عندما تقوم قاعدة مخزون محددة بتشغيل تنبيه عبر البريد الإلكتروني يشير إلى أن كمية المنتج الموجودة في المخزون غير كافية.
+This configuration defines the message template used when saving a logistical form.,يحدد هذا التكوين قالب الرسالة المستخدم عند حفظ نموذج لوجستي.
+This configuration defines the text that will appear on certificate of conformity printings for this company.,يحدد هذا التكوين النص الذي سيظهر على مطبوعات شهادة المطابقة لهذه الشركة.
+This configuration defines the title that will appear on certificate of conformity printings for this company.,يحدد هذا التكوين العنوان الذي سيظهر على مطبوعات شهادة المطابقة لهذه الشركة.
+"This configuration defines the unit of mass used for customs controls. This is not a default value that can be overridden, it is a common value for all moves that can only be modified via this field.",يحدد هذا التكوين وحدة الكتلة المستخدمة للضوابط الجمركية. هذه ليست قيمة افتراضية يمكن تجاوزها، بل هي قيمة مشتركة لجميع الحركات التي لا يمكن تعديلها إلا عبر هذا الحقل.
+"This configuration defines whether an email will be sent to the customer when a customer delivery stock move changes from Draft to Planned status. On the Configuration tab of a delivery note for this company, the Send email when planning stock move checkbox will be automatically checked, with the associated email template.",يحدد هذا التكوين ما إذا كان سيتم إرسال بريد إلكتروني إلى العميل عندما يتغير مخزون تسليم العميل من الحالة المسودة إلى الحالة المخططة. في علامة التبويب تكوين الخاصة بإذن التسليم / الشحن لهذه الشركة، سيتم تحديد خانة الاختيار إرسال بريد إلكتروني عند التخطيط لنقل المخزون تلقائيًا، مع قالب البريد الإلكتروني المرتبط.
+"This configuration defines whether an email will be sent to the customer when a customer delivery stock move changes from Planned to Realized status. On the Configuration tab of a delivery note for this company, the Send email on stock move realization checkbox will be automatically checked, with the associated email template.",يحدد هذا التكوين ما إذا كان سيتم إرسال بريد إلكتروني إلى العميل عندما يتغير مخزون تسليم العميل من الحالة المخطط لها إلى الحالة المحققة. في علامة التبويب تكوين الخاصة بإذن التسليم / الشحن لهذه الشركة، سيتم تحديد خانة الاختيار إرسال بريد إلكتروني عند تحقيق حركة المخزون تلقائيًا، مع قالب البريد الإلكتروني المرتبط.
+This configuration defines whether an email will be sent to the supplier when a supplier receipt stock move is cancelled.,يحدد هذا التكوين ما إذا كان سيتم إرسال بريد إلكتروني إلى المورد عند إلغاء عملية نقل مخزون إيصالات المورد.
+This configuration defines whether an email will be sent when saving a logistical form.,يحدد هذا التكوين ما إذا كان سيتم إرسال بريد إلكتروني عند حفظ نموذج لوجستي.
+This configuration defines whether barcodes are displayed on picking order printings.,يحدد هذا التكوين ما إذا كانت الرموز الشريطية سيتم عرضها عند طباعة أوامر الانتقاء أم لا.
+This configuration defines whether line details are displayed on stock move printings.,يحدد هذا التكوين ما إذا كان سيتم عرض تفاصيل السطر في مطبوعات حركة المخزون.
+This configuration defines whether prices are displayed on delivery note printings.,يحدد هذا التكوين ما إذا كانت الأسعار معروضة على مطبوعات إشعار التسليم.
+This configuration defines whether the WAP value is displayed on location financial data printings.,يحدد هذا التكوين ما إذا كانت قيمة WAP معروضة على عمليات طباعة البيانات المالية للموقع.
+This configuration defines whether the accounting value is displayed on location financial data printings.,يحدد هذا التكوين ما إذا كانت القيمة المحاسبية سيتم عرضها على عمليات طباعة البيانات المالية للموقع.
+This configuration defines whether the customer code is displayed on picking order printings.,يحدد هذا التكوين ما إذا كان سيتم عرض رمز العميل عند طباعة أمر الانتقاء.
+This configuration defines whether the customer order number and order date are displayed on delivery note printings.,يحدد هذا التكوين ما إذا كان سيتم عرض رقم طلب العميل وتاريخ الطلب في مطبوعات إشعار التسليم.
+This configuration defines whether the customer reference is displayed on certificate of conformity printings.,يحدد هذا التكوين ما إذا كان مرجع العميل معروضًا على مطبوعات شهادة المطابقة.
+This configuration defines whether the partner reference is displayed on stock move printings.,يحدد هذا التكوين ما إذا كان سيتم عرض مرجع الشريك في مطبوعات حركة المخزون.
+This configuration defines whether the product code is displayed on stock move printings.,يحدد هذا التكوين ما إذا كان سيتم عرض رمز المنتج على مطبوعات حركة المخزون.
+This configuration defines whether the purchase value is displayed on location financial data printings.,يحدد هذا التكوين ما إذا كانت قيمة الشراء معروضة على عمليات طباعة البيانات المالية للموقع.
+This configuration defines whether the sale value is displayed on location financial data printings.,يحدد هذا التكوين ما إذا كانت قيمة البيع معروضة على عمليات طباعة البيانات المالية للموقع.
+This configuration defines whether tracking numbers are displayed on certificate of conformity printings.,يحدد هذا التكوين ما إذا كانت أرقام التتبع معروضة على مطبوعات شهادة المطابقة.
+This configuration defines whether tracking numbers are displayed on picking order printings.,يحدد هذا التكوين ما إذا كان سيتم عرض أرقام التتبع عند طباعة أمر الانتقاء.
+"This configuration defines whether, when a logistical form moves to Collected status, the related delivery note(s) automatically move to Realized status.",يحدد هذا التكوين ما إذا كان، عندما ينتقل النموذج اللوجستي إلى الحالة المجمعة، فإن مذكرة (مذكرات) التسليم ذات الصلة ستنتقل تلقائيًا إلى الحالة المحققة.
+"This feature enables site management for stock, a site representing a physical location whether it is an administrative building, a customer building, a warehouse, etc. The site can be linked to a stock location.",تتيح هذه الميزة إدارة الموقع للمخزون، وهو موقع يمثل موقعًا فعليًا سواء كان مبنى إداري أو مبنى عملاء أو مستودعًا وما إلى ذلك، ويمكن ربط الموقع بموقع المخزون.
+"This field can have one of the following values (Purchase, Manufacturing, Inventory, Sale, Manual). The value is fixed when the tracking number is created.",يمكن أن يحتوي هذا الحقل على إحدى القيم التالية (الشراء، التصنيع، المخزون، البيع، الدليل). يتم إصلاح القيمة عند إنشاء رقم التتبع.
+This field is only useful for customs duties related to a stock move. It defines in which economic area the company is located.,هذا الحقل مفيد فقط للرسوم الجمركية المتعلقة بنقل المخزون. ويحدد المنطقة الاقتصادية التي تقع فيها الشركة.
+This stock move is linked to orders with different currencies.,ترتبط حركة الأسهم هذه بالأوامر بعملات مختلفة.
+This stock move will have a huge impact (more than,سيكون لتحرك المخزون هذا تأثير كبير (أكثر من
+"This value is the packed gross mass, that is, the total gross mass of all packaged products plus the gross mass of their packagings (as defined in its logistical form).",هذه القيمة هي الكتلة الإجمالية المعبأة، أي الكتلة الإجمالية الإجمالية لجميع المنتجات المعبأة بالإضافة إلى الكتلة الإجمالية لعبواتها (كما هو محدد في شكلها اللوجستي).
+Time before expiry (in days),الوقت قبل انتهاء الصلاحية (بالأيام)
+Title,عنوان
+Title of dimension name (0),عنوان اسم البعد (0)
+Title of dimension name (1),عنوان اسم البعد (1)
+Title of dimension name (2),عنوان اسم البعد (2)
+Title of dimension name (3),عنوان اسم البعد (3)
+To,ل
+To Date,حتى الآن
+To address,لمعالجة
+To pick,للاختيار
+To rack,إلى الرف
+To stock location,إلى موقع المخزون
+To store,لتخزين
+Today,اليوم
+Today Arrivals,الوافدين اليوم
+Tolerance on WAP changes (%),التسامح مع تغييرات WAP (٪)
+Too many iterations while trying to generate stock move line with tracking numbers.,هناك عدد كبير جدًا من التكرارات أثناء محاولة إنشاء خط حركة المخزون بأرقام التتبع.
+Tools,أدوات
+Total,الإجمالي
+Total W.T.,إجمالي الوزن
+Total gross mass,إجمالي الكتلة الإجمالية
+Total net mass,مجموع الكتلة الصافية
+Total volume (m³),الحجم الإجمالي (م³)
+Tracking,تتبع
+Tracking Nbr,تتبع رقم
+Tracking Nbr.,تتبع رقم.
+Tracking Nbr. Config.,تتبع رقم. التكوين.
+Tracking Number Configuration,تكوين رقم التتبع
+Tracking Number Configuration profile,ملف تعريف تكوين رقم التتبع
+Tracking Number Configuration profiles,ملفات تعريف تكوين رقم التتبع
+Tracking Number Search,البحث عن رقم التتبع
+Tracking Numbers,أرقام التتبع
+Tracking no.,رقم التتبع.
+Tracking number,رقم التتبع / التشغيلة
+Tracking number barcode type,رقم التتبع نوع الباركود
+Tracking number configuration,تكوين رقم التتبع
+Tracking number configuration profile,ملف تعريف تكوين رقم التتبع
+Tracking number search,البحث عن رقم التتبع
+Tracking number's children,رقم تتبع الاطفال
+Tracking number's direct parents,تتبع الوالدين المباشرين لرقم
+Tracking number's origin parents,تتبع أصل رقم الوالدين
+Tracking number's parents,تتبع رقم الوالدين
+Tracking number's types,أنواع أرقام التتبع
+TrackingNumber,رقم التتبع
+Trading Name,اسم التداول
+Trading name,اسم التداول
+Transaction leading to property transfer,معاملة تؤدي إلى نقل ملكية
+Transfers under inward processing,التحويلات تحت المعالجة الداخلية
+Transition location (cart),موقع الانتقال (عربة التسوق)
+Transport by air,النقل جوا
+Transport by inland waterway,النقل عبر الممرات المائية الداخلية
+Transport by rail,النقل بالسكك الحديدية
+Transport by road,النقل البري
+Transport by sea,النقل عن طريق البحر
+Type,النوع
+Type Status,اكتب الحالة
+Type select,اكتب حدد
+Unavailable,غير متاح
+Unit,الوحدة
+Unit of mass,وحدة الكتلة
+Unit price,سعر الوحدة
+Unit weight in kg,وحدة الوزن بالكيلو جرام
+Unknown account selection,تحديد حساب غير معروف
+"Unknown object, can not get service",كائن غير معروف، لا يمكن الحصول على الخدمة
+Unloading in port of import,التفريغ في ميناء الاستيراد
+Unloading of truck in port of export,تفريغ الشاحنة بميناء التصدير
+Upcoming arrivals,القادمون
+Upcoming customer deliveries,تسليمات العملاء القادمة
+Upcoming supplier arrivals,وصول الموردين القادم
+Update average price,تحديث متوسط ​​السعر
+Update locker for product with id %s to %s,تحديث الخزانة للمنتج بالمعرف %s إلى %s
+Update stock location from product,تحديث موقع المخزون من المنتج
+Use Case,حالة الاستخدام
+Use signature for certificate of conformity,استخدم التوقيع لشهادة المطابقة
+Use tracking number seq as serial number,استخدم رقم التتبع التسلسلي كرقم تسلسلي
+Used for MRP,تستخدم لMRP
+Used in DEB/DES,تستخدم في DEB/DES
+User,المستخدم
+User to alert,المستخدم لتنبيه
+Validate,التحقق من صحة
+Validated,معتمد / مؤكد
+Validated By,تم التحقق من صحته بواسطة
+Validated On,تم التحقق من صحته
+Validated for invoicing,تم التحقق من صحة الفواتير
+Validation Date,تاريخ التحقق
+Valued,قيمة
+View Direction,عرض الاتجاه
+Virtual,افتراضية
+Virtual outsourcing stock location,موقع مخزون الاستعانة بمصادر خارجية افتراضية
+Virtual stock locations information,معلومات مواقع المخزون الافتراضية
+Volume in m³,الحجم بالمتر المكعب
+WAP,واب
+WAP history,تاريخ الواب
+WAP of the stock location,WAP لموقع المخزون
+WAP value,قيمة الواب
+Wap correction,تصحيح الواب
+Warranty,الضمان
+Warranty expiration date,تاريخ انتهاء الضمان
+Warranty length (in months),مدة الضمان (بالشهور)
+Waste default stock location,نفايات موقع المخزون الافتراضي
+"When enabled, if during a stock move the actual quantity is greater than the planned quantity, a complementary stock move will be automatically generated so that the delivered quantity equals the planned quantity.",عند التمكين، إذا كانت الكمية الفعلية أثناء حركة المخزون أكبر من الكمية المخططة، فسيتم إنشاء نقل مخزون تكميلي تلقائيًا بحيث تساوي الكمية التي تم تسليمها الكمية المخططة.
+"When enabled, it becomes possible to generate barcodes for stock locations.",عند تمكينه، يصبح من الممكن إنشاء رموز شريطية لمواقع المخزون.
+"When enabled, it becomes possible to generate barcodes for tracking numbers.",عند تمكينه، يصبح من الممكن إنشاء رموز شريطية لأرقام التتبع.
+"When enabled, it is possible to manage stock locations at the stock move line level, not just globally on the stock move. Note that on a stock move line, only sub-locations of the parent location selected in the stock move header can be selected.",عند التمكين، من الممكن إدارة مواقع المخزون على مستوى خط حركة المخزون، وليس فقط على المستوى العالمي أثناء حركة المخزون. لاحظ أنه في بند قيد محاسبي المخزون، يمكن تحديد المواقع الفرعية فقط للموقع الأصلي المحدد في رأس حركة المخزون.
+"When enabled, picking order printings include additional detailed information.",عند التمكين، تتضمن مطبوعات طلب الانتقاء معلومات تفصيلية إضافية.
+"When enabled, this activates automatic backorder management on delivery notes by checking the Manage backorder checkbox on each delivery note. When realizing a stock move, if the order has not been fully delivered, you will have the option to automatically generate a backorder stock move with the undelivered products.",عند التمكين، يؤدي هذا إلى تنشيط إدارة الطلب المتأخر تلقائيًا في مذكرات التسليم عن طريق تحديد خانة الاختيار إدارة الطلب المتأخر في كل مذكرة تسليم. عند تحقيق حركة المخزون، إذا لم يتم تسليم الطلب بالكامل، سيكون لديك خيار إنشاء حركة مخزون طلب متأخر تلقائيًا مع المنتجات التي لم يتم تسليمها.
+"When enabled, this configuration makes it mandatory to fill in the Conformity field on stock move lines of receipt orders, requiring a conformity check before a product enters stock. This applies to products with the Control on receipt checkbox ticked in the stock tab of their product record.",عند التمكين، يجعل هذا التكوين إلزاميًا ملء حقل المطابقة في بنود حركة المخزون لأوامر الاستلام، مما يتطلب فحص المطابقة قبل دخول المنتج إلى المخزون. ينطبق هذا على المنتجات التي تم تحديد خانة الاختيار التحكم عند الاستلام بها في علامة تبويب المخزون في سجل المنتج الخاص بها.
+"When enabled, this configuration requires filling in the Supplier shipment date and Supplier shipment reference when realizing a supplier receipt.",عند التمكين، يتطلب هذا التكوين ملء تاريخ شحنة المورد ومرجع شحنة المورد عند تحقيق إيصال المورد.
+"When enabled, this option adds two menu entries (Availability request in Sales and Customer shipments to prepare in Stock / Deliveries) as well as 2 checkboxes on stock moves (Availability request and Picking order printed). Sales representatives can indicate to preparers which orders need to be prepared for shipment. Once the order is prepared, sales representatives will be informed.",عند التمكين، يضيف هذا الخيار إدخالين في القائمة (طلب التوفر في المبيعات وشحنات العميل للتحضير في المخزون / عمليات التسليم) بالإضافة إلى خانتي اختيار بشأن تحركات المخزون (طباعة طلب التوفر وأمر الانتقاء). يمكن لممثلي المبيعات أن يوضحوا للمعدين الطلبات التي يجب إعدادها للشحن. بمجرد إعداد الطلب، سيتم إبلاغ مندوبي المبيعات.
+"When enabled, you can specify at each stock location level the barcode type that will be generated for that location. When disabled, the default barcode type will be the one defined in the adjacent field Stock location barcode type.",عند التمكين، يمكنك تحديد نوع الرمز الشريطي الذي سيتم إنشاؤه لهذا الموقع على كل مستوى موقع مخزون. عند التعطيل، سيكون نوع الرمز الشريطي الافتراضي هو النوع المحدد في الحقل المجاور نوع الرمز الشريطي لموقع المخزون.
+"When enabled, you can specify at the tracking number configuration level the barcode type that will be generated for tracking numbers linked to this configuration. When disabled, the default barcode type will be the one defined in the adjacent field Tracking number barcode type.",عند التمكين، يمكنك على مستوى تكوين رقم التتبع تحديد نوع الرمز الشريطي الذي سيتم إنشاؤه لأرقام التتبع المرتبطة بهذا التكوين. عند التعطيل، سيكون نوع الرمز الشريطي الافتراضي هو النوع المحدد في الحقل المجاور نوع الرمز الشريطي لرقم التتبع.
+Without details by stock location,بدون تفاصيل حسب موقع المخزون
+Wording,صياغة
+Workshop,ورشة عمل
+Workshop default stock location,موقع المخزون الافتراضي لورشة العمل
+Yes,نعم
+"You can not validate this stock correction, there is an ongoing inventory for the same stock location.",لا يمكنك تأكيد تسوية المخزون هذه، فهناك جرد مستمر لنفس موقع المخزون.
+You can only split line in draft or planned stock move.,يمكنك فقط تقسيم الخط في المسودة أو حركة المخزون المخطط له.
+You can only split line in incoming or outgoing stock move.,يمكنك فقط تقسيم الخط في حركة المخزون الواردة أو الصادرة.
+You can select here the default certificate of conformity print template for the company.,يمكنك هنا تحديد نموذج طباعة شهادة المطابقة الافتراضية للشركة.
+You can select here the default inventory print template for the company.,يمكنك هنا تحديد قالب طباعة المخزون الافتراضي للشركة.
+You can select here the default picking order print template for the company.,يمكنك هنا تحديد قالب طباعة أمر الانتقاء الافتراضي للشركة.
+You can select here the default stock location print template for the company.,يمكنك هنا تحديد قالب طباعة موقع المخزون الافتراضي للشركة.
+You cannot choose external stock locations for both fields,لا يمكنك اختيار مواقع المخزون الخارجية لكلا الحقلين
+You must configure a Stock module for the company %s,يجب عليك تكوين وحدة إدارة المخزون للشركة %s
+You must configure a customer virtual stock location for the company %s,يجب عليك تكوين موقع مخزون افتراضي للعميل للشركة %s
+You must configure a default pickup stock location for the company %s,يجب عليك تكوين موقع مخزون الالتقاط الافتراضي للشركة %s
+You must configure a default receipt stock location for the company %s,يجب عليك تكوين موقع مخزون الإيصالات الافتراضي للشركة %s
+You must configure a default virtual outsource stock location for the company %s,يجب عليك تكوين موقع مخزون ظاهري افتراضي للشركة %s
+You must configure a supplier virtual stock location for the company %s,يجب عليك تكوين موقع مخزون افتراضي للمورد للشركة %s
+You must configure an inventory virtual stock location for the company %s,يجب عليك تكوين موقع مخزون افتراضي للشركة %s
+You must select a stock location,يجب عليك تحديد موقع المخزون
+You will modify the volume and therefore the unit weight of your tracking number. This will not have an impact on any stock location lines linked to it. This could generate inconsistencies.,ستقوم بتعديل الحجم وبالتالي وزن الوحدة لرقم التتبع الخاص بك. ولن يكون لهذا تأثير على أي خطوط موقع مخزون مرتبطة به. وهذا يمكن أن يولد تناقضات.
+Your merge doesn't respect this/these condition(s) : %s,الدمج الخاص بك لا يحترم هذا/هذه الشروط: %s
+import.name,الاسم
+import.verb,فعل
+stockMove.realDate,التاريخ الحقيقي (حركة المخزون)
+value:Manual correction,القيمة:التصحيح اليدوي
+value:Stock,القيمة: الأسهم
+Company missing for stock location %s,الشركة مفقودة لموقع المخزون %s
+Configuration is missing in stock configuration to see financial data,التكوين مفقود في تكوين المخزون لرؤية البيانات المالية
+Error: %s and %s fields are required and can not be null,خطأ: الحقلان %s و%s مطلوبان ولا يمكن أن يكونا فارغين
+Feature currently not available with Open Street Maps.,الميزة غير متوفرة حاليًا مع خرائط الشوارع المفتوحة.
+Moved qty is greater than current quantity (%s),الكمية المنقولة أكبر من الكمية الحالية (%s)
+No move lines to split,لا توجد خطوط متحركة للتقسيم
+Partner is missing.,الشريك مفقود.
+Please select the StockMove(s) to print.,الرجاء تحديد StockMove (s) للطباعة.
+Source and destination locations are empty,مواقع المصدر والوجهة فارغة
+"There's already an existing storage, you must deactivate it first",يوجد بالفعل مخزن موجود، يجب عليك إلغاء تنشيطه أولاً
+There's no destination stock location selected for the stock's movement %s,لا يوجد موقع وجهة مخزون محدد لحركة السهم %s
+There's no source stock location selected for the stock's movement %s,لا يوجد موقع مخزون مصدر محدد لحركة السهم %s

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="5 seconds">
+
+  <property name="LOG_FILE" value="logs/axelor.log" />
+
+  <!-- Console Appender -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %cyan(%logger{36}) - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- File Appender with Daily Rolling -->
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_FILE}</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>logs/axelor-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- SECURITY & AUTH: Keep completely quiet (NO credentials or login tokens logged) -->
+  <logger name="com.axelor.auth" level="WARN" />
+  <logger name="org.pac4j" level="WARN" />
+  <logger name="org.apache.shiro" level="WARN" />
+
+  <!-- Axelor Logging Levels for business logic and RPC -->
+  <logger name="com.axelor.rpc" level="INFO" />
+  <logger name="com.axelor.web" level="INFO" />
+  <logger name="com.axelor.meta" level="INFO" />
+  <logger name="com.axelor.db" level="INFO" />
+  <logger name="com.axelor.apps" level="DEBUG" />
+  
+  <!-- Suppress noisy classpath / cache warning false-alarms -->
+  <logger name="org.hibernate.boot.registry.classloading.internal.AggregatedServiceLoader" level="ERROR" />
+  <logger name="com.github.benmanes.caffeine.jcache.configuration.TypesafeConfigurator" level="ERROR" />
+  <logger name="org.hibernate.orm.cache" level="ERROR" />
+  <logger name="dev.resteasy.guice" level="WARN" />
+  <logger name="org.apache.catalina" level="INFO" />
+
+  <!-- Hibernate SQL & Parameters -->
+  <logger name="org.hibernate.SQL" level="INFO" />
+  <logger name="org.hibernate.orm.jdbc.bind" level="INFO" />
+
+  <!-- Root Logger -->
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+
+</configuration>

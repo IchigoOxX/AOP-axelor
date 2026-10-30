@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="incubator-exit-line-form" title="Incubator exits lines" editable="true"
+          model="com.gl.apps.pf.db.IncubatorExitLine" width="large">
+        <panel title="Overview">
+            <field name="incubatorTrolley" readonly="true"/>
+            <field name="breedingShed" readonly="true"/>
+            <field name="currentDailyAge" readonly="true"/>
+            <field name="currentWeeklyAge" readonly="true"/>
+            <field name="center" readonly="true"/>
+            <field name="trackingNumber" readonly="true"/>
+            <field name="loadingType" readonly="true"/>
+            <field name="traysNumber" readonly="true"/>
+            <field name="eggsNumber" readonly="true"/>
+            <field name="lostEggs" required="true" onChange="action-group-incubator-exit-lost-eggs-changed"/>
+            <field name="lostRate" readonly="true"/>
+        </panel>
+    </form>
+
+    <grid name="incubator-exit-line-grid" title="Incubator exits lines" model="com.gl.apps.pf.db.IncubatorExitLine" edit-icon="true" orderBy="incubatorTrolley">
+        <field name="incubatorTrolley" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="currentDailyAge" readonly="true"/>
+        <field name="currentWeeklyAge" readonly="true"/>
+        <field name="center" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="loadingType" readonly="true"/>
+        <field name="traysNumber" readonly="true"/>
+        <field name="eggsNumber" readonly="true"/>
+        <field name="lostEggs" required="true" onChange="action-group-incubator-exit-lost-eggs-changed"/>
+        <field name="lostRate" readonly="true"/>
+        <field name="status" title="Incubator trolley status">
+            <hilite background="cyan" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="orange" if="$get('status') == 3"/>
+            <hilite background="red" if="$get('status') == 4"/>
+        </field>
+    </grid>
+
+    <action-attrs name="action-incubator-exit-line-calculate-lost-rate" model="com.gl.apps.pf.db.IncubatorExitLine">
+        <attribute if="lostEggs != 0" name="value" expr="eval: lostEggs * 100 / eggsNumber" for="lostRate"/>
+   </action-attrs>
+
+    <action-attrs name="action-incubator-exit-sum-loss-eggs" model="com.gl.apps.pf.db.IncubatorExitLine">
+        <attribute if="lostEggs != 0 &amp;&amp; !incubatorExitLines?.isEmpty()" name="value" expr="eval: incubatorExitLines.sum{it->it.lostEggs}" for="__parent__.sumLostHatchingEggs"/>
+    </action-attrs>
+
+    <action-validate name="action-incubator-exit-validate-lost-eggs">
+        <error message="Lost eggs must be less than total OAC eggs!"
+               if="lostEggs > eggsNumber "/>
+    </action-validate>
+
+    <action-group name="action-group-incubator-exit-lost-eggs-changed">
+        <action name="action-incubator-exit-validate-lost-eggs"/>
+        <action name="action-incubator-exit-line-calculate-lost-rate"/>
+    </action-group>
+
+</object-views>

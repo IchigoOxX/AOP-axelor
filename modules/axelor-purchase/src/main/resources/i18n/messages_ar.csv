@@ -1,0 +1,544 @@
+50 Latest Supplier Orders,50 أحدث طلبات الموردين
+A message template is needed to send a mail,يلزم وجود قالب رسالة لإرسال بريد
+"A purchase order has already been created for this call for tenders, are you sure to generate a new one ?",لقد تم بالفعل إنشاء أمر شراء لهذه الدعوة لتقديم العطاءات، هل أنت متأكد من إنشاء أمر جديد؟
+ABC analysis,تحليل ABC للمخزون
+ATI,ايه تي آي
+AbcAnalysis.endDate,تاريخ الانتهاء
+AbcAnalysis.startDate,تاريخ البدء
+Accept,قبول
+Accepted,مقبولة
+Actions,الإجراءات
+Add Custom Fields,إضافة حقول مخصصة
+Add Fields,إضافة حقول
+Add Selected Custom Fields,إضافة الحقول المخصصة المحددة
+Add Selected Fields,إضافة الحقول المحددة
+Advance payment A.T.I. total,الإجمالي
+Advance payment total,إجمالي الدفعة المقدمة
+Allow validated order modification,السماح بتعديل الطلب الذي تم التحقق منه
+"Allows customizing a default message on quotation requests, which will appear on the printing.",يسمح بتخصيص رسالة افتراضية لطلبات عرض الأسعار، والتي ستظهر على الطباعة.
+Allows managing a product catalog for each supplier. It will be possible to link products to suppliers and manage a supplier product catalog.,يسمح بإدارة كتالوج المنتجات لكل مورد. سيكون من الممكن ربط المنتجات بالموردين وإدارة كتالوج منتجات الموردين.
+Amount,المبلغ
+Amount A.T.I.,المبلغ A.T.I.
+Amount Tax,ضريبة المبلغ
+Amount Tax (via percentages),ضريبة المبلغ (بالنسبة المئوية)
+Amount invoiced W.T.,مبلغ الفاتورة W.T.
+Amount to be spread over the timetable,المبلغ الذي سيتم توزيعه على سجل الدوام
+Analytic distribution,توزيع مراكز التكلفة
+Analytic distribution required on purchase order line,توزيع مراكز التكلفة مطلوب على سطر أمر الشراء
+App,التطبيق
+App purchase,شراء التطبيق
+Assigns a number to purchase order lines.,يعين رقمًا لشراء بنود أمر الشراء.
+Attach file email,إرفاق ملف بالبريد الإلكتروني
+Attachment,مرفق
+Attributes,السمات
+Back to validated order,العودة إلى الطلب المعتمد
+Base W.T.,قاعدة W.T
+Boolean,منطقية
+Buyer,المشتري
+Calculated price/Qty,السعر المحسوب/الكمية
+Call for tender,إعلان عن عطاء
+Call for tender mail template,دعوة لتقديم قالب بريد المناقصة
+Call for tenders,دعوة لتقديم العطاءات
+Call tender,استدعاء المناقصة
+Call tender attribute configuration,إعداد خصائص طلب عروض الأسعار
+Call tender attribute configuration (mirror),إعداد خصائص طلب عروض الأسعار (مرآة)
+Call tender mails,رسائل طلب عروض الأسعار
+Call tender name,استدعاء اسم العطاء
+Call tender need,استدعاء مناقصة الحاجة
+Call tender offer,عرض مناقصة / طلب أسعار
+Call tender offers,عروض المناقصات / طلبات الأسعار
+Call tender supplier,اتصل بمورد العطاء
+Can not cancel already canceled purchase request.,لا يمكن إلغاء طلب الشراء الذي تم إلغاؤه بالفعل.
+Can only accept requested purchase request.,يمكن فقط قبول طلب الشراء المطلوب.
+"Can only cancel drafted, requested or validated purchase order.",يمكن فقط إلغاء أمر الشراء الذي تمت صياغته أو طلبه أو التحقق من صحته.
+Can only finish validated purchase order.,يمكن إنهاء أمر الشراء المعتمد فقط.
+Can only purchase accepted purchase request.,يمكن شراء طلب الشراء المقبول فقط.
+Can only refuse requested purchase request.,يمكن فقط رفض طلب الشراء المطلوب.
+Can only request drafted purchase order.,يمكن فقط طلب أمر الشراء المصاغ.
+Can only request drafted purchase request.,يمكن فقط طلب طلب الشراء المصاغ.
+Can only return to draft from canceled purchase request.,لا يمكن العودة إلى المسودة إلا من طلب الشراء الملغى.
+Can only return to draft from cancelled purchase order.,لا يمكن العودة إلى المسودة إلا من أمر الشراء الملغى.
+Can only validate requested purchase order.,يمكن فقط التحقق من صحة أمر الشراء المطلوب.
+Cancel,إلغاء
+Cancel receipt,إلغاء الاستلام
+Canceled,ملغي
+Characteristics,الخصائص
+ChartPO.saleOrder,أمر بيع
+Closed Purchase orders,أوامر الشراء المغلقة
+Code,الرمز
+Comment,تعليق
+Company,الشركة
+Company bank,بنك الشركة
+Company currency,عملة الشركة
+Company for which the configurations are made.,الشركة التي تم إجراء التكوينات لها.
+Company is required to generate a purchase order.,الشركة مطلوبة لإنشاء أمر الشراء.
+Configuration,التهيئة
+Confirm,تأكيد
+Confirm merge purchase order,تأكيد أمر الشراء المدمج
+Confirmation,تأكيد
+Contact,جهة اتصال
+Contact partner,اتصل بالشريك
+Contacts,جهات الاتصال
+Content,المحتوى
+Currency,العملة
+Current purchase quotations / orders,عروض أسعار / طلبات الشراء الحالية
+Custom Fields,حقول مخصصة
+Custom attributes,خصائص مخصصة
+Custom field,حقل مخصص
+Custom field model,نموذج الحقل المخصص
+Custom field name '%s' is already used in another call tender attribute configuration '%s'. Please use a unique name.,اسم الحقل المخصص '%s' مستخدم بالفعل في إعداد خصائص طلب عروض أسعار آخر '%s'. يرجى استخدام اسم فريد.
+Custom fields,الحقول المخصصة
+Dashboard,لوحة المؤشرات والتحكم
+Date,التاريخ
+DateTime,التاريخ والوقت
+Dates,مواعيد
+Decimal,عشري
+Default unit,الوحدة الافتراضية
+Default value,القيمة الافتراضية
+Delivery,التسليم / الإرسال
+Delivery time,مدة التوريد
+Delivery time(days),مدة التوريد (بالأيام)
+Description,الوصف
+Description To Display,الوصف للعرض
+Desired receipt date,تاريخ الاستلام المطلوب
+Discount amount,مبلغ الخصم
+Discount rate,نسبة الخصم
+Discount type,نوع الخصم
+Display buyer on printing,عرض المشتري على الطباعة
+Display in,عرض في
+Display price on requested purchase printing,عرض السعر عند طباعة الشراء المطلوبة
+Display product code on printing,عرض رمز المنتج عند الطباعة
+Display product detail on printing,عرض تفاصيل المنتج على الطباعة
+Display purchase order line number,عرض رقم سطر أمر الشراء
+Display supplier code on printing,عرض رمز المورد عند الطباعة
+Display tax detail on printing,عرض تفاصيل الضريبة على الطباعة
+Displayed Product name,اسم المنتج المعروض
+Displays the product description (description field from the product form) on purchase order lines.,يعرض وصف المنتج (حقل الوصف من نموذج المنتج) في بنود أمر الشراء.
+Draft,مسودة
+Edit order,تعديل الطلب
+Email message,رسالة البريد الإلكتروني
+Emails,رسائل البريد الإلكتروني
+Emails sent successfully.,تم إرسال الرسائل بنجاح.
+Enable calculation of the entire quotation's prices,تمكين حساب أسعار عرض الأسعار بالكامل
+Enable product description copy,تمكين نسخة وصف المنتج
+End date,تاريخ الانتهاء
+Errors,أخطاء
+Errors:,أخطاء:
+Estim. receipt date,تقدير. تاريخ الاستلام
+Estimated receipt date,تاريخ الاستلام المتوقع
+Field,المجال
+Field name '%s' is duplicated within this configuration.,اسم الحقل '%s' مكرر ضمن هذه التهيئة.
+Fields,الحقول
+File,الملف
+Filter on supplier,تصفية على المورد
+Filter products by trading name,تصفية المنتجات حسب الاسم التجاري
+Finish the order,انهاء الطلب
+Finished,انتهى
+Fiscal position,الوضع الضريبي
+Fixed Assets,الأصول الثابتة
+Follow-up,متابعة
+Freeze fields,تجميد الحقول
+From Date,من التاريخ
+Full name,الاسم الكامل
+Generate PO,إنشاء أمر الشراء
+Generate call for tenders,توليد دعوة للمناقصات
+Generate control invoice,إنشاء فاتورة مراقبة
+Generate emails,توليد رسائل البريد الإلكتروني
+Generate purchase configurations,إنشاء تكوينات الشراء
+Generate purchase order,إنشاء أمر الشراء
+Generate supplier arrival,توليد وصول المورد
+Generate suppliers requests,توليد طلبات الموردين
+Generate template,توليد قالب
+Generated emails,رسائل البريد الإلكتروني التي تم إنشاؤها
+Group by product,تجميع حسب المنتج
+Group by supplier,المجموعة حسب المورد
+Group products on printings,مجموعة المنتجات الخاصة بالمطبوعات
+Historical,تاريخية
+Historical Period,الفترة التاريخية
+"If this option is enabled, a panel allowing to purchase this product by trading name appears on product forms. This allows defining which products trading names can purchase, and filtering only purchasable products by trading name on quotations.",إذا تم تمكين هذا الخيار، فستظهر لوحة تسمح بشراء هذا المنتج بالاسم التجاري في نماذج المنتج. يتيح ذلك تحديد المنتجات التي يمكن للأسماء التجارية شراؤها، وتصفية المنتجات القابلة للشراء فقط حسب الاسم التجاري في عروض الأسعار.
+"If this option is enabled, it is mandatory that on each order line (Analytics tab), the Analytic distribution template field is filled in.","إذا تم تمكين هذا الخيار، فمن الضروري ملء حقل قالب توزيع مراكز التكلفة في كل سطر أمر (علامة التبويب ""التحليلات"")."
+Import,استيراد
+Import history,سجل الاستيراد
+Import offer,استيراد عرض
+Imported %d line(s).,تم استيراد %d سطر(سطور).
+In ATI,في ATI
+In Stock Moves,حركات المخزون
+Information,معلومات
+Integer,عدد صحيح
+Internal Note,ملاحظة داخلية
+Internal Ref.,المرجع الداخلي.
+Internal note,ملاحظة داخلية
+Internal purchase requests,طلبات الشراء الداخلية
+Invoice Lines,بنود الفاتورة
+Invoiced,مفوتر
+Invoices,الفواتير
+Invoicing,الفوترة
+Is default,افتراضي
+It is not possible to delete a validated order.,ليس من الممكن حذف أمر تم التحقق من صحته.
+"It is possible to choose whether quotations/orders are always established excluding tax, always including tax, by default excluding tax, or by default including tax. The by default excluding tax and by default including tax options allow case-by-case modification (via a checkbox).",من الممكن اختيار ما إذا كانت عروض الأسعار/الأوامر يتم إنشاؤها دائمًا باستثناء الضريبة، أو تضمين الضريبة دائمًا، أو استبعاد الضريبة بشكل افتراضي، أو تضمين الضريبة بشكل افتراضي. يسمح خيار استبعاد الضريبة بشكل افتراضي، وخيارات تضمين الضريبة بشكل افتراضي، بتعديل كل حالة على حدة (من خلال مربع اختيار).
+Last update,آخر تحديث
+Line %d: %s,سطر %d: %s
+Line %d: Failed to set custom fields: %s,سطر %d: فشل تعيين الحقول المخصصة: %s
+Line %d: Field '%s' is not in the offer's attribute configuration for product '%s',السطر %d: الحقل '%s' ليس ضمن إعداد خصائص العرض للمنتج '%s'
+Line %d: Invalid date '%s',السطر %d: تاريخ غير صالح '%s'
+Line %d: Invalid delivery time '%s',السطر %d: مدة تسليم غير صالحة '%s'
+"Line %d: Invalid number of columns (expected %d, got %d)",السطر %d: عدد أعمدة غير صالح (المتوقع %d، الفعلي %d)
+Line %d: Invalid quantity '%s',السطر %d: كمية غير صالحة '%s'
+Line %d: Invalid unit price '%s',السطر %d: سعر وحدة غير صالح '%s'
+Line %d: Invalid value '%s' for field '%s',السطر %d: قيمة غير صالحة '%s' للحقل '%s'
+Line %d: No need found for product '%s',السطر %d: لم يتم العثور على احتياج للمنتج '%s'
+Line %d: Product with code '%s' not found,السطر %d: لم يتم العثور على منتج بالكود '%s'
+Line %d: Unit '%s' not found,السطر %d: لم يتم العثور على الوحدة '%s'
+Line Nbr.,الخط رقم.
+Lines,الأسطر
+List of purchase orders to merge is empty,قائمة أوامر الشراء المراد دمجها فارغة
+Log,سجل
+MRP,MRP
+Mail template,قالب البريد
+Mails,رسائل
+Manage call for tender,إدارة طلب المناقصة
+Manage multiple purchase quantity,إدارة كمية الشراء المتعددة
+Manage purchase order versions,إدارة إصدارات أمر الشراء
+Manage purchases unit on products,إدارة وحدة المشتريات على المنتجات
+Manage supplier catalog,إدارة كتالوج الموردين
+Mandatory,إلزامي
+Manual,دليل
+Maps,خرائط
+Max purchase price,الحد الأقصى لسعر الشراء
+Merge into single purchase order,الدمج في أمر شراء واحد
+Merge purchase orders,دمج أوامر الشراء
+Merge quotations,دمج عروض الأسعار
+Message for requesting prices,رسالة لطلب الأسعار
+Meta field model,نموذج الحقل الوصفي
+Month,الشهر
+Multiple quantities,كميات متعددة
+My Closed Purchase orders,طلبات الشراء المغلقة
+My Ongoing Purchase orders,طلبات الشراء المستمرة
+My Orders to process,طلباتي قيد المعالجة
+My Purchase orders,طلبات الشراء الخاصة بي
+My RFQs,طلبات عروض الأسعار الخاصة بي
+My RFQs and POs To Validate,طلبات عروض الأسعار وأوامر الشراء الخاصة بي للتحقق من صحتها
+My Sales,مبيعاتي
+My Validated POs,أوامر الشراء التي تم التحقق منها
+My purchased amount by product accounting family,المبلغ الذي اشتريته حسب عائلة محاسبة المنتج
+My purchased qty by product accounting family,الكمية المشتراة حسب عائلة محاسبة المنتج
+Name,الاسم
+Nbr of PO by month,رقم أمر الشراء حسب الشهر
+New product,منتج جديد
+New version,نسخة جديدة
+No selected offer.,لا يوجد عرض محدد.
+No tender report config found,لم يتم العثور على إعدادات تقرير المناقصة
+Not invoiced,لم يتم إصدار فاتورة
+Not received,لم يتم استلام
+OR,أو
+Offer mail,عرض البريد
+Offers,عروض
+"On quotation/order printing, displays the buyer name.",عند طباعة عرض الأسعار/الطلب، يتم عرض اسم المشتري.
+"On quotation/order printing, displays the product code.",عند طباعة عرض الأسعار/الطلب، يتم عرض رمز المنتج.
+"On quotation/order printing, displays the product description from the product form.",عند طباعة عرض الأسعار/الطلب، يتم عرض وصف المنتج من نموذج المنتج.
+"On quotation/order printing, displays the supplier code.",عند طباعة عرض الأسعار/الطلب، يتم عرض رمز المورد.
+"On quotation/order printing, displays the tax details (name, rate, and amount).",عند طباعة عرض الأسعار/الطلب، يتم عرض تفاصيل الضريبة (الاسم والسعر والمبلغ).
+Ongoing Purchase orders,أوامر الشراء المستمرة
+Order Date,تاريخ الطلب
+Order being edited,الطلب قيد التعديل
+Order history,تاريخ الطلب
+Ordered,أمر
+Overview,نظرة عامة
+PO Management,إدارة أمر الشراء
+PO Tax line,خط ضريبة الشراء
+PO Tax lines,بنود ضريبة أمر الشراء
+PO line,خط البريد
+PO lines,خطوط البريد
+PO lines detail,تفاصيل خطوط البريد
+POs Volume by buyer by accounting family,حجم أوامر الشراء حسب المشتري حسب عائلة المحاسبة
+Partially invoiced,مفوترة جزئيا
+Partially received,تم الاستلام جزئيا
+Percent,نسبة
+Please enter at least one detail line.,الرجاء إدخال سطر تفاصيل واحد على الأقل.
+Please enter supplier for following purchase request : %s,الرجاء إدخال المورد لطلب الشراء التالي: %s
+Please fill printing settings on purchase order %s,الرجاء ملء إعدادات الطباعة في أمر الشراء %s
+Please provide product information.,يرجى تقديم معلومات المنتج.
+Please select a company before generating purchase order.,الرجاء تحديد شركة قبل إنشاء أمر الشراء.
+Please select a product.,الرجاء تحديد المنتج.
+Please select at least one field.,يرجى تحديد حقل واحد على الأقل.
+Please select the purchase order(s) to print.,الرجاء تحديد أمر (طلبات) الشراء المراد طباعتها.
+Price List,قائمة الأسعار
+Price calculation details,تفاصيل حساب السعر
+Price list,قائمة الأسعار
+Price lists,قوائم الأسعار
+Pricing,التسعير
+Pricing rules,قواعد التسعير
+Print,طباعة
+Printing,طباعة
+Printing settings,إعدادات الطباعة
+Printings,مطبوعات
+Product,منتج
+Product Accounting Family,عائلة محاسبة المنتجات
+Product attributes by supplier,خصائص المنتج حسب المورد
+Product attributes by supplier report config,إعداد تقرير خصائص المنتج حسب المورد
+Product code,رمز المنتج
+Product code on catalog,رمز المنتج في الكتالوج
+Product name,اسم المنتج
+Product name on catalog,اسم المنتج في الكتالوج
+Product needs,احتياجات المنتج
+Products & services,المنتجات والخدمات
+Products list,قائمة المنتجات
+Proposal,اقتراح
+Proposed date,التاريخ المقترح
+Proposed quantity,الكمية المقترحة
+Proposed unit,الوحدة المقترحة
+Proposed unit price,سعر الوحدة المقترح
+Purchase,المشتريات
+Purchase Buyer,شراء المشتري
+Purchase Manager,مدير المشتريات
+Purchase Request Line,سطر طلب الشراء
+Purchase Request Lines,خطوط طلب الشراء
+Purchase blocking,منع الشراء
+Purchase config,شراء التكوين
+Purchase config (${ name }),تكوين الشراء (${ name })
+Purchase configuration,تكوين الشراء
+Purchase configurations,تكوينات الشراء
+Purchase order,أمر شراء
+Purchase order created,تم إنشاء أمر الشراء
+Purchase order information,معلومات أمر الشراء
+Purchase order template,نموذج أمر الشراء
+Purchase orders,أوامر الشراء
+Purchase orders ATI/WT,أوامر الشراء ATI/WT
+Purchase orders to merge,أوامر الشراء للدمج
+Purchase quotation,عرض سعر شراء / طلب عرض أسعار
+Purchase quotations,عروض أسعار الشراء
+Purchase request,طلب شراء
+Purchase request filters,مرشحات طلب الشراء
+Purchase request successfully updated.,تم تحديث طلب الشراء بنجاح.
+PurchaseOrder.afterDiscount,بعد الخصم (أمر الشراء)
+PurchaseOrder.base,قاعدة (أمر الشراء)
+PurchaseOrder.buyer,المشتري (أمر الشراء)
+PurchaseOrder.buyerEmail,البريد الإلكتروني للمشتري (أمر الشراء)
+PurchaseOrder.buyerPhone,هاتف المشتري (أمر الشراء)
+PurchaseOrder.canceled,ملغي
+PurchaseOrder.customer,عميل
+PurchaseOrder.customerRef,مرجع العميل (أمر الشراء)
+PurchaseOrder.deliveryAddress,عنوان التسليم (أمر الشراء)
+PurchaseOrder.description,الوصف
+PurchaseOrder.desiredReceiptDate,تاريخ الاستلام المطلوب (أمر الشراء)
+PurchaseOrder.discountAmount,مبلغ الخصم (أمر الشراء)
+PurchaseOrder.draft,مسودة
+PurchaseOrder.estimatedReceiptDate,تاريخ الاستلام المقدر (أمر الشراء)
+PurchaseOrder.finished,أمر الشراء.انتهى
+PurchaseOrder.invoicingAddress,عنوان الفواتير (أمر الشراء)
+PurchaseOrder.note,ملاحظة (أمر الشراء)
+PurchaseOrder.order,أمر / طلب
+PurchaseOrder.orderDate,تاريخ الشراء
+PurchaseOrder.paymentCondition,شروط السداد
+PurchaseOrder.paymentMode,طريقة الدفع
+PurchaseOrder.priceExclTax,السعر بدون الضريبة (أمر الشراء)
+PurchaseOrder.priceInclTax,السعر شامل الضريبة (أمر الشراء)
+PurchaseOrder.productSequence,تسلسل المنتج (أمر الشراء)
+PurchaseOrder.productStandard,معيار المنتج (أمر الشراء)
+PurchaseOrder.purchaseInfo,معلومات الشراء (أمر الشراء)
+PurchaseOrder.qtyUnit,وحدة الكمية (أمر الشراء)
+PurchaseOrder.quote,عرض سعر (أمر الشراء)
+PurchaseOrder.ref,المرجع (أمر الشراء)
+PurchaseOrder.reference,مرجع (أمر الشراء)
+PurchaseOrder.requested,طلب الشراء
+PurchaseOrder.state,الدولة (أمر الشراء)
+PurchaseOrder.statusCanceled,تم إلغاء OrderOrder.status
+PurchaseOrder.statusDraft,مسودة الحالة (أمر الشراء)
+PurchaseOrder.statusFinished,الحالة انتهت (أمر الشراء)
+PurchaseOrder.statusRequested,تم طلب حالة الشراء
+PurchaseOrder.statusValidated,تم التحقق من صحة الحالة (أمر الشراء)
+PurchaseOrder.supplier,مورد
+PurchaseOrder.supplierCode,كود المورد (أمر الشراء)
+PurchaseOrder.supplyRef,مرجع العرض (أمر الشراء)
+PurchaseOrder.tax,ضريبة
+PurchaseOrder.taxAmount,مبلغ الضريبة
+PurchaseOrder.taxCode,رمز الضريبة (أمر الشراء)
+PurchaseOrder.taxes,الضرائب
+PurchaseOrder.totalDiscount,إجمالي الخصم (أمر الشراء)
+PurchaseOrder.totalExclTax,الإجمالي غير شامل الضريبة (أمر الشراء)
+PurchaseOrder.totalExclTaxWithoutDiscount,الإجمالي غير شامل الضريبة بدون خصم (أمر الشراء)
+PurchaseOrder.totalInclTax,الإجمالي شامل الضريبة (أمر الشراء)
+PurchaseOrder.totalTax,الضريبة الإجمالية (أمر الشراء)
+PurchaseOrder.totalTaxes,إجمالي الضرائب (أمر الشراء)
+PurchaseOrder.type,نوع طلب الشراء
+PurchaseOrder.unitPrice,سعر الوحدة (أمر الشراء)
+PurchaseOrder.validated,معتمد / مؤكد
+Purchased,تم الشراء
+Purchased amount by accounting family,المبلغ الذي تم شراؤه بواسطة عائلة المحاسبة
+Purchased amount by product accounting family,المبلغ المشتراة حسب عائلة محاسبة المنتج
+Purchased amount distribution by accounting family,توزيع المبالغ المشتراة حسب العائلة المحاسبية
+Purchases,المشتريات
+Purchases Order filters,مرشحات أوامر الشراء
+Purchases follow-up,متابعة المشتريات
+Purchases order line filters,عوامل تصفية سطر أمر الشراء
+Purchases unit,وحدة المشتريات
+Qty,الكمية
+Quantity,الكمية
+Quantity max,الكمية القصوى
+Quantity min,الحد الأدنى للكمية
+Quotation,عرض سعر
+Quotation lines,بنود عرض السعر
+RFQ And PO To Validate,طلب عرض الأسعار وأمر الشراء للتحقق من صحة
+Receipt State,حالة الاستلام
+Received,تم الاستلام
+Received quantity,الكمية المستلمة
+Recompute prices,إعادة حساب الأسعار
+Ref.,المرجع.
+Reference already existing,المرجع موجود بالفعل
+References,المراجع
+Refuse,رفض
+Refused,مرفوض
+Rejected,مرفوض
+Replied,تم الرد
+Report config,إعدادات التقرير
+Report type,نوع التقرير
+Reportings,التقارير
+Reports,التقارير
+Request,طلب
+Requested,مطلوب
+Requested date,التاريخ المطلوب
+Requested quantity,الكمية المطلوبة
+Requested unit,الوحدة المطلوبة
+Requester,الطالب
+Reverse charged,عكس مشحونة
+Sale order line,سطر أمر البيع
+Sale quotations,عروض أسعار المبيعات
+See purchase order lines,راجع بنود أمر الشراء
+See quotation lines,انظر سطور عرض السعر
+Select Custom Fields,تحديد الحقول المخصصة
+Select Fields,تحديد الحقول
+Selected,تم التحديد
+Send Email,إرسال البريد الإلكتروني
+Send email,إرسال البريد الإلكتروني
+Send emails,إرسال رسائل البريد
+Sent,تم الإرسال
+Separate in a new quotation,منفصل في عرض سعر جديد
+Seq.,تسلسل.
+Sequence,التسلسل
+Shipping Coefficients,معاملات الشحن
+Show invoice,إظهار الفاتورة
+Show product attributes,إظهار خصائص المنتج
+Specific notes,ملاحظات محددة
+Specific tax note,مذكرة ضريبية محددة
+Standard,قياسي
+Standard purchases,المشتريات القياسية
+Start date,تاريخ البدء
+Status,الحالة
+Status select,الحالة اختر
+Stock location,موقع التخزين / المستودع
+Stock move,حركة المخزون
+String,سلسلة
+Supplier,مورد
+Supplier Catalog,كتالوج الموردين
+Supplier Catalog Lines,خطوط كتالوج الموردين
+Supplier Comment,تعليق المورد
+Supplier RFQ/PO,المورد RFQ/PO
+Supplier RFQs/POs,طلبات عروض الأسعار/طلبات الشراء للموردين
+Supplier box in purchase order,صندوق المورد في أمر الشراء
+Supplier catalog,كتالوج الموردين
+Supplier code,كود المورد
+Supplier invoices,فواتير الموردين
+Supplier is required to generate a purchase order.,مطلوب من المورد إنشاء أمر الشراء.
+Supplier offer,عرض المورد
+Supplier offers,عروض الموردين
+Supplier partner,شريك المورد
+Supplier partner price list,قائمة أسعار شركاء الموردين
+Supplier partner price lists,قوائم أسعار شركاء الموردين
+Supplier partners,شركاء الموردين
+Supplier ref.,مرجع المورد.
+Suppliers,الموردون
+Suppliers requests,طلبات الموردين
+Suppliers' respond by product,ردود الموردين حسب المنتج
+Suppliers' respond by product report config,إعداد تقرير ردود الموردين حسب المنتج
+Take product multiple qty,خذ كمية المنتج المتعددة
+Take product purchase price,خذ سعر شراء المنتج
+Tax,ضريبة
+Tax Equiv,المعادل الضريبي
+Tax Lines,بنود الضريبة
+Tax number,الرقم الضريبي
+Tax type,نوع الضريبة
+Taxes,الضرائب
+Team,فريق
+Tender report config,إعداد تقرير المناقصة
+Tender report config line,سطر إعداد تقرير المناقصة
+Tender report config lines,أسطر إعداد تقرير المناقصة
+Tender report configs,إعدادات تقارير المناقصات
+The ATI configuration must be the same for all purchase orders,يجب أن يكون تكوين ATI هو نفسه بالنسبة لكافة أوامر الشراء
+The company %s doesn't have any configured sequence for the call for tenders,ليس لدى الشركة %s أي تسلسل تم تكوينه لطلب المناقصات
+The company %s doesn't have any configured sequence for the purchase orders,ليس لدى الشركة %s أي تسلسل مكون لأوامر الشراء
+The company is required and must be the same for all purchase orders,الشركة مطلوبة ويجب أن تكون واحدة لجميع طلبات الشراء
+The currency is required and must be the same for all purchase orders,العملة مطلوبة ويجب أن تكون واحدة لجميع طلبات الشراء
+The field 'Stock Location' must be filled.,"يجب ملء الحقل ""موقع المخزون""."
+The fiscal position must be the same for all purchase orders,يجب أن يكون الوضع المالي هو نفسه لجميع أوامر الشراء
+"The import file format is invalid. Expected Excel file with columns: Product code, Product name, Description, Qty, Unit, Date, Delivery time, Unit price, Comment.",تنسيق ملف الاستيراد غير صالح. ملف Excel متوقع بالأعمدة: كود المنتج، اسم المنتج، الوصف، الكمية، الوحدة، التاريخ، مدة التوريد، سعر الوحدة، تعليق.
+The import file is empty.,ملف الاستيراد فارغ.
+The line cannot be null.,لا يمكن أن يكون السطر فارغًا.
+The maximum order quantity of %s to the supplier is not respected. Unit price might be different than the supplier catalog one.,لم يتم احترام الحد الأقصى لكمية الطلب للمورد وهو %s. قد يختلف سعر الوحدة عن سعر كتالوج المورد.
+The minimum order quantity of %s to the supplier is not respected. Unit price might be different than the supplier catalog one.,لم يتم احترام الحد الأدنى لكمية الطلب وهو %s للمورد. قد يختلف سعر الوحدة عن سعر كتالوج المورد.
+The partner's language is different from the current language. Description and product name are in :,لغة الشريك مختلفة عن اللغة الحالية. الوصف واسم المنتج موجودان في :
+The purchase request %s is already linked to a purchaseOrder,طلب الشراء %s مرتبط بالفعل بأمر شراء
+The purchase request %s must be accepted before proceeding with the purchase.,يجب قبول طلب الشراء %s قبل المتابعة في عملية الشراء.
+The supplier Partner is required and must be the same for all purchase orders,مطلوب شريك المورد ويجب أن يكون هو نفسه لجميع طلبات الشراء
+The supplier catalog's unit is different from the current unit.,تختلف وحدة كتالوج الموردين عن الوحدة الحالية.
+The supplier of the purchase order is different from the default supplier of the product.,يختلف مورد أمر الشراء عن المورد الافتراضي للمنتج.
+The trading name must be the same for all purchase orders,يجب أن يكون الاسم التجاري هو نفسه لجميع أوامر الشراء
+There is no sequence set for the purchase requests for the company %s,لم يتم تعيين تسلسل لطلبات الشراء للشركة %s
+"This configuration enables you to recalculate line prices using a quotation. The recalculation will take into account pricing, if any, then the partner's price lists.",تتيح هذه التهيئة إعادة احتساب أسعار البنود باستخدام عرض الأسعار، مع مراعاة قوائم أسعار الشريك.
+This field allows displaying the purchase price recorded on the product form (supplier catalog price) on a quotation request (supplier quotation printing).,يسمح هذا الحقل بعرض سعر الشراء المسجل في نموذج المنتج (سعر كتالوج المورد) عند طلب عرض أسعار (طباعة عرض أسعار المورد).
+This field allows you to customize a box with information of your choice on quotation/order printings using an HTML field.,يتيح لك هذا الحقل تخصيص مربع يحتوي على معلومات من اختيارك بشأن مطبوعات عروض الأسعار/الطلبات باستخدام حقل HTML.
+"This function is useful when the purchase units of a product from a supplier are different from your sales units (for example if you buy a product by the ton and resell it by the kilo). When creating supplier orders, the selected product will be directly shown with its purchase unit, avoiding manual conversions.",تكون هذه الوظيفة مفيدة عندما تكون وحدات شراء منتج من أحد الموردين مختلفة عن وحدات مبيعاتك (على سبيل المثال، إذا قمت بشراء منتج بالطن وأعدت بيعه بالكيلو). عند إنشاء طلبات الموردين، سيتم عرض المنتج المحدد مباشرة مع وحدة الشراء الخاصة به، مع تجنب التحويلات اليدوية.
+This is the default purchase unit for a product when it is created.,هذه هي وحدة الشراء الافتراضية للمنتج عند إنشائه.
+"This option allows defining multiple purchase quantities on a product. You can specify that a product can only be purchased in certain multiples (for example quantities of 5 and 10 if the multiple is 5). If the quantity selected on an order line differs, the line cannot be validated and a message will indicate the allowed quantities.",يتيح هذا الخيار تحديد كميات الشراء المتعددة على المنتج. يمكنك تحديد أنه لا يمكن شراء المنتج إلا بمضاعفات معينة (على سبيل المثال الكميات 5 و10 إذا كان المضاعف 5). إذا اختلفت الكمية المحددة في بند الأمر، فلا يمكن التحقق من صحة البند وستظهر رسالة تشير إلى الكميات المسموح بها.
+"This option enables the ability to create multiple versions of a supplier quotation, allowing modification of a quotation to create a new version and track its history.",يتيح هذا الخيار القدرة على إنشاء إصدارات متعددة من عرض أسعار المورد، مما يسمح بتعديل عرض الأسعار لإنشاء إصدار جديد وتتبع تاريخه.
+This product is not available from the supplier.,هذا المنتج غير متوفر من المورد.
+This purchase order is finished.,تم الانتهاء من أمر الشراء هذا.
+This supplier is blocked:,هذا المورد محظور:
+Timetable,سجل الدوام
+Title,العنوان
+Title Line,سطر العنوان
+To Date,حتى الآن
+Tools,الأدوات
+Total A.T.I.,إجمالي أيه تي آي
+Total A.T.I. in company currency,إجمالي أيه تي آي بعملة الشركة
+Total Purchased Amount by month,إجمالي المبلغ المشتراة حسب الشهر
+Total Purchased Qty by month,إجمالي الكمية المشتراة حسب الشهر
+Total Tax,إجمالي الضريبة
+Total W.T.,إجمالي الوزن
+Total W.T. in company currency,إجمالي الوزن بعملة الشركة
+Total tax,إجمالي الضريبة
+Trading name,اسم التداول
+Type,النوع
+Unit,الوحدة
+Unit price,سعر الوحدة
+Unit price A.T.I.,سعر الوحدة
+Unit price W.T.,سعر الوحدة بالوزن
+Unit price discounted,سعر الوحدة مخفض
+Units,الوحدات
+VAT exemption reason,سبب الإعفاء من ضريبة القيمة المضافة
+Validate,التحقق من صحة
+Validate changes,التحقق من صحة التغييرات
+Validated,معتمد / مؤكد
+Validated by,تم التحقق من صحته بواسطة
+Validation date,تاريخ التحقق
+Validator,المدقق
+Version Number,رقم الإصدار
+WT,وت
+"Warning, a completed order can't be changed anymore, do you want to continue?",تحذير، لا يمكن تغيير الطلب المكتمل بعد الآن، هل تريد المتابعة؟
+You can create a purchase request only with the status 'Draft' or 'Requested'.,"يمكنك إنشاء طلب شراء فقط بالحالة ""مسودة"" أو ""مطلوب""."
+You can define here the default printing template for the company purchase quotations/orders.,يمكنك هنا تحديد قالب الطباعة الافتراضي لعروض أسعار/طلبات الشراء الخاصة بالشركة.
+You can not generate supplier requests if the order is not saved.,لا يمكنك إنشاء طلبات الموردين إذا لم يتم حفظ الطلب.
+You have to choose at least two purchase quotations,يجب عليك اختيار عرضي أسعار شراء على الأقل
+You must configure Purchase module for the company %s,يجب عليك تكوين وحدة الشراء للشركة %s
+You need a purchase order associated to line.,أنت بحاجة إلى أمر شراء مرتبط بالبند.
+value:Purchase,القيمة:شراء
+value:Purchase Request,القيمة: طلب الشراء
+A tax line is missing,سطر الضريبة مفقود
+Mails successfully planned for sending.,تم التخطيط لإرسال الرسائل بنجاح.
+Offered date,تاريخ العرض
+Offered price,السعر المعروض
+Offered quantity,الكمية المعروضة
+Send call for tenders,إرسال طلب للمناقصات
+Sent message,الرسالة المرسلة
+The contact partner and price list must be the same for all purchase orders.,يجب أن يكون شريك الاتصال وقائمة الأسعار متماثلين لجميع طلبات الشراء.
+You have to choose at least one purchase order,عليك اختيار أمر شراء واحد على الأقل
+You have to choose at least one purchase quotation,يجب عليك اختيار عرض أسعار شراء واحد على الأقل

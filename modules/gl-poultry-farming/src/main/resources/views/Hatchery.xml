@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="hatchery-grid" title="Hatchery"
+    model="com.gl.apps.pf.db.Hatchery" edit-icon="true">
+    <field name="unit"/>
+    <field name="hatcheryRef"/>
+    <field name="name"/>
+  </grid>
+
+  <form name="hatchery-form" title="Hatchery"
+    model="com.gl.apps.pf.db.Hatchery" width="large">
+    <toolbar>
+      <button name="generateIncubatorsAndHatchers" title="Generate incubators and hatchers"
+        icon="fa-undo" onClick="save,action-generate-incubators-hatchers"/>
+    </toolbar>
+    <menubar>
+    <menu name="Report" title="Reports" showTitle="true" icon="fa-file">
+
+      <item name="incubatorsStatus" title="Incubators status" action="action-incubators-status"/>
+      <item name="hatcherStatus" title="Hatchers status"  action="action-hatchers-status"/>
+      <item name="incubatorsTrolleyStatus" title="Incubators Trolley status"  action="action-incubators-trolley-status"/>
+      <item name="hatcherTrolleyStatus" title="Hatchers Trolley status"  action="action-hatchers-trolley-status"/>
+
+    </menu>
+    </menubar>
+    <panel name="main">
+      <panel name="hatcheryPanel" title="Hatchery" colSpan="12">
+        <panel name="h1" colSpan="12">
+          <field name="hatcheryRef"/>
+          <field name="name"/>
+          <field name="unit" canNew="true" canEdit="true" canView="true"/>
+        </panel>
+        <panel name="h1" colSpan="12">
+          <field name="numberOfIncubators" required="true"/>
+          <field name="numberOfHatchers" required="true"/>
+          <field name="numberOfIncubatorTrolleys" required="true"/>
+          <field name="numberOfHatcherTrolleys" required="true"/>
+          <field name="numberOfHatchersPerIncubator"/>
+          <field name="sameCapacityOfTrolleys"/>
+        </panel>
+      </panel>
+      <panel name="incubatorPanel" title="Incubator" colSpan="12">
+        <field name="incubatorCapacityInTrolleys"/>
+        <field name="capacityOfATrolleyInTrays"/>
+        <field name="capacityOfAnEggTray"/>
+        <field name="numberOfIncubationDays"/>
+        <field name="numberOfIncubationHours"/>
+        <field name="incubatorCleaningTime"/>
+      </panel>
+      <panel name="hatcherPanel" title="Hatcher" colSpan="12">
+        <field name="capacityOfTheHatcherInTrolleys"/>
+        <field name="capacityOfACartInBaskets"/>
+        <field name="capacityOfAnEggBasket"/>
+        <field name="numberOfHatchingDays"/>
+        <field name="numberOfHoursOfHatching"/>
+        <field name="hatcherCleaningTime"/>
+      </panel>
+      <panel colSpan="12" showTitle="false">
+        <panel name="packagingProductPanel" title="Packaging product" colSpan="6">
+          <field name="packagingProduct" colSpan="12"/>
+        </panel>
+        <panel name="associatedProductFamilyPanel" title="Associated product family" colSpan="6">
+          <field name="associatedProductFamily" colSpan="12"/>
+        </panel>
+      </panel>
+
+
+    </panel>
+    <panel-mail name="mailsPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+
+  <cards name="hatchery-cards" title="Hatchery" css="rect-image" model="com.gl.apps.pf.db.Hatchery" width="500px">
+    <field name="reference"/>
+    <field name="name"/>
+    <field name="unit"/>
+    <field name="numberOfIncubators"/>
+    <field name="numberOfHatchers"/>
+    <field name="numberOfIncubatorTrolleys"/>
+    <field name="numberOfHatcherTrolleys"/>
+    <field name="packagingProduct"/>
+    <field name="associatedProductFamily"/>
+    <field name="status"/>
+    <template><![CDATA[
+    <div class="span12">
+        <strong><span x-translate>Hatchery : </span> {{ name }}</strong>
+        <a class="pull-right muted">{{ $fmt('reference') }}</a>
+    </div>
+    <div>
+      <div>
+          <div class="span8">
+            <i class="fa fa-building-o" aria-hidden="true"></i> <strong><span x-translate>Incubators/hatchers : </span></strong>
+            {{ numberOfIncubators }} / {{ numberOfHatchers }}
+          </div>
+           <div class="span8" style="margin-left:-1px;">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <strong><span x-translate>Trolleys incubator/hatcher : </span></strong>
+            {{numberOfIncubatorTrolleys}} / {{numberOfHatcherTrolleys}}
+          </div>
+      </div>
+          <div class="span6" style="margin-left:0px;">
+                <h5>
+                    <span class="label label-default" style="background-color: #f16026;" x-translate>{{packagingProduct.fullName}}</span>
+                    <span class="label label-success"" x-translate>{{associatedProductFamily.name}}</span> </br>
+
+                </h5>
+         <div class="span6" style="margin-top:-10px; margin-left: -1px;">
+           <h5>
+              <span class="label label-info" x-translate>{{ unit.name }}</span>
+            </h5>
+         </div>
+       </div>
+      <div>
+    </div>
+    ]]></template>
+  </cards>
+
+
+
+  <action-method name="action-generate-incubators-hatchers">
+    <call method="GenerateIncubatorsAndHatchers"
+      class="com.gl.apps.pf.web.HatcheryController"/>
+  </action-method>
+
+  <action-view name="action-incubators-status"
+    model="com.gl.apps.pf.db.Incubator" title="Incubators status">
+    <view name="incubator-cards" type="cards"/>
+    <view name="incubator-grid" type="grid"/>
+    <view name="incubator-form" type="form"/>
+    <domain> :hatchery IS NULL OR self.hatchery = :hatchery</domain>
+    <context name="hatchery" expr="eval: __self__"/>
+  </action-view>
+
+  <action-view name="action-hatchers-status"
+    model="com.gl.apps.pf.db.Hatcher" title="Hatchers status">
+    <view name="hatcher-cards" type="cards"/>
+    <view name="hatcher-grid" type="grid"/>
+    <view name="hatcher-form" type="form"/>
+  </action-view>
+
+  <action-view name="action-hatchers-trolley-status"
+    model="com.gl.apps.pf.db.HatcherTrolley" title="Hatchers Trolley status">
+    <view name="hatcher-trolley-cards" type="cards"/>
+    <view name="hatcher-trolley-grid" type="grid"/>
+    <view name="hatcher-trolley-form" type="form"/>
+  </action-view>
+
+  <action-view name="action-incubators-trolley-status"
+    model="com.gl.apps.pf.db.IncubatorTrolley" title="Incubators Trolley status">
+    <view name="incubator-trolley-cards" type="cards"/>
+    <view name="incubator-trolley-grid" type="grid"/>
+    <view name="incubator-trolley-form" type="form"/>
+  </action-view>
+
+
+</object-views>

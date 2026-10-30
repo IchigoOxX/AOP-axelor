@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="livestock-feed-factory-grid" title="Livestock Feed Factory" model="com.gl.apps.pf.db.LivestockFeedFactory"
+          edit-icon="true">
+        <field name="reference"/>
+        <field name="name"/>
+        <field name="type"/>
+        <field name="unit" title="Unit"/>
+    </grid>
+
+    <form name="livestock-feed-factory-form" title="Livestock Feed Factory" model="com.gl.apps.pf.db.LivestockFeedFactory">
+        <panel title="Livestock Feed Factory" colSpan="12">
+            <field name="reference" title="Reference"/>
+            <field name="name" title="Name"/>
+            <field name="type" title="Type"/>
+            <field name="unit" title="Unit" canNew="true" canEdit="true" canView="true"/>
+            <field name="physicalLocation" title="Physical location" required="true" canNew="true" canEdit="true" canView="true"/>
+        </panel>
+        <panel title="Responsible" showTitle="false" colSpan="10">
+            <panel-related title="Responsible" colSpan="50" css="center" field="responsibles"
+                           form-view="user-BreedingShed-form"
+                           grid-view="user-BreedingShed-grid"
+                           canSelect="true" canNew="false" canEdit="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+</object-views>

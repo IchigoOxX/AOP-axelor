@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="attachment-line-form" title="Attachment line" editable="true" canNew="false"
+          model="com.gl.apps.pf.db.Attachment" width="large">
+        <panel title="Overview">
+            <field name="productAttachmentType" colSpan="6" readonly="true"/>
+            <field name="metaFile" colSpan="6" widget="binary-link"/>
+        </panel>
+    </form>
+
+    <grid name="attachment-line-grid" title="Attachment lines" model="com.gl.apps.pf.db.Attachment" edit-icon="true" canNew="false">
+        <field name="productAttachmentType" readonly="true"/>
+        <field name="attachmentTypeTitle" readonly="true"/>
+    </grid>
+
+
+</object-views>

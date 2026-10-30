@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="flesh-elev-movement-line-form" title="Movement Line" model="com.gl.apps.pf.db.FleshMovementLine" width="large">
+        <panel title="Overview">
+            <field name="lineNumber" colSpan="6" readonly="true"/>
+            <field name="toBreedingShed" title="Breeding shed" colSpan="6" readonly="true"/>
+            <field name="toTransferChicksNumber" colSpan="6"/>
+        </panel>
+    </form>
+
+    <grid name="flesh-elev-movement-line-grid" title="Movement lines" model="com.gl.apps.pf.db.FleshMovementLine" edit-icon="true" >
+        <field name="lineNumber" readonly="true"/>
+        <field name="toBreedingShed" title="Breeding shed" readonly="true"/>
+        <field name="toTransferChicksNumber"/>
+    </grid>
+
+<!--    <action-validate name="action-flesh-transfer-line-validate-qte">-->
+<!--        <error if="elevTransferLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(ElevTransferLine).all().filter('self.elevTransfer = ?1 AND self.toTransferChickensNumber > self.breedingShed.totalNumbers', __this__).count() > 0" message="To transfer number must be less than existent number"/>-->
+<!--    </action-validate>-->
+
+</object-views>

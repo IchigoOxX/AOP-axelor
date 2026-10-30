@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="receiving-chicks-line-form" title="Receiving chicks lines" editable="true"
+          model="com.gl.apps.pf.db.StartReceivingChicksLine" width="large">
+        <panel title="Overview">
+            <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+            <field name=""/>
+            <field name="numberOfFemales" title="Number of females" />
+            <field name="numberOfMales" title="Number of males" />
+        </panel>
+    </form>
+
+    <grid name="receiving-chicks-line-grid" orderBy="breedingShed.reference" title="Receiving chicks lines" model="com.gl.apps.pf.db.StartReceivingChicksLine" edit-icon="true" >
+        <field name="breedingShed" readonly="true"/>
+        <field name="numberOfFemales"/>
+        <field name="numberOfMales"/>
+    </grid>
+
+
+</object-views>

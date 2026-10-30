@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="IncubatorTrolleysChargingLineDetail" >
+    <many-to-one name="incubatorTrolleysChargingLine"
+      ref="IncubatorTrolleysChargingLine" title="Incubator trolleys charging line" readonly="true"/>
+    <many-to-one name="breedingShed" ref="BreedingShed" title="Breeding Shed"
+      readonly="true"/>
+    <integer name="lineNumber" title="Line Number"/>
+    <integer name="numberOfEggTrays" title="Number of egg trays"/>
+    <integer name="numberOfEggs" title="Number of eggs"/>
+
+    <track on="UPDATE">
+      <field name="lineNumber"/>
+      <field name="numberOfEggTrays"/>
+      <field name="numberOfEggs"/>
+      <field name="dailyAge"/>
+      <field name="incubatorTrolley"/>
+      <field name="status"/>
+
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+  </entity>
+
+</domain-models>

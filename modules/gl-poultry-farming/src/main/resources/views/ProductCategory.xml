@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid id="product-category-grid-id" name="product-category-grid" title="Product categories"
+        model="com.axelor.apps.base.db.ProductCategory" extension="true">
+    <extend target="//field[@name='parentProductCategory']">
+      <insert position="after">
+        <field name="categoryDefaultFamily" />
+        <field name="allowNegativeStock" />
+      </insert>
+    </extend>
+  </grid>
+
+  <form id="product-category-form-id" name="product-category-form" title="Product category"
+        model="com.axelor.apps.base.db.ProductCategory" width="large" extension="true">
+
+    <extend target="//field[@name='growthCoef']">
+      <insert position="after">
+          <field name="categoryDefaultFamily"/>
+         <field name="allowNegativeStock" />
+      </insert>
+    </extend>
+  </form>
+</object-views>

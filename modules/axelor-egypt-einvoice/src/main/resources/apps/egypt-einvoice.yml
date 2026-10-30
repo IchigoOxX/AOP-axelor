@@ -1,0 +1,13 @@
+---
+name: Egypt E-Invoicing
+code: egypt_einvoice
+typeSelect: standard
+installOrder: 9900
+description: |
+   Egyptian Tax Authority (ETA) E-Invoicing Integration.
+image: app-invoice.png
+modules: 
+   axelor-egypt-einvoice
+dependsOn: 
+   - invoice
+sequence: 99

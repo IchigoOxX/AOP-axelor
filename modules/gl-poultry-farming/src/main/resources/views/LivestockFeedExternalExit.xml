@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="livestock-feed-external-exit-form" title="Livestock feed external exit" model="com.gl.apps.pf.db.LivestockFeedExternalExit" width="large"
+          onNew="action-set-default-values-livestock-feed-external-exit">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Bon:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4" readonly="true"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" css="btn-success" prompt="Are you sure to validate this external exit?" icon="fa-check"
+                                    onClick="save,action-group-livestock-feed-external-exit-validation"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel exit" showIf="status == 1" prompt="Are you sure you want to cancel this livestock feed external exit ?"
+                                    icon="fa-times" css="btn-danger" colSpan="12"
+                                    onClick="poultry-farming-livestock-feed-external-exit-cancel"/>
+                        </panel>
+                    </panel>
+                </panel>
+
+                <panel title="Customer:" colSpan="12" readonlyIf="status != 0">
+                    <field name="customerDelivery" required="true" domain="self.typeSelect = 2 AND self.statusSelect = 2"
+                           onChange="action-group-livestock-external-exit-delivery-changed" colSpan="4"/>
+                    <field name="partner" readonly="true" colSpan="4"/>
+                    <field name="carrierPartner" readonly="true" colSpan="4"/>
+                    <field name="estimatedDate" readonly="true" colSpan="4"/>
+                </panel>
+            </panel>
+            <panel-related name="livestockFeedExternalExitLineListPanel" colSpan="12" field="livestockFeedExternalExitLineList"
+                           form-view="livestock-feed-external-exit-line-form"
+                           grid-view="livestock-feed-external-exit-line-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="livestock-feed-external-exit-grid" title="Livestock feed external exit" model="com.gl.apps.pf.db.LivestockFeedExternalExit" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date"/>
+        <field name="customerDelivery"/>
+        <field name="partner"/>
+        <field name="carrierPartner"/>
+        <field name="estimatedDate"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="red" if="$get('status') == 2"/>
+        </field>
+    </grid>
+
+    <action-group name="action-group-livestock-external-exit-delivery-changed">
+        <action name="action-attrs-livestock-external-exit-get-info"/>
+        <action name="action-method-livestock-feed-get-lines-from-delivery"/>
+        <action name="action-attrs-livestock-external-exit-empty"/>
+    </action-group>
+
+    <action-attrs name="action-attrs-livestock-external-exit-empty" model="com.gl.apps.pf.db.LivestockFeedExternalExit">
+        <attribute if="customerDelivery == null" name="value" expr="eval: null" for="partner"/>
+        <attribute if="customerDelivery == null" name="value" expr="eval: null" for="carrierPartner"/>
+        <attribute if="customerDelivery == null" name="value" expr="eval: null" for="estimatedDate"/>
+        <attribute if="customerDelivery == null" name="value" expr="eval: null" for="livestockFeedExternalExitLineList"/>
+    </action-attrs>
+
+    <action-record name="action-set-default-values-livestock-feed-external-exit"
+                   model="com.gl.apps.pf.db.LivestockFeedExternalExit">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-attrs-livestock-external-exit-get-info" model="com.gl.apps.pf.db.LivestockFeedExternalExit">
+        <attribute if="customerDelivery != null" name="value" expr="eval: customerDelivery.partner" for="partner"/>
+        <attribute if="customerDelivery != null" name="value" expr="eval: customerDelivery.carrierPartner" for="carrierPartner"/>
+        <attribute if="customerDelivery != null" name="value" expr="eval: customerDelivery.estimatedDate" for="estimatedDate"/>
+    </action-attrs>
+
+
+    <action-method name="action-method-livestock-feed-get-lines-from-delivery">
+        <call method="getLinesFromDeliveryCustomer"
+              class="com.gl.apps.pf.web.LivestockFeedExternalExitController"/>
+    </action-method>
+
+    <action-method name="poultry-farming-livestock-feed-external-exit-validate">
+        <call method="livestockFeedExternalExitValidate"
+              class="com.gl.apps.pf.web.LivestockFeedExternalExitController"/>
+    </action-method>
+
+    <action-validate name="action-livestock-feed-external-exit-empty-list">
+        <error if="livestockFeedExternalExitLineList.isEmpty()" message="You cannot validate ! the external exit lines are empty."/>
+    </action-validate>
+
+    <action-group name="action-group-livestock-feed-external-exit-validation">
+        <action name="action-livestock-feed-external-exit-empty-list"/>
+        <action name="poultry-farming-livestock-feed-external-exit-validate"/>
+    </action-group>
+
+    <action-method name="poultry-farming-livestock-feed-external-exit-cancel">
+        <call method="livestockFeedExternalExitCancel"
+              class="com.gl.apps.pf.web.LivestockFeedExternalExitController"/>
+    </action-method>
+</object-views>

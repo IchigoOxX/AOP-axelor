@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+
+    <dashboard name="maintenance.energy.consumption.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="maintenance.energy.consumption.per.date" colSpan="12"/>
+        <dashlet height="350" action="maintenance.energy.consumption.amount.per.date" colSpan="12"/>
+    </dashboard>
+
+    <action-view name="maintenance.energy.consumption.per.date"
+                 model="com.gl.apps.pf.db.MaintenanceEnergyConsumption" title="Total energy consumption per date">
+        <view name="maintenance.energy.consumption.per.date" type="chart"/>
+    </action-view>
+    <action-view name="maintenance.energy.consumption.amount.per.date"
+                 model="com.gl.apps.pf.db.MaintenanceEnergyConsumption" title="Total amount energy consumption per date">
+        <view name="maintenance.energy.consumption.amount.per.date" type="chart"/>
+    </action-view>
+
+</object-views>
+

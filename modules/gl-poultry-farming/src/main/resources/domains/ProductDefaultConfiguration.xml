@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="ProductDefaultConfiguration">
+        <string name="name" title="Name"/>
+        <many-to-one name="company" ref="com.axelor.apps.base.db.Company" required="true"
+                     title="Company"/>
+
+        <many-to-one name="purchaseAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Purchase account"/>
+        <many-to-one name="purchaseTax" ref="com.axelor.apps.account.db.Tax"
+                     title="Purchase Tax"/>
+
+        <many-to-one name="purchaseFodecAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Purchase FODEC account"/>
+        <many-to-one name="purchaseFodec" ref="com.axelor.apps.account.db.Tax"
+                     title="Purchase FODEC"/>
+
+        <many-to-one name="purchaseDcAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Purchase DC account"/>
+        <many-to-one name="purchaseDc" ref="com.axelor.apps.account.db.Tax"
+                     title="Purchase DC"/>
+
+
+        <many-to-one name="saleAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Sale account"/>
+        <many-to-one name="saleTax" ref="com.axelor.apps.account.db.Tax"
+                     title="Sale Tax"/>
+
+        <many-to-one name="saleFodecAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Sale FODEC account"/>
+        <many-to-one name="saleFodec" ref="com.axelor.apps.account.db.Tax"
+                     title="Sale FODEC"/>
+
+        <many-to-one name="saleDcAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Sale DC account"/>
+        <many-to-one name="saleDc" ref="com.axelor.apps.account.db.Tax"
+                     title="Sale Dc"/>
+
+        <many-to-one name="fixedAssetCategory" ref="com.axelor.apps.account.db.FixedAssetCategory" title="Fixed asset category"/>
+        <many-to-one name="purchFixedAssetsAccount" ref="com.axelor.apps.account.db.Account" title="Account of purchase fixed assets"/>
+
+        <!--     START T. HAIFA #258-->
+        <many-to-one name="purchaseWithholdingAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Purchase withholding account"/>
+
+        <many-to-one name="saleWithholdingAccount" ref="com.axelor.apps.account.db.Account"
+                     title="Sale Withholding account"/>
+        <!--     END T. HAIFA #258-->
+
+        <track on="UPDATE">
+
+            <field name="name"/>
+            <field name="purchaseAccount"/>
+            <field name="purchaseTax"/>
+            <field name="purchaseFodecAccount"/>
+            <field name="purchaseDcAccount"/>
+            <field name="purchaseFodec"/>
+            <field name="purchaseDc"/>
+            <field name="saleAccount"/>
+            <field name="saleTax"/>
+            <field name="saleFodecAccount"/>
+            <field name="saleFodec"/>
+            <field name="saleDcAccount"/>
+            <field name="saleDc"/>
+            <field name="fixedAssetCategory"/>
+            <field name="purchFixedAssetsAccount"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

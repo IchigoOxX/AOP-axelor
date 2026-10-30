@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="receiving-chicks-form" title="Chicks reception" model="com.gl.apps.pf.db.StartReceivingChicks" width="large" editable="true"
+          canNew="false">
+<!--        <toolbar>-->
+<!--            <button name="Refresh" title="Refresh" onClick="poultry-farming-start-receiving-refresh-infos" showIf="status &lt; 1 &amp;&amp; id != null" icon="fa-refresh"/>-->
+<!--        </toolbar>-->
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Reception:" colSpan="10" readonlyIf="status != 0" >
+                    <field name="center" colSpan="4" onChange="action-method-start-receiving-chicks-get-lines-from-center"
+                           domain="self.type = 0"/>
+                    <field name="dateTime" colSpan="4" readonly="true"/>
+                    <field name="reference" colSpan="4"/>
+                    <field name="supplierReception" colSpan="4" readonly="true"
+                           onChange="action-method-start-get-delivery-and-supplier-from-supplier-reception,action-record-start-receiving-chicks-get-supplierReception-info"
+                           domain="self.typeSelect = 3 AND self.statusSelect = 2 AND self.isReversion = FALSE"/>
+                    <field name="supplierReceptionDate" colSpan="4"/>
+                    <field name="breedingShedActivationDate" colSpan="4"/>
+                    <field name="charges" colSpan="4"/>
+                    <field name="trackingNumber" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel colSpan="12" showTitle="false" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1 &amp;&amp; id != null" prompt="Are you sure to validate this chicks reception ?"
+                                colSpan="12" icon="fa-check" css="btn-success" onClick="save,action-validation-receiving-chicks-line"/>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="cancelBtn" title="Cancel reception" showIf="status == 1"
+                                prompt="Are you sure you want to cancel this chicks reception ?"
+                                colSpan="12" icon="fa-times" css="btn-danger"
+                                onClick="poultry-farming-start-receiving-chicks-cancel"/>
+                    </panel>
+
+                </panel>
+                <panel title="Chicks Infos:" colSpan="12">
+                    <field name="breed" readonly="true" colSpan="4"/>
+                    <field name="hatchDate" colSpan="4"/>
+                    <field name="dailyAge" colSpan="4"/>
+                </panel>
+                <panel title="Delivery:" colSpan="12">
+                    <field name="receivedFemalesNumber" colSpan="3"/>
+                    <field name="receivedMalesNumber" colSpan="3"/>
+                    <field name="receivedChicksNumber" colSpan="3"/>
+                    <field name="costPrice" colSpan="3"/>
+                </panel>
+<!--                <panel title="Invoicing:" colSpan="12">-->
+<!--                    <field name="invoicedFemalesNumber" colSpan="3"/>-->
+<!--                    <field name="invoicedMalesNumber" colSpan="3"/>-->
+<!--                    <field name="invoicedChicksNumber" colSpan="3"/>-->
+<!--                    <field name="amount" colSpan="3"/>-->
+<!--                </panel>-->
+            </panel>
+            <panel name="linesPanel" colSpan="12">
+                <panel-related name="receivingChicksLineListPanel" colSpan="12" readonlyIf="status != 0"
+                               editable="true" canNew="false" canRemove="false"
+                               field="receivingChicksLineList"
+                               form-view="receiving-chicks-line-form"
+                               grid-view="receiving-chicks-line-grid" />
+            </panel>
+        </panel>
+        <!--        <panel name="deliveryPanel" title="Delivery" sidebar="true" colSpan="12">-->
+        <!--            <field name="deliveryInfo" showTitle="false" colSpan="12" css="order-subtotal">-->
+        <!--                <viewer depends="receivedFemalesNumber,receivedMalesNumber,receivedChicksNumber,receivedChicksNumber,costPrice"><![CDATA[-->
+        <!--            <dl class="dl-horizontal" style="width: 100%;">-->
+        <!--                <dt style="text-align: left; flex: 1;" x-translate>Females number</dt>-->
+        <!--                <dd style="text-align: right;">{{$fmt('receivedFemalesNumber')}}</dd>-->
+        <!--                <dt style="text-align: left;" x-translate>Males number</dt>-->
+        <!--                <dd style="text-align: right;">{{$fmt('receivedMalesNumber')}}</dd>-->
+        <!--                <dt style="text-align: left;" class="order-subtotal-total" x-translate>Total chicks</dt>-->
+        <!--                <dd style="text-align: right;" class="order-subtotal-total">{{$fmt('receivedChicksNumber')}}</dd>-->
+        <!--                <dt style="text-align: left;" x-translate>Amount invoiced</dt>-->
+        <!--                <dd style="text-align: right;">{{$fmt('costPrice')}}</dd>-->
+        <!--            </dl>-->
+        <!--                ]]></viewer>-->
+        <!--            </field>-->
+        <!--        </panel>-->
+        <!--        <panel name="invoicingPanel" title="Invoicing" sidebar="true">-->
+        <!--            <field name="invoicingInfo" showTitle="false" colSpan="12" css="order-subtotal">-->
+        <!--                <viewer depends="invoicedFemalesNumber,invoicedMalesNumber,invoicedChicksNumber,amount,unitPurchasePrice"><![CDATA[-->
+
+        <!--                <dl class="dl-horizontal" style="width: 100%;">-->
+        <!--                  <dt style="text-align: left;" x-translate>Females number</dt>-->
+        <!--                  <dd style="text-align: right;">{{$fmt('invoicedFemalesNumber')}}</dd>-->
+        <!--                  <dt style="text-align: left;" x-translate>Males number</dt>-->
+        <!--                  <dd style="text-align: right;">{{$fmt('invoicedMalesNumber')}}</dd>-->
+        <!--                  <dt style="text-align: left;" class="order-subtotal-total" x-translate>Total chicks</dt>-->
+        <!--                  <dd style="text-align: right;" class="order-subtotal-total">{{$fmt('invoicedChicksNumber')}}</dd>-->
+        <!--                  <dt style="text-align: left;" x-translate>Amount invoiced</dt>-->
+        <!--                  <dd style="text-align: right;">{{$fmt('amount')}}</dd>-->
+        <!--              </dl>-->
+        <!--                ]]></viewer>-->
+        <!--            </field>-->
+        <!--        </panel>-->
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="receiving-chicks-grid" title="Receiving Chicks" model="com.gl.apps.pf.db.StartReceivingChicks" canNew="false" orderBy="-reference"
+          edit-icon="true">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date"/>
+        <field name="center"/>
+        <field name="trackingNumber"/>
+        <field name="breed"/>
+        <field name="dailyAge"/>
+        <field name="receivedFemalesNumber"/>
+        <field name="receivedMalesNumber"/>
+        <field name="receivedChicksNumber"/>
+        <field name="costPrice"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-group name="action-group-start-receiving-chicks-center-changed">
+        <action name="action-record-start-receiving-chicks-get-center-info"/>
+        <action name="action-method-receiving-chicks-get-lines-from-center"/>
+    </action-group>
+
+    <action-attrs name="action-record-start-receiving-chicks-get-supplierReception-info"
+                  model="com.gl.apps.pf.db.StartReceivingChicks">
+        <attribute if="supplierReception != null" for="breed" name="value"
+                   expr="eval: supplierReception.currentBreed"/>
+        <attribute if="supplierReception != null" for="trackingNumber" name="value"
+                   expr="eval: supplierReception.currentTrackingNumber"/>
+                <attribute if="supplierReception != null" for="dailyAge" name="value"
+                           expr="eval: supplierReception.currentDailyAge"/>
+    </action-attrs>
+
+    <action-method name="action-method-start-receiving-chicks-get-lines-from-center">
+        <call method="getLinesFromCenter"
+              class="com.gl.apps.pf.web.StartReceivingChicksController"/>
+    </action-method>
+
+    <action-method name="action-method-start-get-delivery-and-supplier-from-supplier-reception">
+        <call method="getValuesFromSupplierReception"
+              class="com.gl.apps.pf.web.StartReceivingChicksController"/>
+    </action-method>
+
+
+
+<!--    <action-record name="action-set-default-values-receiving-chicks"-->
+<!--                   model="com.gl.apps.pf.db.StartReceivingChicks">-->
+<!--        <field name="dateTime" expr="eval: __datetime__"/>-->
+<!--        <field name="hatchDate" expr="eval: __datetime__"/>-->
+<!--        <field name="breedingShedActivationDate" expr="eval: __datetime__"/>-->
+<!--        <field name="supplierReceptionDate" expr="eval: __datetime__"/>-->
+<!--    </action-record>-->
+
+    <action-method name="action-receiving-chicks-validate">
+        <call method="startChicksValidate"
+              class="com.gl.apps.pf.web.StartReceivingChicksController"/>
+    </action-method>
+
+
+    <action-validate name="action-receiving-checks-validate-check-exist-two-qte">
+        <error if="receivingChicksLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(StartReceivingChicksLine).all().filter('self.receivingChicks = ?1 AND self.numberOfFemales > 0 AND self.numberOfMales > 0', __this__).count() > 0" message="You cannot fill both quantities female and male at the same time!"/>
+    </action-validate>
+
+    <action-validate name="action-receiving-checks-validate-check-female-number">
+        <error if="receivingChicksLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(StartReceivingChicksLine).all().filter('self.receivingChicks = ?1 ', __this__).fetchStream().mapToInt(t-> t.getNumberOfFemales()).sum()  != __this__.getReceivedFemalesNumber()" message="The number of Females must correspond to the number of delivered females."/>
+    </action-validate>
+
+    <action-validate name="action-receiving-checks-validate-check-male-number">
+        <error if="receivingChicksLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(StartReceivingChicksLine).all().filter('self.receivingChicks = ?1 ', __this__).fetchStream().mapToInt(t-> t.getNumberOfMales()).sum() != __this__.getReceivedMalesNumber()" message="The number of Male must correspond to the number of delivered males."/>
+    </action-validate>
+
+    <action-validate name="action-receiving-checks-empty-list">
+        <error if="receivingChicksLineList.isEmpty()" message="You cannot validate ! The chick reception lines are empty."/>
+    </action-validate>
+
+    <action-group name="action-validation-receiving-chicks-line">
+        <action name="action-receiving-checks-empty-list"/>
+        <action name="action-receiving-checks-validate-check-exist-two-qte"/>
+        <action name="action-receiving-checks-validate-check-female-number"/>
+        <action name="action-receiving-checks-validate-check-male-number"/>
+        <action name="action-receiving-chicks-validate"/>
+    </action-group>
+
+    <action-method name="poultry-farming-start-receiving-chicks-cancel">
+        <call method="startChicksCancel"
+              class="com.gl.apps.pf.web.StartReceivingChicksController"/>
+    </action-method>
+
+    <action-method name="poultry-farming-start-receiving-refresh-infos">
+        <call method="refreshValuesFromSupplierReception"
+              class="com.gl.apps.pf.web.StartReceivingChicksController"/>
+    </action-method>
+
+</object-views>

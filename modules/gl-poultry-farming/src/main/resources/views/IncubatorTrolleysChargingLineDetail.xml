@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="incubator-trolleys-charging-line-detail-grid" title="Incubator trolleys charging line details" orderBy="breedingShed"
+          model="com.gl.apps.pf.db.IncubatorTrolleysChargingLineDetail" edit-icon="true">
+        <field name="lineNumber" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="numberOfEggTrays" min="1" onChange="get-incubator-trolley-charging-line-detail-get-eggs"/>
+        <field name="numberOfEggs" min="1" onChange="get-incubator-trolley-charging-line-detail-get-trays"/>
+    </grid>
+
+
+    <form name="incubator-trolleys-charging-line-detail-form" title="Incubator trolleys charging line detail"
+          model="com.gl.apps.pf.db.IncubatorTrolleysChargingLineDetail">
+        <panel title="Overview">
+            <field name="lineNumber" readonly="true"/>
+            <field name="breedingShed"/>
+            <field name="numberOfEggTrays" onChange="get-incubator-trolley-charging-line-detail-get-eggs"/>
+            <field name="numberOfEggs" onChange="get-incubator-trolley-charging-line-detail-get-trays"/>
+        </panel>
+    </form>
+
+    <action-attrs name="get-incubator-trolley-charging-line-detail-get-eggs"
+                  model="com.gl.apps.pf.db.IncubatorTrolleysChargingLineDetail">
+        <attribute if="numberOfEggTrays != 0" name="value" expr="eval: (int) Math.ceil(numberOfEggTrays * __parent__._capacityOfAnEggTray)"
+                   for="numberOfEggs"/>
+    </action-attrs>
+
+    <action-attrs name="get-incubator-trolley-charging-line-detail-get-trays"
+                  model="com.gl.apps.pf.db.IncubatorTrolleysChargingLineDetail">
+        <attribute if="numberOfEggs != 0" name="value" expr="eval: (int) Math.ceil( numberOfEggs / __parent__._capacityOfAnEggTray ) "
+                   for="numberOfEggTrays"/>
+    </action-attrs>
+
+
+
+</object-views>

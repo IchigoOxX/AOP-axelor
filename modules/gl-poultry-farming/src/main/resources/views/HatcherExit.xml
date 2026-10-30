@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatcher-exit-form" title="Hatcher exits" model="com.gl.apps.pf.db.HatcherExit" width="large" canNew="false"
+          onLoad="action-group-hatcher-exit-on-load"
+          onNew="action-attr-flesh-chick,action-set-default-values-hatcher-exit" onSave="save,action-method-hatcher-exit-calculate-values">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Piece:" colSpan="12" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="datetime" colSpan="4" readonly="true"/>
+                    <field name="" colSpan="4"/>
+                    <field name="hatcherEntry" target-name="reference" domain="self.status = 1" colSpan="4" readonly="true"
+                           onChange="action-group-hatcher-exits-hatcher-entry-changed"/>
+                    <field name="incubator" colSpan="4" target-name="reference" readonly="true"/>
+                    <field name="incubatorExit" target-name="reference" colSpan="4" readonly="true"/>
+                    <field name="dateTimeHatcherEntry" colSpan="4" title="Hatcher entry date" readonly="true"/>
+                    <field name="loadingProgramLine" colSpan="4" readonly="true" target-name="completeReference"/>
+                    <field name="dateTimeIncubatorExit" colSpan="4" title="Incubator exit date" readonly="true"/>
+                    <field name="hatcher" colSpan="4" readonly="true"/>
+                    <field name="hatchery" colSpan="4" readonly="true"/>
+                    <field name="dateTimeHatcherEntryExit" title="Expected hatcher exit date" colSpan="4" readonly="true"/>
+                    <field name="breed" colSpan="4" readonly="true"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="capacity" colSpan="4" readonly="true" title="Hatcher trolley capacity"/>
+
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validerBtn" title="Validate" showIf="status &lt; 1" css="btn-success"
+                            prompt="Are you sure you want to validate this hatcher exit ?" icon="fa-check"
+                            colSpan="12"
+                            onClick="save,action-group-hatcher-exits-validate"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel exit" showIf="status == 1" prompt="Are you sure you want to cancel this hatcher exit ?" icon="fa-times" css="btn-danger" colSpan="12" onClick="action-hatcher-exit-show-dialog-cancel-reason"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="revalidateBtn" title="Revalidate" showIf="status == 3" colSpan="12" css="btn-warning" icon="fa-refresh" onClick="save,action-hatcher-exit-revalidate"/>
+                </panel>
+            </panel>
+            <panel title="Totals:" colSpan="12" readonlyIf="status != 0">
+<!--                <field name="customerSaleOrder" onSelect="action-attrs-hatcher-exit-customer-order-selected" colSpan="4" onChange="action-hatcher-exit-get-extern-number"/>-->
+                <field name="internNumber" readonly="true" colSpan="4"/>
+                <field name="externNumber" colSpan="4" readonly="true"/>
+                <field name="_fleshChair" hidden="true" colSpan="4"/>
+            </panel>
+            <panel showTitle="false" colSpan="12">
+                <panel title="Hatching:" colSpan="12" readonlyIf="status != 0">
+                    <panel title="Reception:" colSpan="4">
+                        <field name="safe" onChange="action-method-hatcher-exit-divide-total-safe,save"/>
+                        <field name="safeRate" readonly="true"/>
+                        <field name="sort" onChange="action-method-hatcher-exit-divide-total-safe,save"/>
+                        <field name="sortRate" readonly="true"/>
+                        <field name="mortality" onChange="action-method-hatcher-exit-divide-total-safe,save"/>
+                        <field name="mortalityRate" readonly="true"/>
+                    </panel>
+                    <panel title="Totals:" colSpan="4">
+                        <field name="totalEntry" colSpan="12" readonly="true"/>
+                        <field name="theoryNumber" colSpan="12" readonly="true"/>
+                        <field name="successRate" colSpan="12" readonly="true"/>
+                    </panel>
+                    <panel title="Packages:" colSpan="4">
+                        <field name="numberOfChicksPerPackage" colSpan="6" readonly="true"/>
+                        <field name="numberOfPackage" colSpan="6" readonly="true"/>
+                        <panel title="Delivery:" colSpan="12">
+                        <field name="deliveryCapacity" colSpan="6" title="Delivery capacity" onChange="action-hatcher-exit-delivery-capacity-changed"/>
+                        <field name="numberOfPackagingDelivery" colSpan="6" readonly="true"/>
+                        </panel>
+                    </panel>
+                </panel>
+            </panel>
+
+            <panel-related name="hatcherExitLinesListPanel" colSpan="12" field="hatcherExitLinesList" readonlyIf="status != 0"
+                           form-view="hatcher-exit-line-form" onChange="action-group-hatcher-exit-lines-changed"
+                           grid-view="hatcher-exit-line-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+
+            <panel-related name="fleshLoadingProgramListPanel" colSpan="12" field="fleshLoadingProgramList" readonlyIf="status != 0"
+                           form-view="hatcher-exit-flesh-loading-program-line-form"
+                           grid-view="hatcher-exit-flesh-loading-program-line-grid"
+                           onChange="action-hatcher-exit-get-intern-number"
+                           editable="true" canNew="false" canRemove="false"/>
+
+            <panel-related name="saleOrderLineListPanel" field="customerSaleOrderLine"
+                           showTitle="false" readonlyIf="status != 0" colSpan="12"
+                           form-view="hatcher-exit-sale-order-line-form"
+                           grid-view="sale-order-line-grid"
+                           editable="false" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="hatcher-exit-grid" title="Hatcher exits" model="com.gl.apps.pf.db.HatcherExit" edit-icon="true" canNew="false" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="datetime"/>
+        <field name="hatcherEntry"/>
+        <field name="hatcher"/>
+        <field name="loadingProgramLine"/>
+        <field name="incubator"/>
+        <field name="incubatorExit"/>
+        <field name="dateTimeHatcherEntryExit" title="Expected hatcher exit date"/>
+        <field name="breed"/>
+        <field name="hatchery"/>
+        <field name="safe"/>
+        <field name="safeRate"/>
+        <field name="sort"/>
+        <field name="sortRate"/>
+        <field name="mortality"/>
+        <field name="mortalityRate"/>
+
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-view name="action-hatcher-exit-show-dialog-cancel-reason" model="com.gl.apps.pf.db.HatcherExit" title="Cancelation">
+        <view name="hatcher-exit-cancel-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="hatcher-exit-cancel-dialog-form" title="Cancelation" model="com.gl.apps.pf.db.HatcherExit">
+        <panel>
+            <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+            <button name="btnCancel" title="Validate" onClick="action-hatcher-exit-cancel,close" confirm="false" style="danger" target="none"/>
+        </panel>
+    </form>
+
+    <form name="hatcher-exit-sale-order-line-form" title="SO line" model="com.gl.apps.pf.db.HatcherExit"
+          onLoad="action-group-sale-saleorderline-onload,action-sale-order-line-attrs-hidden-fields-for-client"
+          onNew="action-group-sale-saleorderline-onnew" width="large">
+        <panel name="saleOrderPanel" title="Sale order infos">
+            <field name="saleOrder" colSpan="4" title="Sale order"/>
+            <field name="saleOrder.creationDate" colSpan="4" title="Creation date"/>
+            <field name="saleOrder.statusSelect" colSpan="4" title="Status"/>
+        </panel>
+        <panel name="productPanel" showIf="typeSelect > 0">
+            <field name="productName" colSpan="9" title="Title"/>
+            <field name="typeSelect" requiredIf="typeSelect != 0" colSpan="3"
+                   onChange="action-sale-order-line-method-empty-line"/>
+            <field name="isShowTotal" colSpan="3"
+                   onChange="action-sale-order-line-record-reset-is-hide-unit-amounts"
+                   if="__config__.app.getApp('sale')?.enablePackManagement" showIf="typeSelect == 3"/>
+            <field name="isHideUnitAmounts" colSpan="3"
+                   if="__config__.app.getApp('sale')?.enablePackManagement"
+                   showIf="typeSelect == 3 &amp;&amp; isShowTotal"/>
+            <panel name="descriptionPanel" showIf="typeSelect == 1" title="Description" colSpan="12">
+                <field name="description" showTitle="false" colSpan="12" widget="Html" x-lite="true"/>
+            </panel>
+        </panel>
+
+        <panel-tabs name="mainPanelTab" hideIf="typeSelect > 0">
+            <panel name="informationsPanel" title="Information">
+                <!-- The condition $isReadOnly !== false is used to manage the case where isReadOnly is null. -->
+                <panel name="productInfoPanel" colSpan="12"
+                       readonlyIf="$isReadOnly !== false || deliveryState == 2 || deliveryState == 3 || amountInvoiced &gt; 0">
+                    <panel name="tagPanel" colSpan="12">
+                        <field name="$partnerLanguage" hidden="true"/>
+                        <field name="$differentLanguageMessage" readonly="true" hidden="true" colSpan="12"
+                               showTitle="false">
+                            <viewer depends="$partnerLanguage">
+                                <![CDATA[
+                  <div style="width:fit-content;height:fit-content;" style="position:absolute" class="label label-warning"><span x-translate>The partner's language is different from the current language. Description and product name are in :</span> {{record.$partnerLanguage}}</div>
+              ]]>
+                            </viewer>
+                        </field>
+                        <field name="$viewerTag" showTitle="false" showIf="product != null"
+                               readonly="true" colSpan="2">
+                            <viewer depends="product.isUnrenewed,product.isPrototype"><![CDATA[
+					 	<h4>
+	                        <span class="label label-important" ng-show="record.product.isUnrenewed" x-translate>Unrenewed</span>
+	                        <span class="label label-important" ng-show="record.product.isPrototype" x-translate>Prototype</span>
+	                    </h4>
+					]]>
+                            </viewer>
+                        </field>
+                        <field name="invoicingState" showTitle="false" showIf="id &amp;&amp; $readonly()"
+                               colSpan="2" if-module="axelor-supplychain" if="__config__.app.isApp('supplychain')">
+                            <viewer depends="invoicingState"><![CDATA[
+                        <h4>
+                            <span class="label label-success" ng-show="record.invoicingState == 3" x-translate>Invoiced</span>
+                            <span class="label label-warning" ng-show="record.invoicingState == 2" x-translate>Partially invoiced</span>
+                            <span class="label label-important" ng-show="record.invoicingState == 1" x-translate>Not invoiced</span>
+                        </h4>
+                    ]]>
+                            </viewer>
+                        </field>
+                        <field name="deliveryState" showTitle="false" colSpan="2"
+                               showIf="deliveryState > 0" if-module="axelor-supplychain"
+                               if="__config__.app.isApp('supplychain')">
+                            <viewer><![CDATA[
+	                    <h4>
+	                        <span class="label label-important" ng-show="record.deliveryState == 1" x-translate>Not delivered</span>
+	                        <span class="label label-warning" ng-show="record.deliveryState == 2" x-translate>Partially delivered</span>
+	                        <span class="label label-success" ng-show="record.deliveryState == 3" x-translate>Delivered</span>
+	                    </h4>
+					]]></viewer>
+                        </field>
+                        <field name="$availabiltyRequest" showIf="$availabiltyRequest" showTitle="false"
+                               type="boolean" colSpan="2" if-module="axelor-supplychain"
+                               if="__config__.app.isApp('supplychain')">
+                            <viewer><![CDATA[
+						<h4>
+							<span class="label label-success" ng-show="record.$availabiltyRequest" x-translate>Availability request</span>
+						</h4>
+					]]></viewer>
+                        </field>
+
+                        <field name="isQtyRequested" showTitle="false" colSpan="2"
+                               showIf="isQtyRequested &amp;&amp; product &amp;&amp; product.productTypeSelect != 'service'"
+                               if-module="axelor-supplychain" if="__config__.app.isApp('supplychain')">
+                            <viewer><![CDATA[
+						<h4>
+							<span class="label label-success" ng-show="record.isQtyRequested" x-translate>Reservation requested</span>
+						</h4>
+					]]></viewer>
+                        </field>
+
+                    </panel>
+                    <field name="product" canEdit="false"
+                           onChange="action-group-sale-saleorderline-product-onchange"
+                           onSelect="action-sale-order-line-method-domain-product" form-view="product-form"
+                           grid-view="product-grid" if="!__config__.app.isApp('supplychain')"/>
+                    <field name="product" canEdit="false"
+                           onChange="action-group-sale-saleorderline-product-onchange"
+                           onSelect="action-sale-order-line-method-domain-product" form-view="product-form"
+                           grid-view="stock-move-line-product-grid" if="__config__.app.isApp('supplychain')"/>
+                    <field name="enableFreezeFields" colSpan="2"/>
+                    <field name="typeSelect" colSpan="2"
+                           onChange="action-sale-order-line-method-empty-line,action-sale-order-attrs-hide-ati"/>
+                    <field name="productName" colSpan="12"/>
+                    <field name="oldQty"/>
+                    <field name="product.isUnrenewed" hidden="true"/>
+                    <field name="product.isPrototype" hidden="true"/>
+                    <field name="saleOrder" hidden="true"/>
+                </panel>
+
+                <panel name="productDetailPanel" colSpan="12">
+                    <field name="qty" colSpan="3"
+                           onChange="action-group-sale-saleorderline-qty-onchange"
+                           readonlyIf="$availabiltyRequest || ($isReadOnly !== false &amp;&amp; !$get('saleOrder.orderBeingEdited'))"
+                           validIf="$qtyValid != false"/>
+                    <field name="unit" colSpan="3"
+                           readonlyIf="$isReadOnly !== false || deliveryState == 3 || $nonNegotiable"
+                           requiredIf="typeSelect == 0" canEdit="false" form-view="unit-form" grid-view="unit-grid"/>
+                    <field name="price" colSpan="3"
+                           readonlyIf="$isReadOnly !== false || deliveryState == 3 || $nonNegotiable"
+                           onChange="action-sale-order-line-method-onchange-price,action-sale-order-line-method-compute,action-sale-order-line-method-compute-analytic-distribution"
+                           hidden="true"/>
+                    <field name="inTaxPrice" colSpan="3"
+                           readonlyIf="$isReadOnly !== false || deliveryState == 3"
+                           onChange="action-sale-order-line-method-onchange-intaxprice,action-sale-order-line-method-compute,action-sale-order-line-method-compute-analytic-distribution"
+                           hidden="true"/>
+                    <panel name="discountPanel" colSpan="12"
+                           readonlyIf="$isReadOnly !== false || deliveryState == 3">
+                        <field name="discountTypeSelect" colSpan="3" readonlyIf="$nonNegotiable"
+                               onChange="action-sale-order-line-group-discount-type-select-onchange"/>
+                        <!--This panel purpose is to avoid issues with permission by field -->
+                        <panel name="discountAmountPanel" colSpan="9" hideIf="discountTypeSelect == 0">
+                            <field name="discountAmount" colSpan="3" readonlyIf="$nonNegotiable"
+                                   validIf="!$maxDiscount || (discountTypeSelect == 1 &amp;&amp; $number(discountAmount) &lt;= ($number(discountDerogation) || $number($maxDiscount))) || (discountTypeSelect == 2 &amp;&amp; 100*$number(discountAmount)/$number(price) &lt;= ($number(discountDerogation) || $number($maxDiscount)))"
+                                   onChange="action-sale-order-line-group-discount-amount-onchange"/>
+                            <field name="discountDerogation" colSpan="3"
+                                   onChange="action-sale-order-line-record-fill-discount-amount-from-derogation,action-sale-order-line-group-discount-amount-onchange"/>
+                        </panel>
+                        <field name="priceDiscounted" colSpan="3" hidden="true" readonly="true"/>
+                        <field name="$maxDiscount" colSpan="12" showTitle="false" showIf="$maxDiscount"
+                               readonly="true">
+                            <viewer><![CDATA[
+								<h4>
+									<span class="label label-warning"><span x-translate>Max discount</span> {{record.$maxDiscount}}%</span>
+								</h4>
+							]]>
+                            </viewer>
+                        </field>
+                    </panel>
+                    <label name="multipleQtyNotRespectedLabel" hidden="true" colSpan="12"/>
+                    <field name="discountsNeedReview" hidden="true"/>
+                    <field name="$qtyValid" hidden="true" colSpan="12"/>
+                </panel>
+
+                <panel name="taxPanel" colSpan="12">
+                    <field name="taxLine" canEdit="false" colSpan="6"
+                           readonlyIf="$isReadOnly !== false || deliveryState == 2 || deliveryState == 3 || amountInvoiced &gt; 0"
+                           onChange="action-group-sale-saleorderline-tax-line-onchange"
+                           domain="self.endDate = null or self.endDate &gt; :__date__" grid-view="tax-line-grid"
+                           form-view="tax-line-form"/>
+                    <field name="exTaxTotal" readonly="true" colSpan="3"/>
+                    <field name="inTaxTotal" readonly="true" colSpan="3"/>
+                </panel>
+                <panel name="reservationPanel" colSpan="12" if-module="axelor-supplychain"
+                       if="__config__.app.isApp('supplychain')">
+                    <field name="requestedReservedQty" colSpan="6" hidden="true"
+                           if-module="axelor-supplychain"
+                           onChange="action-supplychain-attrs-sale-order-line-max-requested-reserved-qty"
+                           if="__config__.app.getApp('supplychain')?.getManageStockReservation()"/>
+                    <field name="reservedQty" colSpan="6" readonly="true" hidden="true"
+                           if-module="axelor-supplychain"
+                           if="__config__.app.getApp('supplychain')?.getManageStockReservation()"/>
+                    <field hidden="true" name="isQtyRequested"/>
+                    <panel name="requestedQtyBtnsPanel" colSpan="12" if-module="axelor-supplychain"
+                           if="__config__.app.getApp('supplychain')?.getManageStockReservation()">
+                        <button name="updateRequestedReservedQtyBtn" colSpan="6" hidden="true"
+                                title="Change requested reserved qty"
+                                onClick="action-view-sale-order-line-requested-reserved-qty-wizard"/>
+                    </panel>
+                    <panel name="reservedQtyBtnsPanel" colSpan="12" if-module="axelor-supplychain"
+                           if="__config__.app.getApp('supplychain')?.getManageStockReservation()">
+                        <button name="updateAllocatedQtyBtn" colSpan="6" hidden="true"
+                                title="Change allocated qty"
+                                onClick="action-view-sale-order-line-allocated-qty-wizard"/>
+                    </panel>
+                    <panel name="requestedReservedQtyBtnqPanel" colSpan="12"
+                           if-module="axelor-supplychain"
+                           if="__config__.app.getApp('supplychain')?.getManageStockReservation()">
+                        <button name="requestQty" title="Request reservation"
+                                showIf="product &amp;&amp; product.productTypeSelect != 'service' &amp;&amp; !isQtyRequested"
+                                onClick="save,action-method-sale-order-line-request-qty"/>
+                    </panel>
+                    <panel name="cancelReservedQtyBtnqPanel" colSpan="12" if-module="axelor-supplychain"
+                           if="__config__.app.getApp('supplychain')?.getManageStockReservation()">
+                        <button name="cancelReservation" title="Cancel reservation"
+                                showIf="product &amp;&amp; product.productTypeSelect != 'service' &amp;&amp; isQtyRequested"
+                                onClick="save,action-method-sale-order-line-cancel-reservation"/>
+                    </panel>
+                </panel>
+                <field name="$availableStock" colSpan="3" readonly="true"
+                       showIf="product &amp;&amp; product.productTypeSelect != 'service'" type="decimal"
+                       title="Available stock" if-module="axelor-supplychain"
+                       if="__config__.app.getApp('supplychain')?.getManageStockReservation()"/>
+                <field name="$allocatedStock" colSpan="3" readonly="true"
+                       showIf="product &amp;&amp; product.productTypeSelect != 'service'" type="decimal"
+                       title="Allocated stock" if-module="axelor-supplychain"
+                       if="__config__.app.getApp('supplychain')?.getManageStockReservation()"/>
+                <field name="$totalStock" colSpan="3" readonly="true"
+                       showIf="product &amp;&amp; product.productTypeSelect != 'service'" type="decimal"
+                       title="Total stock" if-module="axelor-supplychain"
+                       if="__config__.app.getApp('supplychain')?.getManageStockReservation()"/>
+                <field name="taxEquiv" hidden="true" grid-view="tax-equiv-grid"
+                       form-view="tax-equiv-form"/>
+                <field name="selectedComplementaryProductList"
+                       grid-view="complementary-product-selected-grid"
+                       form-view="complementary-product-selected-form" colSpan="12" canView="false"
+                       canEdit="false" canRemove="false" canNew="false" canSelect="false"
+                       onChange="action-sale-order-line-record-complementary-products-to-handle" hidden="true"
+                       showIf="selectedComplementaryProductList != null &amp;&amp; selectedComplementaryProductList.length &gt; 0"/>
+                <panel name="descriptionPanel" title="Description" colSpan="12"
+                       readonlyIf="$isReadOnly !== false">
+                    <field name="description" showTitle="false" colSpan="12" widget="Html" x-lite="true"/>
+                </panel>
+                <panel name="lineProductionCommentPanel" title="Line production commentary"
+                       colSpan="12" readonlyIf="$isReadOnly !== false">
+                    <field name="lineProductionComment" showTitle="false" colSpan="12" widget="Html"
+                           x-lite="true"/>
+                </panel>
+                <field name="$isReadOnly" hidden="true"/>
+                <field name="product.productTypeSelect" hidden="true"/>
+            </panel>
+            <panel name="marginPanel" title="Margin" readonlyIf="$isReadOnly !== false">
+                <field name="subTotalCostPrice"
+                       onChange="action-sale-order-line-method-compute-subMargin"/>
+                <field name="subTotalGrossMargin" readonly="true"/>
+                <field name="subMarginRate" readonly="true"/>
+                <field name="subTotalMarkup" readonly="true"/>
+                <field name="$companyCurrency" readonly="true" title="Currency" type="many-to-one"
+                       target="com.axelor.apps.base.db.Currency"/>
+            </panel>
+            <panel name="deliveryPanel" title="Delivery">
+                <field name="desiredDeliveryDate" readonlyIf="$availabiltyRequest"/>
+                <field name="estimatedShippingDate"
+                       onChange="action-sale-order-line-group-deliv-estimated-date-onchange"
+                       readonlyIf="$availabiltyRequest"/>
+                <field name="estimatedDeliveryDate" readonlyIf="$availabiltyRequest"/>
+                <field name="deliveredQty" readonly="true" hidden="true"/>
+                <button name="$previewBtn" title="See stock details" icon="fa-cubes" colSpan="4"
+                        widget="info-button"
+                        onClick="action-stock-location-line-view-for-a-product-from-saleorderline-view"
+                        if-module="axelor-supplychain"/>
+                <field name="pickingOrderInfo" colSpan="12" if-module="axelor-supplychain"
+                       if="__config__.app.isApp('supplychain')" readonlyIf="$isReadOnly !== false"
+                       hideIf="product.productTypeSelect == 'service'"/>
+                <panel-dashlet name="stockMoveLineOfSOPanel" title="Stock Moves"
+                               action="action-sale-order-line-view-stock-move-line" colSpan="12"
+                               if-module="axelor-supplychain" if="__config__.app.isApp('supplychain')"
+                               readonlyIf="$isReadOnly !== false"/>
+            </panel>
+            <panel name="invoicingFollowUpPanel" title="Invoicing"
+                   readonlyIf="$isReadOnly !== false" if-module="axelor-supplychain"
+                   if="__config__.app.isApp('supplychain')">
+                <field name="amountInvoiced"/>
+                <panel-dashlet name="invoiceLinesFromSOLinePanel"
+                               action="action-sale-order-line-view-show-invoice-lines" colSpan="12"/>
+            </panel>
+            <panel name="projectPanel"
+                   if="__config__.app.isApp('business-project') &amp;&amp; __config__.app.getApp('business-project').getProjectSaleOrderLines()"
+                   title="Business Project" readonlyIf="$isReadOnly !== false"
+                   if-module="axelor-business-project">
+                <field name="project" title="Business Project" canEdit="false"
+                       onSelect="action-sale-order-line-attrs-domain-project"
+                       onChange="action-sale-order-line-record-progress" form-view="project-form"
+                       grid-view="project-grid"/>
+                <field name="toInvoice" colSpan="3"
+                       if="__config__.app.isApp('business-project') &amp;&amp; __config__.app.getApp('business-project').getProjectSaleOrderLines()"
+                       if-module="axelor-business-project"/>
+                <panel-dashlet name="projectTaskListPanel" title="Related tasks"
+                               action="action-sale-order-line-view-project-tasks" colSpan="12"/>
+            </panel>
+            <panel name="analyticDistributionPanel" title="Analytics" if-module="axelor-supplychain"
+                   onTabSelect="action-sale-order-line-attrs-read-only-distribution-lines">
+                <field name="analyticDistributionTemplate"
+                       grid-view="analytic-distribution-template-grid"
+                       form-view="analytic-distribution-template-form" canEdit="false"
+                       onChange="action-sale-order-line-method-create-distribution"
+                       onSelect="action-sale-order-line-attrs-set-domain-analytic-distribution-template"/>
+                <panel-related name="analyticMoveLineListPanel"
+                               readonlyIf="$isReadOnly !== false" field="analyticMoveLineList"
+                               grid-view="analytic-move-line-distribution-grid"
+                               form-view="analytic-move-line-distribution-form" colSpan="12"
+                               onChange="action-analytic-move-line-group-analytic-move-line-list-onchange"/>
+                <field name="$isValidAnalyticMoveLineList" type="boolean" hidden="true"/>
+            </panel>
+            <panel name="settingsPanel" readonlyIf="$isReadOnly !== false" title="Configuration">
+                <field name="saleSupplySelect"
+                       onChange="action-group-sale-saleorderline-salesupplyselect-onchange"
+                       if-module="axelor-supplychain" if="__config__.app.isApp('supplychain')"/>
+                <field name="standardDelay" if-module="axelor-supplychain"
+                       if="__config__.app.isApp('supplychain')" hidden="true"
+                       showIf="saleSupplySelect == 2 || saleSupplySelect ==3"/>
+                <field name="pricingScaleLogs" colSpan="12"
+                       showIf="pricingScaleLogs &amp;&amp; product"/>
+                <field name="supplierPartner" showIf="saleSupplySelect == 2"
+                       onSelect="action-sale-order-line-method-supplier-partner-domain" form-view="partner-form"
+                       grid-view="partner-grid"/>
+                <field name="billOfMaterial"
+                       onSelect="action-sale-order-line-attrs-bill-of-material-domain"
+                       if-module="axelor-production" form-view="bill-of-material-form"
+                       grid-view="bill-of-material-grid" if="__config__.app.isApp('production')" canEdit="true"/>
+                <button name="customizeBOMBtn" title="Customize BOM"
+                        onClick="action-production-method-customize-bill-of-material"
+                        if-module="axelor-production" if="__config__.app.isApp('production')"/>
+            </panel>
+        </panel-tabs>
+        <panel name="attrsPanel">
+            <field name="attrs" colSpan="12"/>
+        </panel>
+        <panel name="statusPanel" hidden="true">
+            <field name="saleOrder.statusSelect"/>
+            <field name="saleOrder.orderBeingEdited"/>
+            <field name="product.isUnrenewed" hidden="true"/>
+            <field name="product.isPrototype" hidden="true"/>
+            <field name="saleOrder" hidden="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages/>
+        </panel-mail>
+    </form>
+
+
+    <action-method name="action-hatcher-exit-cancel">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="HatcherExitCancel"/>
+    </action-method>
+
+
+    <action-record name="action-set-default-values-hatcher-exit"
+                   model="com.gl.apps.pf.db.HatcherExit">
+        <field name="datetime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-record name="action-set-date-hatcher-exit" model="com.gl.apps.pf.db.HatcherExit">
+        <field name="dateTimeHatcherEntryExit"
+               expr="eval: dateTimeHatcherEntry.plusDays(hatcherEntry.hatchery.numberOfHatchingDays).plusHours(hatcherEntry.hatchery.numberOfHoursOfHatching)"/>
+    </action-record>
+
+    <action-attrs name="action-hatcher-exit-hatcher-entry-changed"
+                  model="com.gl.apps.pf.db.HatcherExit">
+        <attribute if="hatcherEntry != null" for="dateTimeHatcherEntry" name="value"
+                   expr="eval: hatcherEntry.dateTime"/>
+        <attribute if="hatcherEntry != null" for="breed" name="value"
+                   expr="eval: hatcherEntry.breed"/>
+        <attribute if="hatcherEntry != null &amp;&amp; !hatcherEntry.hatcherEntryLinesList?.isEmpty()" for="hatcher"
+                   expr="eval: hatcherEntry.hatcherEntryLinesList?.collect{it.hatcher.reference}?.join(', ')" name="value"/>
+        <attribute if="hatcherEntry != null" for="incubatorExit" name="value"
+                   expr="eval: hatcherEntry.incubatorExit"/>
+        <attribute if="hatcherEntry != null" for="dateTimeIncubatorExit" name="value"
+                   expr="eval: hatcherEntry.dateTimeIncubatorExitEntry"/>
+        <attribute if="hatcherEntry != null" for="incubator" name="value"
+                   expr="eval: hatcherEntry.incubator"/>
+        <attribute if="hatcherEntry != null" for="hatchery" name="value"
+                   expr="eval: hatcherEntry.hatchery"/>
+        <attribute if="hatcherEntry != null" for="numberOfChicksPerPackage" name="value"
+                   expr="eval: hatcherEntry.hatchery.packagingProduct.capacity"/>
+        <attribute if="hatcherEntry != null" for="loadingProgramLine" name="value"
+                   expr="eval: hatcherEntry.incubatorExit.incubatorEntry.loadingProgramLine"/>
+        <attribute if="hatcherEntry != null" for="successRate" name="value"
+                   expr="eval: hatcherEntry.breed.hatchingRate"/>
+    </action-attrs>
+
+    <action-method name="action-hatcher-exit-get-hatcher-exit-lines">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="getLinesFromHatcherEntry"/>
+    </action-method>
+
+    <action-group name="action-group-hatcher-exits-hatcher-entry-changed">
+        <action name="action-hatcher-exit-hatcher-entry-changed"/>
+        <action name="action-hatcher-exit-get-hatcher-exit-lines"/>
+        <action name="action-method-hatcher-exit-get-lines-loading-program"/>
+    </action-group>
+
+    <action-validate name="action-validate-hatcher-exit-date">
+        <error if="dateTimeHatcherEntryExit.isAfter(__datetime__.toLocalDateTime())" message="You cannot validate the hatcher exit before the hatcher exit date."/>
+    </action-validate>
+
+    <action-group name="action-group-hatcher-exits-validate">
+        <action name="action-hatcher-exits-check-empty-list"/>
+        <action name="action-hatcher-exits-check-empty-flesh-loading-program-list"/>
+        <action name="action-validate-hatcher-exit-date"/>
+        <action name="action-hatcher-exit-validate"/>
+    </action-group>
+
+    <action-validate name="action-hatcher-exits-check-empty-list">
+        <error if="hatcherExitLinesList.isEmpty()" message="You cannot validate ! hatcher exits list is empty."/>
+    </action-validate>
+
+    <action-method name="action-hatcher-exit-validate">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="HatcherExitValidate"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-hatcher-exit-calculate-baskets-number-changed">
+        <attribute if="!hatcherExitLinesList?.isEmpty()" for="numberOfPackage" name="value" expr="eval: (int) Math.ceil( hatcherExitLinesList?.collect{it->it.safe}?.sum() / numberOfChicksPerPackage ) "/>
+    </action-attrs>
+
+    <action-validate name="action-validate-hatcher-exit-safe-numbers">
+        <error if="hatcherExitLinesList != null &amp;&amp; hatcherExitLinesList?.any { it.safe > capacity }" message="The safe number in every hatcher trolley must be less than hatcher trolley's capacity"/>
+    </action-validate>
+
+    <action-group name="action-group-hatcher-exit-lines-changed">
+        <action name="action-validate-hatcher-exit-safe-numbers"/>
+        <action name="action-attrs-hatcher-exit-calculate-baskets-number-changed"/>
+    </action-group>
+
+    <action-method name="action-hatcher-exit-revalidate">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="HatcherExitRevalidate"/>
+    </action-method>
+
+    <action-method name="action-method-hatcher-exit-calculate-values">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="HatcherExitCalculateReceptionValues"/>
+    </action-method>
+
+    <action-attrs name="action-hatcher-exit-delivery-capacity-changed"
+                  model="com.gl.apps.pf.db.HatcherExit">
+        <attribute if="deliveryCapacity != 0" for="numberOfPackagingDelivery" name="value"
+                   expr="eval: (int) Math.ceil( capacity / deliveryCapacity ) "/>
+    </action-attrs>
+
+    <action-method name="action-method-hatcher-exit-get-lines-loading-program">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="getFleshLoadingProgramLines"/>
+    </action-method>
+
+    <action-method name="action-method-hatcher-exit-get-lines-sale-order">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="getLinesSaleOrderLines"/>
+    </action-method>
+
+    <action-method name="action-method-hatcher-exit-divide-total-safe">
+        <call class="com.gl.apps.pf.web.HatcherExitController" method="divideTotalEntryOnLines"/>
+    </action-method>
+
+    <action-record name="action-attr-flesh-chick" model="com.gl.apps.pf.db.HatcherExit">
+        <field name="_fleshChair" expr="eval: __config__.app.getApp('poultry-farming')?.chairChicks"/>
+    </action-record>
+
+    <action-attrs name="action-attr-show-hatcher-exit-flesh-chicks-params" model="com.axelor.apps.sale.db.SaleOrder">
+        <attribute name="domain" expr="eval: 'self.id IN (SELECT DISTINCT so.id FROM SaleOrder so JOIN SaleOrderLine sol ON so.id = sol.saleOrder WHERE sol.product = :_fleshChair AND so.statusSelect = 3)'" for="customerSaleOrder"/>
+    </action-attrs>
+
+    <action-attrs name="action-hatcher-exit-get-extern-number" model="com.gl.apps.pf.db.HatcherExit">
+        <attribute if="customerSaleOrder != null &amp;&amp; !customerSaleOrder.saleOrderLineList?.isEmpty()" name="value" expr="eval: customerSaleOrder.saleOrderLineList.sum{it->it.qty}" for="externNumber"/>
+    </action-attrs>
+
+    <action-attrs name="action-hatcher-exit-get-intern-number" model="com.gl.apps.pf.db.HatcherExit">
+        <attribute if="!fleshLoadingProgramList?.isEmpty()" name="value" expr="eval: fleshLoadingProgramList.sum{it->it.numberOfChicks}" for="internNumber"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-hatcher-exit-customer-order-selected" model="com.gl.apps.pf.db.HatcherExit">
+        <attribute name="domain" expr="eval: 'self.id in (select distinct so.id from SaleOrder so
+                                 join SaleOrderLine sol on so.id = sol.saleOrder
+                                 join AppPoultryFarming app on sol.product = app.chairChicks
+                                 where so.statusSelect = 3 AND so.estimatedDeliveryDate = :datetime)'" for="customerSaleOrder"/>
+    </action-attrs>
+
+    <action-validate name="action-hatcher-exits-check-empty-flesh-loading-program-list">
+        <error if="fleshLoadingProgramList.isEmpty()" message="You cannot validate ! Flesh loading program list is empty."/>
+    </action-validate>
+
+    <action-group name="action-group-hatcher-exit-on-load">
+        <action name="action-method-hatcher-exit-get-lines-loading-program"/>
+        <action name="action-method-hatcher-exit-get-lines-sale-order"/>
+        <action name="action-attr-flesh-chick"/>
+        <action name="action-attr-show-hatcher-exit-flesh-chicks-params"/>
+    </action-group>
+
+
+</object-views>

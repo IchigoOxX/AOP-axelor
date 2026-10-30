@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <cards name="repor-dashboard-breedingShed-cards" title="Dashboard" css="rect-image" model="com.gl.apps.pf.db.BreedingShed"
+           width="25%" orderBy="reference" canNew="false">
+        <toolbar>
+            <button name="checkDuplicateBtn" title="Check duplicate" onClick="action-general-check-duplicate-records"/>
+        </toolbar>
+        <field name="reference" title="Reference"/>
+        <field name="unit"/>
+        <field name="breed"/>
+        <field name="center"/>
+        <field name="activationDate"/>
+        <field name="fillingDate"/>
+        <field name="currentBatchNumber"/>
+        <field name="receivedMalesNumber"/>
+        <field name="receivedFemalesNumber"/>
+        <field name="dailyAge"/>
+        <field name="weeklyAge"/>
+        <field name="sumNumberOfHe"/>
+        <field name="expectedReformDate"/>
+        <field name="sumTotalEggs"/>
+        <field name="id"/>
+        <field name="lastTechnicalSheetLine.maleMortality"/>
+        <field name="lastTechnicalSheetLine.femaleMortality"/>
+        <field name="lastTechnicalSheetLine.rateMortality"/>
+        <field name="lastTechnicalSheetLine.maleTriOut"/>
+        <field name="lastTechnicalSheetLine.femaleTriOut"/>
+        <field name="lastTechnicalSheetLine.maleReform"/>
+        <field name="lastTechnicalSheetLine.femaleReform"/>
+        <field name="lastTechnicalSheetLine.maleRemainingNumber"/>
+        <field name="lastTechnicalSheetLine.femaleRemainingNumber"/>
+        <field name="lastTechnicalSheetLine.maleCumulatedConsumedProductQtyByChick"/>
+        <field name="lastTechnicalSheetLine.femaleCumulatedConsumedProductQtyByChick"/>
+        <field name="lastTechnicalSheetLine.maleWeight"/>
+        <field name="lastTechnicalSheetLine.femaleWeight"/>
+        <field name="lastTechnicalSheetLine.maleCoefficientVariation"/>
+        <field name="lastTechnicalSheetLine.femaleCoefficientVariation"/>
+        <field name="status"/>
+        <template><![CDATA[
+       <div class="app-cards__buttons">
+          <a class="btn btn-small btn-info pull-right" ng-show="status == 0" href="" ui-action-click="action-show-dialog-input-date" x-translate>Activate</a>
+          <a class="btn btn-small btn-info pull-right" ng-show="status == 2" href="" ui-action-click="action-show-dialog-input-date-stop" x-translate>Stop</a>
+          <a class="btn btn-small btn-info pull-right" ng-show="status == 3" href="" ui-action-click="action-show-dialog-input-date-close" x-translate>Close</a>
+      </div>
+        <table border="1" cellpadding="1" cellspacing="1" height:150px; width:100%">
+        <tbody>
+        <tr style="background-color: {{status === 0 ? 'orange' : (status === 1 ? 'blue' : (status === 2 ? 'green' : 'red'))}}; color: white;">
+            <th><strong><span x-translate>Breeding Shed</span></strong></th>
+            <th><strong>{{$fmt('reference')}}</strong></th>
+        </tr>
+          <tr style="background-color: {{status === 0 ? 'orange' : (status === 1 ? 'blue' : (status === 2 ? 'green' : 'red'))}}; color: white;">
+            <th><strong><span x-translate>Designation</span></strong></th>
+            <th colspan="2"><strong><span x-translate>Male | Female</span></strong></th>
+        </tr>
+
+           <tr>
+                <td><strong><span x-translate>Unit</span></strong></td>
+                <td style="text-align:center"><strong>{{$fmt('unit')}}</strong></td>
+            </tr>
+            <tr>
+                <td style="width: 40%;"><strong><span x-translate>Center</span></strong></td>
+                <td style="text-align:center;width: 60%;"><strong>{{$fmt('center')}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate>Breed</span></strong></td>
+                <td style="text-align:center"><strong>{{$fmt('breed')}}</strong></td>
+            </tr>
+             <tr>
+                <td><strong><span x-translate>Batch number</span></strong></td>
+                <td style="text-align:center"><strong>{{$fmt('currentBatchNumber')}}</strong></td>
+            </tr>
+            <!--<tr>
+                <td><strong><span x-translate>Activation date</span></strong></td>
+                <td style="text-align:center"><strong>{{$fmt('activationDate')}}</strong></td>
+            </tr>-->
+            <tr>
+                <td><strong><span x-translate style="color: red;" >Reception date</span></strong></td>
+                <td style="text-align:center; color: red;"><strong>{{$fmt('fillingDate')}}</strong></td>
+            </tr>
+             <tr>
+                <td><strong><span x-translate style="color: red;" >Expected reform date</span></strong></td>
+                <td style="text-align:center; color: red;"><strong>{{$fmt('expectedReformDate')}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate> Age (day/week)</span></strong></td>
+                <td style="text-align:center"><strong>{{dailyAge || 0}} / {{weeklyAge || 0}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate style="color: blue;"> Received number</span></strong></td>
+                <td style="text-align:center; color: blue;"><strong>{{$fmt('receivedMalesNumber')}} | {{$fmt('receivedFemalesNumber')}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate style="color: blue;"> Existing number </span></strong></td>
+                <td style="text-align:center; color: blue;"><strong>{{$fmt('lastTechnicalSheetLine.maleRemainingNumber')}} | {{$fmt('lastTechnicalSheetLine.femaleRemainingNumber')}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate style="color: green;">Mortality (Number/%)</span></strong></td>
+                <td style="text-align:center;  color: green;"><strong>{{$fmt('lastTechnicalSheetLine.maleMortality')}}/{{$fmt('lastTechnicalSheetLine.rateMortality')}} | {{$fmt('lastTechnicalSheetLine.femaleMortality')}}/{{$fmt('lastTechnicalSheetLine.rateMortality')}}</strong></td>
+            </tr>
+           <tr>
+                <td><strong><span x-translate style="color: blue;">Aliment consumed </span></strong></td>
+                <td style="text-align:center;  color: blue;"><strong>{{$fmt('lastTechnicalSheetLine.maleCumulatedConsumedProductQtyByChick')}} | {{$fmt('lastTechnicalSheetLine.femaleCumulatedConsumedProductQtyByChick')}}</strong></td>
+            </tr>
+
+            <tr>
+                <td><strong><span x-translate style="color: blue;">CV </span></strong></td>
+                <td style="text-align:center;  color: blue;"><strong>{{$fmt('lastTechnicalSheetLine.maleCoefficientVariation')}} | {{$fmt('lastTechnicalSheetLine.femaleCoefficientVariation')}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate style="color: blue;">Total eggs </span></strong></td>
+                <td style="text-align:center; color: blue;"><strong>{{$fmt('sumTotalEggs')}} </strong></td>
+            </tr>
+            <tr>
+                <td><strong><span x-translate style="color: blue;"> HE egg production </span></strong></td>
+                <td style="text-align:center; color: blue;"><strong>{{$fmt('sumNumberOfHe')}} </strong></td>
+            </tr>
+            <!--<tr>
+                <td><strong><span x-translate style="color: red;">Displacement (in/out)</strong></td>
+                <td style="text-align:center;  color: red;"><strong>0</strong></td>
+            </tr>-->
+             <!--<tr>
+                <td><strong><span x-translate>Reform/Tri out</span></strong></td>
+               <td style="text-align:center"><strong>{{$fmt('lastTechnicalSheetLine.maleReform')}}/{{$fmt('lastTechnicalSheetLine.maleTriOut')}} | {{$fmt('lastTechnicalSheetLine.femaleReform')}}/{{$fmt('lastTechnicalSheetLine.femaleTriOut')}}</strong></td>
+            </tr>-->
+            <!--<tr>
+                <td><strong><span x-translate style="color: red;">Stock aliment </span></strong></td>
+                <td style="text-align:center; color: red;"><strong>0</strong></td>
+            </tr>-->
+        </tbody>
+      </table>
+
+   ]]></template>
+    </cards>
+
+</object-views>

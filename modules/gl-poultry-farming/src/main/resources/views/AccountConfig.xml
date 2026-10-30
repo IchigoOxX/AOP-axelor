@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="account-config-form-id" name="account-config-form" title="Account configuration" model="com.axelor.apps.account.db.AccountConfig"
+          extension="true">
+        <extend target="//panel[@name='invoiceSequencesPanel']">
+            <!--     START T. HAIFA #258-->
+            <insert position="before">
+                <panel name="taxPanel" title="Withholding" colSpan="12" sidebar="true" canCollapse="true">
+
+                    <field name="productWithholdingTax" colSpan="6"/>
+                    <field name="productPaymentMode" colSpan="6"/>
+
+                    <field name="serviceWithholdingTax" colSpan="6"/>
+                    <field name="servicePaymentMode" colSpan="6"/>
+
+                    <field name="minimumAmountWithholding" colSpan="6"/>
+                </panel>
+            </insert>
+            <!--    END T. HAIFA #258-->
+        </extend>
+        <extend target="//field[@name='billOfExchReceivAccount']">
+            <insert position="after">
+                    <field name=""/>
+                    <field name="customerStampAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect ='tax'"/>
+                    <field name="customerStampValue"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='supplierAdvancePaymentAccount']">
+            <insert position="after">
+                <field name="supplierStampAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect ='payable'"/>
+                <field name="supplierStampValue"/>
+            </insert>
+        </extend>
+
+    </form>
+
+
+</object-views>
+
+
+

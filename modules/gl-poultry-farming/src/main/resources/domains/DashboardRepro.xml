@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="DashboardRepro">
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center"
+                     title="Center"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+        <many-to-one name="trackingNumber" title="Tracking number"
+                     ref="com.axelor.apps.stock.db.TrackingNumber"/>
+        <many-to-one name="productUnit"
+                     ref="com.axelor.apps.base.db.Unit" title="Unit"/>
+
+        <integer name="he" title="Hatching Eggs (HE)"/>
+        <integer name="dye" title="Double Yolk Eggs (DYE)"/>
+        <integer name="de" title="Declassed Eggs (DE)"/>
+        <integer name="total" title="Total"/>
+
+        <decimal name="rateHe" title="% HE"/>
+        <decimal name="rateDye" title="% DYE"/>
+        <decimal name="rateDe" title="% DE"/>
+
+        <track on="UPDATE">
+            <field name="breedingShed"/>
+            <field name="he"/>
+            <field name="dye"/>
+            <field name="de"/>
+            <field name="total"/>
+            <field name="rateHe"/>
+            <field name="rateDye"/>
+            <field name="rateDe"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

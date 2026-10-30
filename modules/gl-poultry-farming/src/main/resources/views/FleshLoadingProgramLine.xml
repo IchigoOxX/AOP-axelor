@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="flesh-loading-program-line-grid" title="Loading program lines" model="com.gl.apps.pf.db.FleshLoadingProgramLine" edit-icon="true"
+          orderBy="lineNumber" canDelete="false">
+
+        <hilite color="primary" if="status == 0"/>
+        <hilite color="orange" if="status == 1 "/>
+        <hilite color="success" if="status == 2"/>
+        <hilite color="grey" if="status == 3 "/>
+
+        <field name="lineNumber"/>
+        <field name="breed"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="plannedLoadingDatetime" required="true" onChange="action-attrs-flesh-loading-program-get-real-date"/>
+        <field name="realLoadingDatetime" readonly="true"/>
+        <field name="numberOfChicksPerCage" onChange="action-attrs-flesh-loading-program-calculate-chicks-number"/>
+        <field name="numberOfChicks" readonly="true" title="Number of chicks to load"/>
+        <field name="age" onChange="action-record-flesh-loading-program-return-date-from"/>
+        <field name="period" onChange="action-record-flesh-loading-program-return-date-to"/>
+        <field name="slaughterFromDatetime" readonly="true"/>
+        <field name="slaughterToDatetime" readonly="true"/>
+
+        <field name="status"/>
+    </grid>
+
+    <form name="flesh-loading-program-line-form" title="Loading program lines"
+          model="com.gl.apps.pf.db.FleshLoadingProgramLine" readonlyIf="status != 0 "
+          onNew="">
+        <panel title="Overview">
+            <field name="lineNumber" colSpan="6"/>
+            <field name="breed" colSpan="6"/>
+            <field name="breedingShed" colSpan="6" readonly="true"/>
+            <field name="plannedLoadingDatetime" colSpan="6" required="true" onChange="action-attrs-flesh-loading-program-get-real-date"/>
+            <field name="realLoadingDatetime" colSpan="6" readonly="true"/>
+            <field name="numberOfChicksPerCage" colSpan="6" onChange="action-attrs-flesh-loading-program-calculate-chicks-number"/>
+            <field name="numberOfChicks" colSpan="6" readonly="true" title="Number of chicks to load"/>
+            <field name="status" colSpan="6"/>
+            <field name="age" colSpan="6" onChange="action-record-flesh-loading-program-return-date-from"/>
+            <field name="slaughterFromDatetime" colSpan="6" readonly="true"/>
+            <field name="period" colSpan="6" onChange="action-record-flesh-loading-program-return-date-to"/>
+            <field name="slaughterToDatetime" colSpan="6" readonly="true"/>
+
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="hatcher-exit-flesh-loading-program-line-grid" title="Loading program lines" model="com.gl.apps.pf.db.FleshLoadingProgramLine" edit-icon="true"
+          orderBy="lineNumber" canDelete="false">
+
+        <hilite color="primary" if="status == 0"/>
+        <hilite color="orange" if="status == 1 "/>
+        <hilite color="success" if="status == 2"/>
+        <hilite color="grey" if="status == 3 "/>
+        <field name="fleshLoadingProgram.center" readonly="true"/>
+        <field name="lineNumber" readonly="true"/>
+        <field name="breed" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="plannedLoadingDatetime" readonly="true" required="true"/>
+        <field name="realLoadingDatetime" readonly="true"/>
+        <field name="numberOfChicksPerCage" readonly="true"/>
+        <field name="numberOfChicks" required="true" title="Number of chicks to load"/>
+        <field name="age" readonly="true"/>
+        <field name="period" readonly="true"/>
+        <field name="slaughterFromDatetime" readonly="true"/>
+        <field name="slaughterToDatetime" readonly="true"/>
+    </grid>
+
+    <form name="hatcher-exit-flesh-loading-program-line-form" title="Loading program lines"
+          model="com.gl.apps.pf.db.FleshLoadingProgramLine" readonlyIf="status != 0 ">
+        <panel title="Overview">
+            <field name="fleshLoadingProgram.center" readonly="true"/>
+            <field name="lineNumber" readonly="true" colSpan="6"/>
+            <field name="breed" readonly="true" colSpan="6"/>
+            <field name="breedingShed" readonly="true" colSpan="6"/>
+            <field name="plannedLoadingDatetime" readonly="true" colSpan="6"/>
+            <field name="realLoadingDatetime" colSpan="6" readonly="true"/>
+            <field name="numberOfChicksPerCage" readonly="true" colSpan="6"/>
+            <field name="numberOfChicks" required="true" title="Number of chicks to load" colSpan="6"/>
+            <field name="age" readonly="true" colSpan="6"/>
+            <field name="period" readonly="true" colSpan="6"/>
+            <field name="slaughterFromDatetime" readonly="true" colSpan="6"/>
+            <field name="slaughterToDatetime" readonly="true" colSpan="6"/>
+            <field name="status"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="flesh-loading-program-line-dashboard-grid" title="Loading program lines" model="com.gl.apps.pf.db.FleshLoadingProgramLine" edit-icon="true"
+          orderBy="status" canDelete="false">
+
+        <hilite color="primary" if="status == 0"/>
+        <hilite color="orange" if="status == 1 "/>
+        <hilite color="success" if="status == 2"/>
+        <hilite color="grey" if="status == 3 "/>
+
+        <field name="lineNumber"/>
+        <field name="breed"/>
+        <field name="fleshLoadingProgram"/>
+        <field name="center"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="plannedLoadingDatetime"/>
+        <field name="realLoadingDatetime"/>
+        <field name="numberOfChicksPerCage"/>
+        <field name="numberOfChicks" readonly="true" title="Number of chicks to load"/>
+        <field name="age"/>
+        <field name="period"/>
+        <field name="slaughterFromDatetime" readonly="true"/>
+        <field name="slaughterToDatetime" readonly="true"/>
+
+        <field name="status"/>
+    </grid>
+
+    <form name="flesh-loading-program-line-dashboard-form" title="Loading program lines"
+          model="com.gl.apps.pf.db.FleshLoadingProgramLine">
+        <panel title="Overview">
+            <field name="lineNumber" colSpan="6" readonly="true"/>
+            <field name="breed" colSpan="6" readonly="true"/>
+            <field name="fleshLoadingProgram" colSpan="6" readonly="true" target-name="reference"/>
+            <field name="fleshLoadingProgram.center" colSpan="6" readonly="true"/>
+            <field name="breedingShed" colSpan="6" readonly="true"/>
+            <field name="plannedLoadingDatetime" colSpan="6" readonly="true"/>
+            <field name="realLoadingDatetime" colSpan="6" readonly="true"/>
+            <field name="numberOfChicksPerCage" colSpan="6" readonly="true"/>
+            <field name="numberOfChicks" colSpan="6" readonly="true" title="Number of chicks to load"/>
+            <field name="age" colSpan="6" readonly="true"/>
+            <field name="period" colSpan="6" readonly="true"/>
+            <field name="slaughterFromDatetime" colSpan="6" readonly="true"/>
+            <field name="slaughterToDatetime" colSpan="6" readonly="true"/>
+            <field name="status">
+                <hilite color="primary" if="status == 0"/>
+                <hilite color="orange" if="status == 1 "/>
+                <hilite color="success" if="status == 2"/>
+                <hilite color="grey" if="status == 3 "/>
+            </field>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <action-attrs name="action-attrs-flesh-loading-program-get-real-date" model="com.gl.apps.pf.db.FleshLoadingProgramLine">
+        <attribute if="plannedLoadingDatetime != null" name="value" expr="eval: plannedLoadingDatetime"
+                   for="realLoadingDatetime"/>
+    </action-attrs>
+
+    <action-record name="action-record-flesh-loading-program-return-date-from"  model="com.gl.apps.pf.db.FleshLoadingProgramLine">
+        <field if="plannedLoadingDatetime != null" name="slaughterFromDatetime" expr="eval: plannedLoadingDatetime.plusDays(age)"/>
+    </action-record>
+
+    <action-record name="action-record-flesh-loading-program-return-date-to"  model="com.gl.apps.pf.db.FleshLoadingProgramLine">
+        <field if="slaughterFromDatetime != null" name="slaughterToDatetime" expr="eval: slaughterFromDatetime.plusDays(period)"/>
+    </action-record>
+
+    <action-attrs name="action-attrs-flesh-loading-program-calculate-chicks-number" model="com.gl.apps.pf.db.FleshLoadingProgramLine">
+        <attribute if="numberOfChicksPerCage != 0" name="value" expr="eval: numberOfChicksPerCage * breedingShed.cagesNumber" for="numberOfChicks"/>
+    </action-attrs>
+
+
+
+</object-views>

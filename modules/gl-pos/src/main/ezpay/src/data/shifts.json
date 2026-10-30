@@ -1,0 +1,123 @@
+[
+  {
+    "shiftNumber": "S12345",
+    "shiftOwner": { "id": 1, "name": "Admin" },
+    "startDate": "2024-06-25",
+    "endDate": "2024-06-25",
+    "startingCash": 1000,
+    "refundsAmount": 50,
+    "payments": 800,
+    "totalExpectedCash": 1750,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12346",
+    "shiftOwner": { "id": 2, "name": "User 1" },
+    "startDate": "2024-06-24",
+    "endDate": "2024-06-24",
+    "startingCash": 800,
+    "refundsAmount": 30,
+    "payments": 700,
+    "totalExpectedCash": 1470,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12347",
+    "shiftOwner": { "id": 3, "name": "User 2" },
+    "startDate": "2024-06-23",
+    "endDate": "2024-06-23",
+    "startingCash": 900,
+    "refundsAmount": 20,
+    "payments": 600,
+    "totalExpectedCash": 1480,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12348",
+    "shiftOwner": { "id": 4, "name": "User 3" },
+    "startDate": "2024-06-22",
+    "endDate": "2024-06-22",
+    "startingCash": 1100,
+    "refundsAmount": 60,
+    "payments": 850,
+    "totalExpectedCash": 1890,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12349",
+    "shiftOwner": { "id": 1, "name": "Admin" },
+    "startDate": "2024-06-21",
+    "endDate": "2024-06-21",
+    "startingCash": 1200,
+    "refundsAmount": 40,
+    "payments": 900,
+    "totalExpectedCash": 2060,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12350",
+    "shiftOwner": { "id": 2, "name": "User 1" },
+    "startDate": "2024-06-20",
+    "endDate": "2024-06-20",
+    "startingCash": 950,
+    "refundsAmount": 30,
+    "payments": 750,
+    "totalExpectedCash": 1670,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12351",
+    "shiftOwner": { "id": 3, "name": "User 2" },
+    "startDate": "2024-06-19",
+    "endDate": "2024-06-19",
+    "startingCash": 1000,
+    "refundsAmount": 20,
+    "payments": 800,
+    "totalExpectedCash": 1780,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12352",
+    "shiftOwner": { "id": 4, "name": "User 3" },
+    "startDate": "2024-06-18",
+    "endDate": "2024-06-18",
+    "startingCash": 850,
+    "refundsAmount": 10,
+    "payments": 950,
+    "totalExpectedCash": 1790,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12353",
+    "shiftOwner": { "id": 1, "name": "Admin" },
+    "startDate": "2024-06-17",
+    "endDate": "2024-06-17",
+    "startingCash": 1150,
+    "refundsAmount": 25,
+    "payments": 725,
+    "totalExpectedCash": 1850,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12354",
+    "shiftOwner": { "id": 2, "name": "User 1" },
+    "startDate": "2024-06-16",
+    "endDate": "2024-06-16",
+    "startingCash": 980,
+    "refundsAmount": 15,
+    "payments": 880,
+    "totalExpectedCash": 1845,
+    "status": "closed"
+  },
+  {
+    "shiftNumber": "S12355",
+    "shiftOwner": { "id": 3, "name": "User 2" },
+    "startDate": "2024-06-15",
+    "endDate": "2024-06-15",
+    "startingCash": 1020,
+    "refundsAmount": 35,
+    "payments": 790,
+    "totalExpectedCash": 1775,
+    "status": "closed"
+  }
+]

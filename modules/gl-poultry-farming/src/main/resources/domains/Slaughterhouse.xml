@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="Slaughterhouse">
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)" required="true"/>
+        <many-to-many name="responsibles" ref="com.axelor.auth.db.User"/>
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <string name="name" title="Name" required="true"/>
+        <integer name="type" title="Type" selection="poultryfarming.start.elev.reform.type.select" required="true"/>
+        <many-to-one name="physicalLocation" ref="com.axelor.apps.stock.db.StockLocation"
+                     required="true" title="Location"/>
+        <finder-method name="ByReference" using="reference"/>
+
+        <extra-code>
+            <![CDATA[
+
+                // SlAUGHTERHOUSE TYPE SELECT
+				public static final int TYPE_PRINCIPAL = 0;
+
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="name"/>
+            <field name="type"/>
+            <field name="status"/>
+            <field name="responsibles"/>
+            <field name="unit"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

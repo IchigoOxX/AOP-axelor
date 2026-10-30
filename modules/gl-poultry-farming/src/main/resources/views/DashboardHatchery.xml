@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="dashboard-hatchery-infos-form" title="Hatchery" model="com.gl.apps.pf.db.DashHatchery" width="large"
+          onNew="action-set-default-values-dashboard-hatchery,action-set-default-values-dashboard-hatchery-status"
+          onLoad="action-set-default-values-dashboard-hatchery,action-set-default-values-dashboard-hatchery-status">
+        <panel-tabs name="mainPanelTab">
+            <panel title="Dashboard hatchery">
+                <panel colSpan="12" showTitle="false">
+                    <field name="startIncubationDatetime" required="true" type="date" colSpan="3" title="Start incubation date"/>
+                    <field name="endIncubationDatetime" required="true" type="date" colSpan="3" title="End incubation date"/>
+                    <field name="status" selection="poultryfarming.loading.program.line.status.select"
+                           required="true" showTitle="false"
+                           widget="CheckboxSelect" colSpan="4"/>
+
+                    <button name="Fetch" title="Dashboard" icon="fa-refresh" css="btn-success" colSpan="2"
+                            onClick="action-method-hatchery-dashboard"/>
+                    <field name="trackingNumber" title="Tracking number" required="true" type="many-to-one" target-name="trackingNumberSeq" colSpan="3" x-target="com.axelor.apps.stock.db.TrackingNumber"/>
+
+                </panel>
+                <panel-related name="hatcheryDashboardListPanel" title="Dashboard hatchery" colSpan="12"
+                               field="hatcheryDashboardList"
+                               grid-view="hatchery-dashboard-grid"
+                               form-view="hatchery-dashboard-form"
+                               editable="true" canNew="false" canRemove="false"/>
+            </panel>
+            <panel title="Flesh loading program">
+                <panel colSpan="12" showTitle="false">
+                    <field name="startLoadingDatetime" required="true" type="date" colSpan="3" title="Start flesh loading date"/>
+                    <field name="endLoadingDatetime" required="true" type="date" colSpan="3" title="End flesh loading date"/>
+                    <field name="status1" selection="poultryfarming.flesh.loading.program.line.status.select" required="true" showTitle="false" widget="CheckboxSelect" colSpan="4"/>
+                    <button name="Fetch" title="Dashboard" icon="fa-refresh" css="btn-info" colSpan="2"
+                            onClick="action-method-fetch-flesh-program"/>
+                    <field name="center" title="Center" domain="self.type = 2" type="many-to-one" target-name="name" colSpan="3" x-target="com.gl.apps.pf.db.Center"/>
+
+                </panel>
+
+                <panel-related name="fleshLoadingProgramLineListPanel" title="Dashboard hatchery" colSpan="12"
+                               field="fleshLoadingProgramLineList"
+                               form-view="flesh-loading-program-line-dashboard-form" canNew="false" canRemove="false"
+                               grid-view="flesh-loading-program-line-dashboard-grid"/>
+            </panel>
+
+            <panel title="Reception eggs/chick production">
+                <panel colSpan="12" showTitle="false">
+                    <field name="secondTrackingNumber" title="Tracking number" required="true" type="many-to-one" target-name="trackingNumberSeq" colSpan="3" x-target="com.axelor.apps.stock.db.TrackingNumber"/>
+                    <button name="Fetch" title="Dashboard" icon="fa-refresh" css="btn-warning" colSpan="2"
+                            onClick="action-method-fetch-receipt-eggs-chicks-prod"/>
+                </panel>
+
+                <panel-related name="receiptEggsProdChicksListPanel" title="Reception eggs/chick production" colSpan="12"
+                               field="receiptEggsProdChicksList"
+                               form-view="receipt-eggs-prod-chicks-dashboard-form" canNew="false" canRemove="false"
+                               grid-view="receipt-eggs-prod-chicks-dashboard-grid"/>
+            </panel>
+
+
+
+        </panel-tabs>
+    </form>
+
+
+    <grid name="hatchery-dashboard-grid" title="Hatchery dashboard" model="com.gl.apps.pf.db.DashHatchery" edit-icon="true">
+        <field name="completeRefTrackingNumber" readonly="true" title="Sub tracking number">
+            <hilite color="red" strong="true" if="$get('completeRefTrackingNumber') != null"/>
+        </field>
+        <field name="saleOrder" readonly="true">
+            <hilite color="green" strong="false" if="$get('saleOrder') != null"/>
+        </field>
+        <field name="internNumber" readonly="true" title="Intern number">
+            <hilite color="green" strong="false" if="$get('internNumber') >= 0"/>
+        </field>
+        <field name="externNumber" readonly="true" title="Extern number">
+            <hilite color="green" strong="false" if="$get('externNumber') >= 0"/>
+        </field>
+        <field name="remainingNumberOrder" readonly="true">
+            <hilite color="green" strong="false" if="$get('remainingNumberOrder') >= 0"/>
+        </field>
+        <field name="commercial" readonly="true">
+            <hilite color="green" strong="false" if="$get('commercial') != null"/>
+        </field>
+        <field name="remainingNumberDelivery" readonly="true">
+            <hilite color="green" strong="false" if="$get('remainingNumberDelivery') >= 0"/>
+        </field>
+
+        <field name="programLine" readonly="true" hidden="true"/>
+        <field name="completeReference" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('completeReference') != null"/>
+        </field>
+        <field name="lineNumber" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('lineNumber') != null"/>
+        </field>
+        <field name="incubationDatetime" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('incubationDatetime') != null"/>
+        </field>
+        <field name="transferDatetime" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('transferDatetime') != null"/>
+        </field>
+        <field name="hatchingDatetime" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('hatchingDatetime') != null"/>
+        </field>
+        <field name="estimatedNumberOfChicks" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('estimatedNumberOfChicks') >= 0"/>
+        </field>
+
+        <field name="status" readonly="true">
+            <hilite background="blue" if="$get('status') == 0"/>
+            <hilite background="orange" if="$get('status') == 1"/>
+            <hilite background="green" if="$get('status') == 2"/>
+            <hilite background="grey" if="$get('status') == 3"/>
+        </field>
+
+        <field name="hatchery" readonly="true">
+            <hilite color="blue" strong="false" if="$get('hatchery') != null"/>
+        </field>
+        <field name="refIncubator" readonly="true">
+            <hilite color="blue" strong="false" if="$get('refIncubator') != null"/>
+        </field>
+        <field name="refIncubatorEntry" readonly="true">
+            <hilite color="blue" strong="false" if="$get('refIncubatorEntry') != null"/>
+        </field>
+        <field name="datetimeIncubatorEntry" readonly="true" title="Date time incubator entry">
+            <hilite color="blue" strong="false" if="$get('datetimeIncubatorEntry') != null"/>
+        </field>
+        <field name="dateTimeReelIncubatorExit" readonly="true" title="Real date time incubator exit">
+            <hilite color="blue" strong="false" if="$get('dateTimeReelIncubatorExit') != null"/>
+        </field>
+
+
+        <field name="refIncubatorExit" readonly="true">
+            <hilite color="orange" strong="false" if="$get('refIncubatorExit') != null"/>
+        </field>
+        <field name="datetimeIncubatorExit" readonly="true" title="Date time incubator exit">
+            <hilite color="orange" strong="false" if="$get('datetimeIncubatorExit') != null"/>
+        </field>
+
+        <field name="refHatcherEntry" readonly="true">
+            <hilite color="info" strong="false" if="$get('refIncubatorEntry') != null"/>
+        </field>
+        <field name="datetimeHatcherEntry" readonly="true" title="Date time hatcher entry">
+            <hilite color="info" strong="false" if="$get('datetimeHatcherEntry') != null"/>
+        </field>
+
+        <field name="refHatcherExit" readonly="true">
+            <hilite color="deeppurple" strong="false" if="$get('refHatcherExit') != null"/>
+        </field>
+        <field name="datetimeHatcherExit" readonly="true" title="Date time hatcher exit">
+            <hilite color="deeppurple" strong="false" if="$get('datetimeHatcherExit') != null"/>
+        </field>
+        <field name="safe" readonly="true" title="Safe chicks">
+            <hilite color="red" strong="true" if="$get('safe') >= 0"/>
+        </field>
+        <field name="successRate" readonly="true">
+            <hilite color="red" strong="true" if="$get('successRate') >= 0"/>
+        </field>
+
+    </grid>
+
+
+    <form name="hatchery-dashboard-form" title="Hatchery dashboard" model="com.gl.apps.pf.db.DashHatchery" width="large">
+        <panel showTitle="false" colSpan="12" readonly="true">
+            <panel title="Sale order and commercial:" colSpan="12">
+                <field name="completeRefTrackingNumber" title="Sub tracking number">
+                    <hilite color="red" strong="true" if="$get('completeRefTrackingNumber') != null"/>
+                </field>
+                <field name="saleOrder"/>
+                <field name="internNumber" title="Intern number"/>
+                <field name="externNumber" title="Extern number"/>
+                <field name="remainingNumberOrder"/>
+                <field name="commercial"/>
+                <field name="remainingNumberDelivery"/>
+            </panel>
+            <panel title="Incubator loading program:" colSpan="12">
+                <field name="programLine"/>
+                <field name="completeReference" title="Complete reference"/>
+                <field name="lineNumber"/>
+                <field name="incubationDatetime"/>
+                <field name="transferDatetime"/>
+                <field name="hatchingDatetime"/>
+                <field name="estimatedNumberOfChicks"/>
+                <field name="status" showTitle="true" readonly="true">
+                    <hilite color="blue" if="$get('status') == 0"/>
+                    <hilite color="orange" if="$get('status') == 1"/>
+                    <hilite color="green" if="$get('status') == 2"/>
+                    <hilite color="grey" if="$get('status') == 3"/>
+                </field>
+            </panel>
+            <panel title="Incubator entry:" colSpan="12">
+                <field name="refIncubator" colSpan="3"/>
+                <field name="incubatorEntry" colSpan="3" target-name="reference"/>
+                <field name="hatchery" colSpan="3"/>
+                <field name="refIncubatorEntry" colSpan="3"/>
+                <field name="datetimeIncubatorEntry" colSpan="3"/>
+                <field name="dateTimeReelIncubatorExit" colSpan="3" title="Real date time incubator exit"/>
+            </panel>
+            <panel title="Incubator exit:" colSpan="12">
+                <field name="refIncubatorExit" colSpan="3"/>
+                <field name="incubatorExit" colSpan="3" target-name="reference"/>
+                <field name="datetimeIncubatorExit" colSpan="3"/>
+            </panel>
+            <panel title="Hatcher entry:" colSpan="12">
+                <field name="refHatcherEntry" colSpan="3"/>
+                <field name="hatcherEntry" colSpan="3" target-name="reference"/>
+                <field name="datetimeHatcherEntry" title="Date time hatcher entry" colSpan="3"/>
+            </panel>
+            <panel title="Hatcher exit:" colSpan="12">
+                <field name="refHatcherExit" colSpan="3"/>
+                <field name="hatcherExit" colSpan="3" target-name="reference"/>
+                <field name="datetimeHatcherExit" colSpan="3"/>
+                <field name="safe" colSpan="6"/>
+                <field name="successRate" colSpan="6"/>
+            </panel>
+        </panel>
+    </form>
+
+
+
+    <grid name="receipt-eggs-prod-chicks-dashboard-grid" title="Reception eggs/chick production" model="com.gl.apps.pf.db.DashHatchery" edit-icon="true">
+        <field name="breedingShed" readonly="true" title="Breeding shed">
+            <hilite color="red" strong="true" if="$get('breedingShed') != null"/>
+        </field>
+        <field name="he" readonly="true">
+            <hilite color="green" strong="false" if="$get('he') != 0"/>
+        </field>
+        <field name="dye" readonly="true">
+            <hilite color="green" strong="false" if="$get('dye') >= 0"/>
+        </field>
+        <field name="de" readonly="true">
+            <hilite color="green" strong="false" if="$get('de') >= 0"/>
+        </field>
+        <field name="total" readonly="true">
+            <hilite color="green" strong="false" if="$get('total') >= 0"/>
+        </field>
+        <field name="percentageHe" readonly="true">
+            <hilite color="info" strong="false" if="$get('percentageHe') >= 0"/>
+        </field>
+        <field name="percentageDye" readonly="true">
+            <hilite color="info" strong="false" if="$get('percentageDye') >= 0"/>
+        </field>
+
+        <field name="percentageDe" readonly="true">
+            <hilite color="info" strong="false" if="$get('percentageDe') >= 0"/>
+        </field>
+        <field name="incubatorLoading" readonly="true">
+            <hilite color="info" strong="false" if="$get('incubatorLoading') >= 0"/>
+        </field>
+        <field name="sale" readonly="true">
+            <hilite color="info" strong="false" if="$get('sale') >= 0"/>
+        </field>
+        <field name="remaining" readonly="true">
+            <hilite color="info" strong="false" if="$get('remaining') >= 0"/>
+        </field>
+
+        <field name="hatcherEntry" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('hatcherEntry') >= 0"/>
+        </field>
+        <field name="hatchingChicks" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('hatchingChicks') >= 0"/>
+        </field>
+        <field name="hatchingSafeChicks" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('hatchingSafeChicks') >= 0"/>
+        </field>
+        <field name="hatchingPercentageSafe" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('hatchingPercentageSafe') >= 0"/>
+        </field>
+        <field name="percentageHatching" readonly="true">
+            <hilite color="deeporange" strong="false" if="$get('percentageHatching') >= 0"/>
+        </field>
+        <field name="receptChickens" readonly="true">
+            <hilite color="blue" strong="false" if="$get('receptChickens') >= 0"/>
+        </field>
+        <field name="startProdChickens" readonly="true">
+            <hilite color="blue" strong="false" if="$get('startProdChickens') >= 0"/>
+        </field>
+
+        <field name="prodEggsPerChicken" readonly="true">
+            <hilite color="primary" strong="false" if="$get('prodEggsPerChicken') >= 0"/>
+        </field>
+        <field name="prodHePerChicken" readonly="true">
+            <hilite color="primary" strong="false" if="$get('prodHePerChicken') >= 0"/>
+        </field>
+        <field name="safeChicks" readonly="true">
+            <hilite color="primary" strong="false" if="$get('safeChicks') >= 0"/>
+        </field>
+    </grid>
+
+    <form name="receipt-eggs-prod-chicks-dashboard-form" title="Reception eggs/chick production" model="com.gl.apps.pf.db.DashHatchery" width="large">
+        <panel showTitle="false" colSpan="12" readonly="true">
+            <panel title="Eggs reception:" colSpan="12" readonly="true">
+                <field name="he"/>
+                <field name="dye"/>
+                <field name="de"/>
+                <field name="total"/>
+                <field name="percentageHe"/>
+                <field name="percentageDye"/>
+                <field name="percentageDe"/>
+                <field name="incubatorLoading"/>
+                <field name="sale" />
+                <field name="remaining"/>
+            </panel>
+            <panel title="Hatching:" colSpan="12" readonly="true">
+                <field name="hatcherEntry"/>
+                <field name="hatchingChicks"/>
+                <field name="hatchingSafeChicks"/>
+                <field name="hatchingPercentageSafe"/>
+                <field name="percentageHatching" />
+            </panel>
+            <panel title="Chickens:" colSpan="12" readonly="true">
+                <field name="receptChickens"/>
+                <field name="startProdChickens" />
+            </panel>
+            <panel title="Production / chicken:" colSpan="12" readonly="true">
+                <field name="prodEggsPerChicken"/>
+                <field name="prodHePerChicken"/>
+                <field name="safeChicks"/>
+            </panel>
+        </panel>
+    </form>
+
+
+    <action-record name="action-set-default-values-dashboard-hatchery" model="com.gl.apps.pf.db.DashHatchery">
+        <field name="startIncubationDatetime" expr="eval: __datetime__.minusMonths(3)"/>
+        <field name="endIncubationDatetime" expr="eval: __datetime__"/>
+        <field name="startLoadingDatetime" expr="eval: __datetime__.minusMonths(3)"/>
+        <field name="endLoadingDatetime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-record name="action-set-default-values-dashboard-hatchery-status" model="com.gl.apps.pf.db.DashHatchery">
+        <field name="status" expr="eval: '0,1,2,3'"/>
+        <field name="status1" expr="eval: '0,1,2,3'"/>
+    </action-record>
+
+    <action-method name="action-method-hatchery-dashboard">
+        <call class="com.gl.apps.pf.web.HatcheryDashboardController" method="getLinesHatcheryDashboard"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-flesh-program">
+        <call class="com.gl.apps.pf.web.HatcheryDashboardController" method="getLinesFleshPrograms"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-receipt-eggs-chicks-prod">
+        <call class="com.gl.apps.pf.web.HatcheryDashboardController" method="getLinesReceiptEggsProd"/>
+    </action-method>
+
+</object-views>

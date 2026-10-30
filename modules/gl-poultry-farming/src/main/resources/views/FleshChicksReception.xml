@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="flesh-chicks-reception-grid" title="Flesh chicks reception" onNew="action-set-default-values-datetime-flesh-chicks-reception"
+          model="com.gl.apps.pf.db.FleshChicksReception" orderBy="-creationDate"
+          edit-icon="true">
+        <field name="reference"/>
+        <field name="completeRefTrackingNumber"/>
+        <field name="creationDate"/>
+        <field name="center"/>
+        <field name="breedingShed"/>
+        <field name="breed"/>
+        <field name="unit"/>
+        <field name="hatchery"/>
+        <field name="hatcherExit"/>
+        <field name="fleshLoadingProgramLine"/>
+        <field name="dispatchStock"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <form id="flesh-chicks-reception-form" name="flesh-chicks-reception-form" title="Flesh chicks reception" model="com.gl.apps.pf.db.FleshChicksReception"
+          onNew="action-set-default-values-datetime-flesh-chicks-reception">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Infos:" readonlyIf="status != 0" colSpan="12">
+                    <field name="reference" colSpan="4"/>
+                    <field name="creationDate" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                          <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                             <tbody>
+                              <tr>
+                               <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                              </tr>
+                             </tbody>
+                          </table>
+                        ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validerBtn" title="Validate" showIf="status &lt; 1" css="btn-success" colSpan="12" icon="fa-check"
+                            prompt="Are you sure you want to validate this flesh chicks reception?"
+                            onClick="save,action-group-flesh-chicks-reception-validate"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel reception" showIf="status == 1" prompt="Are you sure you want to cancel this flesh chicks reception ?"
+                            icon="fa-times" css="btn-danger" colSpan="12"
+                            onClick="action-flesh-chicks-reception-cancel"/>
+                </panel>
+            </panel>
+        </panel>
+        <panel title="Flesh breeding shed:" readonlyIf="status != 0" colSpan="12">
+            <field name="center" required="true" colSpan="4" domain="self.type = 2" onChange="action-attrs-flesh-chicks-reception-center-empty"/>
+            <field name="breedingShed" required="true" colSpan="4" domain="self.center = :center AND self.status = 1" onChange="action-flesh-chicks-reception-breeding-shed-changed"/>
+            <field name="numberOfCagePerBreedingShed" colSpan="4" readonly="true"/>
+        </panel>
+
+        <panel title="Reception:" readonlyIf="status != 0" colSpan="12">
+            <field name="unit" required="true" colSpan="4" onSelect="action-attrs-company-unit-domain" onChange="action-attrs-flesh-reception-unit-empty"/>
+            <field name="hatchery" required="true" colSpan="4" domain="self.unit = :unit"/>
+            <field name="realReceptionDate" colSpan="4"/>
+            <field name="hatcherExit" onChange="action-group-flesh-chicks-reception-hatcher-exit-changed" required="true"
+                   target-name="reference" colSpan="4"/>
+            <field name="breed" colSpan="4"/>
+            <field name="numberOfChicksTransferred" readonly="true" colSpan="4"/>
+
+            <field name="startTime" colSpan="4" title="Start time"/>
+            <field name="endTime" colSpan="4" title="End time" onChange="action-validate-start-end-date"/>
+            <field name="numberOfReceptions" colSpan="4"/>
+
+            <field name="numberOfChicksReceived" required="true" min="1" colSpan="4" onChange="action-group-flesh-chicks-reception-nbr-changed"/>
+            <field name="numberChicksPerCage" readonly="true" colSpan="4"/>
+            <field name="gap" readonly="true" colSpan="4"/>
+            <field name="completeRefTrackingNumber" title="Sub tracking number" colSpan="4" readonly="true"/>
+            <field name="averageWeight" colSpan="4"/>
+        </panel>
+
+        <panel title="Flesh program:" readonlyIf="status != 0" colSpan="12">
+            <field name="fleshLoadingProgramLine" onChange="action-group-flesh-chicks-reception-program-line-changed" required="true" colSpan="4" target-name="completeReference" />
+            <field name="plannedReceptionDate" readonly="true" colSpan="4"/>
+            <field name="fleshLoadingProgram" target-name="reference" readonly="true" colSpan="4"/>
+            <field name="trackingNumber" colSpan="4" readonly="true"/>
+            <field name="numberOfChicks" readonly="true" colSpan="4"/>
+            <field name="fleshReceptionDispatchStock" readonly="true" colSpan="4"/>
+        </panel>
+
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <action-record name="action-set-default-values-datetime-flesh-chicks-reception"  model="com.gl.apps.pf.db.FleshChicksReception">
+        <field name="creationDate" expr="eval: __datetime__"/>
+        <field name="realReceptionDate" expr="eval: __date__"/>
+        <field name="startTime" expr="eval: __time__"/>
+        <field name="endTime" expr="eval: __time__"/>
+    </action-record>
+
+    <action-attrs name="action-flesh-chicks-reception-program-line-changed" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="fleshLoadingProgramLine != null" name="value" expr="eval: fleshLoadingProgramLine.fleshLoadingProgram" for="fleshLoadingProgram"/>
+        <attribute if="fleshLoadingProgramLine != null" name="value" expr="eval: fleshLoadingProgramLine.fleshLoadingProgram.trackingNumber" for="trackingNumber"/>
+        <attribute if="fleshLoadingProgramLine != null" name="value" expr="eval: fleshLoadingProgramLine.plannedLoadingDatetime" for="plannedReceptionDate"/>
+        <attribute if="fleshLoadingProgramLine != null" name="value" expr="eval: fleshLoadingProgramLine.numberOfChicks" for="numberOfChicks"/>
+        <attribute if="fleshLoadingProgramLine != null" name="value" expr="eval: fleshLoadingProgramLine.fleshReceptionDispatchStock" for="fleshReceptionDispatchStock"/>
+    </action-attrs>
+
+    <action-attrs name="action-flesh-chicks-reception-program-line-empty" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="fleshLoadingProgramLine == null" name="value" expr="eval: null" for="fleshLoadingProgram"/>
+        <attribute if="fleshLoadingProgramLine == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="fleshLoadingProgramLine == null" name="value" expr="eval: null" for="plannedReceptionDate"/>
+        <attribute if="fleshLoadingProgramLine == null" name="value" expr="eval: 0" for="numberOfChicks"/>
+        <attribute if="fleshLoadingProgramLine == null" name="value" expr="eval: null" for="fleshReceptionDispatchStock"/>
+    </action-attrs>
+    
+    <action-group name="action-group-flesh-chicks-reception-program-line-changed">
+        <action name="action-flesh-chicks-reception-program-line-changed"/>
+        <action name="action-flesh-chicks-reception-program-line-empty"/>
+    </action-group>
+
+    <action-attrs name="action-flesh-chicks-reception-breeding-shed-changed" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.cagesNumber" for="numberOfCagePerBreedingShed"/>
+        <attribute if="breedingShed != null" name="domain"
+                   expr="eval: 'self.id IN (SELECT lpl.id FROM FleshLoadingProgramLine lpl WHERE lpl.breedingShed = :breedingShed AND lpl.status = 0 AND lpl.plannedLoadingDatetime >= :creationDate AND lpl.breed = :breed)'" for="fleshLoadingProgramLine"/>
+        <attribute if="breedingShed != null" name="domain"
+                   expr="eval: 'self.id IN (SELECT lpl.hatcherExit.id FROM FleshLoadingProgramLine lpl WHERE lpl.breedingShed = :breedingShed AND lpl.hatcherExit.hatchery = :hatchery AND lpl.hatcherExit.status = 1)'" for="hatcherExit"/>
+    </action-attrs>
+
+    <action-attrs name="action-flesh-chicks-reception-received-nbr-chicks-changed" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="numberOfChicksReceived != 0" name="value" expr="eval: numberOfChicksTransferred - numberOfChicksReceived" for="gap"/>
+        <attribute if="numberOfChicksReceived != 0 &amp;&amp; numberOfCagePerBreedingShed != 0" name="value" expr="eval: (int)  Math.floor( numberOfChicksReceived  / numberOfCagePerBreedingShed )" for="numberChicksPerCage"/>
+    </action-attrs>
+
+    <action-attrs name="action-flesh-chicks-reception-received-nbr-chicks-empty" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="numberOfChicksReceived == 0" name="value" expr="eval: 0" for="gap"/>
+        <attribute if="numberOfChicksReceived == 0" name="value" expr="eval: 0" for="numberChicksPerCage"/>
+    </action-attrs>
+
+    <action-attrs name="action-flesh-chicks-reception-hatcher-exit-changed" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="hatcherExit != null" name="value" expr="eval: hatcherExit.breed" for="breed"/>
+        <attribute if="hatcherExit != null" name="value" expr="eval: hatcherExit.internNumber" for="numberOfChicksTransferred"/>
+        <attribute if="hatcherExit != null" name="value" expr="eval: hatcherExit.dispatchStock" for="dispatchStock"/>
+    </action-attrs>
+
+    <action-attrs name="action-flesh-chicks-reception-hatcher-exit-empty" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="hatcherExit == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="hatcherExit == null" name="value" expr="eval: null" for="numberOfChicksTransferred"/>
+        <attribute if="hatcherExit == null" name="value" expr="eval: null" for="dispatchStock"/>
+    </action-attrs>
+
+    <action-group name="action-group-flesh-chicks-reception-hatcher-exit-changed">
+        <action name="action-flesh-chicks-reception-hatcher-exit-changed"/>
+        <action name="action-flesh-chicks-reception-hatcher-exit-empty"/>
+    </action-group>
+
+    <action-validate name="action-flesh-chicks-recpt-validate-received-chicks-number">
+        <error if=" numberOfChicksReceived &lt; 0 || numberOfChicksReceived > numberOfChicksTransferred" message="Received chicks number must be less than transferred number."/>
+    </action-validate>
+
+    <action-group name="action-group-flesh-chicks-reception-nbr-changed">
+        <action name="action-flesh-chicks-recpt-validate-received-chicks-number"/>
+        <action name="action-flesh-chicks-reception-received-nbr-chicks-changed"/>
+        <action name="action-flesh-chicks-reception-received-nbr-chicks-empty"/>
+    </action-group>
+
+    <action-method name="action-flesh-chicks-reception-validate">
+        <call class="com.gl.apps.pf.web.FleshChicksReceptionController" method="fleshChicksReceptionValidate"/>
+    </action-method>
+
+    <action-method name="action-flesh-chicks-reception-cancel">
+        <call class="com.gl.apps.pf.web.FleshChicksReceptionController" method="fleshChicksReceptionCancel"/>
+    </action-method>
+
+    <action-group name="action-group-flesh-chicks-reception-validate">
+        <action name="action-flesh-chicks-recpt-validate-received-chicks-number"/>
+        <action name="action-flesh-chicks-reception-validate"/>
+    </action-group>
+
+    <action-validate name="action-validate-start-end-date">
+        <error message="End time must be greater than start time!"
+               if="startTime > endTime"/>
+    </action-validate>
+
+    <action-attrs name="action-attrs-flesh-chicks-reception-center-empty" model="com.gl.apps.pf.db.FleshChicksReception">
+        <attribute if="center == null || center != null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="center == null || center != null" name="value" expr="eval: 0" for="numberOfCagePerBreedingShed"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-flesh-reception-unit-empty">
+    <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="hatchery"/>
+    </action-attrs>
+</object-views>

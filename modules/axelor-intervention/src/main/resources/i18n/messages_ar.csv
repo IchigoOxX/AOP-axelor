@@ -1,0 +1,353 @@
+Action,العمل
+Activate recurrence planning,تفعيل التخطيط التكراري
+Address,العنوان
+Advanced monitoring,مراقبة متقدمة
+Advanced monitoring address,عنوان المراقبة المتقدمة
+Advanced startup monitoring range,نطاق مراقبة بدء التشغيل المتقدم
+After sale service sale order follow up,خدمة ما بعد البيع متابعة أمر البيع
+Afternoon,بعد الظهر
+All articles must belong to the same partner,يجب أن تنتمي جميع المقالات إلى نفس الشريك
+All required questions of the survey must be answered to finish the intervention.,يجب الإجابة على جميع الأسئلة المطلوبة في الاستطلاع لإنهاء التدخل.
+Already in requested status.,بالفعل في الحالة المطلوبة.
+Answer,الإجابة
+Answer type,نوع الإجابة
+Answer types,أنواع الإجابات
+Answer value,قيمة الإجابة
+Answer values,قيم الإجابة
+Answered,تمت الإجابة
+App,التطبيق
+App Intervention,تدخل التطبيق
+App intervention,تدخل التطبيق
+Are you sure you want to remove selected lines?,هل أنت متأكد أنك تريد إزالة الأسطر المحددة؟
+Are you sure you want to remove selected questions?,هل أنت متأكد أنك تريد إزالة الأسئلة المحددة؟
+Article,مقال
+Assets management,إدارة الأصول
+Assigned to,مخصص لـ
+Attached file,الملف المرفق
+Auto generate customer request,إنشاء طلب العميل تلقائيًا
+Batches,دفعات
+By equipment,بالمعدات
+By equipment family,حسب عائلة المعدات
+Cancel,إلغاء
+Cancelled,ملغي
+Cannot go to requested status from current status.,لا يمكن الانتقال إلى الحالة المطلوبة من الحالة الحالية.
+Change equipment,تغيير المعدات
+Checkbox,خانة الاختيار
+Checkbox name,اسم خانة الاختيار
+Code,الرمز
+Comments,تعليقات
+Commercial,تجاري
+Commercial follow-up,المتابعة التجارية
+Commissioning date,تاريخ التكليف
+Companies,الشركات
+Company,الشركة
+Conditional,مشروط
+Conditional answer values,قيم الإجابة الشرطية
+Conditional intervention question,سؤال التدخل المشروط
+Conditional range question,سؤال النطاق الشرطي
+Configuration,التهيئة
+Confirm,تأكيد
+Confirm planification,تأكيد التخطيط
+Contact,جهة اتصال
+Contact details,تفاصيل الاتصال
+Contract,عقد عمل
+Contract template,نموذج العقد
+Contracts,عقود العمل
+Contractual,تعاقدي
+Could not find equipment with id %s.,تعذر العثور على المعدات ذات المعرف %s.
+Could not find picture with id %s.,تعذر العثور على الصورة ذات المعرف %s.
+Create an intervention,إنشاء أمر خدمة ميدانية
+Create intervention,إنشاء تدخل
+Create new equipment,إنشاء معدات جديدة
+Create new equipment model,إنشاء نموذج معدات جديد
+Create range question,إنشاء سؤال النطاق
+Created by,تم إنشاؤها بواسطة
+Created on,تم الإنشاء بتاريخ
+Customer request,طلب العميل
+Customer request can't be generated as some required fields are missing.,لا يمكن إنشاء طلب العميل لأن بعض الحقول المطلوبة مفقودة.
+Customer requests,طلبات العملاء
+Customer warranty on part end date,ضمان العميل في تاريخ انتهاء الجزء
+Customer.Equipments,العملاء.المعدات
+Date,التاريخ
+Default intervention category,فئة التدخل الافتراضية
+Default intervention category from contract batch,فئة التدخل الافتراضية من دفعة العقد
+Default intervention description,وصف التدخل الافتراضي
+Default previsional duration,المدة الافتراضية الافتراضية
+Default request source,مصدر الطلب الافتراضي
+Default request source from contract batch,مصدر الطلب الافتراضي من دفعة العقد
+Default request subject,موضوع الطلب الافتراضي
+Default request subject from contract batch,موضوع الطلب الافتراضي من دفعة العقد
+Default text value,قيمة النص الافتراضية
+Default type for interventions from contracts,النوع الافتراضي للتدخلات من العقود
+Delay to send the quotation (h),تأخير إرسال عرض الأسعار (ح)
+Delete,حذف
+Delete btn,حذف بتن
+Delete range questions,حذف أسئلة النطاق
+Delivered partner,شريك تسليم
+Description,الوصف
+Designation,التعيين
+Desired unit,الوحدة المرغوبة
+Display all linked interventions by the contract,عرض كافة التدخلات المرتبطة بالعقد
+Draft,مسودة
+Duration,المدة
+Duration in,المدة في
+Durations,المدة
+Email sent,تم إرسال البريد الإلكتروني
+End date,تاريخ الانتهاء
+Equipment,معدات
+Equipment / Contract,المعدات / العقد
+Equipment families,عائلات المعدات
+Equipment family,عائلة المعدات
+Equipment filters,مرشحات المعدات
+Equipment informations,معلومات عن المعدات
+Equipment line Product label,بند المعدة تسمية المنتج
+Equipment line filters,مرشحات بند المعدة
+Equipment lines,بنود المعدات
+Equipment model,نموذج المعدات
+Equipment models,نماذج المعدات
+Equipment ranges,نطاقات المعدات
+Equipment successfully added.,تمت إضافة المعدات بنجاح.
+Equipment successfully removed.,تمت إزالة المعدات بنجاح.
+Equipments,المعدات
+Equipments lines,بنود المعدات
+Equipments tree,شجرة المعدات
+Error happened during process execution,حدث خطأ أثناء تنفيذ العملية
+Error opening zip file %s: %s,خطأ في فتح الملف المضغوط %s: %s
+Estimated date,التاريخ المقدر
+Estimated end date time,وقت تاريخ الانتهاء المقدر
+Estimated month,الشهر المقدر
+Exclusive intervention,خدمة ميدانية مخصصة
+Fail,يفشل
+Faulty equipments number,رقم المعدات الخاطئة
+File,الملف
+Filters,عوامل التصفية
+Finish,انتهى
+Finish manually,إنهاء يدويا
+Finished,انتهى
+Finished interventions,المداخلات المنتهية
+Following,متابعة
+Following : No,التالي : لا
+Following : Yes,التالي: نعم
+Following questions,الأسئلة التالية
+Footer ranges,نطاقات التذييل
+GIT,جيت
+GIT / GRT,جيت / جي آر تي
+GIT status,حالة الجهاز الهضمي
+GRT,ضريبة القيمة المضافة
+GRT status,حالة إجمالي الإيرادات الإجمالية
+Generate equipments,توليد المعدات
+Generate intervention for active contracts,توليد تدخل للعقود النشطة
+Generate interventions,توليد التدخلات
+Generate sale order,إنشاء أمر بيع
+Guaranteed intervention time (h),زمن التدخل المضمون (ح)
+Guaranteed recovery time (h),وقت الاسترداد المضمون (ح)
+Header ranges,نطاقات الرأس
+Hidden,مخفي
+Home,الصفحة الرئيسية
+Hour,ساعة
+Important,هام
+Impossible to remove equipment model that has children's equipment models,من المستحيل إزالة نموذج المعدات الذي يحتوي على نماذج معدات الأطفال
+Impossible to remove equipment that has children's equipment,مستحيل ازالة المعدات التي بها معدات الاطفال
+In progress,قيد التنفيذ
+In progress interventions,خدمات ميدانية قيد التنفيذ
+In service,في الخدمة
+Indication,إشارة
+Indication text,نص الإشارة
+Indicator,المؤشر
+Information,معلومات
+Intervention,الخدمات الميدانية / الصيانة الميدانية
+Intervention address,عنوان المداخلة
+Intervention batch,دفعة التدخل
+Intervention batches,دفعات التدخل
+Intervention categories,فئات التدخل
+Intervention category,فئة التدخل
+Intervention config,تكوين التدخل
+Intervention config (${ name }),تكوين التدخل (${ name })
+Intervention configuration,تكوين التدخل
+Intervention configurations,تكوينات التدخل
+Intervention note,مذكرة المداخلة
+Intervention note type,نوع مذكرة التدخل
+Intervention note types,أنواع مذكرة التدخل
+Intervention notes,ملاحظات المداخلة
+Intervention question,سؤال المداخلة
+Intervention question state,حالة سؤال التدخل
+Intervention questions,أسئلة المداخلة
+Intervention range,نطاق التدخل
+Intervention ranges,نطاقات التدخل
+Intervention status successfully updated.,تم تحديث حالة التدخل بنجاح.
+Intervention type,نوع التدخل
+Intervention types,أنواع التدخل
+Intervention.endDateTime,التدخل.endDateTime
+Intervention.lastStartDateTime,تاريخ البدء الأخير الوقت
+Intervention.startDateTime,تاريخ البدء الوقت
+Interventions,الخدمات الميدانية / الصيانة الميدانية
+Interventions will be generated if the date of the next visit is less than this delay.,سيتم إنشاء التدخلات إذا كان تاريخ الزيارة التالية أقل من هذا التأخير.
+Invalid data,بيانات غير صالحة
+Invoiced partner,شريك الفاتورة
+Is answered ?,هل يتم الرد ؟
+Is conditional ?,هل مشروطة؟
+Is default ?,هل الافتراضي ؟
+Is private ?,هل خاص ؟
+Is required ?,مطلوب ؟
+Is survey generation running,هل يتم تشغيل إنشاء الاستطلاع
+Justification,التبرير
+Last maintenance visit date done,تاريخ آخر زيارة للصيانة تمت
+Link,الرابط
+Linked intervention,التدخل المرتبط
+Linked intervention types,أنواع التدخلات المرتبطة
+Linked interventions,التدخلات المترابطة
+Linked ranges,النطاقات المرتبطة
+Linked sale order,أمر بيع مرتبط
+Max GIT date time,ماكس GIT تاريخ الوقت
+Max GRT date time,أقصى تاريخ لـ GRT
+Measure,قياس
+Message template,قالب الرسالة
+Month,الشهر
+Morning,صباح
+Name,الاسم
+New btn,جديد بي تي ان
+Next annual visit date,تاريخ الزيارة السنوية القادمة
+Next intervention,المداخلة التالية
+Next visit delay (in months),تأخير الزيارة القادمة (بالشهور)
+No,لا
+No date time in request body.,لا يوجد تاريخ ووقت في نص الطلب.
+No planned duration in request body.,لا توجد مدة مخططة في نص الطلب.
+No planned technician user id in request body.,لا يوجد معرف مستخدم فني مخطط له في نص الطلب.
+No preference,لا يوجد تفضيل
+No valid zip file found.,لم يتم العثور على ملف مضغوط صالح.
+Non conforming questions,أسئلة غير مطابقة
+Non respected,غير محترم
+Non-conforming,غير مطابق
+Non-conforming :,غير مطابق :
+Normal,عادي
+Not answered,لم يتم الرد
+Nothing has been generated.,لم يتم إنشاء أي شيء.
+Number of elements to generate,عدد العناصر المراد إنشاؤها
+Number of maintenance hours,عدد ساعات الصيانة
+Off-contract and non-operational,خارج العقد وغير تشغيلي
+Off-contract and operational,خارج العقد والتشغيل
+Office,مكتب
+Offline,غير متصل
+Ok,طيب
+On alert,في حالة تأهب
+On-call management,إدارة تحت الطلب
+On-call planning,التخطيط عند الطلب
+Open survey,استطلاع مفتوح
+Opportunity,فرصة بيعية
+Order,أمر / طلب
+Ordered range,النطاق المطلوب
+Out of service,خارج الخدمة
+Outsourcing,الاستعانة بمصادر خارجية
+Overview,نظرة عامة
+Parent model,نموذج الوالدين
+Parent place,مكان الوالدين
+Park model,نموذج بارك
+Park models,نماذج المنتزه
+Partner,شريك أعمال
+Partner trading name,الاسم التجاري للشريك
+Periodicity,الدورية
+Picture,صورة
+Picture successfully added.,تمت إضافة الصورة بنجاح.
+Picture successfully removed.,تمت إزالة الصورة بنجاح.
+Pictures,الصور
+Place,المكان
+Plan,خطة
+Planification,التخطيط
+Planification date time,تاريخ التخطيط الوقت
+Planned,مخطط
+Planned intervention duration,مدة التدخل المخطط
+Planning preference,تفضيل التخطيط
+Please save to add equipments to your park model.,يرجى الحفظ لإضافة المعدات إلى نموذج حديقتك.
+Previous intervention,المداخلة السابقة
+Priority,الأولوية
+Private,خاص
+Project,المشروع
+Qty,الكمية
+Quantity,الكمية
+Question,سؤال
+Questions,أسئلة
+Range,النطاق
+Range question,سؤال المدى
+Range question sequence,تسلسل أسئلة النطاق
+Range questions,أسئلة المدى
+Range type,نوع النطاق
+Range types,أنواع النطاق
+Ranges,النطاقات
+Real GIT (h),بوابة حقيقية (ح)
+Real GRT (h),إجمالي إجمالي الإيرادات (ح)
+Recap,خلاصة
+Recap questions,تلخيص الأسئلة
+Related Equipments,المعدات ذات الصلة
+Related Interventions,الخدمات الميدانية ذات الصلة
+Report,تقرير
+Request date time,تاريخ الطلب
+Request details,تفاصيل الطلب
+Request source,مصدر الطلب
+Request subject,موضوع الطلب
+Reschedule,إعادة جدولة
+Rescheduled intervention,التدخل المعاد جدولته
+Rescheduling reason,سبب إعادة الجدولة
+Respected,محترم
+Sale order,أمر بيع
+Sale quotations,عروض أسعار المبيعات
+Schedule of operation,جدول التشغيل
+Send email,إرسال البريد الإلكتروني
+Send email on customer request creation,إرسال بريد إلكتروني عند إنشاء طلب العميل
+Send email on intervention planification,إرسال بريد إلكتروني بشأن تخطيط التدخل
+Send email on intervention re-planification,إرسال بريد إلكتروني بشأن إعادة تخطيط التدخل
+Send email on intervention validation,إرسال بريد إلكتروني بشأن التحقق من صحة التدخل
+Sequence,التسلسل
+Signature,التوقيع
+Specific access schedule,جدول وصول محدد
+Standard,قياسي
+Start,ابدأ
+Start date,تاريخ البدء
+Started,بدأت
+State,الدولة
+Status,الحالة
+Stock move,حركة المخزون
+Supplier partner,شريك المورد
+Supplier warranty end date,تاريخ انتهاء ضمان المورد
+Survey generation finished,انتهى إنشاء المسح
+Survey generation in progress,جاري إنشاء المسح
+Suspend,تعليق
+Suspended,مع وقف التنفيذ
+Take into account,خذ بعين الاعتبار
+Taken into account,يؤخذ بعين الاعتبار
+Technical follow up,المتابعة الفنية
+Technician,فني
+Text,نص
+The order must be strictly greater than the conditional question's order,يجب أن يكون الترتيب أكبر تمامًا من ترتيب السؤال الشرطي
+The survey of the intervention ID %s has been generated.,تم إنشاء استطلاع معرف التدخل %s.
+There is no configured sequence for customer request.,لا يوجد تسلسل تم تكوينه لطلب العميل.
+There is no configured sequence for intervention.,لا يوجد تسلسل محدد للتدخل.
+This configuration only applies to interventions for active contracts generated by a batch. You can define here a default description that will automatically fill in the description field of an intervention.,ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد الوصف الافتراضي الذي سيملأ تلقائيًا حقل الوصف الخاص بالتدخل.
+"This configuration only applies to interventions for active contracts generated by a batch. You can define here the default category for interventions from contracts, which will be automatically filled in when creating an intervention from a contract. Categories are configured from the Configuration/Intervention categories menu of the Intervention module.",ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد الفئة الافتراضية للتدخلات من العقود، والتي سيتم ملؤها تلقائيًا عند إنشاء تدخل من العقد. يتم تكوين الفئات من قائمة فئات التكوين/التدخل في وحدة التدخل.
+This configuration only applies to interventions for active contracts generated by a batch. You can define here the default intervention category that will be automatically filled in when creating an intervention. Categories are configured from the Configuration/Intervention category menu of the Intervention module.,ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد فئة التدخل الافتراضية التي سيتم ملؤها تلقائيًا عند إنشاء تدخل. يتم تكوين الفئات من قائمة فئة التكوين/التدخل في وحدة التدخل.
+"This configuration only applies to interventions for active contracts generated by a batch. You can define here the default request source for interventions from contracts, which will be automatically filled in when creating a request for an intervention from a contract. Sources are configured from the Configuration/Request source menu of the Intervention module.",ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد مصدر الطلب الافتراضي للتدخلات من العقود، والذي سيتم ملؤه تلقائيًا عند إنشاء طلب التدخل من العقد. يتم تكوين المصادر من قائمة مصادر التكوين/الطلب الخاصة بوحدة التدخل.
+This configuration only applies to interventions for active contracts generated by a batch. You can define here the default request source that will be automatically filled in when creating an intervention. Sources are configured from the Configuration/Request source menu of the Intervention module.,ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد مصدر الطلب الافتراضي الذي سيتم ملؤه تلقائيًا عند إنشاء التدخل. يتم تكوين المصادر من قائمة مصادر التكوين/الطلب الخاصة بوحدة التدخل.
+"This configuration only applies to interventions for active contracts generated by a batch. You can define here the default request subject for interventions from contracts, which will be automatically filled in when creating a request for an intervention from a contract. Subjects are configured from the Configuration/Request subject menu of the Intervention module.",ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد موضوع الطلب الافتراضي للتدخلات من العقود، والذي سيتم ملؤه تلقائيًا عند إنشاء طلب التدخل من العقد. يتم تكوين الموضوعات من قائمة موضوع التكوين/الطلب بوحدة التدخل.
+This configuration only applies to interventions for active contracts generated by a batch. You can define here the default request subject that will be automatically filled in when creating an intervention. Subjects are configured from the Configuration/Request subject menu of the Intervention module.,ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد موضوع الطلب الافتراضي الذي سيتم ملؤه تلقائيًا عند إنشاء التدخل. يتم تكوين الموضوعات من قائمة موضوع التكوين/الطلب بوحدة التدخل.
+"This configuration only applies to interventions for active contracts generated by a batch. You can define here the default type for interventions from contracts, which will be automatically filled in when creating an intervention from a contract. Types are configured from the Configuration/Intervention types menu of the Intervention module.",ينطبق هذا التكوين فقط على التدخلات الخاصة بالعقود النشطة التي تم إنشاؤها بواسطة الدفعة. يمكنك هنا تحديد النوع الافتراضي للتدخلات من العقود، والتي سيتم ملؤها تلقائيًا عند إنشاء تدخل من العقد. يتم تكوين الأنواع من قائمة أنواع التكوين/التدخل في وحدة التدخل.
+This is the estimated number of hours for the maintenance of this type of Equipment and will be used to give an indication of the total number of hours required on a contract.,هذا هو العدد التقديري للساعات اللازمة لصيانة هذا النوع من المعدات وسيتم استخدامه لإعطاء إشارة إلى إجمالي عدد الساعات المطلوبة في العقد.
+Title,العنوان
+To plan,للتخطيط
+Tools,الأدوات
+Total duration,المدة الإجمالية
+Tracking Number,رقم التتبع / التشغيلة
+Trading name,اسم التداول
+Trading names,أسماء التداول
+Type,النوع
+URGENT,عاجل
+Unable to create a planification for this intervention. Please check planification fields.,غير قادر على إنشاء تخطيط لهذا التدخل. يرجى التحقق من حقول التخطيط.
+Under contract and non-operational,بموجب عقد وغير تشغيلي
+Under contract and operational,بموجب العقد والتشغيل
+Under contract equipments number,بموجب عقد المعدات رقم
+Updatable quantities,كميات قابلة للتحديث
+Upload a file or log in to the mobile app to sign,قم بتحميل ملف أو قم بتسجيل الدخول إلى تطبيق الهاتف المحمول للتوقيع
+Urgent,عاجل
+User in charge,المستخدم المسؤول
+Value list,قائمة القيم
+Yes,نعم
+Zip file %s is corrupted: %s,الملف المضغوط %s تالف: %s
+com.axelor.apps.intervention.service.batch.InterventionBatchService,com.axelor.apps.intervention.service.batch.InterventionBatchService

@@ -1,0 +1,29 @@
+[
+  {
+    "saleOrderSeq": 12345,
+    "customer": { "simpleFullName": "John Doe" },
+    "total": 150.25,
+    "itemsCount": 3,
+    "saleOrderLineList": [],
+    "creationDate": null,
+    "status": "complete"
+  },
+  {
+    "saleOrderSeq": 12346,
+    "customer": { "simpleFullName": "Alice Johnson" },
+    "total": 75.5,
+    "itemsCount": 1,
+    "saleOrderLineList": [],
+    "creationDate": null,
+    "status": "complete"
+  },
+  {
+    "saleOrderSeq": 12347,
+    "customer": { "simpleFullName": "Chris Lee" },
+    "total": 200.0,
+    "itemsCount": 2,
+    "saleOrderLineList": [],
+    "creationDate": null,
+    "status": "Complete"
+  }
+]

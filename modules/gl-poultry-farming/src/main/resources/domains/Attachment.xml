@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="Attachment">
+
+        <many-to-one name="metaFile" ref="com.axelor.meta.db.MetaFile" required="false"/>
+        <many-to-one name="productAttachmentType" ref="com.gl.apps.pf.db.ProductAttachmentType" title="Product attachment type"/>
+        <string name="attachmentTypeTitle" title="Title"/>
+        <boolean name="attachmentRequired" title="Required"/>
+        <many-to-one name="logisticSheet" ref="com.gl.apps.pf.db.LogisticsSheet"
+                     title="Logistic sheet"/>
+        <integer name="lineNumber" title="Line Number" />
+
+        <track on="UPDATE">
+            <field name="lineNumber"/>
+            <field name="metaFile"/>
+            <field name="productAttachmentType"/>
+            <field name="attachmentTypeTitle"/>
+            <field name="attachmentRequired"/>
+            <field name="logisticSheet"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

@@ -1,0 +1,41 @@
+importId;redmineMappingFieldSelect;redmineValue;osValue
+1;Status;New;New
+1;Status;Feedback;Feedback
+1;Status;In Progress;In progress
+1;Status;Resolved;Resolved
+1;Status;Tested;Tested
+1;Status;Deployment;Deployment
+1;Status;Rejected;Rejected
+1;Status;Closed;Closed
+1;Status;Canceled;Canceled
+1;Status;Won'tfix;Canceled
+1;Status;Nouveau;New
+1;Status;Rejeté;Rejected
+1;Status;En cours;In progress
+1;Status;Réalisé, non livré;Réalisé, non livré
+1;Status;Réalisé, livré;Réalisé, livré
+1;Status;Annulé;Canceled
+1;Status;Fermé/terminé;Done
+1;Status;En attente;En attente
+2;Tracker;Anomaly;Anomalie
+2;Tracker;Feature;Fonctionnalité
+2;Tracker;Support;Support
+2;Tracker;Proposal;Proposition
+2;Tracker;Anomalie;Anomalie
+2;Tracker;Evolution;Evolution
+2;Tracker;Fonctionnalité prévue;Fonctionnalité prévue
+2;Tracker;Intervention/assistance;Intervention/assistance
+2;Tracker;Pack;Pack
+2;Tracker;Bug;Bug
+3;Priority;Low;Low
+3;Priority;Normal;Normal
+3;Priority;High;High
+3;Priority;Urgent;Urgent
+4;Activity;On project/Bugfix;On project/Bugfix
+4;Activity;On project/Project Management;On project/Project Management
+4;Activity;On ticket;On ticket
+4;Activity;On project/Feature;On project/Feature
+4;Activity;A. Technologies;A. Technologies
+5;VersionStatus;open;en cours
+5;VersionStatus;locked;En attente
+5;VersionStatus;closed;En production

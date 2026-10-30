@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="stock" package="com.axelor.apps.stock.db"/>
+
+  <entity name="StockMoveLine">
+    <many-to-one name="fromBreedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding shed from"/>
+    <many-to-one name="toBreedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding shed to"/>
+
+    <many-to-one name="fromHatchery" ref="com.gl.apps.pf.db.Hatchery" title="Hatchery from"/>
+    <many-to-one name="toHatchery" ref="com.gl.apps.pf.db.Hatchery" title="Hatchery to"/>
+
+    <track on="UPDATE">
+      <field name="fromBreedingShed"/>
+      <field name="toBreedingShed"/>
+      <field name="fromHatchery"/>
+      <field name="toHatchery"/>
+    </track>
+
+  </entity>
+
+</domain-models>

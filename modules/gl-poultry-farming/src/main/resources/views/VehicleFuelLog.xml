@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="vehicle-fuel-log-form-id" name="vehicle-fuel-log-form" title="Vehicle fuel log" model="com.axelor.apps.fleet.db.VehicleFuelLog" extension="true">
+        <extend target="//field[@name='totalPrice']">
+            <insert position="after">
+                <field name="vehicleFuelLogOdometer" required="true"/>
+            </insert>
+        </extend>
+    </form>
+
+</object-views>
+
+
+

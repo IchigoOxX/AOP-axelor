@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="stock-move-add-breed-form" name="stock-move-form" title="Chicks Infos" model="com.axelor.apps.stock.db.StockMove"
+          extension="true" >
+        <extend target="/">
+            <attribute name="onLoad" value="action-group-stock-stockmove-onload, action-stock-move-attrs-fill-ctx,action-attr-show-start-reception-chicks-params"/>
+        </extend>
+        <extend target="//panel[@name='configPanel']">
+            <insert position="after">
+<!--                readonlyIf="statusSelect != 1" showIf="showReceptionChicksParams"-->
+                <panel name="breedPanel" title="Chicks Infos" readonlyIf="statusSelect != 1" showIf="showReceptionChicksParams" colSpan="4" sidebar="true" canCollapse="true">
+                    <field name="currentBreed" colSpan="4" requiredIf="statusSelect == 1 OR showReceptionChicksParams"/>
+                    <field name="currentDailyAge" colSpan="4" requiredIf="showReceptionChicksParams"/>
+                    <field name="currentTrackingNumber" colSpan="4"/>
+                    <field name="showReceptionChicksParams" hidden="true"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='typeSelect']">
+            <insert position="after">
+                <field name="subType" colSpan="2" showIf="typeSelect == 1"/>
+            </insert>
+        </extend>
+
+        <extend target="//panel[@name='OriginPanel']">
+            <insert position="before">
+                <panel title="Startup" colSpan="12">
+                    <field name="receivingChicks" colSpan="4" title="Receiving Chicks" readonly="true" target-name="reference"/>
+                    <field name="elevTransfer" colSpan="4" title="Breeding transfer" readonly="true" target-name="reference"/>
+                    <field name="elevReform" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="startElevMovement" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="pharmacyTreatment" colSpan="4" readonly="true" target-name="reference"/>
+
+                    <field name="productOrder" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="productRelease" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="productConsumption" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="receiptOrder" colSpan="4" readonly="true" target-name="reference"/>
+                </panel>
+                <panel title="Reproduction" colSpan="12">
+                    <field name="receptionReproProduction" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="reproProduction" colSpan="4" readonly="true" target-name="reference"/>
+
+                </panel>
+                <panel title="Technical sheet" colSpan="12">
+                    <field name="technicalSheetLine" colSpan="4" readonly="true"/>
+                </panel>
+
+                <panel title="Hatcheries" colSpan="12">
+                    <field name="hatcheryEggsReception" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="incubatorEntry" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="incubatorExit" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="hatcherEntry" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="hatcherExit" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="hatcheryEggExit" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="hatcheryDeliverySale" colSpan="4" readonly="true" target-name="reference"/>
+                </panel>
+
+                <panel title="Flesh" colSpan="12">
+                    <field name="fleshChicksReception" colSpan="4" readonly="true" target-name="reference"/>
+                    <field name="livestockFeedExternalExit" colSpan="4" readonly="true" target-name="reference"/>
+                </panel>
+            </insert>
+        </extend>
+
+        <extend target="//panel-related[@name='stockMoveLineListPanel']">
+            <attribute name="onChange" value="action-stock-move-line-change-group,action-attr-show-start-reception-chicks-params"/>
+        </extend>
+
+<!--        <extend target="//button[@name='realizeBtn']">-->
+<!--            <attribute name="onClick" value="action-group-stock-stockmove-realize-click,action-supplier-arrivals-add-chicks-reception"/>-->
+<!--        </extend>-->
+    </form>
+
+    <action-attrs name="action-attr-show-start-reception-chicks-params" model="com.axelor.apps.stock.db.StockMove">
+        <attribute name="value"
+                   expr="eval: __config__.app.isApp('poultry-farming') &amp;&amp; stockMoveLineList?.any({it.product == __config__.app.getApp('poultry-farming')?.starterMalesChicks }) || stockMoveLineList?.any({it.product == __config__.app.getApp('poultry-farming')?.starterFemalesChicks }) "
+                   for="showReceptionChicksParams"/>
+    </action-attrs>
+    <action-method name="action-method-update-values-for-move-line">
+        <call method="updateValuesForLine"
+              class="com.gl.apps.pf.web.StockMoveController"/>
+    </action-method>
+
+    <action-method name="action-test-save-stock-move">
+        <call method="SaveTest"
+              class="com.gl.apps.pf.web.StockMoveController"/>
+    </action-method>
+
+<!--    <action-validate name="action-validate-stock-move-line">-->
+<!--        <error if="stockMoveLineList &amp;&amp; __this__.id != null &amp;&amp; stockMoveLineList?.findAll{it -> it?.trackingNumber?.trackingNumberSeq != currentTrackingNumber?.trackingNumberSeq}.size() > 0"-->
+<!--               message="Error tracking number does not match in stock move."/>-->
+<!--    </action-validate>-->
+
+    <action-validate name="action-validate-stock-move-check-tracking-number">
+        <error if="showReceptionChicksParams &amp;&amp; stockMoveLineList != null &amp;&amp; stockMoveLineList.collect{it -> it.trackingNumber.trackingNumberSeq}.toSet().size() != 1"
+               message="All lines must have the same tracking number."/>
+    </action-validate>
+
+    <action-method name="action-supplier-arrivals-add-chicks-reception">
+        <call method="addChicksReceptionStartUp"
+              class="com.gl.apps.pf.web.StockMoveController"/>
+    </action-method>
+
+
+</object-views>
+
+
+

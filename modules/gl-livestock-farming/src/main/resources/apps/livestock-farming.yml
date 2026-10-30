@@ -1,0 +1,11 @@
+name: livestock-farming
+title: الثروة الحيوانية والماشية
+description: إدارة مزارع الماشية، الأبقار الحلوب، عجول التسمين وإنتاج الألبان
+author: Axelor
+version: 1.0.0
+depends:
+  - base
+  - stock
+  - sale
+  - purchase
+

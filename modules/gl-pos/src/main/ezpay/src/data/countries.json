@@ -1,0 +1,111 @@
+[
+  {
+    "name": "Tunisia",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg",
+    "phone_code": "+216",
+    "governorates": [
+      {
+        "name": "Ariana",
+        "post_code": "20xx"
+      },
+      {
+        "name": "Béja",
+        "post_code": "90xx"
+      },
+      {
+        "name": "Ben Arous",
+        "post_code": "20xx and 11xx"
+      },
+      {
+        "name": "Bizerte",
+        "post_code": "70xx"
+      },
+      {
+        "name": "Gabès",
+        "post_code": "60xx"
+      },
+      {
+        "name": "Gafsa",
+        "post_code": "21xx"
+      },
+      {
+        "name": "Jendouba",
+        "post_code": "81xx"
+      },
+      {
+        "name": "Kairouan",
+        "post_code": "31xx"
+      },
+      {
+        "name": "Kasserine",
+        "post_code": "12xx"
+      },
+      {
+        "name": "Kebili",
+        "post_code": "42xx"
+      },
+      {
+        "name": "Kef",
+        "post_code": "71xx"
+      },
+      {
+        "name": "Mahdia",
+        "post_code": "51xx"
+      },
+      {
+        "name": "Manouba",
+        "post_code": "20xx and 11xx"
+      },
+      {
+        "name": "Medenine",
+        "post_code": "41xx"
+      },
+      {
+        "name": "Monastir",
+        "post_code": "50xx"
+      },
+      {
+        "name": "Nabeul",
+        "post_code": "80xx"
+      },
+      {
+        "name": "Sfax",
+        "post_code": "30xx"
+      },
+      {
+        "name": "Sidi Bouzid",
+        "post_code": "91xx"
+      },
+      {
+        "name": "Siliana",
+        "post_code": "61xx"
+      },
+      {
+        "name": "Sousse",
+        "post_code": "40xx"
+      },
+      {
+        "name": "Tataouine",
+        "post_code": "32xx"
+      },
+      {
+        "name": "Tozeur",
+        "post_code": "22xx"
+      },
+      {
+        "name": "Tunis",
+        "post_code": "20xx and 10xx"
+      },
+      {
+        "name": "Zaghouan",
+        "post_code": "11xx"
+      }
+    ]
+  },
+  {
+    "name": "France"
+  },
+  {
+    "name": "Algeria"
+  }
+]

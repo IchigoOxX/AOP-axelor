@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<form name="repro-production-line-form" title="Repro Production Line"
+    model="com.gl.apps.pf.db.ReproProductionLine" width="large">
+  <panel title="Overview">
+    <field name="breedingShed" title="Breeding Shed"/>
+    <field name="numberOfHeTrays" onChange="action-repro-production-line-calculate-het,action-repro-production-line-calculate-tot" readonly="true"/>
+    <field name="numberOfHe" onChange="action-repro-production-line-calculate-he,action-repro-production-line-calculate-tot"/>
+    <field name="numberOfHeGround" title="Number of hatching eggs ground" onChange="action-repro-production-line-calculate-he,action-repro-production-line-calculate-tot"/>
+    <field name="totalNumberOfHe" readonly="true"/>
+
+<!--    <field name="numberOfDETrays" readonly="true" onChange="action-repro-production-line-calculate-det,action-repro-production-line-calculate-tot"/>-->
+    <field name="numberOfDE" onChange="action-repro-production-line-calculate-de,action-repro-production-line-calculate-tot"/>
+<!--    <field name="numberOfDEGround" title="Number of declassed eggs ground" onChange="action-repro-production-line-calculate-de,action-repro-production-line-calculate-tot"/>-->
+    <field name="totalNumberOfDE" readonly="true"/>
+
+<!--    <field name="numberOfDYETrays" readonly="true" onChange="action-repro-production-line-calculate-dyet,action-repro-production-line-calculate-tot"/>-->
+    <field name="numberOfDYE" onChange="action-repro-production-line-calculate-dye,action-repro-production-line-calculate-tot"/>
+    <field name="totalTrays"/>
+    <field name="totalEggs"/>
+    <field name="numberOfRE" onChange="action-repro-production-line-calculate-tot"/>
+    <field name="numberOfDestroyedRe" onChange="action-repro-production-line-calculate-tot"/>
+  </panel>
+
+<!--    <panel title="Voucher:" colSpan="4">-->
+<!--      <field colSpan="3" name="reference"/>-->
+<!--      <field colSpan="3" name="dateTime" title="Production Date"/>-->
+<!--    </panel>-->
+
+<!--    <panel colSpan="12" title="Infos :">-->
+<!--      <panel showTitle="false" colSpan="5">-->
+<!--        <field name="center" colSpan="5"-->
+<!--          onChange="action-group-repro-production-center-changed"/>-->
+<!--        <field name="unit" readonly="true" colSpan="5"/>-->
+<!--        <panel showTitle="false" colSpan="10">-->
+<!--          <panel showTitle="false" colSpan="6">-->
+<!--            <field name="trackingNumber" readonly="true" colSpan="12"/>-->
+<!--          </panel>-->
+<!--          <panel showTitle="false" colSpan="6">-->
+<!--            <field name="breed" readonly="true" colSpan="12"/>-->
+<!--          </panel>-->
+<!--        </panel>-->
+<!--      </panel>-->
+
+<!--      <panel showTitle="false" colSpan="3">-->
+<!--        <field name="dailyAge" readonly="true" colSpan="10"/>-->
+<!--        <field name="weeklyAge" readonly="true" colSpan="10"/>-->
+<!--      </panel>-->
+
+<!--      <panel showTitle="false" colSpan="4">-->
+<!--        <field name="unitOfDestination" colSpan="10"/>-->
+<!--        <field name="hatchery" colSpan="10"-->
+<!--          x-domain=":unitOfDestination != null AND self.unit = :unitOfDestination "/>-->
+<!--      </panel>-->
+<!--    </panel>-->
+
+<!--    <panel-related name="reproProductionLineListPanel" colSpan="12"-->
+<!--      field="reproProductionLineList" form-view="repro-production-line-form"-->
+<!--      grid-view="repro-production-line-grid" canNew="false" canDelete="false" editable="true"-->
+<!--      readonlyIf="hatchery == null"/>-->
+<!--    <panel name="footer" title="Complement" colSpan="12">-->
+<!--      <panel colSpan="2">-->
+<!--        <field name="deliveryTime" colSpan="12"/>-->
+<!--        <field name="arrivalTime" colSpan="12"/>-->
+<!--      </panel>-->
+<!--      <panel colSpan="10">-->
+<!--        <field name="note" showTitle="false" colSpan="12" height="200" widget="html"/>-->
+<!--      </panel>-->
+<!--    </panel>-->
+<!--    <panel-mail name="mailsPanel">-->
+<!--      <mail-messages limit="4"/>-->
+<!--      <mail-followers/>-->
+<!--    </panel-mail>-->
+  </form>
+
+  <grid name="repro-production-line-grid" title="Repro production lines" model="com.gl.apps.pf.db.ReproProductionLine" orderBy="breedingShed" edit-icon="true">
+    <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+    <field name="numberOfHeTrays" onChange="action-repro-production-line-calculate-het,action-repro-production-line-calculate-tot" readonly="true"/>
+    <field name="numberOfHe" onChange="action-repro-production-line-calculate-he,action-repro-production-line-calculate-tot"/>
+    <field name="numberOfHeGround" title="Number of hatching eggs ground" onChange="action-repro-production-line-calculate-he,action-repro-production-line-calculate-tot"/>
+    <field name="totalNumberOfHe" readonly="true"/>
+
+    <field name="numberOfDYETrays" readonly="true" onChange="action-repro-production-line-calculate-dyet,action-repro-production-line-calculate-tot"/>
+    <field name="numberOfDYE" onChange="action-repro-production-line-calculate-dye,action-repro-production-line-calculate-tot"/>
+
+    <field name="numberOfDETrays" readonly="true" onChange="action-repro-production-line-calculate-det,action-repro-production-line-calculate-tot"/>
+    <field name="numberOfDE" onChange="action-repro-production-line-calculate-de,action-repro-production-line-calculate-tot"/>
+    <field name="numberOfDEGround" title="Number of declassed eggs ground" onChange="action-repro-production-line-calculate-de,action-repro-production-line-calculate-tot"/>
+    <field name="totalNumberOfDE" readonly="true"/>
+
+    <field name="totalTrays"/>
+    <field name="totalEggs"/>
+    <field name="numberOfRE" onChange="action-repro-production-line-calculate-tot"/>
+    <field name="numberOfDestroyedRe" onChange="action-repro-production-line-calculate-tot"/>
+<!--    <field name="unfertilizedEggs"/>-->
+  </grid>
+
+  <action-attrs name="action-repro-production-line-calculate-het"
+    model="com.gl.apps.pf.db.ReproProduction">
+    <attribute for="numberOfHe" name="value" expr="eval: numberOfHeTrays * 30"/>
+    <attribute for="totalTrays" name="value"
+      expr="eval: numberOfHeTrays + numberOfDYETrays + numberOfDETrays"/>
+  </action-attrs>
+
+  <action-attrs name="action-repro-production-line-calculate-he"
+    model="com.gl.apps.pf.db.ReproProduction">
+    <attribute for="numberOfHeTrays" name="value"
+      expr="eval: (int) Math.ceil((numberOfHe + numberOfHeGround) / 30)"/>
+  </action-attrs>
+
+  <action-attrs name="action-repro-production-line-calculate-dyet"
+    model="com.gl.apps.pf.db.ReproProduction">
+    <attribute for="numberOfDYE" name="value" expr="eval: numberOfDYETrays * 30"/>
+  </action-attrs>
+
+  <action-attrs name="action-repro-production-line-calculate-dye"
+    model="com.gl.apps.pf.db.ReproProduction">
+    <attribute for="numberOfDYETrays" name="value"
+      expr="eval: (int) Math.ceil(numberOfDYE / 30)"/>
+  </action-attrs>
+
+  <action-attrs name="action-repro-production-line-calculate-det"
+    model="com.gl.apps.pf.db.ReproProduction">
+    <attribute for="numberOfDE" name="value" expr="eval: numberOfDETrays * 30"/>
+  </action-attrs>
+
+  <action-attrs name="action-repro-production-line-calculate-de"
+    model="com.gl.apps.pf.db.ReproProduction">
+    <attribute for="numberOfDETrays" name="value"
+      expr="eval: (int) Math.ceil((numberOfDE + numberOfDEGround + numberOfDestroyedRe) / 30)"/>
+  </action-attrs>
+
+  <action-attrs name="action-repro-production-line-calculate-tot" model="com.gl.apps.pf.db.ReproProduction">
+    <attribute name="value" expr="eval: totalNumberOfHe + numberOfDYE + numberOfDE + numberOfDestroyedRe + numberOfRE" for="totalEggs"/>
+    <attribute name="value" expr="eval: numberOfHeTrays + numberOfDYETrays + numberOfDETrays" for="totalTrays"/>
+    <attribute name="value" expr="eval: numberOfHe + numberOfHeGround" for="totalNumberOfHe"/>
+    <attribute name="value" expr="eval: numberOfDE + numberOfDEGround" for="totalNumberOfDE"/>
+  </action-attrs>
+
+
+</object-views>

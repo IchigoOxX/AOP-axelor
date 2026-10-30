@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="pos" package="com.axelor.pos.db"/>
+
+    <entity name="Store" sequential="true">
+
+        <string name="name" title="Name"/>
+        <one-to-one name="address" ref="com.axelor.apps.base.db.Address" />
+        <string name="openingDays" title="Opening Days"/>
+        <date name="openingHour" title="Opening Hour" />
+        <date name="closingHour" title="Closing Hour" />
+        <string name="tel" title="Telephone"/>
+        <string name="fax" title="Fax"/>
+        <string name="email" title="Email"/>
+        <string name="website" title="Website"/>
+        <many-to-one name="company" ref="com.axelor.apps.base.db.Company" />
+        <boolean name="isOpen" title="Is Open" />
+
+        <one-to-many name="users" ref="com.axelor.auth.db.User" mappedBy="store"/>
+        <many-to-one name="manager" ref="com.axelor.auth.db.User" />
+        <one-to-many name="saleOrder" ref="com.axelor.apps.sale.db.SaleOrder" mappedBy="store" />
+        <many-to-one name="warehouse" ref="com.axelor.apps.stock.db.StockLocation" /> <!--other direction relation-->
+
+        <integer name="capacity" title="Capacity"/>
+        <integer name="floors" title="Floors"/>
+        <decimal name="surface" title="Surface" precision="10" scale="2"/>
+        <integer name="parkingCapacity" title="Parking Capacity"/>
+
+        <date name="openingDate" title="Opening Date"/>
+        <date name="renovationDate" title="Renovation Date"/>
+
+        <!-- Financial Attributes -->
+        <decimal name="revenue" title="Revenue" precision="15" scale="2"/>
+        <decimal name="expenses" title="Expenses" precision="15" scale="2"/>
+        <decimal name="profit" title="Profit" precision="15" scale="2"/>
+
+        <many-to-one name="productCatalog" ref="com.axelor.apps.crm.db.Catalog" title="Product Catalog"/> <!--other direction-->
+
+        <!-- Security -->
+        <boolean name="hasSecurityCameras" title="Has Security Cameras"/>
+        <boolean name="hasAlarmSystem" title="Has Alarm System"/>
+
+        <!-- Marketing -->
+        <string name="promotions" title="Promotions"/>
+        <string name="specialEvents" title="Special Events"/>
+        <string name="loyaltyProgramDetails" title="Loyalty Program Details"/>
+
+    </entity>
+
+</domain-models>
+

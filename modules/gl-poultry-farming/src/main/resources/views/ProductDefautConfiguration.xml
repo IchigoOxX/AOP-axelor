@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="product-default-configuration-form" title="Default configuration" model="com.gl.apps.pf.db.ProductDefaultConfiguration" width="large" onNew="action-account-management-record-default">
+        <panel title="Overview">
+            <field name="name" required="true"/>
+            <field name="company" widget="SuggestBox"
+                   onChange="action-group-account-account-management-onchange-common"
+                   form-view="company-form" grid-view="company-grid" canEdit="false"/>
+        </panel>
+        <panel-tabs name="productSpecificAttributes" title="Product specific attributes">
+            <panel name="PurchasesPanel" title="Purchases">
+                <panel title="Purchases" colSpan="12">
+                    <field name="purchaseAccount" required="true" domain="self.statusSelect = 1 AND self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+                    <field name="purchaseTax" required="true"/>
+                    <field name="purchaseFodecAccount" domain="self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+                    <field name="purchaseFodec"/>
+                    <field name="purchaseDcAccount" domain="self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+                    <field name="purchaseDc"/>
+                    <field name="purchaseWithholdingAccount" domain="self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+                </panel>
+            </panel>
+            <panel name="PurchasesFixedAssetsPanel" title="Purchases of fixed assets">
+                <panel title="Purchases of fixed assets" colSpan="12">
+                    <field name="fixedAssetCategory" domain="self.company = :company"/>
+                    <field name="purchFixedAssetsAccount" domain="self.statusSelect = 1 AND self.company = :company AND self.accountType.technicalTypeSelect = 'immobilisation'"/>
+                </panel>
+            </panel>
+            <panel name="SalesPanel" title="Sales">
+                <panel title="Sales"  colSpan="12">
+                    <field name="saleAccount" required="true" domain="self.statusSelect = 1 AND self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+                    <field name="saleTax" required="true"/>
+                    <field name="saleFodecAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+                    <field name="saleFodec"/>
+                    <field name="saleDcAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+                    <field name="saleDc"/>
+                    <field name="saleWithholdingAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+                </panel>
+            </panel>
+        </panel-tabs>
+
+    </form>
+
+    <grid name="product-default-configuration-grid" title="Default configuration" model="com.gl.apps.pf.db.ProductDefaultConfiguration" edit-icon="true">
+        <field name="name"/>
+        <field name="purchaseAccount"/>
+    </grid>
+
+
+</object-views>

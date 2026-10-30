@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="start-elev-movement-line-form" title="Breeding movement lines" editable="true"
+          model="com.gl.apps.pf.db.StartElevMovementLine" width="large">
+        <panel title="Overview">
+            <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+            <field name="movedNumber" title="Moved number"/>
+        </panel>
+    </form>
+
+    <grid name="start-elev-movement-line-grid" title="Breeding movement lines" model="com.gl.apps.pf.db.StartElevMovementLine" edit-icon="true" orderBy="breedingShed">
+        <field name="breedingShed" readonly="true"/>
+        <field name="movedNumber"/>
+    </grid>
+
+    <grid name="start-elev-movement-line-technical-sheet-grid" title="Breeding movement lines" model="com.gl.apps.pf.db.StartElevMovementLine" edit-icon="true">
+        <field name="elevMovement.reference" title="N°" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="movedNumber" readonly="true"/>
+    </grid>
+    <form name="start-elev-movement-line-technical-sheet-form" title="Breeding movement lines" editable="true"
+          model="com.gl.apps.pf.db.StartElevMovementLine" width="large">
+        <panel title="Overview">
+            <field name="reference" title="N°" readonly="true"/>
+            <field name="breedingShed" title="Breeding Shed" readonly="true"/>
+            <field name="movedNumber" title="Moved number" readonly="true"/>
+        </panel>
+    </form>
+
+</object-views>

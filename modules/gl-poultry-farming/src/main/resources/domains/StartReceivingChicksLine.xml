@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="StartReceivingChicksLine" >
+        <many-to-one name="receivingChicks" ref="com.gl.apps.pf.db.StartReceivingChicks" title="Receiving Chicks" required="true"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed"  title="Breeding Shed" required="true"/>
+        <integer name="numberOfFemales" title="Number of females" required="true"/>
+        <integer name="numberOfMales" title="Number of males" required="true"/>
+
+        <track on="UPDATE">
+            <field name="receivingChicks"/>
+            <field name="breedingShed"/>
+            <field name="numberOfFemales"/>
+            <field name="numberOfMales"/>
+            <field name="receivingChicks"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

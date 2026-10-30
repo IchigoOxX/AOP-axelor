@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="LivestockFeedExternalExitLine" >
+        <many-to-one name="livestockFeedExternalExit" ref="com.gl.apps.pf.db.LivestockFeedExternalExit" title="Livestock feed external exit"
+                     required="true"/>
+
+        <many-to-one name="product" ref="com.axelor.apps.base.db.Product" title="Product" required="true"/>
+        <string name="codeProduct" title="Code" required="true"/>
+        <string name="umProduct" title="U.M" required="true"/>
+        <integer name="capacity" required="true" title="Capacity"/>
+        <integer name="unitNumber" required="true" title="Unit number"/>
+
+        <decimal name="exitQuantity" required="true" title="Quantity"/>
+
+        <decimal name="salePrice" required="true" title="Sale price"/>
+        <decimal name="saleTotalAmount" title="Sale total amount"/>
+
+        <decimal name="deliveryPrice" required="true" title="Delivery price"/>
+        <decimal name="deliveryTotalAmount" title="Delivery total amount"/>
+
+        <decimal name="costPrice" required="true" title="Cost price"/>
+        <decimal name="costTotalAmount" title="Cost total amount"/>
+
+        <track on="UPDATE">
+            <field name="livestockFeedExternalExit"/>
+            <field name="product"/>
+            <field name="codeProduct"/>
+            <field name="umProduct"/>
+            <field name="capacity"/>
+            <field name="unitNumber"/>
+            <field name="exitQuantity"/>
+            <field name="salePrice"/>
+            <field name="saleTotalAmount"/>
+            <field name="deliveryPrice"/>
+            <field name="deliveryTotalAmount"/>
+            <field name="costTotalAmount"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

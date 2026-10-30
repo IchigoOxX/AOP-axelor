@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="incubator-exit-form" title="Incubator exit" model="com.gl.apps.pf.db.IncubatorExit" width="large" canNew="false"
+          onNew="action-set-default-values-incubator-exit">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Infos:" colSpan="12" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="incubatorEntry" target-name="reference" domain="self.status = 1" readonly="true" colSpan="4" onChange="action-group-incubator-exits-incubator-entry-changed"/>
+                    <field name="dateTimeIncubatorEntry" colSpan="4" title="Incubator entry date" readonly="true"/>
+                    <field name="breed" colSpan="4" readonly="true"/>
+                    <field name="hatchery" colSpan="4" readonly="true"/>
+                    <field name="dateTimeIncubatorExit" colSpan="4" title="Expected incubator exit date" readonly="true"/>
+                    <field name="incubator" colSpan="4" target-name="reference" readonly="true"/>
+                    <field name="sumLostHatchingEggs" colSpan="4" readonly="true" />
+                    <field name="datetime" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validateBtn" title="Validate" prompt="Are you sure you want to validate this incubator exit ?"
+                            showIf="status &lt; 1" colSpan="12" icon="fa-check"
+                            onClick="save,action-group-incubator-exits-validate" css="btn-success"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel exit" showIf="status == 1" prompt="Are you sure you want to cancel this incubator exit ?" colSpan="12" icon="fa-times" css="btn-danger" onClick="action-incubator-exit-show-dialog-cancel-reason"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="revalidateBtn" title="Revalidate" showIf="status == 3" colSpan="12" css="btn-warning" icon="fa-refresh" onClick="save,action-incubator-exit-revalidate"/>
+                </panel>
+            </panel>
+
+            <panel-related name="incubatorExitLinesPanel" colSpan="12" field="incubatorExitLines" readonlyIf="status != 0"
+                           form-view="incubator-exit-line-form"
+                           grid-view="incubator-exit-line-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="incubator-exit-grid" title="Incubator exit" model="com.gl.apps.pf.db.IncubatorExit" canNew="false" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="datetime"/>
+        <field name="incubator"/>
+        <field name="incubatorEntry" target-name="reference" />
+        <field name="dateTimeIncubatorEntry" title="Incubator entry date"/>
+        <field name="dateTimeIncubatorExit" title="Expected incubator exit date">
+            <hilite if="dateTimeIncubatorExit.isBefore(__date__)" color="red"/>
+        </field>
+        <field name="breed"/>
+        <field name="hatchery"/>
+        <field name="dispatchStock"/>
+        <field name="sumLostHatchingEggs"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-record name="action-set-default-values-incubator-exit"
+                   model="com.gl.apps.pf.db.IncubatorExit">
+        <field name="datetime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-incubator-exit-incubator-entry-changed"
+                  model="com.gl.apps.pf.db.IncubatorExit">
+        <attribute if="incubatorEntry != null" for="hatchery" name="value"
+                   expr="eval: incubatorEntry.hatchery"/>
+        <attribute if="incubatorEntry != null" for="breed" name="value"
+                   expr="eval: incubatorEntry.breed"/>
+        <attribute if="incubatorEntry != null" for="dateTimeIncubatorEntry" name="value"
+                   expr="eval: incubatorEntry.datetime"/>
+        <attribute if="incubatorEntry != null" for="incubator" name="value"
+                   expr="eval: incubatorEntry.incubator"/>
+    </action-attrs>
+
+    <action-method name="action-incubator-exit-validate">
+        <call class="com.gl.apps.pf.web.IncubatorExitController" method="IncubatorExitValidate"/>
+    </action-method>
+    <action-method name="action-incubator-exit-cancel">
+        <call class="com.gl.apps.pf.web.IncubatorExitController" method="IncubatorExitCancel"/>
+    </action-method>
+
+    <action-method name="action-incubator-exit-get-inc-exit-lines">
+        <call class="com.gl.apps.pf.web.IncubatorExitController" method="getLinesFromIncubatorEntry"/>
+    </action-method>
+
+    <action-group name="action-group-incubator-exits-incubator-entry-changed">
+        <action name="action-incubator-exit-incubator-entry-changed"/>
+        <action name="action-incubator-exit-get-inc-exit-lines"/>
+    </action-group>
+
+    <action-validate name="action-validate-incubator-exit-lost-eggs-number">
+        <error if="incubatorExitLines != null &amp;&amp; incubatorExitLines.sum{it->it.lostEggs} > incubatorExitLines.sum{it->it.eggsNumber}" message="The total number of eggs must be greater than the number of lost eggs."/>
+    </action-validate>
+
+    <action-validate name="action-validate-incubator-exit-date">
+        <error if="dateTimeIncubatorExit.isAfter(__datetime__.toLocalDateTime())" message="You cannot validate the incubator exit before the incubator exit date."/>
+    </action-validate>
+
+    <action-group name="action-group-incubator-exits-validate">
+        <action name="action-incubator-exits-check-empty-list"/>
+        <action name="action-validate-incubator-exit-lost-eggs-number"/>
+        <action name="action-validate-incubator-exit-date"/>
+        <action name="action-incubator-exit-validate"/>
+    </action-group>
+
+    <action-validate name="action-incubator-exits-check-empty-list">
+        <error if="incubatorExitLines.isEmpty()" message="You cannot validate ! incubator exits list is empty."/>
+    </action-validate>
+
+    <action-view name="action-incubator-exit-show-dialog-cancel-reason" model="com.gl.apps.pf.db.IncubatorExit" title="Cancelation">
+        <view name="incubator-exit-cancel-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="incubator-exit-cancel-dialog-form" title="Cancelation" model="com.gl.apps.pf.db.IncubatorExit">
+        <panel>
+            <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+            <button name="btnCancel" title="Validate" onClick="action-incubator-exit-cancel,close" confirm="false" style="danger" target="none"/>
+        </panel>
+    </form>
+    <action-method name="action-incubator-exit-revalidate">
+        <call class="com.gl.apps.pf.web.IncubatorExitController" method="IncubatorExitRevalidate"/>
+    </action-method>
+
+</object-views>

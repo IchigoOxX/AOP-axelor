@@ -1,0 +1,15 @@
+apply plugin:"com.axelor.app"
+
+apply from: "../version.gradle"
+
+apply {
+	version = addonsVersion
+}
+
+axelor {
+	title "Axelor :: Teams app"
+}
+
+dependencies {
+	api project(":modules:axelor-project")
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid model="com.axelor.pos.db.Shift" title="Shifts / Sessions" name="shift-grid" orderBy="-shiftDate">
+    <field name="shiftNumber" />
+    <field name="reference" />
+    <field name="cashier" />
+    <field name="shiftDate" />
+    <field name="openingHour" />
+    <field name="closingHour" />
+    <field name="status" />
+    <field name="cashBalance" />
+  </grid>
+
+  <form model="com.axelor.pos.db.Shift" title="Shift / Session" name="shift-form" width="large">
+    <panel title="Session Details">
+      <field name="shiftNumber" />
+      <field name="reference" readonly="true"/>
+      <field name="cashier" />
+      <field name="shiftDate" />
+      <field name="status" widget="SingleSelect"/>
+    </panel>
+    <panel title="Timing" colSpan="12">
+      <field name="openingHour" />
+      <field name="closingHour" />
+    </panel>
+    <panel title="Cash Control" colSpan="12">
+      <field name="startingCash" />
+      <field name="cashIn" />
+      <field name="cashOut" />
+      <field name="cashBalance" readonly="true"/>
+    </panel>
+    <panel title="Sales Summary" colSpan="12">
+      <field name="totalSales" readonly="true"/>
+      <field name="totalRefunds" readonly="true"/>
+      <field name="totalDiscounts" readonly="true"/>
+      <field name="netSales" readonly="true"/>
+    </panel>
+    <panel title="Transactions Stats" colSpan="12">
+      <field name="numberOfSales" readonly="true"/>
+      <field name="totalTransactions" readonly="true"/>
+      <field name="itemsSold" readonly="true"/>
+    </panel>
+    <panel title="Notes" colSpan="12">
+      <field name="notes" widget="text" colSpan="12"/>
+    </panel>
+  </form>
+
+</object-views>

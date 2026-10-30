@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="fiscal-position-form-id" name="fiscal-position-form" title="Fiscal position" model="com.axelor.apps.account.db.FiscalPosition" extension="true">
+        <extend target="//field[@name='customerSpecificNoteText']">
+            <insert position="after">
+                <field name="applyStamp" colSpan="6"/>
+                <field name="applyFodec" colSpan="6"/>
+                <field name="applyDc" colSpan="6"/>
+                <field name="applyWithholdingTax" colSpan="6"/>
+            </insert>
+        </extend>
+    </form>
+    <grid id="fiscal-position-grid-id" name="fiscal-position-grid" title="Fiscal positions" model="com.axelor.apps.account.db.FiscalPosition" extension="true">
+        <extend target="//field[@name='code']">
+            <insert position="after">
+                <field name="applyStamp">
+                    <hilite background="green" if="applyStamp == 1"/>
+                </field>
+                <field name="applyFodec">
+                    <hilite background="green" if="applyFodec == 1"/>
+                </field>
+                <field name="applyDc">
+                    <hilite background="green" if="applyDc == 1"/>
+                </field>
+                <field name="applyWithholdingTax">
+                    <hilite background="green" if="applyDc == 1"/>
+                </field>
+            </insert>
+        </extend>
+
+    </grid>
+
+</object-views>
+
+
+

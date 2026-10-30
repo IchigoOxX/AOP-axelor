@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="start-technical-sheet-form" title="Technical sheet" model="com.gl.apps.pf.db.StartTechnicalSheet"
+          onLoad="action-attr-show-reform-number,action-attr-show-movement-number"
+          onNew="action-record-start-technical-sheet-set-default-values" editable="true" width="large" readonlyIf="status != 0">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Breeding Shed:" colSpan="10">
+                    <field name="unit" title="Unit" colSpan="4"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit and self.type = 0"/>
+                    <field name="breedingShed" title="Breeding Shed" colSpan="4"
+                           onChange="action-group-start-technical-sheet-breeding-changed,action-get-previous-technical-sheet-weight"
+                           domain="self.center = :center and self.status = 2"/>
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" onClick="save,action-start-technical-sheet-validate"/>
+                    </panel>
+                </panel>
+                <panel title="Infos :" colSpan="12">
+                    <panel showTitle="false" colSpan="4">
+                        <field name="breed" readonly="true" colSpan="5"/>
+                        <field name="malesNumber" readonly="true" colSpan="6"/>
+                        <panel showTitle="false" colSpan="10">
+                            <panel showTitle="false" colSpan="6">
+                                <field name="trackingNumber" readonly="true" colSpan="12"/>
+                            </panel>
+                            <panel showTitle="false" colSpan="6">
+                                <field name="femalesNumber" readonly="true" colSpan="6"/>
+                            </panel>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="2">
+                        <field name="dailyAge" readonly="true" colSpan="10"/>
+                        <field name="weeklyAge" readonly="true" colSpan="10"/>
+                    </panel>
+                    <panel showTitle="false" colSpan="3">
+                        <field name="dateTime" readonly="true" colSpan="3"/>
+                        <field name=""/>
+                    </panel>
+                    <panel showTitle="false" colSpan="3">
+                        <field name="reference" readonly="true" colSpan="12"/>
+                        <field name="currentResponsible" readonly="true" colSpan="12"/>
+                    </panel>
+                </panel>
+                <panel title="Chick:" colSpan="12">
+                    <panel showTitle="false" colSpan="12">
+                        <field name="isSkipDay" title="Skip day" colSpan="3"/>
+                        <field name="skipDayReason" title="Skip day reason" showIf="isSkipDay == 1" colSpan="3"/>
+                    </panel>
+                    <panel title="Infos:" colSpan="12">
+                        <field name="mortality" title="Mortality" colSpan="3"/>
+                        <field name="triOut" title="Tri Out" colSpan="3"/>
+                        <field name="coefficientVariation" title="CV" colSpan="3"/>
+                        <field name="homogeneity" title="Homogeneity" colSpan="3"/>
+                        <field name="weight" title="Weight" colSpan="3"/>
+                    </panel>
+                    <panel/>
+                    <panel title="Aliment consumption:" showIf="isSkipDay == 0" colSpan="12">
+                        <field name="consumedProduct" title="Product" colSpan="3"
+                               onSelect="action-record-start-technical-sheet-get-center-info"
+                               onChange="action-record-start-technical-sheet-get-product-info"
+                        />
+                        <field name="consumedProductUnit" title="Unit" colSpan="3"/>
+                        <field name="consumedProductQty" title="Quantity" colSpan="3"/>
+                    </panel>
+                </panel>
+                <panel title="Breeding Shed:" colSpan="12">
+                    <panel colSpan="6">
+                        <panel title="Lighting" colSpan="12">
+                            <field name="lightingDuration" title="Duration" colSpan="6"/>
+                            <field name="intensity" colSpan="6"/>
+                        </panel>
+                        <panel title="Other:" colSpan="12">
+                            <field name="temperatureMin" colSpan="6"/>
+                            <field name="temperatureMax" colSpan="6"/>
+                            <field name="humidityMin" colSpan="6"/>
+                            <field name="humidityMax" colSpan="6"/>
+                            <field name="waterConsumption" colSpan="6"/>
+                        </panel>
+                    </panel>
+                    <panel showTitle="false" colSpan="6">
+                        <field name="note" showTitle="false" colSpan="12" height="290" widget="html"/>
+                    </panel>
+                </panel>
+            </panel>
+
+            <panel-related name="elevTransferLineListPanel" title="Elev transfer line List" colSpan="12"
+                           field="elevTransferLineList"
+                           grid-view="elev-transfer-line-technical-sheet-grid"
+                           form-view="elev-transfer-line-technical-sheet-form"
+                           editable="true"
+                           canRemove="false" canNew="false"/>
+
+            <panel-related name="elevReformListPanel" title="Elev reform List" colSpan="12"
+                           field="elevReformList"
+                           grid-view="start-elev-reform-technical-sheet-grid"
+                           form-view="start-elev-reform-technical-sheet-form" editable="true"
+                           canRemove="false" canNew="false"/>
+
+            <panel-related name="elevMovementListPanel" title="Elev movement List" colSpan="12"
+                           field="elevMovementList"
+                           form-view="start-elev-movement-technical-sheet-form"
+                           grid-view="start-elev-movement-technical-sheet-grid" editable="true"
+                           canRemove="false" canNew="false"/>
+
+            <panel-related name="elevMovementLineListPanel" title="Elev movement line List" colSpan="12"
+                           field="elevMovementLineList"
+                           form-view="start-elev-movement-line-technical-sheet-form"
+                           grid-view="start-elev-movement-line-technical-sheet-grid" editable="true"
+                           canRemove="false" canNew="false"/>
+
+            <panel-related name="pharmacyTreatmentLineListPanel" title="Pharmacy treatment List" colSpan="12"
+                           field="pharmacyTreatmentLineList"
+                           form-view="pharmacy-treatment-line-treatment-sheet-form"
+                           grid-view="pharmacy-treatment-line-technical-sheet-grid" editable="true"
+                           canRemove="false" canNew="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <grid name="start-technical-sheet-grid" title="Technical sheet" model="com.gl.apps.pf.db.StartTechnicalSheet"
+          edit-icon="true">
+        <field name="reference" title="N°"/>
+
+        <field name="unit" title="Unit"/>
+        <field name="center" title="Center"/>
+        <field name="breedingShed" title="Breeding shed"/>
+
+        <field name="dateTime" title="Date"/>
+        <field name="dailyAge">
+            <hilite color="blue" if="$get('dailyAge') >= 0"/>
+        </field>
+        <field name="weeklyAge"/>
+        <field name="mortality"/>
+        <field name="cumulatedMortality">
+            <hilite color="red" if="$get('cumulatedMortality') >= 0"/>
+        </field>
+        <field name="rateMortality">
+            <hilite color="red" if="$get('rateMortality') >= 0"/>
+        </field>
+
+        <field name="triOut">
+            <hilite strong="true" color="red" if="$get('triOut') >= 0"/>
+        </field>
+
+        <field name="cumulatedLoss">
+            <hilite strong="true" color="red" if="$get('cumulatedLoss') >= 0"/>
+        </field>
+        <field name="rateLoss">
+            <hilite color="red" if="$get('rateLoss') >= 0"/>
+        </field>
+        <field name="displacementIn"/>
+        <field name="displacementOut"/>
+        <field name="transfer"/>
+        <field name="reform"/>
+        <field name="remainingNumber">
+            <hilite color="blue" if="$get('remainingNumber') >= 0"/>
+        </field>
+        <field name="weight">
+            <hilite strong="true" color="red" if="$get('weight') >= 0"/>
+        </field>
+        <field name="consumedProductQty">
+            <hilite color="blue" if="$get('consumedProductQty') >= 0"/>
+        </field>
+        <field name="coefficientVariation">
+            <hilite color="blue" if="$get('coefficientVariation') >= 0"/>
+        </field>
+
+        <field name="consumedProductQtyByChick">
+            <hilite strong="true" color="red" if="$get('consumedProductQtyByChick') >= 0"/>
+        </field>
+
+        <field name="temperatureMin">
+            <hilite color="blue" if="$get('temperatureMin') >= 0"/>
+        </field>
+        <field name="temperatureMax">
+            <hilite color="blue" if="$get('temperatureMax') >= 0"/>
+        </field>
+
+        <field name="humidityMin"/>
+        <field name="humidityMax"/>
+
+        <field name="waterConsumption">
+            <hilite color="blue" if="$get('waterConsumption') >= 0"/>
+        </field>
+        <field name="waterConsumptionByAliment">
+            <hilite color="blue" if="$get('waterConsumptionByAliment') >= 0"/>
+        </field>
+        <field name="currentResponsible"/>
+        <field name="medicalTreatment"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 0"/>
+            <hilite background="lightblue" if="$get('status') == 1"/>
+            <hilite background="grey" if="$get('status') == 2"/>
+        </field>
+
+    </grid>
+
+    <action-group name="action-group-start-technical-sheet-breeding-changed">
+        <action name="action-record-start-technical-sheet-get-breeding-shed-info"/>
+        <action name="action-method-start-technical-sheet-record-datetime"/>
+        <action name="action-method-get-elev-reform-breeding-shed-changed"/>
+        <action name="action-method-get-elev-movement-breeding-shed-changed"/>
+        <action name="action-method-get-elev-movement-line-breeding-shed-changed"/>
+        <action name="action-method-get-elev-transfer-breeding-shed-changed"/>
+        <action name="action-method-get-pharmacy-treatment-breeding-shed-changed"/>
+    </action-group>
+
+
+    <action-attrs name="action-record-start-technical-sheet-get-breeding-shed-info"
+                  model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute if="breedingShed != null" for="trackingNumber" name="value"
+                   expr="eval: breedingShed.currentBatchNumber"/>
+        <attribute if="breedingShed != null" for="breed" name="value"
+                   expr="eval: breedingShed.breed"/>
+        <attribute if="breedingShed != null" for="malesNumber" name="value"
+                   expr="eval: breedingShed.malesNumber"/>
+        <attribute if="breedingShed != null" for="femalesNumber" name="value"
+                   expr="eval: breedingShed.femalesNumber"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-record-start-technical-sheet-get-center-info" model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute if="center != null" name="domain" expr="eval:&quot;self.productCategory.id = ${center.associatedProductType.id} AND self.dtype = 'Product'&quot;" for="consumedProduct"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-start-technical-sheet-get-product-info"
+                  model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute if="consumedProduct != null" for="consumedProductUnit" name="value"
+                   expr="eval: consumedProduct.unit"/>
+    </action-attrs>
+
+    <action-method name="action-method-start-technical-sheet-record-datetime">
+        <call method="getDateForTechnicalSheet"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+    <action-method name="action-start-technical-sheet-validate">
+        <call method="technicalSheetValidate"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+
+    <action-attrs name="action-record-start-technical-sheet-set-default-values"
+                  model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute if="_bs != null" for="breedingShed" name="value"
+                   expr="eval: _bs"/>
+        <attribute if="_bs != null" for="unit" name="value"
+                   expr="eval: _bs.unit"/>
+        <attribute if="_bs != null" for="center" name="value"
+                   expr="eval: _bs.center"/>
+
+    </action-attrs>
+
+    <action-attrs name="action-get-previous-technical-sheet-weight" model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute if="previousTechnicalSheet != null" for="weight" name="value"
+                   expr="eval: previousTechnicalSheet.weight"/>
+    </action-attrs>
+
+    <action-method name="action-method-get-elev-reform-breeding-shed-changed">
+        <call method="getElevReformList"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-get-elev-movement-breeding-shed-changed">
+        <call method="getElevMovementList"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-get-elev-movement-line-breeding-shed-changed">
+        <call method="getElevMovementLineList"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-get-elev-transfer-breeding-shed-changed">
+        <call method="getElevTransferLineList"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+
+    <action-method name="action-method-get-pharmacy-treatment-breeding-shed-changed">
+        <call method="getPharmacyTrLineList"
+              class="com.gl.apps.pf.web.StartTechnicalSheetController"/>
+    </action-method>
+
+    <action-attrs name="action-attr-show-reform-number" model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute name="value" expr="eval: elevReformList.collect{ it.reformNumber}.sum()" for="sumReformedNumber"/>
+    </action-attrs>
+
+    <action-attrs name="action-attr-show-movement-number" model="com.gl.apps.pf.db.StartTechnicalSheet">
+        <attribute name="value" expr="eval: elevMovementList.collect{ it.startElevMovementLineList.collect{ line -> line.movedNumber}.sum()}.sum()" for="sumMovementNumber"/>
+    </action-attrs>
+
+</object-views>

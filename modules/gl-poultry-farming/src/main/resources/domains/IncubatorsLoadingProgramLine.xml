@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="IncubatorsLoadingProgramLine" >
+    <many-to-one name="loadingProgram" ref="IncubatorsLoadingProgram"
+      title="Incubators loading program"/>
+    <many-to-one name="breed" ref="Breed" title="Breed"/>
+
+    <one-to-many name="incubatorEntryList" ref="com.gl.apps.pf.db.IncubatorEntry"
+                 mappedBy="loadingProgramLine" title="Incubator entry"/>
+
+    <string name="lineNumber" title="Line Number" readonly="true"/>
+    <datetime name="incubationDatetime" required="true" title="Incubation date and time"/>
+    <datetime name="transferDatetime" required="true" title="Transfer date and time"/>
+    <datetime name="hatchingDatetime" required="true" title="Hatching date and time"/>
+    <integer name="estimatedNumberOfChicks" title="Estimated number of chicks"/>
+    <string name="completeReference" title="Reference" readonly="true">
+      <![CDATA[
+            String completeReference = this.getLoadingProgram().getReference() + " " + this.getLineNumber();
+            return completeReference;
+        ]]>
+    </string>
+
+    <integer name="status" title="Status"
+      selection="poultryfarming.loading.program.line.status.select" readonly="true"/>
+
+    <extra-code>
+			<![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="loadingProgram"/>
+      <field name="breed"/>
+      <field name="lineNumber"/>
+      <field name="incubationDatetime"/>
+      <field name="transferDatetime"/>
+      <field name="hatchingDatetime"/>
+      <field name="estimatedNumberOfChicks"/>
+      <field name="status"/>
+
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

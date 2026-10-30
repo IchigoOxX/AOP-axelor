@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="incubator-trolley-grid" title="Incubator Trolley"
+    model="com.gl.apps.pf.db.IncubatorTrolley" canNew="false" canEdit="false"
+    canSave="false" canDelete="false" edit-icon="false">
+    <hilite background="white" if="status == 0"/>
+    <hilite background="red" if="status == 1 "/>
+    <hilite background="lightgreen" if="status == 2"/>
+    <hilite background="yellow" if="status == 3"/>
+    <field name="incubator"/>
+    <field name="reference"/>
+    <field name="status"/>
+  </grid>
+
+  <form name="incubator-trolley-form" title="Incubator Trolley" width="large" model="com.gl.apps.pf.db.IncubatorTrolley" onLoad="action-record-get-incubator-trolley-capacity-baskets" canNew="false">
+    <panel title="Overview">
+        <panel colSpan="6">
+            <field colSpan="12" name="reference"/>
+            <field colSpan="12" name="capacityOfATrolleyInTrays"/>
+            <field  colSpan="12" name="hatchery" readonly="true"/>
+        </panel>
+        <panel colSpan="6" readonly="true">
+            <field colSpan="12" name="statusDate"/>
+            <field colSpan="12" name="status"/>
+        </panel>
+    </panel>
+    <panel-mail name="mailsPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+
+    <cards name="incubator-trolley-cards" title="IncubatorTrolley" css="rect-image" model="com.gl.apps.pf.db.IncubatorTrolley" width="10%" orderBy="reference" canNew="false">
+        <field name="incubator.reference"/>
+        <field name="reference"/>
+        <field name="hatchery.hatcheryRef"/>
+        <field name="status"/>
+        <template><![CDATA[
+        <div class="app-cards__buttons">
+            <a class="btn btn-small btn-info pull-right" ng-show="status == 1" href="" ui-action-click="action-show-dialog-incubator-trolley-stop" x-translate>Stop</a>
+        </div>
+            <table border="1" cellpadding="1" cellspacing="1" style="background-color: {{status == 0 ? 'white' : (status == 1 ? 'OrangeRed' : (status == 2 ? 'lime' : 'yellow')) }};height:50px; width:100%">
+            <tbody>
+              <tr>
+                <td style="text-align: center;">
+                  <p><strong>{{$fmt('reference')}}</strong></p>
+               <p style="text-align: left;"><strong>Inc: {{$fmt('incubator.reference')}} </strong></p>
+            <p style="text-align: left;"><strong>Cov: {{$fmt('hatchery.hatcheryRef')}} </strong></p>
+                </td>
+              </tr>
+            </tbody>
+            </table>
+        ]]></template>
+    </cards>
+
+    <action-record name="action-record-get-incubator-trolley-capacity-baskets" model="com.gl.apps.pf.db.IncubatorTrolley">
+        <field if="id != null" name="capacityOfATrolleyInTrays" expr="eval: hatchery.capacityOfATrolleyInTrays"/>
+    </action-record>
+
+    <action-view name="action-show-dialog-incubator-trolley-stop" model="com.gl.apps.pf.db.IncubatorTrolley" title="Stop">
+        <view name="incubator-trolley-dialog-form-stop" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="incubator-trolley-dialog-form-stop" title="Stop incubator trolley" model="com.gl.apps.pf.db.IncubatorTrolley">
+        <panel readonlyIf="status == 1">
+            <field name="incubatorTrolley" title="Incubator Trolley" target="com.gl.apps.pf.db.IncubatorTrolley" type="many-to-one" domain="self.status = 0" target-name="reference" colSpan="6"/>
+            <button name="btnStop" title="Stop" onClick="action-incubator-trolley-stop,close" prompt="Are you sure you want to stop this incubator trolley ?" css="btn-warning" icon="fa-stop" confirm="false" style="primary" target="none"/>
+        </panel>
+    </form>
+
+    <action-method name="action-incubator-trolley-stop">
+        <call class="com.gl.apps.pf.web.IncubatorTrolleyController" method="stop"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-calcul-numberOfEggTrays" model="com.gl.apps.pf.db.IncubatorTrolley">
+        <attribute if="numberOfEggs != 0" name="value"
+                   expr="eval: numberOfEggs / _capacityOfAnEggTrayIncubatorTrolley"
+                   for="numberOfEggTrays"/>
+    </action-attrs>
+
+</object-views>

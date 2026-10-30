@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_8.1.xsd">
+
+  <selection name="egypt.eta.environment.select">
+    <option value="sandbox">Sandbox</option>
+    <option value="preprod">Pre-Production</option>
+    <option value="production">Production</option>
+  </selection>
+
+  <selection name="egypt.eta.issuer.type.select">
+    <option value="B">Business (B)</option>
+    <option value="P">Person (P)</option>
+    <option value="F">Foreigner (F)</option>
+  </selection>
+
+  <selection name="egypt.eta.submission.status.select">
+    <option value="pending">Pending Validation</option>
+    <option value="valid">Valid</option>
+    <option value="invalid">Invalid</option>
+    <option value="rejected">Rejected / Error</option>
+    <option value="cancelled">Cancelled</option>
+  </selection>
+
+  <selection name="egypt.eta.invoice.status.select">
+    <option value="0">Draft</option>
+    <option value="4">Submitted</option>
+    <option value="5">Valid</option>
+    <option value="6">Invalid</option>
+    <option value="7">Rejected</option>
+    <option value="8">Cancelled</option>
+  </selection>
+
+</object-views>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="pos" package="com.axelor.pos.db"/>
+
+    <entity name="LoyaltyCard" sequential="true">
+
+        <!-- Card Information -->
+        <string name="cardNumber" title="Card Number" />
+        <datetime name="creationDate" title="Creation Date" />
+        <datetime name="expirationDate" title="Expiration Date" />
+        <many-to-one name="cardOwner" ref="com.axelor.apps.base.db.Partner"/>
+        <integer name="points" title="Points"/>
+
+         <!--Membership Level-->
+        <string name="membershipLevel" title="Membership Level" /> <!--silver, gold, platinum-->
+
+        <!-- Card Status -->
+        <string name="status" title="Status" /> <!--Active or Inactive-->
+
+        <!-- Additional Details -->
+        <string name="notes" title="Notes"/>
+        <binary name="photo" title="Photo"/>
+
+        <!-- Financial Information -->
+        <decimal name="totalSpend" title="Total Spend" precision="15" scale="2"/>
+        <decimal name="averageSpend" title="Average Spend" precision="15" scale="2"/>
+        <integer name="totalTransactions" title="Total Transactions"/>
+
+
+        <!-- Preferences / maybe in customer -->
+        <string name="preferences" title="Preferences"/>
+        <string name="interests" title="Interests"/>
+
+        <!-- Activity Log -->
+        <datetime name="lastLogin" title="Last Login"/>
+        <datetime name="lastTransaction" title="Last Transaction"/>
+
+    </entity>
+
+</domain-models>
+

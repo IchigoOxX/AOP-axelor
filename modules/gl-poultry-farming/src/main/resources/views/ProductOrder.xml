@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="product-order-form" title="Product order" model="com.gl.apps.pf.db.ProductOrder" width="large"
+          onNew="action-set-default-values-product-order">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Order:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="deliveryDate" colSpan="4"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Send" showIf="(status &lt; 1 || status == 5)" colSpan="12" prompt="Are you sure to validate this product order ?"
+                                    onClick="action-group-product-order-validation,save,action-product-order-send" css="btn-success" icon="fa-check"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel order" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this product order ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-product-order-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+
+                <panel title="Order origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="center" colSpan="3" domain="self.type =:_centerType" required="true" onChange="action-attrs-product-consumption-center-changed"/>
+                    <field name="breedingShed" colSpan="3" domain="self.center = :center"/>
+
+                </panel>
+                <panel title="Order Destination:" colSpan="12" readonlyIf="status != 0">
+                    <field name="fromUnit" title="Unit" colSpan="3" required="true" onChange="action-attrs-product-order-unit-changed" onSelect="action-attrs-company-unit-domain"/>
+<!--                    <field name="fromLiveStockFeedFactory" colSpan="3" domain="self.unit = :fromUnit" requiredIf="isCenter == 0" showIf="isCenter == 0"/>-->
+<!--                    <field name="isCenter" colSpan="1" hideIf="_centerType == 2"/>-->
+                    <field name="fromCenter" title="Center" colSpan="3" domain="self.unit = :fromUnit"/>
+                </panel>
+            </panel>
+
+            <panel-related name="productOrderLineListPanel" colSpan="12" field="productOrderLineList"
+                           form-view="product-order-line-form"
+                           grid-view="product-order-line-grid"
+                           editable="true" canNew="true" canRemove="true" canEdit="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <form name="product-release-form" title="Product release" model="com.gl.apps.pf.db.ProductOrder" width="large"
+          canNew="false">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Order:" colSpan="10"  readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="deliveryDate" colSpan="4"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="(status == 1 || status == 6)" icon="fa-check" colSpan="12"
+                                    prompt="Are you sure to validate this product release ?"
+                                    onClick="save,action-group-product-release-validation" css="btn-success"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel release" showIf="status == 2"
+                                    prompt="Are you sure you want to cancel this product release ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-product-release-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+
+                <panel title="Order origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="center" colSpan="3" domain="self.type =:_centerType" showIf="center != null"/>
+                    <field name="breedingShed" colSpan="3" domain="self.center = :center" showIf="center!= null"/>
+                    <field name="hatchery" colSpan="3" showIf="hatchery!= null"/>
+                </panel>
+                <panel title="Order Destination:" colSpan="12"  readonlyIf="status != 0">
+                    <field name="fromUnit" title="Unit" colSpan="3" required="true" onSelect="action-attrs-company-unit-domain"/>
+<!--                    <field name="isCenter" colSpan="1"/>-->
+<!--                    <field name="fromLiveStockFeedFactory" colSpan="3" domain="self.unit = :fromUnit" requiredIf="isCenter == 0" showIf="isCenter == 0"/>-->
+                    <field name="fromCenter" title="Center" colSpan="3" domain="self.unit = :fromUnit" />
+                </panel>
+            </panel>
+
+            <panel-related name="productOrderLineListPanel" colSpan="12" field="productOrderLineList"
+                           grid-view="product-release-line-grid" form-view="product-release-line-form"
+                           readonlyIf="status != 1"
+                           editable="true" canEdit="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <form name="order-reception-form" title="Product reception" model="com.gl.apps.pf.db.ProductOrder" width="large"
+          canNew="false" >
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Order:" colSpan="10"  readonlyIf="status != 1">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="deliveryDate" colSpan="4"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Receive" showIf="( status == 2 || status == 7 )" prompt="Are you sure to validate this product reception ?" colSpan="12" icon="fa-check"
+                                    onClick="save,action-group-receipt-product-validation" css="btn-success"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel reception" showIf="status == 3"
+                                    prompt="Are you sure you want to cancel this product reception ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-product-reception-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+
+                <panel title="Order origin:" colSpan="12" readonlyIf="status != 1">
+                    <field name="center" colSpan="3" domain="self.type =:_centerType" showIf="center != null"/>
+                    <field name="breedingShed" colSpan="3" domain="self.center = :center" showIf="center!= null"/>
+                    <field name="hatchery" colSpan="3" showIf="hatchery!= null"/>
+
+                </panel>
+                <panel title="Order Destination:" colSpan="12"  readonlyIf="status != 1">
+                    <field name="fromUnit" title="Unit" colSpan="3" required="true" onSelect="action-attrs-company-unit-domain"/>
+<!--                    <field name="fromLiveStockFeedFactory" colSpan="3" domain="self.unit = :fromUnit" requiredIf="isCenter == 0" showIf="isCenter == 0"/>-->
+                    <field name="fromCenter" title="Center" colSpan="3" domain="self.unit = :fromUnit" requiredIf="isCenter == 1"/>
+                </panel>
+            </panel>
+
+            <panel-related name="productOrderLineListPanel" colSpan="12" field="productOrderLineList"
+                           grid-view="order-reception-line-grid" readonlyIf="status != 2"
+                           editable="true" canEdit="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <form name="product-order-livestock-feed-factory-form" title="Product order" model="com.gl.apps.pf.db.ProductOrder" width="large"
+          onNew="action-set-default-values-product-order">
+
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Order:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+                    <field name="purchaseRequest" target-name="purchaseRequestSeq" colSpan="4" readonly="true"/>
+                    <field name="deliveryDate" colSpan="4"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validateBtn" title="Send" showIf="(status &lt; 1 || status == 5)" colSpan="12" icon="fa-check "
+                                    prompt="Are you sure to validate this product order ?"
+                                    onClick="save,action-group-product-order-livestock-validation" css="btn-success"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel order" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this product order ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-livestock-feed-factory-product-order-cancel"/>
+                        </panel>
+                    </panel>
+                </panel>
+
+                <panel title="Order origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="unit" title="Unit" colSpan="3" required="true" onSelect="action-attrs-company-unit-domain"/>
+                    <field name="liveStockFeedFactory" colSpan="3" domain="self.unit = :unit" required="true"/>
+                    </panel>
+            </panel>
+
+            <panel-related name="productOrderLineListPanel" colSpan="12" field="productOrderLineList"
+                           form-view="product-order-line-form"
+                           grid-view="product-order-line-grid"
+                           editable="true" canNew="true" canRemove="true" canEdit="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <form name="product-order-hatchery-form" title="Product order" model="com.gl.apps.pf.db.ProductOrder" width="large"
+          onNew="action-set-default-values-product-order">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Order:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="productCategory" colSpan="4" required="true"/>
+                    <field name="dateTime" colSpan="4"/>
+
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                    <field name="deliveryDate" colSpan="4"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                            ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Send" showIf="(status &lt; 1 || status == 5)" icon="fa-check" css="btn-success" colSpan="12"
+                                    onClick="save,action-group-product-order-hatchery-validation"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel order" showIf="status == 1"
+                                    prompt="Are you sure you want to cancel this product order ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="action-method-product-order-cancel"/>
+                        </panel>
+
+                    </panel>
+
+                </panel>
+
+                <panel title="Order origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="hatchery" colSpan="4" required="true"/>
+                    <field name="center" hidden="true" colSpan="8"/>
+                </panel>
+                <panel title="Order Destination:" colSpan="12" readonlyIf="status != 0">
+                    <field name="fromUnit" title="Unit" colSpan="4" required="true" onSelect="action-attrs-company-unit-domain"/>
+                    <field name="fromLiveStockFeedFactory" colSpan="4" domain="self.unit = :fromUnit" requiredIf="isCenter == 0" showIf="isCenter == 0"/>
+                    <field name="isCenter" colSpan="1" required="true"/>
+                    <field name="fromCenter" title="Center" colSpan="3" domain="self.unit = :fromUnit" requiredIf="isCenter == 1" showIf="isCenter == 1"/>
+                </panel>
+            </panel>
+
+            <panel-related name="productOrderLineListPanel" colSpan="12" field="productOrderLineList"
+                           form-view="product-order-line-form" onChange="action-order-reception-line-qte-validate"
+                           grid-view="product-order-line-grid"
+                           editable="true" canNew="true" canRemove="true" canEdit="true"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <cards name="product-order-cards" css="rect-image" title="Product order" model="com.gl.apps.pf.db.ProductOrder" >
+        <field name="reference"/>
+        <field name="dateTime"/>
+        <field name="center"/>
+        <field name="breedingShed"/>
+        <field name="deliveryDate"/>
+        <field name="fromUnit"/>
+        <field name="fromCenter"/>
+        <field name="fromLiveStockFeedFactory"/>
+
+        <field name="productCategory"/>
+        <field name="dispatchStock"/>
+        <template><![CDATA[
+         <div class="span12">
+              <strong><span x-translate>Product order : </span> {{ reference }}</strong>
+                    <a class="pull-right muted">{{ $fmt('dateTime') }}</a>
+          </div>
+          <div>
+            <div>
+                <div class="span8">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  {{ center.name }}-{{ breedingShed.name }}
+                  <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                </div>
+                  <div class="span4 pull-right">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <a class="pull-right muted">{{ fromCenter.name }}-{{ fromLiveStockFeedFactory.name }}</a>
+                  </div>
+            </div>
+            <div>
+             <div class="span8" style="margin-left:-1px;">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              {{ dispatchStock.stockMoveSeq }}
+            </div>
+            <div class="span8" style="margin-left:-1px;">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              {{ deliveryDate }}
+            </div>
+
+                <div class="span6" style="margin-left:-1px;">
+                      <h5>
+                           <span class="label label-default" style="background-color: #ec7575;" x-translate> {{productCategory.name}} </span>
+                           <span style="margin-left:3px;" class="label label-info" x-translate>{{ fromUnit.name }}</span>
+                      </h5>
+                </div>
+
+            </div>
+          </div>
+
+        ]]></template>
+    </cards>
+
+    <grid name="product-order-grid" title="Product order" canNew="true" model="com.gl.apps.pf.db.ProductOrder" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date"/>
+        <field name="center" title="origin center"/>
+        <field name="hatchery" title="Origin hatchery"/>
+        <field name="breedingShed"/>
+        <field name="fromCenter" title="destination center"/>
+        <field name="fromLiveStockFeedFactory"/>
+        <field name="productCategory"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="orange" if="$get('status') == 3"/>
+            <hilite background="blue" if="$get('status') == 4"/>
+            <hilite background="red" if="$get('status') == 5"/>
+            <hilite background="red" if="$get('status') == 6"/>
+            <hilite background="red" if="$get('status') == 7"/>
+        </field>
+    </grid>
+
+    <action-record name="action-set-default-values-product-order"
+                   model="com.gl.apps.pf.db.ProductOrder">
+        <field name="dateTime" expr="eval: __datetime__"/>
+        <field name="deliveryDate" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-method name="action-product-order-send">
+        <call method="productOrderSend"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-method name="action-product-order-send-livestock-feed-factory">
+        <call method="productOrderSendLiveStockFeedFactory"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-method name="action-method-livestock-feed-factory-product-order-cancel">
+        <call method="productOrderCancelSendLiveStockFeedFactory"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-validate name="action-product-order-livestock-factory-check-empty-list">
+        <error if="productOrderLineList.isEmpty()" message="You cannot validate ! product order list is empty."/>
+    </action-validate>
+    <action-group name="action-group-product-order-livestock-validation">
+        <action name="action-product-order-livestock-factory-check-empty-list"/>
+        <action name="action-product-order-send-livestock-feed-factory"/>
+    </action-group>
+
+    <action-method name="action-product-order-validate">
+        <call method="productOrderValidate"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-validate name="action-product-release-check-empty-list">
+        <error if="productOrderLineList.isEmpty()" message="You cannot validate ! product release list is empty."/>
+    </action-validate>
+
+    <action-group name="action-group-product-release-validation">
+        <action name="action-product-release-check-empty-list"/>
+        <action name="action-product-order-validate"/>
+    </action-group>
+
+    <action-method name="action-product-order-received">
+        <call method="productOrderReceive"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-method name="action-method-product-order-cancel">
+        <call method="productOrderCancelSend"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-group name="action-group-receipt-product-validation">
+        <action name="action-product-receipt-check-empty-list"/>
+        <action name="action-order-reception-line-qte-validate"/>
+        <action name="action-product-order-received"/>
+    </action-group>
+
+    <action-validate name="action-product-receipt-check-empty-list">
+        <error if="productOrderLineList.isEmpty()" message="You cannot validate ! product reception list is empty."/>
+    </action-validate>
+
+    <action-validate name="action-order-reception-line-qte-validate">
+        <error if="productOrderLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(ProductOrderLine).all().filter('self.productOrder = ?1 ', __this__).fetchStream().mapToInt(t-> t.getReelQuantityProduct().intValue()).sum() >  __repo__(ProductOrderLine).all().filter('self.productOrder = ?1 ', __this__).fetchStream().mapToInt(t-> t.getQuantityProduct().intValue()).sum()"
+               message="The real quantity must be less then product quantity."/>
+
+    </action-validate>
+
+    <action-validate name="action-order-validate-from-to-same-center">
+        <error if="center != null &amp;&amp; fromCenter != null &amp;&amp; breedingShed == null &amp;&amp; center == fromCenter" message="The centre of origin and the centre of destination cannot be the same."/>
+    </action-validate>
+
+    <action-validate name="action-validate-product-order-line-products">
+        <error if="productOrderLineList &amp;&amp; __this__.id != null &amp;&amp; productOrderLineList.groupBy{it.product}.findAll{it.value.size() > 1}.size() > 0"
+               message="The same product appears multiple times in the order."/>
+    </action-validate>
+
+    <action-group name="action-group-product-order-validation">
+        <action name="action-order-validate-from-to-same-center"/>
+        <action name="action-product-order-check-empty-list"/>
+        <action name="action-validate-product-order-line-products"/>
+    </action-group>
+
+    <action-group name="action-group-product-order-hatchery-validation">
+        <action name="action-validate-product-order-line-products"/>
+        <action name="action-product-order-send"/>
+    </action-group>
+
+    <action-validate name="action-product-order-check-empty-list">
+        <error if="productOrderLineList.isEmpty()" message="You cannot validate ! product order list is empty."/>
+    </action-validate>
+
+    <action-method name="action-method-product-release-cancel">
+        <call method="productOrderCancelRelease"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-method name="action-method-product-reception-cancel">
+        <call method="productOrderCancelReceive"
+              class="com.gl.apps.pf.web.ProductOrderController"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-product-order-unit-changed">
+        <attribute if="fromUnit != null || fromUnit == null" name="value"
+                   expr="eval: null" for="fromCenter"/>
+    </action-attrs>
+</object-views>

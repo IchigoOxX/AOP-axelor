@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="HatcheryEggsReceptionLine">
+
+    <many-to-one name="eggsReception"
+      ref="com.gl.apps.pf.db.HatcheryEggsReception" title="Eggs reception"
+      required="true"/>
+
+
+
+    <string name="lineNumber" title="Line Number" required="true"/>
+    <many-to-one name="breedingShed" ref="BreedingShed" title="Breeding Shed"
+      required="true"/>
+    <integer name="numberOfHeTrays" title="Number of hatching eggs trays" readonly="true"/>
+    <integer name="numberOfHe" title="Number of hatching eggs" readonly="true"/>
+    <integer name="numberOfDeTrays" title="Number of declassed eggs trays" readonly="true"/>
+    <integer name="numberOfDe" title="Number of declassed eggs" readonly="true"/>
+    <integer name="numberOfDyeTrays" title="Number of double yolk egg trays" readonly="true"/>
+    <integer name="numberOfDye" title="Number of double yolk egg" readonly="true"/>
+    <integer name="receivedNumberOfHeTrays" title="Number of received hatching eggs trays"/>
+    <integer name="receivedNumberOfHe" title="Number of received hatching eggs"/>
+    <integer name="receivedNumberOfDeTrays" title="Number of received declassed eggs trays"/>
+    <integer name="receivedNumberOfDe" title="Number of received declassed eggs"/>
+    <integer name="receivedNumberOfDyeTrays" title="Number of received double yolk egg trays"/>
+    <integer name="receivedNumberOfDye" title="Number of received double yolk egg"/>
+    <integer name="numberOfRe" title="Number of rejected eggs" readonly="true"/>
+    <integer name="gapHatchingEggs" title="Gap hatching eggs" readonly="true"/>
+    <integer name="gapDoubleYolkEggs" title="Gap Double yolk eggs" readonly="true"/>
+    <integer name="gapDeclassedEggs" title="Gap Declassed Eggs" readonly="true"/>
+    <integer name="totalGap" title="Total gap" readonly="true"/>
+    <integer name="sumOfHETrays" title="Sum Of HE Trays" readonly="true"/>
+    <integer name="sumOfHE" title="Sum Of HE " readonly="true"/>
+    <integer name="receivedSumOfHETrays" title="Received Sum Of HE Trays"/>
+    <integer name="receivedSumOfHE" title="Received Sum Of HE "/>
+
+
+
+
+  </entity>
+
+</domain-models>

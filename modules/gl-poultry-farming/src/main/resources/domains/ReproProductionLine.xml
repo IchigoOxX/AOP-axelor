@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="ReproProductionLine" >
+
+    <many-to-one name="reproProduction"
+      ref="com.gl.apps.pf.db.ReproProduction" title="Repro Production"
+      required="true"/>
+
+    <many-to-one name="breedingShed"
+      ref="com.gl.apps.pf.db.BreedingShed" title="breeding Shed" required="true"/>
+
+    <integer name="lineNumber" title="Line Number" required="true"/>
+    <integer name="numberOfHeTrays" title="Number of hatching eggs trays"/>
+    <integer name="numberOfHe" title="Number of hatching eggs"/>
+    <integer name="totalNumberOfHe" title="Total number of hatching eggs"/>
+    <integer name="numberOfDETrays" title="Number of declassed eggs trays"/>
+    <integer name="numberOfDE" title="Number of declassed eggs"/>
+    <integer name="totalNumberOfDE" title="Total number of declassed eggs"/>
+
+    <integer name="numberOfDYETrays" title="Number of double yolk egg trays"/>
+    <integer name="numberOfDYE" title="Number of double yolk egg"/>
+    <integer name="numberOfRE" title="Number of rejected eggs"/>
+    <integer name="numberOfDestroyedRe" title="Number of destroyed eggs"/>
+
+    <integer name="numberOfHeGround" title="Number of hatching eggs ground"/>
+    <integer name="numberOfDEGround" title="Number of declassed eggs ground"/>
+
+<!--    <integer name="unfertilizedEggs" title="Unfertilized eggs"/>-->
+    <integer name="totalEggs" title="Total Eggs" readonly="true">
+      <![CDATA[
+        int totalHe = this.getTotalNumberOfHe() != null ? this.getTotalNumberOfHe() : 0;
+        int de = this.getNumberOfDE() != null ? this.getNumberOfDE() : 0;
+        int dye = this.getNumberOfDYE() != null ? this.getNumberOfDYE() : 0;
+        int destroyed = this.getNumberOfDestroyedRe() != null ? this.getNumberOfDestroyedRe() : 0;
+        int re = this.getNumberOfRE() != null ? this.getNumberOfRE() : 0;
+        return totalHe + de + dye + destroyed + re;
+      ]]>
+    </integer>
+    <integer name="totalTrays" title="Total Trays" readonly="true">
+      <![CDATA[
+        int heTrays = this.getNumberOfHeTrays() != null ? this.getNumberOfHeTrays() : 0;
+        int deTrays = this.getNumberOfDETrays() != null ? this.getNumberOfDETrays() : 0;
+        int dyeTrays = this.getNumberOfDYETrays() != null ? this.getNumberOfDYETrays() : 0;
+        return heTrays + deTrays + dyeTrays;
+      ]]>
+    </integer>
+
+
+    <track on="UPDATE">
+      <field name="reproProduction"/>
+      <field name="breedingShed"/>
+      <field name="lineNumber"/>
+      <field name="numberOfHeTrays"/>
+      <field name="numberOfHe"/>
+      <field name="numberOfDETrays"/>
+      <field name="numberOfDE"/>
+      <field name="numberOfDYETrays"/>
+      <field name="numberOfDYE"/>
+      <field name="numberOfRE"/>
+      <field name="numberOfHeGround"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

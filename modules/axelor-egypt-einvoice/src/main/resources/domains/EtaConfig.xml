@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_8.1.xsd">
+
+  <module name="egypt" package="com.axelor.apps.egypt.einvoice.db"/>
+
+  <entity name="EtaConfig" sequential="true">
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" required="true" title="Company"/>
+    
+    <string name="etaEnvironment" title="ETA Environment" required="true" selection="egypt.eta.environment.select" default="sandbox"/>
+    <string name="etaBaseUrl" title="ETA API Base URL" required="true"/>
+    <string name="signerServiceUrl" title="Local Signer Service URL" required="true" default="http://localhost:8090/eta-einvoice-signer"/>
+    
+    <string name="clientId" title="ETA Client ID"/>
+    <string name="clientSecret" title="ETA Client Secret"/>
+    <string name="taxRegistrationNumber" title="Tax Registration Number" required="true"/>
+    <string name="activityCode" title="Taxpayer Activity Code" required="true"/>
+    
+    <string name="tokenPin" title="Token PIN"/>
+    <string name="certificateIssuer" title="Certificate Issuer Name" default="Egypt Trust Sealing CA"/>
+    
+    <string name="issuerType" title="Issuer Type" selection="egypt.eta.issuer.type.select" default="B"/>
+    <string name="defaultBranchId" title="Default Branch ID" default="0"/>
+    
+    <string name="signerAuthUser" title="Signer Service Username"/>
+    <string name="signerAuthPassword" title="Signer Service Password"/>
+    
+    <boolean name="isActive" title="Is Active" default="true"/>
+    
+    <extra-code>
+      <![CDATA[
+      public static final String ENV_SANDBOX = "sandbox";
+      public static final String ENV_PREPROD = "preprod";
+      public static final String ENV_PRODUCTION = "production";
+      ]]>
+    </extra-code>
+  </entity>
+
+</domain-models>

@@ -1,0 +1,445 @@
+% VOC,% المركبات العضوية المتطايرة
+A control plan frequency with the same name %s already exists.,يوجد تكرار لخطة المراقبة بنفس الاسم %s بالفعل.
+Acceptance,قبول
+Acceptance required,القبول مطلوب
+Accepted,مقبولة
+Accepted quantity,الكمية المقبولة
+Action,العمل
+Action distribution sequence,تسلسل توزيع العمل
+Action distribution template,قالب توزيع العمل
+Action plan,خطة العمل
+Action proposed,الإجراء المقترح
+Actions,الإجراءات
+Activate the version,تفعيل النسخة
+Active version,النسخة النشطة
+Active version ?,النسخة النشطة؟
+Add a characteristic control,إضافة عنصر تحكم مميز
+Add a complete control,اضافة تحكم كامل
+Add a quality improvement,إضافة تحسين الجودة
+Add optional control points,إضافة نقاط تحكم اختيارية
+Advancement,تقدم
+Alert calendar,تقويم التنبيه
+"All fields related to the order will be reset, continue ?",سيتم إعادة ضبط جميع الحقول المتعلقة بالطلب، هل تريد المتابعة؟
+Analysis,تحليل
+Analysis Method,طريقة التحليل
+Analysis costs,تكاليف التحليل
+Analysis method line,خط طريقة التحليل
+Analysis method lines,بنود طريقة التحليل
+Analysis methods,طرق التحليل
+Answer comment,الرد على التعليق
+Answer required,الإجابة مطلوبة
+Answered by,تم الرد بواسطة
+Answered on,تم الرد على
+App,التطبيق
+App quality,جودة التطبيق
+Applicable,ينطبق
+Automatic mail by completing quality control,البريد الآلي بإكمال مراقبة الجودة
+Available,متاح
+Available documents,الوثائق المتوفرة
+Branch,فرع
+Calendar,التقويم
+Cancel,إلغاء
+Canceled,ملغي
+Cancelled Status,الحالة الملغاة
+Cancelled status already exists.,حالة الإلغاء موجودة بالفعل.
+Carbon footprint (kg CO2 equivalent),البصمة الكربونية (كجم مكافئ ثاني أكسيد الكربون)
+Causal analysis,التحليل السببي
+Cause,السبب
+Cause analysis,تحليل السبب
+Causes,الأسباب
+Causes written by,الأسباب كتبها
+Causes written on,الأسباب مكتوبة على
+"Changing this value will change value of product, continue ?",تغيير هذه القيمة سوف يغير قيمة المنتج، تابع؟
+Characteristic,مميزة
+Characteristic or sample does not belong to this control entry.,الخاصية أو العينة لا تنتمي إلى إدخال التحكم هذا.
+Characteristic property,خاصية مميزة
+Characteristic type,النوع المميز
+Characteristics,الخصائص
+Characteristics properties,خصائص الخصائص
+Characteristics types,أنواع الخصائص
+Check,تحقق
+Check conformity,التحقق من المطابقة
+Choose quality process,اختر عملية الجودة
+Close,إغلاق
+Closed Status,الحالة مغلقة
+Closed status already exists.,الحالة مغلقة موجودة بالفعل.
+Code,الرمز
+Coefficient,المعامل
+Comment,تعليق
+Company,الشركة
+Company for which the configurations are set.,الشركة التي تم تعيين التكوينات لها.
+Compliant,متوافق
+Configuration,التهيئة
+Configurations by company,التكوينات حسب الشركة
+Confirm,تأكيد
+Confirmed,مؤكد
+Conformity,المطابقة
+Conformity formula can not be fetched,لا يمكن جلب صيغة المطابقة
+Conforms,مطابق
+Contact,جهة اتصال
+Control,التحكم
+Control Frequency,تردد التحكم
+Control Points,نقاط التحكم
+Control comment,تعليق التحكم
+Control entries,مداخل التحكم
+Control entry,دخول التحكم
+Control entry sample,نموذج إدخال التحكم
+Control entry sample line,خط عينة إدخال التحكم
+Control entry sample lines,بنود عينة قيد الرقابة
+Control entry samples,عينات إدخال التحكم
+Control plan,خطة التحكم
+Control plan characteristics,خصائص خطة التحكم
+Control plan frequencies,ترددات خطة التحكم
+Control plan frequency,تردد خطة التحكم
+Control plan line,خط خطة التحكم
+Control plan line characteristics,خصائص خط خطة التحكم
+Control plan lines,خطوط خطة التحكم
+Control plans,خطط التحكم
+Control point,نقطة التحكم
+Control point list,قائمة نقاط التحكم
+Control point model list,قائمة نماذج نقاط التحكم
+Control point name,اسم نقطة التحكم
+Control point type,نوع نقطة التحكم
+Control points,نقاط التحكم
+Control type,نوع التحكم
+Corrective,تصحيحية
+Corrective actions,الإجراءات التصحيحية
+Corrective actions list,قائمة الإجراءات التصحيحية
+Costs list per decision,قائمة التكاليف لكل قرار
+Create control entry samples,إنشاء نماذج إدخال التحكم
+Create quality improvement,إنشاء تحسين الجودة
+Critical,حرجة
+Criticality,الحرجية
+Custom frequency,تردد مخصص
+Customer,عميل
+Customer Order,طلب العميل
+Customer Order line,سطر طلب العميل
+Customer contact,الاتصال بالعميل
+Customer delivery note,مذكرة تسليم العميل
+Customer delivery note line,سطر مذكرة تسليم العميل
+Customer signature,توقيع العميل
+Date,التاريخ
+Deadline,الموعد النهائي
+Decision,القرار
+Decision distribution sequence,تسلسل توزيع القرار
+Decision distribution template,نموذج توزيع القرار
+Decision making,اتخاذ القرار
+Decisions,قرارات
+Decisions written by,القرارات كتبها
+Decisions written on,القرارات مكتوبة على
+Defect,عيب
+Defect written by,عيب كتبه
+Defect written on,عيب مكتوب على
+Defects,العيوب
+Density,الكثافة
+Description,الوصف
+Details,التفاصيل
+Detected by (internal),تم الكشف عنه بواسطة (داخلي)
+Detection,كشف
+Detection origin is customer but no customer is provided.,أصل الاكتشاف هو العميل ولكن لم يتم توفير أي عميل.
+Detection origin is supplier but no supplier is provided.,أصل الكشف هو المورد ولكن لم يتم توفير أي مورد.
+Detections,كشف
+Direct cost,التكلفة المباشرة
+Distribution,التوزيع
+Distribution of costs per decision,توزيع التكاليف لكل قرار
+Distributions,توزيعات
+Dms file,ملف دي إم إس
+Document ID,معرف الوثيقة
+Document n°,الوثيقة رقم
+Document reference,مرجع الوثيقة
+Documentary,وثائقي
+Done,تم
+Draft,مسودة
+Earliest date,أقرب تاريخ
+Edit control points,تعديل نقاط التحكم
+Editable,قابل للتحرير
+Efficiency,الكفاءة
+Efficiency Criteria,معايير الكفاءة
+Efficiency checked by,تم فحص الكفاءة بواسطة
+Efficiency checked on,تم فحص الكفاءة على
+Employee,موظف
+End date,تاريخ الانتهاء
+Entry attrs,سمات الدخول
+Entry date,تاريخ الدخول
+Entry sample line,خط عينة الإدخال
+"Evaluation of the conformity formula failed, please make sure that every required fields for the evaluation are filled.",فشل تقييم معادلة المطابقة، يرجى التأكد من ملء كافة الحقول المطلوبة للتقييم.
+Excepted result for formula is either true (compliant) or false (not compliant). Current result = %s,النتيجة المستثناة للصيغة إما صحيحة (متوافقة) أو خاطئة (غير متوافقة). النتيجة الحالية = %s
+Expected value,القيمة المتوقعة
+Export selected files,تصدير الملفات المحددة
+External Diffusion,الانتشار الخارجي
+File,الملف
+Finish,انتهى
+Finished,انتهى
+Fixed amount,مبلغ ثابت
+Formula,الصيغة
+Frequency,التردد
+From Date,من التاريخ
+Full name,الاسم الكامل
+Generate distributions,توليد التوزيعات
+Generate distributions for other,توليد توزيعات أخرى
+Generate distributions for responsibles,توليد التوزيعات للمسؤولين
+Generate quality configurations,إنشاء تكوينات الجودة
+Generated file,الملف الذي تم إنشاؤه
+Gravity,الجاذبية
+High,عالية
+Identification,تحديد الهوية
+In progress,قيد التنفيذ
+Inspector,مفتش
+Inspector signature,توقيع المفتش
+Internal,داخلي
+Internal Diffusion,الانتشار الداخلي
+Interne,إنتر
+Items,العناصر
+Label,التسمية
+Latest date,آخر تاريخ
+Level,المستوى
+Linked to,مرتبط ب
+List,قائمة
+Low,منخفض
+Major,رئيسي
+Manual,دليل
+Manual Identification,التعرف اليدوي
+ManufOrder,أمر التصنيع
+Max value,القيمة القصوى
+Measurable,قابلة للقياس
+Measured value,القيمة المقاسة
+Measuring Type,نوع القياس
+Measuring point list,قائمة نقاط القياس
+Measuring points,نقاط القياس
+Meta files,ملفات التعريف
+Min value,القيمة الدنيا
+Minor,الصغرى
+Model for quality control,نموذج لمراقبة الجودة
+My alerts,تنبيهاتي
+My quality controls,ضوابط الجودة
+My team alerts,تنبيهات فريقي
+My team quality controls,ضوابط الجودة لفريقي
+Name,الاسم
+New,جديد
+New version,نسخة جديدة
+No,لا
+No checked,لم يتم تحديد
+"No status have been found for the QA, please register at least one in the configurations",لم يتم العثور على حالة لضمان الجودة، يرجى تسجيل حالة واحدة على الأقل في التكوينات
+Non-Conforming quantity,الكمية غير المطابقة
+Non-compliant,غير متوافق
+Normal,عادي
+Not assessed,لم يتم التقييم
+Not compliant,غير متوافق
+Not controlled,لا يمكن السيطرة عليها
+Note,ملاحظة
+Notes,ملاحظات
+Number,الرقم
+Number of quality alerts by team,عدد تنبيهات الجودة حسب الفريق
+Number of quality control by team,عدد عمليات مراقبة الجودة من قبل الفريق
+Number of solved quality alerts by team,عدد تنبيهات الجودة التي تم حلها بواسطة الفريق
+Objective,الهدف
+Observations,ملاحظات
+Observed defects,العيوب الملحوظة
+Observed value,القيمة المرصودة
+Obsolete,عفا عليها الزمن
+On hold,في الانتظار
+Open in new tab,افتح في علامة تبويب جديدة
+OperationOrder,أمر التشغيل
+Optional control point list,قائمة نقاط التحكم الاختيارية
+Optional control points,نقاط التحكم الاختيارية
+Optional quality control,مراقبة الجودة الاختيارية
+Optional quality process,عملية الجودة الاختيارية
+Origin,الأصل
+Partially accepted,مقبولة جزئيا
+Partner,شريك أعمال
+Pause,وقفة
+Pictures,الصور
+Plan,خطة
+Plan attrs,مميزات الخطة
+Plan line,خط الخطة
+Plan owner,صاحب الخطة
+Planned,مخطط
+Please complete all control points,برجاء استكمال جميع نقاط التحكم
+Please configure a sequence for action distribution.,الرجاء تكوين تسلسل لتوزيع الإجراء.
+Please configure a sequence for decision distribution.,الرجاء تكوين تسلسل لتوزيع القرار.
+Please configure information for quality for the company %s,الرجاء تكوين معلومات الجودة للشركة %s
+Please fill printing settings on quality control,الرجاء تعبئة إعدادات الطباعة عند مراقبة الجودة
+"Please provide one of the two fields, characteristicId or sampleId, in request body.",يرجى تقديم أحد الحقلين، معرف الخصائص أو معرف العينة، في نص الطلب.
+Please select at least a line to generate a distribution.,الرجاء تحديد سطر على الأقل لإنشاء التوزيع.
+Please select at least a line to send a distribution.,الرجاء تحديد سطر على الأقل لإرسال التوزيع.
+Please select records having files for export,الرجاء تحديد السجلات التي تحتوي على ملفات للتصدير
+Pre-fill control points,نقاط التحكم في التعبئة المسبقة
+Preventive,وقائية
+Preventive actions,إجراءات وقائية
+Print,طباعة
+Printing settings,إعدادات الطباعة
+Priority,الأولوية
+Process,عملية
+Processes,العمليات
+ProdProcessLine,برودكروسسلين
+Product,منتج
+Product characteristic,خصائص المنتج
+Product characteristics,خصائص المنتج
+Product fields should not be filled if type is 'System'.,"لا ينبغي ملء حقول المنتج إذا كان النوع هو ""النظام""."
+Product set,مجموعة المنتجات
+Project,المشروع
+Propose action,اقتراح العمل
+Provided data does not match with detection origin %s.,البيانات المقدمة لا تتطابق مع أصل الكشف %s.
+Purchase order,أمر شراء
+QI,تشى
+QI Action distribution,توزيع QI Action
+QI Analysis Cause,سبب تحليل QI
+QI Analysis Causes,أسباب تحليل QI
+QI Decision Distribution,توزيع قرارات تحسين الجودة
+QI Decision config company,شركة تكوين قرار QI
+QI Decision distribution,توزيع قرار تحسين الجودة
+QI Resolution Decision,قرار قرار QI
+QI Resolution Decisions,قرارات قرار تحسين الجودة
+QI Resolution Defect,خلل في دقة QI
+QI Resolution Defects,عيوب دقة QI
+QI Task,مهمة تحسين الجودة
+QI Tasks,مهام تحسين الجودة
+QIProcess.manager,مدير
+Quality,الجودة
+Quality Control,مراقبة الجودة
+Quality Dashboard,لوحة الجودة
+Quality Improvement,تحسين الجودة
+Quality alert,تنبيه الجودة
+Quality alert filters,مرشحات تنبيه الجودة
+Quality alerts,تنبيهات الجودة
+Quality audit,تدقيق الجودة
+Quality audit calendar,تقويم تدقيق الجودة
+Quality audits,عمليات تدقيق الجودة
+Quality config,تكوين الجودة
+Quality config (${ name }),تكوين الجودة (${ name })
+Quality configuration,تكوين الجودة
+Quality configurations,تكوينات الجودة
+Quality control,مراقبة الجودة
+Quality control calendar,تقويم مراقبة الجودة
+Quality control filters,مرشحات مراقبة الجودة
+Quality improvement,تحسين الجودة
+Quality improvement successfully updated.,تم تحديث تحسين الجودة بنجاح.
+Quality improvements,تحسينات الجودة
+Quality process,عملية الجودة
+Quality processes,عمليات الجودة
+Quality teams,فرق الجودة
+QualityControl.coefficient,مراقبة الجودة.معامل
+QualityControl.correctiveActions,مراقبة الجودة. الإجراءات التصحيحية
+QualityControl.customerSignature,مراقبة الجودة.customerSignature
+QualityControl.endDate,تاريخ الانتهاء
+QualityControl.finalNote,مراقبة الجودة.الملاحظة النهائية
+QualityControl.generalObservation,مراقبة الجودة.المراقبة العامة
+QualityControl.inspectorSignature,توقيع المفتش
+QualityControl.measuringNote,مراقبة الجودة.ملاحظة قياس
+QualityControl.observation,مراقبة الجودة
+QualityControl.project,مراقبة الجودة.مشروع
+QualityControl.projectClient,عميل المشروع
+QualityControl.qualityControlTitle,عنوان مراقبة الجودة
+QualityControl.reference,مراقبة الجودة. مرجع
+QualityControl.responsible,مراقبة الجودة.مسؤول
+QualityControl.total,الإجمالي
+Quantity,الكمية
+Quantity can not be greater than non conforming quantity,لا يمكن أن تكون الكمية أكبر من الكمية غير المطابقة
+Recipient,المتلقي
+Recipient name,اسم المستلم
+Reference,المرجع
+Register response,تسجيل الرد
+Rejected,مرفوض
+Rejected quantity,الكمية المرفوضة
+Related to,ذات صلة ب
+Related to select,ذات صلة لتحديد
+Reportings,التقارير
+Required,مطلوب
+Required document,الوثيقة المطلوبة
+Required documents,المستندات المطلوبة
+Required documents filters,مرشحات المستندات المطلوبة
+Resolution,القرار
+Responsible,مسؤول
+Responsible name,اسم المسؤول
+Responsible partner,الشريك المسؤول
+Responsible partner type,نوع الشريك المسؤول
+Result,النتيجة
+Root cause,السبب الجذري
+Root causes,الأسباب الجذرية
+Sale order,أمر بيع
+Sample,عينة
+Sample count,عدد العينات
+Sample frequency,تردد العينة
+Sample quantity,كمية العينة
+Sample type,نوع العينة
+Select recepient partner for QI Action distribution,حدد الشريك المستلم لتوزيع إجراء QI
+Send QI Action distributions,إرسال توزيعات QI Action
+Send QI Decision distributions,إرسال توزيعات قرار تحسين الجودة
+Send email,إرسال البريد الإلكتروني
+Send the distributions,ارسال التوزيعات
+Sent,تم الإرسال
+Sequence,التسلسل
+Similar name already exists,اسم مشابه موجود بالفعل
+Solve,حل
+Solved,حل
+Some defaults have been skipped as they were incompatibles. (%s line(s)),تم تخطي بعض الإعدادات الافتراضية لأنها كانت غير متوافقة. (%s سطر(أسطر))
+Source QI,المصدر QI
+Standby,الاستعداد
+Start,ابدأ
+Start date,تاريخ البدء
+Status,الحالة
+Status select,الحالة اختر
+Statuses,الحالات
+Stock move,حركة المخزون
+Stock move line,بند حركة المخزون
+StockMoveLine,ستوكموفلين
+Sum of accepted quantity and rejected quantity can not be greater than quantity,لا يمكن أن يكون مجموع الكمية المقبولة والكمية المرفوضة أكبر من الكمية
+Sum of quantities of the decisions for a default must not be greater than the default's quantity,يجب ألا يكون مجموع كميات قرارات التقصير أكبر من كمية التقصير
+Supplier,مورد
+Supplier Order,طلب المورد
+Supplier Order line,خط طلب المورد
+Supplier contact,الاتصال بالمورد
+Supplier delivery note,مذكرة تسليم المورد
+Supplier delivery note line,سطر مذكرة تسليم المورد
+System,النظام
+Systematic,منهجي
+Tags,العلامات
+Tasks,المهام
+Team,فريق
+Technical sequence,التسلسل الفني
+Template,القالب
+The QualityImprovement has been correctly created with the id : %s.,تم إنشاء تحسين الجودة بشكل صحيح بالمعرف: %s.
+The company %s doesn't have any configured sequence for Quality improvement,ليس لدى الشركة %s أي تسلسل تم تكوينه لتحسين الجودة
+The end date cannot be later than the deadline.,لا يمكن أن يكون تاريخ الانتهاء بعد الموعد النهائي.
+"The following fields will be reset: customer order, stock move and stock move line , continue ?",سيتم إعادة تعيين الحقول التالية: طلب العميل، حركة المخزون وخط حركة المخزون، هل يستمر؟
+"The following fields will be reset: customer stock move and customer stock move line , continue ?",سيتم إعادة تعيين الحقول التالية: نقل مخزون العميل وخط نقل مخزون العميل، هل يستمر؟
+"The following fields will be reset: stock move line , continue ?",سيتم إعادة تعيين الحقول التالية: خط حركة المخزون، متابعة؟
+"The following fields will be reset: supplier order, stock move and stock move line , continue ?",سيتم إعادة تعيين الحقول التالية: طلب المورد، حركة المخزون وخط حركة المخزون، هل يستمر؟
+"The following fields will be reset: supplier stock move and supplier stock move line , continue ?",سيتم إعادة تعيين الحقول التالية: نقل مخزون المورد وخط نقل مخزون المورد، هل يستمر؟
+The resolution default line with id %s doesn't belong to this quality improvement.,سطر الدقة الافتراضي بالمعرف %s لا ينتمي إلى تحسين الجودة هذا.
+The start date cannot be later than the deadline.,لا يمكن أن يكون تاريخ البدء بعد الموعد النهائي.
+The start date cannot be later than the end date.,لا يمكن أن يكون تاريخ البدء بعد تاريخ الانتهاء.
+There is no sequence set for the required documents,لا يوجد تسلسل محدد للمستندات المطلوبة
+To Date,حتى الآن
+Tools,الأدوات
+Total Cost,التكلفة الإجمالية
+Tracking Number,رقم التتبع / التشغيلة
+Tracking Numbers,أرقام التتبع
+Tracking number,رقم التتبع / التشغيلة
+Tracking number characteristic,خاصية رقم التتبع
+Tracking number characteristics,خصائص رقم التتبع
+Tracking numbers,أرقام التتبع
+TrackingNumber,رقم التتبع
+Type,النوع
+Unit,الوحدة
+Urgent,عاجل
+VOC ?,المركبات العضوية المتطايرة ؟
+Validated,معتمد / مؤكد
+Version,النسخة
+Waiting,في انتظار
+Week(s),الأسبوع (الأسابيع)
+"When this configuration is enabled, an email will be sent automatically each time a quality control is completed.",عند تمكين هذا التكوين، سيتم إرسال بريد إلكتروني تلقائيًا في كل مرة يتم فيها اكتمال مراقبة الجودة.
+Written by,بقلم
+Written on,مكتوب على
+Yes,نعم
+You can select and define here the sequence that will be used for action distributions.,يمكنك تحديد وتعريف التسلسل الذي سيتم استخدامه لتوزيعات الإجراء هنا.
+You can select and define here the sequence that will be used for decision distributions.,يمكنك تحديد وتعريف التسلسل الذي سيتم استخدامه لتوزيعات القرار هنا.
+You can select here the email template sent by default when a quality control is completed.,يمكنك هنا تحديد قالب البريد الإلكتروني الذي يتم إرساله افتراضيًا عند اكتمال مراقبة الجودة.
+You can select here the print template that will be used to generate action distributions.,يمكنك هنا تحديد قالب الطباعة الذي سيتم استخدامه لإنشاء توزيعات الإجراء.
+You can select here the print template that will be used to generate decision distributions.,يمكنك هنا تحديد قالب الطباعة الذي سيتم استخدامه لإنشاء توزيعات القرار.
+counter,عداد
+each,كل
+name,الاسم
+quality.responsible,الجودة.مسؤولة
+value:Quality,القيمة: الجودة
+priority,الأولوية

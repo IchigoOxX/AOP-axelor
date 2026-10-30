@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <dashboard name="principal.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="dashlet.principal.dashboard.he.de.dye" colSpan="12"/>
+
+        <dashlet height="350" action="dashlet.principal.dashboard.he.per.center" colSpan="4"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.dye.per.center" colSpan="4"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.de.per.center" colSpan="4"/>
+
+        <dashlet height="350" action="dashlet.principal.dashboard.he.per.tracking.number.center" colSpan="12"/>
+    </dashboard>
+
+    <dashboard name="principal.chicks.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="dashlet.principal.dashboard.chicks.qty.unit.price" colSpan="12"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.chicks.qty.total.amount" colSpan="12"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.chicks.quantities" colSpan="12"/>
+
+    </dashboard>
+
+    <dashboard name="principal.flesh.slaughtered.chicks.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="dashlet.principal.dashboard.flesh.chicks.average.weight" colSpan="12"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.flesh.chicks.global.weight" colSpan="12"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.flesh.chicks.average.weight.by.reference" colSpan="12"/>
+        <dashlet height="350" action="dashlet.principal.dashboard.flesh.chicks.global.weight.by.reference" colSpan="12"/>
+
+
+    </dashboard>
+
+    <action-view name="dashlet.principal.dashboard.he.per.center"
+                 model="com.gl.apps.pf.db.HatcheryEggsReceptionLine" title="Percentage HE per center">
+        <view name="principal.dashboard.percentage.he.per.center" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.dye.per.center"
+                 model="com.gl.apps.pf.db.HatcheryEggsReceptionLine" title="Percentage DYE per center">
+        <view name="principal.dashboard.percentage.dye.per.center" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.de.per.center"
+                 model="com.gl.apps.pf.db.HatcheryEggsReceptionLine" title="Percentage DE per center">
+        <view name="principal.dashboard.percentage.de.per.center" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.he.per.tracking.number.center"
+                 model="com.gl.apps.pf.db.HatcheryEggsReceptionLine" title="Percentage HE per tracking number/center">
+        <view name="principal.dashboard.percentage.de.per.tracking.number.and.center" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.he.de.dye"
+                 model="com.gl.apps.pf.db.HatcheryEggsReceptionLine" title="Percentage HE,DYE and DE">
+        <view name="principal.dashboard.percentage.he.dye.de" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.chicks.qty.unit.price"
+                 model="com.axelor.apps.stock.db.StockMoveLine" title="Chicks">
+        <view name="principal.dashboard.chicks.sale.qty.unit.price" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.chicks.qty.total.amount"
+                 model="com.axelor.apps.stock.db.StockMoveLine" title="Chicks">
+        <view name="principal.dashboard.chicks.sale.qty.amount" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.chicks.quantities"
+                 model="com.axelor.apps.stock.db.StockMoveLine" title="Chicks">
+        <view name="principal.dashboard.chicks.qty" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.flesh.chicks.average.weight"
+                 model="com.gl.apps.pf.db.ElevTransfer" title="Flesh chicks">
+        <view name="principal.dashboard.flesh.chicks.average.weight" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.flesh.chicks.global.weight"
+                 model="com.gl.apps.pf.db.ElevTransfer" title="Flesh chicks">
+        <view name="principal.dashboard.flesh.chicks.global.weight" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.flesh.chicks.global.weight.by.reference"
+                 model="com.gl.apps.pf.db.ElevTransfer" title="Flesh chicks">
+        <view name="principal.dashboard.flesh.chicks.by.reference.global.weight" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.principal.dashboard.flesh.chicks.average.weight.by.reference"
+                 model="com.gl.apps.pf.db.ElevTransfer" title="Flesh chicks">
+        <view name="principal.dashboard.flesh.chicks.by.reference.average.weight.by.reference" type="chart"/>
+    </action-view>
+</object-views>
+

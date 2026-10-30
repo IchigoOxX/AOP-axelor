@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="start-elev-movement-form" title="Workforces movement"
+          model="com.gl.apps.pf.db.StartElevMovement" width="large"
+          onNew="action-set-default-values-start-elev-movement">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4" />
+                    <field name="dispatchStock" colSpan="4" readonly="true" />
+                </panel>
+
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" icon="fa-check" prompt="Are you sure to validate this breeding displacement ?"
+                                onClick="save,action-group-start-elev-movement-validation" css="btn-success"/>
+                    </panel>
+                    <panel colSpan="12">
+                        <button name="cancelBtn" title="Cancel movement" showIf="status == 1"
+                                prompt="Are you sure you want to cancel this workforce movement ?"
+                                colSpan="12" icon="fa-times" css="btn-danger"
+                                onClick="poultry-farming-elev-movement-cancel"/>
+                    </panel>
+                </panel>
+                <panel title="infos:" colSpan="12" readonlyIf="status != 0">
+                    <field name="unit" title="Unit" colSpan="4" required="true" onSelect="action-attrs-company-unit-domain"
+                           onChange="action-attrs-elev-movement-unit-changed"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit AND self.type = 0" required="true"
+                           onChange="action-attrs-elev-reform-center-empty"/>
+                    <field name="breedingShed" colSpan="4" domain="self.center = :center AND self.status = 2"
+                           onChange="action-group-start-elev-movement" required="true"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+
+                </panel>
+                <panel title="Subjects:" colSpan="12" readonlyIf="status != 0">
+                    <field name="dailyAge" readonly="true" colSpan="3"/>
+                    <field name="weeklyAge" readonly="true" colSpan="3"/>
+                    <field name="totalNumbers" readonly="true" colSpan="3"/>
+                    <field name="weight" readonly="true" colSpan="3"/>
+                </panel>
+
+                <panel title="Destination:" colSpan="12">
+                    <panel-related name="startElevMovementLineListPanel" colSpan="12" readonlyIf="status != 0"
+                                   editable="true" canNew="false" canRemove="false"
+                                   field="startElevMovementLineList"
+                                   form-view="start-elev-movement-line-form"
+                                   grid-view="start-elev-movement-line-grid" />
+                </panel>
+            </panel>
+
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="start-elev-movement-grid" title="Workforces movements" model="com.gl.apps.pf.db.StartElevMovement" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date" readonly="true"/>
+        <field name="unit" />
+        <field name="center" />
+        <field name="breedingShed" />
+        <field name="breed" />
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <grid name="start-elev-movement-technical-sheet-grid" title="Workforces movement"
+          model="com.gl.apps.pf.db.StartElevMovement" edit-icon="true">
+        <field name="reference" title="N°" readonly="true"/>
+        <field name="breed" readonly="true" hidden="true"/>
+        <field name="trackingNumber" readonly="true" hidden="true"/>
+        <field name="startElevMovementLineList.movedNumber" readonly="true"/>
+    </grid>
+
+    <form name="start-elev-movement-technical-sheet-form" title="Workforces reform"
+          model="com.gl.apps.pf.db.StartElevMovement" width="large" >
+        <panel showTitle="false" colSpan="12">
+            <field name="reference" colSpan="4" readonly="true"/>
+            <field name="startElevMovementLineList.movedNumber" colSpan="4" readonly="true"/>
+            <field name="breed" colSpan="4" readonly="true" hidden="true"/>
+            <field name="trackingNumber" colSpan="4" readonly="true" hidden="true"/>
+
+        </panel>
+
+    </form>
+
+    <action-record name="action-set-default-values-start-elev-movement"
+                   model="com.gl.apps.pf.db.StartElevMovement">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-group name="action-group-start-elev-movement">
+        <action name="action-start-elev-movement-breeding-shed-changed"/>
+        <action name="action-method-start-elev-movement-get-lines-from-breeding-shed"/>
+        <action name="action-start-elev-movement-breeding-shed-empty"/>
+    </action-group>
+
+    <action-attrs name="action-start-elev-movement-breeding-shed-changed" model="com.gl.apps.pf.db.StartElevMovement">
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.breed" for="breed"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.currentBatchNumber" for="trackingNumber"/>
+
+        <attribute if="breedingShed != null &amp;&amp; breedingShed.receivedMalesNumber > 0" name="value" expr="eval: breedingShed.malesNumber" for="totalNumbers"/>
+        <attribute if="breedingShed != null &amp;&amp; breedingShed.receivedFemalesNumber > 0" name="value" expr="eval: breedingShed.femalesNumber" for="totalNumbers"/>
+
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.dailyAge" for="dailyAge"/>
+        <attribute if="breedingShed != null" name="value" expr="eval: breedingShed.weeklyAge" for="weeklyAge"/>
+    </action-attrs>
+
+    <action-method name="action-method-start-elev-movement-get-lines-from-breeding-shed">
+        <call method="getLinesElevMovementFromBreedingShed"
+              class="com.gl.apps.pf.web.StartElevMovementController"/>
+    </action-method>
+
+    <action-validate name="action-validate-start-elev-movement-validate-moved-number">
+        <error if="startElevMovementLineList &amp;&amp; __this__.id != null &amp;&amp; __repo__(StartElevMovementLine).all().filter('self.elevMovement = ?1 ', __this__).fetchStream().mapToInt(t-> t.getMovedNumber())?.sum() > __this__.getTotalNumbers()" message="The total number must be greater then moved number."/>
+    </action-validate>
+
+    <action-method name="action-start-elev-movement-validate">
+        <call method="startElevMovValidate"
+              class="com.gl.apps.pf.web.StartElevMovementController"/>
+    </action-method>
+
+    <action-group name="action-group-start-elev-movement-validation">
+        <action name="action-validate-start-elev-movement-validate-moved-number"/>
+        <action name="action-start-elev-movement-validate"/>
+    </action-group>
+
+    <action-attrs name="action-start-elev-movement-calculate-weight-moved-number-changed" model="com.gl.apps.pf.db.StartElevMovement">
+        <attribute if="breedingShed.lastTechnicalSheetLine != null &amp;&amp; startElevMovementLineList != null &amp;&amp; !startElevMovementLineList.isEmpty()"
+                   name="value"
+                   expr="eval: breedingShed?.lastTechnicalSheetLine?.weight * startElevMovementLineList.collect{it.movedNumber}.sum()" for="weight"/>
+    </action-attrs>
+
+    <action-validate name="action-start-elev-movement-empty-list">
+        <error if="startElevMovementLineList.isEmpty()" message="You cannot validate ! Breeding shed list is empty."/>
+    </action-validate>
+
+    <action-method name="poultry-farming-elev-movement-cancel">
+        <call method="startElevCancel"
+              class="com.gl.apps.pf.web.StartElevMovementController"/>
+    </action-method>
+
+    <action-attrs name="action-start-elev-movement-breeding-shed-empty" model="com.gl.apps.pf.db.StartElevMovement">
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: BigDecimal.ZERO" for="totalNumbers"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: BigDecimal.ZERO" for="totalNumbers"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="weeklyAge"/>
+        <attribute if="breedingShed == null" name="value" expr="eval: null" for="startElevMovementLineList"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-attrs-elev-reform-center-empty">
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="totalNumbers"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="weeklyAge"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: BigDecimal.ZERO" for="weight"/>
+        <attribute if="center != null || center == null" name="value" expr="eval: null" for="startElevMovementLineList"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-elev-movement-unit-changed">
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="center"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="totalNumbers"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="weeklyAge"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: BigDecimal.ZERO" for="weight"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="startElevMovementLineList"/>
+    </action-attrs>
+
+</object-views>

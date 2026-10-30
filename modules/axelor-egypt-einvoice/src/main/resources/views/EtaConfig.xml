@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_8.1.xsd">
+
+  <grid name="eta-config-grid" title="ETA Configurations" model="com.axelor.apps.egypt.einvoice.db.EtaConfig">
+    <field name="company" width="150"/>
+    <field name="etaEnvironment" width="100"/>
+    <field name="taxRegistrationNumber" width="150"/>
+    <field name="activityCode" width="120"/>
+    <field name="isActive" width="80"/>
+  </grid>
+
+  <form name="eta-config-form" title="ETA Configuration" model="com.axelor.apps.egypt.einvoice.db.EtaConfig" width="large">
+    <toolbar>
+      <button name="btnTestConnection" title="Test Connection" onClick="action-eta-config-method-test-connection"/>
+    </toolbar>
+    <panel name="main-panel">
+      <field name="company"/>
+      <field name="isActive"/>
+    </panel>
+    
+    <panel name="api-panel" title="ETA API Configuration" colSpan="12">
+      <field name="etaEnvironment" colSpan="6"/>
+      <field name="etaBaseUrl" colSpan="6" placeholder="e.g. https://api.gateway.sandbox.invoicing.eta.gov.eg"/>
+      <field name="clientId" colSpan="6"/>
+      <field name="clientSecret" colSpan="6" widget="password"/>
+    </panel>
+    
+    <panel name="company-panel" title="Taxpayer Information" colSpan="12">
+      <field name="taxRegistrationNumber" colSpan="6" placeholder="e.g. 123456789"/>
+      <field name="activityCode" colSpan="6" placeholder="e.g. 4620"/>
+      <field name="issuerType" colSpan="6"/>
+      <field name="defaultBranchId" colSpan="6"/>
+    </panel>
+    
+    <panel name="signer-panel" title="Local Signer Configuration" colSpan="12">
+      <field name="signerServiceUrl" colSpan="12" placeholder="e.g. http://localhost:8090/eta-einvoice-signer"/>
+      <field name="tokenPin" colSpan="6" widget="password"/>
+      <field name="certificateIssuer" colSpan="6"/>
+      <field name="signerAuthUser" colSpan="6"/>
+      <field name="signerAuthPassword" colSpan="6" widget="password"/>
+    </panel>
+  </form>
+
+  <action-method name="action-eta-config-method-test-connection">
+    <call class="com.axelor.apps.egypt.einvoice.web.EtaInvoiceController" method="testConfigConnection"/>
+  </action-method>
+
+</object-views>

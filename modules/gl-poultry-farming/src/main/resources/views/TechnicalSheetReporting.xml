@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <dashboard name="start.technical.sheet.dashboard.1" title="Dashboard">
+<!--        <dashlet height="350" action="dashlet.technical.sheet.mortality.per.weekly.age" colSpan="12"/>-->
+<!--        <dashlet height="350" action="dashlet.technical.sheet.weight.per.weekly.age" colSpan="12"/>-->
+<!--        <dashlet height="350" action="dashlet.technical.sheet.qte.chicks.per.weekly.age" colSpan="12"/>-->
+<!--        Charts for technical Sheet Line-->
+        <dashlet height="350" action="dashlet.technical.sheet.line.mortality.per.weekly.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.weight.per.weekly.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.qte.chicks.per.weekly.age" colSpan="12"/>
+    </dashboard>
+
+    <dashboard name="repro.technical.sheet.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="dashlet.technical.sheet.line.male.mortality.per.weekly.age" colSpan="6"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.female.mortality.per.weekly.age" colSpan="6"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.male.weight.per.weekly.age" colSpan="6"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.female.weight.per.weekly.age" colSpan="6"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.male.qte.chicks.per.weekly.age" colSpan="6"/>
+        <dashlet height="350" action="dashlet.technical.sheet.line.female.qte.chicks.per.weekly.age" colSpan="6"/>
+    </dashboard>
+
+    <dashboard name="flesh.technical.sheet.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="dashlet.flesh.technical.sheet.line.mortality.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.flesh.technical.sheet.line.weight.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.flesh.technical.sheet.line.qte.chicks.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.flesh.technical.sheet.line.temp.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.flesh.technical.sheet.line.consumption.index.per.daily.age" colSpan="12"/>
+    </dashboard>
+
+    <dashboard name="hatchery.eggs.dashboard.1" title="Dashboard">
+        <dashlet height="350" action="dashlet.hatchery.oac.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.hatchery.odj.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.hatchery.od.per.daily.age" colSpan="12"/>
+        <dashlet height="350" action="dashlet.hatchery.safe.per.daily.age" colSpan="12"/>
+    </dashboard>
+    <action-view name="dashlet.hatchery.safe.per.daily.age"
+                 model="com.gl.apps.pf.db.HatcherExitLine" title="Total safe chicks">
+        <view name="hatchery.safe.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.hatchery.od.per.daily.age"
+                 model="com.gl.apps.pf.db.ReproProductionLine" title="Total DE per daily age">
+        <view name="hatchery.od.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.hatchery.odj.per.daily.age"
+                 model="com.gl.apps.pf.db.ReproProductionLine" title="Total DYE per daily age">
+        <view name="hatchery.odj.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.hatchery.oac.per.daily.age"
+                 model="com.gl.apps.pf.db.ReproProductionLine" title="Total HE per daily age">
+        <view name="hatchery.oac.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.flesh.technical.sheet.line.qte.chicks.per.daily.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Consumed product quantity by chick per weekly age">
+        <view name="flesh.technical.sheet.line.qte.chicks.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.flesh.technical.sheet.line.consumption.index.per.daily.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Consumption index per daily age">
+        <view name="flesh.technical.sheet.line.consumption.index.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.flesh.technical.sheet.line.temp.per.daily.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Temperature per daily age">
+        <view name="flesh.technical.sheet.line.temp.per.daily.age" type="chart"/>
+    </action-view>
+
+
+    <action-view name="dashlet.flesh.technical.sheet.line.mortality.per.daily.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Mortality per weekly age">
+        <view name="flesh.technical.sheet.line.mortality.per.daily.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.flesh.technical.sheet.line.weight.per.daily.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Weight per weekly age">
+        <view name="flesh.technical.sheet.line.weight.per.daily.age" type="chart"/>
+
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.mortality.per.weekly.age"
+                 model="com.gl.apps.pf.db.StartTechnicalSheet" title="Mortality per weekly age">
+    <view name="start.technical.sheet.mortality.per.weekly.age" type="chart"/>
+
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.weight.per.weekly.age"
+                 model="com.gl.apps.pf.db.StartTechnicalSheet" title="Weight per weekly age">
+        <view name="start.technical.sheet.weight.per.weekly.age" type="chart"/>
+
+    </action-view>
+    <action-view name="dashlet.technical.sheet.qte.chicks.per.weekly.age"
+                 model="com.gl.apps.pf.db.StartTechnicalSheet" title="Consumed product quantity by chick per weekly age">
+        <view name="start.technical.sheet.qte.chicks.per.weekly.age" type="chart"/>
+
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.line.mortality.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Mortality per weekly age">
+        <view name="technical.sheet.line.mortality.per.weekly.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.line.weight.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Weight per weekly age">
+        <view name="technical.sheet.line.weight.per.weekly.age" type="chart"/>
+
+    </action-view>
+    <action-view name="dashlet.technical.sheet.line.qte.chicks.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Consumed product quantity by chick per weekly age">
+        <view name="technical.sheet.line.qte.chicks.per.weekly.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.line.male.mortality.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Male mortality per weekly age">
+        <view name="technical.sheet.line.male.mortality.per.weekly.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.line.female.mortality.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Female mortality per weekly age">
+        <view name="technical.sheet.line.female.mortality.per.weekly.age" type="chart"/>
+    </action-view>
+    <action-view name="dashlet.technical.sheet.line.male.weight.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Male weight per weekly age">
+        <view name="technical.sheet.line.male.weight.per.weekly.age" type="chart"/>
+    </action-view>
+    <action-view name="dashlet.technical.sheet.line.female.weight.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Female weight per weekly age">
+        <view name="technical.sheet.line.female.weight.per.weekly.age" type="chart"/>
+    </action-view>
+
+    <action-view name="dashlet.technical.sheet.line.male.qte.chicks.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Consumed product quantity by male chick per weekly age">
+        <view name="technical.sheet.line.male.qte.chicks.per.weekly.age" type="chart"/>
+    </action-view>
+    <action-view name="dashlet.technical.sheet.line.female.qte.chicks.per.weekly.age"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Consumed product quantity by female chick per weekly age">
+        <view name="technical.sheet.line.female.qte.chicks.per.weekly.age" type="chart"/>
+    </action-view>
+
+    </object-views>
+

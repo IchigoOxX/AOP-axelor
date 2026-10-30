@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="account" package="com.axelor.apps.account.db"/>
+
+    <entity name="PaymentVoucher" >
+        <!--     START T. HAIFA #258-->
+        <boolean name="applyWithholdingTax" title="Apply withholding tax"/>
+        <!--     END T. HAIFA #258-->
+
+        <track on="UPDATE">
+            <field name="applyWithholdingTax"/>
+        </track>
+    </entity>
+
+</domain-models>

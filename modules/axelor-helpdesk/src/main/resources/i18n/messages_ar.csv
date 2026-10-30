@@ -1,0 +1,131 @@
+0 %,0%
+10 %,10%
+100 %,100%
+20 %,20%
+30 %,30%
+40 %,40%
+50 %,50%
+60 %,60%
+70 %,70%
+80 %,80%
+90 %,90%
+ALL,الكل
+All SLA,جميع اتفاقيات مستوى الخدمة
+All ticket types,جميع أنواع التذاكر
+All tickets,جميع التذاكر
+App,التطبيق
+App helpdesk,مكتب المساعدة للتطبيق
+Apply on,قدم على
+Assign to me,خصص لي
+Assigned to,مخصص لـ
+Cancel,إلغاء
+Characteristics,الخصائص
+Close,إغلاق
+Closed,مغلق
+Closed status,الحالة مغلقة
+Closed ticket status does not exist. Please configure at least one.,حالة التذكرة المغلقة غير موجودة. يرجى تكوين واحد على الأقل.
+Code,الرمز
+Configuration,التهيئة
+Current tickets,التذاكر الحالية
+Customer,عميل
+Customer contact,الاتصال بالعميل
+Dates,مواعيد
+Deadline,الموعد النهائي
+Default status,الحالة الافتراضية
+Default ticket status does not exist. Please configure at least one.,حالة التذكرة الافتراضية غير موجودة. يرجى تكوين واحد على الأقل.
+Description,الوصف
+Duration,المدة
+End date,تاريخ الانتهاء
+Follow-up,متابعة
+From Date,من التاريخ
+Full name,الاسم الكامل
+Helpdesk,الدعم الفني
+High,عالية
+In progress,قيد التنفيذ
+Late tickets,التذاكر المتأخرة
+Low,منخفض
+Manage Timer,إدارة الموقت
+Minimum priority,الأولوية الدنيا
+My team tickets,تذاكر فريقي
+My tickets,تذكرتي
+Name,الاسم
+New,جديد
+Normal,عادي
+Not assigned tickets,التذاكر غير مخصصة
+Number of tickets per SLA & per team,عدد التذاكر لكل اتفاقية مستوى الخدمة ولكل فريق
+Number of tickets per SLA & per user,عدد التذاكر لكل اتفاقية مستوى الخدمة ولكل مستخدم
+On going status,حالة الذهاب
+On going ticket status does not exist. Please configure at least one.,حالة تذكرة الذهاب غير موجودة. يرجى تكوين واحد على الأقل.
+Overview,نظرة عامة
+Partner,شريك أعمال
+Percentage,نسبة
+Percentage of repartition tickets per state,نسبة تذاكر إعادة التوزيع لكل ولاية
+Percentage of tickets per SLA & per team,نسبة التذاكر لكل اتفاقية مستوى الخدمة ولكل فريق
+Percentage of tickets per SLA & per user,نسبة التذاكر لكل اتفاقية مستوى الخدمة ولكل مستخدم
+Please select tickets,الرجاء تحديد التذاكر
+Priority,الأولوية
+Progress,التقدم
+Progress (%),التقدم (%)
+Project,المشروع
+Projects,المشاريع
+Reach in,الوصول إلى
+Reach stage,مرحلة الوصول
+Real total duration (Hours),المدة الإجمالية الحقيقية (ساعات)
+Reportings,التقارير
+Resolve,حل
+Resolved,تم الحل
+Resolved status,تم حل الحالة
+Resolved ticket status does not exist. Please configure at least one.,حالة التذكرة التي تم حلها غير موجودة. يرجى تكوين واحد على الأقل.
+SLA,جيش تحرير السودان
+SLA Policy,سياسة جيش تحرير السودان
+SLA completed,اكتملت اتفاقية مستوى الخدمة
+SLA dashboard,لوحة تحكم SLA
+SLA policies,سياسات جيش تحرير السودان
+SLA policy name,اسم سياسة SLA
+Sequence,التسلسل
+Solved,حل
+Stage to reach,مرحلة الوصول
+Start,ابدأ
+Start date,تاريخ البدء
+Status,الحالة
+Stop,توقف
+Subject,الموضوع
+Take charge,تولى المسؤولية
+Target,الهدف
+Team,فريق
+"This enables the Timer tab on a ticket, which allows starting a stopwatch to precisely track the time spent on resolving a ticket.","يؤدي ذلك إلى تمكين علامة التبويب ""المؤقت"" الموجودة على التذكرة، مما يسمح ببدء تشغيل ساعة إيقاف لتتبع الوقت المستغرق في حل التذكرة بدقة."
+"This option enables the Service Level Agreement, which defines service quality by setting indicators on the maximum resolution time for a ticket, or the transition to a certain stage within a given time. If enabled, your teams will be alerted of the indicators to meet, and you will have access to detailed reports showing SLA performance and service level.",يتيح هذا الخيار اتفاقية مستوى الخدمة، التي تحدد جودة الخدمة من خلال وضع مؤشرات على الحد الأقصى لوقت حل التذكرة، أو الانتقال إلى مرحلة معينة خلال فترة زمنية معينة. إذا تم تمكينه، فسيتم تنبيه فرقك بالمؤشرات التي يجب الوفاء بها، وسيكون لديك إمكانية الوصول إلى التقارير التفصيلية التي توضح أداء اتفاقية مستوى الخدمة ومستوى الخدمة.
+Ticket,تذكرة
+Ticket Number,رقم التذكرة
+Ticket N°,تذكرة رقم
+Ticket Type,نوع التذكرة
+Ticket created,تم إنشاء التذكرة
+Ticket dashboard,لوحة التذاكر
+Ticket filters,مرشحات التذاكر
+Ticket status,حالة التذكرة
+Ticket statuses,حالات التذكرة
+Ticket type,نوع التذكرة
+Ticket types,أنواع التذاكر
+Ticket updated.,تم تحديث التذكرة.
+Tickets,التذاكر
+Tickets by ticket type,التذاكر حسب نوع التذكرة
+Timer,مؤقت
+Timer list,قائمة الموقت
+Timer state,حالة المؤقت
+To Date,حتى الآن
+Total duration (Hours),المدة الإجمالية (ساعات)
+Total tickets,إجمالي التذاكر
+Unsolved,لم يتم حلها
+Urgent,عاجل
+User,المستخدم
+User in charge of the issue,المستخدم المسؤول عن المشكلة
+Workflow to update status to value provided is not supported by ticket.,سير العمل لتحديث الحالة إلى القيمة المقدمة غير مدعوم بواسطة التذكرة.
+Working Days,أيام العمل
+You can define here which status tickets are considered as closed. Ticket statuses are customizable and can be created from the Configuration/Ticket statuses menu of the Helpdesk module.,يمكنك هنا تحديد تذاكر الحالة التي تعتبر مغلقة. حالات التذاكر قابلة للتخصيص ويمكن إنشاؤها من قائمة حالات التكوين/التذكرة في وحدة مكتب المساعدة.
+You can define here which status tickets are considered as in progress. Ticket statuses are customizable and can be created from the Configuration/Ticket statuses menu of the Helpdesk module.,يمكنك هنا تحديد تذاكر الحالة التي تعتبر قيد التقدم. حالات التذاكر قابلة للتخصيص ويمكن إنشاؤها من قائمة حالات التكوين/التذكرة في وحدة مكتب المساعدة.
+You can define here which status tickets are considered as resolved. Ticket statuses are customizable and can be created from the Configuration/Ticket statuses menu of the Helpdesk module.,يمكنك هنا تحديد تذاكر الحالة التي تعتبر قد تم حلها. حالات التذاكر قابلة للتخصيص ويمكن إنشاؤها من قائمة حالات التكوين/التذكرة في وحدة مكتب المساعدة.
+You can define here which status tickets are created with. Ticket statuses are customizable and can be created from the Configuration/Ticket statuses menu of the Helpdesk module.,يمكنك هنا تحديد تذاكر الحالة التي تم إنشاؤها باستخدامها. حالات التذاكر قابلة للتخصيص ويمكن إنشاؤها من قائمة حالات التكوين/التذكرة في وحدة مكتب المساعدة.
+chart.resolved,تم حل الرسم البياني
+days,أيام
+hours,ساعات
+value:Helpdesk,القيمة: مكتب المساعدة

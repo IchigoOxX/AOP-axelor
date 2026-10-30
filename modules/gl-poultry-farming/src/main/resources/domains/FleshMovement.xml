@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="FleshMovement" >
+        <one-to-many name="fleshMovementLineList"
+                     ref="com.gl.apps.pf.db.FleshMovementLine" mappedBy="fleshMovement"
+                     title="Movement Lines"/>
+        <!--piéce-->
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date" readonly="true"/>
+
+        <!--        source-->
+        <many-to-one name="fromCenter" ref="com.gl.apps.pf.db.Center"
+                     title="Center"/>
+        <many-to-one name="fromBreedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+                     title="Tracking Number" required="true"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+        <integer name="dailyAge" title="Daily age" readonly="true"/>
+        <integer name="weeklyAge" title="Weekly age" readonly="true">
+            <![CDATA[
+            int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+        ]]>
+        </integer>
+        <integer name="existingChicksNumber" title="Chicks number" />
+        <integer name="remainingChicksNumber" title="Remaining number" />
+        <integer name="status" title="Status" selection="poultryfarming.elev.transfer.status.select" readonly="true"/>
+
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// ELEV TRANSFER STATUS SELECT
+			    public static final int STATUS_NOT_RECEIVED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_RECEIVED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+			]]>
+        </extra-code>
+
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="fromCenter"/>
+            <field name="fromBreedingShed"/>
+            <field name="breed"/>
+            <field name="dispatchStock"/>
+            <field name="dailyAge"/>
+            <field name="weeklyAge"/>
+            <field name="existingChicksNumber"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

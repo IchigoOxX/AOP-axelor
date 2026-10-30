@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="sale" package="com.axelor.apps.sale.db"/>
+
+    <entity name="SaleOrder">
+
+        <many-to-one name="store" ref="com.axelor.pos.db.Store" />
+<!--        <many-to-one name="customer" ref="com.axelor.apps.base.db.Partner" />-->
+
+<!--        <decimal name="totalBeforeDiscounts" title-->
+        <integer name="itemsCount" title="Items Count" />
+
+        <!-- Discount -->
+        <decimal name="discountAmount" title="Discount Amount" precision="15" scale="2"/>
+        <decimal name="discountPercentage" title="Discount Percentage" precision="15" scale="2"/>
+
+        <!-- Loyalty Points -->
+        <integer name="loyaltyPointsEarned" title="Loyalty Points Earned"/> <!--payment-->
+
+        <!-- Coupons -->
+        <string name="couponCode" title="Coupon Code"/>
+
+        <one-to-many name="payments" ref="com.axelor.apps.account.db.PaymentVoucher" mappedBy="saleOrder" />
+
+    </entity>
+
+</domain-models>

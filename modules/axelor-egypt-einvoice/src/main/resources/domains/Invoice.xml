@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_8.1.xsd">
+
+  <module name="account" package="com.axelor.apps.account.db"/>
+
+  <entity name="Invoice">
+    <string name="etaUuid" title="ETA UUID" copy="false"/>
+    <integer name="etaStatusSelect" title="ETA Status" selection="egypt.eta.invoice.status.select" default="0" copy="false"/>
+    <datetime name="etaSubmissionDate" title="ETA Submission Date" copy="false"/>
+    <string name="etaLongId" title="ETA Long ID" copy="false"/>
+    <many-to-one name="etaQrCode" ref="com.axelor.meta.db.MetaFile" title="ETA QR Code" copy="false"/>
+    <string name="etaInternalId" title="ETA Internal ID" copy="false"/>
+    <many-to-one name="etaSubmittedBy" ref="com.axelor.auth.db.User" title="ETA Submitted By" copy="false"/>
+    <string name="etaHashKey" title="ETA Hash Key" copy="false"/>
+  </entity>
+
+</domain-models>

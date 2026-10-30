@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="LivestockFeedProduction">
+        <one-to-many name="livestockFeedProductionLineList"
+                     ref="com.gl.apps.pf.db.LivestockFeedProductionLine" mappedBy="livestockFeedProduction"
+                     title="Livestock feed production Line"/>
+
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date"/>
+
+        <many-to-one name="liveStockFeedFactory" ref="com.gl.apps.pf.db.LivestockFeedFactory"
+                     title="Livestock feed factory"/>
+
+        <many-to-one name="product" ref="com.axelor.apps.base.db.Product" title="Product"/>
+        <string name="productName" title="Name" required="true"/>
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.Unit"
+                     title="Unit"/>
+        <decimal name="capacity" title="Capacity"/>
+        <integer name="numberOfUnitsProduced" title="Number of units produced"/>
+        <decimal name="quantityProduced" title="Quantity produced"/>
+        <decimal name="salePrice" title="Sale price"/>
+        <decimal name="totalAmount" title="Total amount"/>
+
+        <integer name="status" title="Status" selection="poultryfarming.repro.production.status.select" readonly="true"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove" title="Stock Move" readonly="true"/>
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// PRODUCT CONSUMPTION STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+			]]>
+        </extra-code>
+
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="livestockFeedProductionLineList"/>
+            <field name="liveStockFeedFactory"/>
+            <field name="product"/>
+            <field name="productName"/>
+            <field name="unit"/>
+            <field name="capacity"/>
+            <field name="numberOfUnitsProduced"/>
+            <field name="quantityProduced"/>
+            <field name="salePrice"/>
+            <field name="totalAmount"/>
+            <field name="dispatchStock"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

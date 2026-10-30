@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="BreedingShed" >
+    <many-to-many name="responsibles" ref="com.axelor.auth.db.User"/>
+    <many-to-one name="breed" ref="Breed" title="Breed" readonly="true"/>
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+      title="Unit (Department)"/>
+    <many-to-one name="center" ref="com.gl.apps.pf.db.Center"
+      title="Center"/>
+
+    <many-to-one name="principalBatchNumber"
+      ref="com.axelor.apps.stock.db.TrackingNumber" title="Principal batch number" initParam="true"/>
+    <many-to-one name="currentBatchNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+      title="Current batch number" initParam="true"/>
+    <many-to-one name="addressId" ref="com.axelor.apps.base.db.Address" title="Address"
+      initParam="true"/>
+    <many-to-one name="lastStartTechnicalSheet" ref="com.gl.apps.pf.db.StartTechnicalSheet"/>
+    <many-to-one name="lastRepoTechnicalSheet" ref="com.gl.apps.pf.db.ReproTechnicalSheet"/>
+    <many-to-one name="lastTechnicalSheetLine" ref="com.gl.apps.pf.db.TechnicalSheetLine"/>
+    <integer name="sumNumberOfHe" title="Total number of hatching eggs" readonly="true"/>
+    <integer name="sumTotalEggs" title="Total eggs" readonly="true"/>
+
+<!--      <![CDATA[-->
+<!--            java.util.Comparator<com.gl.apps.pf.db.StartTechnicalSheet> byDate = (i1, i2) -> i1.getDateTime().compareTo(i2.getDateTime());-->
+
+<!--            java.util.Optional<com.gl.apps.pf.db.StartTechnicalSheet> stsParent = com.axelor.inject.Beans.get(com.gl.apps.pf.db.repo.StartTechnicalSheetRepository.class).all()-->
+<!--            .fetchStream()-->
+<!--            .filter(t -> t.getBreedingShed() == this-->
+<!--            && t.getTrackingNumber() == this.getCurrentBatchNumber()-->
+<!--            && t.getBreed() == this.getBreed()-->
+<!--            && t.getStatus() != com.gl.apps.pf.db.repo.StartTechnicalSheetRepository.STATUS_CANCELED-->
+<!--            ).max(byDate);-->
+<!--            if (stsParent.isEmpty()) {-->
+<!--            return null;-->
+<!--            }-->
+<!--            return stsParent.get();-->
+<!--      ]]>-->
+<!--    </many-to-one>-->
+
+    <string name="reference" title="Reference" required="true" unique="true"/>
+    <string name="name" title="Name" required="true"/>
+
+    <integer name="capacity" title="Capacity"/>
+    <integer name="femalesSiloCapacity" title="Females silo capacity"/>
+    <integer name="malesSiloCapacity" title="Males silo capacity"/>
+    <integer name="cagesNumber" title="Cages number"/>
+    <datetime name="activationDate" title="Activation date"/>
+    <datetime name="stoppedDate" title="Stop date"/>
+    <datetime name="closedDate" title="Closed date"/>
+    <integer name="reformDaysNumber" title="Reform days number " readonly="true"/>
+
+    <datetime name="fillingDate" title="Filling date" readonly="true"/>
+    <datetime name="expectedReformDate" title="Expected reform date" readonly="true"/>
+    <datetime name="expectedTransferDate" title="Expected transfer date" readonly="true"/>
+    <date name="transferDate" title="Transfer date" readonly="true"/>
+    <date name="displacementDate" title="Displacement date" readonly="true"/>
+    <integer name="receivedMalesNumber" title="Males number" default="0" readonly="true">
+      <![CDATA[
+        return receivedMalesNumber != null ? receivedMalesNumber : 0;
+      ]]>
+    </integer>
+    <integer name="receivedFemalesNumber" title="Females number" default="0" readonly="true">
+      <![CDATA[
+        return receivedFemalesNumber != null ? receivedFemalesNumber : 0;
+      ]]>
+    </integer>
+    <integer name="totalReceivedNumbers" title="Total received numbers" readonly="true">
+      <![CDATA[
+        int females = this.getReceivedFemalesNumber() != null ? this.getReceivedFemalesNumber() : 0;
+        int males = this.getReceivedMalesNumber() != null ? this.getReceivedMalesNumber() : 0;
+        return females + males;
+      ]]>
+    </integer>
+
+    <integer name="malesNumber" title="Males number" default="0" readonly="true">
+      <![CDATA[
+        return malesNumber != null ? malesNumber : 0;
+      ]]>
+    </integer>
+    <integer name="femalesNumber" title="Females number" default="0" readonly="true">
+      <![CDATA[
+        return femalesNumber != null ? femalesNumber : 0;
+      ]]>
+    </integer>
+    <integer name="totalNumbers" title="Total numbers" readonly="true">
+      <![CDATA[
+        int females = this.getFemalesNumber() != null ? this.getFemalesNumber() : 0;
+        int males = this.getMalesNumber() != null ? this.getMalesNumber() : 0;
+        return females + males;
+      ]]>
+    </integer>
+
+    <integer name="dailyAge" title="Daily age" default="0" readonly="true">
+      <![CDATA[
+        return dailyAge != null ? dailyAge : 0;
+      ]]>
+    </integer>
+    <integer name="weeklyAge" title="Weekly age" default="0" readonly="true">
+      <![CDATA[
+        int daily = this.getDailyAge() != null ? this.getDailyAge() : 0;
+        if (daily <= 0) {
+            return 0;
+        }
+        return (int) Math.ceil((double) daily / 7.0);
+      ]]>
+    </integer>
+
+    <integer name="type" title="Type" selection="poultryfarming.breeding.shed.type.select"/>
+    <integer name="status" title="Status"
+      selection="poultryfarming.breeding.shed.status.select" readonly="true"/>
+    <string name="note" title="Note" large="true" translatable="true"/>
+    <many-to-one name="stockLocation" ref="com.axelor.apps.stock.db.StockLocation"
+                 title="Stock location"/>
+    <string name="completeRefTrackingNumber" title="Complete tracking number" readonly="true"/>
+    <finder-method name="ByReference" using="reference"/>
+
+    <extra-code>
+      <![CDATA[
+                // BREEDING SHED TYPE SELECT
+				public static final int TYPE_STARTUP = 0;
+				public static final int TYPE_REPRODUCTION = 1;
+				public static final int TYPE_BROILER = 2;
+
+				// BREEDING SHED STATUS SELECT
+				public static final int STATUS_CLOSED = 0;
+				public static final int STATUS_ACTIVATED = 1;
+				public static final int STATUS_BUSY = 2;
+				public static final int STATUS_STOPPED = 3;
+
+			]]>
+    </extra-code>
+    <track on="UPDATE">
+      <field name="reference"/>
+      <field name="name"/>
+      <field name="capacity"/>
+      <field name="femalesSiloCapacity"/>
+      <field name="malesSiloCapacity"/>
+      <field name="cagesNumber"/>
+      <field name="activationDate"/>
+      <field name="reformDaysNumber"/>
+      <field name="malesNumber"/>
+      <field name="femalesNumber"/>
+      <field name="fillingDate"/>
+      <field name="dailyAge"/>
+      <field name="weeklyAge"/>
+      <field name="type"/>
+      <field name="status"/>
+      <field name="note"/>
+
+      <field name="responsibles"/>
+      <field name="breed"/>
+      <field name="unit"/>
+      <field name="center"/>
+      <field name="principalBatchNumber"/>
+      <field name="currentBatchNumber"/>
+      <field name="addressId"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+  </entity>
+
+
+</domain-models>

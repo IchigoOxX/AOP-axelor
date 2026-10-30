@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="product-consumption-line-form" title="Product consumption Line"
+          model="com.gl.apps.pf.db.ProductConsumptionLine" width="large">
+        <panel title="Overview">
+            <field name="product" onChange="action-attrs-product-consumption-info" onSelect="action-attrs-get-products-for-consumption-by-category-type"/>
+            <field name="codeProduct" readonly="true"/>
+            <field name="umProduct" readonly="true"/>
+            <field name="quantityProduct" onChange="action-product-consumption-line-calculate-total-amount"/>
+            <field name="unitPriceProduct" onChange="action-product-consumption-line-calculate-total-amount"/>
+            <field name="totalAmount" readonly="true"/>
+        </panel>
+    </form>
+
+    <grid name="product-consumption-line-grid" title="Product consumption Line" model="com.gl.apps.pf.db.ProductConsumptionLine" edit-icon="true" >
+
+        <field name="product" onChange="action-attrs-product-consumption-info" onSelect="action-attrs-get-products-for-consumption-by-category-type"/>
+        <field name="codeProduct" readonly="true"/>
+        <field name="umProduct" readonly="true"/>
+        <field name="quantityProduct" required="true" onChange="action-product-consumption-line-calculate-total-amount"/>
+        <field name="unitPriceProduct" required="true" onChange="action-product-consumption-line-calculate-total-amount"/>
+        <field name="totalAmount" readonly="true"/>
+
+    </grid>
+
+
+    <action-attrs name="action-attrs-product-consumption-info"
+                  model="com.gl.apps.pf.db.ProductConsumptionLine">
+        <attribute if="product != null" for="codeProduct" name="value"
+                   expr="eval: product.code"/>
+        <attribute if="product != null" for="umProduct" name="value"
+                   expr="eval: product.unit.labelToPrinting"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-get-products-for-consumption-by-category-type" model="com.gl.apps.pf.db.ProductConsumptionLine">
+        <attribute name="domain" expr="eval:&quot;self.productCategory.id = ${__parent__?.productCategory?.id} AND self.dtype = 'Product'&quot;" for="product"/>
+    </action-attrs>
+
+    <action-attrs name="action-product-consumption-line-calculate-total-amount"
+                  model="com.gl.apps.pf.db.ProductConsumptionLine">
+        <attribute for="totalAmount" name="value" expr="eval: unitPriceProduct * quantityProduct"/>
+    </action-attrs>
+
+
+</object-views>

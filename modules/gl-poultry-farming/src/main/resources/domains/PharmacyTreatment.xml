@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="PharmacyTreatment">
+
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+                     title="Tracking Number" required="true"/>
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center"
+                     title="Center"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="To breeding Shed" />
+        <one-to-many name="pharmacyTreatmentLineList"
+                     ref="com.gl.apps.pf.db.PharmacyTreatmentLine" mappedBy="pharmacyTreatment"
+                     title="Pharmacy treatment Line"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+
+        <integer name="totalNumbers" title="Total numbers" />
+        <integer name="totalMaleNumbers" title="Total male numbers" />
+        <integer name="totalFemaleNumbers" title="Total female numbers"/>
+
+        <integer name="dailyAge" title="Daily age" />
+        <integer name="weeklyAge" title="Weekly age" required="true">
+            <![CDATA[
+             int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+        ]]>
+        </integer>
+        <string name="notes" large="true" title="Notes"/>
+        <integer name="status" title="Status" selection="poultryfarming.repro.production.status.select" readonly="true"/>
+
+        <date name="fromRealDate" title="From real date" required="false"/>
+        <date name="toRealDate" title="To real date" required="false"/>
+        <integer name="diffDays" title="Days" required="false" default="1"/>
+        <date name="plannedDate" title="Planned date" required="false"/>
+        <finder-method name="ByReference" using="reference"/>
+
+        <extra-code>
+            <![CDATA[
+				// REPRO PRODUCTION STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="breed"/>
+            <field name="trackingNumber"/>
+            <field name="center"/>
+            <field name="breedingShed"/>
+            <field name="totalNumbers"/>
+            <field name="dailyAge"/>
+            <field name="weeklyAge"/>
+            <field name="notes"/>
+            <field name="status"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="LivestockFeedProductionLine" >
+        <many-to-one name="livestockFeedProduction" ref="com.gl.apps.pf.db.LivestockFeedProduction" title="Production"
+                     required="true"/>
+
+        <many-to-one name="product" ref="com.axelor.apps.base.db.Product" title="Product" required="true"/>
+        <string name="codeProduct" title="Code" required="true"/>
+        <string name="umProduct" title="U.M" required="true"/>
+        <decimal name="quantityProduct" required="true" title="Quantity"/>
+
+        <decimal name="compositionProduct" required="true" title="Composition"/>
+        <decimal name="loss" title="Loss"/>
+
+        <decimal name="unitPriceProduct" title="Unit price"/>
+        <decimal name="totalAmount" title="Total amount"/>
+
+        <track on="UPDATE">
+            <field name="livestockFeedProduction"/>
+            <field name="product"/>
+            <field name="codeProduct"/>
+            <field name="umProduct"/>
+            <field name="quantityProduct"/>
+            <field name="compositionProduct"/>
+            <field name="loss"/>
+            <field name="unitPriceProduct"/>
+            <field name="totalAmount"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="dashboard-aliments-form" title="Aliments" model="com.gl.apps.pf.db.DashboardAliments" width="large">
+        <panel title="Dashboard aliment" readonly="true">
+            <field name="product" title="Product"/>
+            <field name="productCode" />
+            <field name="productName" />
+            <field name="productUnit" />
+            <field name="stockQty" />
+
+        </panel>
+    </form>
+
+
+    <grid name="dashboard-aliments-grid" title="Aliments" model="com.gl.apps.pf.db.DashboardAliments" edit-icon="true">
+        <field name="product" readonly="true" title="Product"/>
+        <field name="productCode" readonly="true" title="Code"/>
+        <field name="productName" readonly="true" title="Name"/>
+        <field name="productUnit" readonly="true"/>
+        <field name="stockQty" readonly="true" title="Stock quantity">
+            <hilite color="red" strong="false" if="$get('stockQty') >= 0"/>
+        </field>
+    </grid>
+
+
+    <form name="dashboard-consumption-form" title="Consumption " model="com.gl.apps.pf.db.DashboardAliments" width="large">
+        <panel title="Consumption " readonly="true">
+            <field name="productCode" />
+            <field name="product" title="Product"/>
+            <field name="productName" />
+            <field name="productUnit" />
+            <field name="stockQty" />
+            <field name="saleAverageUnitPrice" />
+            <field name="saleAmount" title="Amount"/>
+        </panel>
+    </form>
+
+
+    <grid name="dashboard-consumption-grid" title="Consumption " model="com.gl.apps.pf.db.DashboardAliments" edit-icon="true">
+        <field name="productCode" readonly="true" title="Code"/>
+        <field name="product" readonly="true" title="Product"/>
+        <field name="productName" readonly="true" title="Name"/>
+        <field name="productUnit" readonly="true"/>
+        <field name="stockQty" readonly="true" title="Stock quantity">
+            <hilite color="red" strong="false" if="$get('stockQty') >= 0"/>
+        </field>
+        <field name="saleAverageUnitPrice" readonly="true" />
+        <field name="saleAmount" title="Amount" readonly="true">
+            <hilite color="red" strong="false" if="$get('saleAmount') >= 0"/>
+        </field>
+    </grid>
+</object-views>

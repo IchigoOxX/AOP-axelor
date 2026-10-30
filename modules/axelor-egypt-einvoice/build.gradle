@@ -1,0 +1,18 @@
+plugins {
+    id 'com.axelor.app'
+}
+apply from: "../libs.gradle"
+apply from: "../version.gradle"
+apply { version = openSuiteVersion }
+
+axelor {
+    title "Egypt E-Invoicing"
+    description "Egyptian Tax Authority E-Invoicing Integration Module"
+}
+
+dependencies {
+    api project(":modules:axelor-account")
+    implementation libs.bcprov_jdk18on
+    implementation libs.bcpkix_jdk18on
+    implementation 'com.google.code.gson:gson:2.10.1'
+}

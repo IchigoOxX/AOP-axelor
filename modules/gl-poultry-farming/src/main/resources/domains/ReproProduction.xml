@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="ReproProduction" >
+
+    <string name="reference" title="Reference" unique="true" readonly="true"/>
+    <date name="dateTime" title="Date Time" required="true"/>
+
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+      title="Unit (Department)"/>
+    <many-to-one name="center" ref="Center" title="Center" required="true"/>
+
+    <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+    <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+      title="Tracking Number" required="true"/>
+
+    <many-to-one name="unitOfDestination" required="true"
+      ref="com.axelor.apps.base.db.CompanyDepartment" title="Unit of destination"/>
+
+    <many-to-one name="hatchery" ref="Hatchery" title="Hatchery" required="true"/>
+
+    <many-to-one name="stockMove" ref="com.axelor.apps.stock.db.StockMove"
+      title="Stock move"/>
+
+    <integer name="weeklyAge" title="Weekly age" readonly="true">
+        <![CDATA[
+             int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+           ]]>
+    </integer>
+
+    <integer name="dailyAge" title="Daily age" required="true"/>
+
+    <time name="deliveryTime" title="Delivery time"/>
+    <time name="arrivalTime" title="Arrival time"/>
+
+    <decimal name="sendingTemperature" title="Sending Temperature"/>
+    <many-to-one name="carrierPartner" ref="com.axelor.apps.base.db.Partner" title="Carrier"/>
+    <string name="carrierDriver" title="Driver" />
+
+    <integer name="status" title="Status"
+      selection="poultryfarming.repro.production.status.select" readonly="true"/>
+
+    <date name="cancelDate" title="Cancel date" readonly="true"/>
+    <many-to-one name="canceledBy" ref="com.axelor.auth.db.User" title="Canceled by"
+      readonly="true"/>
+
+    <string name="note" title="Note"/>
+
+    <one-to-many name="hatcheryEggsReceptionList" ref="HatcheryEggsReception"
+      mappedBy="reproProduction" title="Hatchery Eggs Reception list"/>
+
+    <one-to-many name="reproProductionLineList"
+      ref="com.gl.apps.pf.db.ReproProductionLine" mappedBy="reproProduction"
+      title="Repro Production Line"/>
+
+    <finder-method name="ByReference" using="reference"/>
+
+    <extra-code>
+            <![CDATA[
+				// REPRO PRODUCTION STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+			]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="reference"/>
+      <field name="dateTime"/>
+      <field name="breed"/>
+      <field name="trackingNumber"/>
+      <field name="unit"/>
+      <field name="center"/>
+      <field name="hatchery"/>
+      <field name="weeklyAge"/>
+      <field name="carrierPartner"/>
+      <field name="carrierDriver"/>
+      <field name="dailyAge"/>
+      <field name="deliveryTime"/>
+      <field name="arrivalTime"/>
+      <field name="status"/>
+      <field name="unitOfDestination"/>
+      <field name="cancelDate"/>
+      <field name="canceledBy"/>
+
+      <field name="hatcheryEggsReceptionList"/>
+
+      <field name="note"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

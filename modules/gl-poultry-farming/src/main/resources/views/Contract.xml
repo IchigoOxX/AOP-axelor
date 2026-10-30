@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="contract-custom-form" name="contract-form" title="Contract" model="com.axelor.apps.contract.db.Contract" extension="true">
+        <extend target="/">
+            <attribute name="onLoad" value="action-contract-scale-and-precision,action-set-default-values-terminate-date"/>
+            <attribute name="onNew" value="action-contract-scale-and-precision"/>
+        </extend>
+        <extend target="//button[@name='terminatedBtn']">
+            <attribute name="onClick" value="action-contract-set-free-vehicle"/>
+        </extend>
+        <extend target="//button[@name='closeContractBtn']">
+            <attribute name="onClick" value="action-contract-set-free-vehicle"/>
+        </extend>
+
+        <extend target="//field[@name='company']">
+            <insert position="before">
+                <field name="contractId" readonly="true" colSpan="4"/>
+                <field name="" colSpan="4"/>
+                <field name="" colSpan="4"/>
+                <field name="vehicle" colSpan="4"
+                       domain="self.isActive = true AND self.isVignette = false AND self.isInsurance = false AND self.isTechnicalVisit = false AND self.occupied = false"
+                       onChange="action-validate-vehicle-oil-Change,action-car-rental-vehicule-changed,action-car-rental-reset-vehicule-changed"
+                       required="true" readonlyIf="statusSelect >= 2"/>
+                <field name="vehicleMake" readonly="true" colSpan="4"/>
+                <field name="plateNo" readonly="true" colSpan="4"/>
+                <field name="vehicleOdometer" readonly="true" colSpan="4"/>
+                <field name="fuelLevel" colSpan="4" readonlyIf="statusSelect >= 2"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <insert position="after">
+                <field name="secondPartner" title="Driver 2"
+                       colSpan="4" canEdit="false" onChange="action-car-rental-second-partner-changed,action-contract-attrs-second-partner-payment-config,action-car-rental-reset-second-partner-changed"
+                       onSelect="action-contract-attrs-domains-second-partner" required="false"
+                       form-view="partner-form"/>
+                <field name="" colSpan="4"/>
+
+            </insert>
+        </extend>
+
+        <extend target="//field[@name='partner']">
+            <insert position="before">
+                <field name="isCompany" colSpan="1"/>
+                <field name="companyPartner" showIf="isCompany" title="Company partner" domain="self.partnerTypeSelect = 1 AND self.isActive = true AND self.blockingList IS EMPTY"
+                       readonlyIf="statusSelect >= 2" colSpan="3" canEdit="false" requiredIf="isCompany"
+                       form-view="partner-form"/>
+
+            </insert>
+        </extend>
+
+        <extend target="//panel[@name='contractDatesPanel']">
+            <insert position="before">
+                <panel name="firstPartnerDetails" title="First driver infos:" showIf="partner != null" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="firstPartnerName" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerBirthDate" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerBirthPlace" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerPhone" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerFixedPhone" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerDrivingLicenseNumber" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerDateOfDrivingLicense" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerNationalIdentityCard" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerPassport" readonly="true" colSpan="3"/>
+                    <field name="firstPartnerAddress" readonly="true" colSpan="3"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//panel[@name='firstPartnerDetails']">
+            <insert position="after">
+                <panel name="secondPartnerDetails" title="Second driver infos:" showIf="secondPartner != null" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="secondPartnerName" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerBirthDate" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerBirthPlace" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerPhone" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerFixedPhone" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerDrivingLicenseNumber" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerDateOfDrivingLicense" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerNationalIdentityCard" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerPassport" readonly="true" colSpan="3"/>
+                    <field name="secondPartnerAddress" readonly="true" colSpan="3"/>
+                </panel>
+            </insert>
+        </extend>
+
+        <extend target="//panel[@name='currentVersionPanel']">
+            <insert position="before">
+                <panel name="datesPanel" title="Dates" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="departureDate" colSpan="3" required="true"/>
+                    <field name="departureTime" colSpan="3" required="true"/>
+                    <field name="returnDate" colSpan="3" required="true"/>
+                    <field name="returnTime" colSpan="3" required="true"/>
+                    <field name="isExtension" colSpan="3"/>
+                    <field name="firstExtensionDayNumbers" showIf="isExtension == 1" colSpan="3" onChange="action-calculate-minus-return-date-first-extension-changed,action-calculate-return-date-first-extension-changed" requiredIf="isExtension == 1"/>
+                    <field name="secondExtensionDayNumbers" showIf="isExtension == 1" colSpan="3" onChange="action-calculate-return-date-second-extension-changed"/>
+                </panel>
+                <panel name="unitAmountPanel" title="Amount" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="unitAmount" colSpan="3"/>
+                    <field name="unit" colSpan="3"/>
+
+                </panel>
+                <panel name="guaranteePanel" title="Guarantee" colSpan="12" sidebar="true" canCollapse="true">
+                    <field name="guarantee" colSpan="3"/>
+                    <field name="paymentMode" colSpan="3" showIf="guarantee == 1"/>
+                    <field name="amount" colSpan="3" showIf="guarantee == 1"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="title" value="Driver 1"/>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="onSelect" value="action-contract-attrs-domains-first-partner"/>
+            <attribute name="onChange" value="action-car-rental-first-partner-changed"/>
+        </extend>
+
+
+        <extend target="//field[@name='name']">
+            <attribute name="hideIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='project']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='name']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='name']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel[@name='currentVersionPanel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel[@name='commercialConditionPanel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='currency']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//button[@name='newVersionBtn']">
+            <attribute name="showIf" value="!id &amp;&amp; nextVersion != null &amp;&amp; currentContractVersion.statusSelect != 3"/>
+        </extend>
+        <extend target="//button[@name='renewBtn']">
+            <attribute name="showIf" value="!id &amp;&amp; currentContractVersion.statusSelect != 3"/>
+        </extend>
+
+    </form>
+
+    <grid id="contract-grid-id" name="contract-grid" title="Contracts" model="com.axelor.apps.contract.db.Contract" extension="true">
+        <extend target="//field[@name='statusSelect']">
+            <insert position="before">
+                <field name="departureDate"/>
+                <field name="returnDate"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <insert position="after">
+                <field name="secondPartner" title="Driver 2"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='name']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='currentContractVersion.initialExTaxTotalPerYear']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='currentContractVersion.yearlyExTaxTotalRevalued']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='partner']">
+            <attribute name="title" value="Driver 1"/>
+        </extend>
+
+        <extend target="//field[@name='company']">
+            <attribute name="readonlyIf" value=""/>
+            <attribute name="hidden" value="true"/>
+        </extend>
+
+
+    </grid>
+
+    <action-attrs name="action-contract-attrs-domains-second-partner">
+        <attribute name="domain" for="secondPartner"
+                   expr="eval: &quot; :company member of self.companySet AND (self.isActive = true) AND (self.partnerTypeSelect = 2) AND (self.isContact = false) AND   self.expiredDateDrivingLicense >=  :__date__ AND self.blockingList IS EMPTY AND (self.isProspect = true OR self.isCustomer = true) AND (self.id NOT IN (${partner?.collect{it.id}?.join(',')})) &quot;"
+                   if="_xTargetType == 1 &amp;&amp; !isCompany"/>
+        <attribute name="domain" for="secondPartner"
+                   expr="eval: &quot; :company member of self.companySet AND self.isSupplier = true &quot;"
+                   if="_xTargetType == 2 &amp;&amp; !isCompany"/>
+        <attribute name="domain" for="secondPartner"
+                   expr="eval: &quot; self.mainPartner = :companyPartner AND self.isContact= True AND   self.expiredDateDrivingLicense >= :__date__ AND self.isActive = true AND self != :partner &quot;"
+                   if="isCompany"/>
+
+    </action-attrs>
+
+    <action-attrs name="action-contract-attrs-domains-first-partner">
+        <attribute name="domain" for="partner" if="!isCompany"
+                   expr="eval: &quot; self.isActive = true AND self.blockingList IS EMPTY AND self.partnerTypeSelect = 2 AND self.isContact = false AND   self.expiredDateDrivingLicense >= :__date__ &quot;"/>
+        <attribute name="required" for="partner" if="!isCompany"
+                   expr="false"/>
+        <attribute name="requiredIf" for="partner" if="!isCompany"
+                   expr="!isCompany"/>
+        <attribute name="domain" for="partner" if="isCompany"
+                   expr="eval: &quot; self.mainPartner = :companyPartner AND self.isContact= True AND self.isActive = true AND self.expiredDateDrivingLicense >= :__date__&quot;"/>
+        <attribute name="requiredIf" for="partner" if="isCompany"
+                   expr="isCompany"/>
+    </action-attrs>
+
+    <action-attrs name="action-car-rental-vehicule-changed"  model="com.axelor.apps.contract.db.Contract">
+        <attribute if="vehicle != null" for="vehicleMake" name="value"
+                   expr="eval: vehicle.vehicleModel.vehicleMake"/>
+        <attribute if="vehicle != null" for="plateNo" name="value"
+                   expr="eval: vehicle.plateNo"/>
+        <attribute if="vehicle != null" for="vehicleOdometer" name="value"
+                   expr="eval: vehicle.vehicleOdometer"/>
+    </action-attrs>
+
+    <action-attrs name="action-car-rental-reset-vehicule-changed"  model="com.axelor.apps.contract.db.Contract">
+        <attribute if="vehicle == null" for="vehicleMake" name="value"
+                   expr="eval: null"/>
+        <attribute if="vehicle == null" for="plateNo" name="value"
+                   expr="eval: null"/>
+        <attribute if="vehicle == null" for="vehicleOdometer" name="value"
+                   expr="eval: null"/>
+    </action-attrs>
+
+
+    <action-attrs name="action-car-rental-first-partner-changed"  model="com.axelor.apps.contract.db.Contract">
+        <attribute if="partner != null" for="firstPartnerName" name="value"
+                   expr="eval: partner.name"/>
+        <attribute if="partner != null" for="firstPartnerBirthDate" name="value"
+                   expr="eval: partner.dateOfBirth"/>
+        <attribute if="partner != null" for="firstPartnerBirthPlace" name="value"
+                   expr="eval: partner.placeOfBirth"/>
+        <attribute if="partner != null" for="firstPartnerDrivingLicenseNumber" name="value"
+                   expr="eval: partner.drivingLicenseNumber"/>
+        <attribute if="partner != null" for="firstPartnerDateOfDrivingLicense" name="value"
+                   expr="eval: partner.dateOfDrivingLicense"/>
+        <attribute if="partner != null &amp;&amp; partner.isCin == true" for="firstPartnerNationalIdentityCard" name="value"
+                   expr="eval: partner.nationalIdentityCard"/>
+        <attribute if="partner != null &amp;&amp; partner.isCin != true" for="firstPartnerPassport" name="value"
+                   expr="eval: partner.passport"/>
+        <attribute if="partner != null" for="firstPartnerPhone" name="value"
+                   expr="eval: partner.mobilePhone"/>
+        <attribute if="partner != null" for="firstPartnerFixedPhone" name="value"
+                   expr="eval: partner.fixedPhone"/>
+        <attribute if="partner != null &amp;&amp; !partner.partnerAddressList?.isEmpty()" for="firstPartnerAddress" name="value"
+                   expr="eval: partner.partnerAddressList?.collect{it.address.addressL4}?.join(', ')"/>
+
+    </action-attrs>
+
+    <action-attrs name="action-car-rental-reset-first-partner-changed"  model="com.axelor.apps.contract.db.Contract">
+        <attribute if="partner == null" for="firstPartnerName" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerBirthDate" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerBirthPlace" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerDrivingLicenseNumber" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerDateOfDrivingLicense" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null " for="firstPartnerNationalIdentityCard" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerPassport" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerPhone" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerFixedPhone" name="value"
+                   expr="eval: null"/>
+        <attribute if="partner == null" for="firstPartnerAddress" name="value"
+                   expr="eval: null"/>
+
+
+    </action-attrs>
+
+    <action-attrs name="action-car-rental-second-partner-changed"  model="com.axelor.apps.contract.db.Contract">
+        <attribute if="secondPartner != null" for="secondPartnerName" name="value"
+                   expr="eval: secondPartner.name"/>
+        <attribute if="secondPartner != null" for="secondPartnerBirthDate" name="value"
+                   expr="eval: secondPartner.dateOfBirth"/>
+        <attribute if="secondPartner != null" for="secondPartnerBirthPlace" name="value"
+                   expr="eval: secondPartner.placeOfBirth"/>
+        <attribute if="secondPartner != null" for="secondPartnerDrivingLicenseNumber" name="value"
+                   expr="eval: secondPartner.drivingLicenseNumber"/>
+        <attribute if="secondPartner != null" for="secondPartnerDateOfDrivingLicense" name="value"
+                   expr="eval: secondPartner.dateOfDrivingLicense"/>
+        <attribute if="secondPartner != null &amp;&amp; secondPartner.isCin == true" for="secondPartnerNationalIdentityCard" name="value"
+                   expr="eval: secondPartner.nationalIdentityCard"/>
+        <attribute if="secondPartner != null &amp;&amp; secondPartner.isCin != true" for="secondPartnerPassport" name="value"
+                   expr="eval: secondPartner.passport"/>
+        <attribute if="secondPartner != null" for="secondPartnerPhone" name="value"
+                   expr="eval: secondPartner.mobilePhone"/>
+        <attribute if="secondPartner != null" for="secondPartnerFixedPhone" name="value"
+                   expr="eval: secondPartner.fixedPhone"/>
+        <attribute if="secondPartner != null &amp;&amp; !secondPartner.partnerAddressList?.isEmpty()" for="secondPartnerAddress" name="value"
+                   expr="eval: secondPartner.partnerAddressList?.collect{it.address.addressL4}?.join(', ')"/>
+
+    </action-attrs>
+
+    <action-attrs name="action-car-rental-reset-second-partner-changed" model="com.axelor.apps.contract.db.Contract">
+        <attribute if="secondPartner == null" for="secondPartnerName" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerBirthDate" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerBirthPlace" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerDrivingLicenseNumber" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerDateOfDrivingLicense" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerNationalIdentityCard" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerPassport" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerPhone" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerFixedPhone" name="value"
+                   expr="eval: null"/>
+        <attribute if="secondPartner == null" for="secondPartnerAddress" name="value"
+                   expr="eval: null"/>
+
+    </action-attrs>
+
+<!--    <action-attrs name="action-car-rental-company-first-partner-changed"  model="com.axelor.apps.contract.db.Contract">-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerName" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.name"/>-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerBirthDate" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.dateOfBirth"/>-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerBirthPlace" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.placeOfBirth"/>-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerDrivingLicenseNumber" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.drivingLicenseNumber"/>-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerDateOfDrivingLicense" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.dateOfDrivingLicense"/>-->
+<!--        <attribute if="companyPartnerContracts != null &amp;&amp; companyPartnerContracts.isCin == true" for="firstPartnerNationalIdentityCard" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.nationalIdentityCard"/>-->
+<!--        <attribute if="companyPartnerContracts != null &amp;&amp; companyPartnerContracts.isCin != true" for="firstPartnerPassport" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.passport"/>-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerPhone" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.mobilePhone"/>-->
+<!--        <attribute if="companyPartnerContracts != null" for="firstPartnerFixedPhone" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.fixedPhone"/>-->
+<!--        <attribute if="companyPartnerContracts != null &amp;&amp; !companyPartnerContracts.partnerAddressList?.isEmpty()" for="firstPartnerAddress" name="value"-->
+<!--                   expr="eval: companyPartnerContracts.partnerAddressList?.collect{it.address.addressL4}?.join(', ')"/>-->
+
+<!--    </action-attrs>-->
+
+    <action-attrs name="action-car-rental-company-second-partner-changed"  model="com.axelor.apps.contract.db.Contract">
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerName" name="value"
+                   expr="eval: secondCompanyPartnerContracts.name"/>
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerBirthDate" name="value"
+                   expr="eval: secondCompanyPartnerContracts.dateOfBirth"/>
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerBirthPlace" name="value"
+                   expr="eval: secondCompanyPartnerContracts.placeOfBirth"/>
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerDrivingLicenseNumber" name="value"
+                   expr="eval: secondCompanyPartnerContracts.drivingLicenseNumber"/>
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerDateOfDrivingLicense" name="value"
+                   expr="eval: secondCompanyPartnerContracts.dateOfDrivingLicense"/>
+        <attribute if="secondCompanyPartnerContracts != null &amp;&amp; secondCompanyPartnerContracts.isCin == true" for="secondPartnerNationalIdentityCard" name="value"
+                   expr="eval: secondCompanyPartnerContracts.nationalIdentityCard"/>
+        <attribute if="secondCompanyPartnerContracts != null &amp;&amp; secondCompanyPartnerContracts.isCin != true" for="secondPartnerPassport" name="value"
+                   expr="eval: secondCompanyPartnerContracts.passport"/>
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerPhone" name="value"
+                   expr="eval: secondCompanyPartnerContracts.mobilePhone"/>
+        <attribute if="secondCompanyPartnerContracts != null" for="secondPartnerFixedPhone" name="value"
+                   expr="eval: secondCompanyPartnerContracts.fixedPhone"/>
+        <attribute if="secondCompanyPartnerContracts != null &amp;&amp; !secondCompanyPartnerContracts.partnerAddressList?.isEmpty()" for="secondPartnerAddress" name="value"
+                   expr="eval: secondCompanyPartnerContracts.partnerAddressList?.collect{it.address.addressL4}?.join(', ')"/>
+
+    </action-attrs>
+
+    <action-record name="action-calculate-return-date-first-extension-changed" model="com.axelor.apps.contract.db.Contract">
+        <field name="returnDate" expr="eval: returnDate.plusDays(firstExtensionDayNumbers)"/>
+
+    </action-record>
+
+    <action-record name="action-calculate-minus-return-date-first-extension-changed" model="com.axelor.apps.contract.db.Contract">
+        <field if="firstExtensionDayNumbers == 0" name="returnDate" expr="eval: returnDate.minusDays(firstExtensionDayNumbers)"/>
+    </action-record>
+
+    <action-record name="action-calculate-return-date-second-extension-changed" model="com.axelor.apps.contract.db.Contract">
+        <field name="returnDate" expr="eval: returnDate.plusDays(secondExtensionDayNumbers)"/>
+    </action-record>
+
+    <action-report name="action-report-pdf-print-fleet-contract"
+                   design="contrat.rptdesign"
+                   output="Check-contrat-${date}" format="pdf">
+        <param name="id" expr="eval:if ( id != null) {id} else (id= 0 )"/>
+    </action-report>
+
+<!--    <action-record name="action-contract-set-default-values-dep-arrival-time" model="com.gl.apps.pf.db.Contract">-->
+<!--        <field name="departureTime" expr="time('12:00')"/>-->
+<!--        <field name="returnTime" expr="time('12:00')"/>-->
+<!--    </action-record>-->
+    <action-validate name="action-validate-vehicle-oil-Change">
+        <alert message="This vehicle must have an oil change as soon as possible!"
+               if="vehicle &amp;&amp; vehicle.vehicleOilChange"/>
+    </action-validate>
+
+    <action-method name="action-contract-set-occupied-vehicle">
+        <call class="com.gl.apps.pf.web.ContractController" method="SetVehicleOccupied"/>
+    </action-method>
+
+    <action-method name="action-contract-set-free-vehicle">
+        <call class="com.gl.apps.pf.web.ContractController" method="SetVehicleFree"/>
+    </action-method>
+
+    <action-record name="action-set-default-values-terminate-date"
+                   model="com.axelor.apps.contract.db.Contract">
+        <field name="terminatedDate" expr="eval: __time__"/>
+    </action-record>
+
+    <action-attrs name="action-contract-scale-and-precision">
+        <attribute name="scale" expr="eval: __user__.activeCompany.currency.nbrDecimalDigit" for="initialExTaxTotalPerYear"/>
+        <attribute name="scale" expr="eval: __user__.activeCompany.currency.nbrDecimalDigit" for="yearlyExTaxTotalRevalued"/>
+    </action-attrs>
+
+</object-views>
+
+
+

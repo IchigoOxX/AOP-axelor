@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="fleet" package="com.axelor.apps.fleet.db"/>
+
+    <entity name="Vehicle">
+        <boolean name="occupied" title="Occupied" default="false"/>
+        <boolean name="vehicleOilChange" title="Oil Changed"/>
+
+        <date name="startVignetteDate" title="Start date"/>
+        <date name="lastVignetteDate" title="End date"/>
+        <boolean name="isVignette" title="Vignette"/>
+
+        <boolean name="isActive" title="Active" required="false" default="true"/>
+        <one-to-many name="vehicleOdometerList" ref="com.axelor.apps.fleet.db.VehicleOdometer" title="Vehicle odometer"
+                     mappedBy="vehicle"/>
+
+        <date name="firstInsuranceDate" title="Start date"/>
+        <date name="endInsuranceDate" title="End date"/>
+        <boolean name="isInsurance" title="Insurance"/>
+
+        <date name="firstTechnicalVisitDate" title="Start date"/>
+        <date name="endTechnicalVisitDate" title="End date"/>
+        <boolean name="isTechnicalVisit" title="Technical visit"/>
+        <decimal name="diffVehicleOdometer" title="Vehicle Odometer (Oil change)"/>
+
+        <track on="UPDATE">
+            <field name="vehicleOilChange"/>
+            <field name="firstCirculationDate"/>
+            <field name="vignette"/>
+            <field name="firstDateVignette"/>
+            <field name="dailyVignette"/>
+            <field name="isActive"/>
+            <field name="diffVehicleOdometer"/>
+        </track>
+
+    </entity>
+
+</domain-models>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="LogisticsSheet" >
+
+        <string name="reference" title="Reference" unique="true" readonly="true"/>
+        <date name="dateTime" title="Date" readonly="true"/>
+
+        <many-to-one name="contractNumber" ref="com.axelor.apps.contract.db.Contract" title="Contract number"/>
+        <many-to-one name="supplier" ref="com.axelor.apps.base.db.Partner" title="Supplier"/>
+        <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company"/>
+
+        <many-to-one name="proFormat" ref="com.axelor.apps.purchase.db.PurchaseOrder" title="Pro-format"/>
+        <many-to-one name="brand" ref="com.axelor.apps.base.db.ProductFamily"
+                     title="Brand"/>
+        <one-to-many name="purchaseOrderLineList" ref="com.axelor.apps.purchase.db.PurchaseOrderLine"
+                     mappedBy="logisticsSheet" title="Purchase order line"/>
+
+        <many-to-one name="commercialInvoice" ref="com.axelor.apps.account.db.Invoice" title="Commercial invoice"/>
+
+        <date name="expectedProductionDate" title="Expected production date"/>
+        <date name="expectedLoadingDate" title="Expected filling date"/>
+        <date name="expectedArrivalDate" title="Expected arrival date"/>
+
+        <date name="reelProductionDate" title="Reel production date"/>
+        <date name="reelLoadingDate" title="Reel filling date"/>
+        <date name="reelArrivalDate" title="Reel arrival date"/>
+
+        <date name="algex" title="Algex"/>
+        <boolean name="withAlgex" title="With algex"/>
+
+
+        <date name="predom" title="Bank domiciliation loan"/>
+
+
+        <boolean name="withDomiciliationTax" title="With domiciliation tax"/>
+        <date name="domiciliationTaxDate" title="Domiciliation tax date"/>
+        <decimal name="domiciliationTax" title="Domiciliation tax" />
+
+        <string name="bankDhl" title="Bank DHL"/>
+        <string name="folderDhl" title="Folder DHL"/>
+        <many-to-one name="carrier" ref="com.axelor.apps.base.db.Partner" title="Carrier"/>
+        <date name="shippingDate" title="Sending date"/>
+        <date name="arrivalDate" title="Arrival date"/>
+
+        <integer name="importType" title="Import type" selection="poultryfarming.logistics.sheet.type.import.select"/>
+        <many-to-one name="paymentMode" ref="com.axelor.apps.account.db.PaymentMode"
+                     title="Payment mode"/>
+
+        <string name="containerNumber" title="Container number"/>
+        <string name="bL" title="BL"/>
+        <decimal name="globalCost" title="Global cost"/>
+        <decimal name="costPrice" title="Cost price"/>
+
+        <date name="blockageDate" title="Blockage date"/>
+        <date name="valueDate" title="Value date"/>
+        <date name="returnDate" title="Return date"/>
+
+        <decimal name="douaneRate" title="Douane rate"/>
+        <date name="confirmationDate" title="Confirmation date"/>
+        <decimal name="surestarie" title="Surestarie"/>
+
+        <decimal name="forwarderCost" title="Forwarder costs"/>
+        <string name="maritimeCompany" title="Maritime company"/>
+        <one-to-many name="attachmentList"
+                     ref="com.gl.apps.pf.db.Attachment" mappedBy="logisticSheet"
+                     title="Attachment line"/>
+        <many-to-one name="printingSettings" ref="com.axelor.apps.base.db.PrintingSettings"/>
+
+        <integer name="status" title="Status" selection="poultryfarming.logistics.sheet.status.select" readonly="true"/>
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// LOGISTIC SHEET STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTING = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+
+			]]>
+        </extra-code>
+
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="contractNumber"/>
+            <field name="supplier"/>
+            <field name="proFormat"/>
+            <field name="brand"/>
+            <field name="product"/>
+            <field name="quantity"/>
+            <field name="expectedProductionDate"/>
+            <field name="expectedLoadingDate"/>
+            <field name="expectedArrivalDate"/>
+            <field name="reelProductionDate"/>
+            <field name="reelLoadingDate"/>
+            <field name="reelArrivalDate"/>
+            <field name="withAlgex"/>
+            <field name="algex"/>
+            <field name="predom"/>
+            <field name="withDomiciliationTax"/>
+            <field name="domiciliationTaxDate"/>
+            <field name="bankDhl"/>
+            <field name="carrier"/>
+            <field name="shippingDate"/>
+            <field name="arrivalDate"/>
+            <field name="importType"/>
+            <field name="paymentMode"/>
+
+            <field name="status"/>
+
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

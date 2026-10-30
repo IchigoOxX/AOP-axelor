@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="livestock" package="com.gl.apps.livestock.db" />
+
+  <entity name="LivestockAnimal" table="LIVESTOCK_ANIMAL">
+    <string name="earTag" title="Ear Tag / ID" required="true" unique="true" namecolumn="true" />
+    <string name="name" title="Name / Alias" />
+    <integer name="speciesSelect" title="Species" default="1" selection="livestock.species.select" required="true" />
+    <string name="breed" title="Breed" />
+    <integer name="genderSelect" title="Gender" default="2" selection="livestock.gender.select" required="true" />
+    <date name="birthDate" title="Birth Date" />
+    <date name="entryDate" title="Entry Date" />
+    <integer name="statusSelect" title="Status" default="1" selection="livestock.animal.status.select" required="true" />
+    
+    <decimal name="birthWeight" title="Birth Weight (kg)" precision="10" scale="2" />
+    <decimal name="currentWeight" title="Current Weight (kg)" precision="10" scale="2" />
+    <date name="lastWeighDate" title="Last Weigh Date" />
+    
+    <!-- Location and Management -->
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment" title="Cost Center (Unit)" required="true" />
+    <many-to-one name="location" ref="com.axelor.apps.stock.db.StockLocation" title="Barn / Pen" />
+    <many-to-one name="dam" ref="com.gl.apps.livestock.db.LivestockAnimal" title="Dam (Mother)" />
+    <string name="damTag" title="Dam Tag (Mother)" />
+    <string name="sireTag" title="Sire Tag (Father)" />
+    
+    <!-- Commercial info -->
+    <many-to-one name="partner" ref="com.axelor.apps.base.db.Partner" title="Source / Supplier" />
+    <decimal name="purchasePrice" title="Purchase Price" precision="14" scale="2" />
+    <decimal name="salePrice" title="Sale Price" precision="14" scale="2" />
+    <date name="exitDate" title="Exit Date" />
+    <string name="exitReason" title="Exit Reason" />
+    <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove" title="Stock Move" readonly="true" />
+
+    <string name="notes" title="Notes" large="true" />
+
+    <track>
+      <field name="statusSelect" />
+      <field name="currentWeight" />
+      <field name="location" />
+    </track>
+  </entity>
+
+  <!-- Daily Milk Production Log -->
+  <entity name="LivestockMilkLog" table="LIVESTOCK_MILK_LOG">
+    <date name="logDate" title="Date" required="true" />
+    <integer name="sessionSelect" title="Milking Session" default="1" selection="livestock.milking.session.select" required="true" />
+    <many-to-one name="animal" ref="com.gl.apps.livestock.db.LivestockAnimal" title="Animal" />
+    <decimal name="quantityLiters" title="Quantity (Liters)" precision="10" scale="2" required="true" />
+    <decimal name="fatPercentage" title="Fat (%)" precision="5" scale="2" />
+    <decimal name="proteinPercentage" title="Protein (%)" precision="5" scale="2" />
+    <many-to-one name="storageTank" ref="com.axelor.apps.stock.db.StockLocation" title="Cooling Tank" required="true" />
+    <many-to-one name="milkProduct" ref="com.axelor.apps.base.db.Product" title="Raw Milk Product" />
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment" title="Cost Center (Unit)" />
+    <many-to-one name="stockMove" ref="com.axelor.apps.stock.db.StockMove" title="Stock Move" readonly="true" />
+    <integer name="statusSelect" title="Status" selection="livestock.log.status.select" default="0" readonly="true" />
+    <string name="notes" title="Notes" />
+  </entity>
+
+  <!-- Feed and Nutrition Log -->
+  <entity name="LivestockFeedLog" table="LIVESTOCK_FEED_LOG">
+    <date name="feedDate" title="Feed Date" required="true" />
+    <many-to-one name="location" ref="com.axelor.apps.stock.db.StockLocation" title="Barn / Pen" required="true" />
+    <many-to-one name="fromLocation" ref="com.axelor.apps.stock.db.StockLocation" title="Feed Warehouse" />
+    <many-to-one name="feedProduct" ref="com.axelor.apps.base.db.Product" title="Feed / Ration" required="true" />
+    <decimal name="quantityKg" title="Quantity (Kg)" precision="12" scale="2" required="true" />
+    <decimal name="unitCost" title="Cost per Kg" precision="10" scale="2" />
+    <decimal name="totalCost" title="Total Cost" precision="14" scale="2" />
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment" title="Cost Center (Unit)" />
+    <many-to-one name="stockMove" ref="com.axelor.apps.stock.db.StockMove" title="Stock Move" readonly="true" />
+    <integer name="statusSelect" title="Status" selection="livestock.log.status.select" default="0" readonly="true" />
+    <string name="notes" title="Notes" />
+  </entity>
+
+  <!-- Veterinary Health and Treatments -->
+  <entity name="LivestockHealthLog" table="LIVESTOCK_HEALTH_LOG">
+    <date name="eventDate" title="Treatment Date" required="true" />
+    <many-to-one name="animal" ref="com.gl.apps.livestock.db.LivestockAnimal" title="Animal" required="true" />
+    <integer name="typeSelect" title="Type" default="1" selection="livestock.health.type.select" required="true" />
+    <string name="diagnosis" title="Diagnosis / Disease" />
+    <many-to-one name="medicineProduct" ref="com.axelor.apps.base.db.Product" title="Medicine / Vaccine" />
+    <decimal name="quantityUsed" title="Quantity Used" precision="10" scale="2" />
+    <many-to-one name="pharmacyLocation" ref="com.axelor.apps.stock.db.StockLocation" title="Pharmacy Location" />
+    <string name="dosage" title="Dosage / Administration" />
+    <string name="veterinarian" title="Veterinarian" />
+    <date name="withdrawalEndDate" title="Meat/Milk Withdrawal End Date" />
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <many-to-one name="stockMove" ref="com.axelor.apps.stock.db.StockMove" title="Stock Move" readonly="true" />
+    <integer name="statusSelect" title="Status" selection="livestock.log.status.select" default="0" readonly="true" />
+    <string name="notes" title="Notes" />
+  </entity>
+
+  <!-- Breeding, Insemination and Calving -->
+  <entity name="LivestockBreedingLog" table="LIVESTOCK_BREEDING_LOG">
+    <date name="inseminationDate" title="Insemination Date" required="true" />
+    <many-to-one name="animal" ref="com.gl.apps.livestock.db.LivestockAnimal" title="Female (Cow/Dam)" required="true" />
+    <integer name="methodSelect" title="Method" default="1" selection="livestock.insemination.method.select" required="true" />
+    <string name="sireBreed" title="Sire Breed / Bull ID" />
+    <many-to-one name="semenProduct" ref="com.axelor.apps.base.db.Product" title="Semen Straw Product" />
+    <string name="technician" title="Insemination Technician" />
+    
+    <date name="pregnancyCheckDate" title="Pregnancy Check Date" />
+    <boolean name="isPregnant" title="Confirmed Pregnant" default="false" />
+    <date name="expectedDryOffDate" title="Expected Dry-off Date" />
+    <date name="expectedCalvingDate" title="Expected Calving Date" />
+    <date name="actualCalvingDate" title="Actual Calving Date" />
+    <string name="calfEarTag" title="New Calf Ear Tag" />
+    <integer name="calfGenderSelect" title="Calf Gender" selection="livestock.gender.select" />
+    <many-to-one name="newbornCalf" ref="com.gl.apps.livestock.db.LivestockAnimal" title="Registered Calf" readonly="true" />
+    
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <string name="notes" title="Notes" />
+  </entity>
+
+  <!-- Weight Tracking and Average Daily Gain (ADG) -->
+  <entity name="LivestockWeightLog" table="LIVESTOCK_WEIGHT_LOG">
+    <date name="weighDate" title="Weigh Date" required="true" />
+    <many-to-one name="animal" ref="com.gl.apps.livestock.db.LivestockAnimal" title="Animal" required="true" />
+    <decimal name="weight" title="Weight (kg)" precision="10" scale="2" required="true" />
+    <integer name="daysSinceLastWeigh" title="Days Since Last Weigh" />
+    <decimal name="dailyGainKg" title="Average Daily Gain (kg/day)" precision="8" scale="3" />
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <string name="notes" title="Notes" />
+  </entity>
+
+</domain-models>

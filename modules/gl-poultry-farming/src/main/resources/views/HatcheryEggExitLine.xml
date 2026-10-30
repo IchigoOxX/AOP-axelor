@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatchery-egg-exit-line-form" title="Hatchery egg exit lines" editable="true"
+          model="com.gl.apps.pf.db.HatcheryEggExitLine" width="large">
+        <panel title="Overview" colSpan="12">
+            <panel title="Infos:" colSpan="12">
+                <field name="center" required="true" colSpan="6" domain="self.type = 1" onChange="action-group-hatchery-egg-exit-center-changed"/>
+                <field name="breed" readonly="true" colSpan="6"/>
+                <field name="trackingNumber" colSpan="6" readonly="true"/>
+            </panel>
+
+            <panel-related name="hatcheryEggExitLinesDetailsPanel" colSpan="12" field="hatcheryEggExitLineDetail"
+                           form-view="hatchery-egg-exit-line-detail-form"
+                           grid-view="hatchery-egg-exit-line-detail-grid" canEdit="true"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+    </form>
+
+    <grid name="hatchery-egg-exit-line-grid" title="Hatchery egg exit lines" model="com.gl.apps.pf.db.HatcheryEggExitLine" orderBy="center"
+          edit-icon="true">
+        <field name="center" required="true" domain="self.type = 1" onChange="action-group-hatchery-egg-exit-center-changed"/>
+        <field name="breed" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+    </grid>
+
+    <action-attrs name="action-attrs-hatchery-egg-exit-center-changed" model="com.gl.apps.pf.db.HatcheryEggExitLine">
+        <attribute if="center != null" for="breed" name="value"
+                   expr="eval: center.currentBreed"/>
+        <attribute if="center != null" for="trackingNumber" name="value"
+                   expr="eval: center.currentTrackingNumber"/>
+    </action-attrs>
+
+    <action-method name="action-method-hatchery-egg-exit-get-lines-from-center">
+        <call method="getLinesFromCenter"
+              class="com.gl.apps.pf.web.HatcherEggExitLineController"/>
+    </action-method>
+
+    <action-group name="action-group-hatchery-egg-exit-center-changed">
+        <action name="action-attrs-hatchery-egg-exit-center-changed"/>
+        <action name="action-method-hatchery-egg-exit-get-lines-from-center"/>
+        <action name="action-attrs-hatchery-egg-exit-center-empty"/>
+    </action-group>
+
+    <action-attrs name="action-attrs-hatchery-egg-exit-center-empty" model="com.gl.apps.pf.db.HatcheryEggExitLine">
+        <attribute if="center == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="trackingNumber" name="value" expr="eval: null"/>
+        <attribute if="center == null" for="hatcheryEggExitLineDetail" name="value" expr="eval: null"/>
+    </action-attrs>
+
+    <action-validate name="action-validate-exit-eggs-number">
+        <error if="hatcheryEggExitLineDetail &amp;&amp; hatcheryEggExitLineDetail?.collect(){ it?.numberOfExitEggs }?.sum() > hatcheryEggExitLineDetail?.collect(){ it?.numberOfExistentEggs }?.sum()" message="The total existent eggs must be greater then exit eggs number."/>
+    </action-validate>
+</object-views>

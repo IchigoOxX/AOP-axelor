@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatcher-entry-form" title="Hatcher entry" model="com.gl.apps.pf.db.HatcherEntry" width="large" canNew="false"
+          onNew="action-set-default-values-hatcher-entry">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Infos:" colSpan="12" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="incubatorExit" colSpan="4" domain="self.status = 1" readonly="true" target-name="reference"
+                           onChange="action-group-hatcher-entry-incubator-exit-changed"/>
+                    <field name="incubatorEntry" target-name="reference" colSpan="4" readonly="true"/>
+                    <field name="breed" colSpan="4" readonly="true"/>
+                    <field name="dateTimeIncubatorExit" colSpan="4" readonly="true" title="Incubator exit date"/>
+                    <field name="dateTimeIncubatorEntry" colSpan="4" readonly="true" title="Incubator entry date"/>
+                    <field name="incubator" colSpan="4" target-name="reference" readonly="true"/>
+                    <field name="dateTime" colSpan="4" title="Date"/>
+                    <field name="dateTimeIncubatorExitEntry" colSpan="4" readonly="true" title="Expected incubator entry exit date"/>
+                    <field name="hatchery" colSpan="4" readonly="true"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                            <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                               <tbody>
+                                <tr>
+                                 <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                </tr>
+                               </tbody>
+                            </table>
+                          ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validerBtn" title="Validate" prompt="Are you sure you want to validate this hatcher entry ?"
+                            showIf="status &lt; 1" icon="fa-check" colSpan="12"
+                            onClick="action-group-hatcher-entry-validation,save,action-hatcher-entry-check-nbr-hatcher,action-hatcher-entry-validate" css="btn-success"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel entry" showIf="status == 1" prompt="Are you sure you want to cancel this hatcher entry ?" icon="fa-times" css="btn-danger" colSpan="12" onClick="action-hatcher-entry-show-dialog-cancel-reason"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="revalidateBtn" title="Revalidate" showIf="status == 3" colSpan="12" css="btn-warning" icon="fa-refresh" onClick="save,action-hatcher-entry-revalidate"/>
+                </panel>
+            </panel>
+            <panel-related name="hatcherEntryLinesListPanel" colSpan="12" field="hatcherEntryLinesList" readonlyIf="status != 0"
+                           form-view="hatcher-entry-line-form"
+                           grid-view="hatcher-entry-line-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="hatcher-entry-grid" title="Hatcher entries" model="com.gl.apps.pf.db.HatcherEntry" canNew="false" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime"/>
+        <field name="incubator" target-name="reference"/>
+        <field name="incubatorExit" target-name="reference" />
+        <field name="incubatorEntry" target-name="reference" />
+        <field name="dateTimeIncubatorExit" title="Incubator exit date"/>
+        <field name="dateTimeIncubatorExitEntry" title="Expected incubator entry exit date"/>
+        <field name="breed"/>
+        <field name="hatchery"/>
+        <field name="dispatchStock"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-record name="action-set-default-values-hatcher-entry"
+                   model="com.gl.apps.pf.db.HatcherEntry">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+<action-group name="action-group-hatcher-entry-incubator-exit-changed">
+    <action name="action-hatcher-entry-incubator-exit-changed"/>
+    <action name="action-hatcher-entry-get-lines"/>
+    <action name="action-hatcher-entry-incubator-exit-empty"/>
+</action-group>
+    <action-attrs name="action-hatcher-entry-incubator-exit-changed"
+                  model="com.gl.apps.pf.db.HatcherEntry">
+        <attribute if="incubatorExit != null" for="dateTimeIncubatorExit" name="value"
+                   expr="eval: incubatorExit.datetime"/>
+        <attribute if="incubatorExit != null" for="incubatorEntry" name="value"
+                   expr="eval: incubatorExit.incubatorEntry"/>
+        <attribute if="incubatorExit != null" for="dateTimeIncubatorEntry" name="value"
+                   expr="eval: incubatorExit.dateTimeIncubatorEntry"/>
+        <attribute if="incubatorExit != null" for="dateTimeIncubatorExitEntry" name="value"
+                   expr="eval: incubatorExit.dateTimeIncubatorExit"/>
+        <attribute if="incubatorExit != null" for="incubator" name="value"
+                   expr="eval: incubatorExit.incubator"/>
+        <attribute if="incubatorExit != null" for="breed" name="value"
+                   expr="eval: incubatorExit.breed"/>
+        <attribute if="incubatorExit != null" for="hatchery" name="value"
+                   expr="eval: incubatorExit.hatchery"/>
+        <attribute if="incubatorExit != null" for="dispatchStock" name="value"
+                   expr="eval: incubatorExit.dispatchStock"/>
+    </action-attrs>
+
+    <action-attrs name="action-hatcher-entry-incubator-exit-empty" model="com.gl.apps.pf.db.HatcherEntry">
+        <attribute if="incubatorExit == null" for="dateTimeIncubatorExit" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="incubatorEntry" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="dateTimeIncubatorEntry" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="dateTimeIncubatorExitEntry" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="incubator" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="breed" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="hatchery" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="dispatchStock" name="value" expr="eval: null"/>
+        <attribute if="incubatorExit == null" for="hatcherEntryLinesList" name="value" expr="eval: null"/>
+    </action-attrs>
+
+    <action-method name="action-hatcher-entry-get-lines">
+        <call class="com.gl.apps.pf.web.HatcherEntryController" method="getLinesFromIncubatorExit"/>
+    </action-method>
+
+    <action-method name="action-hatcher-entry-validate">
+        <call class="com.gl.apps.pf.web.HatcherEntryController" method="HatcherEntryValidate"/>
+    </action-method>
+
+    <action-method name="action-hatcher-entry-check-nbr-hatcher">
+        <call class="com.gl.apps.pf.web.HatcherEntryController" method="checkMaxHatcher"/>
+    </action-method>
+
+    <action-method name="action-hatcher-entry-cancel">
+        <call class="com.gl.apps.pf.web.HatcherEntryController" method="HatcherEntryCancel"/>
+    </action-method>
+
+    <action-view name="action-hatcher-entry-show-dialog-cancel-reason" model="com.gl.apps.pf.db.HatcherEntry" title="Cancelation">
+        <view name="hatcher-entry-cancel-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="hatcher-entry-cancel-dialog-form" title="Cancelation" model="com.gl.apps.pf.db.HatcherEntry">
+        <panel>
+            <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+            <button name="btnCancel" title="Validate" onClick="action-hatcher-entry-cancel,close" confirm="false" style="danger" target="none"/>
+        </panel>
+    </form>
+
+    <action-method name="action-hatcher-entry-revalidate">
+        <call class="com.gl.apps.pf.web.HatcherEntryController" method="HatcherEntryRevalidate"/>
+    </action-method>
+
+    <action-validate name="action-validate-hatcher-entry-hatcher-trolley-duplicated">
+        <error if="hatcherEntryLinesList != null &amp;&amp; hatcherEntryLinesList.collect{it -> it.hatcherTrolley}.toSet().size() != hatcherEntryLinesList.size()"
+               message="Hatcher trolley is duplicated in hatcher entry line"/>
+    </action-validate>
+    <action-validate name="action-hatcher-entry-check-empty-list">
+        <error if="hatcherEntryLinesList.isEmpty()" message="You cannot validate ! hatcher entries list is empty."/>
+    </action-validate>
+    <action-group name="action-group-hatcher-entry-validation">
+        <action name="action-hatcher-entry-check-empty-list"/>
+        <action name="action-validate-hatcher-entry-hatcher-trolley-duplicated"/>
+    </action-group>
+
+</object-views>

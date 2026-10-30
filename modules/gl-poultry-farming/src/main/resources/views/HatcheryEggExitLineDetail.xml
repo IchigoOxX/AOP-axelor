@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="hatchery-egg-exit-line-detail-grid" title="Hatchery egg exit line details"
+          model="com.gl.apps.pf.db.HatcheryEggExitLineDetail" edit-icon="true">
+        <field name="breedingShed" readonly="true"/>
+        <field name="numberOfExistentEggTrays" readonly="true"/>
+        <field name="numberOfExistentEggs" readonly="true"/>
+        <field name="numberOfExitEggTrays" required="true" onChange="action-verify-exit-eggs-trays-number,action-attrs-hatchery-egg-exit-calculate-remaining-trays-eggs"/>
+        <field name="numberOfExitEggs" required="true" onChange="action-verify-exit-eggs-number,action-attrs-hatchery-egg-exit-calculate-remaining-eggs"/>
+        <field name="numberOfRemainingEggTrays" readonly="true"/>
+        <field name="numberOfRemainingEggs" readonly="true"/>
+    </grid>
+
+    <form name="hatchery-egg-exit-line-detail-form" title="Hatchery egg exit line details"
+          model="com.gl.apps.pf.db.HatcheryEggExitLineDetail">
+        <panel title="Overview">
+            <field name="breedingShed" readonly="true"/>
+            <field name="numberOfExistentEggTrays" readonly="true"/>
+            <field name="numberOfExistentEggs" readonly="true"/>
+            <field name="numberOfExitEggTrays" required="true" onChange="action-verify-exit-eggs-trays-number,action-attrs-hatchery-egg-exit-calculate-remaining-trays-eggs"/>
+            <field name="numberOfExitEggs" required="true" onChange="action-verify-exit-eggs-number,action-attrs-hatchery-egg-exit-calculate-remaining-eggs"/>
+            <field name="numberOfRemainingEggTrays" readonly="true"/>
+            <field name="numberOfRemainingEggs" readonly="true"/>
+        </panel>
+    </form>
+
+    <action-attrs name="action-attrs-hatchery-egg-exit-calculate-remaining-trays-eggs"
+                  model="com.gl.apps.pf.db.HatcheryEggExitLineDetail">
+        <attribute if="numberOfExitEggTrays != 0" name="value" expr="eval: numberOfExitEggTrays * 30"
+                   for="numberOfExitEggs"/>
+        <attribute if="numberOfExitEggTrays != 0" name="value" expr="eval: numberOfExistentEggTrays -  numberOfExitEggTrays"
+                   for="numberOfRemainingEggTrays"/>
+        <attribute if="numberOfExitEggTrays != 0" name="value" expr="eval: (numberOfExistentEggTrays -  numberOfExitEggTrays) * 30"
+                   for="numberOfRemainingEggs"/>
+    </action-attrs>
+
+    <action-validate name="action-verify-exit-eggs-trays-number">
+        <error if="numberOfExitEggTrays > numberOfExistentEggTrays" message="The total existent eggs trays must be greater then exit eggs trays number."/>
+    </action-validate>
+
+    <action-validate name="action-verify-exit-eggs-number">
+        <error if="numberOfExitEggs > numberOfExistentEggs" message="The total existent eggs must be greater then exit eggs number."/>
+    </action-validate>
+
+    <action-attrs name="action-attrs-hatchery-egg-exit-calculate-remaining-eggs"
+                  model="com.gl.apps.pf.db.HatcheryEggExitLineDetail">
+        <attribute if="numberOfExitEggs != 0" name="value" expr="eval: (int) Math.ceil( numberOfExitEggs / 30 )"
+                   for="numberOfExitEggTrays"/>
+        <attribute if="numberOfExitEggs != 0" name="value" expr="eval: numberOfExistentEggs -  numberOfExitEggs"
+                   for="numberOfRemainingEggs"/>
+        <attribute if="numberOfExitEggs != 0" name="value" expr="eval: (int) Math.ceil( (numberOfExistentEggs -  numberOfExitEggs) / 30 )"
+                   for="numberOfRemainingEggTrays"/>
+    </action-attrs>
+
+</object-views>

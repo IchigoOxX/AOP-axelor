@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="base" package="com.axelor.apps.base.db"/>
+
+    <entity name="Partner">
+
+        <one-to-many name="salesOrders" ref="com.axelor.apps.sale.db.SaleOrder" mappedBy="clientPartner" />
+        <string name="socialMediaProfile" title="Social Media Profile"/>
+
+<!--        <one-to-one name="deliveryAddress" ref="com.axelor.apps.base.db.Address" title="Delivery Address"/>-->
+
+        <!-- Communication Preferences -->
+        <boolean name="isSubscribedToNewsletter" title="Subscribed to Newsletter"/>
+        <boolean name="isOptedOutFromMarketing" title="Opted out from Marketing"/>
+
+        <!-- Loyalty Card-->
+<!--        <boolean name="hasLoyaltyCard" title="Has Loayalty Card" />-->
+        <many-to-one name="loyaltyCard" ref="com.axelor.pos.db.LoyaltyCard" />
+
+    </entity>
+
+</domain-models>

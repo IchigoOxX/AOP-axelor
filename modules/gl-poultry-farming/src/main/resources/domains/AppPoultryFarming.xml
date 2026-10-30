@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="studio" package="com.axelor.studio.db"/>
+
+  <entity name="AppPoultryFarming" cacheable="true">
+    <one-to-one ref="com.axelor.studio.db.App" name="app"/>
+
+    <many-to-one name="hatchingEggProduct" ref="com.axelor.apps.base.db.Product"
+      title="Hatching egg product"/>
+    <many-to-one name="doubleYolkEggProduct" ref="com.axelor.apps.base.db.Product"
+      title="Double Yolk Egg Product"/>
+    <many-to-one name="declassedEggsProduct" ref="com.axelor.apps.base.db.Product"
+      title="Declassed Eggs Product"/>
+    <many-to-one name="rejectedEggsProduct" ref="com.axelor.apps.base.db.Product"
+      title="Rejected Eggs Product"/>
+    <many-to-one name="destroyedEggsProduct" ref="com.axelor.apps.base.db.Product"
+                 title="Destroyed Eggs"/>
+
+    <many-to-one name="unfertilizedEggsProduct" ref="com.axelor.apps.base.db.Product"
+      title="Unfertilized Eggs Product"/>
+    <many-to-one name="starterMalesChicks" ref="com.axelor.apps.base.db.Product"
+                 title="Male starter chicks product"/>
+    <many-to-one name="starterFemalesChicks" ref="com.axelor.apps.base.db.Product"
+                 title="Female starter chicks product"/>
+    <many-to-one name="chairChicks" ref="com.axelor.apps.base.db.Product"
+                 title="Flesh chick"/>
+
+
+    <many-to-one name="eggsDefaultBreedingLocation"
+      ref="com.axelor.apps.stock.db.StockLocation" title="Eggs Default Breeding Location"/>
+    <many-to-one name="hatchryEggDefaultLocation"
+      ref="com.axelor.apps.stock.db.StockLocation" title="Hatchery Egg Default Location"/>
+    <many-to-one name="chairDefaultLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Chair Default Location"/>
+    <!-- hatcheryDefaultIncubatorLocation -->
+    <many-to-one name="hatcheryDefaultIncubatorLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="hatchery Default Incubator Location"/>
+    <many-to-one name="virtualStartupLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Virtual startup Location"/>
+    <many-to-one name="virtualProductionLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Virtual production Location"/>
+    <many-to-one name="virtualHatcheryLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Virtual hatchery Location"/>
+
+    <many-to-one name="medicineProductType"
+                 ref="com.axelor.apps.base.db.ProductCategory" title="Medicine type category"/>
+    <many-to-one name="vaccineProductType"
+                 ref="com.axelor.apps.base.db.ProductCategory" title="Vaccine type category" />
+    <many-to-one name="virtualPharmacyLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Virtual pharmacy Location"/>
+    <many-to-one name="virtualConsumptionLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Virtual Consumption Location"/>
+    <many-to-one name="physicalSaleLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Physical location of sale"/>
+    <many-to-one name="hatcherDefaultLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Hatcher Default Location"/>
+    <many-to-one name="virtualVariousOutingsLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Virtual various outings Location"/>
+    <integer name="fleshHoursNumber" title="Flesh hours number"/>
+
+    <many-to-one name="maintenanceLocation"
+                 ref="com.axelor.apps.stock.db.StockLocation" title="Maintenance Default Location"/>
+
+    <track>
+      <field name="hatchingEggProduct" on="UPDATE"/>
+      <field name="doubleYolkEggProduct" on="UPDATE"/>
+      <field name="declassedEggsProduct" on="UPDATE"/>
+      <field name="eggsDefaultBreedingLocation" on="UPDATE"/>
+      <field name="hatchryEggDefaultLocation" on="UPDATE"/>
+      <field name="hatcheryDefaultIncubatorLocation" on="UPDATE"/>
+      <field name="virtualStartupLocation" on="UPDATE"/>
+      <field name="virtualProductionLocation" on="UPDATE"/>
+      <field name="medicineProductType" on="UPDATE"/>
+      <field name="vaccineProductType" on="UPDATE"/>
+      <field name="brokenEggArticle" on="UPDATE"/>
+      <field name="physicalSaleLocation" on="UPDATE"/>
+      <field name="maintenanceLocation" on="UPDATE"/>
+      <field name="articleAboutUnshelledEggs" on="UPDATE"/>
+      <field name="fleshHoursNumber" on="UPDATE"/>
+    </track>
+  </entity>
+
+</domain-models>

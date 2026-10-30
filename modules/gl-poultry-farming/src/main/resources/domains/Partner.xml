@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="base" package="com.axelor.apps.base.db"/>
+
+    <entity name="Partner">
+
+        <date name="dateOfBirth" title="Date of birth" required="false" />
+        <string name="placeOfBirth" title="Place of birth" required="false"/>
+        <string name="drivingLicenseNumber" title="Driving license number" required="false"/>
+        <date name="dateOfDrivingLicense" title="Date of driving license" required="false"/>
+        <date name="expiredDateDrivingLicense" title="Expiry date" required="false"/>
+        <boolean name="isCin" title="CIN" required="false" default="true"/>
+        <string name="nationalIdentityCard" title="National identity card" required="false"/>
+        <date name="expiryDate" title="Expiry date" required="false" />
+        <string name="passport" title="Passport" required="false"/>
+        <boolean name="isActive" title="Active" required="false" default="true"/>
+
+        <track on="UPDATE">
+            <field name="dateOfBirth"/>
+            <field name="drivingLicenseNumber"/>
+            <field name="dateOfDrivingLicense"/>
+            <field name="expiredDateDrivingLicense"/>
+            <field name="isCin"/>
+            <field name="nationalIdentityCard"/>
+            <field name="passport"/>
+            <field name="isActive"/>
+
+        </track>
+
+    </entity>
+</domain-models>

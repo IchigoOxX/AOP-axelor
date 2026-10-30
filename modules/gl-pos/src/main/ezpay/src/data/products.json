@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Product 1",
+    "brand": "brand 1",
+    "price": 120,
+    "image": "https://via.placeholder.com/250x200",
+    "category": "Category 1",
+    "discount": null,
+    "newArrival": true,
+    "onPromotion": false,
+    "bestSeller": false,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "brand": "brand 1",
+    "price": 1200,
+    "image": "https://via.placeholder.com/250x200",
+    "category": "Category 2",
+    "discount": null,
+    "newArrival": true,
+    "onPromotion": true,
+    "bestSeller": false,
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "brand": "brand 2",
+    "price": 4000,
+    "image": "https://via.placeholder.com/250x200",
+    "category": "Category 3",
+    "discount": null,
+    "newArrival": false,
+    "onPromotion": false,
+    "bestSeller": true,
+    "inStock": false
+  },
+  {
+    "id": 4,
+    "name": "Product 4",
+    "brand": "",
+    "price": 80,
+    "image": "https://via.placeholder.com/250x200",
+    "category": "Category 4",
+    "discount": null,
+    "newArrival": false,
+    "onPromotion": true,
+    "bestSeller": false,
+    "inStock": true
+  }
+]

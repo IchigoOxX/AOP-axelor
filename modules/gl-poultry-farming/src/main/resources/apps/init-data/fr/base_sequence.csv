@@ -1,0 +1,39 @@
+"importId";"codeSelect";"name";"nextNum";"padding";"prefixe";"suffixe";"toBeAdded";"yearlyResetOk"
+3000;"poultry-farming";"Poultry Farming";1;5;"PF";;1;0
+3001;"IncubatorsLoadingProgramSeq";"Incubators loading program Seq";1;3;"ILP%YY%FM";;1;0
+3002;"IncubatorsTrolleysChargingSeq";"Incubators Trolleys Charging Seq";1;3;"ITC%YY%FM";;1;0
+3003;"HatcheryEggsReceptionSeq";"Hatchery Eggs Reception Seq";1;3;"HER%YY%FM";;1;0
+3004;"BreedSeq";"Breed Seq";1;3;"B%YY%FM";;1;0
+3005;"HatcherySeq";"Hatchery Seq";1;3;"H%YY%FM";;1;0
+3006;"CenterSeq";"Center Seq";1;3;"C%YY%FM";;1;0
+3007;"BreedingShedSeq";"Breeding Shed Seq";1;3;"BS%YY%FM";;1;0
+3008;"ReproProductionSeq";"Repro Production sequence";1;3;"RP%YY%FM";;1;0
+3009;"StartReceivingChicksSeq";"Start receiving chicks sequence";1;3;"RP%YY%FM";;1;0
+4000;"ElevTransferSeq";"Breeding transfer sequence";1;3;"RP%YY%FM";;1;0
+4001;"StartTechnicalSheetSeq";"Start technical sheet sequence";1;3;"RP%YY%FM";;1;0
+4002;"ReceptionReproProductionSeq";"Reception repro production sequence";1;3;"RP%YY%FM";;1;0
+4003;"PharmacyTreatmentSeq";"Pharmacy treatment sequence";1;3;"RP%YY%FM";;1;0
+4004;"StartElevReformSeq";"Start elev reform sequence";1;3;"RP%YY%FM";;1;0
+4005;"SlaughterhouseSeq";"Slaughterhouse sequence";1;3;"RP%YY%FM";;1;0
+4006;"StartElevMovementSeq";"Start elev movement sequence";1;3;"RP%YY%FM";;1;0
+4007;"LivestockFeedFactorySeq";"Livestock feed factory sequence";1;3;"RP%YY%FM";;1;0
+4008;"ProductOrderSeq";"Product order sequence";1;3;"RP%YY%FM";;1;0
+4009;"ProductConsumptionSeq";"Product consumption sequence";1;3;"RP%YY%FM";;1;0
+5000;"LogisticsSheetSeq";"Logistics sheet sequence";1;3;"RP%YY%FM";;1;0
+5001;"ReproTehnicalSheetSeq";"Repro technical sheet sequence";1;3;"RP%YY%FM";;1;0
+5002;"ReproElevReformSeq";"Repro elev reform sequence";1;3;"RP%YY%FM";;1;0
+5003;"TechnicalSheetSeq";"Technical sheet sequence";1;3;"RP%YY%FM";;1;0
+5004;"TechnicalSheetLineSeq";"Technical sheet line sequence";1;3;"RP%YY%FM";;1;0
+5005;"ElevReformSeq";"Elev reform sequence";1;3;"RP%YY%FM";;1;0
+5006;"IncubatorEntrySeq";"Incubator entry sequence";1;3;"RP%YY%FM";;1;0
+5007;"IncubatorExitSeq";"Incubator exit sequence";1;3;"RP%YY%FM";;1;0
+5008;"HatcherEntriesSeq";"Hatcher entry sequence";1;3;"RP%YY%FM";;1;0
+5009;"HatcherExitSeq";"Hatcher exit sequence";1;3;"RP%YY%FM";;1;0
+6000;"HatcheryEggExitSeq";"Hatchery egg exit sequence";1;3;"RP%YY%FM";;1;0
+6001;"HatcheryDeliverySaleSeq";"Hatchery delivery sale sequence";1;3;"RP%YY%FM";;1;0
+6002;"FleshLoadingProgramSeq";"Flesh loading program Seq";1;3;"ILP%YY%FM";;1;0
+6003;"FleshChicksReceptionSeq";"Flesh chicks reception Seq";1;3;"ILP%YY%FM";;1;0
+6004;"FleshMovementSeq";"Flesh movement sequence";1;3;"RP%YY%FM";;1;0
+6005;"LivestockFeedProductionSeq";"Livestock feed production sequence";1;3;"RP%YY%FM";;1;0
+6006;"LivestockExternalExitSeq";"Livestock external exit sequence";1;3;"RP%YY%FM";;1;0
+6007;"MaintenanceEnergyConsumptionSeq";"Maintenance energy consumption sequence";1;3;"RP%YY%FM";;1;0

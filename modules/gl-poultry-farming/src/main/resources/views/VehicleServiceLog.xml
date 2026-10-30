@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="vehicle-service-log-form-id" name="vehicle-service-log-form" title="Vehicle Service Log"
+          model="com.axelor.apps.fleet.db.VehicleServiceLog" extension="true">
+        <extend target="//field[@name='vendorPartner']">
+            <insert position="after">
+                <field name="kilometrage" showIf="vehicleServiceList &amp;&amp; $serviceType == 'Vidange'"/>
+                <field name="$serviceType" hidden="true"/>
+            </insert>
+        </extend>
+        <extend target="//panel-related[@name='vehicleServiceListPanel']">
+            <attribute name="onChange" value="action-vehicle-service-log-changed"/>
+        </extend>
+
+    </form>
+    <action-attrs name="action-vehicle-service-log-changed" model="com.axelor.apps.fleet.db.VehicleService">
+        <attribute if="vehicleServiceList != null" for="$serviceType" name="value"
+                   expr="eval: vehicleServiceList[0].serviceType.name"/>
+
+    </action-attrs>
+
+</object-views>
+
+
+

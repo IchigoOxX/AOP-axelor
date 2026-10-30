@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_8.1.xsd">
+
+  <module name="egypt" package="com.axelor.apps.egypt.einvoice.db"/>
+
+  <entity name="EtaSubmissionLog" sequential="true">
+    <many-to-one name="invoice" ref="com.axelor.apps.account.db.Invoice" required="true" title="Invoice"/>
+    <datetime name="submissionDate" title="Submission Date" required="true"/>
+    <many-to-one name="submittedBy" ref="com.axelor.auth.db.User" title="Submitted By"/>
+    
+    <string name="etaUuid" title="ETA UUID"/>
+    <string name="etaLongId" title="ETA Long ID"/>
+    <string name="statusSelect" title="Status" selection="egypt.eta.submission.status.select" default="pending"/>
+    
+    <string name="requestPayload" title="Request Payload" large="true"/>
+    <string name="responsePayload" title="Response Payload" large="true"/>
+    <string name="errorMessage" title="Error Message" large="true"/>
+    <string name="hashKey" title="Hash Key"/>
+  </entity>
+
+</domain-models>

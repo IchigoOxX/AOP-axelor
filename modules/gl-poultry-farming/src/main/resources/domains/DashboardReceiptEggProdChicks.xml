@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="DashboardReceiptEggProdChicks">
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed" title="Breeding Shed" />
+        <many-to-one name="trackingNumber" title="Tracking number"
+                     ref="com.axelor.apps.stock.db.TrackingNumber"/>
+
+        <integer name="he" title="Hatching Eggs (HE)"/>
+        <integer name="dye" title="Double Yolk Eggs (DYE)"/>
+        <integer name="de" title="Declassed Eggs (DE)"/>
+        <integer name="total" title="Total"/>
+
+        <decimal name="percentageHe" title="% HE"/>
+        <decimal name="percentageDye" title="% DYE"/>
+        <decimal name="percentageDe" title="% DE"/>
+        <integer name="incubatorLoading" title="Incubator loading"/>
+        <integer name="sale" title="Sale"/>
+        <integer name="remaining" title="Remaining"/>
+
+        <integer name="hatcherEntry" title="Hatcher entry"/>
+        <integer name="hatchingChicks" title="Chicks"/>
+        <integer name="hatchingSafeChicks" title="Hatching safe chicks"/>
+        <decimal name="hatchingPercentageSafe" title="% Safe"/>
+        <decimal name="percentageHatching" title="% Hatching"/>
+
+        <integer name="receptChickens" title="Received chickens"/>
+        <integer name="startProdChickens" title="Start production chickens"/>
+
+        <decimal name="prodEggsPerChicken" title="Production eggs per chicken"/>
+        <decimal name="prodHePerChicken" title="Production HE per chicken"/>
+        <decimal name="safeChicks" title="Safe chicks"/>
+
+        <track on="UPDATE">
+            <field name="breedingShed"/>
+            <field name="he"/>
+            <field name="dye"/>
+            <field name="de"/>
+            <field name="total"/>
+            <field name="percentageHe"/>
+            <field name="percentageDye"/>
+            <field name="percentageDe"/>
+            <field name="incubatorLoading"/>
+            <field name="sale"/>
+            <field name="remaining"/>
+            <field name="hatcherEntry"/>
+            <field name="hatchingChicks"/>
+            <field name="hatchingSafeChicks"/>
+            <field name="hatchingPercentageSafe"/>
+            <field name="percentageHatching"/>
+            <field name="receptChickens"/>
+            <field name="startProdChickens"/>
+            <field name="prodEggsPerChicken"/>
+            <field name="prodHePerChicken"/>
+            <field name="safeChicks"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

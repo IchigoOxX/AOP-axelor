@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <!-- Main ZATCA Menu -->
+  <menuitem name="zatca-root" title="Electronic Invoicing (ZATCA) &amp; Zakat" order="-197" icon="fa-qrcode" icon-background="#00695c" />
+
+  <!-- Sub-menus -->
+  <menuitem name="zatca-invoices" parent="zatca-root" order="10" title="ZATCA Invoices Log" icon="fa-file-text-o" action="zatca.invoice.log.all" />
+  <menuitem name="zatca-b2b" parent="zatca-root" order="20" title="Tax Invoices (B2B Clearance)" icon="fa-building" action="zatca.invoice.b2b" />
+  <menuitem name="zatca-b2c" parent="zatca-root" order="30" title="Simplified Invoices (B2C Reporting)" icon="fa-shopping-cart" action="zatca.invoice.b2c" />
+  
+  <menuitem name="zatca-config-menu" parent="zatca-root" order="90" title="ZATCA Integration Config" icon="fa-cogs" action="zatca.config.all" />
+
+  <!-- Actions -->
+  <action-view name="zatca.invoice.log.all" title="ZATCA Invoices Log" model="com.axelor.apps.zatca.einvoice.db.ZatcaInvoiceLog">
+    <view type="grid" name="zatca-invoice-log-grid" />
+    <view type="form" name="zatca-invoice-log-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="zatca.invoice.b2b" title="Tax Invoices (B2B Clearance)" model="com.axelor.apps.zatca.einvoice.db.ZatcaInvoiceLog">
+    <view type="grid" name="zatca-invoice-log-grid" />
+    <view type="form" name="zatca-invoice-log-form" />
+    <domain>self.company = :activeCompany AND self.invoiceTypeSelect in (1, 3, 4)</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="zatca.invoice.b2c" title="Simplified Invoices (B2C Reporting)" model="com.axelor.apps.zatca.einvoice.db.ZatcaInvoiceLog">
+    <view type="grid" name="zatca-invoice-log-grid" />
+    <view type="form" name="zatca-invoice-log-form" />
+    <domain>self.company = :activeCompany AND self.invoiceTypeSelect = 2</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+  <action-view name="zatca.config.all" title="ZATCA Integration Config" model="com.axelor.apps.zatca.einvoice.db.ZatcaConfig">
+    <view type="grid" name="zatca-config-grid" />
+    <view type="form" name="zatca-config-form" />
+    <domain>self.company = :activeCompany</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany" />
+  </action-view>
+
+</object-views>

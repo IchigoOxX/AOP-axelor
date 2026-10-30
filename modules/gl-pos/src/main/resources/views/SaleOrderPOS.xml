@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid model="com.axelor.apps.sale.db.SaleOrder" title="POS Orders" name="pos-sale-order-grid">
+    <field name="saleOrderSeq" />
+    <field name="store" />
+    <field name="clientPartner" />
+    <field name="statusSelect" />
+    <field name="totalAmount" />
+    <field name="discountAmount" />
+    <field name="loyaltyPointsEarned" />
+  </grid>
+
+  <form model="com.axelor.apps.sale.db.SaleOrder" title="POS Order" name="pos-sale-order-form" width="large">
+    <panel title="Order Info">
+      <field name="saleOrderSeq" />
+      <field name="store" />
+      <field name="clientPartner" />
+      <field name="statusSelect" />
+    </panel>
+    <panel title="POS Details" colSpan="12">
+      <field name="itemsCount" />
+      <field name="discountAmount" />
+      <field name="discountPercentage" />
+      <field name="couponCode" />
+      <field name="loyaltyPointsEarned" />
+    </panel>
+    <panel title="Financials" colSpan="12">
+      <field name="exTaxTotal" />
+      <field name="taxTotal" />
+      <field name="inTaxTotal" />
+    </panel>
+  </form>
+
+</object-views>

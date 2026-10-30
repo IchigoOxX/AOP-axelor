@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="Breed">
+    <one-to-many name="startBreedingGuideList" ref="StartBreedingGuide"
+      title="Start Breeding Guide" mappedBy="breed"/>
+
+    <one-to-many name="productionGuideList" ref="ProductionGuide"
+      title="Production guide" mappedBy="breed"/>
+
+    <one-to-many name="broilerGuideList" ref="BroilerGuide" title="Broiler guide"
+      mappedBy="breed"/>
+
+    <string name="breedRef" title="Reference" required="true" unique="true"/>
+    <string name="name" title="Name" required="true"/>
+    <integer name="depletionAge" title="Depletion age"/>
+    <integer name="eggsNumber" title="Eggs number"/>
+    <integer name="incubateEggsNumber" title="Incubate eggs number"/>
+    <integer name="femaleAgeLayingStart" title="Female age laying start"/>
+    <decimal name="hatchingRate" title="Hatching rate"/>
+    <decimal name="peakRate" title="Peak rate"/>
+    <integer name="breedingPeriodMortality" title="Breeding period mortality"/>
+    <integer name="productionPeriodMortality" title="Production period mortality"/>
+    <integer name="broilerPeriodLength" title="Broiler period length"/>
+    <string name="note" title="Note" large="true" translatable="true"/>
+    <integer name="dayNumber" title="Day Number"
+      selection="poultryfarming.breed.day.number.select" required="true"/>
+
+    <string name="gender" title="Gender" default="null"
+             selection="poultryfarming.start.breeding.guide.gender.select" required="false"/>
+    <integer name="reformWeeks" title="Number of reform weeks"/>
+    <integer name="transferWeeks" title="Number of transfer weeks"/>
+
+    <finder-method name="ByReference" using="breedRef"/>
+
+    <extra-code>
+      <![CDATA[
+
+// BREED DAY NUMBER SELECT
+		public static final int DAY_NUMBER_DAYS = 0;
+		public static final int DAY_NUMBER_WEEK = 1;
+			]]>
+
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="breedRef"/>
+      <field name="name"/>
+      <field name="depletionAge"/>
+      <field name="eggsNumber"/>
+      <field name="incubateEggsNumber"/>
+      <field name="femaleAgeLayingStart"/>
+      <field name="hatchingRate"/>
+      <field name="peakRate"/>
+      <field name="breedingPeriodMortality"/>
+      <field name="productionPeriodMortality"/>
+      <field name="broilerPeriodLength"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+  </entity>
+
+</domain-models>

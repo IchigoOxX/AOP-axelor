@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.3.xsd">
+
+  <module name="studio" package="com.axelor.studio.db"/>
+
+  <entity name="AppRedmine" lang="java" cacheable="true">
+
+    <one-to-one ref="com.axelor.studio.db.App" name="app"/>
+    <string name="serverTimezone" title="Redmine/Easy Redmine server timezone"/>
+
+    <!-- REDMINE CONFIGURATION DETAILS -->
+    <string name="uri" title="URI"/>
+    <string name="apiAccessKey" title="Api Access Key"/>
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company"/>
+    <string name="redmineUsersStatus" title="Redmine/Easy Redmine users status"
+      selection="redmine.app.users.status"/>
+    <string name="onUsersFilter" title="Filters for users name/email"/>
+    <integer name="synchronisedWith" title="Synchronised with"
+      selection="redmine.app.synchronised.type.select"/>
+
+    <!-- REDMINE CUSTOM FIELD CONFIGURATION DETAILS -->
+    <string name="redmineProjectInvoiceable"/>
+    <string name="redmineProjectClientPartner"/>
+    <string name="redmineProjectInvoicingSequenceSelect"/>
+    <string name="redmineProjectAssignedTo"/>
+    <string name="redmineVersionDeliveryDate"/>
+    <string name="redmineIssueProduct"/>
+    <string name="redmineIssueDueDate"/>
+    <string name="redmineIssueEstimatedTime"/>
+    <string name="redmineIssueInvoiced"/>
+    <string name="redmineIssueAccountedForMaintenance"/>
+    <string name="redmineTimeSpentProduct"/>
+    <string name="redmineTimeSpentDurationForCustomer"/>
+    <string name="redmineIssueIsTaskAccepted"/>
+    <string name="redmineIssueIsOffered"/>
+    <string name="redmineIssueUnitPrice"/>
+    <string name="redmineTimeSpentDurationUnit"/>
+
+    <!-- REDMINE CUSTOM FIELD CONFIGURATION DEFAULT VALUES -->
+    <string name="redmineProjectClientPartnerDefault"/>
+    <string name="redmineProjectInvoicingSequenceSelectDefault"/>
+    <string name="redmineIssueProductDefault"/>
+    <date name="redmineIssueDueDateDefault"/>
+    <decimal name="redmineIssueEstimatedTimeDefault"/>
+    <string name="redmineTimeSpentProductDefault"/>
+    <decimal name="redmineIssueUnitPriceDefault"/>
+    <string name="redmineTimeSpentDurationUnitDefault"/>
+
+    <extra-code>
+      <![CDATA[
+          public static final int SYNCHRONISED_WITH_REDMINE = 1;
+          public static final int SYNCHRONISED_WITH_EASY_REDMINE = 2;
+	  ]]>
+    </extra-code>
+  </entity>
+
+</domain-models>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="incubators-loading-program-grid" title="Incubators loading programs" onNew="action-set-default-values-incubator-loading-program"
+          model="com.gl.apps.pf.db.IncubatorsLoadingProgram" orderBy="-creationDate"
+          edit-icon="true">
+        <hilite color="success" if="isValid"/>
+        <hilite color="default" if="!isValid"/>
+        <field name="reference"/>
+        <field name="hatchery" readonly="true"/>
+        <field name="creationDate" readonly="true"/>
+        <field name="isValid" hidden="true"/>
+    </grid>
+
+    <form id="incubators-loading-program-form" name="incubators-loading-program-form" title="Incubators loading program"
+          model="com.gl.apps.pf.db.IncubatorsLoadingProgram">
+        <panel title="Overview">
+            <panel colSpan="10">
+                <field name="reference" readonly="true" colSpan="3"/>
+                <field name="hatchery" colSpan="3" required="true"/>
+                <field name="creationDate" colSpan="3"/>
+                <field name="isValid" readonly="true" hideIf="id == null" colSpan="3"/>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                    <button name="validateBtn" title="Validate" prompt="Are you sure you want to validate this incubators loading programs ?"
+                            showIf="id!= null &amp;&amp; isValid == false" colSpan="12" icon="fa-check" css="btn-success"
+                            onClick="save,action-group-incubator-loading-program-validation"/>
+            </panel>
+        </panel>
+        <panel name="linesPanel" showIf="id != null">
+            <panel-related name="loadingProgramLinesListPanel" colSpan="12" field="loadingProgramLineList"
+                           form-view="incubators-loading-program-line-form"
+                           grid-view="incubators-loading-program-line-grid"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <cards name="incubators-loading-program-cards" css="rect-image" title="Loading of incubator trolleys" model="com.gl.apps.pf.db.IncubatorTrolleysCharging" orderBy="hatchery">
+        <field name="reference"/>
+        <field name="creationDate"/>
+        <field name="hatchery"/>
+
+        <field name="isValid"/>
+        <template><![CDATA[
+         <div class="span12">
+              <strong><span x-translate>Incubator program charging : </span> {{ reference }}</strong>
+
+          </div>
+          <div>
+            <div>
+             <div class="span8" style="margin-left:-1px;">
+              <i class="fa fa-building-o" aria-hidden="true"></i>
+              {{ hatchery.name }}
+            </div>
+            <div class="span8" style="margin-left:-1px;">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              {{ creationDate }}
+            </div>
+
+                <div class="span6" style="margin-left:-1px;">
+                      <h5>
+                         <span ng-show="isValid == 0" class="label label-default" style="background-color: #ec7575;" x-translate>Not validated</span>
+                         <span class="label label-success" ng-show="isValid == 1" x-translate>Validated</span>
+                      </h5>
+                </div>
+
+            </div>
+          </div>
+
+        ]]></template>
+    </cards>
+
+    <action-method name="action-incubators-loading-program-validate">
+        <call class="com.gl.apps.pf.web.IncubatorsLoadingProgramController" method="validate"/>
+    </action-method>
+
+    <action-validate name="action-incubators-loading-program-check-empty-list">
+        <error if="loadingProgramLineList.isEmpty()" message="You cannot validate ! loading program list is empty."/>
+    </action-validate>
+
+    <action-group name="action-group-incubator-loading-program-validation">
+        <action name="action-incubators-loading-program-check-empty-list"/>
+        <action name="action-incubators-loading-program-validate"/>
+    </action-group>
+
+    <action-record name="action-set-default-values-incubator-loading-program" model="com.gl.apps.pf.db.IncubatorTrolleysCharging">
+        <field name="creationDate" expr="eval: __datetime__"/>
+    </action-record>
+
+</object-views>

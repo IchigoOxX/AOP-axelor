@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<dashboard name="poultry.farming.hatchery.eggs.reception.dashboard.sample"
+    title="Hatchery Eggs Reception" width="large">
+    <!-- dashlet 1 -->
+    <dashlet height="350" colSpan="12"
+      action="dashlet.supplier.poultry.farming.hatchery.eggs.recepti.lot" canSearch="true"/>
+    <!-- dashlet 2 -->
+    <dashlet height="350" colSpan="12"
+      action="dashlet.poultry.farming.hatchery.eggs.reception" canSearch="true"/>
+  </dashboard>
+
+  <!-- dashlet1 -->
+  <action-view name="dashlet.supplier.poultry.farming.hatchery.eggs.recepti.lot"
+    title="Dashbord reception">
+    <view name="chart.poultry.farming.hatchery.eggs.recepti.lot" type="chart"/>
+  </action-view>
+  <chart name="chart.poultry.farming.hatchery.eggs.recepti.lot" title="Dashbord reception">
+
+    <search-fields>
+      <field name="startDate" title="From Date" type="date" x-required="true"/>
+      <field name="endDate" title="To Date" type="date" x-required="true"/>
+
+    </search-fields>
+
+    <dataset type="sql"><![CDATA[
+      SELECT
+   self.status as status,
+sum( self.daily_age) as daily_age,
+sum( self.weekly_age) as weekly_age,
+self.tracking_number as tracking_number
+
+    FROM
+poultryfarming_hatchery_eggs_reception as self
+
+WHERE
+  DATE(self.date_time) BETWEEN DATE(:startDate) AND
+    DATE(:endDate)
+
+    GROUP BY
+status , tracking_number
+
+  ]]></dataset>
+
+    <category key="status" type="text" title="status"/>
+    <series key="daily_age" type="bar" title="daily_age"/>
+
+  </chart>
+
+  <!-- dashlet2 -->
+  <action-view name="dashlet.poultry.farming.hatchery.eggs.reception"
+    model="com.gl.apps.pf.db.HatcheryEggsReception" title="Dashbord reception">
+    <view name="hatchery-eggs-reception-supplier-grid" type="grid"/>
+    <view name="hatchery-eggs-reception-form" type="form"/>
+  </action-view>
+
+  <grid name="hatchery-eggs-reception-supplier-grid" title="Invoices"
+    model="com.axelor.apps.account.db.Invoice" orderBy="-dateTime" edit-icon="true">
+    <menubar>
+      <menu name="hatcheryEggsReceptionReportsMenu" title="Reports" showTitle="true"
+        icon="fa-files-o">
+        <item name="printHatcheryEggsReception" title="Print Hatchery Eggs Reception"
+          action="action-invoice-method-show-invoice"/>
+      </menu>
+    </menubar>
+    <field name="reproProduction" width="120"/>
+    <field name="dateOfOrigin"/>
+    <field name="hatchery"/>
+    <field name="reference"/>
+    <field name="dateTime"/>
+    <field name="trackingNumber"/>
+    <field name="sumNumberOfHeTrays"/>
+    <field name="sumNumberOfHe"/>
+    <field name="sumReceivedNumberOfHeTrays"/>
+    <field name="sumReceivedNumberOfHe"/>
+    <button name="refreshEligibleTermsBtn" title="Refresh terms list"
+      onClick="action-method-payment-session-search-eligible-terms-poultry-farming-hatchery-eggs-reception"/>
+  </grid>
+
+</object-views>

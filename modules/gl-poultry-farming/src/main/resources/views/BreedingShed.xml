@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <grid name="breedingShed-grid" title="Breeding Shed" model="com.gl.apps.pf.db.BreedingShed"
+          onNew="action-group-init-breeding-shed" canEdit="false" orderBy="reference">
+        <field name="reference" onChange="action-record-set-name-breeding-shed"/>
+        <field name="type" canEdit="false" readonly="true" />
+        <field name="stockLocation" canNew="true" canEdit="true" canView="true"/>
+        <field name="status" title="Status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="orange" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+
+        <button  name="btnValidate" title="Activate" showIf="status == 0" icon="fa-solid fa-check"
+                 onClick="save,action-show-dialog-input-date"/>
+    </grid>
+
+    <form name="breedingShed-form" title="Breeding shed" model="com.gl.apps.pf.db.BreedingShed"
+          onLoad="action-group-init-breeding-shed"
+          onNew="action-group-init-breeding-shed"
+          onSave="action-breeding-shed-method-on-save">
+        <panel title="Breeding shed">
+            <panel colSpan="6">
+                <field name="reference" title="Reference" onChange="action-record-set-name-breeding-shed"/>
+            </panel>
+            <panel colSpan="2"/>
+            <panel colSpan="4">
+                <button name="status" colSpan="12" icon="fa-file-text"
+                        onClick="action-show-breeding-shed-status" widget="info-button" readonlyIf="id == null" />
+                <field name="status" hidden="true"/>
+            </panel>
+            <field name="name" title="Nom"/>
+            <field name="type" title="Type"/>
+            <field name="capacity" title="Capacity"/>
+            <field name="cagesNumber" title="Cages number" showIf="type==2" />
+            <field name="unit" title="Unit" required="true" canNew="true" canEdit="true" canView="true"/>
+            <field name="center" title="Center" required="true" canNew="true" canEdit="true" domain="(:unit is null OR self.unit = :unit) AND (:type is null OR self.type = :type)" onChange="action-attrs-breeding-shed-set-unit,action-breeding-shed-method-on-center-change"/>
+            <field name="stockLocation"
+                   canNew="true" canEdit="true" canView="true"
+                   form-view="stock-location-form"
+                   grid-view="stock-location-grid"/>
+
+        </panel>
+        <panel title="Silo capacity">
+            <field name="femalesSiloCapacity" title="Females Silo capacity" showIf="type==0 || type==1" colSpan="15"/>
+            <field name="malesSiloCapacity" title="Males silo capacity" showIf="type==0 || type==1 || type==2" colSpan="15"/>
+        </panel>
+        <panel title="Responsible" showTitle="false" colSpan="10">
+            <panel-related title="Responsible" colSpan="50" css="center" field="responsibles" form-view="user-BreedingShed-form" grid-view="user-BreedingShed-grid" canSelect="true" canNew="false" canEdit="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+    <cards name="breedingSheds-cards" title="Breeding shed" css="rect-image" model="com.gl.apps.pf.db.BreedingShed" width="440px" orderBy="type">
+        <field name="reference"/>
+        <field name="name"/>
+        <field name="type"/>
+        <field name="capacity"/>
+        <field name="femalesSiloCapacity"/>
+        <field name="malesSiloCapacity"/>
+        <field name="center"/>
+        <field name="stockLocation"/>
+        <field name="status"/>
+        <template><![CDATA[
+  <div class="span12">
+        <strong><span x-translate>Breeding shed : </span> {{ name }}</strong>
+        <a class="pull-right muted">{{ $fmt('reference') }}</a>
+    </div>
+    <div>
+      <div>
+          <div class="span8">
+            <i class="fa fa-columns" aria-hidden="true"></i><strong> <span x-translate>Center : </span></strong>
+            {{ center.name }}
+          </div>
+           <div class="span8" style="margin-left:0px;">
+            <i class="fa fa-map-marker" aria-hidden="true"></i><strong> <span x-translate>Location : </span></strong>
+            {{ stockLocation.name }}
+          </div>
+           <div class="span8" style="margin-left:0px;">
+            <i class="fa fa-check" aria-hidden="true"></i><strong> <span x-translate>Capacity : </span></strong>
+            {{ capacity }}
+          </div>
+          <div class="span8" style="margin-left:0px;">
+            <i class="fa fa-venus" aria-hidden="true"></i><strong> <span x-translate>Female silo : </span></strong>
+            {{ femalesSiloCapacity }}
+          </div>
+          <div class="span8" style="margin-left:0px;">
+            <i class="fa fa-mars" aria-hidden="true"></i><strong> <span x-translate>Male silo : </span></strong>
+            {{ malesSiloCapacity }}
+          </div>
+      </div>
+          <div class="span6" style="margin-left:0px;">
+                <h5>
+                    <span ng-show="type == 0" class="label label-default" style="background-color: #ec7575;" x-translate>Startup</span>
+                     <span ng-show="type == 1" class="label label-default" style="background-color: #f28f16;" x-translate>Reproduction</span>
+                     <span ng-show="type == 2" class="label label-default" style="background-color: #7fd3f7;" x-translate>Boiler</span>
+
+                    <span class="label label-default" ng-show="status == 0" x-translate>Closed</span>
+                    <span class="label label-success" ng-show="status == 1" x-translate>Activated</span>
+                    <span class="label label-warning" ng-show="status == 2" x-translate>Busy</span>
+                    <span class="label label-important" ng-show="status == 3" x-translate>Stopped</span>
+                </h5>
+          </div>
+      <div>
+    </div>
+  ]]></template>
+    </cards>
+
+
+    <form name="breeding-shed-dialog-form" title="Breeding shed activation" model="com.gl.apps.pf.db.BreedingShed"
+          onNew="action-set-default-date-breeding-shed">
+        <panel>
+            <field name="activationDate" colSpan="6"/>
+            <button name="btnActivate" title="Activate" prompt="Are you sure you want to activate this breeding shed ?"
+                    onClick="action-breeding-shed-method-change-status-to-activated,close" confirm="false"
+                    css="btn-success" icon="fa-check" target="none"/>
+        </panel>
+    </form>
+
+    <form name="breeding-shed-dialog-form-stop" title="Breeding shed stopping" model="com.gl.apps.pf.db.BreedingShed"
+          onNew="action-set-default-date-stop-breeding-shed">
+        <panel>
+            <field name="stoppedDate" colSpan="6"/>
+            <button name="btnStop" title="Stop" onClick="action-breeding-shed-method-change-status-to-stopped,close"
+                    prompt="Are you sure you want to stop this breeding shed ?" css="btn-warning" icon="fa-stop"
+                    confirm="false" style="primary" target="none"/>
+        </panel>
+    </form>
+
+
+
+    <action-view name="action-show-dialog-input-date" model="com.gl.apps.pf.db.BreedingShed" title="activation">
+        <view name="breeding-shed-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+    </action-view>
+
+    <action-view name="action-show-dialog-input-date-stop" model="com.gl.apps.pf.db.BreedingShed" title="Stop">
+        <view name="breeding-shed-dialog-form-stop" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+    </action-view>
+
+    <action-record name="action-set-default-date-breeding-shed"
+                   model="com.gl.apps.pf.db.BreedingShed" >
+        <field name="activationDate" expr="eval: __datetime__"/>
+    </action-record>
+    <action-record name="action-set-default-date-stop-breeding-shed"
+                   model="com.gl.apps.pf.db.BreedingShed" >
+        <field name="stoppedDate" expr="eval: __datetime__"/>
+    </action-record>
+    <action-method name="action-breeding-shed-method-change-status-to-activated">
+        <call class="com.gl.apps.pf.web.BreedingShedController"
+              method="ActivateBrShed"/>
+    </action-method>
+
+    <action-method name="action-breeding-shed-method-change-status-to-stopped">
+        <call class="com.gl.apps.pf.web.BreedingShedController"
+              method="StopBreedingShed"/>
+    </action-method>
+
+
+    <grid name="user-BreedingShed-grid" title="Users list"
+          model="com.axelor.auth.db.User" edit-icon="true">
+        <field name="name"/>
+        <field name="fullName"/>
+        <field name="activeCompany" form-view="company-form" grid-view="company-grid"/>
+        <field name="group" form-view="group-form" grid-view="group-grid"/>
+        <field name="blocked"/>
+        <field name="activateOn"/>
+        <field name="expiresOn"/>
+    </grid>
+
+    <form name="user-BreedingShed-form" title="User" model="com.axelor.auth.db.User">
+        <panel name="stepOverviewPanel" title="Overview" colSpan="12">
+            <field name="name" placeholder="user name"/>
+            <field name="code" placeholder="login name"/>
+            <field name="group" placeholder="user group"/>
+            <field name="email" showIf="!$readonly() || ($readonly() &amp;&amp; email != null)" widget="Email"/>
+            <field name="activeCompany" form-view="company-form" grid-view="company-grid"/>
+        </panel>
+    </form>
+
+    <form name="breeding-shed-status-form" title="Breeding shed status and details" model="com.gl.apps.pf.db.BreedingShed">
+        <panel showTitle="false" colSpan="12" >
+            <panel showTitle="false" colSpan="8"  readonlyIf="$isReadOnly">
+                <field name="unit" title="Unit"/>
+                <field name="center" title="Center" domain="self.unit = :unit"/>
+                <field name="status" title="Status"/>
+                <field name="reference" title="N°"/>
+                <field name="fillingDate" title="Filling date"/>
+                <field name="currentBatchNumber" title="Current batch number"/>
+                <field name="malesNumber" title="Males number" showIf="self.malesNumber > 0"/>
+                <field name="femalesNumber" title="Females number" showIf="self.femalesNumber  > 0"/>
+                <field name="dailyAge" title="Daily age"/>
+                <field name="weeklyAge" title="Weekly age"/>
+            </panel>
+            <panel showTitle="false" colSpan="4">
+                <button name="btnTechnicalSheet" title="Daily technical sheet" label="Technical Sheet" icon="fa-window-restore" css="btn-warning" showIf="status == 2" colSpan="12" onClick="action-start-technical-sheet-for-breeding-shed,close"/>
+                <button name="btnValidate" title="Activate" showIf="status == 0" css="btn-success" icon="fa-check"  label="Activate" onClick="action-show-dialog-input-date" colSpan="12" style="success" />
+                <button name="btnStop" title="Stop" showIf="status == 2" css="btn-danger" icon="fa-times" label="Stop" onClick="action-show-dialog-input-date-stop" colSpan="12" style="danger"/>
+                <button name="btnClose" showIf="status == 3" title="Close"
+                        prompt="Are you sure to close this breeding shed ?" confirm="false"
+                        icon="fa-times" css="btn-warning" target="none"
+                        onClick="action-show-dialog-input-date-close" colSpan="12" style="danger"/>
+            </panel>
+        </panel>
+    </form>
+
+    <action-group name="action-group-init-breeding-shed">
+        <action name="action-record-init-breeding-shed"/>
+        <action name="action-attrs-init-breeding-shed"/>
+        <action name="action-breeding-shed-method-on-new"/>
+    </action-group>
+
+    <action-method name="action-breeding-shed-method-on-new">
+        <call class="com.gl.apps.pf.web.BreedingShedController" method="onNew"/>
+    </action-method>
+
+    <action-method name="action-breeding-shed-method-on-center-change">
+        <call class="com.gl.apps.pf.web.BreedingShedController" method="onCenterChange"/>
+    </action-method>
+
+    <action-method name="action-breeding-shed-method-on-save">
+        <call class="com.gl.apps.pf.web.BreedingShedController" method="onSave"/>
+    </action-method>
+
+    <action-record name="action-record-init-breeding-shed" model="com.gl.apps.pf.db.BreedingShed">
+        <field if="__parent__ != null" name="center" expr="eval: __parent__"/>
+        <field if="__parent__ != null" name="unit" expr="eval: __parent__?.unit"/>
+        <field if="__parent__ != null" name="type" expr="eval: __parent__?.type"/>
+        <field if="unit == null &amp;&amp; center != null" name="unit" expr="eval: center?.unit"/>
+        <field if="unit == null &amp;&amp; __user__.activeCompany?.companyDepartmentList" name="unit" expr="eval: __user__.activeCompany?.companyDepartmentList?[0]"/>
+    </action-record>
+
+    <action-attrs name="action-attrs-init-breeding-shed" model="com.gl.apps.pf.db.BreedingShed">
+        <attribute  if="__parent__ != null" name="readonly" expr="eval: true" for="center"/>
+        <attribute  if="__parent__ != null" name="readonly" expr="eval: true" for="unit"/>
+        <attribute  if="__parent__ != null" name="readonly" expr="eval: true" for="type"/>
+    </action-attrs>
+
+    <action-record name="action-record-set-name-breeding-shed" model="com.gl.apps.pf.db.BreedingShed">
+        <field if="name == null" name="name" expr="eval: reference"/>
+    </action-record>
+
+    <action-view name="action-show-breeding-shed-status"
+                 model="com.gl.apps.pf.db.BreedingShed"
+                 title="Breeding shed status and details: (${ reference })">
+        <view name="breeding-shed-status-form" type="form"/>
+        <view name="breedingShed-grid" type="grid"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="show-toolbar" value="false"/>
+        <context name="_showRecord" expr="eval: __self__.id"/>
+        <context name="$isReadOnly" expr="true"/>
+    </action-view>
+    <action-view name="action-start-technical-sheet-for-breeding-shed"
+                 model="com.gl.apps.pf.db.StartTechnicalSheet" title="Technical sheet">
+        <view name="start-technical-sheet-grid" type="grid" />
+        <view name="start-technical-sheet-form" type="form"/>
+        <domain>self.id = :_id </domain>
+        <context name="_id" expr="eval: __self__.id"/>
+    </action-view>
+
+    <action-attrs name="action-attrs-breeding-shed-set-unit" model="com.gl.apps.pf.db.BreedingShed">
+        <attribute  if="center != null" name="value" expr="eval: center.unit" for="unit"/>
+    </action-attrs>
+</object-views>

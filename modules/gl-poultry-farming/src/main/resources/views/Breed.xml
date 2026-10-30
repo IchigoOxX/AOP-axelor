@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="breed-grid" title="Breed" model="com.gl.apps.pf.db.Breed">
+    <field name="breedRef"/>
+    <field name="name"/>
+  </grid>
+
+
+
+  <action-method name="action-generate-breed-guids">
+    <call method="GenerateBreedGuides"
+      class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-generate-broiler-guids">
+    <call method="GenerateBroilerGuides"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-generate-production-guids">
+    <call method="GenerateProductionGuide"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <form name="breed-form" title="Breed" model="com.gl.apps.pf.db.Breed" onSave="save,action-method-breed-calculate-values,save"
+    width="large" >
+    <toolbar>
+    <button name="generationGuidesMenu" title="Generate guides"
+            icon="fa-undo" onClick="action-generate-breed-guids,action-generate-broiler-guids,action-generate-production-guids"/>
+    </toolbar>
+
+    <panel name="main">
+      <field name="breedRef"/>
+      <field name="name"/>
+      <field name="depletionAge"/>
+      <field name="eggsNumber"/>
+      <field name="incubateEggsNumber"/>
+      <field name="femaleAgeLayingStart"/>
+      <field name="hatchingRate"/>
+      <field name="peakRate"/>
+      <field name="breedingPeriodMortality"/>
+      <field name="productionPeriodMortality"/>
+      <field name="broilerPeriodLength"/>
+    </panel>
+    <panel name="secondPanel">
+      <field name="reformWeeks"/>
+      <field name="transferWeeks"/>
+    </panel>
+    <panel-tabs name="mainPanelTab">
+      <panel name="startBreedingGuidePanel" title="Start breeding guide">
+        <field name="" colSpan="9"/>
+        <field name="gender" colSpan="3" onChange="action-method-breed-filter-by-gender"/>
+        <panel-related name="startBreedingGuide" colSpan="12"
+          field="startBreedingGuideList"
+                       form-view="setting-start-breeding-guide-form"
+          grid-view="setting-start-breeding-guide-grid" editable="true" orderBy="dayNumber"
+          canNew="false" canDelete="false"  />
+
+      </panel>
+      <panel name="productionGuidePanel" title="Production guide">
+
+        <panel-related name="productionGuide" colSpan="12" field="productionGuideList"
+          form-view="setting-production-guide-form"
+          grid-view="setting-production-guide-grid" editable="true" orderBy="dayNumber"
+          canNew="false" canDelete="false"/>
+      </panel>
+
+
+      <panel name="broilerGuidePanel" title="Broiler guide">
+        <panel-related name="broilerGuidePanel" colSpan="12" field="broilerGuideList"
+          form-view="setting-broiler-guide-form" grid-view="setting-broiler-guide-grid"
+          editable="true" orderBy="dayNumber" canNew="false" canDelete="false"/>
+      </panel>
+    </panel-tabs>
+
+    <panel name="notePanel" title="Note" colSpan="12">
+      <field name="note" showTitle="false" colSpan="12" height="200" widget="html"/>
+    </panel>
+
+    <panel-mail name="mailPanel">
+      <mail-messages limit="4"/>
+      <mail-followers/>
+    </panel-mail>
+  </form>
+  <!--START [View configuration Start breeding parameters] -->
+  <form name="start-breeding-parameters-form" title="Start breeding parameters"
+    model="com.gl.apps.pf.db.StartBreedingGuide">
+    <panel name="main">
+      <panel name="main">
+
+        <field name="breed" title="Breed" colSpan="20"/>
+      </panel>
+      <panel name="main">
+
+        <field name="gender" title="Gender" colSpan="10"/>
+        <field name="dayNumber" title="Period" colSpan="10"/>
+      </panel>
+    </panel>
+
+    <panel-tabs name="mainPanelTab">
+      <panel name="startBreedingGuidePanel" title="Start breeding guide">
+        <panel-related name="startBreedingGuide" colSpan="12"
+          field="startBreedingGuideList" form-view="setting-start-breeding-guide-form"
+          grid-view="setting-start-breeding-guide-grid" editable="true" orderBy="dayNumber"
+          canNew="false" canDelete="false"/>
+      </panel>
+    </panel-tabs>
+  </form>
+
+  <form name="setting-start-breeding-guide-form" title="Start breeding guide"
+    model="com.gl.apps.pf.db.StartBreedingGuide">
+    <panel title="Overview">
+      <field name="weekNumber" readonly="true"/>
+      <field name="dayNumber" readonly="true"/>
+      <field name="theoreticalWeight" onChange="action-method-breed-calculate-values-start-breeding-guide-list"/>
+      <field name="theoreticalWeightGain" readonly="true"/>
+      <field name="dailyGainRate" onChange="action-method-breed-calculate-daily-gain-rate-start-breeding-guide-list"/>
+      <field name="weeklyGainRate" readonly="true"/>
+    </panel>
+  </form>
+
+  <grid name="setting-start-breeding-guide-grid" title="Start breeding guides"
+        model="com.gl.apps.pf.db.StartBreedingGuide" customSearch="true" edit-icon="true">
+    <field name="breed" hidden="true"/>
+    <field name="gender"  readonly="true"/>
+    <field name="weekNumber"  readonly="true"/>
+    <field name="dayNumber" title="Day number"/>
+    <field name="theoreticalWeight" onChange="action-method-breed-calculate-values-start-breeding-guide-list"/>
+    <field name="theoreticalWeightGain" readonly="true"/>
+    <field name="dailyGainRate" onChange="action-method-breed-calculate-daily-gain-rate-start-breeding-guide-list"/>
+    <field name="weeklyGainRate" readonly="true"/>
+  </grid>
+
+  <action-view name="action-sart-breeding-parameters"
+    model="com.gl.apps.pf.db.StartBreedingGuide" title="Start breeding parameters">
+
+    <view name="start-breeding-parameters-form" type="form"/>
+  </action-view>
+
+  <!--END [View configuration Start breeding parameters] -->
+
+  <!--START [View configuration Production Parameters] -->
+  <form name="production-parameters-form" title="Production Parameters"
+    model="com.gl.apps.pf.db.Breed">
+
+    <panel name="main">
+      <field name="breed" title="Breed" colSpan="7"/>
+
+      <field name="dayNumber" title="Period in" colSpan="3"/>
+    </panel>
+    <panel-tabs name="mainPanelTab">
+      <panel name="startBreedingGuidePanel" title="Start breeding guide">
+        <panel-related name="productionGuide" colSpan="12" field="productionGuideList"
+          form-view="setting-production-guide-form" grid-view="setting-production-guide-grid"
+          editable="true" orderBy="dayNumber" canNew="false" canDelete="false"/>
+      </panel>
+    </panel-tabs>
+
+  </form>
+
+  <form name="setting-production-guide-form" title="Production guide"
+    model="com.gl.apps.pf.db.ProductionGuide">
+    <panel title="Overview">
+      <field name="dailyAge" title="Daily age"/>
+      <field name="weeklyAge" title="Weekly age"/>
+      <field name="weekNumber" title="Week number"/>
+      <field name="hatchingRate" title="Hatching rate" onChange="action-method-breed-calculate-values-repro-guide-list"/>
+      <field name="weeklyEggsQuantity" title="Weekly eggs quantity" onChange="action-method-test"/>
+      <field name="incubateEggsNumber" title="Incubate eggs number" onChange="action-method-test2"/>
+      <field name="unitQtyEggsAtStartup" title="Unit qty eggs at startup" onChange="action-method-test3"/>
+      <field name="eggsQtyByFemalePresent" title="Eggs qty by female present" onChange="action-method-test4"/>
+      <field name="hatchingEggsRate" title="Hatching eggs rate" onChange="action-method-test5"/>
+      <field name="eggWeight" title="Egg weight" onChange="action-method-test6"/>
+      <field name="eggMass" title="Egg mass" onChange="action-method-test7"/>
+    </panel>
+  </form>
+
+  <grid name="setting-production-guide-grid" title="Production guide"
+    model="com.gl.apps.pf.db.ProductionGuide">
+    <field name="dayNumber" title="Day number" readonly="true"/>
+    <field name="ageInDays" title="Age in days"/>
+    <field name="ageInWeeks" title="Age in weeks"/>
+    <field name="weekNumber" title="Week number"/>
+    <field name="hatchingRate" title="Hatching rate" onChange="action-method-breed-calculate-values-repro-guide-list"/>
+    <field name="weeklyEggsQuantity" title="Weekly eggs quantity" onChange="action-method-test"/>
+    <field name="incubateEggsNumber" title="Incubate eggs number" onChange="action-method-test2"/>
+    <field name="unitQtyEggsAtStartup" title="Unit qty eggs at startup" onChange="action-method-test3"/>
+    <field name="eggsQtyByFemalePresent" title="Eggs qty by female present" onChange="action-method-test4"/>
+    <field name="hatchingEggsRate" title="Hatching eggs rate" onChange="action-method-test5"/>
+    <field name="eggWeight" title="Egg weight" onChange="action-method-test6"/>
+    <field name="eggMass" title="Egg mass" onChange="action-method-test7"/>
+  </grid>
+
+  <action-view name="action-production-parameters"
+    model="com.gl.apps.pf.db.Breed" title="Production parameters">
+
+    <view name="production-parameters-form" type="form"/>
+  </action-view>
+  <!--END [View configuration Production Parameters] -->
+
+  <!--START [View configuration Breeding Parameters] -->
+  <form name="breeding-parameters-form" title="Breeding Parameters"
+    model="com.gl.apps.pf.db.BroilerGuide">
+
+    <panel name="main">
+      <field name="breed" title="Breed"/>
+
+    </panel>
+    <panel-tabs name="mainPanelTab">
+      <panel name="broilerGuidePanel" title="Broiler guide">
+        <panel-related name="broilerGuidePanel" colSpan="12" field="broilerGuideList"
+          form-view="setting-broiler-guide-form" grid-view="setting-broiler-guide-grid"
+          editable="true" orderBy="dayNumber" canNew="false" canDelete="false"/>
+      </panel>
+    </panel-tabs>
+
+  </form>
+
+  <form name="setting-broiler-guide-form" title="Broiler guide"
+    model="com.gl.apps.pf.db.BroilerGuide">
+    <panel title="Overview">
+      <field name="dayNumber"/>
+      <field name="weight" onChange="action-method-breed-calculate-values-boiler-breeding-guide-list"/>
+      <field name="dailyGainRate"/>
+      <field name="averageDailyGainRate"/>
+      <field name="dailyConsumption" onChange="action-method-breed-calculate-consumption-boiler-guide-list"/>
+      <field name="cumulativeConsumption"/>
+      <field name="iCIndicator" onChange="action-method-breed-calculate-ic-indicator-boiler-guide-list"/>
+      <field name="setTemperature" onChange="action-method-breed-calculate-temp-boiler-guide-list"/>
+    </panel>
+  </form>
+
+  <grid name="setting-broiler-guide-grid"
+        title="Broiler guides"
+        model="com.gl.apps.pf.db.BroilerGuide" edit-icon="true">
+    <field name="dayNumber" readonly ="true"/>
+    <field name="weight" onChange="action-method-breed-calculate-values-boiler-breeding-guide-list"/>
+    <field name="dailyGainRate" readonly ="true"/>
+    <field name="averageDailyGainRate" readonly ="true"/>
+    <field name="dailyConsumption" onChange="action-method-breed-calculate-consumption-boiler-guide-list"/>
+    <field name="cumulativeConsumption" readonly ="true"/>
+    <field name="iCIndicator" onChange="action-method-breed-calculate-ic-indicator-boiler-guide-list"/>
+    <field name="setTemperature" onChange="action-method-breed-calculate-temp-boiler-guide-list"/>
+  </grid>
+
+
+  <action-view name="action-breeding-parameters"
+    model="com.gl.apps.pf.db.BroilerGuide" title="Breeding parameters">
+
+    <view name="breeding-parameters-form" type="form"/>
+  </action-view>
+
+  <!--END [View configuration Breeding Parameters] -->
+  <action-attrs name="action-breed-filter-start-breeding-guide">
+    <attribute for="startBreedingGuideList"
+               name="domain"
+               expr="__repo__(StartBreedingGuide).all().filter('self.gender = ?1', __this__, :gender)"/>
+  </action-attrs>
+
+  <action-method name="action-method-breed-filter-by-gender">
+    <call method="filterBreedingStartGuide"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-values">
+    <call method="CalculateValuesBreed"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-values-start-breeding-guide-list">
+    <call method="CalculateValuesBreedStartBreedingGuideList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-daily-gain-rate-start-breeding-guide-list">
+    <call method="CalculateValuesDailyGainRateStartBreedingGuideList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-values-boiler-breeding-guide-list">
+    <call method="CalculateValuesBroilerGuidePanelList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-values-repro-guide-list">
+    <call method="CalculateHatchingRateProductionList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-consumption-boiler-guide-list">
+    <call method="CalculateConsumptionValuesBroilerGuideList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-ic-indicator-boiler-guide-list">
+    <call method="CalculateiCIndicatorValuesBroilerGuideList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-temp-boiler-guide-list">
+    <call method="CalculateTempValuesBroilerGuideList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-weekly-age-qty-repro-guide-list">
+    <call method="CalculateWeeklyEggsQuantityProductionList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-incub-eggs-repro-guide-list">
+    <call method="CalculateIncubateEggsNumberProductionList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-unit-qty-eggs-repro-guide-list">
+    <call method="CalculateunitQtyEggsAtStartupProductionList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-breed-calculate-egg-qty-female-present-repro-guide-list">
+    <call method="CalculateEggsQtyByFemalePresentProductionList"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test">
+    <call method="Test"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test2">
+    <call method="Test2"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test3">
+    <call method="Test3"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test4">
+    <call method="Test4"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test5">
+    <call method="Test5"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test6">
+    <call method="Test6"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+
+  <action-method name="action-method-test7">
+    <call method="Test7"
+          class="com.gl.apps.pf.web.BreedController"/>
+  </action-method>
+</object-views>

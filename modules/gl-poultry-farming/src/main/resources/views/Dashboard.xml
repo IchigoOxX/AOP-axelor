@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<form name="dashboard-form" title="Dashboard" model="com.gl.apps.pf.db.Dashboard" width="large" onNew="action-set-default-values-dates-principal-dashboard">
+    <panel-tabs name="mainPanelTab">
+        <panel title="Aliments">
+            <panel colSpan="12" showTitle="false">
+                <field name="productCategory" title="Product category" required="true" type="many-to-one" target-name="name" colSpan="3" x-target="com.axelor.apps.base.db.ProductCategory"/>
+                <field name="stockLocation" title="Stock location" required="true" type="many-to-one" target-name="name" colSpan="3" x-target="com.axelor.apps.stock.db.StockLocation"/>
+                <field name="firstUnit" title="Unit (Department)"
+                       onSelect="action-attrs-company-unit-domain" required="true"
+                       target-name="name" colSpan="3"/>
+                <button name="Fetch" title="Dashboard" icon="fa-refresh" css="btn-primary" colSpan="2"
+                        onClick="action-group-aliments-dashboard-fetch-button"/>
+                <field name="firstStartDate" required="true" type="date" colSpan="3" title="Start date"/>
+                <field name="firstEndDate" required="true" type="date" colSpan="3" title="End date"/>
+
+            </panel>
+            <panel-related name="alimentsStockListPanel" title="Aliments" colSpan="12"
+                           field="alimentsStockList"
+                           grid-view="dashboard-aliments-grid"
+                           form-view="dashboard-aliments-form"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+
+        <panel title="Total eggs per center">
+            <panel colSpan="12" showTitle="false">
+                <field name="secondUnit" title="Unit (Department)"
+                       onSelect="action-attrs-company-unit-domain" required="true"
+                       target-name="name" colSpan="3"/>
+                <field name="secondStartDate" required="true" type="date" colSpan="3" title="Start date"/>
+                <field name="secondEndDate" required="true" type="date" colSpan="3" title="End date"/>
+
+                <button name="Fetch" title="Dashboard" icon="fa-refresh" css="btn-success" colSpan="2"
+                        onClick="action-group-eggs-per-center-dashboard-fetch-button"/>
+
+            </panel>
+            <panel-related name="eggsPerCenterListPanel" title="Total eggs per center" colSpan="12"
+                           field="eggsPerCenterList"
+                           grid-view="eggs-per-center-dashboard-grid"
+                           form-view="eggs-per-center-dashboard-form"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+
+        <panel title="Total eggs per breeding shed">
+            <panel colSpan="12" showTitle="false">
+                <field name="thirdUnit" title="Unit (Department)"
+                       onSelect="action-attrs-company-unit-domain" required="true"
+                       target-name="name" colSpan="3"/>
+                <field name="thirdStartDate" required="true" type="date" colSpan="3" title="Start date"/>
+                <field name="thirdEndDate" required="true" type="date" colSpan="3" title="End date"/>
+                <button name="Fetch" title="Dashboard" icon="fa-check-circle" css="btn-info" colSpan="2"
+                        onClick="action-group-eggs-per-breeding-shed-dashboard-fetch-button"/>
+
+            </panel>
+            <panel-related name="eggsPerBreedingShedListPanel" title="Total eggs per breeding shed" colSpan="12"
+                           field="eggsPerBreedingShedList"
+                           grid-view="eggs-per-breeding-shed-dashboard-grid"
+                           form-view="eggs-per-breeding-shed-dashboard-form"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+
+        <panel title="Total eggs per center/tracking number">
+            <panel colSpan="12" showTitle="false">
+                <field name="fourthUnit" title="Unit (Department)" onSelect="action-attrs-company-unit-domain"
+                       required="true" target-name="name" colSpan="3"/>
+                <field name="fourthStartDate" required="true" type="date" colSpan="3" title="Start date"/>
+                <field name="fourthEndDate" required="true" type="date" colSpan="3" title="End date"/>
+                <button name="Fetch" title="Dashboard" icon="fa-check" css="btn-warning" colSpan="2"
+                        onClick="action-group-eggs-per-center-tracking-number-dashboard-fetch-button"/>
+
+            </panel>
+            <panel-related name="eggsPerCenterPerTrackingNumberListPanel" title="Total eggs per center/tracking number" colSpan="12"
+                           field="eggsPerCenterPerTrackingNumberList"
+                           grid-view="eggs-per-center-tracking-number-dashboard-grid"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+
+        <panel title="Chicks">
+            <panel colSpan="12" showTitle="false">
+                <field name="fifthUnit" title="Unit (Department)" onSelect="action-attrs-company-unit-domain"
+                       required="true" target-name="name" colSpan="3"/>
+                <field name="fifthStartDate" required="true" type="date" colSpan="3" title="Start date"/>
+                <field name="fifthEndDate" required="true" type="date" colSpan="3" title="End date"/>
+                <button name="Fetch" title="Dashboard" icon="fa-check" css="btn-danger" colSpan="2"
+                        onClick="action-group-chicks-dashboard-fetch-button"/>
+            </panel>
+            <panel-related name="chicksProductionSalesListPanel" title="Chicks" colSpan="12"
+                           field="chicksProductionSalesList"
+                           grid-view="dashboard-chicks-grid"
+                           form-view="dashboard-chicks-form"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel title="Consumption ">
+            <panel colSpan="12" showTitle="false">
+                <field name="sixthProductCategory" title="Product category" required="true" type="many-to-one" target-name="name" colSpan="3" x-target="com.axelor.apps.base.db.ProductCategory"/>
+                <field name="sixthUnit" title="Unit (Department)"
+                       onSelect="action-attrs-company-unit-domain" required="true"
+                       target-name="name" colSpan="3"/>
+                <field name="sixthCenter" title="Center" domain="self.unit = :sixthUnit" required="true" type="many-to-one" target-name="name" colSpan="3" x-target="com.gl.apps.pf.db.Center"/>
+<!--                <field name="sixthBreedingShed" title="Breeding shed" required="true" type="many-to-one" target-name="name" colSpan="2" x-target="com.gl.apps.pf.db.BreedingShed"/>-->
+
+                <button name="Fetch" title="Dashboard" icon="fa-refresh" css="btn-primary" colSpan="3"
+                        onClick="action-method-fetch-consumption-dashboard"/>
+
+                <field name="sixthStartDate" required="true" type="date" colSpan="3" title="Start date"/>
+                <field name="sixthEndDate" required="true" type="date" colSpan="3" title="End date"/>
+
+            </panel>
+            <panel-related name="productConsumptionListPanel" title="Consumption " colSpan="12"
+                           field="productConsumptionList"
+                           grid-view="dashboard-consumption-grid"
+                           form-view="dashboard-consumption-form"
+                           editable="true" canNew="false" canRemove="false"/>
+        </panel>
+
+
+    </panel-tabs>
+</form>
+
+    <action-method name="action-method-fetch-eggs-per-center">
+        <call class="com.gl.apps.pf.web.DashboardController" method="getLinesEggsPerCenter"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-eggs-per-breeding-shed">
+        <call class="com.gl.apps.pf.web.DashboardController" method="getLinesEggsPerBreedingShed"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-eggs-per-tracking-number-center">
+        <call class="com.gl.apps.pf.web.DashboardController" method="getLinesEggsPerTrackingNumberCenter"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-chicks-dashboard">
+        <call class="com.gl.apps.pf.web.DashboardController" method="getLinesChicksProductionSales"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-aliments-dashboard">
+        <call class="com.gl.apps.pf.web.DashboardController" method="getLinesAliments"/>
+    </action-method>
+
+    <action-method name="action-method-fetch-consumption-dashboard">
+        <call class="com.gl.apps.pf.web.DashboardController" method="getLinesConsumption"/>
+    </action-method>
+
+
+    <action-record name="action-set-default-values-dates-principal-dashboard"  model="com.gl.apps.pf.db.Dashboard">
+        <field name="firstStartDate" expr="eval: __date__"/>
+        <field name="firstEndDate" expr="eval: __date__"/>
+        <field name="secondStartDate" expr="eval: __date__"/>
+        <field name="secondEndDate" expr="eval: __date__"/>
+        <field name="thirdStartDate" expr="eval: __date__"/>
+        <field name="thirdEndDate" expr="eval: __date__"/>
+        <field name="fourthStartDate" expr="eval: __date__"/>
+        <field name="fourthEndDate" expr="eval: __date__"/>
+        <field name="fifthStartDate" expr="eval: __date__"/>
+        <field name="fifthEndDate" expr="eval: __date__"/>
+        <field name="sixthStartDate" expr="eval: __date__"/>
+        <field name="sixthEndDate" expr="eval: __date__"/>
+    </action-record>
+
+    <action-validate name="action-aliments-dashboard-check-first-end-dates">
+        <error if=" firstStartDate &gt; firstEndDate " message="End date must be greater than first date!"/>
+    </action-validate>
+
+    <action-group name="action-group-aliments-dashboard-fetch-button">
+        <action name="action-aliments-dashboard-check-first-end-dates"/>
+        <action name="action-method-fetch-aliments-dashboard"/>
+    </action-group>
+
+    <action-validate name="action-eggs-per-center-dashboard-check-first-end-dates">
+        <error if=" secondStartDate &gt; secondEndDate " message="End date must be greater than first date!"/>
+    </action-validate>
+
+    <action-group name="action-group-eggs-per-center-dashboard-fetch-button">
+        <action name="action-eggs-per-center-dashboard-check-first-end-dates"/>
+        <action name="action-method-fetch-eggs-per-center"/>
+    </action-group>
+
+    <action-validate name="action-eggs-per-breeding-shed-dashboard-check-first-end-dates">
+        <error if=" thirdStartDate &gt; thirdEndDate " message="End date must be greater than first date!"/>
+    </action-validate>
+
+    <action-group name="action-group-eggs-per-breeding-shed-dashboard-fetch-button">
+        <action name="action-eggs-per-breeding-shed-dashboard-check-first-end-dates"/>
+        <action name="action-method-fetch-eggs-per-breeding-shed"/>
+    </action-group>
+
+    <action-validate name="action-eggs-per-center-tracking-number-dashboard-check-first-end-dates">
+        <error if=" fourthStartDate &gt; fourthEndDate " message="End date must be greater than first date!"/>
+    </action-validate>
+
+    <action-group name="action-group-eggs-per-center-tracking-number-dashboard-fetch-button">
+        <action name="action-eggs-per-center-tracking-number-dashboard-check-first-end-dates"/>
+        <action name="action-method-fetch-eggs-per-tracking-number-center"/>
+    </action-group>
+
+    <action-validate name="action-chicks-check-first-end-dates">
+        <error if=" fifthStartDate &gt; fifthEndDate " message="End date must be greater than first date!"/>
+    </action-validate>
+
+    <action-group name="action-group-chicks-dashboard-fetch-button">
+        <action name="action-chicks-check-first-end-dates"/>
+        <action name="action-method-fetch-chicks-dashboard"/>
+    </action-group>
+
+
+
+</object-views>

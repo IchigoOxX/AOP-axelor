@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatcher-entry-line-form" title="Hatcher entries lines" editable="true"
+          model="com.gl.apps.pf.db.HatcherEntryLine" width="large">
+        <panel title="Overview" colSpan="12">
+        <panel title="Infos:" colSpan="10">
+            <field name="incubatorTrolley" readonly="true"/>
+            <field name="hatcherTrolley" required="true" domain="self.status = 0" onChange="action-hatcher-entry-line-hatcher-trolley-changed"/>
+            <field name="hatcher" readonly="true"/>
+            <field name="center" readonly="true"/>
+            <field name="trackingNumber" readonly="true"/>
+            <field name="breedingShed" readonly="true"/>
+            <field name="currentDailyAge" readonly="true"/>
+            <field name="currentWeeklyAge" readonly="true"/>
+            <field name="loadingType" readonly="true"/>
+            <field name="numberOfOac" readonly="true"/>
+            <field name="numberOfOacBasket" readonly="true"/>
+        </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center; background-color: rgb(238, 238, 238);">
+                                               <strong>
+                                                    <span style="font-size:22px; color: {{$fmt('status') == 0 ? '#2980b9' : ($fmt('status') == 1 ? 'green' : ($fmt('status') == 2 ? 'lightblue' : ($fmt('status') == 3 ? 'orange' : 'red')))}}">
+                                                        {{$fmt('status')}}
+                                                    </span>
+                                               </strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            ]]></viewer>
+                    </field>
+                </panel>
+            </panel>
+        </panel>
+    </form>
+
+    <grid name="hatcher-entry-line-grid" title="Hatcher entries lines" model="com.gl.apps.pf.db.HatcherEntryLine" edit-icon="true" orderBy="incubatorTrolley">
+        <field name="incubatorTrolley" readonly="true"/>
+        <field name="hatcherTrolley" required="true" domain="self.status = 0" onChange="action-hatcher-entry-line-hatcher-trolley-changed"/>
+        <field name="hatcher" readonly="true"/>
+        <field name="center" readonly="true"/>
+        <field name="trackingNumber" readonly="true"/>
+        <field name="breedingShed" readonly="true"/>
+        <field name="currentDailyAge" readonly="true"/>
+        <field name="currentWeeklyAge" readonly="true"/>
+        <field name="loadingType" readonly="true"/>
+        <field name="numberOfOac" readonly="true"/>
+        <field name="numberOfOacBasket" readonly="true"/>
+        <field name="status" title="Hatcher trolley status">
+            <hilite background="cyan" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="cyan" if="$get('status') == 3"/>
+            <hilite background="orange" if="$get('status') == 4"/>
+            <hilite background="red" if="$get('status') == 5"/>
+        </field>
+    </grid>
+    <action-attrs name="action-hatcher-entry-line-hatcher-trolley-changed" model="com.gl.apps.pf.db.HatcherEntryLine">
+        <attribute if="hatcherTrolley != null" name="value" expr="eval: hatcherTrolley.hatcher" for="hatcher"/>
+        <attribute if="hatcherTrolley != null" name="value" expr="eval: hatcherTrolley.status" for="status"/>
+     </action-attrs>
+
+</object-views>

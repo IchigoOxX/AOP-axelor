@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="equipement-maintenance-form-id" name="equipement-maintenance-form" title="Equipement maintenance" model="com.axelor.apps.maintenance.db.EquipementMaintenance"
+          extension="true" >
+        <extend target="//panel[@name='main']">
+            <insert position="after">
+                <panel name="MachineProductsLinePanel" title="Spare parts" canCollapse="true">
+                    <panel-related name="machineProductsListPanel" canNew="false" canRemove="false"
+                                   colSpan="12" field="machineProductLineList" readonly="true"
+                                   form-view="maintenance-machine-product-line-form"
+                                   grid-view="maintenance-machine-product-line-grid"
+                                   editable="true"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='machine']">
+            <attribute name="onChange" value="action-method-equipement-maintenance-machine-changed"/>
+        </extend>
+<!--        <extend target="//button[@name='$operatingDurationBtn']">-->
+<!--            <insert position="after">-->
+<!--                <button  name="btnValidate" title="Validate" icon="fa-check" css="btn-success" colSpan="12" prompt="Are you sure to validate spare parts ?"-->
+<!--                         onClick="save,action-maintenance-machine-validate"/>-->
+<!--            </insert>-->
+<!--        </extend>-->
+    </form>
+
+    <action-method name="action-method-equipement-maintenance-machine-changed">
+        <call method="getLinesFromMachine"
+              class="com.gl.apps.pf.web.EquipementMaintenanceController"/>
+    </action-method>
+
+</object-views>
+
+
+

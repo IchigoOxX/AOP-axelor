@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid model="com.axelor.pos.db.Store" title="Terminals / Stores" name="store-grid">
+    <field name="name" />
+    <field name="company" />
+    <field name="manager" />
+    <field name="tel" />
+    <field name="isOpen" />
+    <field name="revenue" />
+  </grid>
+
+  <form model="com.axelor.pos.db.Store" title="Terminal / Store" name="store-form" width="large">
+    <panel title="General Info">
+      <field name="name" />
+      <field name="company" />
+      <field name="manager" />
+      <field name="isOpen" widget="boolean-switch" />
+    </panel>
+    <panel title="Contact &amp; Location" colSpan="12">
+      <field name="address" colSpan="6"/>
+      <field name="tel" />
+      <field name="email" />
+      <field name="website" />
+    </panel>
+    <panel title="Operating Hours" colSpan="12">
+      <field name="openingDays" />
+      <field name="openingHour" widget="time" />
+      <field name="closingHour" widget="time" />
+    </panel>
+    <panel title="Financial Overview" colSpan="12" sidebar="true">
+      <field name="revenue" readonly="true"/>
+      <field name="expenses" readonly="true"/>
+      <field name="profit" readonly="true"/>
+    </panel>
+    <panel title="Logistics &amp; Capacity" colSpan="12">
+      <field name="warehouse" />
+      <field name="capacity" />
+      <field name="parkingCapacity" />
+    </panel>
+    <panel title="Marketing &amp; Loyalty" colSpan="12">
+      <field name="loyaltyProgramDetails" colSpan="12" widget="html"/>
+      <field name="promotions" colSpan="12" />
+    </panel>
+  </form>
+
+</object-views>

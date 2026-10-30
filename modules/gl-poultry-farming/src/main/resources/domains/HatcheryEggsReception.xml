@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcheryEggsReception">
+
+        <one-to-many name="hatcheryEggsReceptionLineList"
+                     ref="com.gl.apps.pf.db.HatcheryEggsReceptionLine" mappedBy="eggsReception"
+                     title="Hatchery Eggs Reception Line"/>
+
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <date name="dateTime" title="Date Time" required="true"/>
+        <many-to-one name="breed" ref="Breed" title="Breed" required="true"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+                     title="Tracking Number" required="true"/>
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)" required="true"/>
+        <many-to-one name="center" ref="Center" title="Center" required="true"/>
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery"/>
+
+        <integer name="weeklyAge" title="Weekly age" readonly="true">
+            <![CDATA[
+            int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+        ]]>
+        </integer>
+        <integer name="dailyAge" title="Daily age" required="true"/>
+
+        <time name="deliveryTime" title="Delivery time"/>
+        <time name="arrivalTime" title="Arrival time"/>
+        <!--    adding fields-->
+        <decimal name="sendingTemperature" title="Sending Temperature"/>
+        <many-to-one name="carrierPartner" ref="com.axelor.apps.base.db.Partner" title="Carrier"/>
+        <string name="carrierDriver" title="Driver"/>
+
+        <integer name="status" title="Status"
+                 selection="poultryfarming.eggs.reception.status.select" readonly="true"/>
+
+        <integer name="referenceOfOrigin" title="Reference of origin"/>
+        <date name="dateOfOrigin" title="Date of origin" readonly="true"/>
+        <integer name="typeOfOrigin" title="Type of origin"
+                 selection="poultryfarming.eggs.type.origin.select"/>
+        <many-to-one name="unitOfOrigin" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit of origin"/>
+        <many-to-one name="reproProduction" ref="ReproProduction" title="Repro production"/>
+
+        <many-to-one name="stockMove" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Stock move"/>
+
+        <integer name="sumNumberOfHeTrays" title="SUM Number Of He Trays" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfHeTrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumNumberOfHe" title="SUM Number Of He" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfHe()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedNumberOfHeTrays" title="SUM Received Number Of He Trays"
+                 readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedNumberOfHeTrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedNumberOfHe" title="SUM Received Number Of He " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedNumberOfHe()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumGapHatchingEggs" title="SUM Gap Hatching Eggs " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getGapHatchingEggs()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumNumberOfDyeTrays" title="SUM Number Of Dye Trays " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfDyeTrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumNumberOfDye" title="SUM Number Of Dye  " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfDye()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedNumberOfDyeTrays" title="SUM Received Number Of Dye Trays "
+                 readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedNumberOfDyeTrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedNumberOfDye" title="SUM Received Number Of Dye  "
+                 readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedNumberOfDye()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumGapDoubleYolkEggs" title="SUM Gap Double Yolk Eggs " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getGapDoubleYolkEggs()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumNumberOfDeTrays" title="SUM Number Of De Trays " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfDeTrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumNumberOfDe" title="SUM Number Of DE " readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfDe()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedNumberOfDeTrays" title="SUM Received Number Of De Trays "
+                 readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedNumberOfDeTrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedNumberOfDe" title="SUM Received Number Of De" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedNumberOfDe()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumGapDeclassedEggs" title="SUM Gap Declassed Eggs" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getGapDeclassedEggs()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumSumOfHETrays" title=" SUM Sum Of HE Trays" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getSumOfHETrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumSumOfHE" title=" SUM Sum Of HE" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getSumOfHE()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedSumOfHETrays" title=" SUM Received Sum Of HE Trays"
+                 readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedSumOfHETrays()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumReceivedSumOfHE" title=" SUM Received Sum Of HE" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getReceivedSumOfHE()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumTotalGap" title=" SUM Total Gap" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getTotalGap()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <integer name="sumNumberOfRe" title=" SUM Number Of Re" readonly="true">
+            <![CDATA[
+          return this.getHatcheryEggsReceptionLineList() != null ? this.getHatcheryEggsReceptionLineList().stream().mapToInt(x-> x.getNumberOfRe()).sum() : 0 ;
+           ]]>
+        </integer>
+
+        <date name="cancelDate" title="Cancel date" readonly="true"/>
+
+        <many-to-one name="canceledBy" ref="com.axelor.auth.db.User" title="Canceled by"
+                     readonly="true"/>
+
+        <string name="note" title="Note" large="true" translatable="true"/>
+
+
+        <extra-code>
+            <![CDATA[
+				// EGGS RECEPTION STATUS SELECT
+			    public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+				public static final int STATUS_WAITING = 4;
+
+				// EGGS RECEPTION TYPE SELECT
+				public static final int ORIGIN_PRODUCTION =0;
+                public static final int ORIGIN_PURCHASE=1;
+			]]>
+        </extra-code>
+
+    </entity>
+
+</domain-models>

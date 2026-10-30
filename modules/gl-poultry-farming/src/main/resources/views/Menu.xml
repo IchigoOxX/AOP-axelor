@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <!--START [Menu principal module élevage] -->
+    <menuitem name="poultry-farming-root" title="Poultry Farming" order="-199"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-list-alt" icon-background="deeporange"/>
+    <!--END [Menu principal module élevage] -->
+
+    <!--START [Menu reports module élevage] -->
+    <menuitem name="poultry-farming-reports" parent="poultry-farming-root" order="7"
+              title="Reports" icon="fa-bar-chart"/>
+    <menuitem name="poultry-farming-reports-stock-details-by-product" parent="poultry-farming-reports"
+              title="Stock Details by Product" action="stock.root.stock.details.by.product" order="1" icon="fa-info"/>
+    <menuitem name="poultry-farming-reports-eggs-reportings" parent="poultry-farming-reports"
+              title="Eggs" action="principal.dashboard.eggs.reporting.1.view" order="2" icon="fa-pie-chart"/>
+
+    <action-view name="principal.dashboard.eggs.reporting.1.view" title="Eggs">
+        <view type="dashboard" name="principal.dashboard.1"/>
+    </action-view>
+
+    <menuitem name="poultry-farming-reports-chicks-reportings" parent="poultry-farming-reports"
+              title="Chicks" action="principal.dashboard.chicks.reporting.1.view" order="2" icon="fa-pie-chart"/>
+
+    <action-view name="principal.dashboard.chicks.reporting.1.view" title="Chicks">
+        <view type="dashboard" name="principal.chicks.dashboard.1"/>
+    </action-view>
+
+    <menuitem name="poultry-farming-reports-flesh-slaughtered-chicks-reportings" parent="poultry-farming-reports"
+              title="Broiler (Flesh Chickens)" action="principal.dashboard.flesh.slaughtered.chicks.reporting.1.view" order="3" icon="fa-pie-chart"/>
+
+    <action-view name="principal.dashboard.flesh.slaughtered.chicks.reporting.1.view" title="Broiler (Flesh Chickens)">
+        <view type="dashboard" name="principal.flesh.slaughtered.chicks.dashboard.1"/>
+    </action-view>
+    <!--END [Menu reports module élevage] -->
+
+    <!--START [Menu configuration module élevage] -->
+    <menuitem name="poultry-farming-configurations" parent="poultry-farming-root"
+              title="Configuration &amp; Settings" icon="fa-cog" order="8"/>
+
+    <menuitem name="poultry-farming-dashboard" parent="poultry-farming-root" order="3"
+              title="Breeding Dashboard" icon="fa-tachometer" action="action.dashboard.infos"/>
+
+    <action-view name="action.dashboard.infos" title="Breeding Dashboard" model="com.gl.apps.pf.db.Dashboard">
+        <view type="form" name="dashboard-form"/>
+    </action-view>
+
+    <!--END [Menu configuration module élevage] -->
+    <!--START [Menu configuration Center] -->
+    <menuitem name="poultry-farming-center-config-menu" parent="poultry-farming-configurations"
+              title="Farming Centers" action="poultry-farming.center.config.action" order="1" icon="fa-columns"/>
+
+    <action-view name="poultry-farming.center.config.action"
+                 model="com.gl.apps.pf.db.Center" title="Farming Centers">
+        <view name="center-grid" type="grid"/>
+        <view name="center-cards" type="cards"/>
+        <view name="center-form" type="form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="20%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+    <!--END [Menu configuration Center] -->
+
+    <!--START [Menu configuration breed] -->
+    <menuitem name="poultry-farming-breed-config-menu" parent="poultry-farming-configurations"
+              title="Breeds" action="poultry-farming.breed.config.menu" order="2" icon="fa-tint"/>
+
+    <action-view name="poultry-farming.breed.config.menu" title="Breeds"
+                 model="com.gl.apps.pf.db.Breed">
+        <view type="grid" name="breed-grid"/>
+        <view type="form" name="breed-form"/>
+    </action-view>
+    <!--END [Menu configuration breed] -->
+
+    <!--START [Menu breeding-sheds config ] -->
+    <menuitem name="poultry-farming-breeding-sheds-config-menu"
+              parent="poultry-farming-configurations" title="Breeding Sheds" icon="fa-tasks"
+              action="poultry-farming.breeding-shed.config.action" order="3"/>
+
+    <action-view name="poultry-farming.breeding-shed.config.action"
+                 model="com.gl.apps.pf.db.BreedingShed" title="Breeding shed">
+        <view type="grid" name="breedingShed-grid"/>
+        <view type="cards" name="breedingSheds-cards"/>
+        <view type="form" name="breedingShed-form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="25%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+
+    <!--START [Menu configuration hatchery] -->
+    <menuitem name="poultry-farming-hatchery-config-menu"
+              parent="poultry-farming-configurations" title="Hatchery" icon="fa-building"
+              action="poultry-farming.hatchery.config.menu" order="4"/>
+
+    <action-view name="poultry-farming.hatchery.config.menu" title="Hatchery"
+                 model="com.gl.apps.pf.db.Hatchery">
+        <view type="cards" name="hatchery-cards"/>
+        <view type="grid" name="hatchery-grid"/>
+        <view type="form" name="hatchery-form"/>
+    </action-view>
+    <!--END [Menu configuration hatchery] -->
+
+    <!--START [Menu configuration slaughterhouses] -->
+    <menuitem name="poultry-farming-slaughterhouses-config-menu" parent="poultry-farming-configurations"
+              title="Slaughterhouses" action="poultry-farming.slaughterhouses.config.action" order="5" icon="fa-clone"/>
+
+    <action-view name="poultry-farming.slaughterhouses.config.action"
+                 model="com.gl.apps.pf.db.Slaughterhouse" title="Slaughterhouses">
+        <view name="slaughterhouse-grid" type="grid"/>
+        <view name="slaughterhouse-cards" type="cards"/>
+        <view name="slaughterhouse-form" type="form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="20%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+
+    <!--END [Menu configuration slaughterhouses] -->
+
+    <!--START [Menu configuration livestock feed factory] -->
+    <menuitem name="poultry-farming-livestock-feed-factory-config-menu" parent="poultry-farming-configurations"
+              title="Feed Mill Factory" action="poultry-farming.livestock.feed.config.action" order="6" icon="fa-industry"/>
+
+    <action-view name="poultry-farming.livestock.feed.config.action"
+                 model="com.gl.apps.pf.db.LivestockFeedFactory" title="Feed Mill Factory">
+        <view name="livestock-feed-factory-grid" type="grid"/>
+        <view name="livestock-feed-factory-form" type="form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="20%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+
+    <!--END [Menu configuration livestock feed factory] -->
+
+
+    <!--START [Menu configuration Dashborad status] -->
+    <menuitem name="sc-root-poultry.farming.dashbord.incubateur.escoires"
+              parent="poultry-farming-configurations" title="Dashboard Status" icon="fa-tachometer"
+              action="action-status-incubateur-escoires-form-view" order="7"/>
+
+    <action-view name="action-status-incubateur-escoires-form-view"
+                 model="com.gl.apps.pf.db.Incubator" title="Status incubateur et escoires">
+        <view name="status-incubateur-escoires-form" type="form"/>
+    </action-view>
+    <!--END [Menu configuration Dashborad status] -->
+
+
+    <!--START [Menu principal module ezczipt order] -->
+    <menuitem name="poultry-farming-livestock-feed-factory-root" title="Feed Mill Factory" parent="poultry-farming-root" order="5"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-industry" icon-background="blue"/>
+    <menuitem name="poultry-farming-livestock-prodution" parent="poultry-farming-livestock-feed-factory-root" action="action-livestock-feed-production"
+              title="Feed Mill Production" order="1" icon="fa-industry"/>
+
+    <action-view name="action-livestock-feed-production"  model="com.gl.apps.pf.db.LivestockFeedProduction" title="Production">
+        <view name="livestock-feed-production-grid" type="grid" />
+        <view name="livestock-feed-production-form" type="form"/>
+    </action-view>
+
+    <menuitem name="poultry-farming-livestock-external-exit" parent="poultry-farming-livestock-feed-factory-root" action="action-livestock-feed-external-exit"
+              title="External Feed Issue" order="2" icon="fa-undo"/>
+
+    <action-view name="action-livestock-feed-external-exit"  model="com.gl.apps.pf.db.LivestockFeedExternalExit" title="External Feed Issue">
+        <view name="livestock-feed-external-exit-grid" type="grid" />
+        <view name="livestock-feed-external-exit-form" type="form"/>
+    </action-view>
+
+    <menuitem name="poultry-farming-livestock-products" parent="poultry-farming-livestock-feed-factory-root" title="Products &amp; Items" order="3" icon="fa-th-list"/>
+        <menuitem name="poultry-farming-livestock-products-product-order" parent="poultry-farming-livestock-products" title="Feed Requisition Order"
+                  action="action-view-livestock-product-order" order="1" icon="fa-chevron-right"/>
+        <menuitem name="poultry-farming-livestock-products-release-menu" parent="poultry-farming-livestock-products"
+                  title="Product Issues &amp; Deliveries" action="action-poultry-farming-products-release" order="2" icon="fa-chevron-left"/>
+        <menuitem name="poultry-farming-livestock-receipt-order-menu" parent="poultry-farming-livestock-products"
+                  title="Goods Receipt Note" action="action-poultry-farming-receipt-order" order="3" icon="fa-undo"/>
+    <!--END [Menu principal module receipt order] -->
+
+
+    <!--START [Menu principal module chair] -->
+    <menuitem name="poultry-farming-chair-root" title="Broiler (Flesh Chickens)" parent="poultry-farming-root" order="4"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-cutlery" icon-background="teal"/>
+    <!--START [Menu dashboard module chair] -->
+    <menuitem name="poultry-farming-dashboard-flesh" parent="poultry-farming-chair-root" icon="fa-th"
+              title="Breeding Dashboard" order="0" action="poultry-farming.flesh.dashboard.menu"/>
+    <!--END [Menu dashboard module chair] -->
+    <action-view name="poultry-farming.flesh.dashboard.menu" model="com.gl.apps.pf.db.BreedingShed" title="Breeding Dashboard">
+        <view name="flesh-dashboard-breedingShed-cards" type="cards"/>
+        <view name="dashboard-breedingShed-grid" type="grid"/>
+        <view name="dashboard-breedingShed-form" type="form"/>
+        <domain> self.type = 2</domain>
+        <context name="_breedingShedType" expr="2"/>
+    </action-view>
+
+
+    <!--START [Menu principal module chair] -->
+    <menuitem name="poultry-farming-chicks-reception-flesh" parent="poultry-farming-chair-root"
+              title="Chicks Reception" order="1" action="poultry-farming.flesh.chicks.reception.menu" icon="fa-list-alt"/>
+    <!--END [Menu principal module chair chicks reception] -->
+    <action-view name="poultry-farming.flesh.chicks.reception.menu"
+                 model="com.gl.apps.pf.db.FleshChicksReception"
+                 title="Chicks Reception">
+        <view name="flesh-chicks-reception-grid" type="grid"/>
+        <view name="flesh-chicks-reception-form" type="form"/>
+    </action-view>
+    <!--START [Menu principal module chair chicks reception] -->
+
+    <!--START [Menu transfer module chair] -->
+    <menuitem name="poultry-farming-movement-flesh" parent="poultry-farming-chair-root" icon="fa-reply"
+              title="Flock Transfer Movement" order="2" action="poultry-farming.flesh.movement.menu"/>
+    <!--END [Menu transfer module chair ] -->
+    <action-view name="poultry-farming.flesh.movement.menu" model="com.gl.apps.pf.db.FleshMovement" title="Flock Shed Movements">
+        <view name="flesh-elev-movement-grid" type="grid"/>
+        <view name="flesh-elev-movement-form" type="form"/>
+    </action-view>
+
+    <!--START [Menu daily technical sheet module chair] -->
+    <menuitem name="poultry-farming-daily-technical-sheet-flesh" parent="poultry-farming-chair-root" icon="fa-window-restore"
+              title="Daily Technical Report" order="3" action="poultry-farming-flesh-daily-technical-sheet-menu"/>
+
+    <!--END [Menu daily technical sheet module chair] -->
+
+    <action-view name="poultry-farming-flesh-daily-technical-sheet-menu"
+                 model="com.gl.apps.pf.db.TechnicalSheet" title="Technical sheet">
+        <view name="technical-sheet-grid" type="grid"/>
+        <view name="technical-sheet-form" type="form"/>
+        <domain> self.center.type = 2</domain>
+        <context name="_centerType" expr="2"/>
+    </action-view>
+
+    <menuitem name="poultry-farming-boiler-daily-technical-sheet-flesh" parent="poultry-farming-chair-root" icon="fa fa-file"
+              title="Daily Technical Report" order="4" action="action-broiler-technical-sheet"/>
+
+    <action-view name="action-broiler-technical-sheet"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet">
+        <view name="flesh-technical-sheet-line-details-grid" type="grid" />
+        <view name="technical-sheet-line-form" type="form"/>
+        <domain>self.technicalSheet.center.type = 2</domain>
+        <context name="_centerType" expr="2"/>
+    </action-view>
+
+    <!--START [Menu daily technical sheet module chair] -->
+    <menuitem name="poultry-farming-loading-program-flesh" parent="poultry-farming-chair-root" icon="fa-th"
+              title="Loading &amp; Supply Program" order="5" action="poultry-farming.hatcheries.flesh.loading.program.menu"/>
+
+    <action-view name="poultry-farming.hatcheries.flesh.loading.program.menu"
+                 model="com.gl.apps.pf.db.FleshLoadingProgram"
+                 title="Flesh loading program">
+        <view name="flesh-loading-program-grid" type="grid"/>
+        <view name="flesh-loading-program-form" type="form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="20%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+
+    <!--START [Chair products] -->
+    <menuitem name="poultry-products-chair" parent="poultry-farming-chair-root"
+              title="Products &amp; Items" order="7" icon="fa-th-list"/>
+    <menuitem name="poultry-chair-product-order-menu" parent="poultry-products-chair" title="Feed Requisition Order"
+              action="action-view-chair-product-order" order="1" icon="fa-chevron-right"/>
+    <menuitem name="poultry-chair-products-releases-menu" parent="poultry-products-chair" icon="fa-chevron-left"
+              title="Product Issues &amp; Deliveries" action="action-poultry-farming-products-release-chair" order="2"/>
+    <menuitem name="poultry-chair-products-reception-menu" parent="poultry-products-chair" icon="fa-undo"
+              title="Goods Receipt Note" action="action-poultry-farming-chair-receipt-order" order="3"/>
+    <menuitem name="poultry-chair-products-consumption-menu" parent="poultry-products-chair" icon="fa-chevron-down"
+              title="Feed &amp; Raw Material Consumption" action="action-chair-product-consumption" order="4"/>
+    <menuitem name="poultry-chair-correction-stock-menu" parent="poultry-products-chair" icon="fa-check"
+              title="Stock Adjustment &amp; Correction" action="action-chair-stock-correction" order="5"/>
+
+    <!--END [Chair products ] -->
+    <menuitem name="poultry-products-chair-reports" parent="poultry-farming-chair-root"
+              title="Reports &amp; Monitoring" order="9" action="flesh.technical.sheet.dashboard.1.view" icon="fa-bar-chart"/>
+
+    <action-view name="flesh.technical.sheet.dashboard.1.view" title="Flesh technical sheet graphs">
+        <view type="dashboard" name="flesh.technical.sheet.dashboard.1"/>
+    </action-view>
+
+    <!--START [Menu principal module logistics sheet] -->
+    <menuitem name="poultry-farming-logistics-sheet-root" title="Logistics &amp; Fleet" parent="poultry-farming-root" order="6"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-truck" icon-background="deeporange"/>
+
+    <menuitem name="poultry-farming-logistics-sheet-sheet" parent="poultry-farming-logistics-sheet-root" title="Logistics &amp; Transport Manifesto"
+              action="action-logistics-sheet" order="1"/>
+    <menuitem name="poultry-farming-logistics-sheet-suppliers" parent="poultry-farming-logistics-sheet-root" title="Suppliers"
+              action="sc.root.purchase.suppliers" order="2"/>
+    <menuitem name="poultry-farming-logistics-sheet-products" parent="poultry-farming-logistics-sheet-root" title="Products &amp; Items"
+              action="sc.root.sale.products" order="3"/>
+    <menuitem name="poultry-farming-logistics-sheet-purchase-quotation" parent="poultry-farming-logistics-sheet-root" title="Purchase Quotations"
+              action="sc.root.purchase.quotations" order="4"/>
+    <menuitem name="poultry-farming-logistics-sheet-contracts" parent="poultry-farming-logistics-sheet-root" title="Contracts"
+              action="contracts.root.supplier.all" order="5"/>
+
+    <menuitem name="poultry-farming-logistics-sheet-reports" parent="poultry-farming-logistics-sheet-root" title="Logistics Data Status"
+              action="action-logistics-sheet-reports" order="6" icon="fa-bar-chart"/>
+    <!--END [Menu principal module logistics sheet] -->
+
+
+    <menuitem name="poultry-farming-car-rental-modules-root" title="Fleet &amp; Vehicle Movements" parent="poultry-farming-logistics-sheet-root" order="7"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-bolt" icon-background="brown"/>
+
+    <menuitem name="poultry-farming-car-rental-customers" parent="poultry-farming-car-rental-modules-root" title="Customers"
+              action="action-car-rental-customers" order="1"/>
+    <menuitem name="poultry-farming-car-rental-supplier" parent="poultry-farming-car-rental-modules-root" title="Suppliers"
+              action="sc.root.purchase.suppliers" order="2"/>
+    <menuitem name="poultry-farming-car-rental-contracts" parent="poultry-farming-car-rental-modules-root" title="Contracts"
+              action="action-car-rental-contracts" order="3"/>
+    <menuitem name="poultry-farming-car-rental-contract-templates" parent="poultry-farming-car-rental-modules-root" title="Contract Templates"
+              action="contract.templates.all" order="4"/>
+    <menuitem name="poultry-farming-car-rental-fiscal-position" parent="poultry-farming-car-rental-modules-root" title="Financial &amp; Tax Status"
+              action="account.conf.fiscal.position" order="5"/>
+    <menuitem name="poultry-farming-car-rental-invoices" parent="poultry-farming-car-rental-modules-root" title="Customer Invoices"
+              action="action-rent-car-invoices" order="6"/>
+
+    <!--START [Menu Hatcheries module élevage] -->
+    <menuitem name="poultry-farming-hatcheries-root" title="Hatcheries" parent="poultry-farming-root" order="3"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-building" icon-background="indigo"/>
+    <!--END [Menu couvoirs module élevage] -->
+
+    <!--START [Hatchery] -->
+    <menuitem name="poultry-farming-hatchery" parent="poultry-farming-hatcheries-root"
+              title="Hatchery" order="1" icon="fa-building"/>
+
+    <!--START [Menu Receiving eggs ] -->
+    <menuitem name="poultry-farming.hatchery-eggs-reception.menu"
+              parent="poultry-farming-hatchery" title="Hatching Egg Reception"
+              action="poultry-farming-hatchery-eggs-reception" order="0" icon="fa-list-alt"/>
+
+    <action-view name="poultry-farming-hatchery-eggs-reception"
+                 model="com.gl.apps.pf.db.HatcheryEggsReception" title="Hatchery Eggs Reception">
+        <view name="hatchery-eggs-reception-grid" type="grid"/>
+        <view name="hatchery-eggs-reception-form" type="form"/>
+        <!--<view-param name="details-view" value="true"/> <view-param name="show-toolbar" value="false"/>
+          <view-param name="grid-width" value="27%"/> <view-param name="width" value="96%"/> -->
+    </action-view>
+
+    <!--END [Menu Receiving eggs ] -->
+
+    <!--START [Menu Hatcheries Incubators loading program ] -->
+    <menuitem name="poultry-farming-charging-incubator-trolleys"
+              parent="poultry-farming-hatchery" title="Setter Trolleys Charging"
+              action="poultry-farming.charging-incubator-trolleys.menu" order="2" icon="fa-shopping-cart" />
+
+    <action-view name="poultry-farming.charging-incubator-trolleys.menu"
+                 model="com.gl.apps.pf.db.IncubatorTrolleysCharging"
+                 title="Setter Trolleys Charging">
+        <view name="incubators-loading-of-incubator-trolleys-grid" type="grid"/>
+        <view name="incubators-loading-of-incubator-trolleys-cards" type="cards"/>
+        <view name="incubators-loading-of-incubator-trolleys-form" type="form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="20%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+    <!--END [Menu Hatcheries Incubators Loading Program ] -->
+
+    <!--START [Menu Hatcheries Incubators loading program ] -->
+    <menuitem name="poultry-farming-hatcheries-loading-program"
+              parent="poultry-farming-hatchery" title="Setter Loading &amp; Feeding Program"
+              action="poultry-farming.hatcheries.incubators.loading.program.menu" order="6" icon="fa-th"/>
+
+    <action-view name="poultry-farming.hatcheries.incubators.loading.program.menu"
+                 model="com.gl.apps.pf.db.IncubatorsLoadingProgram"
+                 title="Setter Loading &amp; Feeding Program">
+        <view name="incubators-loading-program-grid" type="grid"/>
+        <view name="incubators-loading-program-cards" type="cards"/>
+        <view name="incubators-loading-program-form" type="form"/>
+        <view-param name="details-view" value="true"/>
+        <view-param name="grid-width" value="20%"/>
+        <view-param name="width" value="96%"/>
+    </action-view>
+    <!--END [Menu Hatcheries Incubators Loading Program ] -->
+    <!--START [Menu Hatcheries Incubators entries ] -->
+    <menuitem name="poultry-farming-hatcheries-incubators-entry" icon="fa-share"
+              parent="poultry-farming-hatchery" title="Setter Entry"
+              action="poultry-farming.hatcheries.incubators.entries.menu" order="7"/>
+
+    <action-view name="poultry-farming.hatcheries.incubators.entries.menu"
+                 model="com.gl.apps.pf.db.IncubatorEntry"
+                 title="Setter Entry">
+        <view name="incubator-entry-grid" type="grid"/>
+        <view name="incubator-entry-form" type="form"/>
+    </action-view>
+    <!--END [Menu Hatcheries Incubators entries ] -->
+
+    <!--START [Menu Hatcheries Incubators exits ] -->
+    <menuitem name="poultry-farming-hatcheries-incubators-exit" icon="fa-reply"
+              parent="poultry-farming-hatchery" title="Setter Exit"
+              action="poultry-farming.hatcheries.incubators.exits.menu" order="8"/>
+
+    <action-view name="poultry-farming.hatcheries.incubators.exits.menu"
+                 model="com.gl.apps.pf.db.IncubatorExit"
+                 title="Setter Exit">
+        <view name="incubator-exit-grid" type="grid"/>
+        <view name="incubator-exit-form" type="form"/>
+    </action-view>
+    <!--END [Menu Hatcheries Incubators exits ] -->
+
+    <!--START [Menu Hatcheries hatcher entries ] -->
+    <menuitem name="poultry-farming-hatcheries-hatcher-entry"
+              parent="poultry-farming-hatchery" title="Hatcher Entry" icon="fa-forward"
+              action="poultry-farming.hatcheries.hatcher.entries.menu" order="9"/>
+
+    <action-view name="poultry-farming.hatcheries.hatcher.entries.menu"
+                 model="com.gl.apps.pf.db.HatcherEntry"
+                 title="Hatcher Entry">
+        <view name="hatcher-entry-grid" type="grid"/>
+        <view name="hatcher-entry-form" type="form"/>
+    </action-view>
+    <!--END [Menu Hatcheries hatcher entries ] -->
+
+    <!--START [Menu Hatcheries hatcher exits ] -->
+    <menuitem name="poultry-farming-hatcheries-hatcher-exits" icon="fa-backward"
+              parent="poultry-farming-hatchery" title="Hatcher Exit (Chicks Sorting)"
+              action="poultry-farming.hatcheries.hatcher.exits.menu" order="10"/>
+
+    <action-view name="poultry-farming.hatcheries.hatcher.exits.menu"
+                 model="com.gl.apps.pf.db.HatcherExit" title="Hatcher Exit (Chicks Sorting)">
+        <view name="hatcher-exit-grid" type="grid"/>
+        <view name="hatcher-exit-form" type="form"/>
+    </action-view>
+    <!--END [Menu Hatcheries hatcher exits ] -->
+
+    <!--START [Hatchery rapport] -->
+    <menuitem name="poultry-report-hatchery" parent="poultry-farming-hatcheries-root"
+              title="Reports" order="2" icon="fa-bars"/>
+
+
+    <!--START [Menu Incubators status ] -->
+    <menuitem name="poultry-farming-incubators-status"
+              parent="poultry-report-hatchery" title="Setter Status"
+              action="action-incubators-status" order="0"/>
+
+    <menuitem name="poultry-farming-hatcheries-status-menu"
+              parent="poultry-report-hatchery" title="Hatcher Status"
+              action="action-hatchers-status" order="1"/>
+
+    <menuitem name="poultry-farming-hatchers-trolley-status-menu"
+              parent="poultry-report-hatchery" title="Hatcher Trolleys Status"
+              action="action-hatchers-trolley-status" order="2"/>
+
+    <menuitem name="poultry-farming-incubators-trolley-status-menu"
+              parent="poultry-report-hatchery" title="Setter Trolleys Status"
+              action="action-incubators-trolley-status" order="3"/>
+
+    <!--START [Hatchery products] -->
+    <menuitem name="poultry-products-hatchery" parent="poultry-farming-hatcheries-root"
+              title="Products &amp; Items" order="3" icon="fa-th-list"/>
+    <menuitem name="poultry-hatchery-product-order-menu" parent="poultry-products-hatchery" title="Feed Requisition Order" icon="fa-chevron-right"
+              action="action-hatchery-product-order" order="1"/>
+    <menuitem name="poultry-hatchery-products-releases-menu" parent="poultry-products-hatchery" icon="fa-chevron-left"
+              title="Product Issues &amp; Deliveries" action="action-poultry-farming-products-release-hatchery" order="2"/>
+    <menuitem name="poultry-hatchery-products-reception-menu" parent="poultry-products-hatchery"
+              title="Goods Receipt Note" action="action-poultry-farming-hatchery-receipt-order" order="3" icon="fa-undo"/>
+    <menuitem name="poultry-hatchery-products-consumption-menu" parent="poultry-products-hatchery" icon="fa-chevron-down"
+              title="Feed &amp; Raw Material Consumption" action="action-hatchery-product-consumption" order="4"/>
+
+    <!--END [Hatchery products ] -->
+
+    <!--START [Hatchery Eggs exit] -->
+    <menuitem name="poultry-products-hatchery-egg-exit" parent="poultry-farming-hatcheries-root"
+              title="Miscellaneous Outputs" order="4" action="action-hatchery-egg-exit" icon="fa-external-link"/>
+    <!--END [Hatchery Eggs exit  ] -->
+
+    <!--START [Hatchery delivery sale] -->
+    <menuitem name="poultry-products-hatchery-delivery-sale" parent="poultry-farming-hatcheries-root" icon="fa-location-arrow"
+              title="Hatchery Delivery Note" order="5" action="action-hatchery-delivery-sale"/>
+    <!--END [Hatchery delivery sale  ] -->
+
+    <menuitem name="poultry-products-hatchery-reportings" parent="poultry-farming-hatcheries-root"
+              title="Reports &amp; Monitoring" order="6" action="hatchery.eggs.reportings" icon="fa-bar-chart"/>
+
+    <action-view name="hatchery.eggs.reportings" title="Hatchery eggs graphs">
+        <view type="dashboard" name="hatchery.eggs.dashboard.1"/>
+    </action-view>
+
+    <menuitem name="poultry-hatchery-dashboard-infos" parent="poultry-farming-hatcheries-root"
+              title="Breeding Dashboard" order="7" action="hatcheries.dashboard.hatchery.infos" icon="fa-tachometer"/>
+
+    <action-view name="hatcheries.dashboard.hatchery.infos" title="Hatchery dashboard" model="com.gl.apps.pf.db.DashHatchery">
+        <view type="form" name="dashboard-hatchery-infos-form"/>
+    </action-view>
+    <!--START [Menu Incubators status ] -->
+
+    <!--START [Menu démarrage module élevage] -->
+    <menuitem name="poultry-farming-Start-root" title="Breeding Start" parent="poultry-farming-root" order="1"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-solid fa-hourglass-start" icon-background="orange"/>
+    <!--END [Menu démarrage module élevage] -->
+    <menuitem name="poultry-farming-start-supplier-reception-dashboard" icon="fa-exchange"
+              parent="poultry-farming-Start-root" title="Supplier Shipment Arrivals"
+              action="action-breeding-start-supplier-reception-dashboard" order="-1"/>
+
+    <menuitem name="poultry-farming-start-dashboard"
+              parent="poultry-farming-Start-root" title="Breeding Dashboard"
+              action="action-breeding-start-dashboard" order="0" icon="fa-th"/>
+    <menuitem name="poultry-farming-start-recep-chick" icon="fa-list-alt"
+              parent="poultry-farming-Start-root" title="Chicks Reception"
+              action="action-reception-chicks" order="1"/>
+
+    <menuitem name="poultry-farming-start-workforces" icon="fa-list-ul"
+              parent="poultry-farming-Start-root" title="Flock Management &amp; Movements" order="2"/>
+
+    <menuitem name="poultry-farming-start-workforce-transfers"
+              parent="poultry-farming-start-workforces" title="Flock Transfers between Sheds"
+              action="action-elev-transfer" order="1" icon="fa-share"/>
+<!--    <menuitem name="poultry-farming-start-workforce-reform"-->
+<!--              parent="poultry-farming-start-workforces" title="Flock Culling &amp; Reform"-->
+<!--              action="action-start-elev-reform" order="2"/>-->
+    <menuitem name="poultry-farming-start-breeding-elev-reform" parent="poultry-farming-start-workforces"
+              title="Flock Culling &amp; Reform"
+              action="action-poultry-farming-breeding-start-elev-reform" order="2" icon="fa-trash"/>
+    <menuitem name="poultry-farming-start-workforce-movement"
+              parent="poultry-farming-start-workforces" title="Flock Shed Movements" icon="fa-reply"
+              action="action-start-elev-movement" order="3"/>
+    <menuitem name="poultry-farming-start-breeding-technical-sheet" parent="poultry-farming-Start-root"
+              title="Technical Sheet Records" action="action-poultry-farming-start-breeding-technical-sheet" order="3" icon="fa-window-restore"/>
+    <menuitem name="poultry-farming-start-daily-technical-sheet" icon="fa fa-file"
+              parent="poultry-farming-Start-root" title="Daily Technical Sheet Entries"
+              action="action-start-technical-sheet" order="4"/>
+
+    <menuitem name="poultry-farming-start-treatments-vaccinations"
+              parent="poultry-farming-Start-root" title="Veterinary Treatments &amp; Vaccines"
+              action="action-start-pharmacy-treatment" order="5" icon="fa-medkit"/>
+
+    <menuitem name="poultry-farming-start-products"
+              parent="poultry-farming-Start-root" title="Products &amp; Items" order="5" icon="fa-th-list"/>
+    <menuitem name="poultry-farming-start-product-order"
+              parent="poultry-farming-start-products" title="Feed Requisition Order"
+              action="action-view-start-product-order" order="1" icon="fa-chevron-right"/>
+    <menuitem name="poultry-farming-start-products-release-menu" parent="poultry-farming-start-products"
+              title="Product Issues &amp; Deliveries" action="action-start-products-release" order="2" icon="fa-chevron-left"/>
+    <menuitem name="poultry-farming-start-product-consumption-menu" parent="poultry-farming-start-products"
+              title="Feed &amp; Raw Material Consumption" action="action-start-product-consumption" order="3" icon="fa-undo"/>
+    <menuitem name="poultry-farming-start-receipt-order-menu" parent="poultry-farming-start-products"
+              title="Goods Receipt Note" action="action-start-receipt-order" order="4" icon="fa-chevron-down"/>
+
+    <menuitem name="poultry-farming-start-correction-stock-menu" parent="poultry-farming-Start-root"
+              title="Stock Adjustment &amp; Correction" action="action-start-stock-correction" order="6" icon="fa-check"/>
+
+    <menuitem name="poultry-farming-breeding-start-reportings" parent="poultry-farming-Start-root" title="Reports &amp; Monitoring"
+              action="start.technical.sheet.dashboard.1.view"
+              order="9" icon="fa-bar-chart"/>
+
+
+    <menuitem name="poultry-farming-reproduction-root" title="Breeding Flock (Breeders)" parent="poultry-farming-root" order="2"
+              if="__config__.app.isApp('poultry-farming')" icon="fa-home" icon-background="yellow"/>
+
+    <menuitem name="poultry-farming-repro-dashboard" parent="poultry-farming-reproduction-root" title="Breeding Dashboard"
+              action="action-breeding-repro-dashboard" order="0" icon="fa-th"/>
+    <menuitem name="poultry-farming-reception-reproduction" parent="poultry-farming-reproduction-root"
+              title="Breeder Egg Reception" action="action-reception-repro-production" order="1" icon="fa-list-alt"/>
+    <menuitem name="poultry-farming-reproduction" parent="poultry-farming-reproduction-root"
+              title="Breeder Production" action="action-poultry-farming-reproduction" order="2" icon="fa-shopping-cart"/>
+
+    <menuitem name="poultry-farming-repro-production-workforces"
+              parent="poultry-farming-reproduction-root" title="Flock Management &amp; Movements" order="3" icon="fa-list-ul"/>
+<!--    <menuitem name="poultry-farming-repro-prouction-workforce-reform"-->
+<!--              parent="poultry-farming-repro-production-workforces" title="Flock Culling &amp; Reform"-->
+<!--              action="action-repro-production-elev-reform" order="1"/>-->
+    <menuitem name="poultry-farming-repro-effective-reform" parent="poultry-farming-repro-production-workforces"
+              title="Flock Culling &amp; Reform" action="action-poultry-farming-repro-elev-reform" order="1" icon="fa-trash"/>
+
+    <menuitem name="poultry-farming-repro-prouction-workforce-movement"
+              parent="poultry-farming-repro-production-workforces" title="Flock Shed Movements"
+              action="action-repro-production-elev-movement" order="2" icon="fa-reply"/>
+    <menuitem name="poultry-farming-reproduction-technical-sheet" parent="poultry-farming-reproduction-root" icon="fa fa-file"
+              title="Daily Technical Report" action="action-poultry-farming-repro-technical-sheet" order="4"/>
+    <menuitem name="poultry-farming-repro-technical-sheet" parent="poultry-farming-reproduction-root"
+              title="Daily Technical Report" action="action-poultry-farming-repro-breeding-technical-sheet" order="4" icon="fa-window-restore"/>
+
+    <menuitem name="poultry-farming-reproduction-pharmacy-treatment" parent="poultry-farming-reproduction-root"
+              title="Veterinary Treatments &amp; Vaccines" action="action-poultry-farming-repro-pharmacy-treatments" order="5" icon="fa-medkit"/>
+
+    <menuitem name="poultry-farming-reproduction-products" parent="poultry-farming-reproduction-root"
+              title="Products &amp; Items" order="6" icon="fa-th-list"/>
+        <menuitem name="poultry-farming-reproduction-product-order" parent="poultry-farming-reproduction-products"
+                  title="Feed Requisition Order" action="action-poultry-farming-reproduction-product-order" order="1" icon="fa-chevron-right"/>
+        <menuitem name="poultry-farming-reproduction-products-release-menu" parent="poultry-farming-reproduction-products"
+                  title="Product Issues &amp; Deliveries" action="action-repro-production-products-release" order="2" icon="fa-chevron-left"/>
+        <menuitem name="poultry-farming-reproduction-product-consumption-menu" parent="poultry-farming-reproduction-products"
+                  title="Feed &amp; Raw Material Consumption" action="action-reproduction-product-consumption" order="3" icon="fa-undo"/>
+        <menuitem name="poultry-farming-reproduction-receipt-order-menu" parent="poultry-farming-reproduction-products"
+                  title="Goods Receipt Note" action="poultry-farming-reproduction-receipt-order" order="4" icon="fa-chevron-down"/>
+
+    <menuitem name="poultry-farming-reproduction-correction-stock-menu" parent="poultry-farming-reproduction-root"
+              title="Stock Adjustment &amp; Correction" action="action-repro-production-stock-correction" order="7" icon="fa-check"/>
+
+    <menuitem name="poultry-farming-breeding-repro-reportings" parent="poultry-farming-reproduction-root" title="Reports &amp; Monitoring"
+              action="repro.technical.sheet.dashboard.1.view"
+              order="10" icon="fa-bar-chart"/>
+
+    <menuitem name="sc-root-poultry.farming.dashboard.production"
+              parent="poultry-farming-reproduction-root" title="Production Dashboard" icon="fa-tachometer"
+              action="action-dashboard-repro-form-view" order="11"/>
+
+    <action-view name="action-dashboard-repro-form-view" model="com.gl.apps.pf.db.DashRepro" title="Production Dashboard">
+        <view name="dashboard-reproduction-form" type="form"/>
+    </action-view>
+
+
+<!--   START MENU Maintenance-->
+    <menuitem name="maintenance-root-config-energy-consumption"
+              parent="maintenance-root-config" order="500" title="Energy Consumption"
+              action="action-maintenance-energy-consumption"/>
+
+    <action-view name="action-maintenance-energy-consumption" model="com.gl.apps.pf.db.MaintenanceEnergyConsumption" title="Energy Consumption">
+        <view name="maintenance-energy-consumption-grid" type="grid"/>
+        <view name="maintenance-energy-consumption-form" type="form"/>
+    </action-view>
+
+    <menuitem name="maintenance-root-reports" parent="maintenance-root" icon="fa-bar-chart"
+              title="Reports" action="action-maintenance-root-reports" order="800"/>
+    <action-view name="action-maintenance-root-reports" title="Reports">
+        <view type="dashboard" name="maintenance.energy.consumption.dashboard.1"/>
+    </action-view>
+
+
+<!--   END MENU Maintenance -->
+
+
+    <action-view name="action-poultry-farming-reproduction" model="com.gl.apps.pf.db.ReproProduction" title="Breeder Production">
+        <view name="repro-production-grid" type="grid"/>
+        <view name="repro-production-form" type="form"/>
+    </action-view>
+    <action-view name="action-logistics-sheet"  model="com.gl.apps.pf.db.LogisticsSheet" title="Logistics &amp; Transport Manifesto">
+        <view name="logistics-sheet-cards" type="cards"/>
+        <view name="logics-sheet-grid" type="grid" />
+        <view name="logics-sheet-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-car-rental-customers"  model="com.axelor.apps.base.db.Partner" title="Customers">
+        <view type="cards" name="partner-cards"/>
+        <view type="grid" name="partner-customer-grid"/>
+        <view type="form" name="partner-customer-form"/>
+        <view-param name="limit" value="39"/>
+        <domain>self.isContact = false AND (self.isCustomer = true OR self.isProspect = true)</domain>
+        <context name="_isCustomer" expr="true"/>
+        <context name="_domain"
+                 expr="self.isContact = false AND (self.isCustomer = true OR self.isProspect = true)"/>
+        <context name="json-enhance" expr="eval:true"/>
+    </action-view>
+
+    <action-view name="action-car-rental-contracts" title="Contracts"
+                 model="com.axelor.apps.contract.db.Contract">
+        <view type="grid" name="contract-grid"/>
+        <view type="form" name="contract-form"/>
+        <domain>self.targetTypeSelect = 1 AND self.statusSelect != 3</domain>
+        <context name="_xTargetType" expr="eval: 1"/>
+    </action-view>
+
+    <action-view name="action-reception-repro-production"
+                 model="com.gl.apps.pf.db.ReceptionReproProduction" title="Breeder Egg Reception">
+        <view name="reception-repro-production-grid" type="grid"/>
+        <view name="reception-repro-production-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-repro-technical-sheet"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet">
+        <view name="technical-sheet-line-details-grid" type="grid" />
+        <view name="technical-sheet-line-details-form" type="form"/>
+        <domain>self.technicalSheet.center.type = 1</domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="action-breeding-start-dashboard"
+                 model="com.gl.apps.pf.db.BreedingShed" title="Breeding Dashboard">
+        <view name="breedingShed-cards" type="cards"/>
+        <view name="dashboard-breedingShed-grid" type="grid" />
+        <view name="dashboard-breedingShed-form" type="form"/>
+        <domain> self.type = 0</domain>
+    </action-view>
+
+    <action-view name="action-breeding-start-supplier-reception-dashboard" title="Supplier Shipment Arrivals"
+                 model="com.axelor.apps.stock.db.StockMove">
+        <view type="grid" name="stock-move-in-grid"/>
+        <view type="calendar" name="stock-move-calendar"/>
+        <view type="form" name="startup-stock-move-form"/>
+        <view-param name="forceTitle" value="true"/>
+        <view-param name="search-filters" value="supplier-arrivals-filters"/>
+        <domain>self.typeSelect = :_typeSelect AND self.isReversion = FALSE AND self.statusSelect = 2
+            AND ( self.stockMoveLineList.product = :_starterMalesChicks OR self.stockMoveLineList.product = :_starterFemalesChicks )</domain>
+        <context name="_starterMalesChicks" expr="eval: __config__.app.getApp('poultry-farming')?.starterMalesChicks"/>
+        <context name="_starterFemalesChicks" expr="eval: __config__.app.getApp('poultry-farming')?.starterFemalesChicks"/>
+        <context name="_typeSelect" expr="eval: __repo__(StockMove).TYPE_INCOMING"/>
+        <context name="_isReversion" expr="eval: false"/>
+    </action-view>
+
+    <action-view name="action-breeding-repro-dashboard"
+                 model="com.gl.apps.pf.db.BreedingShed" title="Breeding Dashboard">
+        <view name="repor-dashboard-breedingShed-cards" type="cards"/>
+        <view name="dashboard-breedingShed-grid" type="grid" />
+        <view name="dashboard-breedingShed-form" type="form"/>
+        <domain> self.type = 1</domain>
+    </action-view>
+
+
+    <action-view name="action-reception-chicks"
+                 model="com.gl.apps.pf.db.StartReceivingChicks" title="Chicks Reception">
+        <view type="grid" name="receiving-chicks-grid"/>
+        <view name="receiving-chicks-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-elev-transfer"
+                 model="com.gl.apps.pf.db.ElevTransfer" title="Breeding transfer">
+        <view type="grid" name="elev-transfer-grid"/>
+        <view name="elev-transfer-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-start-elev-reform"
+                 model="com.gl.apps.pf.db.StartElevReform" title="Breeding reform">
+        <view name="start-elev-reform-grid" type="grid"/>
+        <view name="start-elev-reform-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-repro-production-elev-reform"
+                 model="com.gl.apps.pf.db.ReproElevReform" title="Breeding reform">
+        <view name="repro-production-elev-reform-grid" type="grid"/>
+        <view name="repro-production-elev-reform-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-start-elev-movement"
+                 model="com.gl.apps.pf.db.StartElevMovement" title="Breeding movements">
+        <view name="start-elev-movement-grid" type="grid"/>
+        <view name="start-elev-movement-form" type="form"/>
+    </action-view>
+    <action-view name="action-repro-production-elev-movement"
+                 model="com.gl.apps.pf.db.ReproElevMovement" title="Flock Shed Movements">
+        <view name="repro-production-elev-movement-grid" type="grid"/>
+        <view name="repro-production-elev-movement-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-start-technical-sheet"
+                 model="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet">
+        <view name="technical-sheet-line-details-grid" type="grid" />
+        <view name="technical-sheet-line-details-form" type="form"/>
+        <domain>self.technicalSheet.center.type = 0</domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+
+    <action-view name="action-start-pharmacy-treatment"
+                 model="com.gl.apps.pf.db.PharmacyTreatment" title="Veterinary Treatments &amp; Vaccines">
+        <view name="pharmacy-treatment-grid" type="grid" />
+        <view name="pharmacy-treatment-form" type="form"/>
+        <domain>self.center.type = 0</domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-repro-pharmacy-treatments"
+                 model="com.gl.apps.pf.db.PharmacyTreatment" title="Pharmacy treatment">
+        <view name="pharmacy-treatment-grid" type="grid" />
+        <view name="pharmacy-treatment-form" type="form"/>
+        <domain>self.center.type = 1</domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="start.technical.sheet.dashboard.1.view" title="Breeding start graphs">
+        <view type="dashboard" name="start.technical.sheet.dashboard.1"/>
+    </action-view>
+
+    <action-view name="repro.technical.sheet.dashboard.1.view" title="Production graphs">
+        <view type="dashboard" name="repro.technical.sheet.dashboard.1"/>
+    </action-view>
+
+    <action-view name="action-view-start-product-order" model="com.gl.apps.pf.db.ProductOrder" title="Feed Requisition Order">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-order-cards" type="cards"/>
+        <view name="product-order-form" type="form"/>
+        <domain>self.center.type = 0 AND (self.status = 0 OR self.status = 1 OR self.status = 5)</domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+
+    <action-view name="action-view-livestock-product-order" model="com.gl.apps.pf.db.ProductOrder" title="Feed Requisition Order">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-order-livestock-feed-factory-form" type="form"/>
+        <domain>self.liveStockFeedFactory is not null AND (self.status = 0 OR self.status = 1 OR self.status = 5)</domain>
+    </action-view>
+
+    <action-view name="action-poultry-farming-reproduction-product-order" model="com.gl.apps.pf.db.ProductOrder" title="Feed Requisition Order">
+        <view name="product-order-cards" type="cards"/>
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-order-form" type="form"/>
+        <domain> self.center.type = 1 AND (self.status = 0 OR self.status = 1) </domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-products-release" model="com.gl.apps.pf.db.ProductOrder" title="Product Issues &amp; Deliveries">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-release-form" type="form"/>
+        <domain> self.status = 1 AND self.liveStockFeedFactory is not null</domain>
+    </action-view>
+
+    <action-view name="action-repro-production-products-release"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Product Issues &amp; Deliveries">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-release-form" type="form"/>
+        <domain> self.status = 1 AND self.fromCenter is not null AND self.fromCenter.type = 1</domain>
+    </action-view>
+
+    <action-view name="action-start-products-release"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Product Issues &amp; Deliveries">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-release-form" type="form"/>
+        <domain> ( self.status = 1 OR self.status = 2 OR self.status = 6) AND self.fromCenter is not null AND self.fromCenter.type = 0</domain>
+    </action-view>
+
+    <action-view name="action-start-product-consumption"
+                 model="com.gl.apps.pf.db.ProductConsumption" title="Feed &amp; Raw Material Consumption">
+        <view name="product-consumption-grid" type="grid"/>
+        <view name="product-consumption-form" type="form"/>
+        <domain> self.center.type = 0 AND (self.status = 0 OR self.status = 1) </domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+
+    <action-view name="action-reproduction-product-consumption"
+                 model="com.gl.apps.pf.db.ProductConsumption" title="Feed &amp; Raw Material Consumption">
+        <view name="product-consumption-grid" type="grid"/>
+        <view name="product-consumption-form" type="form"/>
+        <domain> self.center.type = 1 AND (self.status = 0 OR self.status = 1) </domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-receipt-order"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Goods Receipt Note">
+        <view name="product-order-grid" type="grid"/>
+        <view name="order-reception-form" type="form"/>
+        <domain> self.liveStockFeedFactory is not null AND (self.status = 2  OR self.status = 3)  </domain>
+    </action-view>
+
+    <action-view name="poultry-farming-reproduction-receipt-order"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Goods Receipt Note">
+        <view name="product-order-grid" type="grid"/>
+        <view name="order-reception-form" type="form"/>
+        <domain> self.fromCenter is not null AND self.fromCenter.type = 1 AND (self.status = 2  OR self.status = 3)  </domain>
+    </action-view>
+
+    <action-view name="action-start-receipt-order"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Goods Receipt Note">
+        <view name="product-order-grid" type="grid"/>
+        <view name="order-reception-form" type="form"/>
+        <domain> self.fromCenter is not null AND self.fromCenter.type = 0 AND (self.status = 2  OR self.status = 3 OR self.status = 7) </domain>
+    </action-view>
+
+    <action-view name="action-start-stock-correction" model="com.axelor.apps.stock.db.StockCorrection" title="Stock Adjustment &amp; Correction">
+        <view name="poultryfarming-stock-correction-form" type="form"/>
+        <domain> self.center.type = 0 </domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+
+    <action-view name="action-repro-production-stock-correction" model="com.axelor.apps.stock.db.StockCorrection" title="Stock Adjustment &amp; Correction">
+        <view name="poultryfarming-stock-correction-form" type="form"/>
+        <domain> self.center.type = 1 </domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="action-logistics-sheet-reports" title="Logistics Data Status" model="com.gl.apps.pf.db.LogisticsSheet">
+        <view name="report-view-logistics-sheet" type="form"/>
+    </action-view>
+
+
+    <action-view name="action-rent-car-invoices" title="Cust. Invoices"
+                 model="com.axelor.apps.account.db.Invoice">
+        <view type="grid" name="invoice-grid"/>
+        <view type="form" name="invoice-form"/>
+        <domain>self.operationTypeSelect = 3</domain>
+        <context name="_operationTypeSelect" expr="eval:3"/>
+        <context name="todayDate" expr="eval:__config__.date"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-start-breeding-technical-sheet"
+                 model="com.gl.apps.pf.db.TechnicalSheet" title="Technical sheet">
+        <view name="technical-sheet-grid" type="grid"/>
+        <view name="technical-sheet-form" type="form"/>
+        <domain> self.center.type = 0</domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+    <action-view name="action-poultry-farming-repro-breeding-technical-sheet"
+                 model="com.gl.apps.pf.db.TechnicalSheet" title="Technical sheet">
+        <view name="technical-sheet-grid" type="grid"/>
+        <view name="technical-sheet-form" type="form"/>
+        <domain> self.center.type = 1</domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-breeding-start-elev-reform"
+                 model="com.gl.apps.pf.db.ElevReform" title="Flock Culling &amp; Reform">
+        <view name="elev-reform-grid" type="grid"/>
+        <view name="elev-reform-form" type="form"/>
+        <domain> self.center.type = 0</domain>
+        <context name="_centerType" expr="0"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-repro-elev-reform"
+                 model="com.gl.apps.pf.db.ElevReform" title="Flock Culling &amp; Reform">
+        <view name="elev-reform-grid" type="grid"/>
+        <view name="elev-reform-form" type="form"/>
+        <domain> self.center.type = 1</domain>
+        <context name="_centerType" expr="1"/>
+    </action-view>
+
+    <action-view name="action-hatchery-product-order" model="com.gl.apps.pf.db.ProductOrder" title="Feed Requisition Order">
+        <view name="product-order-cards" type="cards"/>
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-order-hatchery-form" type="form"/>
+        <domain>self.hatchery is not null AND (self.status = 0 OR self.status = 1 OR self.status = 5)</domain>
+    </action-view>
+
+    <action-view name="action-poultry-farming-products-release-hatchery" model="com.gl.apps.pf.db.ProductOrder" title="Product Issues &amp; Deliveries">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-release-form" type="form"/>
+        <domain>self.hatchery is not null AND self.status = 1 </domain>
+    </action-view>
+
+    <action-view name="action-poultry-farming-hatchery-receipt-order" model="com.gl.apps.pf.db.ProductOrder" title="Goods Receipt Note">
+        <view name="product-order-grid" type="grid"/>
+        <view name="order-reception-form" type="form"/>
+        <domain> self.hatchery is not null AND (self.status = 2  OR self.status = 3)  </domain>
+    </action-view>
+
+    <action-view name="action-hatchery-product-consumption"
+                 model="com.gl.apps.pf.db.ProductConsumption" title="Feed &amp; Raw Material Consumption">
+        <view name="product-consumption-grid" type="grid"/>
+        <view name="product-consumption-hatchery-form" type="form"/>
+        <domain> self.hatchery is not null AND (self.status = 0 OR self.status = 1) </domain>
+    </action-view>
+
+    <action-view name="action-hatchery-egg-exit"
+                 model="com.gl.apps.pf.db.HatcheryEggExit" title="Miscellaneous Outputs">
+        <view name="hatchery-egg-exit-grid" type="grid" />
+        <view name="hatchery-egg-exit-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-hatchery-delivery-sale"
+                 model="com.gl.apps.pf.db.HatcheryDeliverySale" title="Hatchery Delivery Note">
+        <view name="hatchery-delivery-sale-grid" type="grid" />
+        <view name="hatchery-delivery-sale-form" type="form"/>
+    </action-view>
+
+    <action-view name="action-view-chair-product-order" model="com.gl.apps.pf.db.ProductOrder" title="Feed Requisition Order">
+        <view name="product-order-cards" type="cards"/>
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-order-form" type="form"/>
+        <domain>self.center.type = 2 AND (self.status = 0 OR self.status = 1)</domain>
+        <context name="_centerType" expr="2"/>
+    </action-view>
+
+    <action-view name="action-poultry-farming-products-release-chair"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Product Issues &amp; Deliveries">
+        <view name="product-order-grid" type="grid"/>
+        <view name="product-release-form" type="form"/>
+        <domain> self.status = 1 AND self.fromCenter is not null AND self.fromCenter.type = 2</domain>
+    </action-view>
+
+    <action-view name="action-poultry-farming-chair-receipt-order"
+                 model="com.gl.apps.pf.db.ProductOrder" title="Goods Receipt Note">
+        <view name="product-order-grid" type="grid"/>
+        <view name="order-reception-form" type="form"/>
+        <domain> self.fromCenter is not null AND self.fromCenter.type = 2 AND (self.status = 2  OR self.status = 3 OR self.status = 4) </domain>
+    </action-view>
+
+    <action-view name="action-chair-product-consumption"
+                 model="com.gl.apps.pf.db.ProductConsumption" title="Feed &amp; Raw Material Consumption">
+        <view name="product-consumption-grid" type="grid"/>
+        <view name="product-consumption-form" type="form"/>
+        <domain> self.center.type = 2 AND (self.status = 0 OR self.status = 1) </domain>
+        <context name="_centerType" expr="2"/>
+    </action-view>
+
+    <action-view name="action-chair-stock-correction" model="com.axelor.apps.stock.db.StockCorrection" title="Stock Adjustment &amp; Correction">
+        <view name="poultryfarming-stock-correction-form" type="form"/>
+        <domain> self.center.type = 2 </domain>
+        <context name="_centerType" expr="2"/>
+    </action-view>
+
+
+</object-views>

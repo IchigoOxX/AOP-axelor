@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcherEntryLine" >
+        <many-to-one name="hatcherEntry" ref="HatcherEntry" title="Hatcher entry"/>
+
+        <many-to-one name="hatcherTrolley" ref="HatcherTrolley" title="Hatcher trolley"/>
+        <many-to-one name="hatcher" ref="Hatcher" title="Hatcher" readonly="true"/>
+        <many-to-one name="incubatorTrolley" ref="com.gl.apps.pf.db.IncubatorTrolley" title="Incubator Trolley"/>
+
+        <many-to-one name="trackingNumber" title="" ref="com.axelor.apps.stock.db.TrackingNumber"/>
+        <string name="breedingShed" title="Breeding shed" readonly="true"/>
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery"/>
+
+        <string name="lineNumber" title="Line number" readonly="true"/>
+        <integer name="numberOfOac" required="true" title="OAC number"/>
+        <integer name="numberOfOacBasket" title="OAC baskets number">
+          <![CDATA[
+            Hatchery h = this.getHatchery();
+            if (h == null && this.getHatcherEntry() != null) {
+                h = this.getHatcherEntry().getHatchery();
+            }
+            if (h == null && this.getHatcher() != null) {
+                h = this.getHatcher().getHatchery();
+            }
+            int eggs = this.getNumberOfOac() != null ? this.getNumberOfOac() : 0;
+            if (h != null && h.getCapacityOfAnEggBasket() != null && h.getCapacityOfAnEggBasket() > 0 && eggs > 0) {
+                return (int) Math.ceil((double) eggs / h.getCapacityOfAnEggBasket());
+            }
+            return 0;
+          ]]>
+        </integer>
+        <integer name="status" title="Status"
+                 selection="poultryfarming.hatcher.trolley.status.select" readonly="true"/>
+
+        <integer name="loadingType" title="Loading type"
+                 selection="poultryfarming.charging.type.status.select" readonly="true"/>
+        <integer name="currentDailyAge" title="Daily age"/>
+        <integer name="currentWeeklyAge" title="Weekly age"/>
+        <string name="note" title="Note" large="true" translatable="true"/>
+
+        <extra-code>
+            <![CDATA[
+            // HATCHER TROLLEY STATUS
+            public static final int STATUS_FREE = 0;
+				public static final int STATUS_BUSY = 1;
+				public static final int STATUS_RESERVED = 2;
+                public static final int STATUS_IN_THE_INCUBATOR = 3;
+                public static final int STATUS_IN_THE_HATCHER = 4;
+				public static final int STATUS_STOPPED = 5;
+            // LOADING TYPES
+				public static final int LOADING_TYPE_SELECTION = 0;
+				public static final int LOADING_TYPE_VARIOUS = 1;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="hatcherEntry"/>
+            <field name="hatcherTrolley"/>
+            <field name="hatcher"/>
+            <field name="incubatorTrolley"/>
+            <field name="trackingNumber"/>
+            <field name="breedingShed"/>
+            <field name="center"/>
+            <field name="lineNumber"/>
+            <field name="numberOfOac"/>
+            <field name="numberOfOacBasket"/>
+            <field name="loadingType"/>
+            <field name="note"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

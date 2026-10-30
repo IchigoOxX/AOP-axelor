@@ -1,0 +1,21 @@
+plugins {
+	id 'com.axelor.app'
+}
+
+apply from: "../version.gradle"
+
+apply {
+	version = openSuiteVersion
+}
+
+axelor {
+    title "Poultry Farming Management System"
+    description "Poultry Farming Management System"
+}
+
+dependencies {
+	api project(":modules:axelor-supplychain")
+	api project(":modules:axelor-contract")
+	api project(":modules:axelor-fleet")
+	implementation project(path: ':modules:axelor-production')
+}

@@ -1,0 +1,152 @@
+Action,العمل
+Actions,الإجراءات
+All reached,الكل وصل
+Allocate all,تخصيص الكل
+Alternative Bill of materials,قائمة المواد البديلة
+Anticipation horizon (days),أفق الاستباقية (بالأيام)
+Assigned to,مخصص لـ
+BOM.machine,آلة
+Back to draft,العودة إلى المسودة
+Bill of Materials,قائمة المواد / شجرة المنتج (BOM)
+Bill of material line list,قائمة بنود شجرة المنتج
+Bill of materials,قائمة المواد / شجرة المنتج (BOM)
+Bills of material,قوائم المواد / شجرة المنتج (BOM)
+Bills of materials,قوائم المواد / شجرة المنتج (BOM)
+Cancel,إلغاء
+Cancel Reason,إلغاء السبب
+Cancel reservation,إلغاء الحجز
+Canceled,ملغي
+Complete,أكمل
+Completed,مكتمل
+Components,المكونات
+Compute cost price,حساب سعر التكلفة
+Compute work in progress valuation,حساب تقييم العمل الجاري
+Configuration,التهيئة
+Consume in stock moves,الاستهلاك في حركات المخزون
+Consumed products,المنتجات المستهلكة
+Corrective,تصحيحية
+Cost,التكلفة
+Create maintenance request,إنشاء طلب صيانة
+Current requests,الطلبات الحالية
+Cycles,دورات
+Dates,مواعيد
+Days,أيام
+Details,التفاصيل
+Deallocate all,إلغاء تخصيص الكل
+Default Bill of materials,قائمة المواد الافتراضية
+Done on,تم يوم
+Duration (Hours),المدة (ساعات)
+End date,تاريخ الانتهاء
+Equipement maintenance,صيانة المعدات
+Equipement maintenances,صيانة المعدات
+Event end date,تاريخ انتهاء الحدث
+Event start date,تاريخ بدء الحدث
+Expected date,التاريخ المتوقع
+Finish,انتهى
+First reached,وصلت لأول مرة
+General BoM,بنك الإدارة العام
+General production processes,عمليات الإنتاج العامة
+Generate new version,إنشاء نسخة جديدة
+Generate preventive maintenance requests,توليد طلبات الصيانة الوقائية
+Generate request each,إنشاء طلب لكل
+Hours of production,ساعات الإنتاج
+In progress,قيد التنفيذ
+MO's comment from sale order,تعليق مو من أمر البيع
+MO's comment from sale order line,تعليق MO من سطر أمر البيع
+Machine,آلة
+Machine type,نوع الآلة
+Machines,آلات
+Machines unavailable,الآلات غير متوفرة
+Maintenance,الصيانة
+Maintenance Category,فئة الصيانة
+Maintenance File,ملف الصيانة
+Maintenance Procedure,إجراء الصيانة
+Maintenance Request,طلب صيانة
+Maintenance Requests,طلبات الصيانة
+Maintenance bill of materials template,قالب فاتورة مواد الصيانة
+Maintenance comments,تعليقات الصيانة
+Maintenance components stock location,موقع مخزون مكونات الصيانة
+Maintenance manuf order template,نموذج أمر تصنيع الصيانة
+Maintenance operations,عمليات الصيانة
+Maintenance order,أمر صيانة
+Maintenance virtual stock location,الموقع الافتراضي لمخزون الصيانة
+Maintenance orders,أوامر الصيانة
+Maintenance periods,فترات الصيانة
+Maintenance process,عملية الصيانة
+Maintenance prod process template,قالب عملية الصيانة
+Maintenance task,مهمة الصيانة
+Make it applicable,اجعلها قابلة للتطبيق
+Make it obsolete,اجعلها قديمة
+ManufOrder.machine,آلة
+ManufOrder.machineType,نوع الجهاز
+Manufacturing Order,أمر تصنيع / إنتاج
+Manufacturing order,أمر تصنيع / إنتاج
+Manufacturing orders,أوامر التصنيع
+Merged MO,مو مدمج
+Missing equipement maintenance sequence.,تسلسل صيانة المعدات مفقود.
+Moves In,حركات واردة
+My Maintenance requests,طلبات الصيانة الخاصة بي
+Name,الاسم
+Need / Maintenance order,الاحتياج / أمر الصيانة
+Next maintenance date,تاريخ الصيانة القادم
+Note,ملاحظة
+Number of days before the scheduled maintenance date at which the request is created. Leave at 0 to trigger on the due date (current behavior).,عدد الأيام قبل تاريخ الصيانة المجدول لإنشاء الطلب. اتركه عند 0 للتنفيذ في تاريخ الاستحقاق.
+Operating hours ref. at last maintenance,مرجع ساعات التشغيل عند آخر صيانة
+Number of phases,عدد المراحل
+Options,الخيارات
+Outsourced,الاستعانة بمصادر خارجية
+Partial Finish,تشطيب جزئي
+Pause,وقفة
+Permanent,الدائم
+Personalized production processes,عمليات الإنتاج الشخصية
+Phases,المراحل
+Plan,خطة
+Planned dates,التواريخ المخططة
+Please configure the maintenance components stock location in the stock configuration for company %s.,يرجى تهيئة موقع مخزون مكونات الصيانة في إعدادات المخزون للشركة %s.
+Please configure the maintenance virtual stock location in the stock configuration for company %s.,يرجى تهيئة موقع المخزون الافتراضي للصيانة في إعدادات المخزون للشركة %s.
+Please indicate an equipment for the maintenance request.,يرجى الإشارة إلى أحد الأجهزة لطلب الصيانة.
+Please indicate an expected date for the maintenance request.,يرجى الإشارة إلى التاريخ المتوقع لطلب الصيانة.
+Please select the Manufacturing order(s) to print.,يرجى تحديد أمر (أوامر) التصنيع المراد طباعتها.
+Pre-fill operations,عمليات التعبئة المسبقة
+Preventive,وقائية
+Preventive maintenance batch,المعالجة المجمعة للصيانة الوقائية
+"Preventive maintenance batch report: %d request(s) created, %d error(s)",تقرير معالجة الصيانة الوقائية: تم إنشاء %d طلب(ات)، و %d خطأ(أخطاء)
+Print,طباعة
+Print Production Process,عملية إنتاج الطباعة
+ProdProcess.machine,آلة
+Product,منتج
+Production configuration,تكوين الإنتاج
+Production process,عملية الإنتاج
+Production processes,عمليات الإنتاج
+Real dates,التواريخ الحقيقية
+Replan,إعادة التخطيط
+Reports,التقارير
+Request By,الطلب بواسطة
+Request date,تاريخ الطلب
+Request history,تاريخ الطلب
+Reserve all,حجز الكل
+Quality,الجودة
+Residual products,المنتجات المتبقية
+Resume,استئناف
+Stock moves,حركات المخزون
+Sequence,التسلسل
+Start,ابدأ
+Start date,تاريخ البدء
+State,الدولة
+This configuration allows you to define the default stock location for the company's components used for maintenance of production machines.,تتيح لك هذه التهيئة تحديد موقع المخزون الافتراضي لمكونات الشركة المستخدمة في صيانة آلات الإنتاج.
+This configuration allows you to define the default virtual maintenance location for the company. This location will be used for maintenance of production machines.,تتيح لك هذه التهيئة تحديد الموقع الافتراضي لصيانة الشركة. سيتم استخدام هذا الموقع لصيانة آلات الإنتاج.
+This field is not yet taken into account by the preventive maintenance batch. Cycle-based triggering is planned for a future version.,لم يتم بعد أخذ هذا الحقل في الاعتبار بواسطة المعالجة المجمعة للصيانة الوقائية. التشغيل المستند إلى الدورات مخطط له في إصدار قادم.
+Total Lead Duration,إجمالي مدة العميل المحتمل
+Total Planned Duration,إجمالي المدة المخططة
+Total Real Duration,إجمالي المدة الحقيقية
+Type,النوع
+Update planned quantities (Components and FP),تحديث الكميات المخططة (المكونات وFP)
+Update product cost price,تحديث سعر تكلفة المنتج
+Update real quantities (Components and FP),تحديث الكميات الحقيقية (المكونات وFP)
+Validate,التحقق من صحة
+Version management,إدارة الإصدارات
+equipement.maintenance.code,الرمز
+equipement.maintenance.image,المعدات.الصيانة.صورة
+equipement.maintenance.name,الاسم
+maintenance.request.planned,طلب صيانة.مخطط
+value:Maintenance,القيمة: الصيانة

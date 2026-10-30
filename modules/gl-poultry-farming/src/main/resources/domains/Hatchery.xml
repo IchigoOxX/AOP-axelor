@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="Hatchery">
+    <string name="hatcheryRef" title="Reference" required="true" unique="true"/>
+    <string name="name" title="Name" required="true"/>
+
+    <integer name="numberOfIncubators" title="Number of incubators"/>
+    <integer name="numberOfHatchers" title="Number of hatchers" />
+    <integer name="numberOfIncubatorTrolleys" title="Number of incubator trolleys"/>
+    <integer name="numberOfHatcherTrolleys" title="Number of hatcher trolleys"/>
+    <integer name="numberOfHatchersPerIncubator" title="Number of hatchers per incubator"/>
+    <boolean name="sameCapacityOfTrolleys" title="Same capacity of trolleys"/>
+
+    <integer name="incubatorCapacityInTrolleys" title="Incubator capacity in trolleys"/>
+    <integer name="capacityOfATrolleyInTrays" title="Capacity of a trolley in trays"/>
+    <integer name="capacityOfAnEggTray" title="Capacity of an egg tray"/>
+    <integer name="numberOfIncubationDays" title="Number of incubation days"/>
+    <integer name="numberOfIncubationHours" title="Number of incubation hours"/>
+    <integer name="incubatorCleaningTime" title="Incubator cleaning time"/>
+
+    <integer name="capacityOfTheHatcherInTrolleys"
+      title="Capacity of the hatcher in trolleys"/>
+    <integer name="capacityOfACartInBaskets" title="Capacity of a cart in baskets"/>
+    <integer name="capacityOfAnEggBasket" title="Capacity of an egg basket"/>
+    <integer name="numberOfHatchingDays" title="Number of hatching days"/>
+    <integer name="numberOfHoursOfHatching" title="Number of hours of hatching"/>
+    <integer name="hatcherCleaningTime" title="Hatcher cleaning time"/>
+
+    <string name="note" title="Note" large="true" translatable="true"/>
+
+    <many-to-one name="packagingProduct" ref="com.axelor.apps.base.db.Product"
+      title="Packaging product"/>
+    <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+      title="Unit (Department)" required="true"/>
+    <many-to-one name="associatedProductFamily"
+                 ref="com.axelor.apps.base.db.ProductFamily" title="Associated product family"/>
+
+    <finder-method name="ByReference" using="hatcheryRef"/>
+
+
+    <track on="UPDATE">
+      <field name="hatcheryRef"/>
+      <field name="name"/>
+      <field name="numberOfIncubators"/>
+      <field name="numberOfHatchers"/>
+      <field name="numberOfIncubatorTrolleys"/>
+      <field name="numberOfHatcherTrolleys"/>
+      <field name="numberOfHatchersPerIncubator"/>
+      <field name="sameCapacityOfTrolleys"/>
+      <field name="incubatorCapacityInTrolleys"/>
+      <field name="capacityOfATrolleyInTrays"/>
+      <field name="capacityOfAnEggTray"/>
+      <field name="numberOfIncubationDays"/>
+      <field name="numberOfHoursOfHatching"/>
+      <field name="sameCapacityOfTrolleys"/>
+      <field name="incubatorCapacityInTrolleys"/>
+      <field name="capacityOfATrolleyInTrays"/>
+      <field name="capacityOfAnEggTray"/>
+      <field name="numberOfIncubationDays"/>
+      <field name="numberOfIncubationHours"/>
+      <field name="incubatorCleaningTime"/>
+      <field name="capacityOfTheHatcherInTrolleys"/>
+      <field name="capacityOfACartInBaskets"/>
+      <field name="capacityOfAnEggBasket"/>
+      <field name="numberOfHatchingDays"/>
+      <field name="numberOfHoursOfHatching"/>
+      <field name="hatcherCleaningTime"/>
+      <field name="note"/>
+      <field name="packagingProduct"/>
+      <field name="unit"/>
+
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+  </entity>
+
+</domain-models>

@@ -1,0 +1,116 @@
+plugins {
+    id 'com.axelor.app'
+}
+
+axelor {
+    title = "My Custom System"
+    description = "Custom Business Application"
+}
+
+allprojects {
+    group = 'com.example'
+    version = '1.0.0'
+    
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://repository.axelor.com/nexus/repository/maven-public/'
+        }
+        ivy {
+            name = "Node.js"
+            setUrl("https://nodejs.org/dist/")
+            patternLayout {
+                artifact("v[revision]/[artifact](-v[revision]-[classifier]).[ext]")
+            }
+            metadataSources {
+                artifact()
+            }
+            content {
+                includeModule("org.nodejs", "node")
+            }
+        }
+    }
+    
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    configurations.all {
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+    }
+}
+
+dependencies {
+    implementation project(':modules:my-module')
+    
+    // Axelor Open Suite (AOS) - All Modules
+    implementation project(':modules:axelor-base')
+    implementation project(':modules:axelor-account')
+    implementation project(':modules:axelor-bank-payment')
+    implementation project(':modules:axelor-budget')
+    implementation project(':modules:axelor-cash-management')
+    implementation project(':modules:axelor-client-portal')
+    implementation project(':modules:axelor-contract')
+    implementation project(':modules:axelor-crm')
+    implementation project(':modules:axelor-fleet')
+    implementation project(':modules:axelor-gdpr')
+    implementation project(':modules:axelor-helpdesk')
+    implementation project(':modules:axelor-human-resource')
+    implementation project(':modules:axelor-intervention')
+    implementation project(':modules:axelor-maintenance')
+    implementation project(':modules:axelor-marketing')
+    implementation project(':modules:axelor-mobile-settings')
+    implementation project(':modules:axelor-production')
+    implementation project(':modules:axelor-project')
+    implementation project(':modules:axelor-purchase')
+    implementation project(':modules:axelor-quality')
+    implementation project(':modules:axelor-sale')
+    implementation project(':modules:axelor-stock')
+    implementation project(':modules:axelor-supplier-management')
+    implementation project(':modules:axelor-supplier-portal')
+    implementation project(':modules:axelor-supplychain')
+    implementation project(':modules:axelor-talent')
+    implementation project(':modules:axelor-egypt-einvoice')
+    
+    // Custom modules
+    implementation project(':modules:gl-pos')
+    implementation project(':modules:gl-poultry-farming')
+    implementation project(':modules:gl-livestock-farming')
+    implementation project(':modules:axelor-zatca-einvoice')
+    implementation project(':modules:axelor-teamsapp')
+    implementation project(':modules:axelor-dailyts')
+    implementation project(':modules:axelor-docusign')
+    implementation project(':modules:axelor-prestashop')
+    implementation project(':modules:axelor-sendinblue')
+}
+
+tasks.withType(JavaExec) {
+    systemProperty "tomcat.util.scan.StandardJarScanFilter.jarsToSkip", "*"
+    systemProperty "org.apache.catalina.startup.ContextConfig.jarsToSkip", "*"
+}
+
+tasks.named("generateRunner") {
+    doLast {
+        def propsFile = file("${buildDir}/tomcat/axelor-tomcat.properties")
+        if (propsFile.exists()) {
+            println "Patching axelor-tomcat.properties to optimize Tomcat on Windows..."
+            def props = new Properties()
+            propsFile.withInputStream { props.load(it) }
+            
+            def extraClasses = props.getProperty("extraClasses", "")
+            if (extraClasses) {
+                def parts = extraClasses.split(",")
+                def kept = []
+                if (parts.length > 0) kept.add(parts[0])
+                if (parts.length > 1) kept.add(parts[1])
+                props.setProperty("extraClasses", kept.join(","))
+            }
+            
+            propsFile.withOutputStream { props.store(it, null) }
+            println "Successfully patched axelor-tomcat.properties! Kept only root project directories."
+        }
+    }
+}
+

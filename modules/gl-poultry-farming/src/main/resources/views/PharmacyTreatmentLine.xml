@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="pharmacy-treatment-line-form" title="Pharmacy treatment Line"
+          model="com.gl.apps.pf.db.PharmacyTreatmentLine" width="large">
+        <panel title="Overview">
+            <field name="productCategory" target-name="name"
+                   domain="self.name = 'VACCIN' OR self.name = 'MEDICAMENT'"/>
+            <field name="medicalTreatment" domain="self.productCategory = :productCategory" onChange="action-attrs-pharmacy-treatment-changed"/>
+            <field name="nature"/>
+            <field name="dosePerSubject" required="true" onChange="action-pharmacy-treatment-line-calculate-reel-quantity"/>
+            <field name="um" title="Unit" readonly="true"/>
+            <field name="forUseQuantity" required="true" onChange="action-pharmacy-treatment-line-calculate-reel-quantity" />
+            <field name="quantityPerDayBreedingShed" readonly="true"/>
+            <field name="reelQuantity" onChange="action-pharmacy-treatment-line-calculate-reel-quantity"/>
+            <field name="lossRate" readonly="true" title="Remaining quantity"/>
+        </panel>
+    </form>
+
+    <grid name="pharmacy-treatment-line-grid" title="Pharmacy treatment lines" model="com.gl.apps.pf.db.PharmacyTreatmentLine"
+          canDelete="true" canEdit="true"
+          onNew="action-attr-show-medicine-category-params,action-attr-show-vaccine-category-params" edit-icon="true">
+        <field name="productCategory" type="many-to-one" target="com.axelor.apps.base.db.ProductCategory" target-name="name"
+               domain="self.name = 'VACCIN' OR self.name = 'MEDICAMENT'"/>
+        <field name="medicalTreatment" domain="self.productCategory = :productCategory" onChange="action-attrs-pharmacy-treatment-changed"/>
+        <field name="nature"/>
+        <field name="dosePerSubject" required="true" onChange="action-pharmacy-treatment-line-calculate-reel-quantity"/>
+        <field name="um" title="Unit" readonly="true"/>
+        <field name="forUseQuantity" required="true" onChange="action-pharmacy-treatment-line-calculate-reel-quantity"/>
+        <field name="quantityPerDayBreedingShed" readonly="true"/>
+        <field name="reelQuantity" onChange="action-pharmacy-treatment-line-calculate-reel-quantity"/>
+        <field name="lossRate" title="Remaining quantity" readonly="true"/>
+
+    </grid>
+
+    <grid name="pharmacy-treatment-line-technical-sheet-grid" title="Pharmacy treatment lines" model="com.gl.apps.pf.db.PharmacyTreatmentLine"
+          canDelete="true" canEdit="true" edit-icon="true">
+        <field name="pharmacyTreatment.reference" readonly="true"/>
+        <field name="medicalTreatment" readonly="true"/>
+        <field name="um" readonly="true"/>
+        <field name="dosePerSubject" readonly="true"/>
+        <field name="forUseQuantity" readonly="true"/>
+        <field name="reelQuantity" readonly="true"/>
+    </grid>
+
+    <form name="pharmacy-treatment-line-treatment-sheet-form" title="Pharmacy treatment Line"
+          model="com.gl.apps.pf.db.PharmacyTreatmentLine" width="large">
+        <panel title="Overview">
+            <field name="reference" title="N°" readonly="true"/>
+            <field name="medicalTreatment" readonly="true"/>
+            <field name="nature" readonly="true"/>
+            <field name="dosePerSubject" readonly="true"/>
+            <field name="um" readonly="true"/>
+            <field name="forUseQuantity" readonly="true"/>
+            <field name="quantityPerDayBreedingShed" readonly="true"/>
+            <field name="reelQuantity" readonly="true"/>
+            <field name="lossRate" readonly="true"/>
+        </panel>
+    </form>
+
+
+    <action-attrs name="action-pharmacy-treatment-line-calculate-reel-quantity" model="com.gl.apps.pf.db.PharmacyTreatmentLine">
+        <attribute if="reelQuantity != 0" name="value" expr="eval: reelQuantity - forUseQuantity" for="lossRate"/>
+        <attribute if="__parent__.breedingShed != null &amp;&amp; forUseQuantity != 0 &amp;&amp;__parent__.diffDays != 0 " name="value" expr="eval: forUseQuantity / __parent__.diffDays" for="quantityPerDayBreedingShed"/>
+        <attribute if="__parent__.breedingShed == null &amp;&amp; forUseQuantity != 0 &amp;&amp; __parent__.diffDays != 0 &amp;&amp; _breedingShedListLength != 0"
+                   name="value"
+                   expr="eval: (forUseQuantity != null &amp;&amp; __parent__.diffDays != null &amp;&amp; __parent__._breedingShedListLength != null) ? new BigDecimal(forUseQuantity.toString()).divide(new BigDecimal(__parent__.diffDays.toString()), java.math.RoundingMode.HALF_UP).divide(new BigDecimal(__parent__._breedingShedListLength.toString()), java.math.RoundingMode.HALF_UP) : null"
+                   for="quantityPerDayBreedingShed"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-pharmacy-treatment-changed"
+                  model="com.gl.apps.pf.db.PharmacyTreatmentLine">
+        <attribute if="medicalTreatment != null &amp;&amp; medicalTreatment.unit != null" for="um" name="value" expr="eval: medicalTreatment.unit.labelToPrinting"/>
+    </action-attrs>
+
+    <action-attrs name="action-attr-show-medicine-category-params" model="com.gl.apps.pf.db.PharmacyTreatmentLine">
+        <attribute name="value" expr="eval: __config__.app.getApp('poultry-farming')?.medicineProductType.name" for="medicineCategory"/>
+    </action-attrs>
+
+    <action-attrs name="action-attr-show-vaccine-category-params" model="com.gl.apps.pf.db.PharmacyTreatmentLine">
+        <attribute name="value" expr="eval: __config__.app.getApp('poultry-farming')?.vaccineProductType.name" for="vaccineCategory"/>
+    </action-attrs>
+
+</object-views>

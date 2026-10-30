@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+<module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="StartBreedingGuide" >
+
+    <many-to-one name="breed" ref="Breed" title="Breed" initParam="true"/>
+    <string name="gender" title="Gender" required="true"
+      selection="poultry-farming.start.breeding.guide.gender.select"/>
+
+    <integer name="dayNumber" title="Day Number" required="true"/>
+
+    <integer name="weekNumber" title="Week number" readonly="true">
+     <![CDATA[
+         if(this.getDayNumber() % 7 == 0 ) {
+            return this.getDayNumber() / 7 ;
+          }
+          return null;
+       ]]>
+    </integer>
+    <integer name="theoreticalWeight" title="Theoretical weight"/>
+    <integer name="theoreticalWeightGain" title="Theoretical weight gain"/>
+    <integer name="dailyGainRate" title="Daily gain rate"/>
+    <integer name="weeklyGainRate" title="Weekly gain rate"/>
+    <extra-code>
+      <![CDATA[
+      // START BREEDING GENDER SELECT
+          public static final String GENDER_MALE = "M";
+          public static final String GENDER_FEMALE = "F";
+	  ]]>
+
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="breed"/>
+      <field name="gender"/>
+      <field name="dayNumber"/>
+      <field name="weekNumber"/>
+      <field name="theoreticalWeight"/>
+      <field name="theoreticalWeightGain"/>
+      <field name="dailyGainRate"/>
+      <field name="weeklyGainRate"/>
+
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+  </entity>
+
+</domain-models>

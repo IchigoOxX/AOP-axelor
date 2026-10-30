@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <form name="app-pos-config-form" title="App POS"
+    model="com.axelor.studio.db.AppPos" width="large" canNew="false" canDelete="false">
+      <panel title="Main Panel">
+        <panel title="Default Locations" colSpan="9">
+            <field name="warehouseLocation" colSpan="6"/>
+            <field name="virtualClientLocation" colSpan="6"/>
+        </panel>
+      </panel>
+  </form>
+
+</object-views>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="FleshChicksReception">
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <datetime name="creationDate" title="Creation date" required="true"/>
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+        <many-to-one name="fleshReceptionDispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Flesh chicks reception dispatch Stock"/>
+        <!--Programe chair-->
+        <date name="plannedReceptionDate" title="Planned reception date"/>
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+        <many-to-one name="breedingShed" ref="com.gl.apps.pf.db.BreedingShed"  title="Breeding Shed"/>
+        <integer name="numberOfCagePerBreedingShed" title="Number of cage per breeding shed"/>
+        <many-to-one name="fleshLoadingProgramLine" ref="com.gl.apps.pf.db.FleshLoadingProgramLine" title="Flesh loading program line"/>
+        <many-to-one name="fleshLoadingProgram" ref="com.gl.apps.pf.db.FleshLoadingProgram" title="Flesh loading program"/>
+        <integer name="numberOfChicks" title="Number of chicks"/>
+
+        <!--Reception-->
+        <date name="realReceptionDate" title="Real reception date"/>
+        <time name="startTime" title="Start time"/>
+        <time name="endTime" title="End time"/>
+        <integer name="numberOfReceptions" title="Number of receptions"/>
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)"/>
+        <many-to-one name="hatchery" ref="com.gl.apps.pf.db.Hatchery" title="Hatchery"/>
+        <many-to-one name="hatcherExit" ref="com.gl.apps.pf.db.HatcherExit" title="Hatcher exit"/>
+        <many-to-one name="breed" ref="Breed" title="Breed" readonly="true"/>
+        <integer name="numberOfChicksTransferred" title="Number of chicks transferred"/>
+        <integer name="numberOfChicksReceived" title="Number of chicks received"/>
+        <integer name="gap" title="Gap"/>
+        <integer name="numberChicksPerCage" title="Number of chicks per cage"/>
+        <decimal name="averageWeight" title="Average weight"/>
+        <many-to-one name="trackingNumber" title="" ref="com.axelor.apps.stock.db.TrackingNumber"/>
+        <string name="completeRefTrackingNumber" title="Complete tracking number" readonly="true"/>
+
+        <integer name="status" title="Status" selection="poultryfarming.flesh.chicks.reception.status.select" readonly="true"/>
+
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				// CHICKS RECEPTION STATUS SELECT
+			    public static final int STATUS_NOT_RECEIVED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_RECEIVED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+        </extra-code>
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="creationDate"/>
+            <field name="plannedReceptionDate"/>
+            <field name="center"/>
+            <field name="breedingShed"/>
+            <field name="numberOfCagePerBreedingShed"/>
+            <field name="fleshLoadingProgramLine"/>
+            <field name="fleshLoadingProgram"/>
+            <field name="numberOfChicks"/>
+            <field name="realReceptionDate"/>
+            <field name="startTime"/>
+            <field name="endTime"/>
+            <field name="numberOfReceptions"/>
+            <field name="unit"/>
+            <field name="hatchery"/>
+            <field name="hatcherExit"/>
+            <field name="breed"/>
+            <field name="numberOfChicksTransferred"/>
+            <field name="numberOfChicksReceived"/>
+            <field name="gap"/>
+            <field name="numberChicksPerCage"/>
+            <field name="averageWeight"/>
+            <field name="status"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>

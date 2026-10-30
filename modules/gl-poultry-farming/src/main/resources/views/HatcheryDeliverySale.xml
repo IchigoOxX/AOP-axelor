@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="hatchery-delivery-sale-form" title="Delivery sale OAC" model="com.gl.apps.pf.db.HatcheryDeliverySale" width="large"
+          onNew="action-set-default-date-hatchery-delivery-sale">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="10">
+                <panel title="Infos:" readonlyIf="status != 0" colSpan="12">
+                    <field name="reference" colSpan="4"/>
+                    <field name="datetime" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+                </panel>
+            </panel>
+            <panel showTitle="false" colSpan="2">
+                <panel showTitle="false" colSpan="12" sidebar="true">
+                    <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                        <viewer depends="status"><![CDATA[
+                      <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                         <tbody>
+                          <tr>
+                           <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                          </tr>
+                         </tbody>
+                      </table>
+                    ]]></viewer>
+                    </field>
+                </panel>
+                <panel colSpan="12">
+                    <button name="validateBtn" title="Validate" css="btn-success" prompt="Are you sure you want to validate this delivery sale ?" showIf="status &lt; 1" colSpan="12" icon="fa-check"
+                            onClick="save,action-group-hatchery-delivery-sale-validation"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="cancelBtn" title="Cancel delivery" showIf="status == 1" prompt="Are you sure you want to cancel this delivery sale ?" icon="fa-times" css="btn-danger" colSpan="12"
+                            onClick="action-hatchery-delivery-sale-show-dialog-cancel-reason"/>
+                </panel>
+                <panel colSpan="12">
+                    <button name="revalidateBtn" title="Revalidate" showIf="status == 3" colSpan="12" css="btn-warning" icon="fa-refresh" onClick="save,action-hatchery-delivery-sale-revalidate"/>
+                </panel>
+            </panel>
+            <panel colSpan="12" readonlyIf="status != 0" showTitle="false">
+                <panel colSpan="12" title="Hatchery:">
+                    <field name="unit" colSpan="3" onChange="action-attrs-hatchery-delivery-sale-unit-empty"/>
+                    <field name="hatchery" onChange="action-hatchery-delivery-sale-order-selected" colSpan="3" domain=":unit != null AND self.unit = :unit"/>
+                    <field name="customerSaleOrder" onSelect="action-hatchery-delivery-customer-sale-selected"
+                           onChange="action-group-hatchery-delivery-sale-customer-sale-order-changed"
+                           showIf="hatchery != null" colSpan="3"/>
+                    <field name="clientPartner" showIf="hatchery != null" colSpan="3" readonly="true"/>
+                </panel>
+            </panel>
+            <panel-related name="hatcheryDeliverySaleLinesPanel" readonlyIf="status != 0" colSpan="12" field="hatcheryDeliverySaleList"
+                           canEdit="true" editable="true" canNew="false"
+                           form-view="hatchery-delivery-sale-line-form"
+                           grid-view="hatchery-delivery-sale-line-grid"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="hatchery-delivery-sale-grid" title="Delivery sale OAC" model="com.gl.apps.pf.db.HatcheryDeliverySale" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="hatchery"/>
+        <field name="datetime"/>
+        <field name="customerSaleOrder"/>
+        <field name="clientPartner"/>
+        <field name="dispatchStock"/>
+        <field name="status">
+            <hilite background="grey" if="$get('status') == 0"/>
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-view name="action-hatchery-delivery-sale-show-dialog-cancel-reason" model="com.gl.apps.pf.db.HatcheryDeliverySale" title="Cancelation">
+        <view name="hatchery-delivery-sale-cancel-dialog-form" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+        <context name="_id" expr="eval: id"/>
+    </action-view>
+
+    <form name="hatchery-delivery-sale-cancel-dialog-form" title="Cancelation" model="com.gl.apps.pf.db.HatcheryDeliverySale">
+        <panel>
+            <field name="reasonOfCancel" colSpan="6" required="true" x-type="many-to-one" target-name="name" x-target="com.axelor.apps.base.db.CancelReason"/>
+            <button name="btnCancel" title="Validate" onClick="action-hatchery-delivery-sale-cancel,close" confirm="false" style="danger" target="none"/>
+        </panel>
+    </form>
+
+    <action-record name="action-set-default-date-hatchery-delivery-sale"
+                   model="com.gl.apps.pf.db.HatcheryDeliverySale" >
+        <field name="datetime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-validate name="action-hatchery-delivery-sale-check-empty-list">
+        <error if="hatcheryDeliverySaleList.isEmpty()" message="You cannot validate ! hatchery delivery sale list is empty."/>
+    </action-validate>
+
+
+    <action-method name="action-hatchery-delivery-sale-validate">
+        <call class="com.gl.apps.pf.web.HatcheryDeliverySaleController" method="HatcheryDeliverySaleValidate"/>
+    </action-method>
+
+    <action-group name="action-group-hatchery-delivery-sale-validation">
+        <action name="action-hatchery-delivery-sale-check-empty-list"/>
+        <action name="action-hatchery-egg-exit-line-validate-qte"/>
+        <action name="action-hatchery-delivery-sale-validate"/>
+    </action-group>
+
+    <action-validate name="action-hatchery-egg-exit-line-validate-qte">
+        <error if="hatcheryDeliverySaleList &amp;&amp; hatcheryDeliverySaleList?.collect(){ it?.reelDeliveredQty }?.sum() > hatcheryDeliverySaleList?.collect(){ it?.deliveredQty }?.sum()" message="The real delivered qte must be less then delivered qte."/>
+    </action-validate>
+
+    <action-method name="action-hatchery-delivery-sale-cancel">
+        <call class="com.gl.apps.pf.web.HatcheryDeliverySaleController" method="HatcheryDeliverySaleCancel"/>
+    </action-method>
+
+    <action-method name="action-hatchery-delivery-sale-revalidate">
+        <call class="com.gl.apps.pf.web.HatcheryDeliverySaleController" method="HatcheryDeliverySaleRevalidate"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-hatchery-delivery-sale-customer-sale-order-changed"
+                  model="com.gl.apps.pf.db.HatcheryDeliverySale">
+        <attribute if="customerSaleOrder != null" for="clientPartner" name="value"
+                   expr="eval: customerSaleOrder.clientPartner"/>
+    </action-attrs>
+
+    <action-method name="action-method-hatchery-delivery-sale-get-lines-from-customer-sale-order">
+        <call method="getLinesFromCustomerSaleOrder"
+              class="com.gl.apps.pf.web.HatcheryDeliverySaleController"/>
+    </action-method>
+
+    <action-group name="action-group-hatchery-delivery-sale-customer-sale-order-changed">
+        <action name="action-attrs-hatchery-delivery-sale-customer-sale-order-changed"/>
+        <action name="action-method-hatchery-delivery-sale-get-lines-from-customer-sale-order"/>
+    </action-group>
+
+    <action-attrs name="action-hatchery-delivery-customer-sale-selected" model="com.gl.apps.pf.db.HatcheryDeliverySale">
+        <attribute name="domain" expr="eval: 'self.id in
+        (select distinct so.id from SaleOrder so
+        join SaleOrderLine sol on so.id = sol.saleOrder
+        join Product p on sol.product = p.id
+        where so.statusSelect = 3 AND p.productFamily.id = :_hatchery)'" for="customerSaleOrder"/>
+    </action-attrs>
+
+    <action-record name="action-hatchery-delivery-sale-order-selected" model="com.gl.apps.pf.db.HatcheryDeliverySale">
+        <field name="_hatchery" expr="eval: hatchery?.associatedProductFamily.id"/>
+    </action-record>
+
+    <action-attrs name="action-attrs-hatchery-delivery-sale-unit-empty">
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="hatchery"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="customerSaleOrder"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="clientPartner"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="hatcheryDeliverySaleList"/>
+    </action-attrs>
+
+
+</object-views>

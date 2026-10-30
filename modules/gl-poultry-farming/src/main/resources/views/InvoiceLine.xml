@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="invoice-line-form-id" name="invoice-line-form" title="Invoice line" model="com.axelor.apps.account.db.InvoiceLine" extension="true">
+<!--        <extend target="/">-->
+<!--            <attribute name="onNew" value="action-attr-get-qte-value-test,action-attr-get-qte-value"/>-->
+<!--        </extend>-->
+    </form>
+
+    <action-record name="action-attr-get-qte-value" model="com.axelor.apps.account.db.InvoiceLine">
+        <field if="__parent__?.returnDate != null &amp;&amp; __parent__?.departureDate != null" name="qty" expr="eval: (__parent__?.returnDate - __parent__?.departureDate)"/>
+
+    </action-record>
+
+    <action-record name="action-attr-get-qte-value-test" model="com.axelor.apps.account.db.InvoiceLine">
+        <field if="__parent__?.returnDate == null &amp;&amp;  __parent__?.departureDate == null" name="qty" expr="eval: 0"/>
+    </action-record>
+
+
+</object-views>
+
+

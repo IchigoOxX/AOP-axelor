@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="maintenance" package="com.axelor.apps.maintenance.db"/>
+
+    <entity name="EquipementMaintenance">
+
+        <one-to-many name="machineProductLineList" ref="MachineProductLine"
+                     mappedBy="equipmentMaintenance" title="Machine product line list"/>
+        <many-to-one name="machine" ref="com.axelor.apps.production.db.Machine"
+                     title="Machine"/>
+
+        <track on="UPDATE">
+            <field name="machine"/>
+            <field name="machineProductLineList"/>
+        </track>
+
+    </entity>
+</domain-models>
+

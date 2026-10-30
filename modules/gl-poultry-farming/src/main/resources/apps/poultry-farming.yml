@@ -1,0 +1,15 @@
+---
+name: Poultry Farming
+code: poultry-farming
+typeSelect: standard
+installOrder: 3000
+description: |
+   Computerized Poultry Farming Management System
+image: app-poultry-farming.png
+modules: 
+   gl-poultry-farming
+dependsOn:
+   - supplychain
+   - contract
+   - manufacturing
+sequence: 99

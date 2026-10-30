@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <!-- ================= ZATCA CONFIG ================= -->
+  <grid model="com.axelor.apps.zatca.einvoice.db.ZatcaConfig" title="E-Invoicing & ZATCA Configuration" name="zatca-config-grid">
+    <hilite if="isCompliant == true" color="success" />
+    <hilite if="isCompliant == false" color="warning" />
+    <field name="name" />
+    <field name="company" />
+    <field name="vatNumber" />
+    <field name="environmentSelect" />
+    <field name="isCompliant" widget="boolean-switch" />
+  </grid>
+
+  <form model="com.axelor.apps.zatca.einvoice.db.ZatcaConfig" title="ZATCA Integration Settings" name="zatca-config-form" width="large">
+    <panel name="mainPanel" title="Company Info &amp; Integration Credentials" colSpan="12">
+      <field name="name" colSpan="6" css="bold" />
+      <field name="company" colSpan="6" />
+      <field name="sellerName" colSpan="6" />
+      <field name="vatNumber" colSpan="6" css="bold" />
+      <field name="organizationUnitName" colSpan="6" />
+      <field name="environmentSelect" colSpan="6" widget="SingleSelect" />
+    </panel>
+
+    <panel-tabs>
+      <panel name="addressPanel" title="Saudi National Address" colSpan="12">
+        <field name="buildingNumber" colSpan="4" />
+        <field name="streetName" colSpan="8" />
+        <field name="district" colSpan="4" />
+        <field name="city" colSpan="4" />
+        <field name="postalCode" colSpan="4" />
+        <field name="countryCode" colSpan="4" readonly="true" />
+      </panel>
+
+      <panel name="securityPanel" title="Digital Certificates &amp; Keys (CSID)" colSpan="12">
+        <field name="otp" colSpan="6" help="رمز التحقق OTP المستخرج من بوابة فاتورة لإتمام التأهيل" />
+        <field name="isCompliant" colSpan="6" widget="boolean-switch" readonly="true" />
+        <field name="csidCompliance" colSpan="12" widget="text" />
+        <field name="csidProduction" colSpan="12" widget="text" />
+        <field name="privateKey" colSpan="6" widget="text" />
+        <field name="publicKey" colSpan="6" widget="text" />
+        <field name="secretKey" colSpan="12" widget="text" />
+      </panel>
+
+      <panel name="optionsPanel" title="Automated Submission Options" colSpan="12">
+        <field name="autoSubmitB2B" widget="boolean-switch" colSpan="6" />
+        <field name="autoSubmitB2C" widget="boolean-switch" colSpan="6" />
+      </panel>
+    </panel-tabs>
+  </form>
+
+  <!-- ================= ZATCA LOG ================= -->
+  <grid model="com.axelor.apps.zatca.einvoice.db.ZatcaInvoiceLog" title="ZATCA Tax Invoices Log" name="zatca-invoice-log-grid" orderBy="-submissionDateTime">
+    <hilite if="statusSelect == 3 || statusSelect == 4" color="success" />
+    <hilite if="statusSelect == 5" color="danger" />
+    <hilite if="statusSelect == 2" color="info" />
+    <field name="submissionDateTime" />
+    <field name="invoiceNumber" />
+    <field name="invoice" />
+    <field name="invoiceTypeSelect" />
+    <field name="uuid" />
+    <field name="statusSelect" widget="Badge" />
+    <field name="company" />
+  </grid>
+
+  <form model="com.axelor.apps.zatca.einvoice.db.ZatcaInvoiceLog" title="ZATCA Invoice Details" name="zatca-invoice-log-form" width="large">
+    <panel name="mainPanel" title="Invoice Info &amp; Transmission Status" colSpan="12">
+      <field name="invoice" colSpan="6" />
+      <field name="invoiceNumber" colSpan="6" />
+      <field name="invoiceTypeSelect" colSpan="6" />
+      <field name="statusSelect" widget="NavSelect" colSpan="6" />
+      <field name="submissionDateTime" colSpan="6" readonly="true" />
+      <field name="company" colSpan="6" readonly="true" />
+    </panel>
+
+    <panel name="technicalPanel" title="Digital Identifiers &amp; QR Code" colSpan="12">
+      <field name="uuid" colSpan="12" readonly="true" css="bold" />
+      <field name="invoiceHash" colSpan="12" readonly="true" widget="text" />
+      <field name="qrCode" colSpan="12" readonly="true" widget="text" />
+    </panel>
+
+    <panel name="responsePanel" title="ZATCA API Responses &amp; Warnings" colSpan="12">
+      <field name="clearanceStatus" colSpan="6" readonly="true" />
+      <field name="reportingStatus" colSpan="6" readonly="true" />
+      <field name="responseWarnings" colSpan="12" readonly="true" widget="text" />
+      <field name="responseErrors" colSpan="12" readonly="true" widget="text" />
+    </panel>
+  </form>
+
+</object-views>
+

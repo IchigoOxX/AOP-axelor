@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+
+    <module name="contract" package="com.axelor.apps.contract.db"/>
+
+    <entity name="Contract">
+
+        <many-to-one name="vehicle" ref="com.axelor.apps.fleet.db.Vehicle" title="Vehicle"/>
+        <many-to-one name="vehicleMake" ref="com.axelor.apps.fleet.db.VehicleMake" title="Model" readonly="true"/>
+        <string name="plateNo" title="Plate number" readonly="true"/>
+        <decimal name="vehicleOdometer" title="Odometer"/>
+        <integer name="fuelLevel" title="Fuel level"
+                 selection="car.rental.fuel.level.select" />
+
+        <date name="departureDate" title="Date of departure"/>
+        <time name="departureTime" title="Time of departure" default="12:00:00"/>
+        <date name="returnDate" title="Date of return"/>
+        <time name="returnTime" title="Time of return" default="12:00:00"/>
+        <boolean name="isExtension" title="Extension"/>
+        <integer name="firstExtensionDayNumbers" title="First extension day numbers"/>
+        <integer name="secondExtensionDayNumbers" title="Second extension day numbers" />
+
+
+        <string name="firstPartnerName" title="Name" readonly="true"/>
+        <string name="firstPartnerBirthDate" title="Date of birth" readonly="true"/>
+        <string name="firstPartnerBirthPlace" title="Place of birth" readonly="true"/>
+        <string name="firstPartnerDrivingLicenseNumber" title="Driving license number" required="false" readonly="true"/>
+        <date name="firstPartnerDateOfDrivingLicense" title="Date of driving license" required="false" readonly="true"/>
+        <string name="firstPartnerNationalIdentityCard" title="National identity card" required="false" readonly="true"/>
+        <string name="firstPartnerPassport" title="Passport" required="false" readonly="true"/>
+        <string name="firstPartnerPhone" title="Mobile phone" readonly="true"/>
+        <string name="firstPartnerFixedPhone" title="Phone number" readonly="true"/>
+        <string name="firstPartnerAddress" title="Addresses" readonly="true"/>
+
+        <many-to-one ref="com.axelor.apps.base.db.Partner" name="secondPartner" title="Partner"/>
+        <string name="secondPartnerName" title="Name" readonly="true"/>
+        <string name="secondPartnerBirthDate" title="Date of birth" readonly="true"/>
+        <string name="secondPartnerBirthPlace" title="Place of birth" readonly="true"/>
+        <string name="secondPartnerDrivingLicenseNumber" title="Driving license number" required="false" readonly="true"/>
+        <date name="secondPartnerDateOfDrivingLicense" title="Date of driving license" required="false" readonly="true"/>
+        <string name="secondPartnerNationalIdentityCard" title="National identity card" required="false" readonly="true"/>
+        <string name="secondPartnerPassport" title="Passport" required="false" readonly="true"/>
+        <string name="secondPartnerPhone" title="Mobile phone" readonly="true"/>
+        <string name="secondPartnerFixedPhone" title="Phone number" readonly="true"/>
+        <string name="secondPartnerAddress" title="Addresses" readonly="true"/>
+
+
+        <many-to-one ref="com.axelor.apps.base.db.Partner" name="companyPartner" title="Partner"/>
+        <boolean name="isCompany" title="Company" required="false" default="false"/>
+
+        <many-to-one name="unit"
+                     ref="com.axelor.apps.base.db.Unit" title="Unit"/>
+        <decimal name="unitAmount" title="Unit amount"/>
+        <boolean name="guarantee" title="Guarantee" required="false" default="false"/>
+        <many-to-one name="paymentMode" ref="com.axelor.apps.account.db.PaymentMode"
+                     title="Payment Mode"/>
+        <decimal name="amount" title="Amount"/>
+
+        <track on="UPDATE">
+            <field name="vehicle"/>
+            <field name="vehicleModel"/>
+            <field name="plateNo"/>
+            <field name="departureDate"/>
+            <field name="departureTime"/>
+            <field name="returnDate"/>
+            <field name="returnTime"/>
+            <field name="isExtension"/>
+            <field name="firstExtensionDayNumbers"/>
+            <field name="secondExtensionDayNumbers"/>
+            <field name="secondPartner"/>
+            <field name="firstPartnerName"/>
+            <field name="firstPartnerBirthDate"/>
+            <field name="firstPartnerBirthPlace"/>
+            <field name="firstPartnerDrivingLicenseNumber"/>
+            <field name="firstPartnerDateOfDrivingLicense"/>
+            <field name="firstPartnerNationalIdentityCard"/>
+            <field name="firstPartnerPassport"/>
+            <field name="firstPartnerPhone"/>
+            <field name="firstPartnerFixedPhone"/>
+            <field name="firstPartnerAddress"/>
+            <field name="secondPartnerName"/>
+            <field name="secondPartnerBirthDate"/>
+            <field name="secondPartnerBirthPlace"/>
+            <field name="secondPartnerDrivingLicenseNumber"/>
+            <field name="secondPartnerDateOfDrivingLicense"/>
+            <field name="secondPartnerNationalIdentityCard"/>
+            <field name="secondPartnerPassport"/>
+            <field name="secondPartnerPhone"/>
+            <field name="secondPartnerFixedPhone"/>
+            <field name="secondPartnerAddress"/>
+<!--            <field name="companyPartner"/>-->
+<!--            <field name="companyPartnerContracts"/>-->
+<!--            <field name="companyPartnerContractsName"/>-->
+<!--            <field name="companyPartnerContractsBirthDate"/>-->
+<!--            <field name="companyPartnerContractsBirthPlace"/>-->
+<!--            <field name="companyPartnerContractsDrivingLicenseNumber"/>-->
+<!--            <field name="companyPartnerContractsDateOfDrivingLicense"/>-->
+<!--            <field name="companyPartnerContractsNationalIdentityCard"/>-->
+<!--            <field name="companyPartnerContractsPassport"/>-->
+<!--            <field name="companyPartnerContractsPhone"/>-->
+<!--            <field name="companyPartnerContractsFixedPhone"/>-->
+<!--            <field name="companyPartnerContractsAddress"/>-->
+<!--            <field name="secondCompanyPartnerContracts"/>-->
+<!--            <field name="secondCompanyPartnerContractsName"/>-->
+<!--            <field name="secondCompanyPartnerContractsBirthDate"/>-->
+<!--            <field name="secondCompanyPartnerContractsBirthPlace"/>-->
+<!--            <field name="secondCompanyPartnerContractsDrivingLicenseNumber"/>-->
+<!--            <field name="secondCompanyPartnerContractsDateOfDrivingLicense"/>-->
+<!--            <field name="secondCompanyPartnerContractsNationalIdentityCard"/>-->
+<!--            <field name="secondCompanyPartnerContractsPassport"/>-->
+<!--            <field name="secondCompanyPartnerContractsPhone"/>-->
+<!--            <field name="secondCompanyPartnerContractsFixedPhone"/>-->
+<!--            <field name="secondCompanyPartnerContractsAddress"/>-->
+            <field name="isCompany"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+</domain-models>

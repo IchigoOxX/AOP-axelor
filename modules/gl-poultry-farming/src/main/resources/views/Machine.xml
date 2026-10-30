@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="maintenance-machine-form-id" name="machine-form" title="Machine" model="com.axelor.apps.production.db.Machine"
+          extension="true" >
+<!--        <extend target="/">-->
+<!--            <attribute name="onSave" value="save,action-maintenance-machine-validate"/>-->
+<!--        </extend>-->
+        <extend target="//panel[@name='descriptionPanel']">
+            <insert position="after">
+                <panel name="sparePartProductsPanel" title="spare parts" canCollapse="true">
+                    <panel-related name="sparePartProductsListPanel"
+                        colSpan="12" field="sparePartProductsList"
+                        form-view="maintenance-machine-product-line-form"
+                        grid-view="maintenance-machine-product-line-grid"
+                        editable="true"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//button[@name='$operatingDurationBtn']">
+            <insert position="after">
+                <button  name="btnValidate" title="Validate" icon="fa-check" css="btn-success" colSpan="12" prompt="Are you sure to validate spare parts ?"
+                         onClick="save,action-maintenance-machine-validate"/>
+            </insert>
+        </extend>
+    </form>
+
+    <action-method name="action-maintenance-machine-validate">
+        <call class="com.gl.apps.pf.web.MaintenanceMachineController" method="MaintenanceMachineValidate"/>
+    </action-method>
+</object-views>
+
+
+

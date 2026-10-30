@@ -1,0 +1,338 @@
+$budgetExceedAlert,$budgetExceedAlert
+"<><Badge bg=""warning"">You need to save the budget before manage budget lines on periods</Badge></>","<><Badge bg=""warning"">تحتاج إلى حفظ الميزانية قبل إدارة بنود الميزانية على الفترات</Badge></>"
+A budget date is missing,تاريخ الميزانية مفقود
+"A budget distribution has already been generated. By launching this action, the budget distribution table will be cleared and re-computed. Do you want to proceed ?",لقد تم بالفعل إنشاء توزيع الميزانية. ومن خلال إطلاق هذا الإجراء، سيتم مسح جدول توزيع الميزانية وإعادة حسابه. هل تريد المتابعة؟
+Account,الحساب
+Account configuration,تكوين الحساب
+Account model,نموذج الحساب
+Account models,نماذج الحسابات
+Account move,قيد محاسبي
+Account(s),الحساب (الحسابات)
+Accounting.Account,المحاسبة.الحساب
+AccountingReportType25.balance,الرصيد
+AccountingReportType25.company,الشركة
+AccountingReportType25.currency,العملة
+AccountingReportType25.date,التاريخ
+AccountingReportType25.expectedAmt,المتوقع
+AccountingReportType25.expenditure,الإنفاق
+AccountingReportType25.from,من
+AccountingReportType25.gap,فجوة
+AccountingReportType25.realizedAmt,أدركت أمت
+AccountingReportType25.revenue,الإيرادات
+AccountingReportType25.revenueOrExpenditure,الإيرادات أو النفقات
+AccountingReportType25.title,العنوان
+AccountingReportType25.to,إلى
+AccountingReportType25.totalExpenditure,إجمالي النفقات
+AccountingReportType25.totalRevenue,إجمالي الإيرادات
+AccountingReportType25.year,السنة المالية
+Active,نشط
+Active Version,النسخة النشطة
+Active version expected amounts line,النسخة النشطة سطر المبالغ المتوقعة
+Advance export budget,ميزانية التصدير المسبقة
+Advance export budget level,مستوى ميزانية التصدير المسبق
+Advance export budget line,بند ميزانية التصدير المسبق
+Advance export global budget,ميزانية التصدير العالمية المتقدمة
+All,الكل
+Amount,المبلغ
+Amount for each line,المبلغ لكل سطر
+Analytic Axis By Company,المحور التحليلي حسب الشركة
+Analytic Axis By company,المحور التحليلي حسب الشركة
+Analytic account,حساب تحليلي / مركز تكلفة
+Analytic axis,محور التحليل المالي
+App,التطبيق
+App budget,ميزانية التطبيق
+Apply to all,تنطبق على الجميع
+Archived,مؤرشف
+Assigned amount,المبلغ المخصص
+Auto,تلقائي
+Automatic budget computation,حساب الميزانية التلقائي
+Available Amount,المبلغ المتاح
+Available amount,المبلغ المتاح
+Available amount with simulated,المبلغ المتاح مع محاكاة
+Available amount with simulated moves,المبلغ المتاح مع الحركات المحاكاة
+Budget,الميزانية
+Budget Distribution,توزيع الميزانية
+Budget Generator,مولد الميزانية
+Budget Level,مستوى الميزانية
+Budget Levels,مستويات الميزانية
+Budget Line,خط الميزانية
+Budget Lines,خطوط الميزانية
+Budget Scenario,سيناريو الميزانية
+Budget Scenario Line,خط سيناريو الميزانية
+Budget Scenario Lines,خطوط سيناريو الميزانية
+Budget Scenario Value,قيمة سيناريو الميزانية
+Budget Scenario Variable,سيناريو الميزانية المتغير
+Budget Scenario Variable %s,متغير سيناريو الميزانية %s
+Budget Structure,هيكل الميزانية
+Budget Version,نسخة الميزانية
+Budget amount available,مبلغ الميزانية متاح
+Budget dates,مواعيد الميزانية
+Budget distribution,توزيع الميزانية
+Budget distribution generated,تم إنشاء توزيع الميزانية
+Budget distribution has not been configured. It is required for the rest of the process.,لم يتم تكوين توزيع الميزانية. إنه مطلوب لبقية العملية.
+Budget distribution imputed,توزيع الميزانية المنسوبة
+Budget distribution role,دور توزيع الميزانية
+Budget distributions,توزيعات الميزانية
+Budget exceed alert for orders,تنبيه تجاوز الميزانية للطلبات
+Budget filters,مرشحات الميزانية
+Budget full name,الاسم الكامل للميزانية
+Budget id,معرف الميزانية
+Budget key,مفتاح الميزانية
+Budget level,مستوى الميزانية
+Budget level export,تصدير على مستوى الميزانية
+Budget line,خط الميزانية
+Budget management,إدارة الميزانية
+Budget manager,مدير الميزانية
+Budget model,نموذج الميزانية
+Budget scenario,سيناريو الميزانية
+Budget scenario line list,قائمة بنود سيناريو الميزانية
+Budget scenario variable,متغير سيناريو الميزانية
+Budget scenario variables,متغيرات سيناريو الموازنة
+Budget structure,هيكل الميزانية
+Budget structures,هياكل الميزانية
+Budget templates,قوالب الميزانية
+Budget type select,نوع الميزانية حدد
+Budget version,نسخة الميزانية
+Budget versions,إصدارات الميزانية
+Budget.Purchase,الميزانية.شراء
+Budget.Sale,الميزانية. بيع
+BudgetScenario.company,الشركة
+BudgetScenario.currency,العملة
+BudgetScenario.date,التاريخ
+BudgetScenario.expenseAndRevenueItems,بنود المصروفات والايرادات
+BudgetScenario.name,الاسم
+BudgetScenario.title,العنوان
+Budgets,الميزانيات
+Budgets related,الميزانيات ذات الصلة
+"By drafting this budget, you will set children sections and budgets linked in draft too. Do you want to continue ?",من خلال صياغة هذه الميزانية، ستقوم بتعيين أقسام فرعية وميزانيات مرتبطة في المسودة أيضًا. هل تريد الاستمرار؟
+"By drafting this section, you will set children sections and budgets linked in draft too. Do you want to continue ?",من خلال صياغة هذا القسم، ستقوم بتعيين أقسام فرعية وميزانيات مرتبطة في المسودة أيضًا. هل تريد الاستمرار؟
+"By validating this budget, you will validate children sections and budgets linked too. Do you want to continue ?",من خلال التحقق من صحة هذه الميزانية، ستتحقق من صحة أقسام الأطفال والميزانيات المرتبطة أيضًا. هل تريد الاستمرار؟
+"By validating this section, you will validate children sections and budgets linked too. Do you want to continue ?",من خلال التحقق من صحة هذا القسم، ستتحقق من صحة أقسام الأطفال والميزانيات المرتبطة أيضًا. هل تريد الاستمرار؟
+Category,الفئة
+Change budget version,تغيير إصدار الميزانية
+Check Available Budget,تحقق من الميزانية المتاحة
+Check available amount,تحقق من المبلغ المتاح
+Code,الرمز
+Comment,تعليق
+Commentaires,التعليقات
+Committed amount,المبلغ الملتزم به
+Committed line,خط ملتزم
+Committed lines,خطوط ملتزمة
+Company,الشركة
+Company code,رمز الشركة
+Company currency,عملة الشركة
+Company department,قسم الشركة
+Compute budget distribution,حساب توزيع الميزانية
+Create New version,إنشاء نسخة جديدة
+Currency,العملة
+Current Expenses,المصروفات الجارية
+Date,التاريخ
+"Depending on the level chosen, the user will receive no alert (None), a warning message (Optional) or an error (Required) if one of the budgets exceeds the available amount.",اعتمادًا على المستوى المختار، لن يتلقى المستخدم أي تنبيه (لا شيء)، أو رسالة تحذير (اختياري) أو خطأ (مطلوب) إذا تجاوزت إحدى الميزانيات المبلغ المتاح.
+"Depending on the level chosen, the user will receive no alert (None), a warning message (Optional) or will be required to fill in the budget information to continue the process (Required).",اعتمادًا على المستوى المختار، لن يتلقى المستخدم أي تنبيه (لا شيء)، أو رسالة تحذير (اختياري) أو سيُطلب منه ملء معلومات الميزانية لمواصلة العملية (مطلوب).
+Display committed lines,عرض الخطوط الملتزمة
+Display realized with no po,تم عرض العرض بدون po
+Display realized with po,تم تحقيق العرض باستخدام po
+Display simulated moves,عرض الحركات المحاكاة
+Distribution lines,خطوط التوزيع
+Draft,مسودة
+Enable budget key,تمكين مفتاح الميزانية
+End Date,تاريخ الانتهاء
+Expected amount,المبلغ المتوقع
+Expected amount allocated on the budget. This amount is automatically computed by adding up expected amounts of bellowed levels.,المبلغ المتوقع المخصص في الميزانية. يتم حساب هذا المبلغ تلقائيًا عن طريق إضافة الكميات المتوقعة من المستويات المذكورة أدناه.
+Export Menu,قائمة التصدير
+Export file,تصدير الملف
+Export global budget,تصدير الميزانية العالمية
+Files are not created,لم يتم إنشاء الملفات
+Financing,تمويل
+Firm gap,فجوة ثابتة
+Follow-up,متابعة
+Formula,الصيغة
+From,من
+From date,من تاريخ
+Full name,الاسم الكامل
+Gap amount,مبلغ الفجوة
+Generate Global Budget,توليد الميزانية العالمية
+Generate global budget,توليد الميزانية العالمية
+Generate periods,توليد فترات
+Global,عالمي
+Global Budget,الميزانية العالمية
+Global budget,الميزانية العالمية
+Global budget committed lines,بنود الميزانية العالمية الملتزمة
+Global budget export,تصدير الميزانية العالمية
+Global budget full name,الاسم الكامل للميزانية العالمية
+Global budget id,معرف الميزانية العالمية
+"If enabled, an automatic budget computation will be done at request/finalize for orders",في حالة التمكين، سيتم إجراء حساب الميزانية التلقائي عند الطلب/الانتهاء من الطلبات
+"If enabled, this configuration allows at the purchase order line level to distribute the amount across multiple budgets.",إذا تم تمكينه، فإن هذا التكوين يسمح على مستوى بند أمر الشراء بتوزيع المبلغ عبر ميزانيات متعددة.
+"If this option is enabled, when linking a purchase order or purchase order line to a budget, the system automatically checks that based on the total planned budget amount there is still available budget and that everything has not yet been committed, or that the order will not exceed the planned amount. The user is alerted in case of overrun.",إذا تم تمكين هذا الخيار، فعند ربط أمر شراء أو بند أمر شراء بموازنة، يتحقق النظام تلقائيًا من أنه بناءً على إجمالي مبلغ الموازنة المخططة، لا تزال هناك موازنة متاحة وأن كل شيء لم يتم الالتزام به بعد، أو أن الأمر لن يتجاوز المبلغ المخطط. ويتم تنبيه المستخدم في حالة التجاوز.
+"If you click OK you will be in excess, do you want to continue ?","إذا قمت بالنقر فوق ""موافق""، فسوف يكون هناك فائض، هل تريد المتابعة؟"
+Import budgets and budget templates,استيراد الموازنات وقوالب الميزانية
+Import file,استيراد ملف
+Include in budget key,تضمين في مفتاح الميزانية
+Init budget dates,تواريخ الميزانية الأولية
+Invalid dates,تواريخ غير صالحة
+"Invalid dates, please fix this.",التواريخ غير صالحة، يرجى إصلاح هذه المشكلة.
+Investment,استثمار
+Investment budget,الميزانية الاستثمارية
+Investment budgets,الموازنات الاستثمارية
+Invoice,فاتورة
+Invoice line,بند الفاتورة
+Invoice lines,بنود الفاتورة
+Invoices,الفواتير
+Lines,الأسطر
+Manage multi budgets on lines,إدارة ميزانيات متعددة على الخطوط
+Method,الطريقة
+Missing budget alert,تنبيه الميزانية المفقودة
+Missing required advanced export(s).,يفتقد التصدير (التصديرات) المتقدمة المطلوبة.
+Move line,بند القيد المحاسبي
+MoveLine,موف لاين
+Name,الاسم
+New Budget Version,نسخة الميزانية الجديدة
+No budget could be reconciled with the data entered for following lines : %s,لا يمكن مطابقة أي ميزانية مع البيانات المدخلة للأسطر التالية: %s
+None,لا شيء
+OK,موافق
+On the line,على الخط
+Operations,العمليات التشغيلية
+Optional,اختياري
+Or,أو
+Overview,نظرة عامة
+PO line,خط البريد
+PO lines,خطوط البريد
+Paid amount,المبلغ المدفوع
+Paid total amount,المبلغ الإجمالي المدفوع
+Parent,الوالد
+Parent Level,مستوى الوالدين
+Parent budget level full name,الاسم الكامل لمستوى ميزانية الوالدين
+Parent budget level id,معرف مستوى الميزانية الأصل
+Period duration,مدة الفترة
+Periods generation assistant,مساعد توليد الفترات
+Person in charge,المسؤول
+Please select a language on user form.,الرجاء تحديد لغة في نموذج المستخدم.
+"Please select valid dates for budget %s, dates needs to be in the section period",الرجاء تحديد تواريخ صالحة للميزانية %s، ويجب أن تكون التواريخ في فترة القسم
+"Please select valid dates for budget level %s, dates needs to be in the parent period",الرجاء تحديد تواريخ صالحة لمستوى الميزانية %s، ويجب أن تكون التواريخ في الفترة الأصلية
+"Please select valid dates for budget lines in budget %s, budget lines need to be on a separate period",الرجاء تحديد تواريخ صالحة لبنود الميزانية في الميزانية %s، ويجب أن تكون بنود الميزانية في فترة منفصلة
+"Please select valid dates for budget lines in budget %s, dates need to be in the budget period",الرجاء تحديد تواريخ صالحة لبنود الميزانية في الميزانية %s، ويجب أن تكون التواريخ في فترة الميزانية
+"Please select valid dates for budget lines, dates need to be in the budget period",يرجى تحديد تواريخ صالحة لبنود الميزانية، ويجب أن تكون التواريخ في فترة الميزانية
+Previsualize,تصور مسبق
+Production,الإنتاج
+Purchase and investment,شراء واستثمار
+Purchase and investment budget,ميزانية الشراء والاستثمار
+Purchase and investment budgets,موازنات الشراء والاستثمار
+Purchase budget,ميزانية الشراء
+Purchase budgets,ميزانيات الشراء
+Purchase order line,سطر أمر الشراء
+Purchase orders,أوامر الشراء
+RH,ر
+Realized amount,المبلغ المحقق
+Realized line,السطر المحقق
+Realized lines,خطوط محققة
+Realized total amount,المبلغ الإجمالي المحقق
+Realized with no po,أدركت مع عدم وجود بو
+Realized with po,أدركت مع بو
+Ref.,المرجع.
+Related budgets,الموازنات ذات الصلة
+Remaining amount to allocate on budgets,المبلغ المتبقي لتخصيصه على الميزانيات
+Remaining open amount,المبلغ المفتوح المتبقي
+Remains for sale,بقايا للبيع
+Represents the expected amount minus the sum of realized amounts and the sum of moves of status simulated.,يمثل المبلغ المتوقع مطروحًا منه مجموع المبالغ المحققة ومجموع تحركات الحالة التي تمت محاكاتها.
+Represents the expected amount minus the sum of realized amounts.,يمثل المبلغ المتوقع مطروحًا منه مجموع المبالغ المحققة.
+Represents the sum of amounts realized with or without commitment that exceed the initial,يمثل مجموع المبالغ المتحققة بالتزام أو بدون التزام يتجاوز
+Represents the sum of moves of status simulated.,الأولي يمثل مجموع تحركات الحالة التي تمت محاكاتها.
+"Represents the sum of orders of status requested, validated or finished and that don't have an invoiced invoice.",يمثل مجموع الطلبات ذات الحالة المطلوبة أو التي تم التحقق من صحتها أو المنتهية والتي لا تحتوي على فاتورة مفوترة.
+"Represents the sum of purchase orders of status requested, validated or finished and that don't have a invoiced invoice.",يمثل مجموع أوامر الشراء ذات الحالة المطلوبة أو التي تم التحقق من صحتها أو المنتهية والتي لا تحتوي على فاتورة مفوترة.
+Represents the sum of ventilated invoices with an order.,يمثل مجموع الفواتير التهوية مع الطلب.
+Represents the sum of ventilated invoices with no order and daybook and accounted moves with no invoice.,يمثل مجموع الفواتير المهواة بدون أمر ودفتر يومي والتحركات المحسوبة بدون فاتورة.
+Represents the sum of ventilated invoices with no purchase order and daybook and accounted moves with no invoice.,يمثل مجموع الفواتير المهواة بدون أمر شراء ودفتر يومي والقيود المحاسبية بدون فاتورة.
+Required,مطلوب
+Results,النتائج
+Revenue,الإيرادات
+Revenue and expenditure state,حالة الإيرادات والنفقات
+SO line,بند أمر البيع
+SO lines,بنود أمر البيع
+Sale budget,ميزانية البيع
+Sale budgets,ميزانيات البيع
+Sale order,أمر بيع
+Sale order line,سطر أمر البيع
+Scenario,السيناريو
+Section,القسم
+Section line,سطر القسم
+Sections,الأقسام
+See budget distribution lines,راجع خطوط توزيع الميزانية
+See detail,انظر التفاصيل
+Simulated Moves,قيود تقديرية / محاكاة
+Simulated amount,مبلغ مقلد
+Source,المصدر
+Start Date,تاريخ البدء
+Starting Year,سنة البدء
+Status,الحالة
+Status select,الحالة اختر
+Supplier RFQ/PO,المورد RFQ/PO
+Tax,ضريبة
+Template,القالب
+Templates,قوالب
+"The budget distribution amount exceed the amount on the order line with product %s, please correct it",يتجاوز مبلغ توزيع الميزانية المبلغ الموجود في سطر الأمر مع المنتج %s، يرجى تصحيحه
+"The budget distribution amount for budget %s cannot be negative unless it comes from a refund, an advance or a reversal, please correct it",لا يمكن أن يكون مبلغ توزيع الموازنة للموازنة %s سالبًا إلا إذا كان ناتجًا عن استرداد أو دفعة مقدمة أو قيد عكسي، يرجى تصحيحه
+"The budget distribution amount for budget %s cannot be negative unless the move line reverses the account's usual position, please correct it",لا يمكن أن يكون مبلغ توزيع الموازنة للموازنة %s سالبًا إلا إذا كان سطر القيد يعكس الطبيعة المعتادة للحساب، يرجى تصحيحه
+The budget distribution amount for budget %s cannot be negative.,لا يمكن أن يكون مبلغ توزيع الموازنة للموازنة %s سالبًا.
+"The budget distribution amount for budget %s exceeds the amount of the invoice line %s, please correct it",يتجاوز مبلغ توزيع الميزانية للميزانية %s مبلغ بند الفاتورة %s، يرجى تصحيحه
+"The budget distribution amount for budget %s exceeds the amount of the move line %s, please correct it",يتجاوز مبلغ توزيع الميزانية للميزانية %s مبلغ بند القيد %s، يرجى تصحيحه
+"The budget distribution amount for budget %s exceeds the amount of the order line %s, please correct it",يتجاوز مبلغ توزيع الميزانية للميزانية %s مبلغ سطر الأمر %s، يرجى تصحيحه
+"The budget distribution has not been computed yet. By launching this action, you can no longer compute the budget distribution.",ولم يتم حساب توزيع الميزانية بعد. من خلال بدء هذا الإجراء، لم يعد بإمكانك حساب توزيع الموازنة.
+"The budget key is enabled in the company %s account configuration. Thus, you must fill at least one accounting account before validating in order to ensure its generation (Budget %s)",تم تمكين مفتاح الميزانية في تكوين حساب الشركة %s. ومن ثم، يجب عليك ملء حساب محاسبي واحد على الأقل قبل التحقق من صحته لضمان إنشائه (الميزانية %s)
+"The budget key is enabled in the company %s account configuration. Thus, you must fill the analytic axis and the analytic account before validating in order to ensure its generation (Budget %s)",تم تمكين مفتاح الميزانية في تكوين حساب الشركة %s. لذلك يجب عليك ملء المحور التحليلي والحساب التحليلي قبل التحقق من صحته لضمان توليده (الميزانية %s)
+The budget key is missing in budget %s. Please fill account and analytic distribution configuration in budget before validating in order to ensure its generation,مفتاح الميزانية مفقود في الميزانية %s. يرجى ملء الحساب وتكوين توزيع مراكز التكلفة في الميزانية قبل التحقق من صحتها لضمان إنشائها
+The period %s to %s is not covered by any budget line for budget %s. Please correct it.,الفترة من %s إلى %s لا يغطيها أي بند في الميزانية للميزانية %s. يرجى تصحيحه.
+"The sum of the budget distribution amount for budget exceeds the amount of the move line %s, please correct it",مجموع مبلغ توزيع الموازنة للميزانية يتجاوز مبلغ بند القيد %s، يرجى تصحيحه
+"The sum of the budget distribution amount for budget exceeds the amount of the order line %s, please correct it",مجموع مبلغ توزيع الميزانية للميزانية يتجاوز مبلغ سطر الأمر %s، يرجى تصحيحه
+"The sum of the budget distribution amounts exceeds the amount of the invoice line %s, please correct it",مجموع مبالغ توزيع الميزانية يتجاوز مبلغ بند الفاتورة %s، يرجى تصحيحه
+The total amount is greater than the budget distribution total.,المبلغ الإجمالي أكبر من إجمالي توزيع الميزانية.
+There is a budget overrun for %s. The available balance is %.2f %s.,هناك تجاوز في الميزانية لـ %s. الرصيد المتوفر هو %.2f %s.
+"There is already a budget key using the same combination of company, dates, accounts and analytic accounts and axis than the budget line %s",يوجد بالفعل مفتاح ميزانية يستخدم نفس مجموعة الشركة والتواريخ والحسابات والحسابات التحليلية والمحور المستخدمة في بند الميزانية %s
+This field is only used for budget key computation and will not be used as account in the invoice,يُستخدم هذا الحقل فقط لحساب مفتاح الميزانية ولن يتم استخدامه كحساب في الفاتورة
+To,إلى
+To be committed amount,المبلغ المطلوب الالتزام به
+To date,حتى الآن
+"To generate periods, please fill in the Period duration.",لإنشاء فترات، يرجى ملء مدة الفترة.
+"To generate periods, please fill in the limits of the budget.",لإنشاء الفترات، يرجى ملء حدود الميزانية.
+Too much iterations.,الكثير من التكرارات.
+Total W.T.,إجمالي الوزن
+Total amount committed,إجمالي المبلغ الملتزم به
+Total amount expected,المبلغ الإجمالي المتوقع
+Total amounts,مجموع المبالغ
+Total firm gap,إجمالي فجوة الشركة
+Total unassigned amount,إجمالي المبلغ غير المخصص
+Tracebacks,آثار
+Type,النوع
+Unassigned amount,المبلغ غير المخصص
+Update dates,مواعيد التحديث
+Validate,التحقق من صحة
+Validate structure,التحقق من صحة البنية
+Validated,معتمد / مؤكد
+Validated structure,تم التحقق من البنية
+Variables,المتغيرات
+Version Number,رقم الإصدار
+Version expected amounts line,إصدار سطر المبالغ المتوقعة
+Version expected amounts line list,إصدار قائمة سطر المبالغ المتوقعة
+Version expected amounts lines,إصدار سطور المبالغ المتوقعة
+Versions,الإصدارات
+"Warning, existing lines will be deleted, do you wish to continue?",تحذير، سيتم حذف الخطوط الموجودة، هل ترغب في الاستمرار؟
+"Warning, you will delete all versions linked to this budget, do you want to continue ?",تنبيه، سوف تقوم بحذف كافة الإصدارات المرتبطة بهذه الميزانية، هل تريد الاستمرار؟
+"When budget key is enabled, you must check at least one line on analytic axis to be included in budget key computation",عند تمكين مفتاح الميزانية، يجب عليك التحقق من سطر واحد على الأقل على المحور التحليلي ليتم تضمينه في حساب مفتاح الميزانية
+Year,سنة
+Year 2,السنة الثانية
+Year 3,السنة 3
+Year 4,السنة الرابعة
+Year 5,السنة 5
+Year 6,السنة 6
+Years,سنوات
+You can't compute the budget distribution because you are not authorized to.,لا يمكنك حساب توزيع الميزانية لأنك غير مخول بذلك.
+archiveBtn,أرشيفBtn
+budget.Budget,الميزانية.الميزانية
+budget.Manual,الميزانية.دليل
+budget.custom,الميزانية.مخصص
+copy,نسخ
+draftBtn,مشروع Btn
+validateBtn,التحقق من صحة Btn
+value:Budget,القيمة: الميزانية
+Data imported successfully,تم استيراد البيانات بنجاح
+Error : Following accounts are not found %s,خطأ: لم يتم العثور على الحسابات التالية %s
+Please select a budget with Id.,الرجاء تحديد الميزانية بالمعرف.

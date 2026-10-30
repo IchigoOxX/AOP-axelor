@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="TechnicalSheet">
+
+        <many-to-one name="productOrder" ref="com.gl.apps.pf.db.ProductOrder" title="Product order" required="false"/>
+
+<!--        <one-to-many name="technicalSheetLineList"-->
+<!--                     ref="com.gl.apps.pf.db.TechnicalSheetLine" mappedBy="technicalSheet"-->
+<!--                     title="Technical sheet line"/>-->
+
+        <one-to-many name="maleTechnicalSheetLineList"
+                     ref="com.gl.apps.pf.db.TechnicalSheetLine" mappedBy="technicalSheetM"/>
+
+        <one-to-many name="femaleTechnicalSheetLineList"
+                     ref="com.gl.apps.pf.db.TechnicalSheetLine" mappedBy="technicalSheet"/>
+
+        <one-to-one ref="com.gl.apps.pf.db.TechnicalSheet" name="previousTechnicalSheet" title="Previous technical sheet"/>
+
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <date name="dateTime" title="Date Time"/>
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment" title="Unit (Department)"/>
+        <many-to-one name="center" ref="Center" title="Center" />
+        <many-to-one name="breed" ref="Breed" title="Breed"/>
+        <many-to-one name="trackingNumber" ref="com.axelor.apps.stock.db.TrackingNumber" title="Tracking Number"/>
+        <integer name="dailyAge" title="Daily age"/>
+        <integer name="weeklyAge" title="Weekly age" readonly="true">
+            <![CDATA[
+             int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+        ]]>
+        </integer>
+        <many-to-one name="currentResponsible" ref="com.axelor.auth.db.User" title="Current responsible"/>
+        <integer name="status" title="Status"  selection="poultryfarming.start.technical.sheet.status.select" readonly="true" />
+        <string name="note" title="Note" large="true" translatable="true"/>
+        <string name="completeRefTrackingNumber" title="Complete tracking number" readonly="true"/>
+        <extra-code>
+            <![CDATA[
+				// TECHNICAL SHEET STATUS SELECT
+				public static final int STATUS_DRAFT_SHEET = 0;
+			    public static final int STATUS_FINALIZED_SHEET = 1;
+			    public static final int STATUS_CANCELED = 2;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="unit"/>
+            <field name="center"/>
+            <field name="breed"/>
+            <field name="trackingNumber"/>
+            <field name="dailyAge"/>
+            <field name="weeklyAge"/>
+            <field name="type"/>
+            <field name="status"/>
+            <field name="note"/>
+        </track>
+
+    </entity>
+
+
+</domain-models>

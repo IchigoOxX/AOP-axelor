@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcherExit">
+
+<!--        <many-to-one name="customerSaleOrder" ref="com.axelor.apps.sale.db.SaleOrder"-->
+<!--                     title="Sale order"/>-->
+        <one-to-many name="customerSaleOrderLine" ref="com.axelor.apps.sale.db.SaleOrderLine"
+                     title="Sale order Lines"/>
+
+
+        <one-to-many name="hatcherExitLinesList" ref="HatcherExitLine"
+                     mappedBy="hatcherExit" title="Hatcher exit lines" orderBy="lineNumber"/>
+
+        <one-to-many name="fleshLoadingProgramList" ref="FleshLoadingProgramLine"
+                     mappedBy="hatcherExit" title="Flesh loading program lines"/>
+
+        <many-to-one name="dispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Dispatch Stock"/>
+
+        <many-to-one name="fleshReceptionDispatchStock" ref="com.axelor.apps.stock.db.StockMove"
+                     title="Flesh chicks reception dispatch Stock"/>
+
+        <many-to-one name="hatcherEntry" ref="HatcherEntry" title="Hatcher entry"/>
+        <many-to-one name="incubatorExit" ref="IncubatorExit" title="Incubator exit"/>
+        <many-to-one name="reasonOfCancel" title="Reason of incubator entry cancel"
+                     ref="com.axelor.apps.base.db.CancelReason"/>
+
+        <string name="reference" title="Reference" readonly="true" unique="true"/>
+        <many-to-one name="breed" ref="Breed" title="Breed" />
+        <many-to-one name="unit" ref="com.axelor.apps.base.db.CompanyDepartment"
+                     title="Unit (Department)" />
+        <many-to-one name="hatchery" ref="Hatchery" title="Hatchery" readonly="true"/>
+        <many-to-one name="incubator" ref="Incubator" title="Incubator"/>
+        <many-to-one name="canceledBy" ref="com.axelor.auth.db.User" title="Canceled by"
+                     readonly="true"/>
+        <datetime name="datetime" title="Date"/>
+
+        <datetime name="dateTimeHatcherEntry" title="Date time" required="true"/>
+        <string name="hatcher" title="Hatcher"/>
+        <datetime name="dateTimeHatcherEntryExit" title="Date time" required="true"/>
+
+        <datetime name="dateTimeIncubatorExit" title="Date time"/>
+        <many-to-one name="loadingProgramLine" ref="IncubatorsLoadingProgramLine"
+                     title="Incubators loading program line"/>
+        <datetime name="cancelDate" title="Cancel date"/>
+        <integer name="status" title="Status"
+                 selection="poultryfarming.incubator.entries.status.select" readonly="true"/>
+        <string name="note" title="Note" large="true" translatable="true"/>
+
+        <integer name="internNumber" title="Intern number"/>
+        <integer name="externNumber" title="Extern number"/>
+        <integer name="capacity" title="Hatcher trolley capacity"/>
+
+        <integer name="deliveryCapacity" title="Capacity"/>
+        <integer name="numberOfPackagingDelivery" title="Number of packaging delivery"/>
+
+        <integer name="safe" title="Safe"/>
+        <decimal name="safeRate" title="Safe rate"/>
+        <integer name="sort" title="Sort"/>
+        <decimal name="sortRate" title="Sort rate"/>
+        <integer name="mortality" title="Mortality"/>
+        <decimal name="mortalityRate" title="Mortality rate"/>
+
+        <integer name="totalEntry" title="Total entry"/>
+        <integer name="theoryNumber" title="Theory number"/>
+        <decimal name="successRate" title="Success rate"/>
+
+        <integer name="numberOfChicksPerPackage" title="Number of chicks per package"/>
+        <integer name="numberOfPackage" title="Number of package"/>
+
+        <finder-method name="ByReference" using="reference"/>
+        <extra-code>
+            <![CDATA[
+				public static final int STATUS_NOT_EXECUTED = 0;
+				public static final int STATUS_EXECUTING = 1;
+				public static final int STATUS_EXECUTED = 2;
+				public static final int STATUS_CANCELED = 3;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="incubator"/>
+            <field name="cancelDate"/>
+            <field name="incubatorEntryLines"/>
+            <field name="breed"/>
+            <field name="unit"/>
+            <field name="hatchery"/>
+            <field name="canceledBy"/>
+            <field name="reference"/>
+            <field name="dateTime"/>
+            <field name="status"/>
+            <field name="note"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+    </entity>
+
+</domain-models>

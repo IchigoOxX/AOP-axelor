@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="incl-blocking-partner-id" name="incl-blocking-partner-form" title="Partner" model="com.axelor.apps.base.db.Partner" extension="true">
+        <extend target="//field[@name='blockingSelect']">
+            <attribute name="selection" value="base.blocking.select.partner.vehicle"/>
+        </extend>
+        <extend target="//field[@name='blockingSelect']">
+            <attribute  name="name" value="blockingSelect1"/>
+        </extend>
+        <extend target="//field[@name='blockingSelect']">
+            <attribute name="selection" value="base.blocking.select.partner.vehicle"/>
+        </extend>
+        <extend target="//field[@name='blockingSelect1']">
+            <attribute  name="name" value="blockingSelect"/>
+        </extend>
+    </form>
+
+</object-views>
+
+
+

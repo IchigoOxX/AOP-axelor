@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="account-management-form-id" name="account-management-form" title="Account management"
+          model="com.axelor.apps.account.db.AccountManagement" extension="true">
+        <extend target="//field[@name='purchaseTax']">
+            <insert position="after">
+                <field name="purchaseFodecAccount" domain="self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+                <field name="purchaseFodec"/>
+                <field name="purchaseDcAccount" domain="self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+                <field name="purchaseDc"/>
+                <field name="purchaseWithholdingAccount" domain="self.company = :company AND (self.accountType.technicalTypeSelect = 'charge' OR self.accountType.technicalTypeSelect = 'debt')"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='saleTax']">
+            <insert position="after">
+                <field name="saleFodecAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+                <field name="saleFodec"/>
+                <field name="saleDcAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+                <field name="saleDc"/>
+                <field name="saleWithholdingAccount" domain="self.company = :company AND self.accountType.technicalTypeSelect = 'income'"/>
+            </insert>
+        </extend>
+    </form>
+
+    <grid name="account-management-product-grid" title="Account managements" id="account-management-product-grid-id"
+          model="com.axelor.apps.account.db.AccountManagement" extension="true">
+        <extend target="//field[@name='purchaseTax']">
+            <insert position="after">
+                <field name="purchaseFodecAccount"/>
+                <field name="purchaseFodec"/>
+                <field name="purchaseDcAccount"/>
+                <field name="purchaseDc"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='saleTax']">
+            <insert position="after">
+                <field name="saleFodecAccount"/>
+                <field name="saleFodec"/>
+                <field name="saleDcAccount"/>
+                <field name="saleDc"/>
+            </insert>
+        </extend>
+
+    </grid>
+
+</object-views>
+
+
+

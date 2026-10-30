@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="zatca" package="com.axelor.apps.zatca.einvoice.db" />
+
+  <entity name="ZatcaConfig" table="ZATCA_CONFIG">
+    <string name="name" title="Configuration Name" required="true" namecolumn="true" />
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" unique="true" />
+    
+    <integer name="environmentSelect" title="ZATCA Environment" default="1" selection="zatca.environment.select" required="true" />
+    <string name="vatNumber" title="VAT Registration Number" required="true" min="15" max="15" />
+    <string name="sellerName" title="Seller Name (Organization)" required="true" />
+    <string name="organizationUnitName" title="Organization Unit Name (Branch)" />
+    
+    <!-- National Address Saudi Arabia -->
+    <string name="buildingNumber" title="Building Number" />
+    <string name="streetName" title="Street Name" />
+    <string name="district" title="District" />
+    <string name="city" title="City" />
+    <string name="postalCode" title="Postal Code" />
+    <string name="countryCode" title="Country Code" default="SA" />
+
+    <!-- Security & Certificates -->
+    <string name="otp" title="Onboarding OTP (from Fatoora Portal)" />
+    <string name="csidCompliance" title="Compliance CSID" large="true" />
+    <string name="csidProduction" title="Production CSID" large="true" />
+    <string name="privateKey" title="ECDSA Private Key (secp256k1)" large="true" />
+    <string name="publicKey" title="ECDSA Public Key" large="true" />
+    <string name="secretKey" title="Binary Security Token Secret" large="true" />
+    
+    <boolean name="isCompliant" title="Onboarding Completed" default="false" />
+    <boolean name="autoSubmitB2B" title="Auto Submit B2B (Clearance)" default="true" />
+    <boolean name="autoSubmitB2C" title="Auto Submit B2C (Reporting)" default="true" />
+    
+    <track>
+      <field name="environmentSelect" />
+      <field name="isCompliant" />
+    </track>
+  </entity>
+
+  <!-- ZATCA Invoice Submission Audit Log -->
+  <entity name="ZatcaInvoiceLog" table="ZATCA_INVOICE_LOG">
+    <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company" required="true" />
+    <many-to-one name="invoice" ref="com.axelor.apps.account.db.Invoice" title="Invoice" required="true" />
+    <string name="invoiceNumber" title="Invoice Number" />
+    
+    <integer name="invoiceTypeSelect" title="ZATCA Invoice Type" default="1" selection="zatca.invoice.type.select" required="true" />
+    <datetime name="submissionDateTime" title="Submission Time" default="now" />
+    
+    <string name="uuid" title="ZATCA UUID" unique="true" />
+    <string name="invoiceHash" title="Invoice Hash (SHA-256)" large="true" />
+    <string name="previousInvoiceHash" title="PIH (Previous Invoice Hash)" large="true" />
+    <string name="qrCode" title="TLV QR Code (Base64)" large="true" />
+    <string name="xmlContent" title="Signed UBL 2.1 XML" large="true" />
+    
+    <integer name="statusSelect" title="Status" default="1" selection="zatca.submission.status.select" required="true" />
+    <string name="clearanceStatus" title="Clearance Status" />
+    <string name="reportingStatus" title="Reporting Status" />
+    <string name="responseWarnings" title="Warnings" large="true" />
+    <string name="responseErrors" title="Errors" large="true" />
+
+    <track>
+      <field name="statusSelect" />
+    </track>
+  </entity>
+
+</domain-models>
+

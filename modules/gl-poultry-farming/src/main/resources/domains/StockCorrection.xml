@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="stock" package="com.axelor.apps.stock.db"/>
+
+    <entity name="StockCorrection">
+
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+        <many-to-one name="breedingShed" title="Breeding shed" ref="com.gl.apps.pf.db.BreedingShed"/>
+
+        <track on="UPDATE">
+            <field name="center"/>
+            <field name="breedingShed"/>
+        </track>
+
+    </entity>
+</domain-models>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form name="elev-transfer-form" title="Breeding transfer" model="com.gl.apps.pf.db.ElevTransfer" width="large"
+          onNew="action-set-default-values-elev-transfer">
+        <panel showTitle="false" colSpan="12">
+            <panel showTitle="false" colSpan="12">
+                <panel title="Piece:" colSpan="10" readonlyIf="status != 0">
+                    <field name="reference" colSpan="4"/>
+                    <field name="dateTime" colSpan="4"/>
+                    <field name="dispatchStock" colSpan="4" readonly="true"/>
+
+                </panel>
+                <panel showTitle="false" colSpan="2">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="statusPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="status"><![CDATA[
+                                <table border="0" cellpadding="1" cellspacing="1" style="height:40px; width:100%;">
+                                   <tbody>
+                                    <tr>
+                                     <td style="text-align: center; background-color: rgb(238, 238, 238);"><strong><span style="color:#2980b9;"><span style="font-size:22px;">{{$fmt('status')}}</span></span></strong></td>
+                                    </tr>
+                                   </tbody>
+                                </table>
+                              ]]></viewer>
+                        </field>
+                        <panel colSpan="12">
+                            <button name="validerBtn" title="Validate" showIf="status &lt; 1" colSpan="12" icon="fa-check" prompt="Are you sure to validate tis breeding transfer ?"
+                                    onClick="save,action-validation-elev-transfer-line" css="btn-success"/>
+                        </panel>
+                        <panel colSpan="12">
+                            <button name="cancelBtn" title="Cancel transfer" showIf="status == 1" prompt="Are you sure you want to cancel this workforce transfer ?"
+                                    colSpan="12" icon="fa-times" css="btn-danger"
+                                    onClick="poultry-farming-elev-transfer-cancel"/>
+                        </panel>
+                    </panel>
+
+                </panel>
+                <panel title="Destination:" colSpan="12" readonlyIf="status != 0">
+                    <field name="unit" title="Unit" colSpan="4" required="true" onSelect="action-attrs-company-unit-domain"
+                           onChange="action-attrs-elev-transfer-unit-changed"/>
+                    <field name="center" title="Center" colSpan="4" domain="self.unit = :unit AND self.type = 1" required="true"
+                           onChange="action-attrs-product-consumption-center-changed"/>
+                    <field name="breedingShed" colSpan="4" domain="self.center = :center AND self.status = 1" required="true"/>
+                </panel>
+
+                <panel title="Origin:" colSpan="12" readonlyIf="status != 0">
+                    <field name="fromCenter" title="Center" colSpan="4" onChange="action-group-elev-transfer-center-changed" domain="self.type = 0" required="true"/>
+                    <field name="fromUnit" title="Unit" readonly="true" colSpan="4" onSelect="action-attrs-company-unit-domain"/>
+                    <field name="breed" readonly="true" colSpan="4"/>
+                    <field name="trackingNumber" readonly="true" colSpan="4"/>
+                    <field name="gender" colSpan="4" onChange="action-group-elev-transfer-center-changed"/>
+                </panel>
+            </panel>
+            <panel-related name="elevTransferListPanel" colSpan="12" field="elevTransferLineList" readonlyIf="status != 0"
+                           form-view="elev-transfer-line-form" onChange="action-elev-transfer-check-qte"
+                           grid-view="elev-transfer-line-grid" editable="true" canNew="false" canRemove="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <grid name="elev-transfer-grid" title="Breeding transfer" model="com.gl.apps.pf.db.ElevTransfer" edit-icon="true" orderBy="-reference">
+        <field name="reference" title="N°"/>
+        <field name="dateTime" title="Date"/>
+        <field name="trackingNumber"/>
+        <field name="breed"/>
+        <field name="fromUnit" title="From unit"/>
+        <field name="unit" title="To unit"/>
+        <field name="fromCenter" title="From center"/>
+        <field name="center" title="To center"/>
+        <field name="breedingShed"/>
+        <field name="gender"/>
+        <field name="status">
+            <hilite background="green" if="$get('status') == 1"/>
+            <hilite background="lightblue" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+    </grid>
+
+    <action-group name="action-group-elev-transfer-center-changed">
+        <action name="action-record-get-from-center-info"/>
+        <action name="action-method-elev-transfer-get-lines-from-center"/>
+        <action name="action-record-get-from-center-empty"/>
+    </action-group>
+
+    <action-record name="action-set-default-values-elev-transfer"
+                   model="com.gl.apps.pf.db.ElevTransfer">
+        <field name="dateTime" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-attrs name="action-record-get-from-center-info" model="com.gl.apps.pf.db.ElevTransfer">
+        <attribute if="fromCenter != null" name="value" expr="eval: fromCenter.unit" for="fromUnit"/>
+        <attribute if="fromCenter != null" name="value" expr="eval: fromCenter.currentTrackingNumber" for="trackingNumber"/>
+        <attribute if="fromCenter != null" name="value" expr="eval: fromCenter.currentBreed" for="breed"/>
+        <attribute if="fromCenter != null" name="value" expr="eval: fromCenter.currentDailyAge" for="dailyAge"/>
+        <attribute if="fromCenter != null" name="value" expr="eval: fromCenter.currentWeeklyAge" for="weeklyAge"/>
+    </action-attrs>
+
+    <action-attrs name="action-record-get-from-center-empty" model="com.gl.apps.pf.db.ElevTransfer">
+        <attribute if="fromCenter == null" name="value" expr="eval: null" for="fromUnit"/>
+        <attribute if="fromCenter == null" name="value" expr="eval: null" for="trackingNumber"/>
+        <attribute if="fromCenter == null" name="value" expr="eval: null" for="breed"/>
+        <attribute if="fromCenter == null" name="value" expr="eval: null" for="dailyAge"/>
+        <attribute if="fromCenter == null" name="value" expr="eval: null" for="weeklyAge"/>
+    </action-attrs>
+
+    <action-method name="action-method-elev-transfer-get-lines-from-center">
+        <call method="getElevTransLinesFromCenter"
+              class="com.gl.apps.pf.web.ElevTransferController"/>
+    </action-method>
+
+    <action-method name="poultry-farming-elev-transfer-validate">
+        <call method="elevTransferValidate"
+              class="com.gl.apps.pf.web.ElevTransferController"/>
+    </action-method>
+
+    <action-validate name="action-elev-transfer-empty-list">
+        <error if="elevTransferLineList.isEmpty()" message="You cannot validate ! the breeding transfer lines are empty."/>
+    </action-validate>
+
+    <action-method name="poultry-farming-elev-transfer-cancel">
+        <call method="elevTransferCancel"
+              class="com.gl.apps.pf.web.ElevTransferController"/>
+    </action-method>
+
+    <action-attrs name="action-attrs-elev-transfer-unit-changed">
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="breedingShed"/>
+        <attribute if="unit != null || unit == null" name="value" expr="eval: null" for="center"/>
+    </action-attrs>
+</object-views>

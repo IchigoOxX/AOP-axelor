@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="HatcheryEggExitLineDetail">
+        <many-to-one name="hatcheryEggExitLine" ref="HatcheryEggExitLine" title="Hatchery egg exit line"/>
+        <many-to-one name="breedingShed" ref="BreedingShed" title="Breeding Shed"/>
+        <integer name="numberOfExistentEggTrays" title="Number of existent egg trays"/>
+        <integer name="numberOfExistentEggs" title="Number of existent eggs"/>
+
+        <integer name="numberOfExitEggTrays" title="Number of exit egg trays"/>
+        <integer name="numberOfExitEggs" title="Number of exit eggs"/>
+
+        <integer name="numberOfRemainingEggTrays" title="Number of remaining egg trays"/>
+        <integer name="numberOfRemainingEggs" title="Number of remaining eggs"/>
+
+        <track on="UPDATE">
+            <field name="hatcheryEggExitLine"/>
+            <field name="breedingShed"/>
+            <field name="numberOfExistentEggTrays"/>
+            <field name="numberOfExistentEggs"/>
+            <field name="numberOfExitEggTrays"/>
+            <field name="numberOfExitEggs"/>
+            <field name="numberOfRemainingEggTrays"/>
+            <field name="numberOfRemainingEggs"/>
+
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

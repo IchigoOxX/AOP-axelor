@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201805221921</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">272</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">272</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">272</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="id" id="274">
+            <text-property name="promptText">id</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/demo2024</property>
+            <property name="odaUser">postgres</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIzNDU2</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="272">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">name</text-property>
+                    <text-property name="heading">name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">model</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">model</text-property>
+                    <text-property name="heading">model</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">plate_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">plate_no</text-property>
+                    <text-property name="heading">plate_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">firstcondn</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">firstcondn</text-property>
+                    <text-property name="heading">firstcondn</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">firstcondnf</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">firstcondnf</text-property>
+                    <text-property name="heading">firstcondnf</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">mobp1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">mobp1</text-property>
+                    <text-property name="heading">mobp1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">birthdayp1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">birthdayp1</text-property>
+                    <text-property name="heading">birthdayp1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">birthplacep1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">birthplacep1</text-property>
+                    <text-property name="heading">birthplacep1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">passportp1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">passportp1</text-property>
+                    <text-property name="heading">passportp1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cinp1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cinp1</text-property>
+                    <text-property name="heading">cinp1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">permip1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">permip1</text-property>
+                    <text-property name="heading">permip1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">datepermip1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">datepermip1</text-property>
+                    <text-property name="heading">datepermip1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">datecin1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">datecin1</text-property>
+                    <text-property name="heading">datecin1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">adressp1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">adressp1</text-property>
+                    <text-property name="heading">adressp1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">namecond2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">namecond2</text-property>
+                    <text-property name="heading">namecond2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">firstnemecond2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">firstnemecond2</text-property>
+                    <text-property name="heading">firstnemecond2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">mobcond2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">mobcond2</text-property>
+                    <text-property name="heading">mobcond2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">birthdayp2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">birthdayp2</text-property>
+                    <text-property name="heading">birthdayp2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">birthplacep2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">birthplacep2</text-property>
+                    <text-property name="heading">birthplacep2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">passportp2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">passportp2</text-property>
+                    <text-property name="heading">passportp2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cinp2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">cinp2</text-property>
+                    <text-property name="heading">cinp2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">permip2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">permip2</text-property>
+                    <text-property name="heading">permip2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">datepermip2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">datepermip2</text-property>
+                    <text-property name="heading">datepermip2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">birthdayp2_1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">birthdayp2</text-property>
+                    <text-property name="heading">birthdayp2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">datecin2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">datecin2</text-property>
+                    <text-property name="heading">datecin2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">adress2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">adress2</text-property>
+                    <text-property name="heading">adress2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">departure_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">departure_date</text-property>
+                    <text-property name="heading">departure_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">departure_time</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">departure_time</text-property>
+                    <text-property name="heading">departure_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">return_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">return_date</text-property>
+                    <text-property name="heading">return_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">return_time</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">return_time</text-property>
+                    <text-property name="heading">return_time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">prolong1</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">prolong1</text-property>
+                    <text-property name="heading">prolong1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">prolon2</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">prolon2</text-property>
+                    <text-property name="heading">prolon2</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-5</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">model</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">plate_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">firstcondn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">firstcondnf</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">mobp1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">birthdayp1</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">birthplacep1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">passportp1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">cinp1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">permip1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">datepermip1</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">datecin1</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">adressp1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">namecond2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">firstnemecond2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">mobcond2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">birthdayp2</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">birthplacep2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">passportp2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">cinp2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">permip2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">datepermip2</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">birthdayp2_1</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">datecin2</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">adress2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">departure_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">departure_time</property>
+                        <property name="dataType">time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">return_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">return_time</property>
+                        <property name="dataType">time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">prolong1</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">prolon2</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">model</property>
+                    <property name="nativeName">model</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">plate_no</property>
+                    <property name="nativeName">plate_no</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">firstcondn</property>
+                    <property name="nativeName">firstcondn</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">firstcondnf</property>
+                    <property name="nativeName">firstcondnf</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">mobp1</property>
+                    <property name="nativeName">mobp1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">birthdayp1</property>
+                    <property name="nativeName">birthdayp1</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">birthplacep1</property>
+                    <property name="nativeName">birthplacep1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">passportp1</property>
+                    <property name="nativeName">passportp1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">cinp1</property>
+                    <property name="nativeName">cinp1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">permip1</property>
+                    <property name="nativeName">permip1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">datepermip1</property>
+                    <property name="nativeName">datepermip1</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">datecin1</property>
+                    <property name="nativeName">datecin1</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">adressp1</property>
+                    <property name="nativeName">adressp1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">namecond2</property>
+                    <property name="nativeName">namecond2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">firstnemecond2</property>
+                    <property name="nativeName">firstnemecond2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">mobcond2</property>
+                    <property name="nativeName">mobcond2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">birthdayp2</property>
+                    <property name="nativeName">birthdayp2</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">birthplacep2</property>
+                    <property name="nativeName">birthplacep2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">passportp2</property>
+                    <property name="nativeName">passportp2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">cinp2</property>
+                    <property name="nativeName">cinp2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">permip2</property>
+                    <property name="nativeName">permip2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">datepermip2</property>
+                    <property name="nativeName">datepermip2</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">birthdayp2_1</property>
+                    <property name="nativeName">birthdayp2</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">datecin2</property>
+                    <property name="nativeName">datecin2</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">adress2</property>
+                    <property name="nativeName">adress2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">departure_date</property>
+                    <property name="nativeName">departure_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">departure_time</property>
+                    <property name="nativeName">departure_time</property>
+                    <property name="dataType">time</property>
+                    <property name="nativeDataType">92</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">return_date</property>
+                    <property name="nativeName">return_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">return_time</property>
+                    <property name="nativeName">return_time</property>
+                    <property name="dataType">time</property>
+                    <property name="nativeDataType">92</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">prolong1</property>
+                    <property name="nativeName">prolong1</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">prolon2</property>
+                    <property name="nativeName">prolon2</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+fvmk.name ,
+fvm.model ,
+cc.plate_no ,
+bp.name as firstcondn,
+bp.first_name as firstcondnf  ,
+bp.mobile_phone as mobp1,
+bp.date_of_birth as birthdayp1,
+bp.place_of_birth as birthplacep1 ,
+coalesce(bp.passport,'') as passportp1 ,
+coalesce(bp.national_identity_card,'') as cinp1 ,
+bp.driving_license_number as permip1 ,
+bp.date_of_driving_license as datepermip1 ,
+bp.expiry_date as datecin1,
+ba.full_name as adressp1 ,
+coalesce(bp1.name,'') as namecond2 ,
+coalesce(bp1.first_name,'') as firstnemecond2,
+coalesce(bp1.mobile_phone,'') as mobcond2,
+bp1.date_of_birth as birthdayp2,
+coalesce(bp1.place_of_birth,'') as birthplacep2 ,
+coalesce(bp1.passport,'') as passportp2 ,
+coalesce(bp1.national_identity_card,'') as cinp2 ,
+coalesce(bp1.driving_license_number,'') as permip2 ,
+bp1.date_of_driving_license as datepermip2 ,
+bp1.date_of_birth as birthdayp2,
+bp1.expiry_date as datecin2,
+coalesce(ba1.full_name,'') as adress2 ,
+cc.departure_date,
+cc.departure_time,
+cc.return_date,
+cc.return_time,
+cc.first_extension_day_numbers as prolong1,
+second_extension_day_numbers as prolon2
+FROM contract_contract cc 
+left join fleet_vehicle fv on fv.id = cc.vehicle
+left join base_partner bp on bp .id = cc.partner
+left join base_address ba on ba.id = bp.main_address
+left join base_partner bp1 on bp1 .id = cc.second_partner
+left join base_address ba1 on ba1.id = bp1.main_address
+left join fleet_vehicle_model fvm on fvm.id = fv.vehicle_model
+left join fleet_vehicle_make fvmk on fvmk.id = fvm.vehicle_make
+where 
+cc.id =?]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="backgroundAttachment">scroll</property>
+            <property name="backgroundImage">/E:/contrat-de-location (16).gif</property>
+            <property name="backgroundImageType">url</property>
+            <property name="backgroundPositionX">0%</property>
+            <property name="backgroundPositionY">0%</property>
+            <property name="backgroundRepeat">repeat</property>
+            <property name="backgroundSizeHeight">auto</property>
+            <property name="backgroundSizeWidth">auto</property>
+            <property name="fontFamily">serif</property>
+            <property name="fontSize">10pt</property>
+            <property name="fontWeight">normal</property>
+            <property name="fontStyle">normal</property>
+            <property name="fontVariant">normal</property>
+            <property name="color">black</property>
+            <property name="textLineThrough">none</property>
+            <property name="textOverline">none</property>
+            <property name="textUnderline">none</property>
+            <property name="borderBottomColor">black</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderBottomWidth">medium</property>
+            <property name="borderLeftColor">black</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderRightColor">black</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="borderTopColor">black</property>
+            <property name="borderTopStyle">none</property>
+            <property name="borderTopWidth">medium</property>
+            <property name="marginTop">0pt</property>
+            <property name="marginLeft">0pt</property>
+            <property name="marginBottom">0pt</property>
+            <property name="marginRight">0pt</property>
+            <property name="paddingTop">1pt</property>
+            <property name="paddingLeft">1pt</property>
+            <property name="paddingBottom">1pt</property>
+            <property name="paddingRight">1pt</property>
+            <property name="textAlign">left</property>
+            <property name="textIndent">0em</property>
+            <property name="letterSpacing">normal</property>
+            <property name="lineHeight">normal</property>
+            <property name="orphans">2</property>
+            <property name="textTransform">none</property>
+            <property name="whiteSpace">normal</property>
+            <property name="widows">2</property>
+            <property name="wordSpacing">normal</property>
+            <property name="display">block</property>
+            <property name="pageBreakAfter">auto</property>
+            <property name="pageBreakBefore">auto</property>
+            <property name="pageBreakInside">auto</property>
+            <property name="showIfBlank">false</property>
+            <property name="canShrink">false</property>
+            <property name="overflow">hidden</property>
+            <property name="headerHeight">50cm</property>
+            <property name="footerHeight">1cm</property>
+            <page-footer>
+                <text id="3">
+                    <property name="paddingLeft">10pt</property>
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="71">
+            <property name="marginLeft">8pt</property>
+            <property name="textAlign">left</property>
+            <property name="canShrink">false</property>
+            <property name="height">9.385416666666666in</property>
+            <property name="width">7.822916666666667in</property>
+            <column id="72">
+                <property name="width">10cm</property>
+            </column>
+            <column id="269">
+                <property name="width">0cm</property>
+            </column>
+            <column id="73">
+                <property name="width">8cm</property>
+            </column>
+            <row id="74">
+                <property name="height">1cm</property>
+                <cell id="75">
+                    <property name="verticalAlign">middle</property>
+                    <text id="442">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="224"/>
+                <cell id="76"/>
+            </row>
+            <row id="77">
+                <property name="height">0.5cm</property>
+                <cell id="78">
+                    <property name="verticalAlign">middle</property>
+                    <text id="443">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="225"/>
+                <cell id="79"/>
+            </row>
+            <row id="80">
+                <property name="height">0.5cm</property>
+                <cell id="81">
+                    <property name="verticalAlign">middle</property>
+                    <text id="444">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="226"/>
+                <cell id="82"/>
+            </row>
+            <row id="83">
+                <property name="height">0.5cm</property>
+                <cell id="84">
+                    <property name="verticalAlign">middle</property>
+                    <text id="445">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="227"/>
+                <cell id="85"/>
+            </row>
+            <row id="86">
+                <property name="height">0.5cm</property>
+                <cell id="87">
+                    <property name="verticalAlign">middle</property>
+                    <text id="446">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="228"/>
+                <cell id="88"/>
+            </row>
+            <row id="89">
+                <property name="height">0.5cm</property>
+                <cell id="90">
+                    <property name="verticalAlign">middle</property>
+                    <text id="447">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="229"/>
+                <cell id="91"/>
+            </row>
+            <row id="92">
+                <property name="height">0.5cm</property>
+                <cell id="93">
+                    <property name="verticalAlign">middle</property>
+                    <text id="448">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[   ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="230"/>
+                <cell id="94"/>
+            </row>
+            <row id="95">
+                <property name="height">0.5cm</property>
+                <cell id="96">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="275">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="marginTop">3pt</property>
+                        <property name="marginBottom">1pt</property>
+                        <property name="paddingTop">0pt</property>
+                        <property name="paddingBottom">1pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="display">block</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">first_name</property>
+                                <text-property name="displayName">first_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["firstcondnf"] + ' ' + dataSetRow["firstcondn"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">first_name</property>
+                    </data>
+                </cell>
+                <cell id="231"/>
+                <cell id="97"/>
+            </row>
+            <row id="98">
+                <property name="height">0.5cm</property>
+                <cell id="232"/>
+                <cell id="100">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <data id="456">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingLeft">12pt</property>
+                        <property name="textAlign">left</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">model</property>
+                                <text-property name="displayName">model</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["name"] + ' ' + dataSetRow["model"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">model</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="101">
+                <property name="height">0.6614583333333334cm</property>
+                <cell id="233"/>
+            </row>
+            <row id="104">
+                <property name="height">0.5cm</property>
+                <cell id="105">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="451">
+                        <property name="fontSize">12pt</property>
+                        <property name="paddingTop">17pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">birthdayp1</property>
+                                <text-property name="displayName">birthdayp1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["birthdayp1"] + ' à ' + dataSetRow["birthplacep1"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">birthdayp1</property>
+                    </data>
+                </cell>
+                <cell id="234"/>
+                <cell id="106"/>
+            </row>
+            <row id="107">
+                <property name="height">0.5cm</property>
+                <cell id="235"/>
+                <cell id="109">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <data id="457">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">19pt</property>
+                        <property name="paddingLeft">12pt</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">plate_no</property>
+                                <text-property name="displayName">plate_no</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["plate_no"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">plate_no</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="110">
+                <property name="height">0.5cm</property>
+                <cell id="236"/>
+            </row>
+            <row id="113">
+                <property name="height">0.5cm</property>
+                <cell id="114">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <property name="textAlign">center</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="453">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">25pt</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">permip1</property>
+                                <text-property name="displayName">permip1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["permip1"] + ' du  ' +dataSetRow["datepermip1"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">permip1</property>
+                    </data>
+                </cell>
+                <cell id="237"/>
+            </row>
+            <row id="116">
+                <property name="height">0.5cm</property>
+                <cell id="238"/>
+                <cell id="118">
+                    <text-data id="460">
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="119">
+                <property name="height">0.5cm</property>
+                <cell id="239"/>
+                <cell id="121"/>
+            </row>
+            <row id="122">
+                <property name="height">0.5cm</property>
+                <cell id="123">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="452">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">16pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">passportp1</property>
+                                <text-property name="displayName">passportp1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["passportp1"] + dataSetRow["cinp1"] + ' du ' + dataSetRow["datecin1"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">passportp1</property>
+                    </data>
+                </cell>
+                <cell id="240"/>
+                <cell id="124">
+                    <text-data id="461">
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="125">
+                <property name="height">0.3175cm</property>
+                <cell id="241"/>
+                <cell id="127">
+                    <text-data id="462">
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="128">
+                <property name="height">0.9789583333333334cm</property>
+                <cell id="242"/>
+                <cell id="130">
+                    <property name="verticalAlign">middle</property>
+                    <data id="458">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingLeft">75pt</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">departure_date</property>
+                                <text-property name="displayName">departure_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["departure_date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">departure_date</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="131">
+                <property name="height">0.873125cm</property>
+                <cell id="132">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <data id="273">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">15pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">adressp1</property>
+                                <text-property name="displayName">adressp1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["adressp1"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">adressp1</property>
+                    </data>
+                </cell>
+                <cell id="243"/>
+                <cell id="133">
+                    <property name="verticalAlign">top</property>
+                    <data id="459">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">1pt</property>
+                        <property name="paddingLeft">75pt</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">departure_time</property>
+                                <text-property name="displayName">departure_time</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["departure_time"]</expression>
+                                <property name="dataType">time</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">departure_time</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="134">
+                <property name="height">0.37041666666666667cm</property>
+                <cell id="244"/>
+                <cell id="136">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <data id="463">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">7pt</property>
+                        <property name="paddingLeft">75pt</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">return_date</property>
+                                <text-property name="displayName">return_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["return_date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">return_date</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="137">
+                <property name="height">0.5027083333333333cm</property>
+                <cell id="271">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <data id="455">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">13pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">adressp1</property>
+                                <text-property name="displayName">adressp1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["adressp1"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">adressp1</property>
+                    </data>
+                </cell>
+                <cell id="245"/>
+            </row>
+            <row id="140">
+                <property name="height">0.555625cm</property>
+                <cell id="246"/>
+                <cell id="142">
+                    <data id="464">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">1pt</property>
+                        <property name="paddingLeft">75pt</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">return_time</property>
+                                <text-property name="displayName">return_time</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["return_time"]</expression>
+                                <property name="dataType">time</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">return_time</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="143">
+                <property name="height">0.9789583333333334cm</property>
+                <cell id="144">
+                    <data id="454">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">3pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">mobile_phone</property>
+                                <text-property name="displayName">mobile_phone</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["mobp1"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">mobile_phone</property>
+                    </data>
+                </cell>
+                <cell id="247"/>
+                <cell id="145">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <data id="491">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">26pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">prolong1</property>
+                                <text-property name="displayName">prolong1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["prolong1"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">prolong1</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="146">
+                <property name="height">0.5cm</property>
+                <cell id="147">
+                    <text-data id="466">
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="248"/>
+            </row>
+            <row id="149">
+                <property name="height">0.5cm</property>
+                <cell id="150">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">1</property>
+                    <property name="verticalAlign">middle</property>
+                    <text-data id="483">
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="249"/>
+            </row>
+            <row id="152">
+                <property name="height">0.5cm</property>
+                <cell id="481">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="468">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">17pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">firstnemecond2</property>
+                                <text-property name="displayName">firstnemecond2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["firstnemecond2"] + ' ' + dataSetRow["namecond2"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">firstnemecond2</property>
+                    </data>
+                </cell>
+                <cell id="250"/>
+                <cell id="154">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">5</property>
+                    <data id="492">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">26pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">prolon2</property>
+                                <text-property name="displayName">prolon2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["prolon2"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">prolon2</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="155">
+                <property name="height">0.5cm</property>
+                <cell id="251"/>
+            </row>
+            <row id="158">
+                <property name="height">0.5cm</property>
+                <cell id="475">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">4</property>
+                    <property name="verticalAlign">top</property>
+                    <data id="469">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">20pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">birthdayp2</property>
+                                <text-property name="displayName">birthdayp2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["birthdayp2"]+ ' à ' + dataSetRow["birthplacep2"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">birthdayp2</property>
+                    </data>
+                </cell>
+                <cell id="252"/>
+            </row>
+            <row id="161">
+                <property name="height">0.3175cm</property>
+                <cell id="253"/>
+            </row>
+            <row id="164">
+                <property name="height">0.5cm</property>
+                <cell id="254"/>
+            </row>
+            <row id="167">
+                <property name="height">0.29104166666666664cm</property>
+                <cell id="255"/>
+                <cell id="169"/>
+            </row>
+            <row id="170">
+                <property name="height">0.714375cm</property>
+                <cell id="478">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">3</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="487">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">26pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">permip2</property>
+                                <text-property name="displayName">permip2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["permip2"] + ' du ' + dataSetRow["datepermip2"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">permip2</property>
+                    </data>
+                </cell>
+                <cell id="256"/>
+                <cell id="172"/>
+            </row>
+            <row id="173">
+                <property name="height">0.5cm</property>
+                <cell id="257"/>
+                <cell id="175"/>
+            </row>
+            <row id="176">
+                <property name="height">0.29104166666666664cm</property>
+                <cell id="258"/>
+                <cell id="178"/>
+            </row>
+            <row id="179">
+                <property name="height">0.873125cm</property>
+                <cell id="484">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="488">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">20pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">passportp2</property>
+                                <text-property name="displayName">passportp2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["passportp2"] + dataSetRow["cinp2"] + ' du ' + dataSetRow["datecin2"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">passportp2</property>
+                    </data>
+                </cell>
+                <cell id="259"/>
+                <cell id="181"/>
+            </row>
+            <row id="182">
+                <property name="height">0.5cm</property>
+                <cell id="260"/>
+                <cell id="184"/>
+            </row>
+            <row id="185">
+                <property name="height">0.5cm</property>
+                <cell id="485">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="489">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">19pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">full_name</property>
+                                <text-property name="displayName">full_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["adress2"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">full_name</property>
+                    </data>
+                </cell>
+                <cell id="261"/>
+                <cell id="187"/>
+            </row>
+            <row id="188">
+                <property name="height">0.6614583333333334cm</property>
+                <cell id="262"/>
+                <cell id="190"/>
+            </row>
+            <row id="191">
+                <property name="height">0.5cm</property>
+                <cell id="192">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="verticalAlign">middle</property>
+                    <data id="490">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">8pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">mobcond2</property>
+                                <text-property name="displayName">mobcond2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["mobcond2"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">mobcond2</property>
+                    </data>
+                </cell>
+                <cell id="263"/>
+                <cell id="193"/>
+            </row>
+            <row id="194">
+                <property name="height">0.6614583333333334cm</property>
+                <cell id="264"/>
+                <cell id="196"/>
+            </row>
+            <row id="197">
+                <property name="height">0.5cm</property>
+                <cell id="198">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                </cell>
+                <cell id="265"/>
+                <cell id="199"/>
+            </row>
+            <row id="200">
+                <property name="height">0.5cm</property>
+                <cell id="266"/>
+                <cell id="202"/>
+            </row>
+            <row id="203">
+                <property name="height">0.5cm</property>
+                <cell id="204"/>
+                <cell id="267"/>
+                <cell id="205"/>
+            </row>
+            <row id="206">
+                <property name="height">0.5cm</property>
+                <cell id="207"/>
+                <cell id="268"/>
+                <cell id="208"/>
+            </row>
+        </grid>
+    </body>
+</report>

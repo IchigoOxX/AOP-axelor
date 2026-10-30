@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+  <entity name="IncubatorTrolleysChargingLine" >
+    <many-to-one name="incubatorTrolleysCharging" ref="IncubatorTrolleysCharging"
+      title="Incubator trolleys charging"/>
+
+    <many-to-one name="center" ref="Center" title="Center"/>
+    <many-to-one name="breed" ref="Breed" title="Breed"/>
+    <many-to-one name="batchNumber" ref="com.axelor.apps.stock.db.TrackingNumber"
+      title="Batch number"/>
+    <many-to-one name="incubatorTrolley" ref="IncubatorTrolley"
+      title="Incubator Trolley"/>
+
+    <string name="lineNumber" title="Line Number" readonly="true"/>
+
+    <integer name="numberOfEggTrays" title="Number of egg trays"/>
+    <integer name="numberOfEggs" title="Number of eggs"/>
+
+    <integer name="sumEggs" title="Sum of eggs"/>
+    <integer name="sumEggsTrays" title="Sum of eggs trays"/>
+
+    <integer name="dailyAge" title="Daily age" required="true"/>
+    <integer name="weeklyAge" title="Weekly age" readonly="true">
+
+      <![CDATA[
+         int weeklyAge = (int) Math.ceil(this.getDailyAge() / 7) + 1;
+             return (this.getDailyAge() % 7 == 0) ? weeklyAge - 1 : weeklyAge;
+       ]]>
+    </integer>
+
+    <integer name="chargingType" title="Charging Type"
+      selection="poultryfarming.charging.type.status.select" readonly="true">
+      <![CDATA[
+         return this.getChargingLineDetailList() != null && this.getChargingLineDetailList().stream().count()  > 1 ? 1 : 0 ;
+       ]]>
+    </integer>
+
+    <string name="breedingShed" title="Breeding shed" readonly="true">
+      <![CDATA[
+             if (this.getChargingLineDetailList() != null) {
+                return this.getChargingLineDetailList().stream().count() > 1 ? "DIV" :
+                        this.getChargingLineDetailList().stream().findFirst().orElseGet(null).getBreedingShed().getReference();
+              }
+              return null;
+       ]]>
+    </string>
+    <string name="firstBreedingShed" title="Breeding shed" readonly="true">
+      <![CDATA[
+             if (this.getChargingLineDetailList() != null) {
+                return this.getChargingLineDetailList().stream().findFirst().orElseGet(null).getBreedingShed().getReference();
+              }
+              return null;
+       ]]>
+    </string>
+
+    <one-to-many name="chargingLineDetailList" ref="IncubatorTrolleysChargingLineDetail"
+      mappedBy="incubatorTrolleysChargingLine" title="Charging line detail"/>
+
+    <integer name="status" title="Status"
+      selection="poultryfarming.incubator.trolley.status.select" readonly="true"/>
+    <extra-code>
+      <![CDATA[
+          public static final int CHARGING_TYPE_VARIOUS = 0;
+          public static final int CHARGING_TYPE_SELECTION = 1;
+
+      ]]>
+    </extra-code>
+
+    <track on="UPDATE">
+      <field name="lineNumber"/>
+      <field name="numberOfEggTrays"/>
+      <field name="numberOfEggs"/>
+      <field name="dailyAge"/>
+      <field name="incubatorTrolley"/>
+      <field name="status"/>
+      <field name="chargingType"/>
+      <message if="true" on="UPDATE">Record updated</message>
+    </track>
+
+
+  </entity>
+
+</domain-models>

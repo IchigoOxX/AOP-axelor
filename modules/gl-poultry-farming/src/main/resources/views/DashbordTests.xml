@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<dashboard name="poultry.farming.dashboard.test" title="Dashbord Test">
+    <dashlet height="350" colSpan="12" action="dashlet.poultry.farming.dashboard.test"
+      canSearch="true"/>
+  </dashboard>
+
+  <action-view name="dashlet.poultry.farming.dashboard.test" title="Dashbord test">
+    <view name="chart.poultry.farming.dashboard.test" type="chart"/>
+  </action-view>
+
+  <chart name="chart.poultry.farming.dashboard.test" title="Dashbord test">
+    <dataset type="sql"><![CDATA[
+    SELECT
+   self.status as status,
+sum( self.dayNumber) as daily_age,
+sum( self.weekNumber) as weekly_age
+    FROM
+poultryfarming_hatchery_eggs_reception as self
+    GROUP BY
+status
+  ]]></dataset>
+    <category key="status" type="text" title="status"/>
+    <series key="daily_age" type="hbar" title="daily_age"/>
+  </chart>
+</object-views>

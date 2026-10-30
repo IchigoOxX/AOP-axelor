@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="IncubatorExitLine" >
+        <many-to-one name="incubatorExit" ref="IncubatorExit" title="Incubator exit"/>
+
+        <many-to-one name="hatcherTrolley" ref="HatcherTrolley" title="Hatcher trolley"/>
+        <many-to-one name="incubatorTrolley" ref="com.gl.apps.pf.db.IncubatorTrolley" title="Incubator Trolley"/>
+
+        <many-to-one name="trackingNumber" title="" ref="com.axelor.apps.stock.db.TrackingNumber"/>
+        <many-to-one name="hatcherEntry" title="Hatcher entry" ref="HatcherEntry"/>
+        <string name="breedingShed" title="Breeding shed" readonly="true"/>
+
+        <!--CodeCentre -->
+        <many-to-one name="center" ref="com.gl.apps.pf.db.Center" title="Center"/>
+
+        <string name="lineNumber" title="Line number" readonly="true"/>
+        <integer name="traysNumber" required="true" title="Trays number"/>
+        <integer name="eggsNumber" required="true" title="Eggs number"/>
+        <integer name="ageInWeeks" required="true" title="Age in weeks"/>
+        <integer name="ageInDays" required="true" title="Age in days"/>
+
+        <integer name="lostEggs" required="true" title="Lost eggs"/>
+        <decimal name="lostRate" title="Lost rate"/>
+
+        <integer name="status" title="Status"
+                 selection="poultryfarming.incubator.trolley.status.select" readonly="true"/>
+
+        <integer name="loadingType" title="Loading type"
+                 selection="poultryfarming.charging.type.status.select" readonly="true"/>
+        <integer name="currentDailyAge" title="Daily age"/>
+        <integer name="currentWeeklyAge" title="Weekly age"/>
+        <string name="note" title="Note" large="true" translatable="true"/>
+
+        <extra-code>
+            <![CDATA[
+				public static final int LOADING_TYPE_SELECTION = 0;
+				public static final int LOADING_TYPE_VARIOUS = 1;
+
+				// INCUBATOR TROLLEYS STATUS
+				public static final int STATUS_FREE = 0;
+				public static final int STATUS_BUSY = 1;
+				public static final int STATUS_RESERVED = 2;
+                public static final int STATUS_IN_THE_INCUBATOR = 3;
+				public static final int STATUS_STOPPED = 4;
+			]]>
+        </extra-code>
+
+        <track on="UPDATE">
+            <field name="trackingNumber"/>
+            <field name="lineNumber"/>
+            <field name="eggsNumber"/>
+            <field name="incubatorEntry"/>
+            <field name="hatcherTrolley"/>
+            <field name="incubatorTrolley"/>
+            <field name="hatcherEntry"/>
+            <field name="breedingShed"/>
+            <field name="traysNumber"/>
+            <field name="ageInWeeks"/>
+            <field name="ageInDays"/>
+            <field name="loadingType"/>
+            <field name="status"/>
+            <field name="note"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+    </entity>
+
+</domain-models>

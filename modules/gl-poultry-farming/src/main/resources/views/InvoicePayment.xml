@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+    <!--     START T. HAIFA #258-->
+    <form id="invoice-payment-form-id" name="invoice-payment-form" title="Payment" model="com.axelor.apps.account.db.InvoicePayment" extension="true">
+        <extend target="//field[@name='companyBankDetails']">
+            <insert position="after">
+                <field name="applyWithholdingTax"/>
+            </insert>
+        </extend>
+    </form>
+    <!--     END T. HAIFA #258-->
+
+</object-views>
+
+
+

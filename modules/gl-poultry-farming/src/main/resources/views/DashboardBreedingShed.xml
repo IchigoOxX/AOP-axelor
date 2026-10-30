@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <cards name="breedingShed-cards" title="Dashboard" css="rect-image" model="com.gl.apps.pf.db.BreedingShed" width="25%" orderBy="reference" canNew="false">
+        <toolbar>
+            <button name="checkDuplicateBtn" title="Check duplicate" onClick="action-general-check-duplicate-records"/>
+        </toolbar>
+        <field name="reference" title="Reference"/>
+        <field name="unit"/>
+        <field name="breed"/>
+        <field name="center"/>
+        <field name="activationDate"/>
+        <field name="fillingDate"/>
+        <field name="currentBatchNumber"/>
+        <field name="receivedMalesNumber"/>
+        <field name="receivedFemalesNumber"/>
+        <field name="dailyAge"/>
+        <field name="weeklyAge"/>
+        <field name="id"/>
+        <field name="expectedTransferDate"/>
+        <field name="totalNumbers"/>
+        <field name="malesNumber"/>
+        <field name="femalesNumber"/>
+        <field name="lastTechnicalSheetLine.maleRemainingNumber"/>
+        <field name="lastTechnicalSheetLine.femaleRemainingNumber"/>
+        <field name="lastTechnicalSheetLine.maleMortality"/>
+        <field name="lastTechnicalSheetLine.femaleMortality"/>
+        <field name="lastTechnicalSheetLine.cumulatedMortality"/>
+        <field name="lastTechnicalSheetLine.maleCumulatedConsumedProductQtyByChick"/>
+        <field name="lastTechnicalSheetLine.femaleCumulatedConsumedProductQtyByChick"/>
+        <field name="lastTechnicalSheetLine.maleHomogeneity"/>
+        <field name="lastTechnicalSheetLine.femaleHomogeneity"/>
+        <field name="lastTechnicalSheetLine.maleCoefficientVariation"/>
+        <field name="lastTechnicalSheetLine.femaleCoefficientVariation"/>
+        <field name="lastTechnicalSheetLine.maleCumulatedLoss"/>
+        <field name="lastTechnicalSheetLine.femaleCumulatedLoss"/>
+        <field name="lastTechnicalSheetLine.displacementIn"/>
+        <field name="lastTechnicalSheetLine.displacementOut"/>
+        <field name="lastTechnicalSheetLine.transfer"/>
+        <field name="lastTechnicalSheetLine.reform"/>
+        <field name="status"/>
+                <template><![CDATA[
+        <div class="pf-shed-card" style="border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 12px;">
+          <!-- Header -->
+          <div style="background: {{status === 0 ? '#ea580c' : (status === 1 ? '#0284c7' : (status === 2 ? '#16a34a' : '#dc2626'))}}; color: #ffffff; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: 700; font-size: 14px;">
+              <span x-translate>Breeding Shed</span>: {{$fmt('reference')}}
+            </div>
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <span ng-show="receivedMalesNumber > 0" class="badge" style="background: rgba(255,255,255,0.25); color: #fff; font-size: 11px;" x-translate>Males</span>
+              <span ng-show="receivedMalesNumber == 0" class="badge" style="background: rgba(255,255,255,0.25); color: #fff; font-size: 11px;" x-translate>Females</span>
+              <a class="btn btn-xs btn-default" ng-show="status == 0" href="" ui-action-click="action-show-dialog-input-date" style="padding: 1px 6px; font-size: 11px;" x-translate>Activate</a>
+              <a class="btn btn-xs btn-warning" ng-show="status == 2" href="" ui-action-click="action-show-dialog-input-date-stop" style="padding: 1px 6px; font-size: 11px;" x-translate>Stop</a>
+              <a class="btn btn-xs btn-danger" ng-show="status == 3" href="" ui-action-click="action-show-dialog-input-date-close" style="padding: 1px 6px; font-size: 11px;" x-translate>Close</a>
+            </div>
+          </div>
+
+          <!-- Body Rows -->
+          <div style="padding: 8px 12px; font-size: 12px; color: #334155;">
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Unit</span>
+              <strong>{{$fmt('unit') || '-'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Center</span>
+              <strong>{{$fmt('center') || '-'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Breed</span>
+              <strong>{{$fmt('breed') || '-'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Batch number</span>
+              <strong>{{$fmt('currentBatchNumber') || '-'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Reception date</span>
+              <strong style="color: #0284c7;">{{$fmt('fillingDate') || '-'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Expected transfer date</span>
+              <strong style="color: #d97706;">{{$fmt('expectedTransferDate') || '-'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Age (day/week)</span>
+              <strong>{{dailyAge || 0}} / {{weeklyAge || 0}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 4px 6px; background: #f8fafc; border-radius: 4px; margin: 4px 0;">
+              <span style="color: #1e40af; font-weight: 600;" x-translate>Existing number</span>
+              <strong style="color: #1e40af; font-size: 13px;">{{totalNumbers || (receivedMalesNumber !== 0 ? lastTechnicalSheetLine.maleRemainingNumber : lastTechnicalSheetLine.femaleRemainingNumber) || 0}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Mortality (Number/%)</span>
+              <strong style="color: #dc2626;">{{$fmt('lastTechnicalSheetLine.cumulatedMortality') || '0'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>Aliment consumed</span>
+              <strong style="color: #047857;">{{receivedMalesNumber !== 0 ? $fmt('lastTechnicalSheetLine.maleCumulatedConsumedProductQtyByChick') : $fmt('lastTechnicalSheetLine.femaleCumulatedConsumedProductQtyByChick') || '0'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed #f1f5f9;">
+              <span style="color: #64748b;" x-translate>CV</span>
+              <strong>{{receivedMalesNumber !== 0 ? $fmt('lastTechnicalSheetLine.maleCoefficientVariation') : $fmt('lastTechnicalSheetLine.femaleCoefficientVariation') || '0'}}</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 3px 0;">
+              <span style="color: #64748b;" x-translate>Homogeneity</span>
+              <strong>{{receivedMalesNumber !== 0 ? $fmt('lastTechnicalSheetLine.maleHomogeneity') : $fmt('lastTechnicalSheetLine.femaleHomogeneity') || '0'}}%</strong>
+            </div>
+          </div>
+        </div>
+   ]]></template>
+    </cards>
+
+
+
+    <grid name="dashboard-breedingShed-grid" title="Dashboard" model="com.gl.apps.pf.db.BreedingShed"
+          onNew="action-group-init-breeding-shed" canEdit="false"  >
+        <field name="reference" onChange="action-record-set-name-breeding-shed"/>
+        <field name="completeRefTrackingNumber" showIf="_breedingShedType == 2"/>
+        <field name="name"/>
+        <field name="type" canEdit="false" readonly="true" />
+        <field name="unit" />
+        <field name="center" />
+        <field name="breed" />
+        <field name="currentBatchNumber" />
+        <field name="receivedMalesNumber" />
+        <field name="receivedFemalesNumber" />
+        <field name="capacity" />
+        <field name="femalesSiloCapacity" />
+        <field name="malesSiloCapacity" />
+        <field name="cagesNumber" />
+        <field name="reformDaysNumber" />
+        <field name="dailyAge" />
+        <field name="weeklyAge" />
+        <field name="activationDate" />
+        <field name="stoppedDate" />
+        <field name="fillingDate" />
+        <field name="lastTechnicalSheetLine.cumulatedMortality"/>
+        <field name="lastTechnicalSheetLine.maleCumulatedLoss" hidden="true"/>
+        <field name="lastTechnicalSheetLine.femaleCumulatedLoss" hidden="true"/>
+        <field name="status" title="Status">
+            <hilite background="orange" if="$get('status') == 0"/>
+            <hilite background="blue" if="$get('status') == 1"/>
+            <hilite background="green" if="$get('status') == 2"/>
+            <hilite background="red" if="$get('status') == 3"/>
+        </field>
+
+    </grid>
+
+    <form name="dashboard-breedingShed-form" title="Breeding shed" model="com.gl.apps.pf.db.BreedingShed" width="100%"
+          onLoad="action-group-init-breeding-shed"
+          onNew="action-group-init-breeding-shed">
+        <panel title="Breeding shed">
+            <panel colSpan="6">
+                <field name="reference" title="Reference" onChange="action-record-set-name-breeding-shed"/>
+            </panel>
+            <panel colSpan="2"/>
+            <panel colSpan="4">
+                <button name="status" colSpan="12" icon="fa-file-text" style="background-color: {{status === 0 ? 'orange' : (status === 1 ? 'blue' : (status === 2 ? 'green' : 'red'))}}"
+                        onClick="action-show-breeding-shed-status" widget="info-button" readonlyIf="id == null" />
+                <field name="status" hidden="true"/>
+            </panel>
+            <field name="name" title="Nom"/>
+            <field name="type" title="Type"/>
+            <field name="capacity" title="Capacity"/>
+            <field name="cagesNumber" title="Cages number" showIf="type==2"/>
+            <field name="unit" title="Unit"/>
+            <field name="center" title="Center" domain="self.unit = :unit"/>
+        </panel>
+        <panel title="Silo capacity">
+            <field name="femalesSiloCapacity" title="Females Silo capacity" showIf="type==0 || type==1" colSpan="15"/>
+            <field name="malesSiloCapacity" title="Males silo capacity" showIf="type==0 || type==1 || type==2" colSpan="15"/>
+        </panel>
+        <panel title="Responsible" showTitle="false" colSpan="10">
+            <panel-related title="Responsible" colSpan="50" css="center" field="responsibles"
+                           form-view="user-BreedingShed-form"
+                           grid-view="user-BreedingShed-grid"
+                           canSelect="true" canNew="false" canEdit="false"/>
+        </panel>
+        <panel-mail name="mailsPanel">
+            <mail-messages limit="4"/>
+            <mail-followers/>
+        </panel-mail>
+    </form>
+
+
+    <action-view name="action-show-dialog-input-date-close" model="com.gl.apps.pf.db.BreedingShed" title="Closing">
+        <view name="breeding-shed-dialog-form-close" type="form"/>
+        <view-param name="show-toolbar" value="false"/>
+        <view-param name="popup" value="reload"/>
+        <view-param name="popup-save" value="false"/>
+        <view-param name="show-confirm" value="false"/>
+        <view-param name="height" value="200"/>
+    </action-view>
+
+    <form name="breeding-shed-dialog-form-close" title="Breeding shed closing" model="com.gl.apps.pf.db.BreedingShed"
+          onNew="action-set-default-date-close-breeding-shed">
+        <panel>
+            <field name="closedDate" colSpan="6"/>
+            <button name="btnClose" title="Close" onClick="action-breeding-shed-method-change-status-to-close,close"
+                    prompt="Are you sure to close this breeding shed ?" confirm="false"
+                    icon="fa-times" css="btn-danger" target="none"/>
+        </panel>
+    </form>
+
+    <action-record name="action-set-default-date-close-breeding-shed"
+                   model="com.gl.apps.pf.db.BreedingShed" >
+        <field name="closedDate" expr="eval: __datetime__"/>
+    </action-record>
+
+    <action-method name="action-breeding-shed-method-change-status-to-close">
+        <call class="com.gl.apps.pf.web.BreedingShedController"
+              method="CloseBreedingShed"/>
+    </action-method>
+
+
+</object-views>

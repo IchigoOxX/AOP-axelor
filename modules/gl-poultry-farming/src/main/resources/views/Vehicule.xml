@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--G-Link -->
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+    <form id="vehicle-form-id" name="vehicle-form" title="Vehicle" model="com.axelor.apps.fleet.db.Vehicle" extension="true">
+        <extend target="/">
+            <attribute name="onSave" value="save,action-test-vignette"/>
+        </extend>
+        <extend target="//panel[@name='vehicleDetailsPanel']">
+            <insert position="after">
+                <panel showTitle="false" colSpan="3" showIf="id">
+                    <panel showTitle="false" colSpan="12" sidebar="true">
+                        <field name="vehicleOilChangePanel" showTitle="false" readonly="true" sidebar="true">
+                             <viewer depends="vehicleOilChange"><![CDATA[
+                             <table border="0" cellpadding="1" cellspacing="1" style="height: 40px; width: 100%; text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 22px; padding-left: 120px;">
+                                            <span style="color: {{$fmt('vehicleOilChange') ? 'red' : 'green'}};">
+                                                <i class="{{$fmt('vehicleOilChange') ? 'fa fa-exclamation-triangle' : 'fa fa-check'}}" style="color: inherit; font-size: 25px;"></i>
+                                                <span x-translate> Oil Changed </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                        <field name="vignettePanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="isVignette"><![CDATA[
+                              <table border="0" cellpadding="1" cellspacing="1" style="height: 40px; width: 100%; text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 22px; padding-left: 120px;">
+                                            <span style="color: {{$fmt('isVignette') ? 'red' : 'green'}};">
+                                                <i class="{{$fmt('isVignette') ? 'fa fa-exclamation-triangle' : 'fa fa-check'}}" style="color: inherit; font-size: 25px;"></i>
+                                                    <span x-translate> Vignette </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                        <field name="isInsurancePanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="isInsurance"><![CDATA[
+                              <table border="0" cellpadding="1" cellspacing="1" style="height: 40px; width: 100%; text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 22px; padding-left: 120px;">
+                                            <span style="color: {{$fmt('isInsurance') ? 'red' : 'green'}};">
+                                                <i class="{{$fmt('isInsurance') ? 'fa fa-exclamation-triangle' : 'fa fa-check'}}" style="color: inherit; font-size: 25px;"></i>
+                                                    <span x-translate> Insurance </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                        <field name="isTechnicalVisitPanel" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="isTechnicalVisit"><![CDATA[
+                              <table border="0" cellpadding="1" cellspacing="1" style="height: 40px; width: 100%; text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 22px; padding-left: 120px;">
+                                            <span style="color: {{$fmt('isTechnicalVisit') ? 'red' : 'green'}};">
+                                                <i class="{{$fmt('isTechnicalVisit') ? 'fa fa-exclamation-triangle' : 'fa fa-check'}}" style="color: inherit; font-size: 25px;"></i>
+                                                    <span x-translate> Technical visit </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                        <field name="occupied" showTitle="false" readonly="true" sidebar="true">
+                            <viewer depends="vehicleOilChange"><![CDATA[
+                             <table border="0" cellpadding="1" cellspacing="1" style="height: 40px; width: 100%; text-align: left;">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-size: 22px; padding-left: 120px;">
+                                            <span style="color: {{$fmt('occupied') ? 'red' : 'green'}};">
+                                                <i class="{{$fmt('occupied') ? 'fa fa-exclamation-triangle' : 'fa fa-check'}}" style="color: inherit; font-size: 25px;"></i>
+                                                <span x-translate> Occupied </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          ]]></viewer>
+                        </field>
+                    </panel>
+                </panel>
+            </insert>
+        </extend>
+
+        <extend target="//panel-related[@name='vehicleFuelLogListPanel']">
+            <insert position="after">
+                <panel-related name="vehicleOdometerListPanel" field="vehicleOdometerList" onNew="action-record-vehicle-get-default-values"
+                               title="Vehicle odometer" colSpan="12" showIf="id"
+                               grid-view="vehicle-odometer-grid"
+                               form-view="vehicle-odometer-form">
+                </panel-related>
+            </insert>
+        </extend>
+
+        <extend target="//panel[@name='generalPropertiesPanel']">
+            <insert position="after">
+                <panel name="insurancePanel" colSpan="6" title="Insurance">
+                    <field name="firstInsuranceDate" required="true" colSpan="6" onChange="action-fleet-start-insurance-changed"/>
+                    <field name="endInsuranceDate" required="true" colSpan="6"/>
+                </panel>
+                <panel name="technicalVisitPanel" colSpan="6" title="Technical visit">
+                    <field name="firstTechnicalVisitDate" required="true" colSpan="6" onChange="action-fleet-start-technical-visit-changed"/>
+                    <field name="endTechnicalVisitDate" required="true" colSpan="6"/>
+                </panel>
+                <panel name="vignettePanel" colSpan="6" title="Vignette">
+                    <field name="startVignetteDate" required="true" colSpan="6"/>
+                    <field name="lastVignetteDate" colSpan="6" readonly="true"/>
+                </panel>
+            </insert>
+        </extend>
+        <extend target="//field[@name='chasisNo']">
+            <insert position="before">
+                <field name="isActive"/>
+            </insert>
+        </extend>
+
+        <extend target="//field[@name='vehicleOdometer']">
+            <insert position="after">
+                <field name="diffVehicleOdometer" readonly="true"/>
+            </insert>
+        </extend>
+
+        <extend target="//panel-related[@name='vehicleOdometerListPanel']">
+            <attribute name="onChange" value="action-get-last-odometer"/>
+        </extend>
+        <extend target="//field[@name='vehicleOdometer']">
+            <attribute name="readonly" value="true"/>
+        </extend>
+        <extend target="//field[@name='company']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='driverPartner']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='location']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='horsePowerTax']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isArchived']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='carValue']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+
+        <extend target="//field[@name='pericePerLiter']">
+            <insert position="after">
+                <field name="vehicleFuelLogOdometer" required="true"/>
+            </insert>
+        </extend>
+        <extend target="//field[@name='language']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='vehicleTagSet']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='vehicleState']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='isRentalCar']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='acquisitionDate']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel-related[@name='vehicleRepairListPanel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel-related[@name='vehicleCostList']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//panel-related[@name='vehicleCostListPanel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+
+
+    </form>
+
+    <grid id="vehicle-grid-id" name="vehicle-grid" title="Vehicle" model="com.axelor.apps.fleet.db.Vehicle" extension="true">
+        <extend target="//field[@name='vehicleState']">
+            <insert position="after">
+                <field name="vehicleOilChange">
+                    <hilite background="red" if="vehicleOilChange == 1"/>
+                </field>
+                <field name="isVignette">
+                    <hilite background="red" if="isVignette == 1"/>
+                </field>
+                <field name="isInsurance">
+                    <hilite background="red" if="isInsurance == 1"/>
+                </field>
+                <field name="isTechnicalVisit">
+                    <hilite background="red" if="isTechnicalVisit == 1"/>
+                </field>
+                <field name="occupied">
+                    <hilite background="red" if="occupied == 1"/>
+                </field>
+            </insert>
+        </extend>
+        <extend target="//field[@name='driverPartner']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='vehicleModel']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='vehicleState']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+        <extend target="//field[@name='vehicleOdometer.unit']">
+            <attribute name="hidden" value="true"/>
+        </extend>
+    </grid>
+
+    <action-attrs name="action-get-last-odometer" model="com.axelor.apps.fleet.db.Vehicle">
+        <attribute if="vehicleOdometerList != null &amp;&amp; !vehicleOdometerList.isEmpty()"
+                   name="value"
+                   expr="eval: vehicleOdometerList.collect{ it.value}.max()"
+                   for="vehicleOdometer"/>
+    </action-attrs>
+
+    <action-method name="action-test-vignette">
+        <call class="com.gl.apps.pf.web.vehicleController"
+              method="setVignetteVehicle"/>
+    </action-method>
+
+    <action-record name="action-vehicle-first-date-vignette" model="com.axelor.apps.fleet.db.Vehicle">
+        <field if="(firstCirculationDate != null) &amp;&amp; ((firstCirculationDate.plusMonths(12).isBefore(__date__))
+                   || ((dailyVignette != null) &amp;&amp; (firstCirculationDate.plusMonths(12).isAfter(__date__)) &amp;&amp; (dailyVignette.isBefore(__date__))))"
+               name="vignette"
+               expr="eval: true"/>
+    </action-record>
+
+    <action-record name="action-vehicle-daily-date-vignette" model="com.axelor.apps.fleet.db.Vehicle">
+        <field if="firstDateVignette != null &amp;&amp; dailyVignette == null"
+               name="dailyVignette"
+               expr="eval: firstDateVignette.plusMonths(6)"/>
+    </action-record>
+
+    <action-attrs name="action-next-vehicle-daily-date-vignette" model="com.axelor.apps.fleet.db.Vehicle">
+        <attribute if="dailyVignette != null"
+                   name="value"
+                   expr="eval: dailyVignette.plusMonths(6)"
+                   for="dailyVignette"/>
+    </action-attrs>
+
+    <action-attrs name="action-fleet-start-technical-visit-changed" model="com.axelor.apps.fleet.db.Vehicle">
+        <attribute if="firstTechnicalVisitDate != null"
+                   name="value"
+                   expr="eval: firstTechnicalVisitDate.plusMonths(12)"
+                   for="endTechnicalVisitDate"/>
+    </action-attrs>
+    <action-attrs name="action-fleet-start-insurance-changed" model="com.axelor.apps.fleet.db.Vehicle">
+        <attribute if="firstInsuranceDate != null"
+                   name="value"
+                   expr="eval: firstInsuranceDate.plusMonths(12)"
+                   for="endInsuranceDate"/>
+    </action-attrs>
+
+    <action-record name="action-record-vehicle-get-default-values" model="com.axelor.apps.fleet.db.Vehicle">
+        <field name="vehicle" expr="eval: __parent__"/>
+    </action-record>
+
+
+</object-views>

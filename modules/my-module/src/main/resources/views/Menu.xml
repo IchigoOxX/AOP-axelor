@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_8.0.xsd">
+
+  <!-- Top-level and Left-hand navigation menus -->
+  <menuitem name="task-menu-root" title="Tasks" icon="fa-tasks" left="true"/>
+  <menuitem name="task-menu-tasks" title="All Tasks" parent="task-menu-root" action="action-task-view"/>
+
+  <!-- Action to view the UserTask model -->
+  <action-view name="action-task-view" title="Tasks" model="com.example.task.db.UserTask">
+    <view type="grid" name="task-grid"/>
+    <view type="form" name="task-form"/>
+  </action-view>
+
+  <!-- Grid (List) View -->
+  <grid name="task-grid" title="Tasks" model="com.example.task.db.UserTask">
+    <field name="title"/>
+    <field name="description"/>
+    <field name="dueDate"/>
+  </grid>
+
+  <!-- Form (Detail) View -->
+  <form name="task-form" title="Task" model="com.example.task.db.UserTask">
+    <panel title="Task Details">
+      <field name="title"/>
+      <field name="description" colSpan="12"/>
+      <field name="dueDate"/>
+    </panel>
+  </form>
+
+</object-views>

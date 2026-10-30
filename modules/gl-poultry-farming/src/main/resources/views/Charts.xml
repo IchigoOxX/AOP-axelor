@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+
+    <chart name="start.technical.sheet.mortality.per.weekly.age" title="Mortality per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+
+        <dataset type="sql"><![CDATA[
+        SELECT t.weekly_age, SUM(t.mortality)  AS _total_mortality, bs.reference as breeding_shed_ref
+          FROM pf_start_technical_sheet t
+          inner join pf_breeding_shed bs on bs.id = t.breeding_shed and bs.current_batch_number = t.tracking_number
+          where ( t.center = :vCenter) and
+								( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed )
+          group by t.weekly_age, bs.reference
+          ORDER BY t.weekly_age;
+
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_total_mortality" type="line" groupBy="breeding_shed_ref"  title="Total mortality"/>
+    </chart>
+
+
+    <chart name="start.technical.sheet.weight.per.weekly.age" title="Weight per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+        select rq.weekly_age, avg(rq.weight) as _avg_weight, rq._type from (
+        SELECT t.weekly_age, t.weight, bs.reference as _type
+                  FROM pf_start_technical_sheet t
+                  inner join pf_breeding_shed bs on bs.id = t.breeding_shed and bs.current_batch_number = t.tracking_number
+                   where ( t.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed )
+         union
+        select  g.week_number , g.theoretical_weight , concat(pb.breed_ref, '-theorical') as _type
+        from pf_start_breeding_guide g
+        inner join pf_breed pb on
+          pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and ((bs.received_females_number > 0 and g.gender = 'F') or (bs.received_males_number > 0 and g.gender= 'M'))
+        where ( bs.center = :vCenter) and
+			  ( :vBreedingShed = 0 or bs.id = :vBreedingShed )) rq
+        group by rq.weekly_age, _type
+        order by rq.weekly_age;
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_weight" groupBy="_type" type="line" title="Total weight"/>
+    </chart>
+
+
+    <chart name="start.technical.sheet.qte.chicks.per.weekly.age" title="Consumed product quantity by chick per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+      select rq.weekly_age, sum(rq.consumed_product_qty_by_chick) as _avg_consumed_product_qty_by_chick, rq._type from (
+        SELECT t.weekly_age, t.consumed_product_qty_by_chick, bs.reference as _type
+                  FROM pf_start_technical_sheet t
+                  inner join pf_breeding_shed bs on bs.id = t.breeding_shed and bs.current_batch_number = t.tracking_number
+                  where ( t.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed )
+         union
+        select  g.week_number , g.theoretical_weight_gain , concat(pb.breed_ref, '-theorical') as _type
+        from pf_start_breeding_guide g
+				inner join pf_breed pb on
+        pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and ((bs.received_females_number > 0 and g.gender = 'F') or (bs.received_males_number > 0 and g.gender= 'M'))
+        where ( bs.center = :vCenter) and
+			  ( :vBreedingShed = 0 or bs.id = :vBreedingShed )) rq
+        group by rq.weekly_age, _type
+        order by rq.weekly_age;
+    ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_consumed_product_qty_by_chick" groupBy="_type" type="line" title="Total consumed g/s/j"/>
+    </chart>
+
+
+<!--    Charts for technical Sheet line-->
+    <chart name="technical.sheet.line.mortality.per.weekly.age" title="Mortality per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 0" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+
+        <dataset type="sql"><![CDATA[
+                select pts.weekly_age,
+                SUM(t.female_mortality) + SUM(t.male_mortality) as _total_mortality,
+                bs.reference as breeding_shed_ref
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+            group by
+                pts.weekly_age,
+                bs.reference
+            order by
+                pts.weekly_age;
+
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_total_mortality" type="line" groupBy="breeding_shed_ref"  title="Total mortality"/>
+    </chart>
+
+    <chart name="technical.sheet.line.weight.per.weekly.age" title="Weight per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 0" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+        select rq.weekly_age, avg(rq.weight) as _avg_weight, rq._type from (
+        SELECT pts.weekly_age, (t.female_weight + t.male_weight) as weight, bs.reference as _type
+                  FROM pf_technical_sheet_line  t
+                  inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+                   where ( pts.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed  )
+         union
+        select  g.week_number , g.theoretical_weight , concat(pb.breed_ref, '-theorical') as _type
+        from pf_start_breeding_guide g
+        inner join pf_breed pb on
+          pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and ((bs.received_females_number > 0 and g.gender = 'F') or (bs.received_males_number > 0 and g.gender= 'M'))
+        where ( bs.center = :vCenter) and
+			  ( :vBreedingShed  = 0 or bs.id = :vBreedingShed  )) rq
+        group by rq.weekly_age, _type
+        order by rq.weekly_age;
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_weight" groupBy="_type" type="line" title="Total weight"/>
+    </chart>
+
+    <chart name="technical.sheet.line.qte.chicks.per.weekly.age" title="Consumed product quantity by chick per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 0" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+       select rq.weekly_age, sum(rq.consumed_product_qty_by_chick) as _avg_consumed_product_qty_by_chick, rq._type from (
+        SELECT pts.weekly_age, (t.female_consumed_product_qty_by_chick+ t.male_consumed_product_qty_by_chick ) as consumed_product_qty_by_chick , bs.reference as _type
+                  FROM pf_technical_sheet_line t
+                 inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+                  where ( pts.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed )
+         union
+        select  g.week_number , g.theoretical_weight_gain , concat(pb.breed_ref, '-theorical') as _type
+        from pf_start_breeding_guide g
+				inner join pf_breed pb on
+        pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and ((bs.received_females_number > 0 and g.gender = 'F') or (bs.received_males_number > 0 and g.gender= 'M'))
+        where ( bs.center = :vCenter) and
+			  ( :vBreedingShed = 0 or bs.id = :vBreedingShed )) rq
+        group by rq.weekly_age, _type
+        order by rq.weekly_age;
+    ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_consumed_product_qty_by_chick" groupBy="_type" type="line" title="Total consumed g/s/j"/>
+    </chart>
+
+<!--    Repro production charts-->
+
+    <chart name="technical.sheet.line.male.mortality.per.weekly.age" title="Male mortality per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 1" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+
+        <dataset type="sql"><![CDATA[
+        select pts.weekly_age,
+                SUM(t.male_mortality) as _total_mortality,
+                bs.reference as breeding_shed_ref
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+            group by
+                pts.weekly_age,
+                bs.reference
+            order by
+                pts.weekly_age;
+
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_total_mortality" type="line" groupBy="breeding_shed_ref"  title="Total male mortality"/>
+    </chart>
+
+    <chart name="technical.sheet.line.female.mortality.per.weekly.age" title="Female mortality per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 1" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+
+        <dataset type="sql"><![CDATA[
+        select pts.weekly_age,
+                SUM(t.female_mortality) as _total_mortality,
+                bs.reference as breeding_shed_ref
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+            group by
+                pts.weekly_age,
+                bs.reference
+            order by
+                pts.weekly_age;
+        ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_total_mortality" type="line" groupBy="breeding_shed_ref"  title="Total female mortality"/>
+    </chart>
+
+    <chart name="technical.sheet.line.male.weight.per.weekly.age" title="Male weight per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 1" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+         select
+            rq.weekly_age,
+            avg(rq.male_weight) as _avg_weight,
+            rq._type
+        from
+            (
+            select
+                pts.weekly_age,
+                t.male_weight ,
+                bs.reference as _type
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet
+                and
+                        bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                                                        ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+        union
+            select
+                g.week_number ,
+                g.theoretical_weight ,
+                concat(pb.breed_ref,
+                '-theorical') as _type
+            from
+                pf_start_breeding_guide g
+            inner join pf_breed pb on
+                pb.id = g.breed
+            inner join pf_breeding_shed bs on
+                g.breed = bs.breed
+                and ((bs.received_females_number > 0
+                    and g.gender = 'F')
+                or (bs.received_males_number > 0
+                    and g.gender = 'M'))
+            where
+                ( bs.center = :vCenter)
+                and
+                      ( :vBreedingShed = 0
+                    or bs.id = :vBreedingShed )) rq
+        group by
+            rq.weekly_age,
+            _type
+        order by
+            rq.weekly_age;
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_weight" groupBy="_type" type="line" title="Total male weight"/>
+    </chart>
+
+    <chart name="technical.sheet.line.female.weight.per.weekly.age" title="Female weight per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 1" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+        select
+            rq.weekly_age,
+            avg(rq.female_weight) as _avg_weight,
+            rq._type
+        from
+            (
+            select
+                pts.weekly_age,
+                t.female_weight ,
+                bs.reference as _type
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet
+                and
+                        bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                                                        ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+        union
+            select
+                g.week_number ,
+                g.theoretical_weight ,
+                concat(pb.breed_ref,
+                '-theorical') as _type
+            from
+                pf_start_breeding_guide g
+            inner join pf_breed pb on
+                pb.id = g.breed
+            inner join pf_breeding_shed bs on
+                g.breed = bs.breed
+                and ((bs.received_females_number > 0
+                    and g.gender = 'F')
+                or (bs.received_males_number > 0
+                    and g.gender = 'M'))
+            where
+                ( bs.center = :vCenter)
+                and
+                      ( :vBreedingShed = 0
+                    or bs.id = :vBreedingShed )) rq
+        group by
+            rq.weekly_age,
+            _type
+        order by
+            rq.weekly_age;
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_weight" groupBy="_type" type="line" title="Total male weight"/>
+    </chart>
+
+    <chart name="technical.sheet.line.male.qte.chicks.per.weekly.age" title="Consumed product quantity by male chick per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 1" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+       select
+            rq.weekly_age,
+            sum(rq.consumed_product_qty_by_chick) as _avg_consumed_product_qty_by_chick,
+            rq._type
+        from
+            (
+            select
+                pts.weekly_age,
+                t.male_consumed_product_qty_by_chick as consumed_product_qty_by_chick ,
+                bs.reference as _type
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet
+                and
+                        bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                                                        ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+        union
+            select
+                g.week_number ,
+                g.theoretical_weight_gain ,
+                concat(pb.breed_ref,
+                '-theorical') as _type
+            from
+                pf_start_breeding_guide g
+            inner join pf_breed pb on
+                pb.id = g.breed
+            inner join pf_breeding_shed bs on
+                g.breed = bs.breed
+                and ((bs.received_females_number > 0
+                    and g.gender = 'F')
+                or (bs.received_males_number > 0
+                    and g.gender = 'M'))
+            where
+                ( bs.center = :vCenter)
+                and
+                      ( :vBreedingShed = 0
+                    or bs.id = :vBreedingShed )) rq
+        group by
+            rq.weekly_age,
+            _type
+        order by
+            rq.weekly_age;
+    ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_consumed_product_qty_by_chick" groupBy="_type" type="line" title="Male total consumed g/s/j"/>
+    </chart>
+
+    <chart name="technical.sheet.line.female.qte.chicks.per.weekly.age" title="Consumed product quantity by female chick per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 1" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+       select
+            rq.weekly_age,
+            sum(rq.consumed_product_qty_by_chick) as _avg_consumed_product_qty_by_chick,
+            rq._type
+        from
+            (
+            select
+                pts.weekly_age,
+                t.female_consumed_product_qty_by_chick as consumed_product_qty_by_chick ,
+                bs.reference as _type
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet
+                and
+                        bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                                                        ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+        union
+            select
+                g.week_number ,
+                g.theoretical_weight_gain ,
+                concat(pb.breed_ref,
+                '-theorical') as _type
+            from
+                pf_start_breeding_guide g
+            inner join pf_breed pb on
+                pb.id = g.breed
+            inner join pf_breeding_shed bs on
+                g.breed = bs.breed
+                and ((bs.received_females_number > 0
+                    and g.gender = 'F')
+                or (bs.received_males_number > 0
+                    and g.gender = 'M'))
+            where
+                ( bs.center = :vCenter)
+                and
+                      ( :vBreedingShed = 0
+                    or bs.id = :vBreedingShed )) rq
+        group by
+            rq.weekly_age,
+            _type
+        order by
+            rq.weekly_age;
+    ]]></dataset>
+        <category key="weekly_age" type="number" title="Weekly age"/>
+        <series key="_avg_consumed_product_qty_by_chick" groupBy="_type" type="line" title="Female total consumed g/s/j"/>
+    </chart>
+
+<!--    chair charts-->
+    <chart name="flesh.technical.sheet.line.mortality.per.daily.age" title="Mortality per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 2" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+                select pts.daily_age,
+                SUM(t.female_mortality) as _total_mortality,
+                bs.reference as breeding_shed_ref
+            from
+                pf_technical_sheet_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+            where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed )
+            group by
+                pts.daily_age,
+                bs.reference
+            order by
+                pts.daily_age;
+
+  ]]></dataset>
+        <category key="weekly_age" type="number" title="Daily age"/>
+        <series key="_total_mortality" type="line" groupBy="breeding_shed_ref"  title="Total mortality"/>
+    </chart>
+
+    <chart name="flesh.technical.sheet.line.weight.per.daily.age" title="Weight per weekly age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 2" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+   select rq.daily_age, avg(rq.weight) as _avg_weight, rq._type from (
+        SELECT pts.daily_age, (t.female_weight) as weight, bs.reference as _type
+                  FROM pf_technical_sheet_line  t
+                  inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+                 where ( pts.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed  )
+         union
+        select  g.day_number , g.weight , concat(pb.breed_ref, '-theorical') as _type
+        from pf_broiler_guide g
+        inner join pf_breed pb on
+          pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and ((bs.received_females_number > 0))
+        where ( bs.center = :vCenter) and
+			  ( :vBreedingShed  = 0 or bs.id = :vBreedingShed  )) rq
+        group by rq.daily_age, _type
+        order by rq.daily_age;
+  ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="_avg_weight" groupBy="_type" type="line" title="Total weight"/>
+    </chart>
+
+    <chart name="flesh.technical.sheet.line.qte.chicks.per.daily.age" title="Consumed product quantity by chick per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 2" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+         select rq.daily_age, sum(rq.consumed_product_qty_by_chick) as _avg_consumed_product_qty_by_chick, rq._type from (
+            SELECT pts.daily_age, (t.female_consumed_product_qty_by_chick) as consumed_product_qty_by_chick , bs.reference as _type
+                  FROM pf_technical_sheet_line t
+                 inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+                  where ( pts.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed )
+         union
+        select  g.day_number , g.average_daily_gain_rate , concat(pb.breed_ref, '-theorical') as _type
+        from pf_broiler_guide g
+				inner join pf_breed pb on
+        pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and (bs.received_females_number > 0 )
+       where ( bs.center = :vCenter) and
+			  ( :vBreedingShed = 0 or bs.id = :vBreedingShed )) rq
+        group by rq.daily_age, _type
+        order by rq.daily_age;
+    ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="_avg_consumed_product_qty_by_chick" groupBy="_type" type="line" title="Total consumed g/s/j"/>
+    </chart>
+
+    <chart name="flesh.technical.sheet.line.temp.per.daily.age" title="Temperature by chick per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" domain="self.type = 2" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+              SELECT
+        rq.daily_age,
+        rq.series_key,
+        rq.temperature
+    FROM (
+        SELECT
+            pts.daily_age,
+            bs.reference AS breeding_shed_ref,
+            'min' AS temp_type,
+            t.temperature_min AS temperature,
+            CONCAT('min_', bs.reference) AS series_key
+        FROM
+            pf_technical_sheet_line t
+        INNER JOIN pf_breeding_shed bs ON
+            bs.id = t.breeding_shed
+        INNER JOIN pf_technical_sheet pts ON
+            pts.id = t.technical_sheet
+            AND bs.current_batch_number = pts.tracking_number
+        WHERE (pts.center = :vCenter) and
+                (:vBreedingShed = 0 or t.breeding_shed = :vBreedingShed)
+
+        UNION
+
+        SELECT
+            pts1.daily_age,
+            bs1.reference AS breeding_shed_ref,
+            'max' AS temp_type,
+            t1.temperature_max AS temperature,
+            CONCAT('max_', bs1.reference) AS series_key
+        FROM
+            pf_technical_sheet_line t1
+        INNER JOIN pf_breeding_shed bs1 ON
+            bs1.id = t1.breeding_shed
+        INNER JOIN pf_technical_sheet pts1 ON
+            pts1.id = t1.technical_sheet
+            AND bs1.current_batch_number = pts1.tracking_number
+        WHERE (bs1.center = :vCenter) and
+                (:vBreedingShed = 0 or bs1.id = :vBreedingShed)
+
+         UNION
+
+         SELECT
+        pts2.daily_age,
+        'common_consg' AS breeding_shed_ref,
+        'consg' AS temp_type,
+        MIN(t2.temperature_consg) AS temperature,
+        'consg' AS series_key
+    FROM
+        pf_technical_sheet_line t2
+    INNER JOIN pf_breeding_shed bs2 ON
+        bs2.id = t2.breeding_shed
+    INNER JOIN pf_technical_sheet pts2 ON
+        pts2.id = t2.technical_sheet
+        AND bs2.current_batch_number = pts2.tracking_number
+    WHERE (bs2.center = :vCenter) and
+            (:vBreedingShed = 0 or bs2.id = :vBreedingShed)
+    GROUP BY pts2.daily_age
+    ) rq
+    ORDER BY
+        rq.daily_age, rq.series_key;
+    ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="temperature" groupBy="series_key" type="line" title="Temperature"/>
+    </chart>
+
+
+    <chart name="flesh.technical.sheet.line.consumption.index.per.daily.age" title="Consumption index per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" domain="self.type = 2" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter" onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+          select rq.daily_age, rq._consumption_index as _consumption_index, rq._type from (
+        SELECT pts.daily_age, (t.actual_consumption_index) as _consumption_index, concat(bs.reference, '-IC-real') as _type
+                  FROM pf_technical_sheet_line  t
+                  inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_technical_sheet pts on
+                pts.id = t.technical_sheet  and
+                bs.current_batch_number = pts.tracking_number
+                  where ( pts.center = :vCenter) and
+												( :vBreedingShed = 0 or t.breeding_shed = :vBreedingShed )
+         union
+        select  g.day_number , g.icindicator , concat(pb.breed_ref, '-IC-standard') as _type
+        from pf_broiler_guide g
+        inner join pf_breed pb on
+          pb.id  = g.breed
+        inner join pf_breeding_shed bs on g.breed = bs.breed and ((bs.received_females_number > 0))
+        where ( bs.center = :vCenter) and
+			  ( :vBreedingShed = 0 or bs.id = :vBreedingShed )) rq
+        group by rq.daily_age,rq._consumption_index, _type
+        order by rq.daily_age;
+    ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="_consumption_index" groupBy="_type" type="line" title="Consumption index"/>
+    </chart>
+
+<!--hatchery charts-->
+    <chart name="hatchery.oac.per.daily.age" title="Total HE per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 1" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+
+        select pts.daily_age,
+                SUM(t.received_number_of_he) as _total_oac,
+                bs.reference as breeding_shed_ref
+            from
+                pf_hatchery_eggs_reception_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_hatchery_eggs_reception pts on
+                pts.id = t.eggs_reception and
+                bs.current_batch_number = pts.tracking_number
+             where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed ) and (pts.status = 2)
+            group by
+                pts.daily_age,
+                bs.reference
+            order by
+                pts.daily_age;
+
+  ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="_total_oac" type="line" groupBy="breeding_shed_ref"  title="Total HE"/>
+    </chart>
+
+    <chart name="hatchery.odj.per.daily.age" title="Total DYE per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 1" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+             select pts.daily_age,
+                SUM(t.received_number_of_dye) as _total_odj,
+                bs.reference as breeding_shed_ref
+            from
+                pf_hatchery_eggs_reception_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_hatchery_eggs_reception pts on
+                pts.id = t.eggs_reception and
+                bs.current_batch_number = pts.tracking_number
+             where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed ) and (pts.status = 2)
+            group by
+                pts.daily_age,
+                bs.reference
+            order by
+                pts.daily_age;
+  ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="_total_odj" type="line" groupBy="breeding_shed_ref"  title="Total DYE"/>
+    </chart>
+
+
+    <chart name="hatchery.od.per.daily.age" title="Total DE per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" target="com.gl.apps.pf.db.Center"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" domain="self.type = 1" x-required="true"/>
+            <field name="vBreedingShed" title="Breeding shed" type="reference" target="com.gl.apps.pf.db.BreedingShed" domain="self.center.id =:vCenter"
+                   onChange="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange" />
+
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+            select pts.daily_age,
+                SUM(t.received_number_of_de) as _total_od,
+                bs.reference as breeding_shed_ref
+            from
+                pf_hatchery_eggs_reception_line t
+            inner join pf_breeding_shed bs on
+                bs.id = t.breeding_shed
+            inner join pf_hatchery_eggs_reception pts on
+                pts.id = t.eggs_reception and
+                bs.current_batch_number = pts.tracking_number
+             where
+                ( pts.center = :vCenter)
+                and
+                     ( :vBreedingShed = 0
+                    or t.breeding_shed = :vBreedingShed ) and (pts.status = 2)
+            group by
+                pts.daily_age,
+                bs.reference
+            order by
+                pts.daily_age;
+  ]]></dataset>
+        <category key="daily_age" type="number" title="Daily age"/>
+        <series key="_total_od" type="line" groupBy="breeding_shed_ref"  title="Total DE"/>
+    </chart>
+
+    <chart name="hatchery.safe.per.daily.age" title="Total safe chicks per daily age" onInit="">
+        <search-fields>
+            <field name="vCenter" title="Center" type="reference" onChange="action-attrs-start.technical.sheet.mortality-chart-center-onchange" target="com.gl.apps.pf.db.Center" domain="self.type = 1" x-required="true"/>
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+        select  t.current_daily_age ,
+              SUM(t.safe) as _total_safe,
+              bs.reference as breeding_shed_ref
+          from
+              pf_hatcher_exit_line t
+          inner join pf_breeding_shed bs on
+              bs."name"  = t.breeding_shed
+          inner join pf_hatcher_exit pts on
+              pts.id = t.hatcher_exit
+           where
+              ( t.center = :vCenter) and
+              (pts.status = 2)
+          group by
+          t.current_daily_age ,
+              bs.reference
+             order by
+                t.current_daily_age;
+]]></dataset>
+        <category key="current_daily_age" type="number" title="Daily age"/>
+        <series key="_total_safe" type="line" title="Total safe chicks"/>
+    </chart>
+
+<!--    Maintenance-->
+    <chart name="maintenance.energy.consumption.per.date" title="Total energy consumption per date" onInit="">
+        <search-fields>
+            <field name="vProduct" title="product" domain="self.productCategory.name= 'Energy  product'" type="reference" target="com.axelor.apps.base.db.Product" x-required="true"/>
+<!--            <field name="vSelectedDate" title="Selected Date" type="date" x-required="false"/>-->
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+        SELECT
+            m.date_time as "date_time",
+            p."name" as "product" ,
+            SUM(qty) AS total_quantity
+        FROM
+            pf_maintenance_energy_consumption m
+        inner join base_product p on
+                p.id = m.product
+        WHERE
+        --(:vSelectedDate IS NULL OR CAST(m.date_time AS DATE)  = CAST(:vSelectedDate AS DATE))
+            --AND (:vProduct IS NULL OR m.product = :vProduct)
+        (:vProduct IS NULL OR m.product = :vProduct)
+        GROUP BY
+            p."name" , m.date_time
+        ORDER BY
+            m.date_time;
+    ]]></dataset>
+        <category key="date_time" type="date" title="Consumption date"/>
+        <series key="total_quantity" type="line" groupBy="product" title="Total Quantity"/>
+    </chart>
+
+    <chart name="maintenance.energy.consumption.amount.per.date" title="Total energy consumption amount per date" onInit="">
+        <search-fields>
+            <field name="vProduct" title="product" domain="self.productCategory.name= 'Energy  product'" type="reference" target="com.axelor.apps.base.db.Product" x-required="true"/>
+<!--            <field name="vSelectedDate" title="Selected Date" type="date" x-required="false"/>-->
+        </search-fields>
+        <dataset type="sql"><![CDATA[
+        SELECT
+            m.date_time as "date_time",
+            p."name" as "product" ,
+            SUM(m.total_amount_consumption) AS total_amount
+        FROM
+            pf_maintenance_energy_consumption m
+        inner join base_product p on
+                p.id = m.product
+        WHERE
+        --(:vSelectedDate IS NULL OR CAST(m.date_time AS DATE)  = CAST(:vSelectedDate AS DATE))
+            --AND (:vProduct IS NULL OR m.product = :vProduct)
+        (:vProduct IS NULL OR m.product = :vProduct)
+        GROUP BY
+            p."name" , m.date_time
+        ORDER BY
+            m.date_time;
+    ]]></dataset>
+        <category key="date_time" type="date" title="Consumption date"/>
+        <series key="total_amount" type="line" groupBy="product" title="Total energy consumption amount"/>
+    </chart>
+
+<!--    PRINCIPAL DASHBOARD -->
+
+    <chart name="principal.dashboard.percentage.he.per.center" title="Percentage HE per center" onInit="">
+        <dataset type="sql"><![CDATA[
+
+        SELECT
+            pc."name" AS center_name,
+            SUM(t.received_number_of_he) AS total_he,
+            (SUM(t.received_number_of_he) * 100.0 / total_he.total_he_all_centers) AS percentage_of_he
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN
+            pf_breeding_shed bs ON bs.id = t.breeding_shed
+        INNER JOIN
+            pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+        INNER JOIN
+            pf_center pc ON bs.center = pc.id
+        INNER JOIN
+            (SELECT
+                 SUM(t.received_number_of_he) AS total_he_all_centers
+             FROM
+                 pf_hatchery_eggs_reception_line t
+             INNER JOIN
+                 pf_breeding_shed bs ON bs.id = t.breeding_shed
+             INNER JOIN
+                 pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+             WHERE
+                 pts.status = 2) AS total_he ON 1=1
+
+        WHERE
+            pts.status = 2
+        GROUP BY
+            pc."name", total_he.total_he_all_centers;
+
+  ]]></dataset>
+        <category key="center_name" type="text" title="Center"/>
+        <series key="percentage_of_he" type="pie" title="% HE"/>
+        <config name="percent" value="true"/>
+    </chart>
+
+    <chart name="principal.dashboard.percentage.dye.per.center" title="Percentage DYE per center" onInit="">
+        <dataset type="sql"><![CDATA[
+
+         SELECT
+            pc."name" AS center_name,
+            SUM(t.received_number_of_dye) AS total_dye,
+            (SUM(t.received_number_of_dye) * 100.0 / total_dye.total_dye_all_centers) AS percentage_of_dye
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN
+            pf_breeding_shed bs ON bs.id = t.breeding_shed
+        INNER JOIN
+            pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+        INNER JOIN
+            pf_center pc ON bs.center = pc.id
+
+        INNER JOIN
+            (SELECT
+                 SUM(t.received_number_of_dye) AS total_dye_all_centers
+             FROM
+                 pf_hatchery_eggs_reception_line t
+             INNER JOIN
+                 pf_breeding_shed bs ON bs.id = t.breeding_shed
+             INNER JOIN
+                 pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+             WHERE
+                 pts.status = 2) AS total_dye ON 1=1
+        WHERE
+            pts.status = 2
+        GROUP BY
+            pc."name", total_dye.total_dye_all_centers;
+
+  ]]></dataset>
+        <category key="center_name" type="text" title="Center"/>
+        <series key="percentage_of_dye" type="pie" title="% DYE"/>
+        <config name="percent" value="true"/>
+        <config name="colors" value="#2d8077,#de9e46,#a2c4c9,#fe8a71"/>
+    </chart>
+
+
+    <chart name="principal.dashboard.percentage.de.per.center" title="Percentage DE per center" onInit="">
+        <dataset type="sql"><![CDATA[
+
+        SELECT
+            pc."name" AS center_name,
+            SUM(t.received_number_of_de) AS total_de,
+            (SUM(t.received_number_of_de) * 100.0 / total_de.total_de_all_centers) AS percentage_of_de
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN
+            pf_breeding_shed bs ON bs.id = t.breeding_shed
+        INNER JOIN
+            pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+        INNER JOIN
+            pf_center pc ON bs.center = pc.id
+
+        INNER JOIN
+            (SELECT
+                 SUM(t.received_number_of_de) AS total_de_all_centers
+             FROM
+                 pf_hatchery_eggs_reception_line t
+             INNER JOIN
+                 pf_breeding_shed bs ON bs.id = t.breeding_shed
+             INNER JOIN
+                 pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+             WHERE
+                 pts.status = 2) AS total_de ON 1=1
+        WHERE
+            pts.status = 2
+        GROUP BY
+            pc."name", total_de.total_de_all_centers;
+
+  ]]></dataset>
+        <category key="center_name" type="text" title="Center"/>
+        <series key="percentage_of_de" type="pie" title="% DE"/>
+        <config name="percent" value="true"/>
+        <config name="colors" value="#7fd3f7,#ffb685,#f87070,#fff2cf"/>
+    </chart>
+
+    <chart name="principal.dashboard.percentage.de.per.tracking.number.and.center" title="Percentage HE per tracking number/center" onInit="">
+        <dataset type="sql"><![CDATA[
+
+        SELECT
+            pc."name" AS center_name,
+            stn.tracking_number_seq as tracking_number,
+            CONCAT(pc."name", ' - ', stn.tracking_number_seq) AS complete_key,
+            SUM(t.received_number_of_he) AS total_he,
+            (SUM(t.received_number_of_he) * 100.0 / total_he.total_he_all_centers) AS percentage_of_he
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN
+            pf_breeding_shed bs ON bs.id = t.breeding_shed
+        INNER JOIN
+            pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+        INNER JOIN
+            pf_center pc ON bs.center = pc.id
+        INNER JOIN
+            stock_tracking_number stn ON pts.tracking_number = stn.id
+        INNER JOIN
+                    (SELECT
+                         SUM(t.received_number_of_he) AS total_he_all_centers
+                     FROM
+                         pf_hatchery_eggs_reception_line t
+                     INNER JOIN
+                         pf_breeding_shed bs ON bs.id = t.breeding_shed
+                     INNER JOIN
+                         pf_hatchery_eggs_reception pts ON pts.id = t.eggs_reception
+                     WHERE
+                         pts.status = 2) AS total_he ON 1=1
+        WHERE
+            pts.status = 2
+        GROUP BY
+            pc."name", stn.tracking_number_seq, total_he.total_he_all_centers;
+
+  ]]></dataset>
+        <category key="complete_key" type="text" title="Center"/>
+        <series key="percentage_of_he" type="pie" groupBy="tracking_number" title="% DE"/>
+        <config name="percent" value="true"/>
+        <config name="colors" value="#7fd3f7,#84f2b3,#c49bdf,#ffde17"/>
+    </chart>
+
+    <chart name="principal.dashboard.percentage.he.dye.de" title="Percentage HE per tracking number/center" onInit="">
+        <dataset type="sql"><![CDATA[
+
+      SELECT
+            'HE' AS label,
+            (SUM(t.received_number_of_he) * 100.0 / (SUM(t.received_number_of_he) + SUM(t.received_number_of_dye) + SUM(t.received_number_of_de))) AS value
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN pf_hatchery_eggs_reception pts ON
+            pts.id = t.eggs_reception
+        WHERE
+            pts.status = 2
+        GROUP BY
+            label
+
+        UNION ALL
+
+        SELECT
+            'DYE' AS label,
+            (SUM(t.received_number_of_dye) * 100.0 / (SUM(t.received_number_of_he) + SUM(t.received_number_of_dye) + SUM(t.received_number_of_de))) AS value
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN pf_hatchery_eggs_reception pts ON
+            pts.id = t.eggs_reception
+        WHERE
+            pts.status = 2
+        GROUP BY
+            label
+
+        UNION ALL
+
+        SELECT
+            'DE' AS label,
+            (SUM(t.received_number_of_de) * 100.0 / (SUM(t.received_number_of_he) + SUM(t.received_number_of_dye) + SUM(t.received_number_of_de))) AS value
+        FROM
+            pf_hatchery_eggs_reception_line t
+        INNER JOIN pf_hatchery_eggs_reception pts ON
+            pts.id = t.eggs_reception
+        WHERE
+            pts.status = 2
+        GROUP BY
+            label;
+
+]]></dataset>
+        <category key="label" type="text" title="Label"/>
+        <series key="value" type="pie" title="%" scale="2"/>
+        <config name="percent" value="true"/>
+        <config name="colors" value="#ff942d,#d24248,#edbae3,#c0dffa"/>
+    </chart>
+
+    <chart name="principal.dashboard.chicks.sale.qty.unit.price" title="Unit price and quantity sold" onInit="">
+        <dataset type="sql"><![CDATA[
+
+        SELECT
+            'Unit Price' AS series_key,
+            ssol.unit_price_untaxed AS value,
+            sso.created_on AS _date
+        FROM
+            stock_stock_move_line ssol
+        INNER JOIN stock_stock_move sso ON
+            sso.id = ssol.stock_move
+        Inner JOIN studio_app_poultry_farming app ON
+            ssol.product = app.chair_chicks
+        WHERE
+            sso.status_select = 3
+        GROUP BY
+            sso.created_on, ssol.unit_price_untaxed
+
+        UNION
+
+        SELECT
+            'Quantity' AS series_key,
+            ssol.real_qty AS value,
+            sso.created_on AS _date
+        FROM
+            stock_stock_move_line ssol
+        INNER JOIN stock_stock_move sso ON
+            sso.id = ssol.stock_move
+        inner JOIN studio_app_poultry_farming app ON
+            ssol.product = app.chair_chicks
+        WHERE
+            sso.status_select = 3
+        GROUP BY
+            sso.created_on, ssol.real_qty;
+
+]]></dataset>
+        <category key="_date" type="date" title="Date"/>
+        <series key="value" groupBy="series_key" type="bar" title="Unit Price vs Quantity"/>
+        <config name="percent" value="true"/>
+        <config name="colors" value="#ee7f1d,#90d2d8"/>
+    </chart>
+
+    <chart name="principal.dashboard.chicks.sale.qty.amount" title="Unit price and total amount" onInit="">
+        <dataset type="sql"><![CDATA[
+
+        SELECT
+		    'Total Amount' AS series_key,
+		    SUM(ssol.unit_price_untaxed * ssol.real_qty) AS value,
+		    sso.created_on AS _date
+		FROM
+		    stock_stock_move_line ssol
+		INNER JOIN stock_stock_move sso ON
+		    sso.id = ssol.stock_move
+		INNER JOIN studio_app_poultry_farming app ON
+		    ssol.product = app.chair_chicks
+		WHERE
+		    sso.status_select = 3
+		GROUP BY
+		    sso.created_on
+
+        UNION
+
+        SELECT
+            'Quantity' AS series_key,
+            ssol.real_qty AS value,
+            sso.created_on AS _date
+        FROM
+            stock_stock_move_line ssol
+        INNER JOIN stock_stock_move sso ON
+            sso.id = ssol.stock_move
+        inner JOIN studio_app_poultry_farming app ON
+            ssol.product = app.chair_chicks
+        WHERE
+            sso.status_select = 3
+        GROUP BY
+            sso.created_on, ssol.real_qty;
+
+]]></dataset>
+        <category key="_date" type="date" title="Date"/>
+        <series key="value" groupBy="series_key" type="bar" title="Total amount vs Quantity"/>
+        <config name="percent" value="true"/>
+        <config name="colors" value="#ff9999,#8be9fe"/>
+    </chart>
+
+
+    <chart name="principal.dashboard.chicks.qty" title="Total, sold and installed quantity" onInit="">
+        <dataset type="sql"><![CDATA[
+        SELECT
+            phe.datetime AS _date,
+            phe.extern_number AS _value,
+            'Quantity Sold' AS series_key
+        FROM
+            pf_hatcher_exit phe
+        WHERE
+            phe.status = 2
+       group by phe.extern_number, phe.datetime
+
+        UNION
+
+        SELECT
+            phe.datetime AS _date,
+            SUM(phe.extern_number + phe.intern_number) AS _value,
+            'Total Produced Quantity' AS series_key
+        FROM
+            pf_hatcher_exit phe
+        WHERE
+            phe.status = 2
+        group by phe.datetime
+
+        UNION
+
+        SELECT
+            phe.datetime AS _date,
+            phe.intern_number AS _value,
+            'Quantity Installed' AS series_key
+        FROM
+            pf_hatcher_exit phe
+        WHERE
+            phe.status = 2
+        group by phe.intern_number, phe.datetime;
+    ]]></dataset>
+        <category key="_date" type="date" title="Date"/>
+        <series key="_value" groupBy="series_key" type="line" title="Quantity"/>
+        <config name="colors" value="#bf289a,#48c3e7,#ee7421,#5da78f"/>
+        <config name="percent" value="true"/>
+    </chart>
+
+    <chart name="principal.dashboard.flesh.chicks.average.weight" title="Chicks slaughtered / Average weight" onInit="">
+        <dataset type="sql"><![CDATA[
+        SELECT
+            pc."name"  AS _center,
+            SUM(per._value) AS _value,
+            'Total chicks' AS series_key
+        FROM
+            (SELECT
+                center,
+                SUM(female_reform_number + male_reform_number) AS _value
+            FROM
+                pf_elev_reform
+            WHERE
+                destination = 1 AND slaughterhouse IS NOT NULL AND status = 1
+            GROUP BY
+                center
+            ) AS per
+            INNER JOIN
+                    pf_center pc ON per.center = pc.id
+        GROUP BY
+            pc."name"
+        union
+        SELECT
+            pc."name"  AS _center,
+            per.avg_value as _value,
+            'Average weight' AS series_key
+        FROM
+            (SELECT
+                center,
+                AVG(male_average_weight + female_average_weight) / 2 AS avg_value
+            FROM
+                pf_elev_reform
+            WHERE
+                destination = 1 AND slaughterhouse IS NOT NULL AND status = 1
+            GROUP BY
+                center
+            ) AS per
+            INNER JOIN
+                    pf_center pc ON per.center = pc.id
+        GROUP BY
+            pc."name",per.avg_value;
+    ]]></dataset>
+        <category key="_center" type="text" title="Center"/>
+        <series key="_value" groupBy="series_key" type="bar" title="Total chicks VS average weight"/>
+        <config name="colors" value="#bf289a,#48c3e7,#ee7421,#5da78f"/>
+        <config name="percent" value="true"/>
+    </chart>
+
+
+    <chart name="principal.dashboard.flesh.chicks.global.weight" title="Chicks slaughtered / Global weight" onInit="">
+        <dataset type="sql"><![CDATA[
+        SELECT
+            pc."name"  AS _center,
+            SUM(per._value) AS _value,
+            'Total chicks' AS series_key
+        FROM
+            (SELECT
+                center,
+                SUM(female_reform_number + male_reform_number) AS _value
+            FROM
+                pf_elev_reform
+            WHERE
+                destination = 1 AND slaughterhouse IS NOT NULL AND status = 1
+            GROUP BY
+                center
+            ) AS per
+            INNER JOIN
+                    pf_center pc ON per.center = pc.id
+        GROUP BY
+            pc."name"
+        union
+        SELECT
+            pc."name"  AS _center,
+            per.global_weight as _value,
+            'Global weight' AS series_key
+        FROM
+            (SELECT
+                center,
+                AVG(male_average_weight + female_average_weight)  AS global_weight
+            FROM
+                pf_elev_reform
+            WHERE
+                destination = 1 AND slaughterhouse IS NOT NULL AND status = 1
+            GROUP BY
+                center
+            ) AS per
+            INNER JOIN
+                    pf_center pc ON per.center = pc.id
+        GROUP BY
+            pc."name",per.global_weight;
+    ]]></dataset>
+        <category key="_center" type="text" title="Center"/>
+        <series key="_value" groupBy="series_key" type="bar" title="Total chicks VS global weight"/>
+        <config name="colors" value="#d84030,#f89830,#ee7421,#5da78f"/>
+        <config name="percent" value="true"/>
+    </chart>
+
+    <chart name="principal.dashboard.flesh.chicks.by.reference.average.weight.by.reference" title="Chicks slaughtered / Average weight by reference" onInit="">
+        <dataset type="sql"><![CDATA[
+        SELECT
+            per.reference AS _reference,
+            (per.female_reform_number + per.male_reform_number) AS _value,
+            'Total chicks' AS series_key
+        FROM
+            pf_elev_reform per
+        WHERE
+            per.destination = 1 AND per.slaughterhouse IS NOT null and per.status = 1
+        GROUP BY
+            per.reference, _value
+
+        UNION
+
+        SELECT
+            per.reference AS _reference,
+            CASE
+                WHEN male_average_weight = 0 OR female_average_weight = 0 THEN
+                    (male_average_weight + female_average_weight)
+                ELSE
+                    (male_average_weight + female_average_weight) / 2
+            END AS _value,
+            'Average weight' AS series_key
+        FROM
+            pf_elev_reform per
+        WHERE
+            per.destination = 1 AND per.slaughterhouse IS NOT null and per.status = 1
+        GROUP BY
+            per.reference, male_average_weight,female_average_weight;
+    ]]></dataset>
+
+        <category key="_reference" type="text" title="Reference"/>
+        <series key="_value" groupBy="series_key" type="bar" title="Total chicks VS Average weight"/>
+        <config name="colors" value="#8cbf26,#8e59bf"/>
+        <config name="percent" value="true"/>
+    </chart>
+
+
+
+    <chart name="principal.dashboard.flesh.chicks.by.reference.global.weight" title="Chicks slaughtered / Global wight by reference" onInit="">
+        <dataset type="sql"><![CDATA[
+        SELECT
+            per.reference AS _reference,
+            (per.female_reform_number + per.male_reform_number) AS _value,
+            'Total chicks' AS series_key
+        FROM
+            pf_elev_reform per
+        WHERE
+            per.destination = 1 AND per.slaughterhouse IS NOT null and per.status = 1
+        GROUP BY
+            per.reference,_value
+
+        UNION
+
+        SELECT
+           per.reference AS _reference,
+            (per.male_average_weight + per.female_average_weight) AS _value,
+            'Global weight' AS series_key
+        FROM
+            pf_elev_reform per
+        WHERE
+            per.destination = 1 AND per.slaughterhouse IS NOT null and per.status = 1
+        GROUP BY
+            per.reference, _value;
+    ]]></dataset>
+
+        <category key="_reference" type="text" title="Reference"/>
+        <series key="_value" groupBy="series_key" type="bar" title="Total chicks VS global weight"/>
+<!--        <config name="colors" value="#d84030,#f89830,#ee7421,#5da78f"/>-->
+        <config name="percent" value="true"/>
+    </chart>
+
+
+    <action-attrs name="action-attrs-start.technical.sheet.mortality-chart-breeding-shed-onchange">
+        <attribute if="vBreedingShed" name="value" expr="eval:__repo__(BreedingShed).find(vBreedingShed).currentBatchNumber" for="vCurrentBatchNumber"/>
+        <attribute if="vBreedingShed == null" name="+" expr="eval: 0" for="vBreedingShed"/>
+    </action-attrs>
+
+    <action-attrs name="action-attrs-start.technical.sheet.mortality-chart-center-onchange">
+        <attribute name="value" expr="eval: 0" for="vBreedingShed"/>
+    </action-attrs>
+
+</object-views>

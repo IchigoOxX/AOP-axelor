@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<selection name="PoultryFarming.Charging.program.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executed</option>
+    <option value="2">Canceled</option>
+  </selection>
+
+  <selection id="poultryfarming.sequence.generic.code.select"
+    name="sequence.generic.code.select">
+    <option value="poultryfarming">PoultryFarming</option>
+    <option value="IncubatorsLoadingProgramSeq">IncubatorsLoadingProgramSeq</option>
+  </selection>
+
+  <selection name="poultryfarming.breeding.shed.type.select">
+    <option value="0">Startup</option>
+    <option value="1">Reproduction</option>
+    <option value="2">Broiler</option>
+  </selection>
+
+  <selection name="poultryfarming.breeding.shed.status.select">
+    <option value="0">Closed</option>
+    <option value="1">Activated</option>
+    <option value="2">Busy</option>
+    <option value="3">Stopped</option>
+  </selection>
+
+  <selection name="car.rental.fuel.level.select">
+    <option value="0">0</option>
+    <option value="1">1/4</option>
+    <option value="2">1/2</option>
+    <option value="3">3/4</option>
+    <option value="4">1</option>
+  </selection>
+
+  <selection name="poultryfarming.slaughterhouse.status.select">
+    <option value="0">Closed</option>
+    <option value="1">Activated</option>
+    <option value="2">Busy</option>
+    <option value="3">Stopped</option>
+  </selection>
+
+  <selection name="poultryfarming.domain.type.select">
+    <option value="0">Startup</option>
+    <option value="1">Reproduction</option>
+    <option value="2">Broiler</option>
+    <option value="3">Other</option>
+  </selection>
+
+
+
+  <selection name="poultryfarming.start.elev.reform.type.select">
+    <option value="0">Principal</option>
+  </selection>
+
+  <selection name="poultryfarming.incubator.status.select">
+    <option value="0">Free</option>
+    <option value="1">Busy</option>
+    <option value="2">Stopped</option>
+  </selection>
+
+  <selection name="poultryfarming.loading.program.line.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.incubator.entries.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.flesh.loading.program.line.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.hatcher.entries.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.hatchery.eggs.exit.reason.select">
+    <option value="Sale">Sale</option>
+    <option value="Breakage">Breakage</option>
+  </selection>
+
+
+  <selection name="poultryfarming.logistics.sheet.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.logistics.sheet.type.import.select">
+    <option value="0">Functioning (MP)</option>
+    <option value="1">Sale </option>
+  </selection>
+
+  <selection name="poultryfarming.start.breeding.guide.gender.select">
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+  </selection>
+
+  <selection name="poultryfarming.breeding.transfer.gender.select">
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+  </selection>
+
+  <selection name="poultryfarming.incubator.trolleys.charging.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Validated</option>
+    <option value="2">Canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.charging.type.status.select">
+    <option value="0">Various</option>
+    <option value="1">Selection</option>
+  </selection>
+
+<!--  <selection name="stock.move.type.select">-->
+<!--    <option value="13">Egg reception</option>-->
+<!--  </selection>-->
+
+  <selection name="poultryfarming.eggs.type.origin.select">
+    <option value="0">Production</option>
+    <option value="1">Purchase</option>
+
+  </selection>
+
+  <selection name="poultryfarming.eggs.reception.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+    <option value="4">Waiting</option>
+  </selection>
+
+  <selection name="poultryfarming.start.receiving-chicks.status.select">
+    <option value="0">Not received</option>
+    <option value="1">Received</option>
+    <option value="2">Canceled</option>
+</selection>
+
+  <selection name="poultryfarming.start.technical.sheet.status.select">
+    <option value="0">Draft</option>
+    <option value="1">Finalized</option>
+    <option value="2">Canceled</option>
+</selection>
+
+  <selection name="poultryfarming.repro.production.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Executing</option>
+    <option value="2">Executed</option>
+    <option value="3">Canceled</option>
+
+  </selection>
+
+  <selection name="poultryfarming.elev.transfer.status.select">
+    <option value="0">Not Received</option>
+    <option value="1">Executing</option>
+    <option value="2">Received</option>
+    <option value="3">Canceled</option>
+
+  </selection>
+
+  <selection name="poultryfarming.maintenance.energy.consumption.status.select">
+    <option value="0">Not Executed</option>
+    <option value="1">Executed</option>
+
+  </selection>
+
+  <selection name="poultryfarming.livestock.feed.external.exit.status.select">
+    <option value="0">Not executed</option>
+    <option value="1">Delivered</option>
+    <option value="2">Canceled</option>
+
+  </selection>
+
+  <selection name="poultryfarming.flesh.chicks.reception.status.select">
+    <option value="0">Not Received</option>
+    <option value="1">Executing</option>
+    <option value="2">Received</option>
+    <option value="3">Canceled</option>
+
+  </selection>
+
+
+  <selection name="poultryfarming.livestock.feed.factory.status.select">
+    <option value="0">Not Received</option>
+    <option value="1">Executing</option>
+    <option value="2">Received</option>
+    <option value="3">Canceled</option>
+
+  </selection>
+
+  <selection name="poultryfarming.product.order.status.select">
+    <option value="0">Not Received</option>
+    <option value="1">Executing</option>
+    <option value="2">Validated</option>
+    <option value="3">Received</option>
+    <option value="4">Reserved</option>
+    <option value="5">Canceled</option>
+    <option value="6">Release canceled</option>
+    <option value="7">Reception canceled</option>
+  </selection>
+
+  <selection name="poultryfarming.hatchery.egg.exit.status.select">
+    <option value="0">Not Received</option>
+    <option value="1">Executing</option>
+    <option value="2">Validated</option>
+    <option value="3">Received</option>
+    <option value="4">Canceled</option>
+
+  </selection>
+
+  <selection name="poultryfarming.hatchery.delivery.sale.status.select">
+    <option value="0">Not Received</option>
+    <option value="1">Executing</option>
+    <option value="2">Validated</option>
+    <option value="3">Received</option>
+    <option value="4">Canceled</option>
+
+  </selection>
+
+  <selection name="poultryfarming.pharmacy.treatment.nature.select">
+    <option value="0">Curative</option>
+    <option value="1">Preventive</option>
+  </selection>
+
+  <selection name="poultryfarming.elev.reform.destination.select">
+    <option value="0">Sale</option>
+    <option value="1">Slaughter</option>
+  </selection>
+
+  <selection name="poultryfarming.start.breeding.guide.day.number.select">
+    <option value="0">Days</option>
+    <option value="1">Week</option>
+  </selection>
+
+  <selection name="poultryfarming.breed.day.number.select">
+    <option value="0">Days</option>
+    <option value="1">Week</option>
+  </selection>
+
+  <selection name="poultryfarming.production.guide.day.number.select">
+    <option value="0">Days</option>
+    <option value="1">Week</option>
+  </selection>
+
+  <selection name="poultryfarming.incubator.trolley.status.select">
+    <option value="0">Free</option>
+    <option value="1">Busy</option>
+    <option value="2">Reserved</option>
+    <option value="3">In the incubator</option>
+    <option value="4">Stopped</option>
+
+  </selection>
+  <selection name="poultryfarming.hatcher.trolley.status.select">
+    <option value="0">Free</option>
+    <option value="1">Busy</option>
+    <option value="2">Reserved</option>
+    <option value="3">In the incubator</option>
+    <option value="4">In the hatcher</option>
+    <option value="5">Stopped</option>
+
+  </selection>
+
+
+  <selection name="poultryfarming.elev.reform.unit.select">
+    <option value="0">Unit</option>
+    <option value="1">Weight</option>
+  </selection>
+
+  <selection name="base.blocking.select.partner.vehicle" id="purchase.blocking.select.partner.vehicle">
+    <option value="7">Contract</option>
+  </selection>
+
+  <selection name="poultryfarming.hatcher.status.select">
+    <option value="0">Free</option>
+    <option value="1">Busy</option>
+    <option value="2">Stopped</option>
+  </selection>
+
+  <selection name="stock.move.sub.type.select">
+    <option value="1">Chicks reception</option>
+    <option value="2">Products</option>
+    <option value="3">Workforces</option>
+    <option value="4">Treatments and vaccinations</option>
+    <option value="5">Repro production reception</option>
+    <option value="6">Hatchery eggs reception</option>
+    <option value="7">Incubator entries</option>
+    <option value="8">Incubator exits</option>
+    <option value="9">Hatcher entries</option>
+    <option value="10">Hatcher exits</option>
+    <option value="11">Hatchery eggs exit</option>
+    <option value="12">Hatchery sale delivery</option>
+    <option value="13">Flesh chicks reception</option>
+    <option value="14">Repro production</option>
+  </selection>
+
+</object-views>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="base" package="com.axelor.apps.base.db"/>
+    <entity name="Product">
+        <one-to-many name="productAttachmentTypeList"
+                     ref="com.gl.apps.pf.db.ProductAttachmentType" mappedBy="product"
+                     title="Product attachment type Line"/>
+        <integer name="capacity" title="Capacity"/>
+        <many-to-one name="productDefaultConfiguration" ref="com.gl.apps.pf.db.ProductDefaultConfiguration"
+                     title="Default configuration"/>
+        <boolean name="allowNegativeStock" title="Allow negative stock" default="false"/>
+
+        <track on="UPDATE">
+            <field name="productAttachmentTypeList"/>
+            <field name="capacity"/>
+            <field name="productDefaultConfiguration"/>
+            <field name="allowNegativeStock"/>
+        </track>
+
+    </entity>
+</domain-models>

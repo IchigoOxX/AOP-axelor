@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_8.1.xsd">
+
+  <form name="invoice-form" title="Invoice" model="com.axelor.apps.account.db.Invoice" extension="true">
+    <extend target="//panel-tabs[@name='mainPanelTab']">
+      <insert position="inside">
+        <panel name="etaInvoiceTabPanel" title="ETA E-Invoice" colSpan="12">
+          <panel name="etaActionsPanel" colSpan="12">
+            <!-- Button: Submit to ETA -->
+            <!-- Can submit if statusSelect == 3 (ventilated) and not yet valid on ETA -->
+            <button name="btnSubmitToEta" title="Submit to ETA" icon="send"
+                    showIf="statusSelect == 3 &amp;&amp; (etaStatusSelect == 0 || etaStatusSelect == 6 || etaStatusSelect == 7)" 
+                    onClick="action-invoice-method-submit-to-eta"/>
+                    
+            <!-- Button: Check Status on ETA -->
+            <button name="btnCheckEtaStatus" title="Update Status from ETA" icon="refresh"
+                    showIf="etaUuid != null" 
+                    onClick="action-invoice-method-check-eta-status"/>
+          </panel>
+          
+          <panel name="etaFieldsPanel" colSpan="12" title="ETA Metadata">
+            <field name="etaStatusSelect" readonly="true" colSpan="4"/>
+            <field name="etaSubmissionDate" readonly="true" colSpan="4"/>
+            <field name="etaSubmittedBy" readonly="true" colSpan="4"/>
+            <field name="etaUuid" readonly="true" colSpan="6"/>
+            <field name="etaLongId" readonly="true" colSpan="6"/>
+            <field name="etaHashKey" readonly="true" colSpan="12"/>
+            <field name="etaQrCode" readonly="true" colSpan="12" showIf="etaQrCode != null"/>
+          </panel>
+        </panel>
+      </insert>
+    </extend>
+  </form>
+
+  <action-method name="action-invoice-method-submit-to-eta">
+    <call class="com.axelor.apps.egypt.einvoice.web.EtaInvoiceController" method="submitToEta"/>
+  </action-method>
+
+  <action-method name="action-invoice-method-check-eta-status">
+    <call class="com.axelor.apps.egypt.einvoice.web.EtaInvoiceController" method="checkEtaStatus"/>
+  </action-method>
+
+</object-views>

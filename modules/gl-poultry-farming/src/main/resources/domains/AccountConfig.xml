@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--G-Link -->
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="account" package="com.axelor.apps.account.db"/>
+    <entity name="AccountConfig">
+
+<!--        <decimal name="taxStamp" title="Tax stamp"/>-->
+<!--        <many-to-one name="productWithholdingTax" ref="com.axelor.apps.account.db.Tax"-->
+<!--                     title="Product withholding tax"/>-->
+<!--        <many-to-one name="serviceWithholdingTax" ref="com.axelor.apps.account.db.Tax"-->
+<!--                     title="Service withholding tax"/>-->
+<!--        <decimal name="minimumAmountWithholding" title="Minimum amount withholding"/>-->
+<!--        <many-to-one name="productPaymentMode" ref="com.axelor.apps.account.db.PaymentMode"-->
+<!--                     title="Product payment mode"/>-->
+<!--        <many-to-one name="servicePaymentMode" ref="com.axelor.apps.account.db.PaymentMode"-->
+<!--                     title="Service payment mode"/>-->
+
+        <track on="UPDATE">
+<!--            <field name="productWithholdingTax"/>-->
+<!--            <field name="serviceWithholdingTax"/>-->
+<!--            <field name="productPaymentMode"/>-->
+<!--            <field name="servicePaymentMode"/>-->
+        </track>
+
+    </entity>
+</domain-models>

@@ -1,0 +1,30 @@
+apply plugin:"com.axelor.app"
+
+apply from: "../libs.gradle"
+apply from: "../version.gradle"
+
+apply {
+	version = addonsVersion
+}
+
+axelor {
+	title "Axelor :: Redmine"
+	description "Axelor Redmine Module"
+}
+
+dependencies {
+	if (file("../../axelor-open-suite").exists()) {
+		api project(":modules:axelor-business-support")
+		api project(":modules:axelor-business-production")
+	} else {
+		api "com.axelor.apps:axelor-business-support:${openSuiteVersion}"
+		api "com.axelor.apps:axelor-business-production:${openSuiteVersion}"
+	}
+
+	implementation libs.commons_lang3
+	implementation libs.json
+	implementation libs.java_textile
+	
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+}

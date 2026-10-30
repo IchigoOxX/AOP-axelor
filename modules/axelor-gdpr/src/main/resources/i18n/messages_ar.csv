@@ -1,0 +1,127 @@
+<br>Mapping for the query :<br>First Name -> :firstName <br>Last Name -> :lastName <br>Email -> :email <br>Phone -> :phone <br>,<br>تعيين الاستعلام:<br>الاسم الأول -> :الاسم الأول <br>اسم العائلة -> :اسم العائلة <br>البريد الإلكتروني -> :البريد الإلكتروني <br>الهاتف -> :الهاتف <br>
+A replacement object is missing for model %s.,الكائن البديل مفقود للطراز %s.
+Access,الوصول
+Activate,تفعيل
+Active,نشط
+Anonymization result,نتيجة إخفاء الهوية
+App,التطبيق
+App GDPR,تطبيق اللائحة العامة لحماية البيانات
+App gdpr,التطبيق gdpr
+Archive,الأرشيف
+Archive data,أرشفة البيانات
+Are you sure to cancel the request ?,هل أنت متأكد من إلغاء الطلب؟
+Are you sure to confirm the request ?,هل أنت متأكد من تأكيد الطلب؟
+Can not find object.,لا يمكن العثور على الكائن.
+Cancel,إلغاء
+Canceled,ملغي
+Code,الرمز
+Comment,تعليق
+Configurations,التكوينات
+Configure how the app will search the datas,قم بتكوين كيفية قيام التطبيق بالبحث في البيانات
+Configure request origins,تكوين أصول الطلب
+Confirm,تأكيد
+Confirmed,مؤكد
+Data file,ملف البيانات
+Data processed,تمت معالجة البيانات
+Datas to exclude configuration,بيانات لاستبعاد التكوين
+Description,الوصف
+Draft,مسودة
+Due sending date,تاريخ الارسال
+Elements to be excluded from the access request,العناصر المطلوب استبعادها من طلب الوصول
+Email,البريد الإلكتروني
+Email template for access request response,قالب البريد الإلكتروني للاستجابة لطلب الوصول
+Email template for erasure request response,قالب البريد الإلكتروني للاستجابة لطلب المحو
+Email template to send when responding to an access request.,نموذج البريد الإلكتروني لإرساله عند الرد على طلب الوصول.
+Email template to send when responding to an erasure request.,نموذج البريد الإلكتروني لإرساله عند الرد على طلب المسح.
+Erasure,محو
+Error occurred,حدث خطأ
+Error while sending the mail : %s,حدث خطأ أثناء إرسال البريد: %s
+Field %s of model %s has not been anonymized. Please check manually.,لم يتم إخفاء هوية الحقل %s للنموذج %s. يرجى التحقق يدويا.
+Field displayed in the result of the research,المجال المعروض في نتيجة البحث
+Fields,الحقول
+First name,الاسم الأول
+GDPR,اللائحة العامة لحماية البيانات
+GDPR Processing Register Log,سجل معالجة اللائحة العامة لحماية البيانات
+GDPR Request,طلب اللائحة العامة لحماية البيانات
+GDPR app,تطبيق اللائحة العامة لحماية البيانات
+GDPR erasure log,سجل محو القانون العام لحماية البيانات
+GDPR erasure logs,سجلات محو القانون العام لحماية البيانات
+GDPR processing register log,سجل معالجة اللائحة العامة لحماية البيانات
+GDPR processing register logs,سجلات تسجيل معالجة القانون العام لحماية البيانات
+GDPR processing registers,سجلات معالجة القانون العام لحماية البيانات
+GDPR search configuration,تكوين بحث اللائحة العامة لحماية البيانات
+GDPR search configuration lines,خطوط تكوين بحث اللائحة العامة لحماية البيانات
+GDPRRequest.title,العنوان
+Gdpr processing register log list,قائمة سجل معالجة Gdpr
+Gdpr processing register rule list,قائمة قواعد تسجيل معالجة Gdpr
+"Indicate which date should be verified. If one of the date is after the retention date, the data will not be archived.",أشر إلى التاريخ الذي يجب التحقق منه. إذا كان أحد التواريخ بعد تاريخ الاحتفاظ، فلن تتم أرشفة البيانات.
+JPQL filter to add to the query,مرشح JPQL لإضافته إلى الاستعلام
+Key,مفتاح
+Label,التسمية
+Last name,الاسم الأخير
+Lead,عميل محتمل
+Mapping,رسم الخرائط
+Maximum days to respond,الحد الأقصى لأيام الرد
+Maximum number of days to respond to a request.,الحد الأقصى لعدد الأيام للرد على الطلب.
+Meta model,النموذج التعريفي
+Missing response email address,عنوان البريد الإلكتروني للرد مفقود
+Model,نموذج
+Model %s has been anonymized using the anonymizer %s.,لقد تم إخفاء هوية النموذج %s باستخدام أداة إخفاء الهوية %s.
+Model id,معرف الموديل
+Model log,سجل النموذج
+Model to search,نموذج للبحث
+Models,النماذج
+Name,الاسم
+Name of the key for the search engine,اسم مفتاح محرك البحث
+No anonymizer found in app GDPR configuration.,لم يتم العثور على أداة إخفاء الهوية في تكوين القانون العام لحماية البيانات (GDPR) الخاص بالتطبيق.
+Number of records,عدد السجلات
+Partner,شريك أعمال
+Phone,الهاتف
+Please configure a mail template for access request response.,الرجاء تكوين قالب بريد للاستجابة لطلب الوصول.
+Please configure a mail template for erasure request response.,الرجاء تكوين قالب بريد للاستجابة لطلب المحو.
+Please enter at least one field.,الرجاء إدخال حقل واحد على الأقل.
+Please select a line,الرجاء تحديد سطر
+Please select at least a pseudonymizer and/or choose to archive the data.,الرجاء تحديد اسم مستعار على الأقل و/أو اختيار أرشفة البيانات.
+Please select only one line,الرجاء تحديد سطر واحد فقط
+Processed finished,تمت المعالجة
+Processing date,تاريخ المعالجة
+Processing register,معالجة السجل
+Processing register - Archiving,تجهيز السجل - الأرشفة
+Processing register rule,معالجة قاعدة التسجيل
+Processing register rules,معالجة قواعد التسجيل
+Pseudonymizer,اسم مستعار
+Pseudonymizer template to use when pseudonymizing datas.,قالب الأسماء المستعارة الذي سيتم استخدامه عند تحديد أسماء مستعارة للبيانات.
+Query,استعلام
+Received,تم الاستلام
+Reference,المرجع
+Register created,تم إنشاء التسجيل
+Relationship Anonymizer,مجهول العلاقة
+Relationship anonymizer,مجهول العلاقة
+Request date,تاريخ الطلب
+Request origin,أصل الطلب
+Requests,طلبات
+Requests origin,أصل الطلبات
+Requests origins,أصول الطلبات
+Response,الرد
+Response email address,عنوان البريد الإلكتروني للرد
+Response message,رسالة الرد
+Restore,استعادة
+Results,النتائج
+Retention period (in months),فترة الاستبقاء (بالشهور)
+Rule,القاعدة
+Run process,تشغيل العملية
+Search,بحث
+Search configuration,تكوين البحث
+Search configuration line,سطر تكوين البحث
+Search configuration lines,خطوط تكوين البحث
+Search configurations,تكوينات البحث
+Select fields to exclude from the access request response. Leave empty if all fields should be excluded.,حدد الحقول لاستبعادها من استجابة طلب الوصول. اتركه فارغًا إذا كان يجب استبعاد جميع الحقول.
+Send Response,إرسال الرد
+Sending date,تاريخ الإرسال
+Sent,تم الإرسال
+Status,الحالة
+This field doesn't exist.,هذا الحقل غير موجود.
+Type,النوع
+com.axelor.apps.gdpr.job.ProcessingRegisterJob,com.axelor.apps.gdpr.job.ProcessingRegisterJob
+result,النتيجة
+value:GDPR,القيمة: اللائحة العامة لحماية البيانات

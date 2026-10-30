@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+    <module name="poultryfarming" package="com.gl.apps.pf.db"/>
+
+    <entity name="PharmacyTreatmentLine" >
+
+        <many-to-one name="productCategory" ref="com.axelor.apps.base.db.ProductCategory"
+                     title="Product category"/>
+        <many-to-one name="pharmacyTreatment"
+                     ref="com.gl.apps.pf.db.PharmacyTreatment" title="Pharmacy Treatment"
+                     required="true"/>
+        <many-to-one name="medicalTreatment"
+                     ref="com.axelor.apps.base.db.Product" title="Medicine"/>
+        <many-to-one name="technicalSheetLine"
+                     ref="com.gl.apps.pf.db.TechnicalSheetLine" title="Technical sheet line" />
+
+        <many-to-one name="startTechnicalSheet"
+                     ref="com.gl.apps.pf.db.StartTechnicalSheet" title="Technical sheet" />
+
+        <many-to-one name="reproTechnicalSheet"
+                     ref="com.gl.apps.pf.db.ReproTechnicalSheet" title="Technical sheet" />
+        <integer name="nature" title="Nature" selection="poultryfarming.pharmacy.treatment.nature.select" />
+<!--        <string name="programmedUm" title="Programmed U.M" required="true"/>-->
+        <decimal name="dosePerSubject" title="Dose medicine" required="true"/>
+        <string name="um" title="U.M" required="true"/>
+        <decimal name="forUseQuantity" title="Real quantity" required="true"/>
+        <decimal name="doseQuantity" title="Dose quantity" required="true"/>
+        <decimal name="reelQuantity" title="Total quantity" required="true"/>
+        <decimal name="lossRate"/>
+        <decimal name="quantityPerDayBreedingShed"/>
+
+        <track on="UPDATE">
+            <field name="pharmacyTreatment"/>
+            <field name="nature"/>
+            <field name="programmedUm"/>
+            <field name="dosePerSubject"/>
+            <field name="um"/>
+            <field name="forUseQuantity"/>
+            <field name="doseQuantity"/>
+            <field name="reelQuantity"/>
+            <field name="lossRate"/>
+            <message if="true" on="UPDATE">Record updated</message>
+        </track>
+
+
+    </entity>
+
+</domain-models>
